@@ -185,6 +185,7 @@ defmodule AWS.CloudTrailData do
   @spec put_audit_events(map(), put_audit_events_request(), list()) ::
           {:ok, put_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_audit_events_errors()}
   def put_audit_events(%Client{} = client, input, options \\ []) do
     url_path = "/PutAuditEvents"

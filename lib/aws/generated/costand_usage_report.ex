@@ -332,6 +332,7 @@ defmodule AWS.CostandUsageReport do
   @spec delete_report_definition(map(), delete_report_definition_request(), list()) ::
           {:ok, delete_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -345,6 +346,7 @@ defmodule AWS.CostandUsageReport do
   @spec describe_report_definitions(map(), describe_report_definitions_request(), list()) ::
           {:ok, describe_report_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_report_definitions_errors()}
   def describe_report_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -358,6 +360,7 @@ defmodule AWS.CostandUsageReport do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -371,6 +374,7 @@ defmodule AWS.CostandUsageReport do
   @spec modify_report_definition(map(), modify_report_definition_request(), list()) ::
           {:ok, modify_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_report_definition_errors()}
   def modify_report_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -384,6 +388,7 @@ defmodule AWS.CostandUsageReport do
   @spec put_report_definition(map(), put_report_definition_request(), list()) ::
           {:ok, put_report_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -397,6 +402,7 @@ defmodule AWS.CostandUsageReport do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -410,6 +416,7 @@ defmodule AWS.CostandUsageReport do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

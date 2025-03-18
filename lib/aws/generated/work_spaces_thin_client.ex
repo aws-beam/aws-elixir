@@ -802,6 +802,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
@@ -830,6 +831,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec delete_device(map(), String.t(), delete_device_request(), list()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_errors()}
   def delete_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
@@ -863,6 +865,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
@@ -896,6 +899,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec deregister_device(map(), String.t(), deregister_device_request(), list()) ::
           {:ok, deregister_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_device_errors()}
   def deregister_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/deregister-device/#{AWS.Util.encode_uri(id)}"
@@ -924,6 +928,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec get_device(map(), String.t(), list()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
@@ -941,6 +946,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
@@ -958,6 +964,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec get_software_set(map(), String.t(), list()) ::
           {:ok, get_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_software_set_errors()}
   def get_software_set(%Client{} = client, id, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"
@@ -975,6 +982,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec list_devices(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/devices"
@@ -1006,6 +1014,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
@@ -1037,6 +1046,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec list_software_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_software_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_software_sets_errors()}
   def list_software_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/softwaresets"
@@ -1068,6 +1078,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1085,6 +1096,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1113,6 +1125,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1146,6 +1159,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec update_device(map(), String.t(), update_device_request(), list()) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_errors()}
   def update_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(id)}"
@@ -1174,6 +1188,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(id)}"
@@ -1202,6 +1217,7 @@ defmodule AWS.WorkSpacesThinClient do
   @spec update_software_set(map(), String.t(), update_software_set_request(), list()) ::
           {:ok, update_software_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_software_set_errors()}
   def update_software_set(%Client{} = client, id, input, options \\ []) do
     url_path = "/softwaresets/#{AWS.Util.encode_uri(id)}"

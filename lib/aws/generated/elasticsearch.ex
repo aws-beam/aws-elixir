@@ -2751,6 +2751,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, accept_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_inbound_cross_cluster_search_connection_errors()}
   def accept_inbound_cross_cluster_search_connection(
         %Client{} = client,
@@ -2791,6 +2792,7 @@ defmodule AWS.Elasticsearch do
   @spec add_tags(map(), add_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags"
@@ -2819,6 +2821,7 @@ defmodule AWS.Elasticsearch do
   @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_package_errors()}
   def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -2855,6 +2858,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_vpc_endpoint_access_errors()}
   def authorize_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -2890,6 +2894,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_domain_config_change_errors()}
   def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
@@ -2925,6 +2930,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, cancel_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_elasticsearch_service_software_update_errors()}
   def cancel_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/cancel"
@@ -2957,6 +2963,7 @@ defmodule AWS.Elasticsearch do
   @spec create_elasticsearch_domain(map(), create_elasticsearch_domain_request(), list()) ::
           {:ok, create_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_elasticsearch_domain_errors()}
   def create_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain"
@@ -2990,6 +2997,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, create_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_outbound_cross_cluster_search_connection_errors()}
   def create_outbound_cross_cluster_search_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection"
@@ -3018,6 +3026,7 @@ defmodule AWS.Elasticsearch do
   @spec create_package(map(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_errors()}
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages"
@@ -3046,6 +3055,7 @@ defmodule AWS.Elasticsearch do
   @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
@@ -3081,6 +3091,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_elasticsearch_domain_errors()}
   def delete_elasticsearch_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -3115,6 +3126,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_elasticsearch_service_role(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_elasticsearch_service_role_errors()}
   def delete_elasticsearch_service_role(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/role"
@@ -3149,6 +3161,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inbound_cross_cluster_search_connection_errors()}
   def delete_inbound_cross_cluster_search_connection(
         %Client{} = client,
@@ -3190,6 +3203,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, delete_outbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_outbound_cross_cluster_search_connection_errors()}
   def delete_outbound_cross_cluster_search_connection(
         %Client{} = client,
@@ -3225,6 +3239,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2015-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -3253,6 +3268,7 @@ defmodule AWS.Elasticsearch do
   @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
@@ -3282,6 +3298,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_auto_tunes_errors()}
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
@@ -3301,6 +3318,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_change_progress_errors()}
   def describe_domain_change_progress(
         %Client{} = client,
@@ -3331,6 +3349,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domain(map(), String.t(), list()) ::
           {:ok, describe_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elasticsearch_domain_errors()}
   def describe_elasticsearch_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -3350,6 +3369,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domain_config(map(), String.t(), list()) ::
           {:ok, describe_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elasticsearch_domain_config_errors()}
   def describe_elasticsearch_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -3368,6 +3388,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_elasticsearch_domains(map(), describe_elasticsearch_domains_request(), list()) ::
           {:ok, describe_elasticsearch_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elasticsearch_domains_errors()}
   def describe_elasticsearch_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/domain-info"
@@ -3413,6 +3434,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_elasticsearch_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elasticsearch_instance_type_limits_errors()}
   def describe_elasticsearch_instance_type_limits(
         %Client{} = client,
@@ -3449,6 +3471,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_inbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inbound_cross_cluster_search_connections_errors()}
   def describe_inbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/inboundConnection/search"
@@ -3481,6 +3504,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_outbound_cross_cluster_search_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_outbound_cross_cluster_search_connections_errors()}
   def describe_outbound_cross_cluster_search_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/ccs/outboundConnection/search"
@@ -3511,6 +3535,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_packages(map(), describe_packages_request(), list()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_packages_errors()}
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/describe"
@@ -3545,6 +3570,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_reserved_elasticsearch_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_elasticsearch_instance_offerings_errors()}
   def describe_reserved_elasticsearch_instance_offerings(
         %Client{} = client,
@@ -3595,6 +3621,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, describe_reserved_elasticsearch_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_elasticsearch_instances_errors()}
   def describe_reserved_elasticsearch_instances(
         %Client{} = client,
@@ -3639,6 +3666,7 @@ defmodule AWS.Elasticsearch do
   @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_endpoints_errors()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/describe"
@@ -3667,6 +3695,7 @@ defmodule AWS.Elasticsearch do
   @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dissociate_package_errors()}
   def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -3708,6 +3737,7 @@ defmodule AWS.Elasticsearch do
   @spec get_compatible_elasticsearch_versions(map(), String.t() | nil, list()) ::
           {:ok, get_compatible_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compatible_elasticsearch_versions_errors()}
   def get_compatible_elasticsearch_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/compatibleVersions"
@@ -3733,6 +3763,7 @@ defmodule AWS.Elasticsearch do
   @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_version_history_errors()}
   def get_package_version_history(
         %Client{} = client,
@@ -3771,6 +3802,7 @@ defmodule AWS.Elasticsearch do
   @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upgrade_history_errors()}
   def get_upgrade_history(
         %Client{} = client,
@@ -3809,6 +3841,7 @@ defmodule AWS.Elasticsearch do
   @spec get_upgrade_status(map(), String.t(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upgrade_status_errors()}
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
@@ -3827,6 +3860,7 @@ defmodule AWS.Elasticsearch do
   @spec list_domain_names(map(), String.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
     url_path = "/2015-01-01/domain"
@@ -3851,6 +3885,7 @@ defmodule AWS.Elasticsearch do
   @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_for_package_errors()}
   def list_domains_for_package(
         %Client{} = client,
@@ -3896,6 +3931,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, list_elasticsearch_instance_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_elasticsearch_instance_types_errors()}
   def list_elasticsearch_instance_types(
         %Client{} = client,
@@ -3941,6 +3977,7 @@ defmodule AWS.Elasticsearch do
   @spec list_elasticsearch_versions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_elasticsearch_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_elasticsearch_versions_errors()}
   def list_elasticsearch_versions(
         %Client{} = client,
@@ -3977,6 +4014,7 @@ defmodule AWS.Elasticsearch do
   @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packages_for_domain_errors()}
   def list_packages_for_domain(
         %Client{} = client,
@@ -4014,6 +4052,7 @@ defmodule AWS.Elasticsearch do
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2015-01-01/tags"
@@ -4040,6 +4079,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoint_access_errors()}
   def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/listVpcEndpointAccess"
@@ -4065,6 +4105,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints"
@@ -4090,6 +4131,7 @@ defmodule AWS.Elasticsearch do
   @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoints_for_domain_errors()}
   def list_vpc_endpoints_for_domain(
         %Client{} = client,
@@ -4123,6 +4165,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, purchase_reserved_elasticsearch_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_elasticsearch_instance_offering_errors()}
   def purchase_reserved_elasticsearch_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/purchaseReservedInstanceOffering"
@@ -4157,6 +4200,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, reject_inbound_cross_cluster_search_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_inbound_cross_cluster_search_connection_errors()}
   def reject_inbound_cross_cluster_search_connection(
         %Client{} = client,
@@ -4192,6 +4236,7 @@ defmodule AWS.Elasticsearch do
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/tags-removal"
@@ -4227,6 +4272,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_vpc_endpoint_access_errors()}
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/revokeVpcEndpointAccess"
@@ -4259,6 +4305,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, start_elasticsearch_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_elasticsearch_service_software_update_errors()}
   def start_elasticsearch_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/serviceSoftwareUpdate/start"
@@ -4293,6 +4340,7 @@ defmodule AWS.Elasticsearch do
         ) ::
           {:ok, update_elasticsearch_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_elasticsearch_domain_config_errors()}
   def update_elasticsearch_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2015-01-01/es/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -4321,6 +4369,7 @@ defmodule AWS.Elasticsearch do
   @spec update_package(map(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_errors()}
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/packages/update"
@@ -4349,6 +4398,7 @@ defmodule AWS.Elasticsearch do
   @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/vpcEndpoints/update"
@@ -4378,6 +4428,7 @@ defmodule AWS.Elasticsearch do
   @spec upgrade_elasticsearch_domain(map(), upgrade_elasticsearch_domain_request(), list()) ::
           {:ok, upgrade_elasticsearch_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_elasticsearch_domain_errors()}
   def upgrade_elasticsearch_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2015-01-01/es/upgradeDomain"

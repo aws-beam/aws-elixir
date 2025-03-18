@@ -2897,6 +2897,7 @@ defmodule AWS.IoTFleetWise do
   @spec associate_vehicle_fleet(map(), associate_vehicle_fleet_request(), list()) ::
           {:ok, associate_vehicle_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_vehicle_fleet_errors()}
   def associate_vehicle_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2918,6 +2919,7 @@ defmodule AWS.IoTFleetWise do
   @spec batch_create_vehicle(map(), batch_create_vehicle_request(), list()) ::
           {:ok, batch_create_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_vehicle_errors()}
   def batch_create_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2939,6 +2941,7 @@ defmodule AWS.IoTFleetWise do
   @spec batch_update_vehicle(map(), batch_update_vehicle_request(), list()) ::
           {:ok, batch_update_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_vehicle_errors()}
   def batch_update_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2967,6 +2970,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_campaign(map(), create_campaign_request(), list()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2995,6 +2999,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_decoder_manifest(map(), create_decoder_manifest_request(), list()) ::
           {:ok, create_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_decoder_manifest_errors()}
   def create_decoder_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3016,6 +3021,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3033,6 +3039,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_model_manifest(map(), create_model_manifest_request(), list()) ::
           {:ok, create_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_manifest_errors()}
   def create_model_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3048,6 +3055,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_signal_catalog(map(), create_signal_catalog_request(), list()) ::
           {:ok, create_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_signal_catalog_errors()}
   def create_signal_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3069,6 +3077,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_state_template(map(), create_state_template_request(), list()) ::
           {:ok, create_state_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_state_template_errors()}
   def create_state_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3095,6 +3104,7 @@ defmodule AWS.IoTFleetWise do
   @spec create_vehicle(map(), create_vehicle_request(), list()) ::
           {:ok, create_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vehicle_errors()}
   def create_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3111,6 +3121,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_campaign(map(), delete_campaign_request(), list()) ::
           {:ok, delete_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3127,6 +3138,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_decoder_manifest(map(), delete_decoder_manifest_request(), list()) ::
           {:ok, delete_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_decoder_manifest_errors()}
   def delete_decoder_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3144,6 +3156,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3157,6 +3170,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_model_manifest(map(), delete_model_manifest_request(), list()) ::
           {:ok, delete_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_manifest_errors()}
   def delete_model_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3170,6 +3184,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_signal_catalog(map(), delete_signal_catalog_request(), list()) ::
           {:ok, delete_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_signal_catalog_errors()}
   def delete_signal_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3183,6 +3198,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_state_template(map(), delete_state_template_request(), list()) ::
           {:ok, delete_state_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_state_template_errors()}
   def delete_state_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3196,6 +3212,7 @@ defmodule AWS.IoTFleetWise do
   @spec delete_vehicle(map(), delete_vehicle_request(), list()) ::
           {:ok, delete_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vehicle_errors()}
   def delete_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3229,7 @@ defmodule AWS.IoTFleetWise do
   @spec disassociate_vehicle_fleet(map(), disassociate_vehicle_fleet_request(), list()) ::
           {:ok, disassociate_vehicle_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_vehicle_fleet_errors()}
   def disassociate_vehicle_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3229,6 +3247,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_campaign(map(), get_campaign_request(), list()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_errors()}
   def get_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3242,6 +3261,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_decoder_manifest(map(), get_decoder_manifest_request(), list()) ::
           {:ok, get_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_decoder_manifest_errors()}
   def get_decoder_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3256,6 +3276,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_encryption_configuration(map(), get_encryption_configuration_request(), list()) ::
           {:ok, get_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_encryption_configuration_errors()}
   def get_encryption_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3269,6 +3290,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_fleet(map(), get_fleet_request(), list()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_fleet_errors()}
   def get_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3282,6 +3304,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_logging_options(map(), get_logging_options_request(), list()) ::
           {:ok, get_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logging_options_errors()}
   def get_logging_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3295,6 +3318,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_model_manifest(map(), get_model_manifest_request(), list()) ::
           {:ok, get_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_manifest_errors()}
   def get_model_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3317,6 +3341,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_register_account_status(map(), get_register_account_status_request(), list()) ::
           {:ok, get_register_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_register_account_status_errors()}
   def get_register_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3330,6 +3355,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_signal_catalog(map(), get_signal_catalog_request(), list()) ::
           {:ok, get_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signal_catalog_errors()}
   def get_signal_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3347,6 +3373,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_state_template(map(), get_state_template_request(), list()) ::
           {:ok, get_state_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_state_template_errors()}
   def get_state_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3360,6 +3387,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_vehicle(map(), get_vehicle_request(), list()) ::
           {:ok, get_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vehicle_errors()}
   def get_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3375,6 +3403,7 @@ defmodule AWS.IoTFleetWise do
   @spec get_vehicle_status(map(), get_vehicle_status_request(), list()) ::
           {:ok, get_vehicle_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vehicle_status_errors()}
   def get_vehicle_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3392,6 +3421,7 @@ defmodule AWS.IoTFleetWise do
   @spec import_decoder_manifest(map(), import_decoder_manifest_request(), list()) ::
           {:ok, import_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_decoder_manifest_errors()}
   def import_decoder_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3407,6 +3437,7 @@ defmodule AWS.IoTFleetWise do
   @spec import_signal_catalog(map(), import_signal_catalog_request(), list()) ::
           {:ok, import_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_signal_catalog_errors()}
   def import_signal_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3423,6 +3454,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_campaigns(map(), list_campaigns_request(), list()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3443,6 +3475,7 @@ defmodule AWS.IoTFleetWise do
         ) ::
           {:ok, list_decoder_manifest_network_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_decoder_manifest_network_interfaces_errors()}
   def list_decoder_manifest_network_interfaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3459,6 +3492,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_decoder_manifest_signals(map(), list_decoder_manifest_signals_request(), list()) ::
           {:ok, list_decoder_manifest_signals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_decoder_manifest_signals_errors()}
   def list_decoder_manifest_signals(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3475,6 +3509,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_decoder_manifests(map(), list_decoder_manifests_request(), list()) ::
           {:ok, list_decoder_manifests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_decoder_manifests_errors()}
   def list_decoder_manifests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3491,6 +3526,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_fleets(map(), list_fleets_request(), list()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3507,6 +3543,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_fleets_for_vehicle(map(), list_fleets_for_vehicle_request(), list()) ::
           {:ok, list_fleets_for_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_for_vehicle_errors()}
   def list_fleets_for_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3523,6 +3560,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_model_manifest_nodes(map(), list_model_manifest_nodes_request(), list()) ::
           {:ok, list_model_manifest_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_manifest_nodes_errors()}
   def list_model_manifest_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3539,6 +3577,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_model_manifests(map(), list_model_manifests_request(), list()) ::
           {:ok, list_model_manifests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_manifests_errors()}
   def list_model_manifests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3555,6 +3594,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_signal_catalog_nodes(map(), list_signal_catalog_nodes_request(), list()) ::
           {:ok, list_signal_catalog_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signal_catalog_nodes_errors()}
   def list_signal_catalog_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3574,6 +3614,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_signal_catalogs(map(), list_signal_catalogs_request(), list()) ::
           {:ok, list_signal_catalogs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signal_catalogs_errors()}
   def list_signal_catalogs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3591,6 +3632,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_state_templates(map(), list_state_templates_request(), list()) ::
           {:ok, list_state_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_state_templates_errors()}
   def list_state_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3604,6 +3646,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3620,6 +3663,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_vehicles(map(), list_vehicles_request(), list()) ::
           {:ok, list_vehicles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vehicles_errors()}
   def list_vehicles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3636,6 +3680,7 @@ defmodule AWS.IoTFleetWise do
   @spec list_vehicles_in_fleet(map(), list_vehicles_in_fleet_request(), list()) ::
           {:ok, list_vehicles_in_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vehicles_in_fleet_errors()}
   def list_vehicles_in_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3655,6 +3700,7 @@ defmodule AWS.IoTFleetWise do
   @spec put_encryption_configuration(map(), put_encryption_configuration_request(), list()) ::
           {:ok, put_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_encryption_configuration_errors()}
   def put_encryption_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3668,6 +3714,7 @@ defmodule AWS.IoTFleetWise do
   @spec put_logging_options(map(), put_logging_options_request(), list()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_logging_options_errors()}
   def put_logging_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3719,6 +3766,7 @@ defmodule AWS.IoTFleetWise do
   @spec register_account(map(), register_account_request(), list()) ::
           {:ok, register_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_account_errors()}
   def register_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3735,6 +3783,7 @@ defmodule AWS.IoTFleetWise do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3748,6 +3797,7 @@ defmodule AWS.IoTFleetWise do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3761,6 +3811,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_campaign(map(), update_campaign_request(), list()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3777,6 +3828,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_decoder_manifest(map(), update_decoder_manifest_request(), list()) ::
           {:ok, update_decoder_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_decoder_manifest_errors()}
   def update_decoder_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3790,6 +3842,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_fleet(map(), update_fleet_request(), list()) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3806,6 +3859,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_model_manifest(map(), update_model_manifest_request(), list()) ::
           {:ok, update_model_manifest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_manifest_errors()}
   def update_model_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3819,6 +3873,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_signal_catalog(map(), update_signal_catalog_request(), list()) ::
           {:ok, update_signal_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_signal_catalog_errors()}
   def update_signal_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3836,6 +3891,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_state_template(map(), update_state_template_request(), list()) ::
           {:ok, update_state_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_state_template_errors()}
   def update_state_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3849,6 +3905,7 @@ defmodule AWS.IoTFleetWise do
   @spec update_vehicle(map(), update_vehicle_request(), list()) ::
           {:ok, update_vehicle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vehicle_errors()}
   def update_vehicle(%Client{} = client, input, options \\ []) do
     meta = metadata()

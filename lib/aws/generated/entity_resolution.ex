@@ -1824,6 +1824,7 @@ defmodule AWS.EntityResolution do
   @spec add_policy_statement(map(), String.t(), String.t(), add_policy_statement_input(), list()) ::
           {:ok, add_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_policy_statement_errors()}
   def add_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
@@ -1852,6 +1853,7 @@ defmodule AWS.EntityResolution do
   @spec batch_delete_unique_id(map(), String.t(), batch_delete_unique_id_input(), list()) ::
           {:ok, batch_delete_unique_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_unique_id_errors()}
   def batch_delete_unique_id(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/uniqueids"
@@ -1892,6 +1894,7 @@ defmodule AWS.EntityResolution do
   @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_id_mapping_workflow_errors()}
   def create_id_mapping_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/idmappingworkflows"
@@ -1925,6 +1928,7 @@ defmodule AWS.EntityResolution do
   @spec create_id_namespace(map(), create_id_namespace_input(), list()) ::
           {:ok, create_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_id_namespace_errors()}
   def create_id_namespace(%Client{} = client, input, options \\ []) do
     url_path = "/idnamespaces"
@@ -1958,6 +1962,7 @@ defmodule AWS.EntityResolution do
   @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
           {:ok, create_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_matching_workflow_errors()}
   def create_matching_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/matchingworkflows"
@@ -1990,6 +1995,7 @@ defmodule AWS.EntityResolution do
   @spec create_schema_mapping(map(), create_schema_mapping_input(), list()) ::
           {:ok, create_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schema_mapping_errors()}
   def create_schema_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/schemas"
@@ -2021,6 +2027,7 @@ defmodule AWS.EntityResolution do
   @spec delete_id_mapping_workflow(map(), String.t(), delete_id_mapping_workflow_input(), list()) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_id_mapping_workflow_errors()}
   def delete_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2049,6 +2056,7 @@ defmodule AWS.EntityResolution do
   @spec delete_id_namespace(map(), String.t(), delete_id_namespace_input(), list()) ::
           {:ok, delete_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_id_namespace_errors()}
   def delete_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
@@ -2080,6 +2088,7 @@ defmodule AWS.EntityResolution do
   @spec delete_matching_workflow(map(), String.t(), delete_matching_workflow_input(), list()) ::
           {:ok, delete_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_matching_workflow_errors()}
   def delete_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2114,6 +2123,7 @@ defmodule AWS.EntityResolution do
         ) ::
           {:ok, delete_policy_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_statement_errors()}
   def delete_policy_statement(%Client{} = client, arn, statement_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}/#{AWS.Util.encode_uri(statement_id)}"
@@ -2148,6 +2158,7 @@ defmodule AWS.EntityResolution do
   @spec delete_schema_mapping(map(), String.t(), delete_schema_mapping_input(), list()) ::
           {:ok, delete_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schema_mapping_errors()}
   def delete_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
@@ -2178,6 +2189,7 @@ defmodule AWS.EntityResolution do
   @spec get_id_mapping_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_id_mapping_job_errors()}
   def get_id_mapping_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
@@ -2197,6 +2209,7 @@ defmodule AWS.EntityResolution do
   @spec get_id_mapping_workflow(map(), String.t(), list()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_id_mapping_workflow_errors()}
   def get_id_mapping_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2214,6 +2227,7 @@ defmodule AWS.EntityResolution do
   @spec get_id_namespace(map(), String.t(), list()) ::
           {:ok, get_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_id_namespace_errors()}
   def get_id_namespace(%Client{} = client, id_namespace_name, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
@@ -2232,6 +2246,7 @@ defmodule AWS.EntityResolution do
   @spec get_match_id(map(), String.t(), get_match_id_input(), list()) ::
           {:ok, get_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_match_id_errors()}
   def get_match_id(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/matches"
@@ -2262,6 +2277,7 @@ defmodule AWS.EntityResolution do
   @spec get_matching_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_matching_job_errors()}
   def get_matching_job(%Client{} = client, job_id, workflow_name, options \\ []) do
     url_path =
@@ -2281,6 +2297,7 @@ defmodule AWS.EntityResolution do
   @spec get_matching_workflow(map(), String.t(), list()) ::
           {:ok, get_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_matching_workflow_errors()}
   def get_matching_workflow(%Client{} = client, workflow_name, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2298,6 +2315,7 @@ defmodule AWS.EntityResolution do
   @spec get_policy(map(), String.t(), list()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, arn, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
@@ -2315,6 +2333,7 @@ defmodule AWS.EntityResolution do
   @spec get_provider_service(map(), String.t(), String.t(), list()) ::
           {:ok, get_provider_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_provider_service_errors()}
   def get_provider_service(
         %Client{} = client,
@@ -2339,6 +2358,7 @@ defmodule AWS.EntityResolution do
   @spec get_schema_mapping(map(), String.t(), list()) ::
           {:ok, get_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_mapping_errors()}
   def get_schema_mapping(%Client{} = client, schema_name, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"
@@ -2356,6 +2376,7 @@ defmodule AWS.EntityResolution do
   @spec list_id_mapping_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_mapping_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_id_mapping_jobs_errors()}
   def list_id_mapping_jobs(
         %Client{} = client,
@@ -2394,6 +2415,7 @@ defmodule AWS.EntityResolution do
   @spec list_id_mapping_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_mapping_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_id_mapping_workflows_errors()}
   def list_id_mapping_workflows(
         %Client{} = client,
@@ -2430,6 +2452,7 @@ defmodule AWS.EntityResolution do
   @spec list_id_namespaces(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_namespaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_id_namespaces_errors()}
   def list_id_namespaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/idnamespaces"
@@ -2461,6 +2484,7 @@ defmodule AWS.EntityResolution do
   @spec list_matching_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_matching_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_matching_jobs_errors()}
   def list_matching_jobs(
         %Client{} = client,
@@ -2499,6 +2523,7 @@ defmodule AWS.EntityResolution do
   @spec list_matching_workflows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_matching_workflows_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_matching_workflows_errors()}
   def list_matching_workflows(
         %Client{} = client,
@@ -2542,6 +2567,7 @@ defmodule AWS.EntityResolution do
         ) ::
           {:ok, list_provider_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provider_services_errors()}
   def list_provider_services(
         %Client{} = client,
@@ -2587,6 +2613,7 @@ defmodule AWS.EntityResolution do
   @spec list_schema_mappings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_schema_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schema_mappings_errors()}
   def list_schema_mappings(
         %Client{} = client,
@@ -2626,6 +2653,7 @@ defmodule AWS.EntityResolution do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2643,6 +2671,7 @@ defmodule AWS.EntityResolution do
   @spec put_policy(map(), String.t(), put_policy_input(), list()) ::
           {:ok, put_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, arn, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(arn)}"
@@ -2674,6 +2703,7 @@ defmodule AWS.EntityResolution do
   @spec start_id_mapping_job(map(), String.t(), start_id_mapping_job_input(), list()) ::
           {:ok, start_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_id_mapping_job_errors()}
   def start_id_mapping_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
@@ -2705,6 +2735,7 @@ defmodule AWS.EntityResolution do
   @spec start_matching_job(map(), String.t(), start_matching_job_input(), list()) ::
           {:ok, start_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_matching_job_errors()}
   def start_matching_job(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/jobs"
@@ -2749,6 +2780,7 @@ defmodule AWS.EntityResolution do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2780,6 +2812,7 @@ defmodule AWS.EntityResolution do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2818,6 +2851,7 @@ defmodule AWS.EntityResolution do
   @spec update_id_mapping_workflow(map(), String.t(), update_id_mapping_workflow_input(), list()) ::
           {:ok, update_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_id_mapping_workflow_errors()}
   def update_id_mapping_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/idmappingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2846,6 +2880,7 @@ defmodule AWS.EntityResolution do
   @spec update_id_namespace(map(), String.t(), update_id_namespace_input(), list()) ::
           {:ok, update_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_id_namespace_errors()}
   def update_id_namespace(%Client{} = client, id_namespace_name, input, options \\ []) do
     url_path = "/idnamespaces/#{AWS.Util.encode_uri(id_namespace_name)}"
@@ -2879,6 +2914,7 @@ defmodule AWS.EntityResolution do
   @spec update_matching_workflow(map(), String.t(), update_matching_workflow_input(), list()) ::
           {:ok, update_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_matching_workflow_errors()}
   def update_matching_workflow(%Client{} = client, workflow_name, input, options \\ []) do
     url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}"
@@ -2911,6 +2947,7 @@ defmodule AWS.EntityResolution do
   @spec update_schema_mapping(map(), String.t(), update_schema_mapping_input(), list()) ::
           {:ok, update_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_schema_mapping_errors()}
   def update_schema_mapping(%Client{} = client, schema_name, input, options \\ []) do
     url_path = "/schemas/#{AWS.Util.encode_uri(schema_name)}"

@@ -230,6 +230,7 @@ defmodule AWS.EKSAuth do
         ) ::
           {:ok, assume_role_for_pod_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_role_for_pod_identity_errors()}
   def assume_role_for_pod_identity(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/assume-role-for-pod-identity"

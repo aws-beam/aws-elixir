@@ -1742,6 +1742,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec create_component(map(), String.t(), String.t(), create_component_request(), list()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -1777,6 +1778,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec create_form(map(), String.t(), String.t(), create_form_request(), list()) ::
           {:ok, create_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_form_errors()}
   def create_form(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -1812,6 +1814,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec create_theme(map(), String.t(), String.t(), create_theme_request(), list()) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_theme_errors()}
   def create_theme(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -1854,6 +1857,7 @@ defmodule AWS.AmplifyUIBuilder do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =
@@ -1884,6 +1888,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec delete_form(map(), String.t(), String.t(), String.t(), delete_form_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_form_errors()}
   def delete_form(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =
@@ -1914,6 +1919,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec delete_theme(map(), String.t(), String.t(), String.t(), delete_theme_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_theme_errors()}
   def delete_theme(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =
@@ -1947,6 +1953,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec exchange_code_for_token(map(), String.t(), exchange_code_for_token_request(), list()) ::
           {:ok, exchange_code_for_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, exchange_code_for_token_errors()}
   def exchange_code_for_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}"
@@ -1976,6 +1983,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec export_components(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, export_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_components_errors()}
   def export_components(
         %Client{} = client,
@@ -2009,6 +2017,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec export_forms(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, export_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_forms_errors()}
   def export_forms(%Client{} = client, app_id, environment_name, next_token \\ nil, options \\ []) do
     url_path =
@@ -2036,6 +2045,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec export_themes(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, export_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_themes_errors()}
   def export_themes(
         %Client{} = client,
@@ -2068,6 +2078,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec get_codegen_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_codegen_job_errors()}
   def get_codegen_job(%Client{} = client, app_id, environment_name, id, options \\ []) do
     url_path =
@@ -2087,6 +2098,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec get_component(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, app_id, environment_name, id, options \\ []) do
     url_path =
@@ -2106,6 +2118,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec get_form(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_form_errors()}
   def get_form(%Client{} = client, app_id, environment_name, id, options \\ []) do
     url_path =
@@ -2125,6 +2138,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec get_metadata(map(), String.t(), String.t(), list()) ::
           {:ok, get_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metadata_errors()}
   def get_metadata(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
@@ -2144,6 +2158,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec get_theme(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_theme_errors()}
   def get_theme(%Client{} = client, app_id, environment_name, id, options \\ []) do
     url_path =
@@ -2171,6 +2186,7 @@ defmodule AWS.AmplifyUIBuilder do
         ) ::
           {:ok, list_codegen_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_codegen_jobs_errors()}
   def list_codegen_jobs(
         %Client{} = client,
@@ -2212,6 +2228,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec list_components(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(
         %Client{} = client,
@@ -2252,6 +2269,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec list_forms(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_forms_errors()}
   def list_forms(
         %Client{} = client,
@@ -2292,6 +2310,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2310,6 +2329,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec list_themes(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_themes_errors()}
   def list_themes(
         %Client{} = client,
@@ -2357,6 +2377,7 @@ defmodule AWS.AmplifyUIBuilder do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metadata_flag_errors()}
   def put_metadata_flag(
         %Client{} = client,
@@ -2398,6 +2419,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec refresh_token(map(), String.t(), refresh_token_request(), list()) ::
           {:ok, refresh_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, refresh_token_errors()}
   def refresh_token(%Client{} = client, provider, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(provider)}/refresh"
@@ -2427,6 +2449,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec start_codegen_job(map(), String.t(), String.t(), start_codegen_job_request(), list()) ::
           {:ok, start_codegen_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_codegen_job_errors()}
   def start_codegen_job(%Client{} = client, app_id, environment_name, input, options \\ []) do
     url_path =
@@ -2462,6 +2485,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2490,6 +2514,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2530,6 +2555,7 @@ defmodule AWS.AmplifyUIBuilder do
         ) ::
           {:ok, update_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =
@@ -2565,6 +2591,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec update_form(map(), String.t(), String.t(), String.t(), update_form_request(), list()) ::
           {:ok, update_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_form_errors()}
   def update_form(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =
@@ -2600,6 +2627,7 @@ defmodule AWS.AmplifyUIBuilder do
   @spec update_theme(map(), String.t(), String.t(), String.t(), update_theme_request(), list()) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_theme_errors()}
   def update_theme(%Client{} = client, app_id, environment_name, id, input, options \\ []) do
     url_path =

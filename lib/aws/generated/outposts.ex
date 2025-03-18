@@ -1458,6 +1458,7 @@ defmodule AWS.Outposts do
   @spec cancel_capacity_task(map(), String.t(), String.t(), cancel_capacity_task_input(), list()) ::
           {:ok, cancel_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_capacity_task_errors()}
   def cancel_capacity_task(
         %Client{} = client,
@@ -1494,6 +1495,7 @@ defmodule AWS.Outposts do
   @spec cancel_order(map(), String.t(), cancel_order_input(), list()) ::
           {:ok, cancel_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_order_errors()}
   def cancel_order(%Client{} = client, order_id, input, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}/cancel"
@@ -1522,6 +1524,7 @@ defmodule AWS.Outposts do
   @spec create_order(map(), create_order_input(), list()) ::
           {:ok, create_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_order_errors()}
   def create_order(%Client{} = client, input, options \\ []) do
     url_path = "/orders"
@@ -1552,6 +1555,7 @@ defmodule AWS.Outposts do
   @spec create_outpost(map(), create_outpost_input(), list()) ::
           {:ok, create_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_outpost_errors()}
   def create_outpost(%Client{} = client, input, options \\ []) do
     url_path = "/outposts"
@@ -1580,6 +1584,7 @@ defmodule AWS.Outposts do
   @spec create_site(map(), create_site_input(), list()) ::
           {:ok, create_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_site_errors()}
   def create_site(%Client{} = client, input, options \\ []) do
     url_path = "/sites"
@@ -1608,6 +1613,7 @@ defmodule AWS.Outposts do
   @spec delete_outpost(map(), String.t(), delete_outpost_input(), list()) ::
           {:ok, delete_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_outpost_errors()}
   def delete_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
@@ -1636,6 +1642,7 @@ defmodule AWS.Outposts do
   @spec delete_site(map(), String.t(), delete_site_input(), list()) ::
           {:ok, delete_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_site_errors()}
   def delete_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -1664,6 +1671,7 @@ defmodule AWS.Outposts do
   @spec get_capacity_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_capacity_task_errors()}
   def get_capacity_task(%Client{} = client, capacity_task_id, outpost_identifier, options \\ []) do
     url_path =
@@ -1683,6 +1691,7 @@ defmodule AWS.Outposts do
   @spec get_catalog_item(map(), String.t(), list()) ::
           {:ok, get_catalog_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_catalog_item_errors()}
   def get_catalog_item(%Client{} = client, catalog_item_id, options \\ []) do
     url_path = "/catalog/item/#{AWS.Util.encode_uri(catalog_item_id)}"
@@ -1714,6 +1723,7 @@ defmodule AWS.Outposts do
   @spec get_connection(map(), String.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, connection_id, options \\ []) do
     url_path = "/connections/#{AWS.Util.encode_uri(connection_id)}"
@@ -1731,6 +1741,7 @@ defmodule AWS.Outposts do
   @spec get_order(map(), String.t(), list()) ::
           {:ok, get_order_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_order_errors()}
   def get_order(%Client{} = client, order_id, options \\ []) do
     url_path = "/orders/#{AWS.Util.encode_uri(order_id)}"
@@ -1748,6 +1759,7 @@ defmodule AWS.Outposts do
   @spec get_outpost(map(), String.t(), list()) ::
           {:ok, get_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_outpost_errors()}
   def get_outpost(%Client{} = client, outpost_id, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
@@ -1765,6 +1777,7 @@ defmodule AWS.Outposts do
   @spec get_outpost_instance_types(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_outpost_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_outpost_instance_types_errors()}
   def get_outpost_instance_types(
         %Client{} = client,
@@ -1813,6 +1826,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_outpost_supported_instance_types_errors()}
   def get_outpost_supported_instance_types(
         %Client{} = client,
@@ -1858,6 +1872,7 @@ defmodule AWS.Outposts do
   @spec get_site(map(), String.t(), list()) ::
           {:ok, get_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_site_errors()}
   def get_site(%Client{} = client, site_id, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -1875,6 +1890,7 @@ defmodule AWS.Outposts do
   @spec get_site_address(map(), String.t(), String.t(), list()) ::
           {:ok, get_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_site_address_errors()}
   def get_site_address(%Client{} = client, site_id, address_type, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
@@ -1912,6 +1928,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_asset_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_instances_errors()}
   def list_asset_instances(
         %Client{} = client,
@@ -1995,6 +2012,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assets_errors()}
   def list_assets(
         %Client{} = client,
@@ -2060,6 +2078,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_blocking_instances_for_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_blocking_instances_for_capacity_task_errors()}
   def list_blocking_instances_for_capacity_task(
         %Client{} = client,
@@ -2113,6 +2132,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_capacity_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_capacity_tasks_errors()}
   def list_capacity_tasks(
         %Client{} = client,
@@ -2179,6 +2199,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_catalog_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_catalog_items_errors()}
   def list_catalog_items(
         %Client{} = client,
@@ -2239,6 +2260,7 @@ defmodule AWS.Outposts do
   @spec list_orders(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_orders_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_orders_errors()}
   def list_orders(
         %Client{} = client,
@@ -2297,6 +2319,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_outposts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_outposts_errors()}
   def list_outposts(
         %Client{} = client,
@@ -2374,6 +2397,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, list_sites_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sites_errors()}
   def list_sites(
         %Client{} = client,
@@ -2440,6 +2464,7 @@ defmodule AWS.Outposts do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2459,6 +2484,7 @@ defmodule AWS.Outposts do
   @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
           {:ok, start_capacity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_capacity_task_errors()}
   def start_capacity_task(%Client{} = client, outpost_identifier, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_identifier)}/capacity"
@@ -2501,6 +2527,7 @@ defmodule AWS.Outposts do
   @spec start_connection(map(), start_connection_request(), list()) ::
           {:ok, start_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_connection_errors()}
   def start_connection(%Client{} = client, input, options \\ []) do
     url_path = "/connections"
@@ -2529,6 +2556,7 @@ defmodule AWS.Outposts do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2557,6 +2585,7 @@ defmodule AWS.Outposts do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2590,6 +2619,7 @@ defmodule AWS.Outposts do
   @spec update_outpost(map(), String.t(), update_outpost_input(), list()) ::
           {:ok, update_outpost_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_outpost_errors()}
   def update_outpost(%Client{} = client, outpost_id, input, options \\ []) do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
@@ -2618,6 +2648,7 @@ defmodule AWS.Outposts do
   @spec update_site(map(), String.t(), update_site_input(), list()) ::
           {:ok, update_site_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_site_errors()}
   def update_site(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}"
@@ -2654,6 +2685,7 @@ defmodule AWS.Outposts do
   @spec update_site_address(map(), String.t(), update_site_address_input(), list()) ::
           {:ok, update_site_address_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_site_address_errors()}
   def update_site_address(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/address"
@@ -2695,6 +2727,7 @@ defmodule AWS.Outposts do
         ) ::
           {:ok, update_site_rack_physical_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_site_rack_physical_properties_errors()}
   def update_site_rack_physical_properties(%Client{} = client, site_id, input, options \\ []) do
     url_path = "/sites/#{AWS.Util.encode_uri(site_id)}/rackPhysicalProperties"

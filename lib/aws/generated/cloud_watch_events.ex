@@ -2402,6 +2402,7 @@ defmodule AWS.CloudWatchEvents do
   @spec activate_event_source(map(), activate_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_event_source_errors()}
   def activate_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2415,6 +2416,7 @@ defmodule AWS.CloudWatchEvents do
   @spec cancel_replay(map(), cancel_replay_request(), list()) ::
           {:ok, cancel_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_replay_errors()}
   def cancel_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2430,6 +2432,7 @@ defmodule AWS.CloudWatchEvents do
   @spec create_api_destination(map(), create_api_destination_request(), list()) ::
           {:ok, create_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_destination_errors()}
   def create_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2452,6 +2455,7 @@ defmodule AWS.CloudWatchEvents do
   @spec create_archive(map(), create_archive_request(), list()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2468,6 +2472,7 @@ defmodule AWS.CloudWatchEvents do
   @spec create_connection(map(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2486,6 +2491,7 @@ defmodule AWS.CloudWatchEvents do
   @spec create_event_bus(map(), create_event_bus_request(), list()) ::
           {:ok, create_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_bus_errors()}
   def create_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2535,6 +2541,7 @@ defmodule AWS.CloudWatchEvents do
   @spec create_partner_event_source(map(), create_partner_event_source_request(), list()) ::
           {:ok, create_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_partner_event_source_errors()}
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2559,6 +2566,7 @@ defmodule AWS.CloudWatchEvents do
   @spec deactivate_event_source(map(), deactivate_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_event_source_errors()}
   def deactivate_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2576,6 +2584,7 @@ defmodule AWS.CloudWatchEvents do
   @spec deauthorize_connection(map(), deauthorize_connection_request(), list()) ::
           {:ok, deauthorize_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deauthorize_connection_errors()}
   def deauthorize_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2589,6 +2598,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_api_destination(map(), delete_api_destination_request(), list()) ::
           {:ok, delete_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_destination_errors()}
   def delete_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2602,6 +2612,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_archive(map(), delete_archive_request(), list()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2615,6 +2626,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_connection(map(), delete_connection_request(), list()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2632,6 +2644,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_event_bus(map(), delete_event_bus_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_bus_errors()}
   def delete_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2652,6 +2665,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_partner_event_source(map(), delete_partner_event_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_partner_event_source_errors()}
   def delete_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2686,6 +2700,7 @@ defmodule AWS.CloudWatchEvents do
   @spec delete_rule(map(), delete_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2699,6 +2714,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_api_destination(map(), describe_api_destination_request(), list()) ::
           {:ok, describe_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_api_destination_errors()}
   def describe_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2712,6 +2728,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_archive(map(), describe_archive_request(), list()) ::
           {:ok, describe_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_archive_errors()}
   def describe_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2725,6 +2742,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_connection(map(), describe_connection_request(), list()) ::
           {:ok, describe_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connection_errors()}
   def describe_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2751,6 +2769,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_event_bus(map(), describe_event_bus_request(), list()) ::
           {:ok, describe_event_bus_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_bus_errors()}
   def describe_event_bus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2766,6 +2785,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_event_source(map(), describe_event_source_request(), list()) ::
           {:ok, describe_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_source_errors()}
   def describe_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2787,6 +2807,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_partner_event_source(map(), describe_partner_event_source_request(), list()) ::
           {:ok, describe_partner_event_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_partner_event_source_errors()}
   def describe_partner_event_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2812,6 +2833,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_replay(map(), describe_replay_request(), list()) ::
           {:ok, describe_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replay_errors()}
   def describe_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2830,6 +2852,7 @@ defmodule AWS.CloudWatchEvents do
   @spec describe_rule(map(), describe_rule_request(), list()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rule_errors()}
   def describe_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2850,6 +2873,7 @@ defmodule AWS.CloudWatchEvents do
   @spec disable_rule(map(), disable_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_rule_errors()}
   def disable_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2869,6 +2893,7 @@ defmodule AWS.CloudWatchEvents do
   @spec enable_rule(map(), enable_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_rule_errors()}
   def enable_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2882,6 +2907,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_api_destinations(map(), list_api_destinations_request(), list()) ::
           {:ok, list_api_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_api_destinations_errors()}
   def list_api_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2898,6 +2924,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_archives(map(), list_archives_request(), list()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2911,6 +2938,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_connections(map(), list_connections_request(), list()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2926,6 +2954,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_event_buses(map(), list_event_buses_request(), list()) ::
           {:ok, list_event_buses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_buses_errors()}
   def list_event_buses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2944,6 +2973,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_event_sources(map(), list_event_sources_request(), list()) ::
           {:ok, list_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_sources_errors()}
   def list_event_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2966,6 +2996,7 @@ defmodule AWS.CloudWatchEvents do
         ) ::
           {:ok, list_partner_event_source_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_partner_event_source_accounts_errors()}
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2983,6 +3014,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_partner_event_sources(map(), list_partner_event_sources_request(), list()) ::
           {:ok, list_partner_event_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_partner_event_sources_errors()}
   def list_partner_event_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2999,6 +3031,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_replays(map(), list_replays_request(), list()) ::
           {:ok, list_replays_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_replays_errors()}
   def list_replays(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3015,6 +3048,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_rule_names_by_target(map(), list_rule_names_by_target_request(), list()) ::
           {:ok, list_rule_names_by_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_names_by_target_errors()}
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3036,6 +3070,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_rules(map(), list_rules_request(), list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3052,6 +3087,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3065,6 +3101,7 @@ defmodule AWS.CloudWatchEvents do
   @spec list_targets_by_rule(map(), list_targets_by_rule_request(), list()) ::
           {:ok, list_targets_by_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_by_rule_errors()}
   def list_targets_by_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3078,6 +3115,7 @@ defmodule AWS.CloudWatchEvents do
   @spec put_events(map(), put_events_request(), list()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_events_errors()}
   def put_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3094,6 +3132,7 @@ defmodule AWS.CloudWatchEvents do
   @spec put_partner_events(map(), put_partner_events_request(), list()) ::
           {:ok, put_partner_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_partner_events_errors()}
   def put_partner_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3136,6 +3175,7 @@ defmodule AWS.CloudWatchEvents do
   @spec put_permission(map(), put_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_permission_errors()}
   def put_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3224,6 +3264,7 @@ defmodule AWS.CloudWatchEvents do
   @spec put_rule(map(), put_rule_request(), list()) ::
           {:ok, put_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_rule_errors()}
   def put_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3426,6 +3467,7 @@ defmodule AWS.CloudWatchEvents do
   @spec put_targets(map(), put_targets_request(), list()) ::
           {:ok, put_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_targets_errors()}
   def put_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3446,6 +3488,7 @@ defmodule AWS.CloudWatchEvents do
   @spec remove_permission(map(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3471,6 +3514,7 @@ defmodule AWS.CloudWatchEvents do
   @spec remove_targets(map(), remove_targets_request(), list()) ::
           {:ok, remove_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_targets_errors()}
   def remove_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3498,6 +3542,7 @@ defmodule AWS.CloudWatchEvents do
   @spec start_replay(map(), start_replay_request(), list()) ::
           {:ok, start_replay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replay_errors()}
   def start_replay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3532,6 +3577,7 @@ defmodule AWS.CloudWatchEvents do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3553,6 +3599,7 @@ defmodule AWS.CloudWatchEvents do
   @spec test_event_pattern(map(), test_event_pattern_request(), list()) ::
           {:ok, test_event_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_event_pattern_errors()}
   def test_event_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3569,6 +3616,7 @@ defmodule AWS.CloudWatchEvents do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3582,6 +3630,7 @@ defmodule AWS.CloudWatchEvents do
   @spec update_api_destination(map(), update_api_destination_request(), list()) ::
           {:ok, update_api_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_destination_errors()}
   def update_api_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3595,6 +3644,7 @@ defmodule AWS.CloudWatchEvents do
   @spec update_archive(map(), update_archive_request(), list()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3608,6 +3658,7 @@ defmodule AWS.CloudWatchEvents do
   @spec update_connection(map(), update_connection_request(), list()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()

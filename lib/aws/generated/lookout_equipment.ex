@@ -2296,6 +2296,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2318,6 +2319,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_inference_scheduler(map(), create_inference_scheduler_request(), list()) ::
           {:ok, create_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_inference_scheduler_errors()}
   def create_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2331,6 +2333,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_label(map(), create_label_request(), list()) ::
           {:ok, create_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_label_errors()}
   def create_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2344,6 +2347,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_label_group(map(), create_label_group_request(), list()) ::
           {:ok, create_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_label_group_errors()}
   def create_label_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2373,6 +2377,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_model(map(), create_model_request(), list()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2386,6 +2391,7 @@ defmodule AWS.LookoutEquipment do
   @spec create_retraining_scheduler(map(), create_retraining_scheduler_request(), list()) ::
           {:ok, create_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_retraining_scheduler_errors()}
   def create_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2408,6 +2414,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_dataset(map(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2424,6 +2431,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_inference_scheduler(map(), delete_inference_scheduler_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inference_scheduler_errors()}
   def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2437,6 +2445,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_label(map(), delete_label_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2450,6 +2459,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_label_group(map(), delete_label_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_label_group_errors()}
   def delete_label_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2467,6 +2477,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_model(map(), delete_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2480,6 +2491,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2496,6 +2508,7 @@ defmodule AWS.LookoutEquipment do
   @spec delete_retraining_scheduler(map(), delete_retraining_scheduler_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_retraining_scheduler_errors()}
   def delete_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2511,6 +2524,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_data_ingestion_job(map(), describe_data_ingestion_job_request(), list()) ::
           {:ok, describe_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_ingestion_job_errors()}
   def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2526,6 +2540,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_dataset(map(), describe_dataset_request(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2541,6 +2556,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_inference_scheduler(map(), describe_inference_scheduler_request(), list()) ::
           {:ok, describe_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inference_scheduler_errors()}
   def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2554,6 +2570,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_label(map(), describe_label_request(), list()) ::
           {:ok, describe_label_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_label_errors()}
   def describe_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2567,6 +2584,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_label_group(map(), describe_label_group_request(), list()) ::
           {:ok, describe_label_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_label_group_errors()}
   def describe_label_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2584,6 +2602,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_model(map(), describe_model_request(), list()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_errors()}
   def describe_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2597,6 +2616,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_model_version(map(), describe_model_version_request(), list()) ::
           {:ok, describe_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_version_errors()}
   def describe_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2610,6 +2630,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2625,6 +2646,7 @@ defmodule AWS.LookoutEquipment do
   @spec describe_retraining_scheduler(map(), describe_retraining_scheduler_request(), list()) ::
           {:ok, describe_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_retraining_scheduler_errors()}
   def describe_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2638,6 +2660,7 @@ defmodule AWS.LookoutEquipment do
   @spec import_dataset(map(), import_dataset_request(), list()) ::
           {:ok, import_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_dataset_errors()}
   def import_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2651,6 +2674,7 @@ defmodule AWS.LookoutEquipment do
   @spec import_model_version(map(), import_model_version_request(), list()) ::
           {:ok, import_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_model_version_errors()}
   def import_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2666,6 +2690,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_data_ingestion_jobs(map(), list_data_ingestion_jobs_request(), list()) ::
           {:ok, list_data_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_ingestion_jobs_errors()}
   def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2680,6 +2705,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_datasets(map(), list_datasets_request(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2694,6 +2720,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_inference_events(map(), list_inference_events_request(), list()) ::
           {:ok, list_inference_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inference_events_errors()}
   def list_inference_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2709,6 +2736,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_inference_executions(map(), list_inference_executions_request(), list()) ::
           {:ok, list_inference_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inference_executions_errors()}
   def list_inference_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2723,6 +2751,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_inference_schedulers(map(), list_inference_schedulers_request(), list()) ::
           {:ok, list_inference_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inference_schedulers_errors()}
   def list_inference_schedulers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2736,6 +2765,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_label_groups(map(), list_label_groups_request(), list()) ::
           {:ok, list_label_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_label_groups_errors()}
   def list_label_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2749,6 +2779,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_labels(map(), list_labels_request(), list()) ::
           {:ok, list_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_labels_errors()}
   def list_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2767,6 +2798,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_model_versions(map(), list_model_versions_request(), list()) ::
           {:ok, list_model_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_versions_errors()}
   def list_model_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2782,6 +2814,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_models(map(), list_models_request(), list()) ::
           {:ok, list_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_models_errors()}
   def list_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2797,6 +2830,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_retraining_schedulers(map(), list_retraining_schedulers_request(), list()) ::
           {:ok, list_retraining_schedulers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_retraining_schedulers_errors()}
   def list_retraining_schedulers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2814,6 +2848,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_sensor_statistics(map(), list_sensor_statistics_request(), list()) ::
           {:ok, list_sensor_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sensor_statistics_errors()}
   def list_sensor_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2827,6 +2862,7 @@ defmodule AWS.LookoutEquipment do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2840,6 +2876,7 @@ defmodule AWS.LookoutEquipment do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2855,6 +2892,7 @@ defmodule AWS.LookoutEquipment do
   @spec start_data_ingestion_job(map(), start_data_ingestion_job_request(), list()) ::
           {:ok, start_data_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_ingestion_job_errors()}
   def start_data_ingestion_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2868,6 +2906,7 @@ defmodule AWS.LookoutEquipment do
   @spec start_inference_scheduler(map(), start_inference_scheduler_request(), list()) ::
           {:ok, start_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_inference_scheduler_errors()}
   def start_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2881,6 +2920,7 @@ defmodule AWS.LookoutEquipment do
   @spec start_retraining_scheduler(map(), start_retraining_scheduler_request(), list()) ::
           {:ok, start_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_retraining_scheduler_errors()}
   def start_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2894,6 +2934,7 @@ defmodule AWS.LookoutEquipment do
   @spec stop_inference_scheduler(map(), stop_inference_scheduler_request(), list()) ::
           {:ok, stop_inference_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_inference_scheduler_errors()}
   def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2907,6 +2948,7 @@ defmodule AWS.LookoutEquipment do
   @spec stop_retraining_scheduler(map(), stop_retraining_scheduler_request(), list()) ::
           {:ok, stop_retraining_scheduler_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_retraining_scheduler_errors()}
   def stop_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2929,6 +2971,7 @@ defmodule AWS.LookoutEquipment do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2944,6 +2987,7 @@ defmodule AWS.LookoutEquipment do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2957,6 +3001,7 @@ defmodule AWS.LookoutEquipment do
   @spec update_active_model_version(map(), update_active_model_version_request(), list()) ::
           {:ok, update_active_model_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_active_model_version_errors()}
   def update_active_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2970,6 +3015,7 @@ defmodule AWS.LookoutEquipment do
   @spec update_inference_scheduler(map(), update_inference_scheduler_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_inference_scheduler_errors()}
   def update_inference_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2983,6 +3029,7 @@ defmodule AWS.LookoutEquipment do
   @spec update_label_group(map(), update_label_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_label_group_errors()}
   def update_label_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2996,6 +3043,7 @@ defmodule AWS.LookoutEquipment do
   @spec update_model(map(), update_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3009,6 +3057,7 @@ defmodule AWS.LookoutEquipment do
   @spec update_retraining_scheduler(map(), update_retraining_scheduler_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_retraining_scheduler_errors()}
   def update_retraining_scheduler(%Client{} = client, input, options \\ []) do
     meta = metadata()

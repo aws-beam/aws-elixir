@@ -1743,6 +1743,7 @@ defmodule AWS.SSMContacts do
   @spec accept_page(map(), accept_page_request(), list()) ::
           {:ok, accept_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_page_errors()}
   def accept_page(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1759,6 +1760,7 @@ defmodule AWS.SSMContacts do
   @spec activate_contact_channel(map(), activate_contact_channel_request(), list()) ::
           {:ok, activate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_contact_channel_errors()}
   def activate_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1776,6 +1778,7 @@ defmodule AWS.SSMContacts do
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1790,6 +1793,7 @@ defmodule AWS.SSMContacts do
   @spec create_contact_channel(map(), create_contact_channel_request(), list()) ::
           {:ok, create_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_channel_errors()}
   def create_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1803,6 +1807,7 @@ defmodule AWS.SSMContacts do
   @spec create_rotation(map(), create_rotation_request(), list()) ::
           {:ok, create_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rotation_errors()}
   def create_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1816,6 +1821,7 @@ defmodule AWS.SSMContacts do
   @spec create_rotation_override(map(), create_rotation_override_request(), list()) ::
           {:ok, create_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rotation_override_errors()}
   def create_rotation_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1831,6 +1837,7 @@ defmodule AWS.SSMContacts do
   @spec deactivate_contact_channel(map(), deactivate_contact_channel_request(), list()) ::
           {:ok, deactivate_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_contact_channel_errors()}
   def deactivate_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1851,6 +1858,7 @@ defmodule AWS.SSMContacts do
   @spec delete_contact(map(), delete_contact_request(), list()) ::
           {:ok, delete_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_errors()}
   def delete_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1872,6 +1880,7 @@ defmodule AWS.SSMContacts do
   @spec delete_contact_channel(map(), delete_contact_channel_request(), list()) ::
           {:ok, delete_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_channel_errors()}
   def delete_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1888,6 +1897,7 @@ defmodule AWS.SSMContacts do
   @spec delete_rotation(map(), delete_rotation_request(), list()) ::
           {:ok, delete_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rotation_errors()}
   def delete_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1901,6 +1911,7 @@ defmodule AWS.SSMContacts do
   @spec delete_rotation_override(map(), delete_rotation_override_request(), list()) ::
           {:ok, delete_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rotation_override_errors()}
   def delete_rotation_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1917,6 +1928,7 @@ defmodule AWS.SSMContacts do
   @spec describe_engagement(map(), describe_engagement_request(), list()) ::
           {:ok, describe_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_engagement_errors()}
   def describe_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1930,6 +1942,7 @@ defmodule AWS.SSMContacts do
   @spec describe_page(map(), describe_page_request(), list()) ::
           {:ok, describe_page_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_page_errors()}
   def describe_page(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1943,6 +1956,7 @@ defmodule AWS.SSMContacts do
   @spec get_contact(map(), get_contact_request(), list()) ::
           {:ok, get_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_errors()}
   def get_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1956,6 +1970,7 @@ defmodule AWS.SSMContacts do
   @spec get_contact_channel(map(), get_contact_channel_request(), list()) ::
           {:ok, get_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_channel_errors()}
   def get_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1970,6 +1985,7 @@ defmodule AWS.SSMContacts do
   @spec get_contact_policy(map(), get_contact_policy_request(), list()) ::
           {:ok, get_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_policy_errors()}
   def get_contact_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1983,6 +1999,7 @@ defmodule AWS.SSMContacts do
   @spec get_rotation(map(), get_rotation_request(), list()) ::
           {:ok, get_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rotation_errors()}
   def get_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1996,6 +2013,7 @@ defmodule AWS.SSMContacts do
   @spec get_rotation_override(map(), get_rotation_override_request(), list()) ::
           {:ok, get_rotation_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rotation_override_errors()}
   def get_rotation_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2009,6 +2027,7 @@ defmodule AWS.SSMContacts do
   @spec list_contact_channels(map(), list_contact_channels_request(), list()) ::
           {:ok, list_contact_channels_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_channels_errors()}
   def list_contact_channels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2022,6 +2041,7 @@ defmodule AWS.SSMContacts do
   @spec list_contacts(map(), list_contacts_request(), list()) ::
           {:ok, list_contacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contacts_errors()}
   def list_contacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2035,6 +2055,7 @@ defmodule AWS.SSMContacts do
   @spec list_engagements(map(), list_engagements_request(), list()) ::
           {:ok, list_engagements_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2048,6 +2069,7 @@ defmodule AWS.SSMContacts do
   @spec list_page_receipts(map(), list_page_receipts_request(), list()) ::
           {:ok, list_page_receipts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_page_receipts_errors()}
   def list_page_receipts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2069,6 +2091,7 @@ defmodule AWS.SSMContacts do
   @spec list_page_resolutions(map(), list_page_resolutions_request(), list()) ::
           {:ok, list_page_resolutions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_page_resolutions_errors()}
   def list_page_resolutions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2082,6 +2105,7 @@ defmodule AWS.SSMContacts do
   @spec list_pages_by_contact(map(), list_pages_by_contact_request(), list()) ::
           {:ok, list_pages_by_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pages_by_contact_errors()}
   def list_pages_by_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2095,6 +2119,7 @@ defmodule AWS.SSMContacts do
   @spec list_pages_by_engagement(map(), list_pages_by_engagement_request(), list()) ::
           {:ok, list_pages_by_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pages_by_engagement_errors()}
   def list_pages_by_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2111,6 +2136,7 @@ defmodule AWS.SSMContacts do
   @spec list_preview_rotation_shifts(map(), list_preview_rotation_shifts_request(), list()) ::
           {:ok, list_preview_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_preview_rotation_shifts_errors()}
   def list_preview_rotation_shifts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2124,6 +2150,7 @@ defmodule AWS.SSMContacts do
   @spec list_rotation_overrides(map(), list_rotation_overrides_request(), list()) ::
           {:ok, list_rotation_overrides_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rotation_overrides_errors()}
   def list_rotation_overrides(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2137,6 +2164,7 @@ defmodule AWS.SSMContacts do
   @spec list_rotation_shifts(map(), list_rotation_shifts_request(), list()) ::
           {:ok, list_rotation_shifts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rotation_shifts_errors()}
   def list_rotation_shifts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2150,6 +2178,7 @@ defmodule AWS.SSMContacts do
   @spec list_rotations(map(), list_rotations_request(), list()) ::
           {:ok, list_rotations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rotations_errors()}
   def list_rotations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2163,6 +2192,7 @@ defmodule AWS.SSMContacts do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2181,6 +2211,7 @@ defmodule AWS.SSMContacts do
   @spec put_contact_policy(map(), put_contact_policy_request(), list()) ::
           {:ok, put_contact_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_contact_policy_errors()}
   def put_contact_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2198,6 +2229,7 @@ defmodule AWS.SSMContacts do
   @spec send_activation_code(map(), send_activation_code_request(), list()) ::
           {:ok, send_activation_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_activation_code_errors()}
   def send_activation_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2214,6 +2246,7 @@ defmodule AWS.SSMContacts do
   @spec start_engagement(map(), start_engagement_request(), list()) ::
           {:ok, start_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_engagement_errors()}
   def start_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2230,6 +2263,7 @@ defmodule AWS.SSMContacts do
   @spec stop_engagement(map(), stop_engagement_request(), list()) ::
           {:ok, stop_engagement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_engagement_errors()}
   def stop_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2246,6 +2280,7 @@ defmodule AWS.SSMContacts do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2259,6 +2294,7 @@ defmodule AWS.SSMContacts do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2272,6 +2308,7 @@ defmodule AWS.SSMContacts do
   @spec update_contact(map(), update_contact_request(), list()) ::
           {:ok, update_contact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2285,6 +2322,7 @@ defmodule AWS.SSMContacts do
   @spec update_contact_channel(map(), update_contact_channel_request(), list()) ::
           {:ok, update_contact_channel_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_channel_errors()}
   def update_contact_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2298,6 +2336,7 @@ defmodule AWS.SSMContacts do
   @spec update_rotation(map(), update_rotation_request(), list()) ::
           {:ok, update_rotation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rotation_errors()}
   def update_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()

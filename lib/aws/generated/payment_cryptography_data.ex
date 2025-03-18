@@ -1165,6 +1165,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec decrypt_data(map(), String.t(), decrypt_data_input(), list()) ::
           {:ok, decrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrypt_data_errors()}
   def decrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/decrypt"
@@ -1258,6 +1259,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec encrypt_data(map(), String.t(), encrypt_data_input(), list()) ::
           {:ok, encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, encrypt_data_errors()}
   def encrypt_data(%Client{} = client, key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(key_identifier)}/encrypt"
@@ -1319,6 +1321,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_card_validation_data(map(), generate_card_validation_data_input(), list()) ::
           {:ok, generate_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_card_validation_data_errors()}
   def generate_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/generate"
@@ -1374,6 +1377,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_mac(map(), generate_mac_input(), list()) ::
           {:ok, generate_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_mac_errors()}
   def generate_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/generate"
@@ -1442,6 +1446,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_mac_emv_pin_change(map(), generate_mac_emv_pin_change_input(), list()) ::
           {:ok, generate_mac_emv_pin_change_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_mac_emv_pin_change_errors()}
   def generate_mac_emv_pin_change(%Client{} = client, input, options \\ []) do
     url_path = "/macemvpinchange/generate"
@@ -1509,6 +1514,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec generate_pin_data(map(), generate_pin_data_input(), list()) ::
           {:ok, generate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_pin_data_errors()}
   def generate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/generate"
@@ -1584,6 +1590,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec re_encrypt_data(map(), String.t(), re_encrypt_data_input(), list()) ::
           {:ok, re_encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, re_encrypt_data_errors()}
   def re_encrypt_data(%Client{} = client, incoming_key_identifier, input, options \\ []) do
     url_path = "/keys/#{AWS.Util.encode_uri(incoming_key_identifier)}/reencrypt"
@@ -1669,6 +1676,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec translate_pin_data(map(), translate_pin_data_input(), list()) ::
           {:ok, translate_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, translate_pin_data_errors()}
   def translate_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/translate"
@@ -1731,6 +1739,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_auth_request_cryptogram(map(), verify_auth_request_cryptogram_input(), list()) ::
           {:ok, verify_auth_request_cryptogram_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_auth_request_cryptogram_errors()}
   def verify_auth_request_cryptogram(%Client{} = client, input, options \\ []) do
     url_path = "/cryptogram/verify"
@@ -1794,6 +1803,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_card_validation_data(map(), verify_card_validation_data_input(), list()) ::
           {:ok, verify_card_validation_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_card_validation_data_errors()}
   def verify_card_validation_data(%Client{} = client, input, options \\ []) do
     url_path = "/cardvalidationdata/verify"
@@ -1841,6 +1851,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_mac(map(), verify_mac_input(), list()) ::
           {:ok, verify_mac_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_mac_errors()}
   def verify_mac(%Client{} = client, input, options \\ []) do
     url_path = "/mac/verify"
@@ -1897,6 +1908,7 @@ defmodule AWS.PaymentCryptographyData do
   @spec verify_pin_data(map(), verify_pin_data_input(), list()) ::
           {:ok, verify_pin_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_pin_data_errors()}
   def verify_pin_data(%Client{} = client, input, options \\ []) do
     url_path = "/pindata/verify"

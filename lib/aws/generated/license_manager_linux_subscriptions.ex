@@ -460,6 +460,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
         ) ::
           {:ok, deregister_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_subscription_provider_errors()}
   def deregister_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/DeregisterSubscriptionProvider"
@@ -493,6 +494,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
         ) ::
           {:ok, get_registered_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_registered_subscription_provider_errors()}
   def get_registered_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetRegisteredSubscriptionProvider"
@@ -521,6 +523,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec get_service_settings(map(), get_service_settings_request(), list()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/GetServiceSettings"
@@ -555,6 +558,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
         ) ::
           {:ok, list_linux_subscription_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_linux_subscription_instances_errors()}
   def list_linux_subscription_instances(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptionInstances"
@@ -588,6 +592,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec list_linux_subscriptions(map(), list_linux_subscriptions_request(), list()) ::
           {:ok, list_linux_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_linux_subscriptions_errors()}
   def list_linux_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListLinuxSubscriptions"
@@ -621,6 +626,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
         ) ::
           {:ok, list_registered_subscription_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_registered_subscription_providers_errors()}
   def list_registered_subscription_providers(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/ListRegisteredSubscriptionProviders"
@@ -650,6 +656,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -668,6 +675,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec register_subscription_provider(map(), register_subscription_provider_request(), list()) ::
           {:ok, register_subscription_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_subscription_provider_errors()}
   def register_subscription_provider(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/RegisterSubscriptionProvider"
@@ -696,6 +704,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -724,6 +733,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -757,6 +767,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @spec update_service_settings(map(), update_service_settings_request(), list()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/subscription/UpdateServiceSettings"

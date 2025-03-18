@@ -1339,6 +1339,7 @@ defmodule AWS.Kinesis do
   @spec add_tags_to_stream(map(), add_tags_to_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_stream_errors()}
   def add_tags_to_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1419,6 +1420,7 @@ defmodule AWS.Kinesis do
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1447,6 +1449,7 @@ defmodule AWS.Kinesis do
   @spec decrease_stream_retention_period(map(), decrease_stream_retention_period_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrease_stream_retention_period_errors()}
   def decrease_stream_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1469,6 +1472,7 @@ defmodule AWS.Kinesis do
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1512,6 +1516,7 @@ defmodule AWS.Kinesis do
   @spec delete_stream(map(), delete_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1538,6 +1543,7 @@ defmodule AWS.Kinesis do
   @spec deregister_stream_consumer(map(), deregister_stream_consumer_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_stream_consumer_errors()}
   def deregister_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1556,6 +1562,7 @@ defmodule AWS.Kinesis do
   @spec describe_limits(map(), describe_limits_input(), list()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1604,6 +1611,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream(map(), describe_stream_input(), list()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1634,6 +1642,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream_consumer(map(), describe_stream_consumer_input(), list()) ::
           {:ok, describe_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_consumer_errors()}
   def describe_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1662,6 +1671,7 @@ defmodule AWS.Kinesis do
   @spec describe_stream_summary(map(), describe_stream_summary_input(), list()) ::
           {:ok, describe_stream_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_summary_errors()}
   def describe_stream_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1679,6 +1689,7 @@ defmodule AWS.Kinesis do
   @spec disable_enhanced_monitoring(map(), disable_enhanced_monitoring_input(), list()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_enhanced_monitoring_errors()}
   def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1696,6 +1707,7 @@ defmodule AWS.Kinesis do
   @spec enable_enhanced_monitoring(map(), enable_enhanced_monitoring_input(), list()) ::
           {:ok, enhanced_monitoring_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_enhanced_monitoring_errors()}
   def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1791,6 +1803,7 @@ defmodule AWS.Kinesis do
   @spec get_records(map(), get_records_input(), list()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1813,6 +1826,7 @@ defmodule AWS.Kinesis do
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1879,6 +1893,7 @@ defmodule AWS.Kinesis do
   @spec get_shard_iterator(map(), get_shard_iterator_input(), list()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1913,6 +1928,7 @@ defmodule AWS.Kinesis do
   @spec increase_stream_retention_period(map(), increase_stream_retention_period_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, increase_stream_retention_period_errors()}
   def increase_stream_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1944,6 +1960,7 @@ defmodule AWS.Kinesis do
   @spec list_shards(map(), list_shards_input(), list()) ::
           {:ok, list_shards_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_shards_errors()}
   def list_shards(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1961,6 +1978,7 @@ defmodule AWS.Kinesis do
   @spec list_stream_consumers(map(), list_stream_consumers_input(), list()) ::
           {:ok, list_stream_consumers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_consumers_errors()}
   def list_stream_consumers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1993,6 +2011,7 @@ defmodule AWS.Kinesis do
   @spec list_streams(map(), list_streams_input(), list()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2013,6 +2032,7 @@ defmodule AWS.Kinesis do
   @spec list_tags_for_stream(map(), list_tags_for_stream_input(), list()) ::
           {:ok, list_tags_for_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_stream_errors()}
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2081,6 +2101,7 @@ defmodule AWS.Kinesis do
   @spec merge_shards(map(), merge_shards_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_shards_errors()}
   def merge_shards(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2155,6 +2176,7 @@ defmodule AWS.Kinesis do
   @spec put_record(map(), put_record_input(), list()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2256,6 +2278,7 @@ defmodule AWS.Kinesis do
   @spec put_records(map(), put_records_input(), list()) ::
           {:ok, put_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_records_errors()}
   def put_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2292,6 +2315,7 @@ defmodule AWS.Kinesis do
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2327,6 +2351,7 @@ defmodule AWS.Kinesis do
   @spec register_stream_consumer(map(), register_stream_consumer_input(), list()) ::
           {:ok, register_stream_consumer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_stream_consumer_errors()}
   def register_stream_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2352,6 +2377,7 @@ defmodule AWS.Kinesis do
   @spec remove_tags_from_stream(map(), remove_tags_from_stream_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_stream_errors()}
   def remove_tags_from_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2425,6 +2451,7 @@ defmodule AWS.Kinesis do
   @spec split_shard(map(), split_shard_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, split_shard_errors()}
   def split_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2464,6 +2491,7 @@ defmodule AWS.Kinesis do
   @spec start_stream_encryption(map(), start_stream_encryption_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_stream_encryption_errors()}
   def start_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2503,6 +2531,7 @@ defmodule AWS.Kinesis do
   @spec stop_stream_encryption(map(), stop_stream_encryption_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_stream_encryption_errors()}
   def stop_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2549,6 +2578,7 @@ defmodule AWS.Kinesis do
   @spec subscribe_to_shard(map(), subscribe_to_shard_input(), list()) ::
           {:ok, subscribe_to_shard_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, subscribe_to_shard_errors()}
   def subscribe_to_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2624,6 +2654,7 @@ defmodule AWS.Kinesis do
   @spec update_shard_count(map(), update_shard_count_input(), list()) ::
           {:ok, update_shard_count_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_shard_count_errors()}
   def update_shard_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2641,6 +2672,7 @@ defmodule AWS.Kinesis do
   @spec update_stream_mode(map(), update_stream_mode_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stream_mode_errors()}
   def update_stream_mode(%Client{} = client, input, options \\ []) do
     meta = metadata()

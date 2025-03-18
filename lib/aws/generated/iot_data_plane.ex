@@ -403,6 +403,7 @@ defmodule AWS.IoTDataPlane do
   @spec delete_thing_shadow(map(), String.t(), delete_thing_shadow_request(), list()) ::
           {:ok, delete_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_thing_shadow_errors()}
   def delete_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
@@ -446,6 +447,7 @@ defmodule AWS.IoTDataPlane do
   @spec get_retained_message(map(), String.t(), list()) ::
           {:ok, get_retained_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_retained_message_errors()}
   def get_retained_message(%Client{} = client, topic, options \\ []) do
     url_path = "/retainedMessage/#{AWS.Util.encode_uri(topic)}"
@@ -471,6 +473,7 @@ defmodule AWS.IoTDataPlane do
   @spec get_thing_shadow(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_thing_shadow_errors()}
   def get_thing_shadow(%Client{} = client, thing_name, shadow_name \\ nil, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"
@@ -505,6 +508,7 @@ defmodule AWS.IoTDataPlane do
         ) ::
           {:ok, list_named_shadows_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_named_shadows_for_thing_errors()}
   def list_named_shadows_for_thing(
         %Client{} = client,
@@ -556,6 +560,7 @@ defmodule AWS.IoTDataPlane do
   @spec list_retained_messages(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_retained_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_retained_messages_errors()}
   def list_retained_messages(
         %Client{} = client,
@@ -602,6 +607,7 @@ defmodule AWS.IoTDataPlane do
   @spec publish(map(), String.t(), publish_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_errors()}
   def publish(%Client{} = client, topic, input, options \\ []) do
     url_path = "/topics/#{AWS.Util.encode_uri(topic)}"
@@ -655,6 +661,7 @@ defmodule AWS.IoTDataPlane do
   @spec update_thing_shadow(map(), String.t(), update_thing_shadow_request(), list()) ::
           {:ok, update_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_shadow_errors()}
   def update_thing_shadow(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/shadow"

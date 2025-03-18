@@ -1559,6 +1559,7 @@ defmodule AWS.Shield do
   @spec associate_drt_log_bucket(map(), associate_drt_log_bucket_request(), list()) ::
           {:ok, associate_drt_log_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_drt_log_bucket_errors()}
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1601,6 +1602,7 @@ defmodule AWS.Shield do
   @spec associate_drt_role(map(), associate_drt_role_request(), list()) ::
           {:ok, associate_drt_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_drt_role_errors()}
   def associate_drt_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1622,6 +1624,7 @@ defmodule AWS.Shield do
   @spec associate_health_check(map(), associate_health_check_request(), list()) ::
           {:ok, associate_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_health_check_errors()}
   def associate_health_check(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1655,6 +1658,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, associate_proactive_engagement_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_proactive_engagement_details_errors()}
   def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1682,6 +1686,7 @@ defmodule AWS.Shield do
   @spec create_protection(map(), create_protection_request(), list()) ::
           {:ok, create_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_protection_errors()}
   def create_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1699,6 +1704,7 @@ defmodule AWS.Shield do
   @spec create_protection_group(map(), create_protection_group_request(), list()) ::
           {:ok, create_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_protection_group_errors()}
   def create_protection_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1720,6 +1726,7 @@ defmodule AWS.Shield do
   @spec create_subscription(map(), create_subscription_request(), list()) ::
           {:ok, create_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_errors()}
   def create_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1733,6 +1740,7 @@ defmodule AWS.Shield do
   @spec delete_protection(map(), delete_protection_request(), list()) ::
           {:ok, delete_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_protection_errors()}
   def delete_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1746,6 +1754,7 @@ defmodule AWS.Shield do
   @spec delete_protection_group(map(), delete_protection_group_request(), list()) ::
           {:ok, delete_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_protection_group_errors()}
   def delete_protection_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1762,6 +1771,7 @@ defmodule AWS.Shield do
   @spec delete_subscription(map(), delete_subscription_request(), list()) ::
           {:ok, delete_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_errors()}
   def delete_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1775,6 +1785,7 @@ defmodule AWS.Shield do
   @spec describe_attack(map(), describe_attack_request(), list()) ::
           {:ok, describe_attack_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_attack_errors()}
   def describe_attack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1800,6 +1811,7 @@ defmodule AWS.Shield do
   @spec describe_attack_statistics(map(), describe_attack_statistics_request(), list()) ::
           {:ok, describe_attack_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_attack_statistics_errors()}
   def describe_attack_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1815,6 +1827,7 @@ defmodule AWS.Shield do
   @spec describe_drt_access(map(), describe_drt_access_request(), list()) ::
           {:ok, describe_drt_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_drt_access_errors()}
   def describe_drt_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1834,6 +1847,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, describe_emergency_contact_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_emergency_contact_settings_errors()}
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1847,6 +1861,7 @@ defmodule AWS.Shield do
   @spec describe_protection(map(), describe_protection_request(), list()) ::
           {:ok, describe_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_protection_errors()}
   def describe_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1860,6 +1875,7 @@ defmodule AWS.Shield do
   @spec describe_protection_group(map(), describe_protection_group_request(), list()) ::
           {:ok, describe_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_protection_group_errors()}
   def describe_protection_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1873,6 +1889,7 @@ defmodule AWS.Shield do
   @spec describe_subscription(map(), describe_subscription_request(), list()) ::
           {:ok, describe_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_subscription_errors()}
   def describe_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1895,6 +1912,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, disable_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_application_layer_automatic_response_errors()}
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1909,6 +1927,7 @@ defmodule AWS.Shield do
   @spec disable_proactive_engagement(map(), disable_proactive_engagement_request(), list()) ::
           {:ok, disable_proactive_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_proactive_engagement_errors()}
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1923,6 +1942,7 @@ defmodule AWS.Shield do
   @spec disassociate_drt_log_bucket(map(), disassociate_drt_log_bucket_request(), list()) ::
           {:ok, disassociate_drt_log_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_drt_log_bucket_errors()}
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1937,6 +1957,7 @@ defmodule AWS.Shield do
   @spec disassociate_drt_role(map(), disassociate_drt_role_request(), list()) ::
           {:ok, disassociate_drt_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_drt_role_errors()}
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1960,6 +1981,7 @@ defmodule AWS.Shield do
   @spec disassociate_health_check(map(), disassociate_health_check_request(), list()) ::
           {:ok, disassociate_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_health_check_errors()}
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2005,6 +2027,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, enable_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_application_layer_automatic_response_errors()}
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2020,6 +2043,7 @@ defmodule AWS.Shield do
   @spec enable_proactive_engagement(map(), enable_proactive_engagement_request(), list()) ::
           {:ok, enable_proactive_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_proactive_engagement_errors()}
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2033,6 +2057,7 @@ defmodule AWS.Shield do
   @spec get_subscription_state(map(), get_subscription_state_request(), list()) ::
           {:ok, get_subscription_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_state_errors()}
   def get_subscription_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2047,6 +2072,7 @@ defmodule AWS.Shield do
   @spec list_attacks(map(), list_attacks_request(), list()) ::
           {:ok, list_attacks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attacks_errors()}
   def list_attacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2064,6 +2090,7 @@ defmodule AWS.Shield do
   @spec list_protection_groups(map(), list_protection_groups_request(), list()) ::
           {:ok, list_protection_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protection_groups_errors()}
   def list_protection_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2081,6 +2108,7 @@ defmodule AWS.Shield do
   @spec list_protections(map(), list_protections_request(), list()) ::
           {:ok, list_protections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protections_errors()}
   def list_protections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2098,6 +2126,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, list_resources_in_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_in_protection_group_errors()}
   def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2112,6 +2141,7 @@ defmodule AWS.Shield do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2125,6 +2155,7 @@ defmodule AWS.Shield do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2138,6 +2169,7 @@ defmodule AWS.Shield do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2156,6 +2188,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, update_application_layer_automatic_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_layer_automatic_response_errors()}
   def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2176,6 +2209,7 @@ defmodule AWS.Shield do
         ) ::
           {:ok, update_emergency_contact_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_emergency_contact_settings_errors()}
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2193,6 +2227,7 @@ defmodule AWS.Shield do
   @spec update_protection_group(map(), update_protection_group_request(), list()) ::
           {:ok, update_protection_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_protection_group_errors()}
   def update_protection_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2213,6 +2248,7 @@ defmodule AWS.Shield do
   @spec update_subscription(map(), update_subscription_request(), list()) ::
           {:ok, update_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_errors()}
   def update_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()

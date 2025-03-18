@@ -1074,6 +1074,7 @@ defmodule AWS.Synthetics do
   @spec associate_resource(map(), String.t(), associate_resource_request(), list()) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_errors()}
   def associate_resource(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/associate"
@@ -1126,6 +1127,7 @@ defmodule AWS.Synthetics do
   @spec create_canary(map(), create_canary_request(), list()) ::
           {:ok, create_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_canary_errors()}
   def create_canary(%Client{} = client, input, options \\ []) do
     url_path = "/canary"
@@ -1178,6 +1180,7 @@ defmodule AWS.Synthetics do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/group"
@@ -1252,6 +1255,7 @@ defmodule AWS.Synthetics do
   @spec delete_canary(map(), String.t(), delete_canary_request(), list()) ::
           {:ok, delete_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_canary_errors()}
   def delete_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
@@ -1294,6 +1298,7 @@ defmodule AWS.Synthetics do
   @spec delete_group(map(), String.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
@@ -1339,6 +1344,7 @@ defmodule AWS.Synthetics do
   @spec describe_canaries(map(), describe_canaries_request(), list()) ::
           {:ok, describe_canaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_canaries_errors()}
   def describe_canaries(%Client{} = client, input, options \\ []) do
     url_path = "/canaries"
@@ -1383,6 +1389,7 @@ defmodule AWS.Synthetics do
   @spec describe_canaries_last_run(map(), describe_canaries_last_run_request(), list()) ::
           {:ok, describe_canaries_last_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_canaries_last_run_errors()}
   def describe_canaries_last_run(%Client{} = client, input, options \\ []) do
     url_path = "/canaries/last-run"
@@ -1416,6 +1423,7 @@ defmodule AWS.Synthetics do
   @spec describe_runtime_versions(map(), describe_runtime_versions_request(), list()) ::
           {:ok, describe_runtime_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_runtime_versions_errors()}
   def describe_runtime_versions(%Client{} = client, input, options \\ []) do
     url_path = "/runtime-versions"
@@ -1446,6 +1454,7 @@ defmodule AWS.Synthetics do
   @spec disassociate_resource(map(), String.t(), disassociate_resource_request(), list()) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_errors()}
   def disassociate_resource(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/disassociate"
@@ -1479,6 +1488,7 @@ defmodule AWS.Synthetics do
   @spec get_canary(map(), String.t(), list()) ::
           {:ok, get_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_canary_errors()}
   def get_canary(%Client{} = client, name, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
@@ -1496,6 +1506,7 @@ defmodule AWS.Synthetics do
   @spec get_canary_runs(map(), String.t(), get_canary_runs_request(), list()) ::
           {:ok, get_canary_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_canary_runs_errors()}
   def get_canary_runs(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/runs"
@@ -1527,6 +1538,7 @@ defmodule AWS.Synthetics do
   @spec get_group(map(), String.t(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, group_identifier, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}"
@@ -1547,6 +1559,7 @@ defmodule AWS.Synthetics do
   @spec list_associated_groups(map(), String.t(), list_associated_groups_request(), list()) ::
           {:ok, list_associated_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_groups_errors()}
   def list_associated_groups(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource/#{AWS.Util.encode_uri(resource_arn)}/groups"
@@ -1576,6 +1589,7 @@ defmodule AWS.Synthetics do
   @spec list_group_resources(map(), String.t(), list_group_resources_request(), list()) ::
           {:ok, list_group_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_resources_errors()}
   def list_group_resources(%Client{} = client, group_identifier, input, options \\ []) do
     url_path = "/group/#{AWS.Util.encode_uri(group_identifier)}/resources"
@@ -1608,6 +1622,7 @@ defmodule AWS.Synthetics do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
@@ -1636,6 +1651,7 @@ defmodule AWS.Synthetics do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1658,6 +1674,7 @@ defmodule AWS.Synthetics do
   @spec start_canary(map(), String.t(), start_canary_request(), list()) ::
           {:ok, start_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_canary_errors()}
   def start_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/start"
@@ -1694,6 +1711,7 @@ defmodule AWS.Synthetics do
   @spec stop_canary(map(), String.t(), stop_canary_request(), list()) ::
           {:ok, stop_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_canary_errors()}
   def stop_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}/stop"
@@ -1741,6 +1759,7 @@ defmodule AWS.Synthetics do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1769,6 +1788,7 @@ defmodule AWS.Synthetics do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1807,6 +1827,7 @@ defmodule AWS.Synthetics do
   @spec update_canary(map(), String.t(), update_canary_request(), list()) ::
           {:ok, update_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_canary_errors()}
   def update_canary(%Client{} = client, name, input, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"

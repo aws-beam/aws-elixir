@@ -3,7 +3,6 @@
 
 defmodule AWS.GeoMaps do
   @moduledoc """
-
   Integrate high-quality base map data into your applications using
   [MapLibre](https://maplibre.org).
 
@@ -102,10 +101,16 @@ defmodule AWS.GeoMaps do
         optional("BoundedPositions") => String.t(),
         optional("BoundingBox") => String.t(),
         optional("Center") => String.t(),
+        optional("ColorScheme") => String.t(),
         optional("CompactOverlay") => String.t(),
+        optional("CropLabels") => [boolean()],
         optional("GeoJsonOverlay") => String.t(),
         optional("Key") => String.t(),
+        optional("LabelSize") => String.t(),
+        optional("Language") => String.t(),
         optional("Padding") => [integer()],
+        optional("PointsOfInterests") => String.t(),
+        optional("PoliticalView") => String.t(),
         optional("Radius") => float(),
         optional("ScaleBarUnit") => String.t(),
         optional("Style") => String.t(),
@@ -261,11 +266,13 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  Returns the map's glyphs.
+
+  `GetGlyphs` returns the map's glyphs.
   """
   @spec get_glyphs(map(), String.t(), String.t(), list()) ::
           {:ok, get_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_glyphs(%Client{} = client, font_stack, font_unicode_range, options \\ []) do
     url_path =
       "/glyphs/#{AWS.Util.encode_uri(font_stack)}/#{AWS.Util.encode_uri(font_unicode_range)}"
@@ -290,11 +297,13 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  Returns the map's sprites.
+
+  `GetSprites` returns the map's sprites.
   """
   @spec get_sprites(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_sprites(%Client{} = client, color_scheme, file_name, style, variant, options \\ []) do
     url_path =
       "/styles/#{AWS.Util.encode_uri(style)}/#{AWS.Util.encode_uri(color_scheme)}/#{AWS.Util.encode_uri(variant)}/sprites/#{AWS.Util.encode_uri(file_name)}"
@@ -319,7 +328,9 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  Provides high-quality static map images with customizable options.
+
+  `GetStaticMap` provides high-quality static map images with customizable
+  options.
 
   You can modify the map's appearance and overlay additional information. It's an
   ideal solution for applications requiring tailored static map snapshots.
@@ -332,7 +343,13 @@ defmodule AWS.GeoMaps do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
           String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -344,6 +361,7 @@ defmodule AWS.GeoMaps do
         ) ::
           {:ok, get_static_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_static_map_errors()}
   def get_static_map(
         %Client{} = client,
@@ -351,11 +369,17 @@ defmodule AWS.GeoMaps do
         bounded_positions \\ nil,
         bounding_box \\ nil,
         center \\ nil,
+        color_scheme \\ nil,
         compact_overlay \\ nil,
+        crop_labels \\ nil,
         geo_json_overlay \\ nil,
         height,
         key \\ nil,
+        label_size \\ nil,
+        language \\ nil,
         padding \\ nil,
+        points_of_interests \\ nil,
+        political_view \\ nil,
         radius \\ nil,
         scale_bar_unit \\ nil,
         style \\ nil,
@@ -403,8 +427,36 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
+      if !is_nil(political_view) do
+        [{"political-view", political_view} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(points_of_interests) do
+        [{"pois", points_of_interests} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(padding) do
         [{"padding", padding} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(language) do
+        [{"lang", language} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(label_size) do
+        [{"label-size", label_size} | query_params]
       else
         query_params
       end
@@ -431,8 +483,22 @@ defmodule AWS.GeoMaps do
       end
 
     query_params =
+      if !is_nil(crop_labels) do
+        [{"crop-labels", crop_labels} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(compact_overlay) do
         [{"compact-overlay", compact_overlay} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(color_scheme) do
+        [{"color-scheme", color_scheme} | query_params]
       else
         query_params
       end
@@ -476,7 +542,8 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  Returns information about the style.
+
+  `GetStyleDescriptor` returns information about the style.
   """
   @spec get_style_descriptor(
           map(),
@@ -488,6 +555,7 @@ defmodule AWS.GeoMaps do
         ) ::
           {:ok, get_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_style_descriptor(
         %Client{} = client,
         style,
@@ -538,14 +606,18 @@ defmodule AWS.GeoMaps do
   end
 
   @doc """
-  Returns a tile.
 
-  Map tiles are used by clients to render a map. they're addressed using a grid
-  arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
+  `GetTile` returns a tile.
+
+  Map tiles are used by clients to render a map.
+  they're addressed using a grid arrangement with an X coordinate, Y coordinate,
+  and Z (zoom)
+  level.
   """
   @spec get_tile(map(), String.t(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tile_errors()}
   def get_tile(%Client{} = client, tileset, x, y, z, key \\ nil, options \\ []) do
     url_path =

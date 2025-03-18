@@ -847,6 +847,7 @@ defmodule AWS.DocDBElastic do
   @spec apply_pending_maintenance_action(map(), apply_pending_maintenance_action_input(), list()) ::
           {:ok, apply_pending_maintenance_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     url_path = "/pending-action"
@@ -875,6 +876,7 @@ defmodule AWS.DocDBElastic do
   @spec copy_cluster_snapshot(map(), String.t(), copy_cluster_snapshot_input(), list()) ::
           {:ok, copy_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_cluster_snapshot_errors()}
   def copy_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/copy"
@@ -904,6 +906,7 @@ defmodule AWS.DocDBElastic do
   @spec create_cluster(map(), create_cluster_input(), list()) ::
           {:ok, create_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
@@ -932,6 +935,7 @@ defmodule AWS.DocDBElastic do
   @spec create_cluster_snapshot(map(), create_cluster_snapshot_input(), list()) ::
           {:ok, create_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_snapshot_errors()}
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-snapshot"
@@ -960,6 +964,7 @@ defmodule AWS.DocDBElastic do
   @spec delete_cluster(map(), String.t(), delete_cluster_input(), list()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -988,6 +993,7 @@ defmodule AWS.DocDBElastic do
   @spec delete_cluster_snapshot(map(), String.t(), delete_cluster_snapshot_input(), list()) ::
           {:ok, delete_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_snapshot_errors()}
   def delete_cluster_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
@@ -1016,6 +1022,7 @@ defmodule AWS.DocDBElastic do
   @spec get_cluster(map(), String.t(), list()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -1033,6 +1040,7 @@ defmodule AWS.DocDBElastic do
   @spec get_cluster_snapshot(map(), String.t(), list()) ::
           {:ok, get_cluster_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_snapshot_errors()}
   def get_cluster_snapshot(%Client{} = client, snapshot_arn, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}"
@@ -1050,6 +1058,7 @@ defmodule AWS.DocDBElastic do
   @spec get_pending_maintenance_action(map(), String.t(), list()) ::
           {:ok, get_pending_maintenance_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pending_maintenance_action_errors()}
   def get_pending_maintenance_action(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/pending-action/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1074,6 +1083,7 @@ defmodule AWS.DocDBElastic do
         ) ::
           {:ok, list_cluster_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cluster_snapshots_errors()}
   def list_cluster_snapshots(
         %Client{} = client,
@@ -1126,6 +1136,7 @@ defmodule AWS.DocDBElastic do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/clusters"
@@ -1157,6 +1168,7 @@ defmodule AWS.DocDBElastic do
   @spec list_pending_maintenance_actions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_pending_maintenance_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pending_maintenance_actions_errors()}
   def list_pending_maintenance_actions(
         %Client{} = client,
@@ -1193,6 +1205,7 @@ defmodule AWS.DocDBElastic do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1215,6 +1228,7 @@ defmodule AWS.DocDBElastic do
         ) ::
           {:ok, restore_cluster_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_cluster_from_snapshot_errors()}
   def restore_cluster_from_snapshot(%Client{} = client, snapshot_arn, input, options \\ []) do
     url_path = "/cluster-snapshot/#{AWS.Util.encode_uri(snapshot_arn)}/restore"
@@ -1243,6 +1257,7 @@ defmodule AWS.DocDBElastic do
   @spec start_cluster(map(), String.t(), start_cluster_input(), list()) ::
           {:ok, start_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_cluster_errors()}
   def start_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/start"
@@ -1273,6 +1288,7 @@ defmodule AWS.DocDBElastic do
   @spec stop_cluster(map(), String.t(), stop_cluster_input(), list()) ::
           {:ok, stop_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_cluster_errors()}
   def stop_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}/stop"
@@ -1301,6 +1317,7 @@ defmodule AWS.DocDBElastic do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1329,6 +1346,7 @@ defmodule AWS.DocDBElastic do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1365,6 +1383,7 @@ defmodule AWS.DocDBElastic do
   @spec update_cluster(map(), String.t(), update_cluster_input(), list()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"

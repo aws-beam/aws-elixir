@@ -842,6 +842,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec create_snapshot(map(), create_snapshot_input(), list()) ::
           {:ok, create_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/createsnapshot"
@@ -870,6 +871,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec delete_app(map(), delete_app_input(), list()) ::
           {:ok, delete_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     url_path = "/deleteapp"
@@ -909,6 +911,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec delete_simulation(map(), delete_simulation_input(), list()) ::
           {:ok, delete_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_simulation_errors()}
   def delete_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/deletesimulation"
@@ -942,6 +945,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec describe_app(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, app, domain, simulation, options \\ []) do
     url_path = "/describeapp"
@@ -980,6 +984,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec describe_simulation(map(), String.t(), list()) ::
           {:ok, describe_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_simulation_errors()}
   def describe_simulation(%Client{} = client, simulation, options \\ []) do
     url_path = "/describesimulation"
@@ -1004,6 +1009,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec list_apps(map(), String.t() | nil, String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(
         %Client{} = client,
@@ -1057,6 +1063,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec list_simulations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_simulations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_simulations_errors()}
   def list_simulations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/listsimulations"
@@ -1088,6 +1095,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1105,6 +1113,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec start_app(map(), start_app_input(), list()) ::
           {:ok, start_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_app_errors()}
   def start_app(%Client{} = client, input, options \\ []) do
     url_path = "/startapp"
@@ -1133,6 +1142,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec start_clock(map(), start_clock_input(), list()) ::
           {:ok, start_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_clock_errors()}
   def start_clock(%Client{} = client, input, options \\ []) do
     url_path = "/startclock"
@@ -1169,6 +1179,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec start_simulation(map(), start_simulation_input(), list()) ::
           {:ok, start_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_simulation_errors()}
   def start_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/startsimulation"
@@ -1198,6 +1209,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec stop_app(map(), stop_app_input(), list()) ::
           {:ok, stop_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_app_errors()}
   def stop_app(%Client{} = client, input, options \\ []) do
     url_path = "/stopapp"
@@ -1226,6 +1238,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec stop_clock(map(), stop_clock_input(), list()) ::
           {:ok, stop_clock_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_clock_errors()}
   def stop_clock(%Client{} = client, input, options \\ []) do
     url_path = "/stopclock"
@@ -1258,6 +1271,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec stop_simulation(map(), stop_simulation_input(), list()) ::
           {:ok, stop_simulation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_simulation_errors()}
   def stop_simulation(%Client{} = client, input, options \\ []) do
     url_path = "/stopsimulation"
@@ -1290,6 +1304,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1322,6 +1337,7 @@ defmodule AWS.SimSpaceWeaver do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

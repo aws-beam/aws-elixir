@@ -752,6 +752,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec batch_get_token_balance(map(), batch_get_token_balance_input(), list()) ::
           {:ok, batch_get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_token_balance_errors()}
   def batch_get_token_balance(%Client{} = client, input, options \\ []) do
     url_path = "/batch-get-token-balance"
@@ -788,6 +789,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec get_asset_contract(map(), get_asset_contract_input(), list()) ::
           {:ok, get_asset_contract_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_contract_errors()}
   def get_asset_contract(%Client{} = client, input, options \\ []) do
     url_path = "/get-asset-contract"
@@ -820,6 +822,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec get_token_balance(map(), get_token_balance_input(), list()) ::
           {:ok, get_token_balance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_token_balance_errors()}
   def get_token_balance(%Client{} = client, input, options \\ []) do
     url_path = "/get-token-balance"
@@ -852,6 +855,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec get_transaction(map(), get_transaction_input(), list()) ::
           {:ok, get_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transaction_errors()}
   def get_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/get-transaction"
@@ -884,6 +888,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec list_asset_contracts(map(), list_asset_contracts_input(), list()) ::
           {:ok, list_asset_contracts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_contracts_errors()}
   def list_asset_contracts(%Client{} = client, input, options \\ []) do
     url_path = "/list-asset-contracts"
@@ -914,6 +919,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec list_filtered_transaction_events(map(), list_filtered_transaction_events_input(), list()) ::
           {:ok, list_filtered_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_filtered_transaction_events_errors()}
   def list_filtered_transaction_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-filtered-transaction-events"
@@ -955,6 +961,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec list_token_balances(map(), list_token_balances_input(), list()) ::
           {:ok, list_token_balances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_token_balances_errors()}
   def list_token_balances(%Client{} = client, input, options \\ []) do
     url_path = "/list-token-balances"
@@ -987,6 +994,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec list_transaction_events(map(), list_transaction_events_input(), list()) ::
           {:ok, list_transaction_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_transaction_events_errors()}
   def list_transaction_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-transaction-events"
@@ -1015,6 +1023,7 @@ defmodule AWS.ManagedBlockchainQuery do
   @spec list_transactions(map(), list_transactions_input(), list()) ::
           {:ok, list_transactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_transactions_errors()}
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/list-transactions"

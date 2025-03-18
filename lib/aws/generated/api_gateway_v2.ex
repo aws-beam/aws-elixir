@@ -2565,6 +2565,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_api(map(), create_api_request(), list()) ::
           {:ok, create_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_errors()}
   def create_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
@@ -2593,6 +2594,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_api_mapping(map(), String.t(), create_api_mapping_request(), list()) ::
           {:ok, create_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_mapping_errors()}
   def create_api_mapping(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/apimappings"
@@ -2621,6 +2623,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_authorizer(map(), String.t(), create_authorizer_request(), list()) ::
           {:ok, create_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_authorizer_errors()}
   def create_authorizer(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/authorizers"
@@ -2649,6 +2652,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/deployments"
@@ -2677,6 +2681,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_domain_name(map(), create_domain_name_request(), list()) ::
           {:ok, create_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_name_errors()}
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domainnames"
@@ -2705,6 +2710,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_integration(map(), String.t(), create_integration_request(), list()) ::
           {:ok, create_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/integrations"
@@ -2739,6 +2745,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, create_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_response_errors()}
   def create_integration_response(
         %Client{} = client,
@@ -2775,6 +2782,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_model(map(), String.t(), create_model_request(), list()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
@@ -2803,6 +2811,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_route(map(), String.t(), create_route_request(), list()) ::
           {:ok, create_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_route_errors()}
   def create_route(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
@@ -2837,6 +2846,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, create_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_route_response_errors()}
   def create_route_response(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path =
@@ -2867,6 +2877,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_stage(map(), String.t(), create_stage_request(), list()) ::
           {:ok, create_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stage_errors()}
   def create_stage(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
@@ -2895,6 +2906,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec create_vpc_link(map(), create_vpc_link_request(), list()) ::
           {:ok, create_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_link_errors()}
   def create_vpc_link(%Client{} = client, input, options \\ []) do
     url_path = "/v2/vpclinks"
@@ -2931,6 +2943,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_log_settings_errors()}
   def delete_access_log_settings(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path =
@@ -2961,6 +2974,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_api(map(), String.t(), delete_api_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_errors()}
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -2989,6 +3003,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_api_mapping(map(), String.t(), String.t(), delete_api_mapping_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_mapping_errors()}
   def delete_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
@@ -3019,6 +3034,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_authorizer(map(), String.t(), String.t(), delete_authorizer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_authorizer_errors()}
   def delete_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
     url_path =
@@ -3049,6 +3065,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_cors_configuration(map(), String.t(), delete_cors_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cors_configuration_errors()}
   def delete_cors_configuration(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/cors"
@@ -3077,6 +3094,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_deployment(map(), String.t(), String.t(), delete_deployment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
     url_path =
@@ -3107,6 +3125,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_domain_name(map(), String.t(), delete_domain_name_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_name_errors()}
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -3135,6 +3154,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_integration(map(), String.t(), String.t(), delete_integration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
     url_path =
@@ -3172,6 +3192,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_response_errors()}
   def delete_integration_response(
         %Client{} = client,
@@ -3209,6 +3230,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_model(map(), String.t(), String.t(), delete_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
@@ -3237,6 +3259,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_route(map(), String.t(), String.t(), delete_route_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_errors()}
   def delete_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
@@ -3274,6 +3297,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_request_parameter_errors()}
   def delete_route_request_parameter(
         %Client{} = client,
@@ -3318,6 +3342,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_response_errors()}
   def delete_route_response(
         %Client{} = client,
@@ -3362,6 +3387,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_settings_errors()}
   def delete_route_settings(
         %Client{} = client,
@@ -3399,6 +3425,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_stage(map(), String.t(), String.t(), delete_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stage_errors()}
   def delete_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -3427,6 +3454,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec delete_vpc_link(map(), String.t(), delete_vpc_link_request(), list()) ::
           {:ok, delete_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_link_errors()}
   def delete_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
@@ -3461,6 +3489,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, export_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_api_errors()}
   def export_api(
         %Client{} = client,
@@ -3517,6 +3546,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_api(map(), String.t(), list()) ::
           {:ok, get_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_errors()}
   def get_api(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -3534,6 +3564,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_api_mapping(map(), String.t(), String.t(), list()) ::
           {:ok, get_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_mapping_errors()}
   def get_api_mapping(%Client{} = client, api_mapping_id, domain_name, options \\ []) do
     url_path =
@@ -3553,6 +3584,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_api_mappings(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_api_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_mappings_errors()}
   def get_api_mappings(
         %Client{} = client,
@@ -3590,6 +3622,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_apis(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_apis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apis_errors()}
   def get_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/apis"
@@ -3621,6 +3654,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_authorizer(map(), String.t(), String.t(), list()) ::
           {:ok, get_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_authorizer_errors()}
   def get_authorizer(%Client{} = client, api_id, authorizer_id, options \\ []) do
     url_path =
@@ -3640,6 +3674,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_authorizers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_authorizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_authorizers_errors()}
   def get_authorizers(
         %Client{} = client,
@@ -3677,6 +3712,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_deployment(map(), String.t(), String.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, api_id, deployment_id, options \\ []) do
     url_path =
@@ -3696,6 +3732,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployments_errors()}
   def get_deployments(
         %Client{} = client,
@@ -3733,6 +3770,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_domain_name(map(), String.t(), list()) ::
           {:ok, get_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_name_errors()}
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -3750,6 +3788,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_domain_names(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_names_errors()}
   def get_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/domainnames"
@@ -3781,6 +3820,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_integration(map(), String.t(), String.t(), list()) ::
           {:ok, get_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integration_errors()}
   def get_integration(%Client{} = client, api_id, integration_id, options \\ []) do
     url_path =
@@ -3800,6 +3840,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_integration_response(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integration_response_errors()}
   def get_integration_response(
         %Client{} = client,
@@ -3832,6 +3873,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, get_integration_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integration_responses_errors()}
   def get_integration_responses(
         %Client{} = client,
@@ -3872,6 +3914,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_integrations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integrations_errors()}
   def get_integrations(
         %Client{} = client,
@@ -3909,6 +3952,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_model(map(), String.t(), String.t(), list()) ::
           {:ok, get_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_errors()}
   def get_model(%Client{} = client, api_id, model_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
@@ -3926,6 +3970,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_model_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_model_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_template_errors()}
   def get_model_template(%Client{} = client, api_id, model_id, options \\ []) do
     url_path =
@@ -3945,6 +3990,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_models(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_models_errors()}
   def get_models(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models"
@@ -3976,6 +4022,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_route(map(), String.t(), String.t(), list()) ::
           {:ok, get_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_route_errors()}
   def get_route(%Client{} = client, api_id, route_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
@@ -3993,6 +4040,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_route_response(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_route_response_errors()}
   def get_route_response(%Client{} = client, api_id, route_id, route_response_id, options \\ []) do
     url_path =
@@ -4019,6 +4067,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, get_route_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_route_responses_errors()}
   def get_route_responses(
         %Client{} = client,
@@ -4059,6 +4108,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_routes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_routes_errors()}
   def get_routes(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes"
@@ -4090,6 +4140,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_stage(map(), String.t(), String.t(), list()) ::
           {:ok, get_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stage_errors()}
   def get_stage(%Client{} = client, api_id, stage_name, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -4107,6 +4158,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_stages(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_stages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stages_errors()}
   def get_stages(%Client{} = client, api_id, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages"
@@ -4138,6 +4190,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_tags(map(), String.t(), list()) ::
           {:ok, get_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4155,6 +4208,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_vpc_link(map(), String.t(), list()) ::
           {:ok, get_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vpc_link_errors()}
   def get_vpc_link(%Client{} = client, vpc_link_id, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"
@@ -4172,6 +4226,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec get_vpc_links(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_vpc_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vpc_links_errors()}
   def get_vpc_links(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/vpclinks"
@@ -4203,6 +4258,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec import_api(map(), import_api_request(), list()) ::
           {:ok, import_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_api_errors()}
   def import_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
@@ -4244,6 +4300,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec reimport_api(map(), String.t(), reimport_api_request(), list()) ::
           {:ok, reimport_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reimport_api_errors()}
   def reimport_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -4293,6 +4350,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_authorizers_cache_errors()}
   def reset_authorizers_cache(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path =
@@ -4323,6 +4381,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4351,6 +4410,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4384,6 +4444,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_api(map(), String.t(), update_api_request(), list()) ::
           {:ok, update_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_errors()}
   def update_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -4412,6 +4473,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_api_mapping(map(), String.t(), String.t(), update_api_mapping_request(), list()) ::
           {:ok, update_api_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_mapping_errors()}
   def update_api_mapping(%Client{} = client, api_mapping_id, domain_name, input, options \\ []) do
     url_path =
@@ -4442,6 +4504,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_authorizer(map(), String.t(), String.t(), update_authorizer_request(), list()) ::
           {:ok, update_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_authorizer_errors()}
   def update_authorizer(%Client{} = client, api_id, authorizer_id, input, options \\ []) do
     url_path =
@@ -4472,6 +4535,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_deployment(map(), String.t(), String.t(), update_deployment_request(), list()) ::
           {:ok, update_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_deployment_errors()}
   def update_deployment(%Client{} = client, api_id, deployment_id, input, options \\ []) do
     url_path =
@@ -4502,6 +4566,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_domain_name(map(), String.t(), update_domain_name_request(), list()) ::
           {:ok, update_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_name_errors()}
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -4530,6 +4595,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_integration(map(), String.t(), String.t(), update_integration_request(), list()) ::
           {:ok, update_integration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_integration_errors()}
   def update_integration(%Client{} = client, api_id, integration_id, input, options \\ []) do
     url_path =
@@ -4567,6 +4633,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, update_integration_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_integration_response_errors()}
   def update_integration_response(
         %Client{} = client,
@@ -4604,6 +4671,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_model(map(), String.t(), String.t(), update_model_request(), list()) ::
           {:ok, update_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, api_id, model_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/models/#{AWS.Util.encode_uri(model_id)}"
@@ -4632,6 +4700,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_route(map(), String.t(), String.t(), update_route_request(), list()) ::
           {:ok, update_route_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_route_errors()}
   def update_route(%Client{} = client, api_id, route_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/routes/#{AWS.Util.encode_uri(route_id)}"
@@ -4667,6 +4736,7 @@ defmodule AWS.ApiGatewayV2 do
         ) ::
           {:ok, update_route_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_route_response_errors()}
   def update_route_response(
         %Client{} = client,
@@ -4704,6 +4774,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_stage(map(), String.t(), String.t(), update_stage_request(), list()) ::
           {:ok, update_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stage_errors()}
   def update_stage(%Client{} = client, api_id, stage_name, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/stages/#{AWS.Util.encode_uri(stage_name)}"
@@ -4732,6 +4803,7 @@ defmodule AWS.ApiGatewayV2 do
   @spec update_vpc_link(map(), String.t(), update_vpc_link_request(), list()) ::
           {:ok, update_vpc_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_link_errors()}
   def update_vpc_link(%Client{} = client, vpc_link_id, input, options \\ []) do
     url_path = "/v2/vpclinks/#{AWS.Util.encode_uri(vpc_link_id)}"

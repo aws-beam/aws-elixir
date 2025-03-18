@@ -269,6 +269,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec batch_get_record(map(), batch_get_record_request(), list()) ::
           {:ok, batch_get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_record_errors()}
   def batch_get_record(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetRecord"
@@ -338,6 +339,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec delete_record(map(), String.t(), delete_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_record_errors()}
   def delete_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"
@@ -378,6 +380,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec get_record(map(), String.t(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, get_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_record_errors()}
   def get_record(
         %Client{} = client,
@@ -442,6 +445,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @spec put_record(map(), String.t(), put_record_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, feature_group_name, input, options \\ []) do
     url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}"

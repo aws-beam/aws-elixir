@@ -5005,6 +5005,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, associate_agent_collaborator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_agent_collaborator_errors()}
   def associate_agent_collaborator(
         %Client{} = client,
@@ -5051,6 +5052,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, associate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_agent_knowledge_base_errors()}
   def associate_agent_knowledge_base(
         %Client{} = client,
@@ -5125,6 +5127,7 @@ defmodule AWS.BedrockAgent do
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agent_errors()}
   def create_agent(%Client{} = client, input, options \\ []) do
     url_path = "/agents/"
@@ -5181,6 +5184,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, create_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agent_action_group_errors()}
   def create_agent_action_group(%Client{} = client, agent_id, agent_version, input, options \\ []) do
     url_path =
@@ -5211,6 +5215,7 @@ defmodule AWS.BedrockAgent do
   @spec create_agent_alias(map(), String.t(), create_agent_alias_request(), list()) ::
           {:ok, create_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agent_alias_errors()}
   def create_agent_alias(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
@@ -5245,6 +5250,7 @@ defmodule AWS.BedrockAgent do
   @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
@@ -5280,6 +5286,7 @@ defmodule AWS.BedrockAgent do
   @spec create_flow(map(), create_flow_request(), list()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_errors()}
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/flows/"
@@ -5311,6 +5318,7 @@ defmodule AWS.BedrockAgent do
   @spec create_flow_alias(map(), String.t(), create_flow_alias_request(), list()) ::
           {:ok, create_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_alias_errors()}
   def create_flow_alias(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases"
@@ -5342,6 +5350,7 @@ defmodule AWS.BedrockAgent do
   @spec create_flow_version(map(), String.t(), create_flow_version_request(), list()) ::
           {:ok, create_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_version_errors()}
   def create_flow_version(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions"
@@ -5412,6 +5421,7 @@ defmodule AWS.BedrockAgent do
   @spec create_knowledge_base(map(), create_knowledge_base_request(), list()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_knowledge_base_errors()}
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgebases/"
@@ -5445,6 +5455,7 @@ defmodule AWS.BedrockAgent do
   @spec create_prompt(map(), create_prompt_request(), list()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_prompt_errors()}
   def create_prompt(%Client{} = client, input, options \\ []) do
     url_path = "/prompts/"
@@ -5476,6 +5487,7 @@ defmodule AWS.BedrockAgent do
   @spec create_prompt_version(map(), String.t(), create_prompt_version_request(), list()) ::
           {:ok, create_prompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_prompt_version_errors()}
   def create_prompt_version(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/versions"
@@ -5504,6 +5516,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_agent(map(), String.t(), delete_agent_request(), list()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_errors()}
   def delete_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
@@ -5544,6 +5557,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, delete_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_action_group_errors()}
   def delete_agent_action_group(
         %Client{} = client,
@@ -5586,6 +5600,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_agent_alias(map(), String.t(), String.t(), delete_agent_alias_request(), list()) ::
           {:ok, delete_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_alias_errors()}
   def delete_agent_alias(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
     url_path =
@@ -5622,6 +5637,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, delete_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_version_errors()}
   def delete_agent_version(%Client{} = client, agent_id, agent_version, input, options \\ []) do
     url_path =
@@ -5657,6 +5673,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(
         %Client{} = client,
@@ -5693,6 +5710,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_errors()}
   def delete_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
@@ -5726,6 +5744,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_flow_alias(map(), String.t(), String.t(), delete_flow_alias_request(), list()) ::
           {:ok, delete_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_alias_errors()}
   def delete_flow_alias(
         %Client{} = client,
@@ -5762,6 +5781,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_flow_version(map(), String.t(), String.t(), delete_flow_version_request(), list()) ::
           {:ok, delete_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_version_errors()}
   def delete_flow_version(%Client{} = client, flow_identifier, flow_version, input, options \\ []) do
     url_path =
@@ -5802,6 +5822,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_knowledge_base_errors()}
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -5840,6 +5861,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, delete_knowledge_base_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_knowledge_base_documents_errors()}
   def delete_knowledge_base_documents(
         %Client{} = client,
@@ -5881,6 +5903,7 @@ defmodule AWS.BedrockAgent do
   @spec delete_prompt(map(), String.t(), delete_prompt_request(), list()) ::
           {:ok, delete_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_prompt_errors()}
   def delete_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
@@ -5921,6 +5944,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, disassociate_agent_collaborator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_agent_collaborator_errors()}
   def disassociate_agent_collaborator(
         %Client{} = client,
@@ -5965,6 +5989,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, disassociate_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_agent_knowledge_base_errors()}
   def disassociate_agent_knowledge_base(
         %Client{} = client,
@@ -6002,6 +6027,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent(map(), String.t(), list()) ::
           {:ok, get_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_errors()}
   def get_agent(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
@@ -6019,6 +6045,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent_action_group(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_action_group_errors()}
   def get_agent_action_group(
         %Client{} = client,
@@ -6044,6 +6071,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent_alias(map(), String.t(), String.t(), list()) ::
           {:ok, get_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_alias_errors()}
   def get_agent_alias(%Client{} = client, agent_alias_id, agent_id, options \\ []) do
     url_path =
@@ -6063,6 +6091,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent_collaborator(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_agent_collaborator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_collaborator_errors()}
   def get_agent_collaborator(
         %Client{} = client,
@@ -6088,6 +6117,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent_knowledge_base(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_knowledge_base_errors()}
   def get_agent_knowledge_base(
         %Client{} = client,
@@ -6113,6 +6143,7 @@ defmodule AWS.BedrockAgent do
   @spec get_agent_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_version_errors()}
   def get_agent_version(%Client{} = client, agent_id, agent_version, options \\ []) do
     url_path =
@@ -6132,6 +6163,7 @@ defmodule AWS.BedrockAgent do
   @spec get_data_source(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, data_source_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -6154,6 +6186,7 @@ defmodule AWS.BedrockAgent do
   @spec get_flow(map(), String.t(), list()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_errors()}
   def get_flow(%Client{} = client, flow_identifier, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
@@ -6174,6 +6207,7 @@ defmodule AWS.BedrockAgent do
   @spec get_flow_alias(map(), String.t(), String.t(), list()) ::
           {:ok, get_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_alias_errors()}
   def get_flow_alias(%Client{} = client, alias_identifier, flow_identifier, options \\ []) do
     url_path =
@@ -6196,6 +6230,7 @@ defmodule AWS.BedrockAgent do
   @spec get_flow_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_version_errors()}
   def get_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
     url_path =
@@ -6218,6 +6253,7 @@ defmodule AWS.BedrockAgent do
   @spec get_ingestion_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ingestion_job_errors()}
   def get_ingestion_job(
         %Client{} = client,
@@ -6243,6 +6279,7 @@ defmodule AWS.BedrockAgent do
   @spec get_knowledge_base(map(), String.t(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_knowledge_base_errors()}
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -6270,6 +6307,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, get_knowledge_base_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_knowledge_base_documents_errors()}
   def get_knowledge_base_documents(
         %Client{} = client,
@@ -6312,6 +6350,7 @@ defmodule AWS.BedrockAgent do
   @spec get_prompt(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_prompt_errors()}
   def get_prompt(%Client{} = client, prompt_identifier, prompt_version \\ nil, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
@@ -6348,6 +6387,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, ingest_knowledge_base_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, ingest_knowledge_base_documents_errors()}
   def ingest_knowledge_base_documents(
         %Client{} = client,
@@ -6390,6 +6430,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, list_agent_action_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_action_groups_errors()}
   def list_agent_action_groups(%Client{} = client, agent_id, agent_version, input, options \\ []) do
     url_path =
@@ -6420,6 +6461,7 @@ defmodule AWS.BedrockAgent do
   @spec list_agent_aliases(map(), String.t(), list_agent_aliases_request(), list()) ::
           {:ok, list_agent_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_aliases_errors()}
   def list_agent_aliases(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentaliases/"
@@ -6454,6 +6496,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, list_agent_collaborators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_collaborators_errors()}
   def list_agent_collaborators(%Client{} = client, agent_id, agent_version, input, options \\ []) do
     url_path =
@@ -6490,6 +6533,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, list_agent_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_knowledge_bases_errors()}
   def list_agent_knowledge_bases(
         %Client{} = client,
@@ -6526,6 +6570,7 @@ defmodule AWS.BedrockAgent do
   @spec list_agent_versions(map(), String.t(), list_agent_versions_request(), list()) ::
           {:ok, list_agent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_versions_errors()}
   def list_agent_versions(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/agentversions/"
@@ -6554,6 +6599,7 @@ defmodule AWS.BedrockAgent do
   @spec list_agents(map(), list_agents_request(), list()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agents_errors()}
   def list_agents(%Client{} = client, input, options \\ []) do
     url_path = "/agents/"
@@ -6582,6 +6628,7 @@ defmodule AWS.BedrockAgent do
   @spec list_data_sources(map(), String.t(), list_data_sources_request(), list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/"
@@ -6610,6 +6657,7 @@ defmodule AWS.BedrockAgent do
   @spec list_flow_aliases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_flow_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flow_aliases_errors()}
   def list_flow_aliases(
         %Client{} = client,
@@ -6650,6 +6698,7 @@ defmodule AWS.BedrockAgent do
   @spec list_flow_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_flow_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flow_versions_errors()}
   def list_flow_versions(
         %Client{} = client,
@@ -6690,6 +6739,7 @@ defmodule AWS.BedrockAgent do
   @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flows_errors()}
   def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/flows/"
@@ -6723,6 +6773,7 @@ defmodule AWS.BedrockAgent do
   @spec list_ingestion_jobs(map(), String.t(), String.t(), list_ingestion_jobs_request(), list()) ::
           {:ok, list_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ingestion_jobs_errors()}
   def list_ingestion_jobs(
         %Client{} = client,
@@ -6769,6 +6820,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, list_knowledge_base_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_knowledge_base_documents_errors()}
   def list_knowledge_base_documents(
         %Client{} = client,
@@ -6807,6 +6859,7 @@ defmodule AWS.BedrockAgent do
   @spec list_knowledge_bases(map(), list_knowledge_bases_request(), list()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_knowledge_bases_errors()}
   def list_knowledge_bases(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgebases/"
@@ -6840,6 +6893,7 @@ defmodule AWS.BedrockAgent do
   @spec list_prompts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_prompts_errors()}
   def list_prompts(
         %Client{} = client,
@@ -6884,6 +6938,7 @@ defmodule AWS.BedrockAgent do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6901,6 +6956,7 @@ defmodule AWS.BedrockAgent do
   @spec prepare_agent(map(), String.t(), prepare_agent_request(), list()) ::
           {:ok, prepare_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, prepare_agent_errors()}
   def prepare_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
@@ -6932,6 +6988,7 @@ defmodule AWS.BedrockAgent do
   @spec prepare_flow(map(), String.t(), prepare_flow_request(), list()) ::
           {:ok, prepare_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, prepare_flow_errors()}
   def prepare_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
@@ -6963,6 +7020,7 @@ defmodule AWS.BedrockAgent do
   @spec start_ingestion_job(map(), String.t(), String.t(), start_ingestion_job_request(), list()) ::
           {:ok, start_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_ingestion_job_errors()}
   def start_ingestion_job(
         %Client{} = client,
@@ -7009,6 +7067,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, stop_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_ingestion_job_errors()}
   def stop_ingestion_job(
         %Client{} = client,
@@ -7049,6 +7108,7 @@ defmodule AWS.BedrockAgent do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7077,6 +7137,7 @@ defmodule AWS.BedrockAgent do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7110,6 +7171,7 @@ defmodule AWS.BedrockAgent do
   @spec update_agent(map(), String.t(), update_agent_request(), list()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_errors()}
   def update_agent(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(agent_id)}/"
@@ -7145,6 +7207,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, update_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_action_group_errors()}
   def update_agent_action_group(
         %Client{} = client,
@@ -7182,6 +7245,7 @@ defmodule AWS.BedrockAgent do
   @spec update_agent_alias(map(), String.t(), String.t(), update_agent_alias_request(), list()) ::
           {:ok, update_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_alias_errors()}
   def update_agent_alias(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
     url_path =
@@ -7219,6 +7283,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, update_agent_collaborator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_collaborator_errors()}
   def update_agent_collaborator(
         %Client{} = client,
@@ -7264,6 +7329,7 @@ defmodule AWS.BedrockAgent do
         ) ::
           {:ok, update_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_knowledge_base_errors()}
   def update_agent_knowledge_base(
         %Client{} = client,
@@ -7304,6 +7370,7 @@ defmodule AWS.BedrockAgent do
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(
         %Client{} = client,
@@ -7345,6 +7412,7 @@ defmodule AWS.BedrockAgent do
   @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_errors()}
   def update_flow(%Client{} = client, flow_identifier, input, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
@@ -7377,6 +7445,7 @@ defmodule AWS.BedrockAgent do
   @spec update_flow_alias(map(), String.t(), String.t(), update_flow_alias_request(), list()) ::
           {:ok, update_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_alias_errors()}
   def update_flow_alias(
         %Client{} = client,
@@ -7436,6 +7505,7 @@ defmodule AWS.BedrockAgent do
   @spec update_knowledge_base(map(), String.t(), update_knowledge_base_request(), list()) ::
           {:ok, update_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_knowledge_base_errors()}
   def update_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -7469,6 +7539,7 @@ defmodule AWS.BedrockAgent do
   @spec update_prompt(map(), String.t(), update_prompt_request(), list()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_prompt_errors()}
   def update_prompt(%Client{} = client, prompt_identifier, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
@@ -7497,6 +7568,7 @@ defmodule AWS.BedrockAgent do
   @spec validate_flow_definition(map(), validate_flow_definition_request(), list()) ::
           {:ok, validate_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_flow_definition_errors()}
   def validate_flow_definition(%Client{} = client, input, options \\ []) do
     url_path = "/flows/validate-definition"

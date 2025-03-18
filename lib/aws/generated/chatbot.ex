@@ -1599,6 +1599,7 @@ defmodule AWS.Chatbot do
   @spec associate_to_configuration(map(), associate_to_configuration_request(), list()) ::
           {:ok, associate_to_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_to_configuration_errors()}
   def associate_to_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/associate-to-configuration"
@@ -1631,6 +1632,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, create_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_chime_webhook_configuration_errors()}
   def create_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-chime-webhook-configuration"
@@ -1660,6 +1662,7 @@ defmodule AWS.Chatbot do
   @spec create_custom_action(map(), create_custom_action_request(), list()) ::
           {:ok, create_custom_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_action_errors()}
   def create_custom_action(%Client{} = client, input, options \\ []) do
     url_path = "/create-custom-action"
@@ -1692,6 +1695,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, create_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_microsoft_teams_channel_configuration_errors()}
   def create_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-ms-teams-channel-configuration"
@@ -1724,6 +1728,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, create_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_slack_channel_configuration_errors()}
   def create_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/create-slack-channel-configuration"
@@ -1756,6 +1761,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_chime_webhook_configuration_errors()}
   def delete_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-chime-webhook-configuration"
@@ -1784,6 +1790,7 @@ defmodule AWS.Chatbot do
   @spec delete_custom_action(map(), delete_custom_action_request(), list()) ::
           {:ok, delete_custom_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_action_errors()}
   def delete_custom_action(%Client{} = client, input, options \\ []) do
     url_path = "/delete-custom-action"
@@ -1816,6 +1823,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_microsoft_teams_channel_configuration_errors()}
   def delete_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-channel-configuration"
@@ -1852,6 +1860,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_teams_configured_team_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_microsoft_teams_configured_team_errors()}
   def delete_microsoft_teams_configured_team(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-configured-teams"
@@ -1884,6 +1893,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_microsoft_teams_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_microsoft_teams_user_identity_errors()}
   def delete_microsoft_teams_user_identity(%Client{} = client, input, options \\ []) do
     url_path = "/delete-ms-teams-user-identity"
@@ -1916,6 +1926,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slack_channel_configuration_errors()}
   def delete_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-channel-configuration"
@@ -1944,6 +1955,7 @@ defmodule AWS.Chatbot do
   @spec delete_slack_user_identity(map(), delete_slack_user_identity_request(), list()) ::
           {:ok, delete_slack_user_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slack_user_identity_errors()}
   def delete_slack_user_identity(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-user-identity"
@@ -1979,6 +1991,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, delete_slack_workspace_authorization_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slack_workspace_authorization_errors()}
   def delete_slack_workspace_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/delete-slack-workspace-authorization"
@@ -2012,6 +2025,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, describe_chime_webhook_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_chime_webhook_configurations_errors()}
   def describe_chime_webhook_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/describe-chime-webhook-configurations"
@@ -2044,6 +2058,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, describe_slack_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_slack_channel_configurations_errors()}
   def describe_slack_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-channel-configurations"
@@ -2072,6 +2087,7 @@ defmodule AWS.Chatbot do
   @spec describe_slack_user_identities(map(), describe_slack_user_identities_request(), list()) ::
           {:ok, describe_slack_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_slack_user_identities_errors()}
   def describe_slack_user_identities(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-user-identities"
@@ -2101,6 +2117,7 @@ defmodule AWS.Chatbot do
   @spec describe_slack_workspaces(map(), describe_slack_workspaces_request(), list()) ::
           {:ok, describe_slack_workspaces_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_slack_workspaces_errors()}
   def describe_slack_workspaces(%Client{} = client, input, options \\ []) do
     url_path = "/describe-slack-workspaces"
@@ -2129,6 +2146,7 @@ defmodule AWS.Chatbot do
   @spec disassociate_from_configuration(map(), disassociate_from_configuration_request(), list()) ::
           {:ok, disassociate_from_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_configuration_errors()}
   def disassociate_from_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/disassociate-from-configuration"
@@ -2157,6 +2175,7 @@ defmodule AWS.Chatbot do
   @spec get_account_preferences(map(), get_account_preferences_request(), list()) ::
           {:ok, get_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_preferences_errors()}
   def get_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-preferences"
@@ -2185,6 +2204,7 @@ defmodule AWS.Chatbot do
   @spec get_custom_action(map(), get_custom_action_request(), list()) ::
           {:ok, get_custom_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_action_errors()}
   def get_custom_action(%Client{} = client, input, options \\ []) do
     url_path = "/get-custom-action"
@@ -2217,6 +2237,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, get_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_microsoft_teams_channel_configuration_errors()}
   def get_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-ms-teams-channel-configuration"
@@ -2245,6 +2266,7 @@ defmodule AWS.Chatbot do
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_associations(%Client{} = client, input, options \\ []) do
     url_path = "/list-associations"
     headers = []
@@ -2272,6 +2294,7 @@ defmodule AWS.Chatbot do
   @spec list_custom_actions(map(), list_custom_actions_request(), list()) ::
           {:ok, list_custom_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_actions_errors()}
   def list_custom_actions(%Client{} = client, input, options \\ []) do
     url_path = "/list-custom-actions"
@@ -2304,6 +2327,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, list_teams_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_microsoft_teams_channel_configurations_errors()}
   def list_microsoft_teams_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-channel-configurations"
@@ -2336,6 +2360,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, list_microsoft_teams_configured_teams_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_microsoft_teams_configured_teams_errors()}
   def list_microsoft_teams_configured_teams(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-configured-teams"
@@ -2368,6 +2393,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, list_microsoft_teams_user_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_microsoft_teams_user_identities_errors()}
   def list_microsoft_teams_user_identities(%Client{} = client, input, options \\ []) do
     url_path = "/list-ms-teams-user-identities"
@@ -2399,6 +2425,7 @@ defmodule AWS.Chatbot do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/list-tags-for-resource"
@@ -2430,6 +2457,7 @@ defmodule AWS.Chatbot do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tag-resource"
@@ -2461,6 +2489,7 @@ defmodule AWS.Chatbot do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag-resource"
@@ -2489,6 +2518,7 @@ defmodule AWS.Chatbot do
   @spec update_account_preferences(map(), update_account_preferences_request(), list()) ::
           {:ok, update_account_preferences_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_preferences_errors()}
   def update_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-preferences"
@@ -2521,6 +2551,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, update_chime_webhook_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_chime_webhook_configuration_errors()}
   def update_chime_webhook_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-chime-webhook-configuration"
@@ -2549,6 +2580,7 @@ defmodule AWS.Chatbot do
   @spec update_custom_action(map(), update_custom_action_request(), list()) ::
           {:ok, update_custom_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_action_errors()}
   def update_custom_action(%Client{} = client, input, options \\ []) do
     url_path = "/update-custom-action"
@@ -2581,6 +2613,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, update_teams_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_microsoft_teams_channel_configuration_errors()}
   def update_microsoft_teams_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-ms-teams-channel-configuration"
@@ -2613,6 +2646,7 @@ defmodule AWS.Chatbot do
         ) ::
           {:ok, update_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_slack_channel_configuration_errors()}
   def update_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/update-slack-channel-configuration"

@@ -3425,6 +3425,7 @@ defmodule AWS.StorageGateway do
   @spec activate_gateway(map(), activate_gateway_input(), list()) ::
           {:ok, activate_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_gateway_errors()}
   def activate_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3446,6 +3447,7 @@ defmodule AWS.StorageGateway do
   @spec add_cache(map(), add_cache_input(), list()) ::
           {:ok, add_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_cache_errors()}
   def add_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3485,6 +3487,7 @@ defmodule AWS.StorageGateway do
   @spec add_tags_to_resource(map(), add_tags_to_resource_input(), list()) ::
           {:ok, add_tags_to_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3508,6 +3511,7 @@ defmodule AWS.StorageGateway do
   @spec add_upload_buffer(map(), add_upload_buffer_input(), list()) ::
           {:ok, add_upload_buffer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_upload_buffer_errors()}
   def add_upload_buffer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3537,6 +3541,7 @@ defmodule AWS.StorageGateway do
   @spec add_working_storage(map(), add_working_storage_input(), list()) ::
           {:ok, add_working_storage_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_working_storage_errors()}
   def add_working_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3557,6 +3562,7 @@ defmodule AWS.StorageGateway do
   @spec assign_tape_pool(map(), assign_tape_pool_input(), list()) ::
           {:ok, assign_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assign_tape_pool_errors()}
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3577,6 +3583,7 @@ defmodule AWS.StorageGateway do
   @spec associate_file_system(map(), associate_file_system_input(), list()) ::
           {:ok, associate_file_system_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_file_system_errors()}
   def associate_file_system(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3599,6 +3606,7 @@ defmodule AWS.StorageGateway do
   @spec attach_volume(map(), attach_volume_input(), list()) ::
           {:ok, attach_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_volume_errors()}
   def attach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3616,6 +3624,7 @@ defmodule AWS.StorageGateway do
   @spec cancel_archival(map(), cancel_archival_input(), list()) ::
           {:ok, cancel_archival_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_archival_errors()}
   def cancel_archival(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3638,6 +3647,7 @@ defmodule AWS.StorageGateway do
   @spec cancel_cache_report(map(), cancel_cache_report_input(), list()) ::
           {:ok, cancel_cache_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_cache_report_errors()}
   def cancel_cache_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3656,6 +3666,7 @@ defmodule AWS.StorageGateway do
   @spec cancel_retrieval(map(), cancel_retrieval_input(), list()) ::
           {:ok, cancel_retrieval_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_retrieval_errors()}
   def cancel_retrieval(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3691,6 +3702,7 @@ defmodule AWS.StorageGateway do
   @spec create_cached_iscsi_volume(map(), create_cached_iscsi_volume_input(), list()) ::
           {:ok, create_cached_iscsi_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cached_iscsi_volume_errors()}
   def create_cached_iscsi_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3726,6 +3738,7 @@ defmodule AWS.StorageGateway do
   @spec create_nfs_file_share(map(), create_nfs_file_share_input(), list()) ::
           {:ok, create_nfs_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_nfs_file_share_errors()}
   def create_nfs_file_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3761,6 +3774,7 @@ defmodule AWS.StorageGateway do
   @spec create_smb_file_share(map(), create_smb_file_share_input(), list()) ::
           {:ok, create_smb_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_smb_file_share_errors()}
   def create_smb_file_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3809,6 +3823,7 @@ defmodule AWS.StorageGateway do
   @spec create_snapshot(map(), create_snapshot_input(), list()) ::
           {:ok, create_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3854,6 +3869,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, create_snapshot_from_volume_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_from_volume_recovery_point_errors()}
   def create_snapshot_from_volume_recovery_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3886,6 +3902,7 @@ defmodule AWS.StorageGateway do
   @spec create_stored_iscsi_volume(map(), create_stored_iscsi_volume_input(), list()) ::
           {:ok, create_stored_iscsi_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stored_iscsi_volume_errors()}
   def create_stored_iscsi_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3902,6 +3919,7 @@ defmodule AWS.StorageGateway do
   @spec create_tape_pool(map(), create_tape_pool_input(), list()) ::
           {:ok, create_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tape_pool_errors()}
   def create_tape_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3926,6 +3944,7 @@ defmodule AWS.StorageGateway do
   @spec create_tape_with_barcode(map(), create_tape_with_barcode_input(), list()) ::
           {:ok, create_tape_with_barcode_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tape_with_barcode_errors()}
   def create_tape_with_barcode(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3946,6 +3965,7 @@ defmodule AWS.StorageGateway do
   @spec create_tapes(map(), create_tapes_input(), list()) ::
           {:ok, create_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tapes_errors()}
   def create_tapes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3968,6 +3988,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, delete_automatic_tape_creation_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_automatic_tape_creation_policy_errors()}
   def delete_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3990,6 +4011,7 @@ defmodule AWS.StorageGateway do
   @spec delete_bandwidth_rate_limit(map(), delete_bandwidth_rate_limit_input(), list()) ::
           {:ok, delete_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bandwidth_rate_limit_errors()}
   def delete_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4012,6 +4034,7 @@ defmodule AWS.StorageGateway do
   @spec delete_cache_report(map(), delete_cache_report_input(), list()) ::
           {:ok, delete_cache_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cache_report_errors()}
   def delete_cache_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4030,6 +4053,7 @@ defmodule AWS.StorageGateway do
   @spec delete_chap_credentials(map(), delete_chap_credentials_input(), list()) ::
           {:ok, delete_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_chap_credentials_errors()}
   def delete_chap_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4046,6 +4070,7 @@ defmodule AWS.StorageGateway do
   @spec delete_file_share(map(), delete_file_share_input(), list()) ::
           {:ok, delete_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_share_errors()}
   def delete_file_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4082,6 +4107,7 @@ defmodule AWS.StorageGateway do
   @spec delete_gateway(map(), delete_gateway_input(), list()) ::
           {:ok, delete_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4111,6 +4137,7 @@ defmodule AWS.StorageGateway do
   @spec delete_snapshot_schedule(map(), delete_snapshot_schedule_input(), list()) ::
           {:ok, delete_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4127,6 +4154,7 @@ defmodule AWS.StorageGateway do
   @spec delete_tape(map(), delete_tape_input(), list()) ::
           {:ok, delete_tape_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tape_errors()}
   def delete_tape(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4143,6 +4171,7 @@ defmodule AWS.StorageGateway do
   @spec delete_tape_archive(map(), delete_tape_archive_input(), list()) ::
           {:ok, delete_tape_archive_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tape_archive_errors()}
   def delete_tape_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4161,6 +4190,7 @@ defmodule AWS.StorageGateway do
   @spec delete_tape_pool(map(), delete_tape_pool_input(), list()) ::
           {:ok, delete_tape_pool_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tape_pool_errors()}
   def delete_tape_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4196,6 +4226,7 @@ defmodule AWS.StorageGateway do
   @spec delete_volume(map(), delete_volume_input(), list()) ::
           {:ok, delete_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4218,6 +4249,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, describe_availability_monitor_test_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_availability_monitor_test_errors()}
   def describe_availability_monitor_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4246,6 +4278,7 @@ defmodule AWS.StorageGateway do
   @spec describe_bandwidth_rate_limit(map(), describe_bandwidth_rate_limit_input(), list()) ::
           {:ok, describe_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_errors()}
   def describe_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4291,6 +4324,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, describe_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_schedule_errors()}
   def describe_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4311,6 +4345,7 @@ defmodule AWS.StorageGateway do
   @spec describe_cache(map(), describe_cache_input(), list()) ::
           {:ok, describe_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_errors()}
   def describe_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4326,6 +4361,7 @@ defmodule AWS.StorageGateway do
   @spec describe_cache_report(map(), describe_cache_report_input(), list()) ::
           {:ok, describe_cache_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_report_errors()}
   def describe_cache_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4347,6 +4383,7 @@ defmodule AWS.StorageGateway do
   @spec describe_cached_iscsi_volumes(map(), describe_cached_iscsi_volumes_input(), list()) ::
           {:ok, describe_cached_iscsi_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cached_iscsi_volumes_errors()}
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4365,6 +4402,7 @@ defmodule AWS.StorageGateway do
   @spec describe_chap_credentials(map(), describe_chap_credentials_input(), list()) ::
           {:ok, describe_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_chap_credentials_errors()}
   def describe_chap_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4385,6 +4423,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, describe_file_system_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_system_associations_errors()}
   def describe_file_system_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4403,6 +4442,7 @@ defmodule AWS.StorageGateway do
   @spec describe_gateway_information(map(), describe_gateway_information_input(), list()) ::
           {:ok, describe_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_information_errors()}
   def describe_gateway_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4421,6 +4461,7 @@ defmodule AWS.StorageGateway do
   @spec describe_maintenance_start_time(map(), describe_maintenance_start_time_input(), list()) ::
           {:ok, describe_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_start_time_errors()}
   def describe_maintenance_start_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4438,6 +4479,7 @@ defmodule AWS.StorageGateway do
   @spec describe_nfs_file_shares(map(), describe_nfs_file_shares_input(), list()) ::
           {:ok, describe_nfs_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_nfs_file_shares_errors()}
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4455,6 +4497,7 @@ defmodule AWS.StorageGateway do
   @spec describe_smb_file_shares(map(), describe_smb_file_shares_input(), list()) ::
           {:ok, describe_smb_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_smb_file_shares_errors()}
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4472,6 +4515,7 @@ defmodule AWS.StorageGateway do
   @spec describe_smb_settings(map(), describe_smb_settings_input(), list()) ::
           {:ok, describe_smb_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_smb_settings_errors()}
   def describe_smb_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4491,6 +4535,7 @@ defmodule AWS.StorageGateway do
   @spec describe_snapshot_schedule(map(), describe_snapshot_schedule_input(), list()) ::
           {:ok, describe_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshot_schedule_errors()}
   def describe_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4510,6 +4555,7 @@ defmodule AWS.StorageGateway do
   @spec describe_stored_iscsi_volumes(map(), describe_stored_iscsi_volumes_input(), list()) ::
           {:ok, describe_stored_iscsi_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stored_iscsi_volumes_errors()}
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4530,6 +4576,7 @@ defmodule AWS.StorageGateway do
   @spec describe_tape_archives(map(), describe_tape_archives_input(), list()) ::
           {:ok, describe_tape_archives_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tape_archives_errors()}
   def describe_tape_archives(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4553,6 +4600,7 @@ defmodule AWS.StorageGateway do
   @spec describe_tape_recovery_points(map(), describe_tape_recovery_points_input(), list()) ::
           {:ok, describe_tape_recovery_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tape_recovery_points_errors()}
   def describe_tape_recovery_points(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4582,6 +4630,7 @@ defmodule AWS.StorageGateway do
   @spec describe_tapes(map(), describe_tapes_input(), list()) ::
           {:ok, describe_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tapes_errors()}
   def describe_tapes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4602,6 +4651,7 @@ defmodule AWS.StorageGateway do
   @spec describe_upload_buffer(map(), describe_upload_buffer_input(), list()) ::
           {:ok, describe_upload_buffer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_upload_buffer_errors()}
   def describe_upload_buffer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4621,6 +4671,7 @@ defmodule AWS.StorageGateway do
   @spec describe_vtl_devices(map(), describe_vtl_devices_input(), list()) ::
           {:ok, describe_vtl_devices_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vtl_devices_errors()}
   def describe_vtl_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4646,6 +4697,7 @@ defmodule AWS.StorageGateway do
   @spec describe_working_storage(map(), describe_working_storage_input(), list()) ::
           {:ok, describe_working_storage_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_working_storage_errors()}
   def describe_working_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4668,6 +4720,7 @@ defmodule AWS.StorageGateway do
   @spec detach_volume(map(), detach_volume_input(), list()) ::
           {:ok, detach_volume_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_volume_errors()}
   def detach_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4691,6 +4744,7 @@ defmodule AWS.StorageGateway do
   @spec disable_gateway(map(), disable_gateway_input(), list()) ::
           {:ok, disable_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_gateway_errors()}
   def disable_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4708,6 +4762,7 @@ defmodule AWS.StorageGateway do
   @spec disassociate_file_system(map(), disassociate_file_system_input(), list()) ::
           {:ok, disassociate_file_system_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_file_system_errors()}
   def disassociate_file_system(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4739,6 +4794,7 @@ defmodule AWS.StorageGateway do
   @spec evict_files_failing_upload(map(), evict_files_failing_upload_input(), list()) ::
           {:ok, evict_files_failing_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evict_files_failing_upload_errors()}
   def evict_files_failing_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4767,6 +4823,7 @@ defmodule AWS.StorageGateway do
   @spec join_domain(map(), join_domain_input(), list()) ::
           {:ok, join_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, join_domain_errors()}
   def join_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4789,6 +4846,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, list_automatic_tape_creation_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_automatic_tape_creation_policies_errors()}
   def list_automatic_tape_creation_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4808,6 +4866,7 @@ defmodule AWS.StorageGateway do
   @spec list_cache_reports(map(), list_cache_reports_input(), list()) ::
           {:ok, list_cache_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cache_reports_errors()}
   def list_cache_reports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4826,6 +4885,7 @@ defmodule AWS.StorageGateway do
   @spec list_file_shares(map(), list_file_shares_input(), list()) ::
           {:ok, list_file_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_file_shares_errors()}
   def list_file_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4844,6 +4904,7 @@ defmodule AWS.StorageGateway do
   @spec list_file_system_associations(map(), list_file_system_associations_input(), list()) ::
           {:ok, list_file_system_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_file_system_associations_errors()}
   def list_file_system_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4874,6 +4935,7 @@ defmodule AWS.StorageGateway do
   @spec list_gateways(map(), list_gateways_input(), list()) ::
           {:ok, list_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4902,6 +4964,7 @@ defmodule AWS.StorageGateway do
   @spec list_local_disks(map(), list_local_disks_input(), list()) ::
           {:ok, list_local_disks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_local_disks_errors()}
   def list_local_disks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4918,6 +4981,7 @@ defmodule AWS.StorageGateway do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4943,6 +5007,7 @@ defmodule AWS.StorageGateway do
   @spec list_tape_pools(map(), list_tape_pools_input(), list()) ::
           {:ok, list_tape_pools_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tape_pools_errors()}
   def list_tape_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4974,6 +5039,7 @@ defmodule AWS.StorageGateway do
   @spec list_tapes(map(), list_tapes_input(), list()) ::
           {:ok, list_tapes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tapes_errors()}
   def list_tapes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4992,6 +5058,7 @@ defmodule AWS.StorageGateway do
   @spec list_volume_initiators(map(), list_volume_initiators_input(), list()) ::
           {:ok, list_volume_initiators_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_volume_initiators_errors()}
   def list_volume_initiators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5016,6 +5083,7 @@ defmodule AWS.StorageGateway do
   @spec list_volume_recovery_points(map(), list_volume_recovery_points_input(), list()) ::
           {:ok, list_volume_recovery_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_volume_recovery_points_errors()}
   def list_volume_recovery_points(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5045,6 +5113,7 @@ defmodule AWS.StorageGateway do
   @spec list_volumes(map(), list_volumes_input(), list()) ::
           {:ok, list_volumes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_volumes_errors()}
   def list_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5075,6 +5144,7 @@ defmodule AWS.StorageGateway do
   @spec notify_when_uploaded(map(), notify_when_uploaded_input(), list()) ::
           {:ok, notify_when_uploaded_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_when_uploaded_errors()}
   def notify_when_uploaded(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5142,6 +5212,7 @@ defmodule AWS.StorageGateway do
   @spec refresh_cache(map(), refresh_cache_input(), list()) ::
           {:ok, refresh_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, refresh_cache_errors()}
   def refresh_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5158,6 +5229,7 @@ defmodule AWS.StorageGateway do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_input(), list()) ::
           {:ok, remove_tags_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5188,6 +5260,7 @@ defmodule AWS.StorageGateway do
   @spec reset_cache(map(), reset_cache_input(), list()) ::
           {:ok, reset_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_cache_errors()}
   def reset_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5214,6 +5287,7 @@ defmodule AWS.StorageGateway do
   @spec retrieve_tape_archive(map(), retrieve_tape_archive_input(), list()) ::
           {:ok, retrieve_tape_archive_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_tape_archive_errors()}
   def retrieve_tape_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5241,6 +5315,7 @@ defmodule AWS.StorageGateway do
   @spec retrieve_tape_recovery_point(map(), retrieve_tape_recovery_point_input(), list()) ::
           {:ok, retrieve_tape_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_tape_recovery_point_errors()}
   def retrieve_tape_recovery_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5260,6 +5335,7 @@ defmodule AWS.StorageGateway do
   @spec set_local_console_password(map(), set_local_console_password_input(), list()) ::
           {:ok, set_local_console_password_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_local_console_password_errors()}
   def set_local_console_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5277,6 +5353,7 @@ defmodule AWS.StorageGateway do
   @spec set_smb_guest_password(map(), set_smb_guest_password_input(), list()) ::
           {:ok, set_smb_guest_password_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_smb_guest_password_errors()}
   def set_smb_guest_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5319,6 +5396,7 @@ defmodule AWS.StorageGateway do
   @spec shutdown_gateway(map(), shutdown_gateway_input(), list()) ::
           {:ok, shutdown_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, shutdown_gateway_errors()}
   def shutdown_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5340,6 +5418,7 @@ defmodule AWS.StorageGateway do
   @spec start_availability_monitor_test(map(), start_availability_monitor_test_input(), list()) ::
           {:ok, start_availability_monitor_test_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_availability_monitor_test_errors()}
   def start_availability_monitor_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5392,6 +5471,7 @@ defmodule AWS.StorageGateway do
   @spec start_cache_report(map(), start_cache_report_input(), list()) ::
           {:ok, start_cache_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_cache_report_errors()}
   def start_cache_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5421,6 +5501,7 @@ defmodule AWS.StorageGateway do
   @spec start_gateway(map(), start_gateway_input(), list()) ::
           {:ok, start_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_gateway_errors()}
   def start_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5446,6 +5527,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, update_automatic_tape_creation_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_automatic_tape_creation_policy_errors()}
   def update_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5476,6 +5558,7 @@ defmodule AWS.StorageGateway do
   @spec update_bandwidth_rate_limit(map(), update_bandwidth_rate_limit_input(), list()) ::
           {:ok, update_bandwidth_rate_limit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bandwidth_rate_limit_errors()}
   def update_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5504,6 +5587,7 @@ defmodule AWS.StorageGateway do
         ) ::
           {:ok, update_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bandwidth_rate_limit_schedule_errors()}
   def update_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5527,6 +5611,7 @@ defmodule AWS.StorageGateway do
   @spec update_chap_credentials(map(), update_chap_credentials_input(), list()) ::
           {:ok, update_chap_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_chap_credentials_errors()}
   def update_chap_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5543,6 +5628,7 @@ defmodule AWS.StorageGateway do
   @spec update_file_system_association(map(), update_file_system_association_input(), list()) ::
           {:ok, update_file_system_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_file_system_association_errors()}
   def update_file_system_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5565,6 +5651,7 @@ defmodule AWS.StorageGateway do
   @spec update_gateway_information(map(), update_gateway_information_input(), list()) ::
           {:ok, update_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5596,6 +5683,7 @@ defmodule AWS.StorageGateway do
   @spec update_gateway_software_now(map(), update_gateway_software_now_input(), list()) ::
           {:ok, update_gateway_software_now_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5632,6 +5720,7 @@ defmodule AWS.StorageGateway do
   @spec update_maintenance_start_time(map(), update_maintenance_start_time_input(), list()) ::
           {:ok, update_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_maintenance_start_time_errors()}
   def update_maintenance_start_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5668,6 +5757,7 @@ defmodule AWS.StorageGateway do
   @spec update_nfs_file_share(map(), update_nfs_file_share_input(), list()) ::
           {:ok, update_nfs_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_nfs_file_share_errors()}
   def update_nfs_file_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5703,6 +5793,7 @@ defmodule AWS.StorageGateway do
   @spec update_smb_file_share(map(), update_smb_file_share_input(), list()) ::
           {:ok, update_smb_file_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_smb_file_share_errors()}
   def update_smb_file_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5720,6 +5811,7 @@ defmodule AWS.StorageGateway do
   @spec update_smb_file_share_visibility(map(), update_smb_file_share_visibility_input(), list()) ::
           {:ok, update_smb_file_share_visibility_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_smb_file_share_visibility_errors()}
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5735,6 +5827,7 @@ defmodule AWS.StorageGateway do
   @spec update_smb_local_groups(map(), update_smb_local_groups_input(), list()) ::
           {:ok, update_smb_local_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_smb_local_groups_errors()}
   def update_smb_local_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5759,6 +5852,7 @@ defmodule AWS.StorageGateway do
   @spec update_smb_security_strategy(map(), update_smb_security_strategy_input(), list()) ::
           {:ok, update_smb_security_strategy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_smb_security_strategy_errors()}
   def update_smb_security_strategy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5786,6 +5880,7 @@ defmodule AWS.StorageGateway do
   @spec update_snapshot_schedule(map(), update_snapshot_schedule_input(), list()) ::
           {:ok, update_snapshot_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_snapshot_schedule_errors()}
   def update_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5806,6 +5901,7 @@ defmodule AWS.StorageGateway do
   @spec update_vtl_device_type(map(), update_vtl_device_type_input(), list()) ::
           {:ok, update_vtl_device_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vtl_device_type_errors()}
   def update_vtl_device_type(%Client{} = client, input, options \\ []) do
     meta = metadata()

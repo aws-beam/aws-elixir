@@ -506,6 +506,7 @@ defmodule AWS.AutoScalingPlans do
   @spec create_scaling_plan(map(), create_scaling_plan_request(), list()) ::
           {:ok, create_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scaling_plan_errors()}
   def create_scaling_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -526,6 +527,7 @@ defmodule AWS.AutoScalingPlans do
   @spec delete_scaling_plan(map(), delete_scaling_plan_request(), list()) ::
           {:ok, delete_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scaling_plan_errors()}
   def delete_scaling_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -539,6 +541,7 @@ defmodule AWS.AutoScalingPlans do
   @spec describe_scaling_plan_resources(map(), describe_scaling_plan_resources_request(), list()) ::
           {:ok, describe_scaling_plan_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_plan_resources_errors()}
   def describe_scaling_plan_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -552,6 +555,7 @@ defmodule AWS.AutoScalingPlans do
   @spec describe_scaling_plans(map(), describe_scaling_plans_request(), list()) ::
           {:ok, describe_scaling_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_plans_errors()}
   def describe_scaling_plans(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -574,6 +578,7 @@ defmodule AWS.AutoScalingPlans do
         ) ::
           {:ok, get_scaling_plan_resource_forecast_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_scaling_plan_resource_forecast_data_errors()}
   def get_scaling_plan_resource_forecast_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -591,6 +596,7 @@ defmodule AWS.AutoScalingPlans do
   @spec update_scaling_plan(map(), update_scaling_plan_request(), list()) ::
           {:ok, update_scaling_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scaling_plan_errors()}
   def update_scaling_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()

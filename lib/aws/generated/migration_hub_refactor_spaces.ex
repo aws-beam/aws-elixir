@@ -1276,6 +1276,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_application(map(), String.t(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}/applications"
@@ -1323,6 +1324,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
@@ -1455,6 +1457,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_route(map(), String.t(), String.t(), create_route_request(), list()) ::
           {:ok, create_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_route_errors()}
   def create_route(
         %Client{} = client,
@@ -1504,6 +1507,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec create_service(map(), String.t(), String.t(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(
         %Client{} = client,
@@ -1543,6 +1547,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_application(map(), String.t(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(
         %Client{} = client,
@@ -1582,6 +1587,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, environment_identifier, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
@@ -1610,6 +1616,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -1638,6 +1645,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec delete_route(map(), String.t(), String.t(), String.t(), delete_route_request(), list()) ::
           {:ok, delete_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_errors()}
   def delete_route(
         %Client{} = client,
@@ -1682,6 +1690,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
         ) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(
         %Client{} = client,
@@ -1719,6 +1728,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_application(map(), String.t(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(
         %Client{} = client,
@@ -1743,6 +1753,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_identifier, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_identifier)}"
@@ -1760,6 +1771,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -1777,6 +1789,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_route(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_route_errors()}
   def get_route(
         %Client{} = client,
@@ -1802,6 +1815,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec get_service(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(
         %Client{} = client,
@@ -1828,6 +1842,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_applications(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
@@ -1867,6 +1882,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_environment_vpcs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environment_vpcs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_vpcs_errors()}
   def list_environment_vpcs(
         %Client{} = client,
@@ -1906,6 +1922,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
@@ -1938,6 +1955,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_routes(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routes_errors()}
   def list_routes(
         %Client{} = client,
@@ -1979,6 +1997,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_services(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(
         %Client{} = client,
@@ -2022,6 +2041,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2046,6 +2066,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/resourcepolicy"
@@ -2083,6 +2104,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2116,6 +2138,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2149,6 +2172,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @spec update_route(map(), String.t(), String.t(), String.t(), update_route_request(), list()) ::
           {:ok, update_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_route_errors()}
   def update_route(
         %Client{} = client,

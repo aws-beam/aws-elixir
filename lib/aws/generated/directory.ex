@@ -3188,6 +3188,7 @@ defmodule AWS.Directory do
   @spec accept_shared_directory(map(), accept_shared_directory_request(), list()) ::
           {:ok, accept_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_shared_directory_errors()}
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3215,6 +3216,7 @@ defmodule AWS.Directory do
   @spec add_ip_routes(map(), add_ip_routes_request(), list()) ::
           {:ok, add_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_ip_routes_errors()}
   def add_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3228,6 +3230,7 @@ defmodule AWS.Directory do
   @spec add_region(map(), add_region_request(), list()) ::
           {:ok, add_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_region_errors()}
   def add_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3246,6 +3249,7 @@ defmodule AWS.Directory do
   @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3266,6 +3270,7 @@ defmodule AWS.Directory do
   @spec cancel_schema_extension(map(), cancel_schema_extension_request(), list()) ::
           {:ok, cancel_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_schema_extension_errors()}
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3285,6 +3290,7 @@ defmodule AWS.Directory do
   @spec connect_directory(map(), connect_directory_request(), list()) ::
           {:ok, connect_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, connect_directory_errors()}
   def connect_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3305,6 +3311,7 @@ defmodule AWS.Directory do
   @spec create_alias(map(), create_alias_request(), list()) ::
           {:ok, create_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3318,6 +3325,7 @@ defmodule AWS.Directory do
   @spec create_computer(map(), create_computer_request(), list()) ::
           {:ok, create_computer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_computer_errors()}
   def create_computer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3337,6 +3345,7 @@ defmodule AWS.Directory do
   @spec create_conditional_forwarder(map(), create_conditional_forwarder_request(), list()) ::
           {:ok, create_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_conditional_forwarder_errors()}
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3360,6 +3369,7 @@ defmodule AWS.Directory do
   @spec create_directory(map(), create_directory_request(), list()) ::
           {:ok, create_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3376,6 +3386,7 @@ defmodule AWS.Directory do
   @spec create_log_subscription(map(), create_log_subscription_request(), list()) ::
           {:ok, create_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_log_subscription_errors()}
   def create_log_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3398,6 +3409,7 @@ defmodule AWS.Directory do
   @spec create_microsoft_ad(map(), create_microsoft_ad_request(), list()) ::
           {:ok, create_microsoft_ad_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_microsoft_ad_errors()}
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3414,6 +3426,7 @@ defmodule AWS.Directory do
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3441,6 +3454,7 @@ defmodule AWS.Directory do
   @spec create_trust(map(), create_trust_request(), list()) ::
           {:ok, create_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trust_errors()}
   def create_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3456,6 +3470,7 @@ defmodule AWS.Directory do
   @spec delete_conditional_forwarder(map(), delete_conditional_forwarder_request(), list()) ::
           {:ok, delete_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_conditional_forwarder_errors()}
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3475,6 +3490,7 @@ defmodule AWS.Directory do
   @spec delete_directory(map(), delete_directory_request(), list()) ::
           {:ok, delete_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3488,6 +3504,7 @@ defmodule AWS.Directory do
   @spec delete_log_subscription(map(), delete_log_subscription_request(), list()) ::
           {:ok, delete_log_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_log_subscription_errors()}
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3501,6 +3518,7 @@ defmodule AWS.Directory do
   @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3516,6 +3534,7 @@ defmodule AWS.Directory do
   @spec delete_trust(map(), delete_trust_request(), list()) ::
           {:ok, delete_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trust_errors()}
   def delete_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3530,6 +3549,7 @@ defmodule AWS.Directory do
   @spec deregister_certificate(map(), deregister_certificate_request(), list()) ::
           {:ok, deregister_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_certificate_errors()}
   def deregister_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3544,6 +3564,7 @@ defmodule AWS.Directory do
   @spec deregister_event_topic(map(), deregister_event_topic_request(), list()) ::
           {:ok, deregister_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_event_topic_errors()}
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3558,6 +3579,7 @@ defmodule AWS.Directory do
   @spec describe_certificate(map(), describe_certificate_request(), list()) ::
           {:ok, describe_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3580,6 +3602,7 @@ defmodule AWS.Directory do
         ) ::
           {:ok, describe_client_authentication_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_client_authentication_settings_errors()}
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3597,6 +3620,7 @@ defmodule AWS.Directory do
   @spec describe_conditional_forwarders(map(), describe_conditional_forwarders_request(), list()) ::
           {:ok, describe_conditional_forwarders_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_conditional_forwarders_errors()}
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3624,6 +3648,7 @@ defmodule AWS.Directory do
   @spec describe_directories(map(), describe_directories_request(), list()) ::
           {:ok, describe_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_directories_errors()}
   def describe_directories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3638,6 +3663,7 @@ defmodule AWS.Directory do
   @spec describe_directory_data_access(map(), describe_directory_data_access_request(), list()) ::
           {:ok, describe_directory_data_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_directory_data_access_errors()}
   def describe_directory_data_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3651,6 +3677,7 @@ defmodule AWS.Directory do
   @spec describe_domain_controllers(map(), describe_domain_controllers_request(), list()) ::
           {:ok, describe_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_controllers_errors()}
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3670,6 +3697,7 @@ defmodule AWS.Directory do
   @spec describe_event_topics(map(), describe_event_topics_request(), list()) ::
           {:ok, describe_event_topics_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_topics_errors()}
   def describe_event_topics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3683,6 +3711,7 @@ defmodule AWS.Directory do
   @spec describe_ldaps_settings(map(), describe_ldaps_settings_request(), list()) ::
           {:ok, describe_ldaps_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ldaps_settings_errors()}
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3697,6 +3726,7 @@ defmodule AWS.Directory do
   @spec describe_regions(map(), describe_regions_request(), list()) ::
           {:ok, describe_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_regions_errors()}
   def describe_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3711,6 +3741,7 @@ defmodule AWS.Directory do
   @spec describe_settings(map(), describe_settings_request(), list()) ::
           {:ok, describe_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_settings_errors()}
   def describe_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3724,6 +3755,7 @@ defmodule AWS.Directory do
   @spec describe_shared_directories(map(), describe_shared_directories_request(), list()) ::
           {:ok, describe_shared_directories_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_shared_directories_errors()}
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3746,6 +3778,7 @@ defmodule AWS.Directory do
   @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
           {:ok, describe_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3763,6 +3796,7 @@ defmodule AWS.Directory do
   @spec describe_trusts(map(), describe_trusts_request(), list()) ::
           {:ok, describe_trusts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusts_errors()}
   def describe_trusts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3777,6 +3811,7 @@ defmodule AWS.Directory do
   @spec describe_update_directory(map(), describe_update_directory_request(), list()) ::
           {:ok, describe_update_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_update_directory_errors()}
   def describe_update_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3790,6 +3825,7 @@ defmodule AWS.Directory do
   @spec disable_client_authentication(map(), disable_client_authentication_request(), list()) ::
           {:ok, disable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_client_authentication_errors()}
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3804,6 +3840,7 @@ defmodule AWS.Directory do
   @spec disable_directory_data_access(map(), disable_directory_data_access_request(), list()) ::
           {:ok, disable_directory_data_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_directory_data_access_errors()}
   def disable_directory_data_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3817,6 +3854,7 @@ defmodule AWS.Directory do
   @spec disable_ldaps(map(), disable_ldaps_request(), list()) ::
           {:ok, disable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_ldaps_errors()}
   def disable_ldaps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3832,6 +3870,7 @@ defmodule AWS.Directory do
   @spec disable_radius(map(), disable_radius_request(), list()) ::
           {:ok, disable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_radius_errors()}
   def disable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3845,6 +3884,7 @@ defmodule AWS.Directory do
   @spec disable_sso(map(), disable_sso_request(), list()) ::
           {:ok, disable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_sso_errors()}
   def disable_sso(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3858,6 +3898,7 @@ defmodule AWS.Directory do
   @spec enable_client_authentication(map(), enable_client_authentication_request(), list()) ::
           {:ok, enable_client_authentication_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_client_authentication_errors()}
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3872,6 +3913,7 @@ defmodule AWS.Directory do
   @spec enable_directory_data_access(map(), enable_directory_data_access_request(), list()) ::
           {:ok, enable_directory_data_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_directory_data_access_errors()}
   def enable_directory_data_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3885,6 +3927,7 @@ defmodule AWS.Directory do
   @spec enable_ldaps(map(), enable_ldaps_request(), list()) ::
           {:ok, enable_ldaps_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_ldaps_errors()}
   def enable_ldaps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3900,6 +3943,7 @@ defmodule AWS.Directory do
   @spec enable_radius(map(), enable_radius_request(), list()) ::
           {:ok, enable_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_radius_errors()}
   def enable_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3918,6 +3962,7 @@ defmodule AWS.Directory do
   @spec enable_sso(map(), enable_sso_request(), list()) ::
           {:ok, enable_sso_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_sso_errors()}
   def enable_sso(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3931,6 +3976,7 @@ defmodule AWS.Directory do
   @spec get_directory_limits(map(), get_directory_limits_request(), list()) ::
           {:ok, get_directory_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_directory_limits_errors()}
   def get_directory_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3944,6 +3990,7 @@ defmodule AWS.Directory do
   @spec get_snapshot_limits(map(), get_snapshot_limits_request(), list()) ::
           {:ok, get_snapshot_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_snapshot_limits_errors()}
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3958,6 +4005,7 @@ defmodule AWS.Directory do
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3971,6 +4019,7 @@ defmodule AWS.Directory do
   @spec list_ip_routes(map(), list_ip_routes_request(), list()) ::
           {:ok, list_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ip_routes_errors()}
   def list_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3984,6 +4033,7 @@ defmodule AWS.Directory do
   @spec list_log_subscriptions(map(), list_log_subscriptions_request(), list()) ::
           {:ok, list_log_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_subscriptions_errors()}
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3997,6 +4047,7 @@ defmodule AWS.Directory do
   @spec list_schema_extensions(map(), list_schema_extensions_request(), list()) ::
           {:ok, list_schema_extensions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schema_extensions_errors()}
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4010,6 +4061,7 @@ defmodule AWS.Directory do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4023,6 +4075,7 @@ defmodule AWS.Directory do
   @spec register_certificate(map(), register_certificate_request(), list()) ::
           {:ok, register_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_certificate_errors()}
   def register_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4045,6 +4098,7 @@ defmodule AWS.Directory do
   @spec register_event_topic(map(), register_event_topic_request(), list()) ::
           {:ok, register_event_topic_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_event_topic_errors()}
   def register_event_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4059,6 +4113,7 @@ defmodule AWS.Directory do
   @spec reject_shared_directory(map(), reject_shared_directory_request(), list()) ::
           {:ok, reject_shared_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_shared_directory_errors()}
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4072,6 +4127,7 @@ defmodule AWS.Directory do
   @spec remove_ip_routes(map(), remove_ip_routes_request(), list()) ::
           {:ok, remove_ip_routes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_ip_routes_errors()}
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4090,6 +4146,7 @@ defmodule AWS.Directory do
   @spec remove_region(map(), remove_region_request(), list()) ::
           {:ok, remove_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_region_errors()}
   def remove_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4103,6 +4160,7 @@ defmodule AWS.Directory do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4140,6 +4198,7 @@ defmodule AWS.Directory do
   @spec reset_user_password(map(), reset_user_password_request(), list()) ::
           {:ok, reset_user_password_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4164,6 +4223,7 @@ defmodule AWS.Directory do
   @spec restore_from_snapshot(map(), restore_from_snapshot_request(), list()) ::
           {:ok, restore_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4200,6 +4260,7 @@ defmodule AWS.Directory do
   @spec share_directory(map(), share_directory_request(), list()) ::
           {:ok, share_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, share_directory_errors()}
   def share_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4213,6 +4274,7 @@ defmodule AWS.Directory do
   @spec start_schema_extension(map(), start_schema_extension_request(), list()) ::
           {:ok, start_schema_extension_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_schema_extension_errors()}
   def start_schema_extension(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4226,6 +4288,7 @@ defmodule AWS.Directory do
   @spec unshare_directory(map(), unshare_directory_request(), list()) ::
           {:ok, unshare_directory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unshare_directory_errors()}
   def unshare_directory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4241,6 +4304,7 @@ defmodule AWS.Directory do
   @spec update_conditional_forwarder(map(), update_conditional_forwarder_request(), list()) ::
           {:ok, update_conditional_forwarder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_conditional_forwarder_errors()}
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4255,6 +4319,7 @@ defmodule AWS.Directory do
   @spec update_directory_setup(map(), update_directory_setup_request(), list()) ::
           {:ok, update_directory_setup_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_directory_setup_errors()}
   def update_directory_setup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4281,6 +4346,7 @@ defmodule AWS.Directory do
         ) ::
           {:ok, update_number_of_domain_controllers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_number_of_domain_controllers_errors()}
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4296,6 +4362,7 @@ defmodule AWS.Directory do
   @spec update_radius(map(), update_radius_request(), list()) ::
           {:ok, update_radius_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_radius_errors()}
   def update_radius(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4309,6 +4376,7 @@ defmodule AWS.Directory do
   @spec update_settings(map(), update_settings_request(), list()) ::
           {:ok, update_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_settings_errors()}
   def update_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4324,6 +4392,7 @@ defmodule AWS.Directory do
   @spec update_trust(map(), update_trust_request(), list()) ::
           {:ok, update_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trust_errors()}
   def update_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4343,6 +4412,7 @@ defmodule AWS.Directory do
   @spec verify_trust(map(), verify_trust_request(), list()) ::
           {:ok, verify_trust_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_trust_errors()}
   def verify_trust(%Client{} = client, input, options \\ []) do
     meta = metadata()

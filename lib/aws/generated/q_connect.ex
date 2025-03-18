@@ -4670,6 +4670,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, activate_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_message_template_errors()}
   def activate_message_template(
         %Client{} = client,
@@ -4706,6 +4707,7 @@ defmodule AWS.QConnect do
   @spec create_a_i_agent(map(), String.t(), create_a_i_agent_request(), list()) ::
           {:ok, create_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_i_agent_errors()}
   def create_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagents"
@@ -4740,6 +4742,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_a_i_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_i_agent_version_errors()}
   def create_a_i_agent_version(
         %Client{} = client,
@@ -4776,6 +4779,7 @@ defmodule AWS.QConnect do
   @spec create_a_i_guardrail(map(), String.t(), create_a_i_guardrail_request(), list()) ::
           {:ok, create_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_i_guardrail_errors()}
   def create_a_i_guardrail(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiguardrails"
@@ -4810,6 +4814,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_a_i_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_i_guardrail_version_errors()}
   def create_a_i_guardrail_version(
         %Client{} = client,
@@ -4846,6 +4851,7 @@ defmodule AWS.QConnect do
   @spec create_a_iprompt(map(), String.t(), create_a_iprompt_request(), list()) ::
           {:ok, create_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_iprompt_errors()}
   def create_a_iprompt(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiprompts"
@@ -4880,6 +4886,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_a_iprompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_a_iprompt_version_errors()}
   def create_a_iprompt_version(
         %Client{} = client,
@@ -4916,6 +4923,7 @@ defmodule AWS.QConnect do
   @spec create_assistant(map(), create_assistant_request(), list()) ::
           {:ok, create_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assistant_errors()}
   def create_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistants"
@@ -4955,6 +4963,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assistant_association_errors()}
   def create_assistant_association(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
@@ -4987,6 +4996,7 @@ defmodule AWS.QConnect do
   @spec create_content(map(), String.t(), create_content_request(), list()) ::
           {:ok, create_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_content_errors()}
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
@@ -5048,6 +5058,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_content_association_errors()}
   def create_content_association(
         %Client{} = client,
@@ -5111,6 +5122,7 @@ defmodule AWS.QConnect do
   @spec create_knowledge_base(map(), create_knowledge_base_request(), list()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_knowledge_base_errors()}
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"
@@ -5146,6 +5158,7 @@ defmodule AWS.QConnect do
   @spec create_message_template(map(), String.t(), create_message_template_request(), list()) ::
           {:ok, create_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_message_template_errors()}
   def create_message_template(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/messageTemplates"
@@ -5189,6 +5202,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_message_template_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_message_template_attachment_errors()}
   def create_message_template_attachment(
         %Client{} = client,
@@ -5247,6 +5261,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, create_message_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_message_template_version_errors()}
   def create_message_template_version(
         %Client{} = client,
@@ -5283,6 +5298,7 @@ defmodule AWS.QConnect do
   @spec create_quick_response(map(), String.t(), create_quick_response_request(), list()) ::
           {:ok, create_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_quick_response_errors()}
   def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
@@ -5316,6 +5332,7 @@ defmodule AWS.QConnect do
   @spec create_session(map(), String.t(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
@@ -5354,6 +5371,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, deactivate_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_message_template_errors()}
   def deactivate_message_template(
         %Client{} = client,
@@ -5390,6 +5408,7 @@ defmodule AWS.QConnect do
   @spec delete_a_i_agent(map(), String.t(), String.t(), delete_a_i_agent_request(), list()) ::
           {:ok, delete_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_i_agent_errors()}
   def delete_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
     url_path =
@@ -5427,6 +5446,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_a_i_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_i_agent_version_errors()}
   def delete_a_i_agent_version(
         %Client{} = client,
@@ -5470,6 +5490,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_i_guardrail_errors()}
   def delete_a_i_guardrail(
         %Client{} = client,
@@ -5513,6 +5534,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_a_i_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_i_guardrail_version_errors()}
   def delete_a_i_guardrail_version(
         %Client{} = client,
@@ -5550,6 +5572,7 @@ defmodule AWS.QConnect do
   @spec delete_a_iprompt(map(), String.t(), String.t(), delete_a_iprompt_request(), list()) ::
           {:ok, delete_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_iprompt_errors()}
   def delete_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
     url_path =
@@ -5587,6 +5610,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_a_iprompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_a_iprompt_version_errors()}
   def delete_a_iprompt_version(
         %Client{} = client,
@@ -5624,6 +5648,7 @@ defmodule AWS.QConnect do
   @spec delete_assistant(map(), String.t(), delete_assistant_request(), list()) ::
           {:ok, delete_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assistant_errors()}
   def delete_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
@@ -5658,6 +5683,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assistant_association_errors()}
   def delete_assistant_association(
         %Client{} = client,
@@ -5694,6 +5720,7 @@ defmodule AWS.QConnect do
   @spec delete_content(map(), String.t(), String.t(), delete_content_request(), list()) ::
           {:ok, delete_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_content_errors()}
   def delete_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
     url_path =
@@ -5737,6 +5764,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_content_association_errors()}
   def delete_content_association(
         %Client{} = client,
@@ -5774,6 +5802,7 @@ defmodule AWS.QConnect do
   @spec delete_import_job(map(), String.t(), String.t(), delete_import_job_request(), list()) ::
           {:ok, delete_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_import_job_errors()}
   def delete_import_job(
         %Client{} = client,
@@ -5821,6 +5850,7 @@ defmodule AWS.QConnect do
   @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_knowledge_base_errors()}
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -5863,6 +5893,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_message_template_errors()}
   def delete_message_template(
         %Client{} = client,
@@ -5911,6 +5942,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_message_template_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_message_template_attachment_errors()}
   def delete_message_template_attachment(
         %Client{} = client,
@@ -5954,6 +5986,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, delete_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_quick_response_errors()}
   def delete_quick_response(
         %Client{} = client,
@@ -5990,6 +6023,7 @@ defmodule AWS.QConnect do
   @spec get_a_i_agent(map(), String.t(), String.t(), list()) ::
           {:ok, get_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_a_i_agent_errors()}
   def get_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, options \\ []) do
     url_path =
@@ -6009,6 +6043,7 @@ defmodule AWS.QConnect do
   @spec get_a_i_guardrail(map(), String.t(), String.t(), list()) ::
           {:ok, get_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_a_i_guardrail_errors()}
   def get_a_i_guardrail(%Client{} = client, ai_guardrail_id, assistant_id, options \\ []) do
     url_path =
@@ -6028,6 +6063,7 @@ defmodule AWS.QConnect do
   @spec get_a_iprompt(map(), String.t(), String.t(), list()) ::
           {:ok, get_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_a_iprompt_errors()}
   def get_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, options \\ []) do
     url_path =
@@ -6047,6 +6083,7 @@ defmodule AWS.QConnect do
   @spec get_assistant(map(), String.t(), list()) ::
           {:ok, get_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assistant_errors()}
   def get_assistant(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
@@ -6064,6 +6101,7 @@ defmodule AWS.QConnect do
   @spec get_assistant_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assistant_association_errors()}
   def get_assistant_association(
         %Client{} = client,
@@ -6088,6 +6126,7 @@ defmodule AWS.QConnect do
   @spec get_content(map(), String.t(), String.t(), list()) ::
           {:ok, get_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_errors()}
   def get_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -6113,6 +6152,7 @@ defmodule AWS.QConnect do
   @spec get_content_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_content_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_association_errors()}
   def get_content_association(
         %Client{} = client,
@@ -6138,6 +6178,7 @@ defmodule AWS.QConnect do
   @spec get_content_summary(map(), String.t(), String.t(), list()) ::
           {:ok, get_content_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_summary_errors()}
   def get_content_summary(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -6157,6 +6198,7 @@ defmodule AWS.QConnect do
   @spec get_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -6176,6 +6218,7 @@ defmodule AWS.QConnect do
   @spec get_knowledge_base(map(), String.t(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_knowledge_base_errors()}
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -6200,6 +6243,7 @@ defmodule AWS.QConnect do
   @spec get_message_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_message_template_errors()}
   def get_message_template(
         %Client{} = client,
@@ -6224,6 +6268,7 @@ defmodule AWS.QConnect do
   @spec get_next_message(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_next_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_next_message_errors()}
   def get_next_message(
         %Client{} = client,
@@ -6256,6 +6301,7 @@ defmodule AWS.QConnect do
   @spec get_quick_response(map(), String.t(), String.t(), list()) ::
           {:ok, get_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_quick_response_errors()}
   def get_quick_response(%Client{} = client, knowledge_base_id, quick_response_id, options \\ []) do
     url_path =
@@ -6299,6 +6345,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendations_errors()}
   def get_recommendations(
         %Client{} = client,
@@ -6339,6 +6386,7 @@ defmodule AWS.QConnect do
   @spec get_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
@@ -6366,6 +6414,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_a_i_agent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_i_agent_versions_errors()}
   def list_a_i_agent_versions(
         %Client{} = client,
@@ -6421,6 +6470,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_a_i_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_i_agents_errors()}
   def list_a_i_agents(
         %Client{} = client,
@@ -6473,6 +6523,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_a_i_guardrail_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_i_guardrail_versions_errors()}
   def list_a_i_guardrail_versions(
         %Client{} = client,
@@ -6513,6 +6564,7 @@ defmodule AWS.QConnect do
   @spec list_a_i_guardrails(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_a_i_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_i_guardrails_errors()}
   def list_a_i_guardrails(
         %Client{} = client,
@@ -6558,6 +6610,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_a_iprompt_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_iprompt_versions_errors()}
   def list_a_iprompt_versions(
         %Client{} = client,
@@ -6613,6 +6666,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_a_iprompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_a_iprompts_errors()}
   def list_a_iprompts(
         %Client{} = client,
@@ -6658,6 +6712,7 @@ defmodule AWS.QConnect do
   @spec list_assistant_associations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assistant_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assistant_associations_errors()}
   def list_assistant_associations(
         %Client{} = client,
@@ -6695,6 +6750,7 @@ defmodule AWS.QConnect do
   @spec list_assistants(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assistants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assistants_errors()}
   def list_assistants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/assistants"
@@ -6739,6 +6795,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_content_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_content_associations_errors()}
   def list_content_associations(
         %Client{} = client,
@@ -6779,6 +6836,7 @@ defmodule AWS.QConnect do
   @spec list_contents(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contents_errors()}
   def list_contents(
         %Client{} = client,
@@ -6816,6 +6874,7 @@ defmodule AWS.QConnect do
   @spec list_import_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_jobs_errors()}
   def list_import_jobs(
         %Client{} = client,
@@ -6853,6 +6912,7 @@ defmodule AWS.QConnect do
   @spec list_knowledge_bases(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_knowledge_bases_errors()}
   def list_knowledge_bases(
         %Client{} = client,
@@ -6897,6 +6957,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, list_message_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_message_template_versions_errors()}
   def list_message_template_versions(
         %Client{} = client,
@@ -6939,6 +7000,7 @@ defmodule AWS.QConnect do
   @spec list_message_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_message_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_message_templates_errors()}
   def list_message_templates(
         %Client{} = client,
@@ -6976,6 +7038,7 @@ defmodule AWS.QConnect do
   @spec list_messages(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_messages_errors()}
   def list_messages(
         %Client{} = client,
@@ -7016,6 +7079,7 @@ defmodule AWS.QConnect do
   @spec list_quick_responses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_quick_responses_errors()}
   def list_quick_responses(
         %Client{} = client,
@@ -7053,6 +7117,7 @@ defmodule AWS.QConnect do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7083,6 +7148,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, notify_recommendations_received_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_recommendations_received_errors()}
   def notify_recommendations_received(
         %Client{} = client,
@@ -7122,6 +7188,7 @@ defmodule AWS.QConnect do
   @spec put_feedback(map(), String.t(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_feedback_errors()}
   def put_feedback(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/feedback"
@@ -7163,6 +7230,7 @@ defmodule AWS.QConnect do
   @spec query_assistant(map(), String.t(), query_assistant_request(), list()) ::
           {:ok, query_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_assistant_errors()}
   def query_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/query"
@@ -7197,6 +7265,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, remove_assistant_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_assistant_a_i_agent_errors()}
   def remove_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
@@ -7235,6 +7304,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, remove_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_knowledge_base_template_uri_errors()}
   def remove_knowledge_base_template_uri(
         %Client{} = client,
@@ -7283,6 +7353,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, render_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, render_message_template_errors()}
   def render_message_template(
         %Client{} = client,
@@ -7322,6 +7393,7 @@ defmodule AWS.QConnect do
   @spec search_content(map(), String.t(), search_content_request(), list()) ::
           {:ok, search_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_content_errors()}
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
@@ -7357,6 +7429,7 @@ defmodule AWS.QConnect do
   @spec search_message_templates(map(), String.t(), search_message_templates_request(), list()) ::
           {:ok, search_message_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_message_templates_errors()}
   def search_message_templates(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/messageTemplates"
@@ -7392,6 +7465,7 @@ defmodule AWS.QConnect do
   @spec search_quick_responses(map(), String.t(), search_quick_responses_request(), list()) ::
           {:ok, search_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_quick_responses_errors()}
   def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
@@ -7426,6 +7500,7 @@ defmodule AWS.QConnect do
   @spec search_sessions(map(), String.t(), search_sessions_request(), list()) ::
           {:ok, search_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_sessions_errors()}
   def search_sessions(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/searchSessions"
@@ -7460,6 +7535,7 @@ defmodule AWS.QConnect do
   @spec send_message(map(), String.t(), String.t(), send_message_request(), list()) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_message_errors()}
   def send_message(%Client{} = client, assistant_id, session_id, input, options \\ []) do
     url_path =
@@ -7502,6 +7578,7 @@ defmodule AWS.QConnect do
   @spec start_content_upload(map(), String.t(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_content_upload_errors()}
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
@@ -7543,6 +7620,7 @@ defmodule AWS.QConnect do
   @spec start_import_job(map(), String.t(), start_import_job_request(), list()) ::
           {:ok, start_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_job_errors()}
   def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
@@ -7571,6 +7649,7 @@ defmodule AWS.QConnect do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7599,6 +7678,7 @@ defmodule AWS.QConnect do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7632,6 +7712,7 @@ defmodule AWS.QConnect do
   @spec update_a_i_agent(map(), String.t(), String.t(), update_a_i_agent_request(), list()) ::
           {:ok, update_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_a_i_agent_errors()}
   def update_a_i_agent(%Client{} = client, ai_agent_id, assistant_id, input, options \\ []) do
     url_path =
@@ -7668,6 +7749,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_a_i_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_a_i_guardrail_errors()}
   def update_a_i_guardrail(
         %Client{} = client,
@@ -7704,6 +7786,7 @@ defmodule AWS.QConnect do
   @spec update_a_iprompt(map(), String.t(), String.t(), update_a_iprompt_request(), list()) ::
           {:ok, update_a_iprompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_a_iprompt_errors()}
   def update_a_iprompt(%Client{} = client, ai_prompt_id, assistant_id, input, options \\ []) do
     url_path =
@@ -7740,6 +7823,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_assistant_a_i_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assistant_a_i_agent_errors()}
   def update_assistant_a_i_agent(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/aiagentConfiguration"
@@ -7768,6 +7852,7 @@ defmodule AWS.QConnect do
   @spec update_content(map(), String.t(), String.t(), update_content_request(), list()) ::
           {:ok, update_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_content_errors()}
   def update_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
     url_path =
@@ -7810,6 +7895,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_knowledge_base_template_uri_errors()}
   def update_knowledge_base_template_uri(
         %Client{} = client,
@@ -7857,6 +7943,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_message_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_message_template_errors()}
   def update_message_template(
         %Client{} = client,
@@ -7907,6 +7994,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_message_template_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_message_template_metadata_errors()}
   def update_message_template_metadata(
         %Client{} = client,
@@ -7949,6 +8037,7 @@ defmodule AWS.QConnect do
         ) ::
           {:ok, update_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_quick_response_errors()}
   def update_quick_response(
         %Client{} = client,
@@ -7990,6 +8079,7 @@ defmodule AWS.QConnect do
   @spec update_session(map(), String.t(), String.t(), update_session_request(), list()) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_session_errors()}
   def update_session(%Client{} = client, assistant_id, session_id, input, options \\ []) do
     url_path =
@@ -8020,6 +8110,7 @@ defmodule AWS.QConnect do
   @spec update_session_data(map(), String.t(), String.t(), update_session_data_request(), list()) ::
           {:ok, update_session_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_session_data_errors()}
   def update_session_data(%Client{} = client, assistant_id, session_id, input, options \\ []) do
     url_path =

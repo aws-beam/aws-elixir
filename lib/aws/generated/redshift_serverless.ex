@@ -2349,6 +2349,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, convert_recovery_point_to_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, convert_recovery_point_to_snapshot_errors()}
   def convert_recovery_point_to_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2366,6 +2367,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, create_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2379,6 +2381,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_endpoint_access(map(), create_endpoint_access_request(), list()) ::
           {:ok, create_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2392,6 +2395,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_namespace(map(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2409,6 +2413,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_scheduled_action(map(), create_scheduled_action_request(), list()) ::
           {:ok, create_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2427,6 +2432,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2445,6 +2451,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, create_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_copy_configuration_errors()}
   def create_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2460,6 +2467,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_usage_limit(map(), create_usage_limit_request(), list()) ::
           {:ok, create_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2494,6 +2502,7 @@ defmodule AWS.RedshiftServerless do
   @spec create_workgroup(map(), create_workgroup_request(), list()) ::
           {:ok, create_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workgroup_errors()}
   def create_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2511,6 +2520,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, delete_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2524,6 +2534,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_endpoint_access(map(), delete_endpoint_access_request(), list()) ::
           {:ok, delete_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2540,6 +2551,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_namespace(map(), delete_namespace_request(), list()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2553,6 +2565,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2566,6 +2579,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_scheduled_action(map(), delete_scheduled_action_request(), list()) ::
           {:ok, delete_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2579,6 +2593,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2596,6 +2611,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, delete_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_copy_configuration_errors()}
   def delete_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2609,6 +2625,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_usage_limit(map(), delete_usage_limit_request(), list()) ::
           {:ok, delete_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2622,6 +2639,7 @@ defmodule AWS.RedshiftServerless do
   @spec delete_workgroup(map(), delete_workgroup_request(), list()) ::
           {:ok, delete_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workgroup_errors()}
   def delete_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2647,6 +2665,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_credentials(map(), get_credentials_request(), list()) ::
           {:ok, get_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_credentials_errors()}
   def get_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2660,6 +2679,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_custom_domain_association(map(), get_custom_domain_association_request(), list()) ::
           {:ok, get_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_domain_association_errors()}
   def get_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2673,6 +2693,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_endpoint_access(map(), get_endpoint_access_request(), list()) ::
           {:ok, get_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_endpoint_access_errors()}
   def get_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2686,6 +2707,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_namespace(map(), get_namespace_request(), list()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2699,6 +2721,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_recovery_point(map(), get_recovery_point_request(), list()) ::
           {:ok, get_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recovery_point_errors()}
   def get_recovery_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2712,6 +2735,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2725,6 +2749,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_scheduled_action(map(), get_scheduled_action_request(), list()) ::
           {:ok, get_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_scheduled_action_errors()}
   def get_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2738,6 +2763,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_snapshot(map(), get_snapshot_request(), list()) ::
           {:ok, get_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_snapshot_errors()}
   def get_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2751,6 +2777,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_table_restore_status(map(), get_table_restore_status_request(), list()) ::
           {:ok, get_table_restore_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_restore_status_errors()}
   def get_table_restore_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2764,6 +2791,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_track(map(), get_track_request(), list()) ::
           {:ok, get_track_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_track_errors()}
   def get_track(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2777,6 +2805,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_usage_limit(map(), get_usage_limit_request(), list()) ::
           {:ok, get_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_usage_limit_errors()}
   def get_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2790,6 +2819,7 @@ defmodule AWS.RedshiftServerless do
   @spec get_workgroup(map(), get_workgroup_request(), list()) ::
           {:ok, get_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workgroup_errors()}
   def get_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2803,6 +2833,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_custom_domain_associations(map(), list_custom_domain_associations_request(), list()) ::
           {:ok, list_custom_domain_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_domain_associations_errors()}
   def list_custom_domain_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2816,6 +2847,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_endpoint_access(map(), list_endpoint_access_request(), list()) ::
           {:ok, list_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_endpoint_access_errors()}
   def list_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2830,6 +2862,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_managed_workgroups(map(), list_managed_workgroups_request(), list()) ::
           {:ok, list_managed_workgroups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_workgroups_errors()}
   def list_managed_workgroups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2843,6 +2876,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_namespaces(map(), list_namespaces_request(), list()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2856,6 +2890,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_recovery_points(map(), list_recovery_points_request(), list()) ::
           {:ok, list_recovery_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recovery_points_errors()}
   def list_recovery_points(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2871,6 +2906,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_scheduled_actions(map(), list_scheduled_actions_request(), list()) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scheduled_actions_errors()}
   def list_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2888,6 +2924,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, list_snapshot_copy_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_snapshot_copy_configurations_errors()}
   def list_snapshot_copy_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2901,6 +2938,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_snapshots(map(), list_snapshots_request(), list()) ::
           {:ok, list_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_snapshots_errors()}
   def list_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2914,6 +2952,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_table_restore_status(map(), list_table_restore_status_request(), list()) ::
           {:ok, list_table_restore_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_table_restore_status_errors()}
   def list_table_restore_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2927,6 +2966,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2940,6 +2980,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_tracks(map(), list_tracks_request(), list()) ::
           {:ok, list_tracks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tracks_errors()}
   def list_tracks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2953,6 +2994,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_usage_limits(map(), list_usage_limits_request(), list()) ::
           {:ok, list_usage_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_usage_limits_errors()}
   def list_usage_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2966,6 +3008,7 @@ defmodule AWS.RedshiftServerless do
   @spec list_workgroups(map(), list_workgroups_request(), list()) ::
           {:ok, list_workgroups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workgroups_errors()}
   def list_workgroups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2982,6 +3025,7 @@ defmodule AWS.RedshiftServerless do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2995,6 +3039,7 @@ defmodule AWS.RedshiftServerless do
   @spec restore_from_recovery_point(map(), restore_from_recovery_point_request(), list()) ::
           {:ok, restore_from_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_from_recovery_point_errors()}
   def restore_from_recovery_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3008,6 +3053,7 @@ defmodule AWS.RedshiftServerless do
   @spec restore_from_snapshot(map(), restore_from_snapshot_request(), list()) ::
           {:ok, restore_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3028,6 +3074,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, restore_table_from_recovery_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_from_recovery_point_errors()}
   def restore_table_from_recovery_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3044,6 +3091,7 @@ defmodule AWS.RedshiftServerless do
   @spec restore_table_from_snapshot(map(), restore_table_from_snapshot_request(), list()) ::
           {:ok, restore_table_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_from_snapshot_errors()}
   def restore_table_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3057,6 +3105,7 @@ defmodule AWS.RedshiftServerless do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3070,6 +3119,7 @@ defmodule AWS.RedshiftServerless do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3088,6 +3138,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, update_custom_domain_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_domain_association_errors()}
   def update_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3101,6 +3152,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_endpoint_access(map(), update_endpoint_access_request(), list()) ::
           {:ok, update_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_access_errors()}
   def update_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3120,6 +3172,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_namespace(map(), update_namespace_request(), list()) ::
           {:ok, update_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_namespace_errors()}
   def update_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3133,6 +3186,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_scheduled_action(map(), update_scheduled_action_request(), list()) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scheduled_action_errors()}
   def update_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3146,6 +3200,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_snapshot(map(), update_snapshot_request(), list()) ::
           {:ok, update_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3163,6 +3218,7 @@ defmodule AWS.RedshiftServerless do
         ) ::
           {:ok, update_snapshot_copy_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_snapshot_copy_configuration_errors()}
   def update_snapshot_copy_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3178,6 +3234,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_usage_limit(map(), update_usage_limit_request(), list()) ::
           {:ok, update_usage_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_usage_limit_errors()}
   def update_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3216,6 +3273,7 @@ defmodule AWS.RedshiftServerless do
   @spec update_workgroup(map(), update_workgroup_request(), list()) ::
           {:ok, update_workgroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workgroup_errors()}
   def update_workgroup(%Client{} = client, input, options \\ []) do
     meta = metadata()

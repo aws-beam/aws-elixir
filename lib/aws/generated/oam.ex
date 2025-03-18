@@ -700,6 +700,7 @@ defmodule AWS.OAM do
   @spec create_link(map(), create_link_input(), list()) ::
           {:ok, create_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_link_errors()}
   def create_link(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLink"
@@ -742,6 +743,7 @@ defmodule AWS.OAM do
   @spec create_sink(map(), create_sink_input(), list()) ::
           {:ok, create_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sink_errors()}
   def create_sink(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSink"
@@ -773,6 +775,7 @@ defmodule AWS.OAM do
   @spec delete_link(map(), delete_link_input(), list()) ::
           {:ok, delete_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_link_errors()}
   def delete_link(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLink"
@@ -803,6 +806,7 @@ defmodule AWS.OAM do
   @spec delete_sink(map(), delete_sink_input(), list()) ::
           {:ok, delete_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sink_errors()}
   def delete_sink(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSink"
@@ -835,6 +839,7 @@ defmodule AWS.OAM do
   @spec get_link(map(), get_link_input(), list()) ::
           {:ok, get_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_link_errors()}
   def get_link(%Client{} = client, input, options \\ []) do
     url_path = "/GetLink"
@@ -867,6 +872,7 @@ defmodule AWS.OAM do
   @spec get_sink(map(), get_sink_input(), list()) ::
           {:ok, get_sink_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sink_errors()}
   def get_sink(%Client{} = client, input, options \\ []) do
     url_path = "/GetSink"
@@ -899,6 +905,7 @@ defmodule AWS.OAM do
   @spec get_sink_policy(map(), get_sink_policy_input(), list()) ::
           {:ok, get_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sink_policy_errors()}
   def get_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetSinkPolicy"
@@ -933,6 +940,7 @@ defmodule AWS.OAM do
   @spec list_attached_links(map(), list_attached_links_input(), list()) ::
           {:ok, list_attached_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_links_errors()}
   def list_attached_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListAttachedLinks"
@@ -967,6 +975,7 @@ defmodule AWS.OAM do
   @spec list_links(map(), list_links_input(), list()) ::
           {:ok, list_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_links_errors()}
   def list_links(%Client{} = client, input, options \\ []) do
     url_path = "/ListLinks"
@@ -996,6 +1005,7 @@ defmodule AWS.OAM do
   @spec list_sinks(map(), list_sinks_input(), list()) ::
           {:ok, list_sinks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sinks_errors()}
   def list_sinks(%Client{} = client, input, options \\ []) do
     url_path = "/ListSinks"
@@ -1026,6 +1036,7 @@ defmodule AWS.OAM do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1072,6 +1083,7 @@ defmodule AWS.OAM do
   @spec put_sink_policy(map(), put_sink_policy_input(), list()) ::
           {:ok, put_sink_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_sink_policy_errors()}
   def put_sink_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutSinkPolicy"
@@ -1125,6 +1137,7 @@ defmodule AWS.OAM do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1159,6 +1172,7 @@ defmodule AWS.OAM do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1203,6 +1217,7 @@ defmodule AWS.OAM do
   @spec update_link(map(), update_link_input(), list()) ::
           {:ok, update_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_link_errors()}
   def update_link(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLink"

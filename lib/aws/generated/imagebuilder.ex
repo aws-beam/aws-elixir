@@ -4403,6 +4403,7 @@ defmodule AWS.Imagebuilder do
   @spec cancel_image_creation(map(), cancel_image_creation_request(), list()) ::
           {:ok, cancel_image_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_image_creation_errors()}
   def cancel_image_creation(%Client{} = client, input, options \\ []) do
     url_path = "/CancelImageCreation"
@@ -4431,6 +4432,7 @@ defmodule AWS.Imagebuilder do
   @spec cancel_lifecycle_execution(map(), cancel_lifecycle_execution_request(), list()) ::
           {:ok, cancel_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_lifecycle_execution_errors()}
   def cancel_lifecycle_execution(%Client{} = client, input, options \\ []) do
     url_path = "/CancelLifecycleExecution"
@@ -4471,6 +4473,7 @@ defmodule AWS.Imagebuilder do
   @spec create_component(map(), create_component_request(), list()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
     url_path = "/CreateComponent"
@@ -4502,6 +4505,7 @@ defmodule AWS.Imagebuilder do
   @spec create_container_recipe(map(), create_container_recipe_request(), list()) ::
           {:ok, create_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_recipe_errors()}
   def create_container_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/CreateContainerRecipe"
@@ -4537,6 +4541,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, create_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_distribution_configuration_errors()}
   def create_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateDistributionConfiguration"
@@ -4571,6 +4576,7 @@ defmodule AWS.Imagebuilder do
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImage"
@@ -4602,6 +4608,7 @@ defmodule AWS.Imagebuilder do
   @spec create_image_pipeline(map(), create_image_pipeline_request(), list()) ::
           {:ok, create_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_pipeline_errors()}
   def create_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImagePipeline"
@@ -4633,6 +4640,7 @@ defmodule AWS.Imagebuilder do
   @spec create_image_recipe(map(), create_image_recipe_request(), list()) ::
           {:ok, create_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_recipe_errors()}
   def create_image_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/CreateImageRecipe"
@@ -4668,6 +4676,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, create_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_infrastructure_configuration_errors()}
   def create_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateInfrastructureConfiguration"
@@ -4696,6 +4705,7 @@ defmodule AWS.Imagebuilder do
   @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLifecyclePolicy"
@@ -4724,6 +4734,7 @@ defmodule AWS.Imagebuilder do
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/CreateWorkflow"
@@ -4752,6 +4763,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_component(map(), delete_component_request(), list()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteComponent"
@@ -4785,6 +4797,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_container_recipe(map(), delete_container_recipe_request(), list()) ::
           {:ok, delete_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_recipe_errors()}
   def delete_container_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteContainerRecipe"
@@ -4822,6 +4835,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, delete_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_distribution_configuration_errors()}
   def delete_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteDistributionConfiguration"
@@ -4880,6 +4894,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_image(map(), delete_image_request(), list()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImage"
@@ -4913,6 +4928,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_image_pipeline(map(), delete_image_pipeline_request(), list()) ::
           {:ok, delete_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_pipeline_errors()}
   def delete_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImagePipeline"
@@ -4946,6 +4962,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_image_recipe(map(), delete_image_recipe_request(), list()) ::
           {:ok, delete_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_recipe_errors()}
   def delete_image_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteImageRecipe"
@@ -4983,6 +5000,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, delete_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_infrastructure_configuration_errors()}
   def delete_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteInfrastructureConfiguration"
@@ -5016,6 +5034,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLifecyclePolicy"
@@ -5049,6 +5068,7 @@ defmodule AWS.Imagebuilder do
   @spec delete_workflow(map(), delete_workflow_request(), list()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteWorkflow"
@@ -5082,6 +5102,7 @@ defmodule AWS.Imagebuilder do
   @spec get_component(map(), String.t(), list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, component_build_version_arn, options \\ []) do
     url_path = "/GetComponent"
@@ -5106,6 +5127,7 @@ defmodule AWS.Imagebuilder do
   @spec get_component_policy(map(), String.t(), list()) ::
           {:ok, get_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_policy_errors()}
   def get_component_policy(%Client{} = client, component_arn, options \\ []) do
     url_path = "/GetComponentPolicy"
@@ -5130,6 +5152,7 @@ defmodule AWS.Imagebuilder do
   @spec get_container_recipe(map(), String.t(), list()) ::
           {:ok, get_container_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_recipe_errors()}
   def get_container_recipe(%Client{} = client, container_recipe_arn, options \\ []) do
     url_path = "/GetContainerRecipe"
@@ -5154,6 +5177,7 @@ defmodule AWS.Imagebuilder do
   @spec get_container_recipe_policy(map(), String.t(), list()) ::
           {:ok, get_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_recipe_policy_errors()}
   def get_container_recipe_policy(%Client{} = client, container_recipe_arn, options \\ []) do
     url_path = "/GetContainerRecipePolicy"
@@ -5178,6 +5202,7 @@ defmodule AWS.Imagebuilder do
   @spec get_distribution_configuration(map(), String.t(), list()) ::
           {:ok, get_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_distribution_configuration_errors()}
   def get_distribution_configuration(
         %Client{} = client,
@@ -5206,6 +5231,7 @@ defmodule AWS.Imagebuilder do
   @spec get_image(map(), String.t(), list()) ::
           {:ok, get_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_errors()}
   def get_image(%Client{} = client, image_build_version_arn, options \\ []) do
     url_path = "/GetImage"
@@ -5230,6 +5256,7 @@ defmodule AWS.Imagebuilder do
   @spec get_image_pipeline(map(), String.t(), list()) ::
           {:ok, get_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_pipeline_errors()}
   def get_image_pipeline(%Client{} = client, image_pipeline_arn, options \\ []) do
     url_path = "/GetImagePipeline"
@@ -5254,6 +5281,7 @@ defmodule AWS.Imagebuilder do
   @spec get_image_policy(map(), String.t(), list()) ::
           {:ok, get_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_policy_errors()}
   def get_image_policy(%Client{} = client, image_arn, options \\ []) do
     url_path = "/GetImagePolicy"
@@ -5278,6 +5306,7 @@ defmodule AWS.Imagebuilder do
   @spec get_image_recipe(map(), String.t(), list()) ::
           {:ok, get_image_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_recipe_errors()}
   def get_image_recipe(%Client{} = client, image_recipe_arn, options \\ []) do
     url_path = "/GetImageRecipe"
@@ -5302,6 +5331,7 @@ defmodule AWS.Imagebuilder do
   @spec get_image_recipe_policy(map(), String.t(), list()) ::
           {:ok, get_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_recipe_policy_errors()}
   def get_image_recipe_policy(%Client{} = client, image_recipe_arn, options \\ []) do
     url_path = "/GetImageRecipePolicy"
@@ -5326,6 +5356,7 @@ defmodule AWS.Imagebuilder do
   @spec get_infrastructure_configuration(map(), String.t(), list()) ::
           {:ok, get_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_infrastructure_configuration_errors()}
   def get_infrastructure_configuration(
         %Client{} = client,
@@ -5355,6 +5386,7 @@ defmodule AWS.Imagebuilder do
   @spec get_lifecycle_execution(map(), String.t(), list()) ::
           {:ok, get_lifecycle_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lifecycle_execution_errors()}
   def get_lifecycle_execution(%Client{} = client, lifecycle_execution_id, options \\ []) do
     url_path = "/GetLifecycleExecution"
@@ -5379,6 +5411,7 @@ defmodule AWS.Imagebuilder do
   @spec get_lifecycle_policy(map(), String.t(), list()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, lifecycle_policy_arn, options \\ []) do
     url_path = "/GetLifecyclePolicy"
@@ -5408,6 +5441,7 @@ defmodule AWS.Imagebuilder do
   @spec get_marketplace_resource(map(), get_marketplace_resource_request(), list()) ::
           {:ok, get_marketplace_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_marketplace_resource_errors()}
   def get_marketplace_resource(%Client{} = client, input, options \\ []) do
     url_path = "/GetMarketplaceResource"
@@ -5436,6 +5470,7 @@ defmodule AWS.Imagebuilder do
   @spec get_workflow(map(), String.t(), list()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, workflow_build_version_arn, options \\ []) do
     url_path = "/GetWorkflow"
@@ -5461,6 +5496,7 @@ defmodule AWS.Imagebuilder do
   @spec get_workflow_execution(map(), String.t(), list()) ::
           {:ok, get_workflow_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_execution_errors()}
   def get_workflow_execution(%Client{} = client, workflow_execution_id, options \\ []) do
     url_path = "/GetWorkflowExecution"
@@ -5486,6 +5522,7 @@ defmodule AWS.Imagebuilder do
   @spec get_workflow_step_execution(map(), String.t(), list()) ::
           {:ok, get_workflow_step_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_step_execution_errors()}
   def get_workflow_step_execution(%Client{} = client, step_execution_id, options \\ []) do
     url_path = "/GetWorkflowStepExecution"
@@ -5510,6 +5547,7 @@ defmodule AWS.Imagebuilder do
   @spec import_component(map(), import_component_request(), list()) ::
           {:ok, import_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_component_errors()}
   def import_component(%Client{} = client, input, options \\ []) do
     url_path = "/ImportComponent"
@@ -5544,6 +5582,7 @@ defmodule AWS.Imagebuilder do
   @spec import_disk_image(map(), import_disk_image_request(), list()) ::
           {:ok, import_disk_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_disk_image_errors()}
   def import_disk_image(%Client{} = client, input, options \\ []) do
     url_path = "/ImportDiskImage"
@@ -5586,6 +5625,7 @@ defmodule AWS.Imagebuilder do
   @spec import_vm_image(map(), import_vm_image_request(), list()) ::
           {:ok, import_vm_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_vm_image_errors()}
   def import_vm_image(%Client{} = client, input, options \\ []) do
     url_path = "/ImportVmImage"
@@ -5615,6 +5655,7 @@ defmodule AWS.Imagebuilder do
   @spec list_component_build_versions(map(), list_component_build_versions_request(), list()) ::
           {:ok, list_component_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_component_build_versions_errors()}
   def list_component_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponentBuildVersions"
@@ -5659,6 +5700,7 @@ defmodule AWS.Imagebuilder do
   @spec list_components(map(), list_components_request(), list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
     url_path = "/ListComponents"
@@ -5687,6 +5729,7 @@ defmodule AWS.Imagebuilder do
   @spec list_container_recipes(map(), list_container_recipes_request(), list()) ::
           {:ok, list_container_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_container_recipes_errors()}
   def list_container_recipes(%Client{} = client, input, options \\ []) do
     url_path = "/ListContainerRecipes"
@@ -5719,6 +5762,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, list_distribution_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_distribution_configurations_errors()}
   def list_distribution_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListDistributionConfigurations"
@@ -5747,6 +5791,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_build_versions(map(), list_image_build_versions_request(), list()) ::
           {:ok, list_image_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_build_versions_errors()}
   def list_image_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageBuildVersions"
@@ -5777,6 +5822,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_packages(map(), list_image_packages_request(), list()) ::
           {:ok, list_image_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_packages_errors()}
   def list_image_packages(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePackages"
@@ -5805,6 +5851,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_pipeline_images(map(), list_image_pipeline_images_request(), list()) ::
           {:ok, list_image_pipeline_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_pipeline_images_errors()}
   def list_image_pipeline_images(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePipelineImages"
@@ -5833,6 +5880,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_pipelines(map(), list_image_pipelines_request(), list()) ::
           {:ok, list_image_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_pipelines_errors()}
   def list_image_pipelines(%Client{} = client, input, options \\ []) do
     url_path = "/ListImagePipelines"
@@ -5861,6 +5909,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_recipes(map(), list_image_recipes_request(), list()) ::
           {:ok, list_image_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_recipes_errors()}
   def list_image_recipes(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageRecipes"
@@ -5919,6 +5968,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, list_image_scan_finding_aggregations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_scan_finding_aggregations_errors()}
   def list_image_scan_finding_aggregations(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageScanFindingAggregations"
@@ -5947,6 +5997,7 @@ defmodule AWS.Imagebuilder do
   @spec list_image_scan_findings(map(), list_image_scan_findings_request(), list()) ::
           {:ok, list_image_scan_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_scan_findings_errors()}
   def list_image_scan_findings(%Client{} = client, input, options \\ []) do
     url_path = "/ListImageScanFindings"
@@ -5978,6 +6029,7 @@ defmodule AWS.Imagebuilder do
   @spec list_images(map(), list_images_request(), list()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_images_errors()}
   def list_images(%Client{} = client, input, options \\ []) do
     url_path = "/ListImages"
@@ -6010,6 +6062,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, list_infrastructure_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_infrastructure_configurations_errors()}
   def list_infrastructure_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListInfrastructureConfigurations"
@@ -6043,6 +6096,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, list_lifecycle_execution_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lifecycle_execution_resources_errors()}
   def list_lifecycle_execution_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecycleExecutionResources"
@@ -6071,6 +6125,7 @@ defmodule AWS.Imagebuilder do
   @spec list_lifecycle_executions(map(), list_lifecycle_executions_request(), list()) ::
           {:ok, list_lifecycle_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lifecycle_executions_errors()}
   def list_lifecycle_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecycleExecutions"
@@ -6099,6 +6154,7 @@ defmodule AWS.Imagebuilder do
   @spec list_lifecycle_policies(map(), list_lifecycle_policies_request(), list()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lifecycle_policies_errors()}
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListLifecyclePolicies"
@@ -6127,6 +6183,7 @@ defmodule AWS.Imagebuilder do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6145,6 +6202,7 @@ defmodule AWS.Imagebuilder do
   @spec list_waiting_workflow_steps(map(), list_waiting_workflow_steps_request(), list()) ::
           {:ok, list_waiting_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_waiting_workflow_steps_errors()}
   def list_waiting_workflow_steps(%Client{} = client, input, options \\ []) do
     url_path = "/ListWaitingWorkflowSteps"
@@ -6173,6 +6231,7 @@ defmodule AWS.Imagebuilder do
   @spec list_workflow_build_versions(map(), list_workflow_build_versions_request(), list()) ::
           {:ok, list_workflow_build_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_build_versions_errors()}
   def list_workflow_build_versions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowBuildVersions"
@@ -6203,6 +6262,7 @@ defmodule AWS.Imagebuilder do
   @spec list_workflow_executions(map(), list_workflow_executions_request(), list()) ::
           {:ok, list_workflow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_executions_errors()}
   def list_workflow_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowExecutions"
@@ -6232,6 +6292,7 @@ defmodule AWS.Imagebuilder do
   @spec list_workflow_step_executions(map(), list_workflow_step_executions_request(), list()) ::
           {:ok, list_workflow_step_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_step_executions_errors()}
   def list_workflow_step_executions(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflowStepExecutions"
@@ -6260,6 +6321,7 @@ defmodule AWS.Imagebuilder do
   @spec list_workflows(map(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
     url_path = "/ListWorkflows"
@@ -6295,6 +6357,7 @@ defmodule AWS.Imagebuilder do
   @spec put_component_policy(map(), put_component_policy_request(), list()) ::
           {:ok, put_component_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_component_policy_errors()}
   def put_component_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutComponentPolicy"
@@ -6336,6 +6399,7 @@ defmodule AWS.Imagebuilder do
   @spec put_container_recipe_policy(map(), put_container_recipe_policy_request(), list()) ::
           {:ok, put_container_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_container_recipe_policy_errors()}
   def put_container_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutContainerRecipePolicy"
@@ -6371,6 +6435,7 @@ defmodule AWS.Imagebuilder do
   @spec put_image_policy(map(), put_image_policy_request(), list()) ::
           {:ok, put_image_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_image_policy_errors()}
   def put_image_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImagePolicy"
@@ -6406,6 +6471,7 @@ defmodule AWS.Imagebuilder do
   @spec put_image_recipe_policy(map(), put_image_recipe_policy_request(), list()) ::
           {:ok, put_image_recipe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_image_recipe_policy_errors()}
   def put_image_recipe_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutImageRecipePolicy"
@@ -6435,6 +6501,7 @@ defmodule AWS.Imagebuilder do
   @spec send_workflow_step_action(map(), send_workflow_step_action_request(), list()) ::
           {:ok, send_workflow_step_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_workflow_step_action_errors()}
   def send_workflow_step_action(%Client{} = client, input, options \\ []) do
     url_path = "/SendWorkflowStepAction"
@@ -6463,6 +6530,7 @@ defmodule AWS.Imagebuilder do
   @spec start_image_pipeline_execution(map(), start_image_pipeline_execution_request(), list()) ::
           {:ok, start_image_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_image_pipeline_execution_errors()}
   def start_image_pipeline_execution(%Client{} = client, input, options \\ []) do
     url_path = "/StartImagePipelineExecution"
@@ -6492,6 +6560,7 @@ defmodule AWS.Imagebuilder do
   @spec start_resource_state_update(map(), start_resource_state_update_request(), list()) ::
           {:ok, start_resource_state_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_state_update_errors()}
   def start_resource_state_update(%Client{} = client, input, options \\ []) do
     url_path = "/StartResourceStateUpdate"
@@ -6520,6 +6589,7 @@ defmodule AWS.Imagebuilder do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6548,6 +6618,7 @@ defmodule AWS.Imagebuilder do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6588,6 +6659,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, update_distribution_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_distribution_configuration_errors()}
   def update_distribution_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateDistributionConfiguration"
@@ -6626,6 +6698,7 @@ defmodule AWS.Imagebuilder do
   @spec update_image_pipeline(map(), update_image_pipeline_request(), list()) ::
           {:ok, update_image_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_pipeline_errors()}
   def update_image_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateImagePipeline"
@@ -6661,6 +6734,7 @@ defmodule AWS.Imagebuilder do
         ) ::
           {:ok, update_infrastructure_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_infrastructure_configuration_errors()}
   def update_infrastructure_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateInfrastructureConfiguration"
@@ -6689,6 +6763,7 @@ defmodule AWS.Imagebuilder do
   @spec update_lifecycle_policy(map(), update_lifecycle_policy_request(), list()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLifecyclePolicy"

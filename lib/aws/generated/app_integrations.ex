@@ -1073,6 +1073,7 @@ defmodule AWS.AppIntegrations do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1107,6 +1108,7 @@ defmodule AWS.AppIntegrations do
   @spec create_data_integration(map(), create_data_integration_request(), list()) ::
           {:ok, create_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_integration_errors()}
   def create_data_integration(%Client{} = client, input, options \\ []) do
     url_path = "/dataIntegrations"
@@ -1140,6 +1142,7 @@ defmodule AWS.AppIntegrations do
         ) ::
           {:ok, create_data_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_integration_association_errors()}
   def create_data_integration_association(
         %Client{} = client,
@@ -1183,6 +1186,7 @@ defmodule AWS.AppIntegrations do
   @spec create_event_integration(map(), create_event_integration_request(), list()) ::
           {:ok, create_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_integration_errors()}
   def create_event_integration(%Client{} = client, input, options \\ []) do
     url_path = "/eventIntegrations"
@@ -1214,6 +1218,7 @@ defmodule AWS.AppIntegrations do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, arn, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
@@ -1253,6 +1258,7 @@ defmodule AWS.AppIntegrations do
   @spec delete_data_integration(map(), String.t(), delete_data_integration_request(), list()) ::
           {:ok, delete_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_integration_errors()}
   def delete_data_integration(
         %Client{} = client,
@@ -1289,6 +1295,7 @@ defmodule AWS.AppIntegrations do
   @spec delete_event_integration(map(), String.t(), delete_event_integration_request(), list()) ::
           {:ok, delete_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_integration_errors()}
   def delete_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
@@ -1317,6 +1324,7 @@ defmodule AWS.AppIntegrations do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, arn, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
@@ -1340,6 +1348,7 @@ defmodule AWS.AppIntegrations do
   @spec get_data_integration(map(), String.t(), list()) ::
           {:ok, get_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_integration_errors()}
   def get_data_integration(%Client{} = client, identifier, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
@@ -1357,6 +1366,7 @@ defmodule AWS.AppIntegrations do
   @spec get_event_integration(map(), String.t(), list()) ::
           {:ok, get_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_integration_errors()}
   def get_event_integration(%Client{} = client, name, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"
@@ -1380,6 +1390,7 @@ defmodule AWS.AppIntegrations do
         ) ::
           {:ok, list_application_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_associations_errors()}
   def list_application_associations(
         %Client{} = client,
@@ -1417,6 +1428,7 @@ defmodule AWS.AppIntegrations do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -1460,6 +1472,7 @@ defmodule AWS.AppIntegrations do
         ) ::
           {:ok, list_data_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_integration_associations_errors()}
   def list_data_integration_associations(
         %Client{} = client,
@@ -1505,6 +1518,7 @@ defmodule AWS.AppIntegrations do
   @spec list_data_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_integrations_errors()}
   def list_data_integrations(
         %Client{} = client,
@@ -1547,6 +1561,7 @@ defmodule AWS.AppIntegrations do
         ) ::
           {:ok, list_event_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_integration_associations_errors()}
   def list_event_integration_associations(
         %Client{} = client,
@@ -1584,6 +1599,7 @@ defmodule AWS.AppIntegrations do
   @spec list_event_integrations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_event_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_integrations_errors()}
   def list_event_integrations(
         %Client{} = client,
@@ -1620,6 +1636,7 @@ defmodule AWS.AppIntegrations do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1637,6 +1654,7 @@ defmodule AWS.AppIntegrations do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1665,6 +1683,7 @@ defmodule AWS.AppIntegrations do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1698,6 +1717,7 @@ defmodule AWS.AppIntegrations do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, arn, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(arn)}"
@@ -1732,6 +1752,7 @@ defmodule AWS.AppIntegrations do
   @spec update_data_integration(map(), String.t(), update_data_integration_request(), list()) ::
           {:ok, update_data_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_integration_errors()}
   def update_data_integration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/dataIntegrations/#{AWS.Util.encode_uri(identifier)}"
@@ -1769,6 +1790,7 @@ defmodule AWS.AppIntegrations do
         ) ::
           {:ok, update_data_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_integration_association_errors()}
   def update_data_integration_association(
         %Client{} = client,
@@ -1805,6 +1827,7 @@ defmodule AWS.AppIntegrations do
   @spec update_event_integration(map(), String.t(), update_event_integration_request(), list()) ::
           {:ok, update_event_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_integration_errors()}
   def update_event_integration(%Client{} = client, name, input, options \\ []) do
     url_path = "/eventIntegrations/#{AWS.Util.encode_uri(name)}"

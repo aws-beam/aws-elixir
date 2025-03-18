@@ -1862,6 +1862,7 @@ defmodule AWS.Textract do
   @spec analyze_document(map(), analyze_document_request(), list()) ::
           {:ok, analyze_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, analyze_document_errors()}
   def analyze_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1892,6 +1893,7 @@ defmodule AWS.Textract do
   @spec analyze_expense(map(), analyze_expense_request(), list()) ::
           {:ok, analyze_expense_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, analyze_expense_errors()}
   def analyze_expense(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1910,6 +1912,7 @@ defmodule AWS.Textract do
   @spec analyze_id(map(), analyze_id_request(), list()) ::
           {:ok, analyze_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, analyze_id_errors()}
   def analyze_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1931,6 +1934,7 @@ defmodule AWS.Textract do
   @spec create_adapter(map(), create_adapter_request(), list()) ::
           {:ok, create_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_adapter_errors()}
   def create_adapter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1950,6 +1954,7 @@ defmodule AWS.Textract do
   @spec create_adapter_version(map(), create_adapter_version_request(), list()) ::
           {:ok, create_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_adapter_version_errors()}
   def create_adapter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1965,6 +1970,7 @@ defmodule AWS.Textract do
   @spec delete_adapter(map(), delete_adapter_request(), list()) ::
           {:ok, delete_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_adapter_errors()}
   def delete_adapter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1982,6 +1988,7 @@ defmodule AWS.Textract do
   @spec delete_adapter_version(map(), delete_adapter_version_request(), list()) ::
           {:ok, delete_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_adapter_version_errors()}
   def delete_adapter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2013,6 +2020,7 @@ defmodule AWS.Textract do
   @spec detect_document_text(map(), detect_document_text_request(), list()) ::
           {:ok, detect_document_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_document_text_errors()}
   def detect_document_text(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2028,6 +2036,7 @@ defmodule AWS.Textract do
   @spec get_adapter(map(), get_adapter_request(), list()) ::
           {:ok, get_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_adapter_errors()}
   def get_adapter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2043,6 +2052,7 @@ defmodule AWS.Textract do
   @spec get_adapter_version(map(), get_adapter_version_request(), list()) ::
           {:ok, get_adapter_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_adapter_version_errors()}
   def get_adapter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2123,6 +2133,7 @@ defmodule AWS.Textract do
   @spec get_document_analysis(map(), get_document_analysis_request(), list()) ::
           {:ok, get_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_analysis_errors()}
   def get_document_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2174,6 +2185,7 @@ defmodule AWS.Textract do
   @spec get_document_text_detection(map(), get_document_text_detection_request(), list()) ::
           {:ok, get_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_text_detection_errors()}
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2218,6 +2230,7 @@ defmodule AWS.Textract do
   @spec get_expense_analysis(map(), get_expense_analysis_request(), list()) ::
           {:ok, get_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_expense_analysis_errors()}
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2246,6 +2259,7 @@ defmodule AWS.Textract do
   @spec get_lending_analysis(map(), get_lending_analysis_request(), list()) ::
           {:ok, get_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lending_analysis_errors()}
   def get_lending_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2278,6 +2292,7 @@ defmodule AWS.Textract do
   @spec get_lending_analysis_summary(map(), get_lending_analysis_summary_request(), list()) ::
           {:ok, get_lending_analysis_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lending_analysis_summary_errors()}
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2291,6 +2306,7 @@ defmodule AWS.Textract do
   @spec list_adapter_versions(map(), list_adapter_versions_request(), list()) ::
           {:ok, list_adapter_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_adapter_versions_errors()}
   def list_adapter_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2304,6 +2320,7 @@ defmodule AWS.Textract do
   @spec list_adapters(map(), list_adapters_request(), list()) ::
           {:ok, list_adapters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_adapters_errors()}
   def list_adapters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2317,6 +2334,7 @@ defmodule AWS.Textract do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2351,6 +2369,7 @@ defmodule AWS.Textract do
   @spec start_document_analysis(map(), start_document_analysis_request(), list()) ::
           {:ok, start_document_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_document_analysis_errors()}
   def start_document_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2386,6 +2405,7 @@ defmodule AWS.Textract do
   @spec start_document_text_detection(map(), start_document_text_detection_request(), list()) ::
           {:ok, start_document_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_document_text_detection_errors()}
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2422,6 +2442,7 @@ defmodule AWS.Textract do
   @spec start_expense_analysis(map(), start_expense_analysis_request(), list()) ::
           {:ok, start_expense_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_expense_analysis_errors()}
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2472,6 +2493,7 @@ defmodule AWS.Textract do
   @spec start_lending_analysis(map(), start_lending_analysis_request(), list()) ::
           {:ok, start_lending_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_lending_analysis_errors()}
   def start_lending_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2485,6 +2507,7 @@ defmodule AWS.Textract do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2498,6 +2521,7 @@ defmodule AWS.Textract do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2514,6 +2538,7 @@ defmodule AWS.Textract do
   @spec update_adapter(map(), update_adapter_request(), list()) ::
           {:ok, update_adapter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_adapter_errors()}
   def update_adapter(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -5243,6 +5243,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_aws_account_with_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_aws_account_with_partner_account_errors()}
   def associate_aws_account_with_partner_account(%Client{} = client, input, options \\ []) do
     url_path = "/partner-accounts"
@@ -5276,6 +5277,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_multicast_group_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_multicast_group_with_fuota_task_errors()}
   def associate_multicast_group_with_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/multicast-group"
@@ -5309,6 +5311,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_wireless_device_with_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_wireless_device_with_fuota_task_errors()}
   def associate_wireless_device_with_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}/wireless-device"
@@ -5342,6 +5345,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_wireless_device_with_multicast_group_errors()}
   def associate_wireless_device_with_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/wireless-device"
@@ -5375,6 +5379,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_wireless_device_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_wireless_device_with_thing_errors()}
   def associate_wireless_device_with_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
@@ -5408,6 +5413,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_wireless_gateway_with_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_wireless_gateway_with_certificate_errors()}
   def associate_wireless_gateway_with_certificate(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
@@ -5441,6 +5447,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, associate_wireless_gateway_with_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_wireless_gateway_with_thing_errors()}
   def associate_wireless_gateway_with_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
@@ -5474,6 +5481,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, cancel_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_multicast_group_session_errors()}
   def cancel_multicast_group_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
@@ -5502,6 +5510,7 @@ defmodule AWS.IoTWireless do
   @spec create_destination(map(), create_destination_request(), list()) ::
           {:ok, create_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_destination_errors()}
   def create_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
@@ -5530,6 +5539,7 @@ defmodule AWS.IoTWireless do
   @spec create_device_profile(map(), create_device_profile_request(), list()) ::
           {:ok, create_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_profile_errors()}
   def create_device_profile(%Client{} = client, input, options \\ []) do
     url_path = "/device-profiles"
@@ -5558,6 +5568,7 @@ defmodule AWS.IoTWireless do
   @spec create_fuota_task(map(), create_fuota_task_request(), list()) ::
           {:ok, create_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fuota_task_errors()}
   def create_fuota_task(%Client{} = client, input, options \\ []) do
     url_path = "/fuota-tasks"
@@ -5586,6 +5597,7 @@ defmodule AWS.IoTWireless do
   @spec create_multicast_group(map(), create_multicast_group_request(), list()) ::
           {:ok, create_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multicast_group_errors()}
   def create_multicast_group(%Client{} = client, input, options \\ []) do
     url_path = "/multicast-groups"
@@ -5618,6 +5630,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, create_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_analyzer_configuration_errors()}
   def create_network_analyzer_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/network-analyzer-configurations"
@@ -5646,6 +5659,7 @@ defmodule AWS.IoTWireless do
   @spec create_service_profile(map(), create_service_profile_request(), list()) ::
           {:ok, create_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_profile_errors()}
   def create_service_profile(%Client{} = client, input, options \\ []) do
     url_path = "/service-profiles"
@@ -5674,6 +5688,7 @@ defmodule AWS.IoTWireless do
   @spec create_wireless_device(map(), create_wireless_device_request(), list()) ::
           {:ok, create_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_wireless_device_errors()}
   def create_wireless_device(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-devices"
@@ -5715,6 +5730,7 @@ defmodule AWS.IoTWireless do
   @spec create_wireless_gateway(map(), create_wireless_gateway_request(), list()) ::
           {:ok, create_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_wireless_gateway_errors()}
   def create_wireless_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-gateways"
@@ -5748,6 +5764,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, create_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_wireless_gateway_task_errors()}
   def create_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
@@ -5780,6 +5797,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, create_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_wireless_gateway_task_definition_errors()}
   def create_wireless_gateway_task_definition(%Client{} = client, input, options \\ []) do
     url_path = "/wireless-gateway-task-definitions"
@@ -5808,6 +5826,7 @@ defmodule AWS.IoTWireless do
   @spec delete_destination(map(), String.t(), delete_destination_request(), list()) ::
           {:ok, delete_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_destination_errors()}
   def delete_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -5836,6 +5855,7 @@ defmodule AWS.IoTWireless do
   @spec delete_device_profile(map(), String.t(), delete_device_profile_request(), list()) ::
           {:ok, delete_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_profile_errors()}
   def delete_device_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
@@ -5864,6 +5884,7 @@ defmodule AWS.IoTWireless do
   @spec delete_fuota_task(map(), String.t(), delete_fuota_task_request(), list()) ::
           {:ok, delete_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fuota_task_errors()}
   def delete_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
@@ -5892,6 +5913,7 @@ defmodule AWS.IoTWireless do
   @spec delete_multicast_group(map(), String.t(), delete_multicast_group_request(), list()) ::
           {:ok, delete_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multicast_group_errors()}
   def delete_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
@@ -5925,6 +5947,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, delete_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_analyzer_configuration_errors()}
   def delete_network_analyzer_configuration(
         %Client{} = client,
@@ -5958,6 +5981,7 @@ defmodule AWS.IoTWireless do
   @spec delete_queued_messages(map(), String.t(), delete_queued_messages_request(), list()) ::
           {:ok, delete_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queued_messages_errors()}
   def delete_queued_messages(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
@@ -5992,6 +6016,7 @@ defmodule AWS.IoTWireless do
   @spec delete_service_profile(map(), String.t(), delete_service_profile_request(), list()) ::
           {:ok, delete_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_profile_errors()}
   def delete_service_profile(%Client{} = client, id, input, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
@@ -6020,6 +6045,7 @@ defmodule AWS.IoTWireless do
   @spec delete_wireless_device(map(), String.t(), delete_wireless_device_request(), list()) ::
           {:ok, delete_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wireless_device_errors()}
   def delete_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
@@ -6053,6 +6079,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, delete_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wireless_device_import_task_errors()}
   def delete_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
@@ -6094,6 +6121,7 @@ defmodule AWS.IoTWireless do
   @spec delete_wireless_gateway(map(), String.t(), delete_wireless_gateway_request(), list()) ::
           {:ok, delete_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wireless_gateway_errors()}
   def delete_wireless_gateway(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"
@@ -6127,6 +6155,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, delete_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wireless_gateway_task_errors()}
   def delete_wireless_gateway_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
@@ -6163,6 +6192,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, delete_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wireless_gateway_task_definition_errors()}
   def delete_wireless_gateway_task_definition(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
@@ -6196,6 +6226,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, deregister_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_wireless_device_errors()}
   def deregister_wireless_device(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}/deregister"
@@ -6238,6 +6269,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_aws_account_from_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_aws_account_from_partner_account_errors()}
   def disassociate_aws_account_from_partner_account(
         %Client{} = client,
@@ -6282,6 +6314,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_multicast_group_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_multicast_group_from_fuota_task_errors()}
   def disassociate_multicast_group_from_fuota_task(
         %Client{} = client,
@@ -6324,6 +6357,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_wireless_device_from_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_wireless_device_from_fuota_task_errors()}
   def disassociate_wireless_device_from_fuota_task(
         %Client{} = client,
@@ -6366,6 +6400,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_wireless_device_from_multicast_group_errors()}
   def disassociate_wireless_device_from_multicast_group(
         %Client{} = client,
@@ -6407,6 +6442,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_wireless_device_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_wireless_device_from_thing_errors()}
   def disassociate_wireless_device_from_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/thing"
@@ -6440,6 +6476,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_wireless_gateway_from_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_wireless_gateway_from_certificate_errors()}
   def disassociate_wireless_gateway_from_certificate(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
@@ -6473,6 +6510,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, disassociate_wireless_gateway_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_wireless_gateway_from_thing_errors()}
   def disassociate_wireless_gateway_from_thing(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/thing"
@@ -6501,6 +6539,7 @@ defmodule AWS.IoTWireless do
   @spec get_destination(map(), String.t(), list()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_destination_errors()}
   def get_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -6518,6 +6557,7 @@ defmodule AWS.IoTWireless do
   @spec get_device_profile(map(), String.t(), list()) ::
           {:ok, get_device_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_profile_errors()}
   def get_device_profile(%Client{} = client, id, options \\ []) do
     url_path = "/device-profiles/#{AWS.Util.encode_uri(id)}"
@@ -6535,6 +6575,7 @@ defmodule AWS.IoTWireless do
   @spec get_event_configuration_by_resource_types(map(), list()) ::
           {:ok, get_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_configuration_by_resource_types_errors()}
   def get_event_configuration_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/event-configurations-resource-types"
@@ -6552,6 +6593,7 @@ defmodule AWS.IoTWireless do
   @spec get_fuota_task(map(), String.t(), list()) ::
           {:ok, get_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_fuota_task_errors()}
   def get_fuota_task(%Client{} = client, id, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
@@ -6573,6 +6615,7 @@ defmodule AWS.IoTWireless do
   @spec get_log_levels_by_resource_types(map(), list()) ::
           {:ok, get_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_levels_by_resource_types_errors()}
   def get_log_levels_by_resource_types(%Client{} = client, options \\ []) do
     url_path = "/log-levels"
@@ -6590,6 +6633,7 @@ defmodule AWS.IoTWireless do
   @spec get_metric_configuration(map(), list()) ::
           {:ok, get_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_configuration_errors()}
   def get_metric_configuration(%Client{} = client, options \\ []) do
     url_path = "/metric-configuration"
@@ -6607,6 +6651,7 @@ defmodule AWS.IoTWireless do
   @spec get_metrics(map(), get_metrics_request(), list()) ::
           {:ok, get_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metrics_errors()}
   def get_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/metrics"
@@ -6635,6 +6680,7 @@ defmodule AWS.IoTWireless do
   @spec get_multicast_group(map(), String.t(), list()) ::
           {:ok, get_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_multicast_group_errors()}
   def get_multicast_group(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
@@ -6652,6 +6698,7 @@ defmodule AWS.IoTWireless do
   @spec get_multicast_group_session(map(), String.t(), list()) ::
           {:ok, get_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_multicast_group_session_errors()}
   def get_multicast_group_session(%Client{} = client, id, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
@@ -6669,6 +6716,7 @@ defmodule AWS.IoTWireless do
   @spec get_network_analyzer_configuration(map(), String.t(), list()) ::
           {:ok, get_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_analyzer_configuration_errors()}
   def get_network_analyzer_configuration(%Client{} = client, configuration_name, options \\ []) do
     url_path = "/network-analyzer-configurations/#{AWS.Util.encode_uri(configuration_name)}"
@@ -6689,6 +6737,7 @@ defmodule AWS.IoTWireless do
   @spec get_partner_account(map(), String.t(), String.t(), list()) ::
           {:ok, get_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_partner_account_errors()}
   def get_partner_account(%Client{} = client, partner_account_id, partner_type, options \\ []) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
@@ -6718,6 +6767,7 @@ defmodule AWS.IoTWireless do
   @spec get_position(map(), String.t(), String.t(), list()) ::
           {:ok, get_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_position_errors()}
   def get_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -6747,6 +6797,7 @@ defmodule AWS.IoTWireless do
   @spec get_position_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_position_configuration_errors()}
   def get_position_configuration(
         %Client{} = client,
@@ -6780,6 +6831,7 @@ defmodule AWS.IoTWireless do
   @spec get_position_estimate(map(), get_position_estimate_request(), list()) ::
           {:ok, get_position_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_position_estimate_errors()}
   def get_position_estimate(%Client{} = client, input, options \\ []) do
     url_path = "/position-estimate"
@@ -6808,6 +6860,7 @@ defmodule AWS.IoTWireless do
   @spec get_resource_event_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_event_configuration_errors()}
   def get_resource_event_configuration(
         %Client{} = client,
@@ -6849,6 +6902,7 @@ defmodule AWS.IoTWireless do
   @spec get_resource_log_level(map(), String.t(), String.t(), list()) ::
           {:ok, get_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_log_level_errors()}
   def get_resource_log_level(
         %Client{} = client,
@@ -6881,6 +6935,7 @@ defmodule AWS.IoTWireless do
   @spec get_resource_position(map(), String.t(), String.t(), list()) ::
           {:ok, get_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_position_errors()}
   def get_resource_position(%Client{} = client, resource_identifier, resource_type, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -6907,6 +6962,7 @@ defmodule AWS.IoTWireless do
   @spec get_service_endpoint(map(), String.t() | nil, list()) ::
           {:ok, get_service_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_endpoint_errors()}
   def get_service_endpoint(%Client{} = client, service_type \\ nil, options \\ []) do
     url_path = "/service-endpoint"
@@ -6931,6 +6987,7 @@ defmodule AWS.IoTWireless do
   @spec get_service_profile(map(), String.t(), list()) ::
           {:ok, get_service_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_profile_errors()}
   def get_service_profile(%Client{} = client, id, options \\ []) do
     url_path = "/service-profiles/#{AWS.Util.encode_uri(id)}"
@@ -6948,6 +7005,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_device(map(), String.t(), String.t(), list()) ::
           {:ok, get_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_device_errors()}
   def get_wireless_device(%Client{} = client, identifier, identifier_type, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(identifier)}"
@@ -6973,6 +7031,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_device_import_task(map(), String.t(), list()) ::
           {:ok, get_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_device_import_task_errors()}
   def get_wireless_device_import_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
@@ -6990,6 +7049,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_device_statistics(map(), String.t(), list()) ::
           {:ok, get_wireless_device_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_device_statistics_errors()}
   def get_wireless_device_statistics(%Client{} = client, wireless_device_id, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(wireless_device_id)}/statistics"
@@ -7007,6 +7067,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway(map(), String.t(), String.t(), list()) ::
           {:ok, get_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_errors()}
   def get_wireless_gateway(%Client{} = client, identifier, identifier_type, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(identifier)}"
@@ -7032,6 +7093,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway_certificate(map(), String.t(), list()) ::
           {:ok, get_wireless_gateway_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_certificate_errors()}
   def get_wireless_gateway_certificate(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/certificate"
@@ -7049,6 +7111,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway_firmware_information(map(), String.t(), list()) ::
           {:ok, get_wireless_gateway_firmware_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_firmware_information_errors()}
   def get_wireless_gateway_firmware_information(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/firmware-information"
@@ -7066,6 +7129,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway_statistics(map(), String.t(), list()) ::
           {:ok, get_wireless_gateway_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_statistics_errors()}
   def get_wireless_gateway_statistics(%Client{} = client, wireless_gateway_id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(wireless_gateway_id)}/statistics"
@@ -7083,6 +7147,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway_task(map(), String.t(), list()) ::
           {:ok, get_wireless_gateway_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_task_errors()}
   def get_wireless_gateway_task(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}/tasks"
@@ -7100,6 +7165,7 @@ defmodule AWS.IoTWireless do
   @spec get_wireless_gateway_task_definition(map(), String.t(), list()) ::
           {:ok, get_wireless_gateway_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_wireless_gateway_task_definition_errors()}
   def get_wireless_gateway_task_definition(%Client{} = client, id, options \\ []) do
     url_path = "/wireless-gateway-task-definitions/#{AWS.Util.encode_uri(id)}"
@@ -7117,6 +7183,7 @@ defmodule AWS.IoTWireless do
   @spec list_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_destinations_errors()}
   def list_destinations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/destinations"
@@ -7148,6 +7215,7 @@ defmodule AWS.IoTWireless do
   @spec list_device_profiles(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_device_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_profiles_errors()}
   def list_device_profiles(
         %Client{} = client,
@@ -7199,6 +7267,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_devices_for_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_for_wireless_device_import_task_errors()}
   def list_devices_for_wireless_device_import_task(
         %Client{} = client,
@@ -7251,6 +7320,7 @@ defmodule AWS.IoTWireless do
   @spec list_event_configurations(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_configurations_errors()}
   def list_event_configurations(
         %Client{} = client,
@@ -7295,6 +7365,7 @@ defmodule AWS.IoTWireless do
   @spec list_fuota_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_fuota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fuota_tasks_errors()}
   def list_fuota_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/fuota-tasks"
@@ -7326,6 +7397,7 @@ defmodule AWS.IoTWireless do
   @spec list_multicast_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_multicast_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multicast_groups_errors()}
   def list_multicast_groups(
         %Client{} = client,
@@ -7368,6 +7440,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_multicast_groups_by_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multicast_groups_by_fuota_task_errors()}
   def list_multicast_groups_by_fuota_task(
         %Client{} = client,
@@ -7405,6 +7478,7 @@ defmodule AWS.IoTWireless do
   @spec list_network_analyzer_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_network_analyzer_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_network_analyzer_configurations_errors()}
   def list_network_analyzer_configurations(
         %Client{} = client,
@@ -7441,6 +7515,7 @@ defmodule AWS.IoTWireless do
   @spec list_partner_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_partner_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_partner_accounts_errors()}
   def list_partner_accounts(
         %Client{} = client,
@@ -7489,6 +7564,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_position_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_position_configurations_errors()}
   def list_position_configurations(
         %Client{} = client,
@@ -7540,6 +7616,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_queued_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queued_messages_errors()}
   def list_queued_messages(
         %Client{} = client,
@@ -7585,6 +7662,7 @@ defmodule AWS.IoTWireless do
   @spec list_service_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_service_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_profiles_errors()}
   def list_service_profiles(
         %Client{} = client,
@@ -7621,6 +7699,7 @@ defmodule AWS.IoTWireless do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -7645,6 +7724,7 @@ defmodule AWS.IoTWireless do
   @spec list_wireless_device_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_wireless_device_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_wireless_device_import_tasks_errors()}
   def list_wireless_device_import_tasks(
         %Client{} = client,
@@ -7692,6 +7772,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_wireless_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_wireless_devices_errors()}
   def list_wireless_devices(
         %Client{} = client,
@@ -7782,6 +7863,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, list_wireless_gateway_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_wireless_gateway_task_definitions_errors()}
   def list_wireless_gateway_task_definitions(
         %Client{} = client,
@@ -7826,6 +7908,7 @@ defmodule AWS.IoTWireless do
   @spec list_wireless_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_wireless_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_wireless_gateways_errors()}
   def list_wireless_gateways(
         %Client{} = client,
@@ -7872,6 +7955,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, put_position_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_position_configuration_errors()}
   def put_position_configuration(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/position-configurations/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -7910,6 +7994,7 @@ defmodule AWS.IoTWireless do
   @spec put_resource_log_level(map(), String.t(), put_resource_log_level_request(), list()) ::
           {:ok, put_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_log_level_errors()}
   def put_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -7944,6 +8029,7 @@ defmodule AWS.IoTWireless do
   @spec reset_all_resource_log_levels(map(), reset_all_resource_log_levels_request(), list()) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_all_resource_log_levels_errors()}
   def reset_all_resource_log_levels(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
@@ -7975,6 +8061,7 @@ defmodule AWS.IoTWireless do
   @spec reset_resource_log_level(map(), String.t(), reset_resource_log_level_request(), list()) ::
           {:ok, reset_resource_log_level_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_resource_log_level_errors()}
   def reset_resource_log_level(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/log-levels/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -8013,6 +8100,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, send_data_to_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_data_to_multicast_group_errors()}
   def send_data_to_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/data"
@@ -8046,6 +8134,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, send_data_to_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_data_to_wireless_device_errors()}
   def send_data_to_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/data"
@@ -8080,6 +8169,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, start_bulk_associate_wireless_device_with_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bulk_associate_wireless_device_with_multicast_group_errors()}
   def start_bulk_associate_wireless_device_with_multicast_group(
         %Client{} = client,
@@ -8119,6 +8209,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, start_bulk_disassociate_wireless_device_from_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bulk_disassociate_wireless_device_from_multicast_group_errors()}
   def start_bulk_disassociate_wireless_device_from_multicast_group(
         %Client{} = client,
@@ -8152,6 +8243,7 @@ defmodule AWS.IoTWireless do
   @spec start_fuota_task(map(), String.t(), start_fuota_task_request(), list()) ::
           {:ok, start_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fuota_task_errors()}
   def start_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
@@ -8185,6 +8277,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, start_multicast_group_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_multicast_group_session_errors()}
   def start_multicast_group_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}/session"
@@ -8217,6 +8310,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, start_single_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_single_wireless_device_import_task_errors()}
   def start_single_wireless_device_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/wireless_single_device_import_task"
@@ -8250,6 +8344,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, start_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_wireless_device_import_task_errors()}
   def start_wireless_device_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/wireless_device_import_task"
@@ -8278,6 +8373,7 @@ defmodule AWS.IoTWireless do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -8312,6 +8408,7 @@ defmodule AWS.IoTWireless do
   @spec test_wireless_device(map(), String.t(), test_wireless_device_request(), list()) ::
           {:ok, test_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_wireless_device_errors()}
   def test_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}/test"
@@ -8340,6 +8437,7 @@ defmodule AWS.IoTWireless do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -8374,6 +8472,7 @@ defmodule AWS.IoTWireless do
   @spec update_destination(map(), String.t(), update_destination_request(), list()) ::
           {:ok, update_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -8406,6 +8505,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, update_event_configuration_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_configuration_by_resource_types_errors()}
   def update_event_configuration_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/event-configurations-resource-types"
@@ -8434,6 +8534,7 @@ defmodule AWS.IoTWireless do
   @spec update_fuota_task(map(), String.t(), update_fuota_task_request(), list()) ::
           {:ok, update_fuota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fuota_task_errors()}
   def update_fuota_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/fuota-tasks/#{AWS.Util.encode_uri(id)}"
@@ -8471,6 +8572,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, update_log_levels_by_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_log_levels_by_resource_types_errors()}
   def update_log_levels_by_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/log-levels"
@@ -8499,6 +8601,7 @@ defmodule AWS.IoTWireless do
   @spec update_metric_configuration(map(), update_metric_configuration_request(), list()) ::
           {:ok, update_metric_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_metric_configuration_errors()}
   def update_metric_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/metric-configuration"
@@ -8527,6 +8630,7 @@ defmodule AWS.IoTWireless do
   @spec update_multicast_group(map(), String.t(), update_multicast_group_request(), list()) ::
           {:ok, update_multicast_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_multicast_group_errors()}
   def update_multicast_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/multicast-groups/#{AWS.Util.encode_uri(id)}"
@@ -8560,6 +8664,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, update_network_analyzer_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_analyzer_configuration_errors()}
   def update_network_analyzer_configuration(
         %Client{} = client,
@@ -8593,6 +8698,7 @@ defmodule AWS.IoTWireless do
   @spec update_partner_account(map(), String.t(), update_partner_account_request(), list()) ::
           {:ok, update_partner_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_partner_account_errors()}
   def update_partner_account(%Client{} = client, partner_account_id, input, options \\ []) do
     url_path = "/partner-accounts/#{AWS.Util.encode_uri(partner_account_id)}"
@@ -8631,6 +8737,7 @@ defmodule AWS.IoTWireless do
   @spec update_position(map(), String.t(), update_position_request(), list()) ::
           {:ok, update_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_position_errors()}
   def update_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -8669,6 +8776,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, update_resource_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_event_configuration_errors()}
   def update_resource_event_configuration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/event-configurations/#{AWS.Util.encode_uri(identifier)}"
@@ -8706,6 +8814,7 @@ defmodule AWS.IoTWireless do
   @spec update_resource_position(map(), String.t(), update_resource_position_request(), list()) ::
           {:ok, update_resource_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_position_errors()}
   def update_resource_position(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/resource-positions/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -8739,6 +8848,7 @@ defmodule AWS.IoTWireless do
   @spec update_wireless_device(map(), String.t(), update_wireless_device_request(), list()) ::
           {:ok, update_wireless_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_wireless_device_errors()}
   def update_wireless_device(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-devices/#{AWS.Util.encode_uri(id)}"
@@ -8772,6 +8882,7 @@ defmodule AWS.IoTWireless do
         ) ::
           {:ok, update_wireless_device_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_wireless_device_import_task_errors()}
   def update_wireless_device_import_task(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless_device_import_task/#{AWS.Util.encode_uri(id)}"
@@ -8800,6 +8911,7 @@ defmodule AWS.IoTWireless do
   @spec update_wireless_gateway(map(), String.t(), update_wireless_gateway_request(), list()) ::
           {:ok, update_wireless_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_wireless_gateway_errors()}
   def update_wireless_gateway(%Client{} = client, id, input, options \\ []) do
     url_path = "/wireless-gateways/#{AWS.Util.encode_uri(id)}"

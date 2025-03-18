@@ -2496,6 +2496,7 @@ defmodule AWS.OpsWorks do
   @spec assign_instance(map(), assign_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assign_instance_errors()}
   def assign_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2522,6 +2523,7 @@ defmodule AWS.OpsWorks do
   @spec assign_volume(map(), assign_volume_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assign_volume_errors()}
   def assign_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2547,6 +2549,7 @@ defmodule AWS.OpsWorks do
   @spec associate_elastic_ip(map(), associate_elastic_ip_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_elastic_ip_errors()}
   def associate_elastic_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2575,6 +2578,7 @@ defmodule AWS.OpsWorks do
   @spec attach_elastic_load_balancer(map(), attach_elastic_load_balancer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_elastic_load_balancer_errors()}
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2596,6 +2600,7 @@ defmodule AWS.OpsWorks do
   @spec clone_stack(map(), clone_stack_request(), list()) ::
           {:ok, clone_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, clone_stack_errors()}
   def clone_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2617,6 +2622,7 @@ defmodule AWS.OpsWorks do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2639,6 +2645,7 @@ defmodule AWS.OpsWorks do
   @spec create_deployment(map(), create_deployment_request(), list()) ::
           {:ok, create_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2661,6 +2668,7 @@ defmodule AWS.OpsWorks do
   @spec create_instance(map(), create_instance_request(), list()) ::
           {:ok, create_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2693,6 +2701,7 @@ defmodule AWS.OpsWorks do
   @spec create_layer(map(), create_layer_request(), list()) ::
           {:ok, create_layer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_layer_errors()}
   def create_layer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2713,6 +2722,7 @@ defmodule AWS.OpsWorks do
   @spec create_stack(map(), create_stack_request(), list()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2731,6 +2741,7 @@ defmodule AWS.OpsWorks do
   @spec create_user_profile(map(), create_user_profile_request(), list()) ::
           {:ok, create_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2750,6 +2761,7 @@ defmodule AWS.OpsWorks do
   @spec delete_app(map(), delete_app_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2775,6 +2787,7 @@ defmodule AWS.OpsWorks do
   @spec delete_instance(map(), delete_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2798,6 +2811,7 @@ defmodule AWS.OpsWorks do
   @spec delete_layer(map(), delete_layer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_layer_errors()}
   def delete_layer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2820,6 +2834,7 @@ defmodule AWS.OpsWorks do
   @spec delete_stack(map(), delete_stack_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2838,6 +2853,7 @@ defmodule AWS.OpsWorks do
   @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2863,6 +2879,7 @@ defmodule AWS.OpsWorks do
   @spec deregister_ecs_cluster(map(), deregister_ecs_cluster_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_ecs_cluster_errors()}
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2885,6 +2902,7 @@ defmodule AWS.OpsWorks do
   @spec deregister_elastic_ip(map(), deregister_elastic_ip_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_elastic_ip_errors()}
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2908,6 +2926,7 @@ defmodule AWS.OpsWorks do
   @spec deregister_instance(map(), deregister_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2927,6 +2946,7 @@ defmodule AWS.OpsWorks do
   @spec deregister_rds_db_instance(map(), deregister_rds_db_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_rds_db_instance_errors()}
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2949,6 +2969,7 @@ defmodule AWS.OpsWorks do
   @spec deregister_volume(map(), deregister_volume_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_volume_errors()}
   def deregister_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2966,6 +2987,7 @@ defmodule AWS.OpsWorks do
   @spec describe_agent_versions(map(), describe_agent_versions_request(), list()) ::
           {:ok, describe_agent_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agent_versions_errors()}
   def describe_agent_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2988,6 +3010,7 @@ defmodule AWS.OpsWorks do
   @spec describe_apps(map(), describe_apps_request(), list()) ::
           {:ok, describe_apps_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_apps_errors()}
   def describe_apps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3009,6 +3032,7 @@ defmodule AWS.OpsWorks do
   @spec describe_commands(map(), describe_commands_request(), list()) ::
           {:ok, describe_commands_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_commands_errors()}
   def describe_commands(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3030,6 +3054,7 @@ defmodule AWS.OpsWorks do
   @spec describe_deployments(map(), describe_deployments_request(), list()) ::
           {:ok, describe_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_deployments_errors()}
   def describe_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3057,6 +3082,7 @@ defmodule AWS.OpsWorks do
   @spec describe_ecs_clusters(map(), describe_ecs_clusters_request(), list()) ::
           {:ok, describe_ecs_clusters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ecs_clusters_errors()}
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3078,6 +3104,7 @@ defmodule AWS.OpsWorks do
   @spec describe_elastic_ips(map(), describe_elastic_ips_request(), list()) ::
           {:ok, describe_elastic_ips_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elastic_ips_errors()}
   def describe_elastic_ips(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3099,6 +3126,7 @@ defmodule AWS.OpsWorks do
   @spec describe_elastic_load_balancers(map(), describe_elastic_load_balancers_request(), list()) ::
           {:ok, describe_elastic_load_balancers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_elastic_load_balancers_errors()}
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3120,6 +3148,7 @@ defmodule AWS.OpsWorks do
   @spec describe_instances(map(), describe_instances_request(), list()) ::
           {:ok, describe_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3141,6 +3170,7 @@ defmodule AWS.OpsWorks do
   @spec describe_layers(map(), describe_layers_request(), list()) ::
           {:ok, describe_layers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_layers_errors()}
   def describe_layers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3166,6 +3196,7 @@ defmodule AWS.OpsWorks do
         ) ::
           {:ok, describe_load_based_auto_scaling_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_load_based_auto_scaling_errors()}
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3185,6 +3216,7 @@ defmodule AWS.OpsWorks do
   @spec describe_my_user_profile(map(), %{}, list()) ::
           {:ok, describe_my_user_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_my_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3197,6 +3229,7 @@ defmodule AWS.OpsWorks do
   @spec describe_operating_systems(map(), %{}, list()) ::
           {:ok, describe_operating_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_operating_systems(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3215,6 +3248,7 @@ defmodule AWS.OpsWorks do
   @spec describe_permissions(map(), describe_permissions_request(), list()) ::
           {:ok, describe_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_permissions_errors()}
   def describe_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3236,6 +3270,7 @@ defmodule AWS.OpsWorks do
   @spec describe_raid_arrays(map(), describe_raid_arrays_request(), list()) ::
           {:ok, describe_raid_arrays_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_raid_arrays_errors()}
   def describe_raid_arrays(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3257,6 +3292,7 @@ defmodule AWS.OpsWorks do
   @spec describe_rds_db_instances(map(), describe_rds_db_instances_request(), list()) ::
           {:ok, describe_rds_db_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rds_db_instances_errors()}
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3278,6 +3314,7 @@ defmodule AWS.OpsWorks do
   @spec describe_service_errors(map(), describe_service_errors_request(), list()) ::
           {:ok, describe_service_errors_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_errors_errors()}
   def describe_service_errors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3301,6 +3338,7 @@ defmodule AWS.OpsWorks do
         ) ::
           {:ok, describe_stack_provisioning_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_provisioning_parameters_errors()}
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3322,6 +3360,7 @@ defmodule AWS.OpsWorks do
   @spec describe_stack_summary(map(), describe_stack_summary_request(), list()) ::
           {:ok, describe_stack_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_summary_errors()}
   def describe_stack_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3341,6 +3380,7 @@ defmodule AWS.OpsWorks do
   @spec describe_stacks(map(), describe_stacks_request(), list()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3366,6 +3406,7 @@ defmodule AWS.OpsWorks do
         ) ::
           {:ok, describe_time_based_auto_scaling_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_time_based_auto_scaling_errors()}
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3384,6 +3425,7 @@ defmodule AWS.OpsWorks do
   @spec describe_user_profiles(map(), describe_user_profiles_request(), list()) ::
           {:ok, describe_user_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_profiles_errors()}
   def describe_user_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3405,6 +3447,7 @@ defmodule AWS.OpsWorks do
   @spec describe_volumes(map(), describe_volumes_request(), list()) ::
           {:ok, describe_volumes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3424,6 +3467,7 @@ defmodule AWS.OpsWorks do
   @spec detach_elastic_load_balancer(map(), detach_elastic_load_balancer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_elastic_load_balancer_errors()}
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3446,6 +3490,7 @@ defmodule AWS.OpsWorks do
   @spec disassociate_elastic_ip(map(), disassociate_elastic_ip_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_elastic_ip_errors()}
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3466,6 +3511,7 @@ defmodule AWS.OpsWorks do
   @spec get_hostname_suggestion(map(), get_hostname_suggestion_request(), list()) ::
           {:ok, get_hostname_suggestion_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hostname_suggestion_errors()}
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3482,6 +3528,7 @@ defmodule AWS.OpsWorks do
   @spec grant_access(map(), grant_access_request(), list()) ::
           {:ok, grant_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, grant_access_errors()}
   def grant_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3495,6 +3542,7 @@ defmodule AWS.OpsWorks do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3517,6 +3565,7 @@ defmodule AWS.OpsWorks do
   @spec reboot_instance(map(), reboot_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3546,6 +3595,7 @@ defmodule AWS.OpsWorks do
   @spec register_ecs_cluster(map(), register_ecs_cluster_request(), list()) ::
           {:ok, register_ecs_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_ecs_cluster_errors()}
   def register_ecs_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3570,6 +3620,7 @@ defmodule AWS.OpsWorks do
   @spec register_elastic_ip(map(), register_elastic_ip_request(), list()) ::
           {:ok, register_elastic_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_elastic_ip_errors()}
   def register_elastic_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3612,6 +3663,7 @@ defmodule AWS.OpsWorks do
   @spec register_instance(map(), register_instance_request(), list()) ::
           {:ok, register_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3631,6 +3683,7 @@ defmodule AWS.OpsWorks do
   @spec register_rds_db_instance(map(), register_rds_db_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_rds_db_instance_errors()}
   def register_rds_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3655,6 +3708,7 @@ defmodule AWS.OpsWorks do
   @spec register_volume(map(), register_volume_request(), list()) ::
           {:ok, register_volume_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_volume_errors()}
   def register_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3684,6 +3738,7 @@ defmodule AWS.OpsWorks do
   @spec set_load_based_auto_scaling(map(), set_load_based_auto_scaling_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_load_based_auto_scaling_errors()}
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3706,6 +3761,7 @@ defmodule AWS.OpsWorks do
   @spec set_permission(map(), set_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_permission_errors()}
   def set_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3729,6 +3785,7 @@ defmodule AWS.OpsWorks do
   @spec set_time_based_auto_scaling(map(), set_time_based_auto_scaling_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_time_based_auto_scaling_errors()}
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3751,6 +3808,7 @@ defmodule AWS.OpsWorks do
   @spec start_instance(map(), start_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3770,6 +3828,7 @@ defmodule AWS.OpsWorks do
   @spec start_stack(map(), start_stack_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_stack_errors()}
   def start_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3795,6 +3854,7 @@ defmodule AWS.OpsWorks do
   @spec stop_instance(map(), stop_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3814,6 +3874,7 @@ defmodule AWS.OpsWorks do
   @spec stop_stack(map(), stop_stack_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_stack_errors()}
   def stop_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3832,6 +3893,7 @@ defmodule AWS.OpsWorks do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3857,6 +3919,7 @@ defmodule AWS.OpsWorks do
   @spec unassign_instance(map(), unassign_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unassign_instance_errors()}
   def unassign_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3879,6 +3942,7 @@ defmodule AWS.OpsWorks do
   @spec unassign_volume(map(), unassign_volume_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unassign_volume_errors()}
   def unassign_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3892,6 +3956,7 @@ defmodule AWS.OpsWorks do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3911,6 +3976,7 @@ defmodule AWS.OpsWorks do
   @spec update_app(map(), update_app_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3932,6 +3998,7 @@ defmodule AWS.OpsWorks do
   @spec update_elastic_ip(map(), update_elastic_ip_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_elastic_ip_errors()}
   def update_elastic_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3951,6 +4018,7 @@ defmodule AWS.OpsWorks do
   @spec update_instance(map(), update_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3970,6 +4038,7 @@ defmodule AWS.OpsWorks do
   @spec update_layer(map(), update_layer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_layer_errors()}
   def update_layer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3989,6 +4058,7 @@ defmodule AWS.OpsWorks do
   @spec update_my_user_profile(map(), update_my_user_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_my_user_profile_errors()}
   def update_my_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4008,6 +4078,7 @@ defmodule AWS.OpsWorks do
   @spec update_rds_db_instance(map(), update_rds_db_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rds_db_instance_errors()}
   def update_rds_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4027,6 +4098,7 @@ defmodule AWS.OpsWorks do
   @spec update_stack(map(), update_stack_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4045,6 +4117,7 @@ defmodule AWS.OpsWorks do
   @spec update_user_profile(map(), update_user_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4067,6 +4140,7 @@ defmodule AWS.OpsWorks do
   @spec update_volume(map(), update_volume_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()

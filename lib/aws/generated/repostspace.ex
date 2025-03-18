@@ -529,6 +529,7 @@ defmodule AWS.Repostspace do
   @spec batch_add_role(map(), String.t(), batch_add_role_input(), list()) ::
           {:ok, batch_add_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_add_role_errors()}
   def batch_add_role(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
@@ -557,6 +558,7 @@ defmodule AWS.Repostspace do
   @spec batch_remove_role(map(), String.t(), batch_remove_role_input(), list()) ::
           {:ok, batch_remove_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_remove_role_errors()}
   def batch_remove_role(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/roles"
@@ -585,6 +587,7 @@ defmodule AWS.Repostspace do
   @spec create_space(map(), create_space_input(), list()) ::
           {:ok, create_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
     url_path = "/spaces"
@@ -613,6 +616,7 @@ defmodule AWS.Repostspace do
   @spec delete_space(map(), String.t(), delete_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
@@ -642,6 +646,7 @@ defmodule AWS.Repostspace do
   @spec deregister_admin(map(), String.t(), String.t(), deregister_admin_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_admin_errors()}
   def deregister_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
@@ -670,6 +675,7 @@ defmodule AWS.Repostspace do
   @spec get_space(map(), String.t(), list()) ::
           {:ok, get_space_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_space_errors()}
   def get_space(%Client{} = client, space_id, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"
@@ -688,6 +694,7 @@ defmodule AWS.Repostspace do
   @spec list_spaces(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_spaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_spaces_errors()}
   def list_spaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/spaces"
@@ -722,6 +729,7 @@ defmodule AWS.Repostspace do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -739,6 +747,7 @@ defmodule AWS.Repostspace do
   @spec register_admin(map(), String.t(), String.t(), register_admin_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_admin_errors()}
   def register_admin(%Client{} = client, admin_id, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/admins/#{AWS.Util.encode_uri(admin_id)}"
@@ -767,6 +776,7 @@ defmodule AWS.Repostspace do
   @spec send_invites(map(), String.t(), send_invites_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_invites_errors()}
   def send_invites(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}/invite"
@@ -801,6 +811,7 @@ defmodule AWS.Repostspace do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -829,6 +840,7 @@ defmodule AWS.Repostspace do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -862,6 +874,7 @@ defmodule AWS.Repostspace do
   @spec update_space(map(), String.t(), update_space_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_space_errors()}
   def update_space(%Client{} = client, space_id, input, options \\ []) do
     url_path = "/spaces/#{AWS.Util.encode_uri(space_id)}"

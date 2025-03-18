@@ -230,7 +230,9 @@ defmodule AWS.RUM do
         optional("AppMonitorConfiguration") => app_monitor_configuration(),
         optional("CustomEvents") => custom_events(),
         optional("CwLogEnabled") => [boolean()],
-        optional("Domain") => String.t()
+        optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
+        optional("Domain") => String.t(),
+        optional("DomainList") => list(String.t()())
       }
 
   """
@@ -340,12 +342,26 @@ defmodule AWS.RUM do
 
   ## Example:
 
+      java_script_source_maps() :: %{
+        "S3Uri" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type java_script_source_maps() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       app_monitor() :: %{
         "AppMonitorConfiguration" => app_monitor_configuration(),
         "Created" => String.t(),
         "CustomEvents" => custom_events(),
         "DataStorage" => data_storage(),
+        "DeobfuscationConfiguration" => deobfuscation_configuration(),
         "Domain" => String.t(),
+        "DomainList" => list(String.t()()),
         "Id" => String.t(),
         "LastModified" => String.t(),
         "Name" => String.t(),
@@ -373,8 +389,10 @@ defmodule AWS.RUM do
         optional("AppMonitorConfiguration") => app_monitor_configuration(),
         optional("CustomEvents") => custom_events(),
         optional("CwLogEnabled") => [boolean()],
+        optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
+        optional("Domain") => String.t(),
+        optional("DomainList") => list(String.t()()),
         optional("Tags") => map(),
-        required("Domain") => String.t(),
         required("Name") => String.t()
       }
 
@@ -503,6 +521,17 @@ defmodule AWS.RUM do
 
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deobfuscation_configuration() :: %{
+        "JavaScriptSourceMaps" => java_script_source_maps()
+      }
+
+  """
+  @type deobfuscation_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1072,6 +1101,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_create_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_rum_metric_definitions_errors()}
   def batch_create_rum_metric_definitions(
         %Client{} = client,
@@ -1120,6 +1150,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_delete_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_rum_metric_definitions_errors()}
   def batch_delete_rum_metric_definitions(
         %Client{} = client,
@@ -1169,6 +1200,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, batch_get_rum_metric_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_rum_metric_definitions_errors()}
   def batch_get_rum_metric_definitions(
         %Client{} = client,
@@ -1239,6 +1271,7 @@ defmodule AWS.RUM do
   @spec create_app_monitor(map(), create_app_monitor_request(), list()) ::
           {:ok, create_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_monitor_errors()}
   def create_app_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitor"
@@ -1269,6 +1302,7 @@ defmodule AWS.RUM do
   @spec delete_app_monitor(map(), String.t(), delete_app_monitor_request(), list()) ::
           {:ok, delete_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_monitor_errors()}
   def delete_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
@@ -1297,6 +1331,7 @@ defmodule AWS.RUM do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
@@ -1337,6 +1372,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, delete_rum_metrics_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rum_metrics_destination_errors()}
   def delete_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
@@ -1371,6 +1407,7 @@ defmodule AWS.RUM do
   @spec get_app_monitor(map(), String.t(), list()) ::
           {:ok, get_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_monitor_errors()}
   def get_app_monitor(%Client{} = client, name, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
@@ -1390,6 +1427,7 @@ defmodule AWS.RUM do
   @spec get_app_monitor_data(map(), String.t(), get_app_monitor_data_request(), list()) ::
           {:ok, get_app_monitor_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_monitor_data_errors()}
   def get_app_monitor_data(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/data"
@@ -1419,6 +1457,7 @@ defmodule AWS.RUM do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, name, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
@@ -1436,6 +1475,7 @@ defmodule AWS.RUM do
   @spec list_app_monitors(map(), list_app_monitors_request(), list()) ::
           {:ok, list_app_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_monitors_errors()}
   def list_app_monitors(%Client{} = client, input, options \\ []) do
     url_path = "/appmonitors"
@@ -1481,6 +1521,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, list_rum_metrics_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rum_metrics_destinations_errors()}
   def list_rum_metrics_destinations(
         %Client{} = client,
@@ -1518,6 +1559,7 @@ defmodule AWS.RUM do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1541,6 +1583,7 @@ defmodule AWS.RUM do
   @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}/policy"
@@ -1577,6 +1620,7 @@ defmodule AWS.RUM do
   @spec put_rum_events(map(), String.t(), put_rum_events_request(), list()) ::
           {:ok, put_rum_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_rum_events_errors()}
   def put_rum_events(%Client{} = client, id, input, options \\ []) do
     url_path = "/appmonitors/#{AWS.Util.encode_uri(id)}/"
@@ -1617,6 +1661,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, put_rum_metrics_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_rum_metrics_destination_errors()}
   def put_rum_metrics_destination(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metricsdestination"
@@ -1669,6 +1714,7 @@ defmodule AWS.RUM do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1697,6 +1743,7 @@ defmodule AWS.RUM do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1747,6 +1794,7 @@ defmodule AWS.RUM do
   @spec update_app_monitor(map(), String.t(), update_app_monitor_request(), list()) ::
           {:ok, update_app_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_monitor_errors()}
   def update_app_monitor(%Client{} = client, name, input, options \\ []) do
     url_path = "/appmonitor/#{AWS.Util.encode_uri(name)}"
@@ -1784,6 +1832,7 @@ defmodule AWS.RUM do
         ) ::
           {:ok, update_rum_metric_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rum_metric_definition_errors()}
   def update_rum_metric_definition(%Client{} = client, app_monitor_name, input, options \\ []) do
     url_path = "/rummetrics/#{AWS.Util.encode_uri(app_monitor_name)}/metrics"

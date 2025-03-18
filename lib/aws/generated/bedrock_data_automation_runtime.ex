@@ -343,6 +343,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   @spec get_data_automation_status(map(), get_data_automation_status_request(), list()) ::
           {:ok, get_data_automation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_automation_status_errors()}
   def get_data_automation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -356,6 +357,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   @spec invoke_data_automation_async(map(), invoke_data_automation_async_request(), list()) ::
           {:ok, invoke_data_automation_async_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_data_automation_async_errors()}
   def invoke_data_automation_async(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -369,6 +371,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -382,6 +385,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -395,6 +399,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

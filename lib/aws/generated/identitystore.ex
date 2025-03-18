@@ -854,6 +854,7 @@ defmodule AWS.Identitystore do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -870,6 +871,7 @@ defmodule AWS.Identitystore do
   @spec create_group_membership(map(), create_group_membership_request(), list()) ::
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_membership_errors()}
   def create_group_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -883,6 +885,7 @@ defmodule AWS.Identitystore do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -896,6 +899,7 @@ defmodule AWS.Identitystore do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -909,6 +913,7 @@ defmodule AWS.Identitystore do
   @spec delete_group_membership(map(), delete_group_membership_request(), list()) ::
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -922,6 +927,7 @@ defmodule AWS.Identitystore do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -942,6 +948,7 @@ defmodule AWS.Identitystore do
   @spec describe_group(map(), describe_group_request(), list()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -962,6 +969,7 @@ defmodule AWS.Identitystore do
   @spec describe_group_membership(map(), describe_group_membership_request(), list()) ::
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -982,6 +990,7 @@ defmodule AWS.Identitystore do
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1001,6 +1010,7 @@ defmodule AWS.Identitystore do
   @spec get_group_id(map(), get_group_id_request(), list()) ::
           {:ok, get_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_id_errors()}
   def get_group_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1020,6 +1030,7 @@ defmodule AWS.Identitystore do
   @spec get_group_membership_id(map(), get_group_membership_id_request(), list()) ::
           {:ok, get_group_membership_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_membership_id_errors()}
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1039,6 +1050,7 @@ defmodule AWS.Identitystore do
   @spec get_user_id(map(), get_user_id_request(), list()) ::
           {:ok, get_user_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_id_errors()}
   def get_user_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1059,6 +1071,7 @@ defmodule AWS.Identitystore do
   @spec is_member_in_groups(map(), is_member_in_groups_request(), list()) ::
           {:ok, is_member_in_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, is_member_in_groups_errors()}
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1079,6 +1092,7 @@ defmodule AWS.Identitystore do
   @spec list_group_memberships(map(), list_group_memberships_request(), list()) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1103,6 +1117,7 @@ defmodule AWS.Identitystore do
         ) ::
           {:ok, list_group_memberships_for_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_memberships_for_member_errors()}
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1126,6 +1141,7 @@ defmodule AWS.Identitystore do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1149,6 +1165,7 @@ defmodule AWS.Identitystore do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1163,6 +1180,7 @@ defmodule AWS.Identitystore do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1177,6 +1195,7 @@ defmodule AWS.Identitystore do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()

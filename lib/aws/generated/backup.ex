@@ -3736,6 +3736,7 @@ defmodule AWS.Backup do
   @spec cancel_legal_hold(map(), String.t(), cancel_legal_hold_input(), list()) ::
           {:ok, cancel_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_legal_hold_errors()}
   def cancel_legal_hold(%Client{} = client, legal_hold_id, input, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
@@ -3777,6 +3778,7 @@ defmodule AWS.Backup do
   @spec create_backup_plan(map(), create_backup_plan_input(), list()) ::
           {:ok, create_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_plan_errors()}
   def create_backup_plan(%Client{} = client, input, options \\ []) do
     url_path = "/backup/plans"
@@ -3808,6 +3810,7 @@ defmodule AWS.Backup do
   @spec create_backup_selection(map(), String.t(), create_backup_selection_input(), list()) ::
           {:ok, create_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_selection_errors()}
   def create_backup_selection(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/selections"
@@ -3844,6 +3847,7 @@ defmodule AWS.Backup do
   @spec create_backup_vault(map(), String.t(), create_backup_vault_input(), list()) ::
           {:ok, create_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_vault_errors()}
   def create_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
@@ -3879,6 +3883,7 @@ defmodule AWS.Backup do
   @spec create_framework(map(), create_framework_input(), list()) ::
           {:ok, create_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_framework_errors()}
   def create_framework(%Client{} = client, input, options \\ []) do
     url_path = "/audit/frameworks"
@@ -3914,6 +3919,7 @@ defmodule AWS.Backup do
   @spec create_legal_hold(map(), create_legal_hold_input(), list()) ::
           {:ok, create_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_legal_hold_errors()}
   def create_legal_hold(%Client{} = client, input, options \\ []) do
     url_path = "/legal-holds"
@@ -3956,6 +3962,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, create_logically_air_gapped_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_logically_air_gapped_backup_vault_errors()}
   def create_logically_air_gapped_backup_vault(
         %Client{} = client,
@@ -3995,6 +4002,7 @@ defmodule AWS.Backup do
   @spec create_report_plan(map(), create_report_plan_input(), list()) ::
           {:ok, create_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_report_plan_errors()}
   def create_report_plan(%Client{} = client, input, options \\ []) do
     url_path = "/audit/report-plans"
@@ -4027,6 +4035,7 @@ defmodule AWS.Backup do
   @spec create_restore_testing_plan(map(), create_restore_testing_plan_input(), list()) ::
           {:ok, create_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_restore_testing_plan_errors()}
   def create_restore_testing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/restore-testing/plans"
@@ -4085,6 +4094,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, create_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_restore_testing_selection_errors()}
   def create_restore_testing_selection(
         %Client{} = client,
@@ -4125,6 +4135,7 @@ defmodule AWS.Backup do
   @spec delete_backup_plan(map(), String.t(), delete_backup_plan_input(), list()) ::
           {:ok, delete_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_plan_errors()}
   def delete_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
@@ -4161,6 +4172,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_selection_errors()}
   def delete_backup_selection(
         %Client{} = client,
@@ -4200,6 +4212,7 @@ defmodule AWS.Backup do
   @spec delete_backup_vault(map(), String.t(), delete_backup_vault_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_vault_errors()}
   def delete_backup_vault(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}"
@@ -4233,6 +4246,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_vault_access_policy_errors()}
   def delete_backup_vault_access_policy(
         %Client{} = client,
@@ -4279,6 +4293,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_vault_lock_configuration_errors()}
   def delete_backup_vault_lock_configuration(
         %Client{} = client,
@@ -4317,6 +4332,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_vault_notifications_errors()}
   def delete_backup_vault_notifications(
         %Client{} = client,
@@ -4352,6 +4368,7 @@ defmodule AWS.Backup do
   @spec delete_framework(map(), String.t(), delete_framework_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_framework_errors()}
   def delete_framework(%Client{} = client, framework_name, input, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
@@ -4406,6 +4423,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recovery_point_errors()}
   def delete_recovery_point(
         %Client{} = client,
@@ -4442,6 +4460,7 @@ defmodule AWS.Backup do
   @spec delete_report_plan(map(), String.t(), delete_report_plan_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_report_plan_errors()}
   def delete_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
@@ -4478,6 +4497,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_restore_testing_plan_errors()}
   def delete_restore_testing_plan(
         %Client{} = client,
@@ -4521,6 +4541,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_restore_testing_selection_errors()}
   def delete_restore_testing_selection(
         %Client{} = client,
@@ -4557,6 +4578,7 @@ defmodule AWS.Backup do
   @spec describe_backup_job(map(), String.t(), list()) ::
           {:ok, describe_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backup_job_errors()}
   def describe_backup_job(%Client{} = client, backup_job_id, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
@@ -4574,6 +4596,7 @@ defmodule AWS.Backup do
   @spec describe_backup_vault(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backup_vault_errors()}
   def describe_backup_vault(
         %Client{} = client,
@@ -4603,6 +4626,7 @@ defmodule AWS.Backup do
   @spec describe_copy_job(map(), String.t(), list()) ::
           {:ok, describe_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_copy_job_errors()}
   def describe_copy_job(%Client{} = client, copy_job_id, options \\ []) do
     url_path = "/copy-jobs/#{AWS.Util.encode_uri(copy_job_id)}"
@@ -4620,6 +4644,7 @@ defmodule AWS.Backup do
   @spec describe_framework(map(), String.t(), list()) ::
           {:ok, describe_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_framework_errors()}
   def describe_framework(%Client{} = client, framework_name, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
@@ -4642,6 +4667,7 @@ defmodule AWS.Backup do
   @spec describe_global_settings(map(), list()) ::
           {:ok, describe_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_settings_errors()}
   def describe_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
@@ -4663,6 +4689,7 @@ defmodule AWS.Backup do
   @spec describe_protected_resource(map(), String.t(), list()) ::
           {:ok, describe_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_protected_resource_errors()}
   def describe_protected_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4682,6 +4709,7 @@ defmodule AWS.Backup do
   @spec describe_recovery_point(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_recovery_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recovery_point_errors()}
   def describe_recovery_point(
         %Client{} = client,
@@ -4721,6 +4749,7 @@ defmodule AWS.Backup do
   @spec describe_region_settings(map(), list()) ::
           {:ok, describe_region_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_region_settings_errors()}
   def describe_region_settings(%Client{} = client, options \\ []) do
     url_path = "/account-settings"
@@ -4739,6 +4768,7 @@ defmodule AWS.Backup do
   @spec describe_report_job(map(), String.t(), list()) ::
           {:ok, describe_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_report_job_errors()}
   def describe_report_job(%Client{} = client, report_job_id, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_job_id)}"
@@ -4757,6 +4787,7 @@ defmodule AWS.Backup do
   @spec describe_report_plan(map(), String.t(), list()) ::
           {:ok, describe_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_report_plan_errors()}
   def describe_report_plan(%Client{} = client, report_plan_name, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
@@ -4774,6 +4805,7 @@ defmodule AWS.Backup do
   @spec describe_restore_job(map(), String.t(), list()) ::
           {:ok, describe_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_restore_job_errors()}
   def describe_restore_job(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}"
@@ -4805,6 +4837,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_recovery_point_errors()}
   def disassociate_recovery_point(
         %Client{} = client,
@@ -4848,6 +4881,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_recovery_point_from_parent_errors()}
   def disassociate_recovery_point_from_parent(
         %Client{} = client,
@@ -4884,6 +4918,7 @@ defmodule AWS.Backup do
   @spec export_backup_plan_template(map(), String.t(), list()) ::
           {:ok, export_backup_plan_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_backup_plan_template_errors()}
   def export_backup_plan_template(%Client{} = client, backup_plan_id, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}/toTemplate"
@@ -4905,6 +4940,7 @@ defmodule AWS.Backup do
   @spec get_backup_plan(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_plan_errors()}
   def get_backup_plan(%Client{} = client, backup_plan_id, version_id \\ nil, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
@@ -4929,6 +4965,7 @@ defmodule AWS.Backup do
   @spec get_backup_plan_from_json(map(), get_backup_plan_from_json_input(), list()) ::
           {:ok, get_backup_plan_from_json_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_plan_from_json_errors()}
   def get_backup_plan_from_json(%Client{} = client, input, options \\ []) do
     url_path = "/backup/template/json/toPlan"
@@ -4957,6 +4994,7 @@ defmodule AWS.Backup do
   @spec get_backup_plan_from_template(map(), String.t(), list()) ::
           {:ok, get_backup_plan_from_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_plan_from_template_errors()}
   def get_backup_plan_from_template(%Client{} = client, backup_plan_template_id, options \\ []) do
     url_path = "/backup/template/plans/#{AWS.Util.encode_uri(backup_plan_template_id)}/toPlan"
@@ -4976,6 +5014,7 @@ defmodule AWS.Backup do
   @spec get_backup_selection(map(), String.t(), String.t(), list()) ::
           {:ok, get_backup_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_selection_errors()}
   def get_backup_selection(%Client{} = client, backup_plan_id, selection_id, options \\ []) do
     url_path =
@@ -4996,6 +5035,7 @@ defmodule AWS.Backup do
   @spec get_backup_vault_access_policy(map(), String.t(), list()) ::
           {:ok, get_backup_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_vault_access_policy_errors()}
   def get_backup_vault_access_policy(%Client{} = client, backup_vault_name, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
@@ -5013,6 +5053,7 @@ defmodule AWS.Backup do
   @spec get_backup_vault_notifications(map(), String.t(), list()) ::
           {:ok, get_backup_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backup_vault_notifications_errors()}
   def get_backup_vault_notifications(%Client{} = client, backup_vault_name, options \\ []) do
     url_path =
@@ -5035,6 +5076,7 @@ defmodule AWS.Backup do
   @spec get_legal_hold(map(), String.t(), list()) ::
           {:ok, get_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_legal_hold_errors()}
   def get_legal_hold(%Client{} = client, legal_hold_id, options \\ []) do
     url_path = "/legal-holds/#{AWS.Util.encode_uri(legal_hold_id)}"
@@ -5053,6 +5095,7 @@ defmodule AWS.Backup do
   @spec get_recovery_point_index_details(map(), String.t(), String.t(), list()) ::
           {:ok, get_recovery_point_index_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recovery_point_index_details_errors()}
   def get_recovery_point_index_details(
         %Client{} = client,
@@ -5083,6 +5126,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, get_recovery_point_restore_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recovery_point_restore_metadata_errors()}
   def get_recovery_point_restore_metadata(
         %Client{} = client,
@@ -5115,6 +5159,7 @@ defmodule AWS.Backup do
   @spec get_restore_job_metadata(map(), String.t(), list()) ::
           {:ok, get_restore_job_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_restore_job_metadata_errors()}
   def get_restore_job_metadata(%Client{} = client, restore_job_id, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/metadata"
@@ -5143,6 +5188,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, get_restore_testing_inferred_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_restore_testing_inferred_metadata_errors()}
   def get_restore_testing_inferred_metadata(
         %Client{} = client,
@@ -5191,6 +5237,7 @@ defmodule AWS.Backup do
   @spec get_restore_testing_plan(map(), String.t(), list()) ::
           {:ok, get_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_restore_testing_plan_errors()}
   def get_restore_testing_plan(%Client{} = client, restore_testing_plan_name, options \\ []) do
     url_path = "/restore-testing/plans/#{AWS.Util.encode_uri(restore_testing_plan_name)}"
@@ -5209,6 +5256,7 @@ defmodule AWS.Backup do
   @spec get_restore_testing_selection(map(), String.t(), String.t(), list()) ::
           {:ok, get_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_restore_testing_selection_errors()}
   def get_restore_testing_selection(
         %Client{} = client,
@@ -5233,6 +5281,7 @@ defmodule AWS.Backup do
   @spec get_supported_resource_types(map(), list()) ::
           {:ok, get_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_supported_resource_types_errors()}
   def get_supported_resource_types(%Client{} = client, options \\ []) do
     url_path = "/supported-resource-types"
@@ -5270,6 +5319,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_backup_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_job_summaries_errors()}
   def list_backup_job_summaries(
         %Client{} = client,
@@ -5366,6 +5416,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_backup_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_jobs_errors()}
   def list_backup_jobs(
         %Client{} = client,
@@ -5490,6 +5541,7 @@ defmodule AWS.Backup do
   @spec list_backup_plan_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_plan_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_plan_templates_errors()}
   def list_backup_plan_templates(
         %Client{} = client,
@@ -5528,6 +5580,7 @@ defmodule AWS.Backup do
   @spec list_backup_plan_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_plan_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_plan_versions_errors()}
   def list_backup_plan_versions(
         %Client{} = client,
@@ -5565,6 +5618,7 @@ defmodule AWS.Backup do
   @spec list_backup_plans(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_plans_errors()}
   def list_backup_plans(
         %Client{} = client,
@@ -5611,6 +5665,7 @@ defmodule AWS.Backup do
   @spec list_backup_selections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_backup_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_selections_errors()}
   def list_backup_selections(
         %Client{} = client,
@@ -5656,6 +5711,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_backup_vaults_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backup_vaults_errors()}
   def list_backup_vaults(
         %Client{} = client,
@@ -5728,6 +5784,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_copy_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_copy_job_summaries_errors()}
   def list_copy_job_summaries(
         %Client{} = client,
@@ -5820,6 +5877,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_copy_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_copy_jobs_errors()}
   def list_copy_jobs(
         %Client{} = client,
@@ -5945,6 +6003,7 @@ defmodule AWS.Backup do
   @spec list_frameworks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_frameworks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_frameworks_errors()}
   def list_frameworks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/audit/frameworks"
@@ -5991,6 +6050,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_indexed_recovery_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indexed_recovery_points_errors()}
   def list_indexed_recovery_points(
         %Client{} = client,
@@ -6067,6 +6127,7 @@ defmodule AWS.Backup do
   @spec list_legal_holds(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_legal_holds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_legal_holds_errors()}
   def list_legal_holds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/legal-holds"
@@ -6101,6 +6162,7 @@ defmodule AWS.Backup do
   @spec list_protected_resources(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_protected_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protected_resources_errors()}
   def list_protected_resources(
         %Client{} = client,
@@ -6144,6 +6206,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_protected_resources_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protected_resources_by_backup_vault_errors()}
   def list_protected_resources_by_backup_vault(
         %Client{} = client,
@@ -6202,6 +6265,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_recovery_points_by_backup_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recovery_points_by_backup_vault_errors()}
   def list_recovery_points_by_backup_vault(
         %Client{} = client,
@@ -6302,6 +6366,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_recovery_points_by_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recovery_points_by_legal_hold_errors()}
   def list_recovery_points_by_legal_hold(
         %Client{} = client,
@@ -6350,6 +6415,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_recovery_points_by_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recovery_points_by_resource_errors()}
   def list_recovery_points_by_resource(
         %Client{} = client,
@@ -6404,6 +6470,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_report_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_report_jobs_errors()}
   def list_report_jobs(
         %Client{} = client,
@@ -6475,6 +6542,7 @@ defmodule AWS.Backup do
   @spec list_report_plans(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_report_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_report_plans_errors()}
   def list_report_plans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/audit/report-plans"
@@ -6525,6 +6593,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_restore_job_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_restore_job_summaries_errors()}
   def list_restore_job_summaries(
         %Client{} = client,
@@ -6607,6 +6676,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_restore_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_restore_jobs_errors()}
   def list_restore_jobs(
         %Client{} = client,
@@ -6721,6 +6791,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_restore_jobs_by_protected_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_restore_jobs_by_protected_resource_errors()}
   def list_restore_jobs_by_protected_resource(
         %Client{} = client,
@@ -6785,6 +6856,7 @@ defmodule AWS.Backup do
   @spec list_restore_testing_plans(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_restore_testing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_restore_testing_plans_errors()}
   def list_restore_testing_plans(
         %Client{} = client,
@@ -6830,6 +6902,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, list_restore_testing_selections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_restore_testing_selections_errors()}
   def list_restore_testing_selections(
         %Client{} = client,
@@ -6871,6 +6944,7 @@ defmodule AWS.Backup do
   @spec list_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(
         %Client{} = client,
@@ -6918,6 +6992,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_backup_vault_access_policy_errors()}
   def put_backup_vault_access_policy(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/access-policy"
@@ -6970,6 +7045,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_backup_vault_lock_configuration_errors()}
   def put_backup_vault_lock_configuration(
         %Client{} = client,
@@ -7008,6 +7084,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_backup_vault_notifications_errors()}
   def put_backup_vault_notifications(%Client{} = client, backup_vault_name, input, options \\ []) do
     url_path =
@@ -7048,6 +7125,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_restore_validation_result_errors()}
   def put_restore_validation_result(%Client{} = client, restore_job_id, input, options \\ []) do
     url_path = "/restore-jobs/#{AWS.Util.encode_uri(restore_job_id)}/validations"
@@ -7076,6 +7154,7 @@ defmodule AWS.Backup do
   @spec start_backup_job(map(), start_backup_job_input(), list()) ::
           {:ok, start_backup_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_backup_job_errors()}
   def start_backup_job(%Client{} = client, input, options \\ []) do
     url_path = "/backup-jobs"
@@ -7106,6 +7185,7 @@ defmodule AWS.Backup do
   @spec start_copy_job(map(), start_copy_job_input(), list()) ::
           {:ok, start_copy_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_copy_job_errors()}
   def start_copy_job(%Client{} = client, input, options \\ []) do
     url_path = "/copy-jobs"
@@ -7134,6 +7214,7 @@ defmodule AWS.Backup do
   @spec start_report_job(map(), String.t(), start_report_job_input(), list()) ::
           {:ok, start_report_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_report_job_errors()}
   def start_report_job(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-jobs/#{AWS.Util.encode_uri(report_plan_name)}"
@@ -7162,6 +7243,7 @@ defmodule AWS.Backup do
   @spec start_restore_job(map(), start_restore_job_input(), list()) ::
           {:ok, start_restore_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_restore_job_errors()}
   def start_restore_job(%Client{} = client, input, options \\ []) do
     url_path = "/restore-jobs"
@@ -7197,6 +7279,7 @@ defmodule AWS.Backup do
   @spec stop_backup_job(map(), String.t(), stop_backup_job_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_backup_job_errors()}
   def stop_backup_job(%Client{} = client, backup_job_id, input, options \\ []) do
     url_path = "/backup-jobs/#{AWS.Util.encode_uri(backup_job_id)}"
@@ -7231,6 +7314,7 @@ defmodule AWS.Backup do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7267,6 +7351,7 @@ defmodule AWS.Backup do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/untag/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7297,6 +7382,7 @@ defmodule AWS.Backup do
   @spec update_backup_plan(map(), String.t(), update_backup_plan_input(), list()) ::
           {:ok, update_backup_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backup_plan_errors()}
   def update_backup_plan(%Client{} = client, backup_plan_id, input, options \\ []) do
     url_path = "/backup/plans/#{AWS.Util.encode_uri(backup_plan_id)}"
@@ -7325,6 +7411,7 @@ defmodule AWS.Backup do
   @spec update_framework(map(), String.t(), update_framework_input(), list()) ::
           {:ok, update_framework_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_framework_errors()}
   def update_framework(%Client{} = client, framework_name, input, options \\ []) do
     url_path = "/audit/frameworks/#{AWS.Util.encode_uri(framework_name)}"
@@ -7358,6 +7445,7 @@ defmodule AWS.Backup do
   @spec update_global_settings(map(), update_global_settings_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_settings_errors()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
@@ -7394,6 +7482,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, update_recovery_point_index_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recovery_point_index_settings_errors()}
   def update_recovery_point_index_settings(
         %Client{} = client,
@@ -7462,6 +7551,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, update_recovery_point_lifecycle_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recovery_point_lifecycle_errors()}
   def update_recovery_point_lifecycle(
         %Client{} = client,
@@ -7502,6 +7592,7 @@ defmodule AWS.Backup do
   @spec update_region_settings(map(), update_region_settings_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_region_settings_errors()}
   def update_region_settings(%Client{} = client, input, options \\ []) do
     url_path = "/account-settings"
@@ -7530,6 +7621,7 @@ defmodule AWS.Backup do
   @spec update_report_plan(map(), String.t(), update_report_plan_input(), list()) ::
           {:ok, update_report_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_report_plan_errors()}
   def update_report_plan(%Client{} = client, report_plan_name, input, options \\ []) do
     url_path = "/audit/report-plans/#{AWS.Util.encode_uri(report_plan_name)}"
@@ -7589,6 +7681,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, update_restore_testing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_restore_testing_plan_errors()}
   def update_restore_testing_plan(
         %Client{} = client,
@@ -7633,6 +7726,7 @@ defmodule AWS.Backup do
         ) ::
           {:ok, update_restore_testing_selection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_restore_testing_selection_errors()}
   def update_restore_testing_selection(
         %Client{} = client,

@@ -1698,6 +1698,7 @@ defmodule AWS.AppTest do
   @spec create_test_case(map(), create_test_case_request(), list()) ::
           {:ok, create_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_case_errors()}
   def create_test_case(%Client{} = client, input, options \\ []) do
     url_path = "/testcase"
@@ -1726,6 +1727,7 @@ defmodule AWS.AppTest do
   @spec create_test_configuration(map(), create_test_configuration_request(), list()) ::
           {:ok, create_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_configuration_errors()}
   def create_test_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/testconfiguration"
@@ -1754,6 +1756,7 @@ defmodule AWS.AppTest do
   @spec create_test_suite(map(), create_test_suite_request(), list()) ::
           {:ok, create_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_suite_errors()}
   def create_test_suite(%Client{} = client, input, options \\ []) do
     url_path = "/testsuite"
@@ -1782,6 +1785,7 @@ defmodule AWS.AppTest do
   @spec delete_test_case(map(), String.t(), delete_test_case_request(), list()) ::
           {:ok, delete_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_case_errors()}
   def delete_test_case(%Client{} = client, test_case_id, input, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
@@ -1810,6 +1814,7 @@ defmodule AWS.AppTest do
   @spec delete_test_configuration(map(), String.t(), delete_test_configuration_request(), list()) ::
           {:ok, delete_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_configuration_errors()}
   def delete_test_configuration(%Client{} = client, test_configuration_id, input, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
@@ -1838,6 +1843,7 @@ defmodule AWS.AppTest do
   @spec delete_test_run(map(), String.t(), delete_test_run_request(), list()) ::
           {:ok, delete_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_run_errors()}
   def delete_test_run(%Client{} = client, test_run_id, input, options \\ []) do
     url_path = "/testruns/#{AWS.Util.encode_uri(test_run_id)}"
@@ -1866,6 +1872,7 @@ defmodule AWS.AppTest do
   @spec delete_test_suite(map(), String.t(), delete_test_suite_request(), list()) ::
           {:ok, delete_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_suite_errors()}
   def delete_test_suite(%Client{} = client, test_suite_id, input, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
@@ -1894,6 +1901,7 @@ defmodule AWS.AppTest do
   @spec get_test_case(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_case_errors()}
   def get_test_case(%Client{} = client, test_case_id, test_case_version \\ nil, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
@@ -1918,6 +1926,7 @@ defmodule AWS.AppTest do
   @spec get_test_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_configuration_errors()}
   def get_test_configuration(
         %Client{} = client,
@@ -1954,6 +1963,7 @@ defmodule AWS.AppTest do
         ) ::
           {:ok, get_test_run_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_run_step_errors()}
   def get_test_run_step(
         %Client{} = client,
@@ -1994,6 +2004,7 @@ defmodule AWS.AppTest do
   @spec get_test_suite(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_suite_errors()}
   def get_test_suite(%Client{} = client, test_suite_id, test_suite_version \\ nil, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"
@@ -2018,6 +2029,7 @@ defmodule AWS.AppTest do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2035,6 +2047,7 @@ defmodule AWS.AppTest do
   @spec list_test_cases(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_cases_errors()}
   def list_test_cases(
         %Client{} = client,
@@ -2085,6 +2098,7 @@ defmodule AWS.AppTest do
         ) ::
           {:ok, list_test_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_configurations_errors()}
   def list_test_configurations(
         %Client{} = client,
@@ -2137,6 +2151,7 @@ defmodule AWS.AppTest do
         ) ::
           {:ok, list_test_run_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_run_steps_errors()}
   def list_test_run_steps(
         %Client{} = client,
@@ -2190,6 +2205,7 @@ defmodule AWS.AppTest do
   @spec list_test_run_test_cases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_test_run_test_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_run_test_cases_errors()}
   def list_test_run_test_cases(
         %Client{} = client,
@@ -2234,6 +2250,7 @@ defmodule AWS.AppTest do
         ) ::
           {:ok, list_test_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_runs_errors()}
   def list_test_runs(
         %Client{} = client,
@@ -2286,6 +2303,7 @@ defmodule AWS.AppTest do
   @spec list_test_suites(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_test_suites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_suites_errors()}
   def list_test_suites(
         %Client{} = client,
@@ -2330,6 +2348,7 @@ defmodule AWS.AppTest do
   @spec start_test_run(map(), start_test_run_request(), list()) ::
           {:ok, start_test_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_test_run_errors()}
   def start_test_run(%Client{} = client, input, options \\ []) do
     url_path = "/testrun"
@@ -2358,6 +2377,7 @@ defmodule AWS.AppTest do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2386,6 +2406,7 @@ defmodule AWS.AppTest do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2419,6 +2440,7 @@ defmodule AWS.AppTest do
   @spec update_test_case(map(), String.t(), update_test_case_request(), list()) ::
           {:ok, update_test_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_test_case_errors()}
   def update_test_case(%Client{} = client, test_case_id, input, options \\ []) do
     url_path = "/testcases/#{AWS.Util.encode_uri(test_case_id)}"
@@ -2447,6 +2469,7 @@ defmodule AWS.AppTest do
   @spec update_test_configuration(map(), String.t(), update_test_configuration_request(), list()) ::
           {:ok, update_test_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_test_configuration_errors()}
   def update_test_configuration(%Client{} = client, test_configuration_id, input, options \\ []) do
     url_path = "/testconfigurations/#{AWS.Util.encode_uri(test_configuration_id)}"
@@ -2475,6 +2498,7 @@ defmodule AWS.AppTest do
   @spec update_test_suite(map(), String.t(), update_test_suite_request(), list()) ::
           {:ok, update_test_suite_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_test_suite_errors()}
   def update_test_suite(%Client{} = client, test_suite_id, input, options \\ []) do
     url_path = "/testsuites/#{AWS.Util.encode_uri(test_suite_id)}"

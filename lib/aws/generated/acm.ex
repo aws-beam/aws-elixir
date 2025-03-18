@@ -778,6 +778,7 @@ defmodule AWS.ACM do
   @spec add_tags_to_certificate(map(), add_tags_to_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_certificate_errors()}
   def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -802,6 +803,7 @@ defmodule AWS.ACM do
   @spec delete_certificate(map(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -819,6 +821,7 @@ defmodule AWS.ACM do
   @spec describe_certificate(map(), describe_certificate_request(), list()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -846,6 +849,7 @@ defmodule AWS.ACM do
   @spec export_certificate(map(), export_certificate_request(), list()) ::
           {:ok, export_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_certificate_errors()}
   def export_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -860,6 +864,7 @@ defmodule AWS.ACM do
   @spec get_account_configuration(map(), %{}, list()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -882,6 +887,7 @@ defmodule AWS.ACM do
   @spec get_certificate(map(), get_certificate_request(), list()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -973,6 +979,7 @@ defmodule AWS.ACM do
   @spec import_certificate(map(), import_certificate_request(), list()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -993,6 +1000,7 @@ defmodule AWS.ACM do
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1012,6 +1020,7 @@ defmodule AWS.ACM do
   @spec list_tags_for_certificate(map(), list_tags_for_certificate_request(), list()) ::
           {:ok, list_tags_for_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_certificate_errors()}
   def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1032,6 +1041,7 @@ defmodule AWS.ACM do
   @spec put_account_configuration(map(), put_account_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_configuration_errors()}
   def put_account_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1056,6 +1066,7 @@ defmodule AWS.ACM do
   @spec remove_tags_from_certificate(map(), remove_tags_from_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_certificate_errors()}
   def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1077,6 +1088,7 @@ defmodule AWS.ACM do
   @spec renew_certificate(map(), renew_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, renew_certificate_errors()}
   def renew_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1114,6 +1126,7 @@ defmodule AWS.ACM do
   @spec request_certificate(map(), request_certificate_request(), list()) ::
           {:ok, request_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_certificate_errors()}
   def request_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1144,6 +1157,7 @@ defmodule AWS.ACM do
   @spec resend_validation_email(map(), resend_validation_email_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resend_validation_email_errors()}
   def resend_validation_email(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1163,6 +1177,7 @@ defmodule AWS.ACM do
   @spec update_certificate_options(map(), update_certificate_options_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_certificate_options_errors()}
   def update_certificate_options(%Client{} = client, input, options \\ []) do
     meta = metadata()

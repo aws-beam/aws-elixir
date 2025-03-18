@@ -2858,6 +2858,7 @@ defmodule AWS.AutoScaling do
   @spec attach_instances(map(), attach_instances_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_instances_errors()}
   def attach_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2917,6 +2918,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, attach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_load_balancer_target_groups_errors()}
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2959,6 +2961,7 @@ defmodule AWS.AutoScaling do
   @spec attach_load_balancers(map(), attach_load_balancers_type(), list()) ::
           {:ok, attach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_load_balancers_errors()}
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3001,6 +3004,7 @@ defmodule AWS.AutoScaling do
   @spec attach_traffic_sources(map(), attach_traffic_sources_type(), list()) ::
           {:ok, attach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_traffic_sources_errors()}
   def attach_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3014,6 +3018,7 @@ defmodule AWS.AutoScaling do
   @spec batch_delete_scheduled_action(map(), batch_delete_scheduled_action_type(), list()) ::
           {:ok, batch_delete_scheduled_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_scheduled_action_errors()}
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3032,6 +3037,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, batch_put_scheduled_update_group_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_scheduled_update_group_action_errors()}
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3060,6 +3066,7 @@ defmodule AWS.AutoScaling do
   @spec cancel_instance_refresh(map(), cancel_instance_refresh_type(), list()) ::
           {:ok, cancel_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_instance_refresh_errors()}
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3115,6 +3122,7 @@ defmodule AWS.AutoScaling do
   @spec complete_lifecycle_action(map(), complete_lifecycle_action_type(), list()) ::
           {:ok, complete_lifecycle_action_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_lifecycle_action_errors()}
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3154,6 +3162,7 @@ defmodule AWS.AutoScaling do
   @spec create_auto_scaling_group(map(), create_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_auto_scaling_group_errors()}
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3188,6 +3197,7 @@ defmodule AWS.AutoScaling do
   @spec create_launch_configuration(map(), create_launch_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_launch_configuration_errors()}
   def create_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3208,6 +3218,7 @@ defmodule AWS.AutoScaling do
   @spec create_or_update_tags(map(), create_or_update_tags_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_or_update_tags_errors()}
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3247,6 +3258,7 @@ defmodule AWS.AutoScaling do
   @spec delete_auto_scaling_group(map(), delete_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_auto_scaling_group_errors()}
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3264,6 +3276,7 @@ defmodule AWS.AutoScaling do
   @spec delete_launch_configuration(map(), launch_configuration_name_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_launch_configuration_errors()}
   def delete_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3281,6 +3294,7 @@ defmodule AWS.AutoScaling do
   @spec delete_lifecycle_hook(map(), delete_lifecycle_hook_type(), list()) ::
           {:ok, delete_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lifecycle_hook_errors()}
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3294,6 +3308,7 @@ defmodule AWS.AutoScaling do
   @spec delete_notification_configuration(map(), delete_notification_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3315,6 +3330,7 @@ defmodule AWS.AutoScaling do
   @spec delete_policy(map(), delete_policy_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3328,6 +3344,7 @@ defmodule AWS.AutoScaling do
   @spec delete_scheduled_action(map(), delete_scheduled_action_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3341,6 +3358,7 @@ defmodule AWS.AutoScaling do
   @spec delete_tags(map(), delete_tags_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3358,6 +3376,7 @@ defmodule AWS.AutoScaling do
   @spec delete_warm_pool(map(), delete_warm_pool_type(), list()) ::
           {:ok, delete_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_warm_pool_errors()}
   def delete_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3379,6 +3398,7 @@ defmodule AWS.AutoScaling do
   @spec describe_account_limits(map(), %{}, list()) ::
           {:ok, describe_account_limits_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3407,6 +3427,7 @@ defmodule AWS.AutoScaling do
   @spec describe_adjustment_types(map(), %{}, list()) ::
           {:ok, describe_adjustment_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_adjustment_types_errors()}
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3434,6 +3455,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_groups(map(), auto_scaling_group_names_type(), list()) ::
           {:ok, auto_scaling_groups_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_scaling_groups_errors()}
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3447,6 +3469,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_instances(map(), describe_auto_scaling_instances_type(), list()) ::
           {:ok, auto_scaling_instances_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_scaling_instances_errors()}
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3460,6 +3483,7 @@ defmodule AWS.AutoScaling do
   @spec describe_auto_scaling_notification_types(map(), %{}, list()) ::
           {:ok, describe_auto_scaling_notification_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_scaling_notification_types_errors()}
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3492,6 +3516,7 @@ defmodule AWS.AutoScaling do
   @spec describe_instance_refreshes(map(), describe_instance_refreshes_type(), list()) ::
           {:ok, describe_instance_refreshes_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_refreshes_errors()}
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3505,6 +3530,7 @@ defmodule AWS.AutoScaling do
   @spec describe_launch_configurations(map(), launch_configuration_names_type(), list()) ::
           {:ok, launch_configurations_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_launch_configurations_errors()}
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3528,6 +3554,7 @@ defmodule AWS.AutoScaling do
   @spec describe_lifecycle_hook_types(map(), %{}, list()) ::
           {:ok, describe_lifecycle_hook_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lifecycle_hook_types_errors()}
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3541,6 +3568,7 @@ defmodule AWS.AutoScaling do
   @spec describe_lifecycle_hooks(map(), describe_lifecycle_hooks_type(), list()) ::
           {:ok, describe_lifecycle_hooks_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lifecycle_hooks_errors()}
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3607,6 +3635,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, describe_load_balancer_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_load_balancer_target_groups_errors()}
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3667,6 +3696,7 @@ defmodule AWS.AutoScaling do
   @spec describe_load_balancers(map(), describe_load_balancers_request(), list()) ::
           {:ok, describe_load_balancers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3680,6 +3710,7 @@ defmodule AWS.AutoScaling do
   @spec describe_metric_collection_types(map(), %{}, list()) ::
           {:ok, describe_metric_collection_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metric_collection_types_errors()}
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3699,6 +3730,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, describe_notification_configurations_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notification_configurations_errors()}
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3712,6 +3744,7 @@ defmodule AWS.AutoScaling do
   @spec describe_policies(map(), describe_policies_type(), list()) ::
           {:ok, policies_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_policies_errors()}
   def describe_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3739,6 +3772,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scaling_activities(map(), describe_scaling_activities_type(), list()) ::
           {:ok, activities_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3755,6 +3789,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scaling_process_types(map(), %{}, list()) ::
           {:ok, processes_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_process_types_errors()}
   def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3776,6 +3811,7 @@ defmodule AWS.AutoScaling do
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_type(), list()) ::
           {:ok, scheduled_actions_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3803,6 +3839,7 @@ defmodule AWS.AutoScaling do
   @spec describe_tags(map(), describe_tags_type(), list()) ::
           {:ok, tags_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3821,6 +3858,7 @@ defmodule AWS.AutoScaling do
   @spec describe_termination_policy_types(map(), %{}, list()) ::
           {:ok, describe_termination_policy_types_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_termination_policy_types_errors()}
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3842,6 +3880,7 @@ defmodule AWS.AutoScaling do
   @spec describe_traffic_sources(map(), describe_traffic_sources_request(), list()) ::
           {:ok, describe_traffic_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_traffic_sources_errors()}
   def describe_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3859,6 +3898,7 @@ defmodule AWS.AutoScaling do
   @spec describe_warm_pool(map(), describe_warm_pool_type(), list()) ::
           {:ok, describe_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_warm_pool_errors()}
   def describe_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3890,6 +3930,7 @@ defmodule AWS.AutoScaling do
   @spec detach_instances(map(), detach_instances_query(), list()) ::
           {:ok, detach_instances_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_instances_errors()}
   def detach_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3931,6 +3972,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, detach_load_balancer_target_groups_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_load_balancer_target_groups_errors()}
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3969,6 +4011,7 @@ defmodule AWS.AutoScaling do
   @spec detach_load_balancers(map(), detach_load_balancers_type(), list()) ::
           {:ok, detach_load_balancers_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_load_balancers_errors()}
   def detach_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3990,6 +4033,7 @@ defmodule AWS.AutoScaling do
   @spec detach_traffic_sources(map(), detach_traffic_sources_type(), list()) ::
           {:ok, detach_traffic_sources_result_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_traffic_sources_errors()}
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4003,6 +4047,7 @@ defmodule AWS.AutoScaling do
   @spec disable_metrics_collection(map(), disable_metrics_collection_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_metrics_collection_errors()}
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4025,6 +4070,7 @@ defmodule AWS.AutoScaling do
   @spec enable_metrics_collection(map(), enable_metrics_collection_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_metrics_collection_errors()}
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4054,6 +4100,7 @@ defmodule AWS.AutoScaling do
   @spec enter_standby(map(), enter_standby_query(), list()) ::
           {:ok, enter_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enter_standby_errors()}
   def enter_standby(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4070,6 +4117,7 @@ defmodule AWS.AutoScaling do
   @spec execute_policy(map(), execute_policy_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_policy_errors()}
   def execute_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4091,6 +4139,7 @@ defmodule AWS.AutoScaling do
   @spec exit_standby(map(), exit_standby_query(), list()) ::
           {:ok, exit_standby_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, exit_standby_errors()}
   def exit_standby(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4120,6 +4169,7 @@ defmodule AWS.AutoScaling do
   @spec get_predictive_scaling_forecast(map(), get_predictive_scaling_forecast_type(), list()) ::
           {:ok, get_predictive_scaling_forecast_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4187,6 +4237,7 @@ defmodule AWS.AutoScaling do
   @spec put_lifecycle_hook(map(), put_lifecycle_hook_type(), list()) ::
           {:ok, put_lifecycle_hook_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_lifecycle_hook_errors()}
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4216,6 +4267,7 @@ defmodule AWS.AutoScaling do
   @spec put_notification_configuration(map(), put_notification_configuration_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_notification_configuration_errors()}
   def put_notification_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4249,6 +4301,7 @@ defmodule AWS.AutoScaling do
   @spec put_scaling_policy(map(), put_scaling_policy_type(), list()) ::
           {:ok, policy_arn_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4276,6 +4329,7 @@ defmodule AWS.AutoScaling do
   @spec put_scheduled_update_group_action(map(), put_scheduled_update_group_action_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_scheduled_update_group_action_errors()}
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4310,6 +4364,7 @@ defmodule AWS.AutoScaling do
   @spec put_warm_pool(map(), put_warm_pool_type(), list()) ::
           {:ok, put_warm_pool_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_warm_pool_errors()}
   def put_warm_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4366,6 +4421,7 @@ defmodule AWS.AutoScaling do
   @spec record_lifecycle_action_heartbeat(map(), record_lifecycle_action_heartbeat_type(), list()) ::
           {:ok, record_lifecycle_action_heartbeat_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, record_lifecycle_action_heartbeat_errors()}
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4385,6 +4441,7 @@ defmodule AWS.AutoScaling do
   @spec resume_processes(map(), scaling_process_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_processes_errors()}
   def resume_processes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4432,6 +4489,7 @@ defmodule AWS.AutoScaling do
   @spec rollback_instance_refresh(map(), rollback_instance_refresh_type(), list()) ::
           {:ok, rollback_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rollback_instance_refresh_errors()}
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4453,6 +4511,7 @@ defmodule AWS.AutoScaling do
   @spec set_desired_capacity(map(), set_desired_capacity_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_desired_capacity_errors()}
   def set_desired_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4471,6 +4530,7 @@ defmodule AWS.AutoScaling do
   @spec set_instance_health(map(), set_instance_health_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_instance_health_errors()}
   def set_instance_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4496,6 +4556,7 @@ defmodule AWS.AutoScaling do
   @spec set_instance_protection(map(), set_instance_protection_query(), list()) ::
           {:ok, set_instance_protection_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_instance_protection_errors()}
   def set_instance_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4551,6 +4612,7 @@ defmodule AWS.AutoScaling do
   @spec start_instance_refresh(map(), start_instance_refresh_type(), list()) ::
           {:ok, start_instance_refresh_answer(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_instance_refresh_errors()}
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4577,6 +4639,7 @@ defmodule AWS.AutoScaling do
   @spec suspend_processes(map(), scaling_process_query(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, suspend_processes_errors()}
   def suspend_processes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4615,6 +4678,7 @@ defmodule AWS.AutoScaling do
         ) ::
           {:ok, activity_type(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_instance_in_auto_scaling_group_errors()}
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4689,6 +4753,7 @@ defmodule AWS.AutoScaling do
   @spec update_auto_scaling_group(map(), update_auto_scaling_group_type(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_auto_scaling_group_errors()}
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

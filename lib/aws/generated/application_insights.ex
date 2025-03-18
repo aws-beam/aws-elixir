@@ -1297,6 +1297,7 @@ defmodule AWS.ApplicationInsights do
   @spec add_workload(map(), add_workload_request(), list()) ::
           {:ok, add_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_workload_errors()}
   def add_workload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1310,6 +1311,7 @@ defmodule AWS.ApplicationInsights do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1323,6 +1325,7 @@ defmodule AWS.ApplicationInsights do
   @spec create_component(map(), create_component_request(), list()) ::
           {:ok, create_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1336,6 +1339,7 @@ defmodule AWS.ApplicationInsights do
   @spec create_log_pattern(map(), create_log_pattern_request(), list()) ::
           {:ok, create_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_log_pattern_errors()}
   def create_log_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1352,6 +1356,7 @@ defmodule AWS.ApplicationInsights do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1370,6 +1375,7 @@ defmodule AWS.ApplicationInsights do
   @spec delete_component(map(), delete_component_request(), list()) ::
           {:ok, delete_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1383,6 +1389,7 @@ defmodule AWS.ApplicationInsights do
   @spec delete_log_pattern(map(), delete_log_pattern_request(), list()) ::
           {:ok, delete_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_log_pattern_errors()}
   def delete_log_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1396,6 +1403,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_application(map(), describe_application_request(), list()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1410,6 +1418,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_component(map(), describe_component_request(), list()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1427,6 +1436,7 @@ defmodule AWS.ApplicationInsights do
         ) ::
           {:ok, describe_component_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_component_configuration_errors()}
   def describe_component_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1444,6 +1454,7 @@ defmodule AWS.ApplicationInsights do
         ) ::
           {:ok, describe_component_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_component_configuration_recommendation_errors()}
   def describe_component_configuration_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1463,6 +1474,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_log_pattern(map(), describe_log_pattern_request(), list()) ::
           {:ok, describe_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_log_pattern_errors()}
   def describe_log_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1476,6 +1488,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_observation(map(), describe_observation_request(), list()) ::
           {:ok, describe_observation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_observation_errors()}
   def describe_observation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1489,6 +1502,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_problem(map(), describe_problem_request(), list()) ::
           {:ok, describe_problem_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_problem_errors()}
   def describe_problem(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1502,6 +1516,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_problem_observations(map(), describe_problem_observations_request(), list()) ::
           {:ok, describe_problem_observations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_problem_observations_errors()}
   def describe_problem_observations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1515,6 +1530,7 @@ defmodule AWS.ApplicationInsights do
   @spec describe_workload(map(), describe_workload_request(), list()) ::
           {:ok, describe_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workload_errors()}
   def describe_workload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1528,6 +1544,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1541,6 +1558,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_components(map(), list_components_request(), list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1568,6 +1586,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_configuration_history(map(), list_configuration_history_request(), list()) ::
           {:ok, list_configuration_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_history_errors()}
   def list_configuration_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1581,6 +1600,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_log_pattern_sets(map(), list_log_pattern_sets_request(), list()) ::
           {:ok, list_log_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_pattern_sets_errors()}
   def list_log_pattern_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1594,6 +1614,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_log_patterns(map(), list_log_patterns_request(), list()) ::
           {:ok, list_log_patterns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_patterns_errors()}
   def list_log_patterns(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1607,6 +1628,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_problems(map(), list_problems_request(), list()) ::
           {:ok, list_problems_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_problems_errors()}
   def list_problems(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1629,6 +1651,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1642,6 +1665,7 @@ defmodule AWS.ApplicationInsights do
   @spec list_workloads(map(), list_workloads_request(), list()) ::
           {:ok, list_workloads_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1655,6 +1679,7 @@ defmodule AWS.ApplicationInsights do
   @spec remove_workload(map(), remove_workload_request(), list()) ::
           {:ok, remove_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_workload_errors()}
   def remove_workload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1680,6 +1705,7 @@ defmodule AWS.ApplicationInsights do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1693,6 +1719,7 @@ defmodule AWS.ApplicationInsights do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1706,6 +1733,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1720,6 +1748,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_component(map(), update_component_request(), list()) ::
           {:ok, update_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1738,6 +1767,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_component_configuration(map(), update_component_configuration_request(), list()) ::
           {:ok, update_component_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_component_configuration_errors()}
   def update_component_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1751,6 +1781,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_log_pattern(map(), update_log_pattern_request(), list()) ::
           {:ok, update_log_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_log_pattern_errors()}
   def update_log_pattern(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1765,6 +1796,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_problem(map(), update_problem_request(), list()) ::
           {:ok, update_problem_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_problem_errors()}
   def update_problem(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1780,6 +1812,7 @@ defmodule AWS.ApplicationInsights do
   @spec update_workload(map(), update_workload_request(), list()) ::
           {:ok, update_workload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, input, options \\ []) do
     meta = metadata()

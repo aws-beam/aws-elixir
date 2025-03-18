@@ -2470,6 +2470,7 @@ defmodule AWS.Drs do
   @spec associate_source_network_stack(map(), associate_source_network_stack_request(), list()) ::
           {:ok, associate_source_network_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_source_network_stack_errors()}
   def associate_source_network_stack(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceNetworkStack"
@@ -2499,6 +2500,7 @@ defmodule AWS.Drs do
   @spec create_extended_source_server(map(), create_extended_source_server_request(), list()) ::
           {:ok, create_extended_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_extended_source_server_errors()}
   def create_extended_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/CreateExtendedSourceServer"
@@ -2531,6 +2533,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, create_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_launch_configuration_template_errors()}
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
@@ -2563,6 +2566,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_configuration_template_errors()}
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
@@ -2591,6 +2595,7 @@ defmodule AWS.Drs do
   @spec create_source_network(map(), create_source_network_request(), list()) ::
           {:ok, create_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_source_network_errors()}
   def create_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSourceNetwork"
@@ -2619,6 +2624,7 @@ defmodule AWS.Drs do
   @spec delete_job(map(), delete_job_request(), list()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
@@ -2647,6 +2653,7 @@ defmodule AWS.Drs do
   @spec delete_launch_action(map(), delete_launch_action_request(), list()) ::
           {:ok, delete_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_launch_action_errors()}
   def delete_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchAction"
@@ -2679,6 +2686,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_launch_configuration_template_errors()}
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
@@ -2710,6 +2718,7 @@ defmodule AWS.Drs do
   @spec delete_recovery_instance(map(), delete_recovery_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recovery_instance_errors()}
   def delete_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecoveryInstance"
@@ -2742,6 +2751,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_configuration_template_errors()}
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
@@ -2770,6 +2780,7 @@ defmodule AWS.Drs do
   @spec delete_source_network(map(), delete_source_network_request(), list()) ::
           {:ok, delete_source_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_source_network_errors()}
   def delete_source_network(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceNetwork"
@@ -2800,6 +2811,7 @@ defmodule AWS.Drs do
   @spec delete_source_server(map(), delete_source_server_request(), list()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_source_server_errors()}
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
@@ -2828,6 +2840,7 @@ defmodule AWS.Drs do
   @spec describe_job_log_items(map(), describe_job_log_items_request(), list()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_log_items_errors()}
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
@@ -2863,6 +2876,7 @@ defmodule AWS.Drs do
   @spec describe_jobs(map(), describe_jobs_request(), list()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_jobs_errors()}
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
@@ -2896,6 +2910,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_launch_configuration_templates_errors()}
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
@@ -2924,6 +2939,7 @@ defmodule AWS.Drs do
   @spec describe_recovery_instances(map(), describe_recovery_instances_request(), list()) ::
           {:ok, describe_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recovery_instances_errors()}
   def describe_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoveryInstances"
@@ -2952,6 +2968,7 @@ defmodule AWS.Drs do
   @spec describe_recovery_snapshots(map(), describe_recovery_snapshots_request(), list()) ::
           {:ok, describe_recovery_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recovery_snapshots_errors()}
   def describe_recovery_snapshots(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeRecoverySnapshots"
@@ -2984,6 +3001,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_configuration_templates_errors()}
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
@@ -3012,6 +3030,7 @@ defmodule AWS.Drs do
   @spec describe_source_networks(map(), describe_source_networks_request(), list()) ::
           {:ok, describe_source_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_source_networks_errors()}
   def describe_source_networks(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceNetworks"
@@ -3040,6 +3059,7 @@ defmodule AWS.Drs do
   @spec describe_source_servers(map(), describe_source_servers_request(), list()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_source_servers_errors()}
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
@@ -3080,6 +3100,7 @@ defmodule AWS.Drs do
   @spec disconnect_recovery_instance(map(), disconnect_recovery_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_recovery_instance_errors()}
   def disconnect_recovery_instance(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectRecoveryInstance"
@@ -3120,6 +3141,7 @@ defmodule AWS.Drs do
   @spec disconnect_source_server(map(), disconnect_source_server_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_source_server_errors()}
   def disconnect_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectSourceServer"
@@ -3152,6 +3174,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, export_source_network_cfn_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_source_network_cfn_template_errors()}
   def export_source_network_cfn_template(%Client{} = client, input, options \\ []) do
     url_path = "/ExportSourceNetworkCfnTemplate"
@@ -3184,6 +3207,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, get_failback_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_failback_replication_configuration_errors()}
   def get_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetFailbackReplicationConfiguration"
@@ -3212,6 +3236,7 @@ defmodule AWS.Drs do
   @spec get_launch_configuration(map(), get_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_launch_configuration_errors()}
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
@@ -3240,6 +3265,7 @@ defmodule AWS.Drs do
   @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_replication_configuration_errors()}
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
@@ -3268,6 +3294,7 @@ defmodule AWS.Drs do
   @spec initialize_service(map(), initialize_service_request(), list()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initialize_service_errors()}
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
@@ -3302,6 +3329,7 @@ defmodule AWS.Drs do
   @spec list_extensible_source_servers(map(), list_extensible_source_servers_request(), list()) ::
           {:ok, list_extensible_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_extensible_source_servers_errors()}
   def list_extensible_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/ListExtensibleSourceServers"
@@ -3330,6 +3358,7 @@ defmodule AWS.Drs do
   @spec list_launch_actions(map(), list_launch_actions_request(), list()) ::
           {:ok, list_launch_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_launch_actions_errors()}
   def list_launch_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLaunchActions"
@@ -3358,6 +3387,7 @@ defmodule AWS.Drs do
   @spec list_staging_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_staging_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_staging_accounts_errors()}
   def list_staging_accounts(
         %Client{} = client,
@@ -3394,6 +3424,7 @@ defmodule AWS.Drs do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3411,6 +3442,7 @@ defmodule AWS.Drs do
   @spec put_launch_action(map(), put_launch_action_request(), list()) ::
           {:ok, put_launch_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_launch_action_errors()}
   def put_launch_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutLaunchAction"
@@ -3444,6 +3476,7 @@ defmodule AWS.Drs do
   @spec retry_data_replication(map(), retry_data_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_data_replication_errors()}
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
@@ -3478,6 +3511,7 @@ defmodule AWS.Drs do
   @spec reverse_replication(map(), reverse_replication_request(), list()) ::
           {:ok, reverse_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reverse_replication_errors()}
   def reverse_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ReverseReplication"
@@ -3510,6 +3544,7 @@ defmodule AWS.Drs do
   @spec start_failback_launch(map(), start_failback_launch_request(), list()) ::
           {:ok, start_failback_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_failback_launch_errors()}
   def start_failback_launch(%Client{} = client, input, options \\ []) do
     url_path = "/StartFailbackLaunch"
@@ -3541,6 +3576,7 @@ defmodule AWS.Drs do
   @spec start_recovery(map(), start_recovery_request(), list()) ::
           {:ok, start_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_recovery_errors()}
   def start_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartRecovery"
@@ -3572,6 +3608,7 @@ defmodule AWS.Drs do
   @spec start_replication(map(), start_replication_request(), list()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
@@ -3603,6 +3640,7 @@ defmodule AWS.Drs do
   @spec start_source_network_recovery(map(), start_source_network_recovery_request(), list()) ::
           {:ok, start_source_network_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_source_network_recovery_errors()}
   def start_source_network_recovery(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkRecovery"
@@ -3637,6 +3675,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, start_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_source_network_replication_errors()}
   def start_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartSourceNetworkReplication"
@@ -3668,6 +3707,7 @@ defmodule AWS.Drs do
   @spec stop_failback(map(), stop_failback_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_failback_errors()}
   def stop_failback(%Client{} = client, input, options \\ []) do
     url_path = "/StopFailback"
@@ -3699,6 +3739,7 @@ defmodule AWS.Drs do
   @spec stop_replication(map(), stop_replication_request(), list()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
@@ -3729,6 +3770,7 @@ defmodule AWS.Drs do
   @spec stop_source_network_replication(map(), stop_source_network_replication_request(), list()) ::
           {:ok, stop_source_network_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_source_network_replication_errors()}
   def stop_source_network_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopSourceNetworkReplication"
@@ -3762,6 +3804,7 @@ defmodule AWS.Drs do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3792,6 +3835,7 @@ defmodule AWS.Drs do
   @spec terminate_recovery_instances(map(), terminate_recovery_instances_request(), list()) ::
           {:ok, terminate_recovery_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_recovery_instances_errors()}
   def terminate_recovery_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateRecoveryInstances"
@@ -3821,6 +3865,7 @@ defmodule AWS.Drs do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3859,6 +3904,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_failback_replication_configuration_errors()}
   def update_failback_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateFailbackReplicationConfiguration"
@@ -3887,6 +3933,7 @@ defmodule AWS.Drs do
   @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_launch_configuration_errors()}
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
@@ -3919,6 +3966,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, update_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
@@ -3951,6 +3999,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_configuration_errors()}
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
@@ -3983,6 +4032,7 @@ defmodule AWS.Drs do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_configuration_template_errors()}
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"

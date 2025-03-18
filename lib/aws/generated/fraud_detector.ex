@@ -3371,6 +3371,7 @@ defmodule AWS.FraudDetector do
   @spec batch_create_variable(map(), batch_create_variable_request(), list()) ::
           {:ok, batch_create_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_variable_errors()}
   def batch_create_variable(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3384,6 +3385,7 @@ defmodule AWS.FraudDetector do
   @spec batch_get_variable(map(), batch_get_variable_request(), list()) ::
           {:ok, batch_get_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_variable_errors()}
   def batch_get_variable(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3397,6 +3399,7 @@ defmodule AWS.FraudDetector do
   @spec cancel_batch_import_job(map(), cancel_batch_import_job_request(), list()) ::
           {:ok, cancel_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_batch_import_job_errors()}
   def cancel_batch_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3410,6 +3413,7 @@ defmodule AWS.FraudDetector do
   @spec cancel_batch_prediction_job(map(), cancel_batch_prediction_job_request(), list()) ::
           {:ok, cancel_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_batch_prediction_job_errors()}
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3423,6 +3427,7 @@ defmodule AWS.FraudDetector do
   @spec create_batch_import_job(map(), create_batch_import_job_request(), list()) ::
           {:ok, create_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_import_job_errors()}
   def create_batch_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3436,6 +3441,7 @@ defmodule AWS.FraudDetector do
   @spec create_batch_prediction_job(map(), create_batch_prediction_job_request(), list()) ::
           {:ok, create_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_prediction_job_errors()}
   def create_batch_prediction_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3451,6 +3457,7 @@ defmodule AWS.FraudDetector do
   @spec create_detector_version(map(), create_detector_version_request(), list()) ::
           {:ok, create_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_detector_version_errors()}
   def create_detector_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3470,6 +3477,7 @@ defmodule AWS.FraudDetector do
   @spec create_list(map(), create_list_request(), list()) ::
           {:ok, create_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_list_errors()}
   def create_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3483,6 +3491,7 @@ defmodule AWS.FraudDetector do
   @spec create_model(map(), create_model_request(), list()) ::
           {:ok, create_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3496,6 +3505,7 @@ defmodule AWS.FraudDetector do
   @spec create_model_version(map(), create_model_version_request(), list()) ::
           {:ok, create_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_version_errors()}
   def create_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3509,6 +3519,7 @@ defmodule AWS.FraudDetector do
   @spec create_rule(map(), create_rule_request(), list()) ::
           {:ok, create_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3522,6 +3533,7 @@ defmodule AWS.FraudDetector do
   @spec create_variable(map(), create_variable_request(), list()) ::
           {:ok, create_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_variable_errors()}
   def create_variable(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3537,6 +3549,7 @@ defmodule AWS.FraudDetector do
   @spec delete_batch_import_job(map(), delete_batch_import_job_request(), list()) ::
           {:ok, delete_batch_import_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_batch_import_job_errors()}
   def delete_batch_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3550,6 +3563,7 @@ defmodule AWS.FraudDetector do
   @spec delete_batch_prediction_job(map(), delete_batch_prediction_job_request(), list()) ::
           {:ok, delete_batch_prediction_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_batch_prediction_job_errors()}
   def delete_batch_prediction_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3569,6 +3583,7 @@ defmodule AWS.FraudDetector do
   @spec delete_detector(map(), delete_detector_request(), list()) ::
           {:ok, delete_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_detector_errors()}
   def delete_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3587,6 +3602,7 @@ defmodule AWS.FraudDetector do
   @spec delete_detector_version(map(), delete_detector_version_request(), list()) ::
           {:ok, delete_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_detector_version_errors()}
   def delete_detector_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3605,6 +3621,7 @@ defmodule AWS.FraudDetector do
   @spec delete_entity_type(map(), delete_entity_type_request(), list()) ::
           {:ok, delete_entity_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_entity_type_errors()}
   def delete_entity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3623,6 +3640,7 @@ defmodule AWS.FraudDetector do
   @spec delete_event(map(), delete_event_request(), list()) ::
           {:ok, delete_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_errors()}
   def delete_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3641,6 +3659,7 @@ defmodule AWS.FraudDetector do
   @spec delete_event_type(map(), delete_event_type_request(), list()) ::
           {:ok, delete_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_type_errors()}
   def delete_event_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3654,6 +3673,7 @@ defmodule AWS.FraudDetector do
   @spec delete_events_by_event_type(map(), delete_events_by_event_type_request(), list()) ::
           {:ok, delete_events_by_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_events_by_event_type_errors()}
   def delete_events_by_event_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3671,6 +3691,7 @@ defmodule AWS.FraudDetector do
   @spec delete_external_model(map(), delete_external_model_request(), list()) ::
           {:ok, delete_external_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_external_model_errors()}
   def delete_external_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3693,6 +3714,7 @@ defmodule AWS.FraudDetector do
   @spec delete_label(map(), delete_label_request(), list()) ::
           {:ok, delete_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3710,6 +3732,7 @@ defmodule AWS.FraudDetector do
   @spec delete_list(map(), delete_list_request(), list()) ::
           {:ok, delete_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_list_errors()}
   def delete_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3729,6 +3752,7 @@ defmodule AWS.FraudDetector do
   @spec delete_model(map(), delete_model_request(), list()) ::
           {:ok, delete_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3748,6 +3772,7 @@ defmodule AWS.FraudDetector do
   @spec delete_model_version(map(), delete_model_version_request(), list()) ::
           {:ok, delete_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_version_errors()}
   def delete_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3766,6 +3791,7 @@ defmodule AWS.FraudDetector do
   @spec delete_outcome(map(), delete_outcome_request(), list()) ::
           {:ok, delete_outcome_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_outcome_errors()}
   def delete_outcome(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3785,6 +3811,7 @@ defmodule AWS.FraudDetector do
   @spec delete_rule(map(), delete_rule_request(), list()) ::
           {:ok, delete_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3808,6 +3835,7 @@ defmodule AWS.FraudDetector do
   @spec delete_variable(map(), delete_variable_request(), list()) ::
           {:ok, delete_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_variable_errors()}
   def delete_variable(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3821,6 +3849,7 @@ defmodule AWS.FraudDetector do
   @spec describe_detector(map(), describe_detector_request(), list()) ::
           {:ok, describe_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_detector_errors()}
   def describe_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3837,6 +3866,7 @@ defmodule AWS.FraudDetector do
   @spec describe_model_versions(map(), describe_model_versions_request(), list()) ::
           {:ok, describe_model_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_versions_errors()}
   def describe_model_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3857,6 +3887,7 @@ defmodule AWS.FraudDetector do
   @spec get_batch_import_jobs(map(), get_batch_import_jobs_request(), list()) ::
           {:ok, get_batch_import_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_batch_import_jobs_errors()}
   def get_batch_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3876,6 +3907,7 @@ defmodule AWS.FraudDetector do
   @spec get_batch_prediction_jobs(map(), get_batch_prediction_jobs_request(), list()) ::
           {:ok, get_batch_prediction_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_batch_prediction_jobs_errors()}
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3893,6 +3925,7 @@ defmodule AWS.FraudDetector do
         ) ::
           {:ok, get_delete_events_by_event_type_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delete_events_by_event_type_status_errors()}
   def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3906,6 +3939,7 @@ defmodule AWS.FraudDetector do
   @spec get_detector_version(map(), get_detector_version_request(), list()) ::
           {:ok, get_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_detector_version_errors()}
   def get_detector_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3926,6 +3960,7 @@ defmodule AWS.FraudDetector do
   @spec get_detectors(map(), get_detectors_request(), list()) ::
           {:ok, get_detectors_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_detectors_errors()}
   def get_detectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3946,6 +3981,7 @@ defmodule AWS.FraudDetector do
   @spec get_entity_types(map(), get_entity_types_request(), list()) ::
           {:ok, get_entity_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_entity_types_errors()}
   def get_entity_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3961,6 +3997,7 @@ defmodule AWS.FraudDetector do
   @spec get_event(map(), get_event_request(), list()) ::
           {:ok, get_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_errors()}
   def get_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3976,6 +4013,7 @@ defmodule AWS.FraudDetector do
   @spec get_event_prediction(map(), get_event_prediction_request(), list()) ::
           {:ok, get_event_prediction_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_prediction_errors()}
   def get_event_prediction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3992,6 +4030,7 @@ defmodule AWS.FraudDetector do
   @spec get_event_prediction_metadata(map(), get_event_prediction_metadata_request(), list()) ::
           {:ok, get_event_prediction_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_prediction_metadata_errors()}
   def get_event_prediction_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4012,6 +4051,7 @@ defmodule AWS.FraudDetector do
   @spec get_event_types(map(), get_event_types_request(), list()) ::
           {:ok, get_event_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_types_errors()}
   def get_event_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4033,6 +4073,7 @@ defmodule AWS.FraudDetector do
   @spec get_external_models(map(), get_external_models_request(), list()) ::
           {:ok, get_external_models_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_external_models_errors()}
   def get_external_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4047,6 +4088,7 @@ defmodule AWS.FraudDetector do
   @spec get_kms_encryption_key(map(), %{}, list()) ::
           {:ok, get_kms_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kms_encryption_key_errors()}
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4067,6 +4109,7 @@ defmodule AWS.FraudDetector do
   @spec get_labels(map(), get_labels_request(), list()) ::
           {:ok, get_labels_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_labels_errors()}
   def get_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4081,6 +4124,7 @@ defmodule AWS.FraudDetector do
   @spec get_list_elements(map(), get_list_elements_request(), list()) ::
           {:ok, get_list_elements_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_list_elements_errors()}
   def get_list_elements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4096,6 +4140,7 @@ defmodule AWS.FraudDetector do
   @spec get_lists_metadata(map(), get_lists_metadata_request(), list()) ::
           {:ok, get_lists_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lists_metadata_errors()}
   def get_lists_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4109,6 +4154,7 @@ defmodule AWS.FraudDetector do
   @spec get_model_version(map(), get_model_version_request(), list()) ::
           {:ok, get_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_version_errors()}
   def get_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4134,6 +4180,7 @@ defmodule AWS.FraudDetector do
   @spec get_models(map(), get_models_request(), list()) ::
           {:ok, get_models_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_models_errors()}
   def get_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4155,6 +4202,7 @@ defmodule AWS.FraudDetector do
   @spec get_outcomes(map(), get_outcomes_request(), list()) ::
           {:ok, get_outcomes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_outcomes_errors()}
   def get_outcomes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4178,6 +4226,7 @@ defmodule AWS.FraudDetector do
   @spec get_rules(map(), get_rules_request(), list()) ::
           {:ok, get_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rules_errors()}
   def get_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4198,6 +4247,7 @@ defmodule AWS.FraudDetector do
   @spec get_variables(map(), get_variables_request(), list()) ::
           {:ok, get_variables_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_variables_errors()}
   def get_variables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4232,6 +4282,7 @@ defmodule AWS.FraudDetector do
   @spec list_event_predictions(map(), list_event_predictions_request(), list()) ::
           {:ok, list_event_predictions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_predictions_errors()}
   def list_event_predictions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4250,6 +4301,7 @@ defmodule AWS.FraudDetector do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4263,6 +4315,7 @@ defmodule AWS.FraudDetector do
   @spec put_detector(map(), put_detector_request(), list()) ::
           {:ok, put_detector_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_detector_errors()}
   def put_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4281,6 +4334,7 @@ defmodule AWS.FraudDetector do
   @spec put_entity_type(map(), put_entity_type_request(), list()) ::
           {:ok, put_entity_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_entity_type_errors()}
   def put_entity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4301,6 +4355,7 @@ defmodule AWS.FraudDetector do
   @spec put_event_type(map(), put_event_type_request(), list()) ::
           {:ok, put_event_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_event_type_errors()}
   def put_event_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4317,6 +4372,7 @@ defmodule AWS.FraudDetector do
   @spec put_external_model(map(), put_external_model_request(), list()) ::
           {:ok, put_external_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_external_model_errors()}
   def put_external_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4330,6 +4386,7 @@ defmodule AWS.FraudDetector do
   @spec put_kms_encryption_key(map(), put_kms_encryption_key_request(), list()) ::
           {:ok, put_kms_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_kms_encryption_key_errors()}
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4347,6 +4404,7 @@ defmodule AWS.FraudDetector do
   @spec put_label(map(), put_label_request(), list()) ::
           {:ok, put_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_label_errors()}
   def put_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4360,6 +4418,7 @@ defmodule AWS.FraudDetector do
   @spec put_outcome(map(), put_outcome_request(), list()) ::
           {:ok, put_outcome_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_outcome_errors()}
   def put_outcome(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4377,6 +4436,7 @@ defmodule AWS.FraudDetector do
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4390,6 +4450,7 @@ defmodule AWS.FraudDetector do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4403,6 +4464,7 @@ defmodule AWS.FraudDetector do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4420,6 +4482,7 @@ defmodule AWS.FraudDetector do
   @spec update_detector_version(map(), update_detector_version_request(), list()) ::
           {:ok, update_detector_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_detector_version_errors()}
   def update_detector_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4440,6 +4503,7 @@ defmodule AWS.FraudDetector do
         ) ::
           {:ok, update_detector_version_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_detector_version_metadata_errors()}
   def update_detector_version_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4457,6 +4521,7 @@ defmodule AWS.FraudDetector do
   @spec update_detector_version_status(map(), update_detector_version_status_request(), list()) ::
           {:ok, update_detector_version_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_detector_version_status_errors()}
   def update_detector_version_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4470,6 +4535,7 @@ defmodule AWS.FraudDetector do
   @spec update_event_label(map(), update_event_label_request(), list()) ::
           {:ok, update_event_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_label_errors()}
   def update_event_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4484,6 +4550,7 @@ defmodule AWS.FraudDetector do
   @spec update_list(map(), update_list_request(), list()) ::
           {:ok, update_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_list_errors()}
   def update_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4497,6 +4564,7 @@ defmodule AWS.FraudDetector do
   @spec update_model(map(), update_model_request(), list()) ::
           {:ok, update_model_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4516,6 +4584,7 @@ defmodule AWS.FraudDetector do
   @spec update_model_version(map(), update_model_version_request(), list()) ::
           {:ok, update_model_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_version_errors()}
   def update_model_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4540,6 +4609,7 @@ defmodule AWS.FraudDetector do
   @spec update_model_version_status(map(), update_model_version_status_request(), list()) ::
           {:ok, update_model_version_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_version_status_errors()}
   def update_model_version_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4555,6 +4625,7 @@ defmodule AWS.FraudDetector do
   @spec update_rule_metadata(map(), update_rule_metadata_request(), list()) ::
           {:ok, update_rule_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_metadata_errors()}
   def update_rule_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4570,6 +4641,7 @@ defmodule AWS.FraudDetector do
   @spec update_rule_version(map(), update_rule_version_request(), list()) ::
           {:ok, update_rule_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_version_errors()}
   def update_rule_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4583,6 +4655,7 @@ defmodule AWS.FraudDetector do
   @spec update_variable(map(), update_variable_request(), list()) ::
           {:ok, update_variable_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_variable_errors()}
   def update_variable(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -680,6 +680,7 @@ defmodule AWS.BackupSearch do
   @spec get_search_job(map(), String.t(), list()) ::
           {:ok, get_search_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_search_job_errors()}
   def get_search_job(%Client{} = client, search_job_identifier, options \\ []) do
     url_path = "/search-jobs/#{AWS.Util.encode_uri(search_job_identifier)}"
@@ -704,6 +705,7 @@ defmodule AWS.BackupSearch do
   @spec get_search_result_export_job(map(), String.t(), list()) ::
           {:ok, get_search_result_export_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_search_result_export_job_errors()}
   def get_search_result_export_job(%Client{} = client, export_job_identifier, options \\ []) do
     url_path = "/export-search-jobs/#{AWS.Util.encode_uri(export_job_identifier)}"
@@ -735,6 +737,7 @@ defmodule AWS.BackupSearch do
   @spec list_search_job_backups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_search_job_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_search_job_backups_errors()}
   def list_search_job_backups(
         %Client{} = client,
@@ -772,6 +775,7 @@ defmodule AWS.BackupSearch do
   @spec list_search_job_results(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_search_job_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_search_job_results_errors()}
   def list_search_job_results(
         %Client{} = client,
@@ -810,6 +814,7 @@ defmodule AWS.BackupSearch do
   @spec list_search_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_search_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_search_jobs(
         %Client{} = client,
         by_status \\ nil,
@@ -861,6 +866,7 @@ defmodule AWS.BackupSearch do
         ) ::
           {:ok, list_search_result_export_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_search_result_export_jobs_errors()}
   def list_search_result_export_jobs(
         %Client{} = client,
@@ -913,6 +919,7 @@ defmodule AWS.BackupSearch do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -935,6 +942,7 @@ defmodule AWS.BackupSearch do
   @spec start_search_job(map(), start_search_job_input(), list()) ::
           {:ok, start_search_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_search_job_errors()}
   def start_search_job(%Client{} = client, input, options \\ []) do
     url_path = "/search-jobs"
@@ -964,6 +972,7 @@ defmodule AWS.BackupSearch do
   @spec start_search_result_export_job(map(), start_search_result_export_job_input(), list()) ::
           {:ok, start_search_result_export_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_search_result_export_job_errors()}
   def start_search_result_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-search-jobs"
@@ -995,6 +1004,7 @@ defmodule AWS.BackupSearch do
   @spec stop_search_job(map(), String.t(), stop_search_job_input(), list()) ::
           {:ok, stop_search_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_search_job_errors()}
   def stop_search_job(%Client{} = client, search_job_identifier, input, options \\ []) do
     url_path = "/search-jobs/#{AWS.Util.encode_uri(search_job_identifier)}/actions/cancel"
@@ -1023,6 +1033,7 @@ defmodule AWS.BackupSearch do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1051,6 +1062,7 @@ defmodule AWS.BackupSearch do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

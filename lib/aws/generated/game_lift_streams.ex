@@ -1052,6 +1052,7 @@ defmodule AWS.GameLiftStreams do
   @spec add_stream_group_locations(map(), String.t(), add_stream_group_locations_input(), list()) ::
           {:ok, add_stream_group_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_stream_group_locations_errors()}
   def add_stream_group_locations(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/locations"
@@ -1085,6 +1086,7 @@ defmodule AWS.GameLiftStreams do
   @spec associate_applications(map(), String.t(), associate_applications_input(), list()) ::
           {:ok, associate_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_applications_errors()}
   def associate_applications(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/associations"
@@ -1130,6 +1132,7 @@ defmodule AWS.GameLiftStreams do
   @spec create_application(map(), create_application_input(), list()) ::
           {:ok, create_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1195,6 +1198,7 @@ defmodule AWS.GameLiftStreams do
   @spec create_stream_group(map(), create_stream_group_input(), list()) ::
           {:ok, create_stream_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_group_errors()}
   def create_stream_group(%Client{} = client, input, options \\ []) do
     url_path = "/streamgroups"
@@ -1254,6 +1258,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, create_stream_session_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_session_connection_errors()}
   def create_stream_session_connection(
         %Client{} = client,
@@ -1322,6 +1327,7 @@ defmodule AWS.GameLiftStreams do
   @spec delete_application(map(), String.t(), delete_application_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(identifier)}"
@@ -1360,6 +1366,7 @@ defmodule AWS.GameLiftStreams do
   @spec delete_stream_group(map(), String.t(), delete_stream_group_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_group_errors()}
   def delete_stream_group(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}"
@@ -1400,6 +1407,7 @@ defmodule AWS.GameLiftStreams do
   @spec disassociate_applications(map(), String.t(), disassociate_applications_input(), list()) ::
           {:ok, disassociate_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_applications_errors()}
   def disassociate_applications(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/disassociations"
@@ -1470,6 +1478,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, export_stream_session_files_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_stream_session_files_errors()}
   def export_stream_session_files(
         %Client{} = client,
@@ -1511,6 +1520,7 @@ defmodule AWS.GameLiftStreams do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, identifier, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(identifier)}"
@@ -1533,6 +1543,7 @@ defmodule AWS.GameLiftStreams do
   @spec get_stream_group(map(), String.t(), list()) ::
           {:ok, get_stream_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stream_group_errors()}
   def get_stream_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}"
@@ -1555,6 +1566,7 @@ defmodule AWS.GameLiftStreams do
   @spec get_stream_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_stream_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stream_session_errors()}
   def get_stream_session(%Client{} = client, identifier, stream_session_identifier, options \\ []) do
     url_path =
@@ -1579,6 +1591,7 @@ defmodule AWS.GameLiftStreams do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -1615,6 +1628,7 @@ defmodule AWS.GameLiftStreams do
   @spec list_stream_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_stream_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_groups_errors()}
   def list_stream_groups(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/streamgroups"
@@ -1661,6 +1675,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, list_stream_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_sessions_errors()}
   def list_stream_sessions(
         %Client{} = client,
@@ -1730,6 +1745,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, list_stream_sessions_by_account_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_sessions_by_account_errors()}
   def list_stream_sessions_by_account(
         %Client{} = client,
@@ -1795,6 +1811,7 @@ defmodule AWS.GameLiftStreams do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1827,6 +1844,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_stream_group_locations_errors()}
   def remove_stream_group_locations(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/locations"
@@ -1900,6 +1918,7 @@ defmodule AWS.GameLiftStreams do
   @spec start_stream_session(map(), String.t(), start_stream_session_input(), list()) ::
           {:ok, start_stream_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_stream_session_errors()}
   def start_stream_session(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}/streamsessions"
@@ -1948,6 +1967,7 @@ defmodule AWS.GameLiftStreams do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1987,6 +2007,7 @@ defmodule AWS.GameLiftStreams do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_stream_session_errors()}
   def terminate_stream_session(
         %Client{} = client,
@@ -2026,6 +2047,7 @@ defmodule AWS.GameLiftStreams do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2067,6 +2089,7 @@ defmodule AWS.GameLiftStreams do
   @spec update_application(map(), String.t(), update_application_input(), list()) ::
           {:ok, update_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(identifier)}"
@@ -2127,6 +2150,7 @@ defmodule AWS.GameLiftStreams do
   @spec update_stream_group(map(), String.t(), update_stream_group_input(), list()) ::
           {:ok, update_stream_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stream_group_errors()}
   def update_stream_group(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/streamgroups/#{AWS.Util.encode_uri(identifier)}"

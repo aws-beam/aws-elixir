@@ -901,6 +901,7 @@ defmodule AWS.TranscribeStreaming do
   @spec get_medical_scribe_stream(map(), String.t(), list()) ::
           {:ok, get_medical_scribe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_medical_scribe_stream_errors()}
   def get_medical_scribe_stream(%Client{} = client, session_id, options \\ []) do
     url_path = "/medical-scribe-stream/#{AWS.Util.encode_uri(session_id)}"
@@ -945,6 +946,7 @@ defmodule AWS.TranscribeStreaming do
         ) ::
           {:ok, start_call_analytics_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_call_analytics_stream_transcription_errors()}
   def start_call_analytics_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/call-analytics-stream-transcription"
@@ -1058,6 +1060,7 @@ defmodule AWS.TranscribeStreaming do
   @spec start_medical_scribe_stream(map(), start_medical_scribe_stream_request(), list()) ::
           {:ok, start_medical_scribe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_medical_scribe_stream_errors()}
   def start_medical_scribe_stream(%Client{} = client, input, options \\ []) do
     url_path = "/medical-scribe-stream"
@@ -1132,6 +1135,7 @@ defmodule AWS.TranscribeStreaming do
         ) ::
           {:ok, start_medical_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_medical_stream_transcription_errors()}
   def start_medical_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/medical-stream-transcription"
@@ -1215,6 +1219,7 @@ defmodule AWS.TranscribeStreaming do
   @spec start_stream_transcription(map(), start_stream_transcription_request(), list()) ::
           {:ok, start_stream_transcription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_stream_transcription_errors()}
   def start_stream_transcription(%Client{} = client, input, options \\ []) do
     url_path = "/stream-transcription"

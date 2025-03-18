@@ -335,6 +335,7 @@ defmodule AWS.DynamoDBStreams do
   @spec describe_stream(map(), describe_stream_input(), list()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -359,6 +360,7 @@ defmodule AWS.DynamoDBStreams do
   @spec get_records(map(), get_records_input(), list()) ::
           {:ok, get_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -380,6 +382,7 @@ defmodule AWS.DynamoDBStreams do
   @spec get_shard_iterator(map(), get_shard_iterator_input(), list()) ::
           {:ok, get_shard_iterator_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -400,6 +403,7 @@ defmodule AWS.DynamoDBStreams do
   @spec list_streams(map(), list_streams_input(), list()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()

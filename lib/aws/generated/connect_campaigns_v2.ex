@@ -1434,6 +1434,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec create_campaign(map(), create_campaign_request(), list()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns"
@@ -1462,6 +1463,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec delete_campaign(map(), String.t(), delete_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}"
@@ -1497,6 +1499,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_channel_subtype_config_errors()}
   def delete_campaign_channel_subtype_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/channel-subtype-config"
@@ -1537,6 +1540,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_communication_limits_errors()}
   def delete_campaign_communication_limits(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-limits"
@@ -1577,6 +1581,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_communication_time_errors()}
   def delete_campaign_communication_time(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-time"
@@ -1615,6 +1620,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connect_instance_config_errors()}
   def delete_connect_instance_config(
         %Client{} = client,
@@ -1658,6 +1664,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connect_instance_integration_errors()}
   def delete_connect_instance_integration(
         %Client{} = client,
@@ -1699,6 +1706,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_onboarding_job_errors()}
   def delete_instance_onboarding_job(
         %Client{} = client,
@@ -1732,6 +1740,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec describe_campaign(map(), String.t(), list()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_campaign_errors()}
   def describe_campaign(%Client{} = client, id, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}"
@@ -1749,6 +1758,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec get_campaign_state(map(), String.t(), list()) ::
           {:ok, get_campaign_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_state_errors()}
   def get_campaign_state(%Client{} = client, id, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/state"
@@ -1766,6 +1776,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec get_campaign_state_batch(map(), get_campaign_state_batch_request(), list()) ::
           {:ok, get_campaign_state_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_state_batch_errors()}
   def get_campaign_state_batch(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns-state"
@@ -1794,6 +1805,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec get_connect_instance_config(map(), String.t(), list()) ::
           {:ok, get_connect_instance_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connect_instance_config_errors()}
   def get_connect_instance_config(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/config"
@@ -1811,6 +1823,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec get_instance_onboarding_job_status(map(), String.t(), list()) ::
           {:ok, get_instance_onboarding_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_onboarding_job_status_errors()}
   def get_instance_onboarding_job_status(%Client{} = client, connect_instance_id, options \\ []) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
@@ -1829,6 +1842,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec list_campaigns(map(), list_campaigns_request(), list()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
     url_path = "/v2/campaigns-summary"
@@ -1864,6 +1878,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, list_connect_instance_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connect_instance_integrations_errors()}
   def list_connect_instance_integrations(
         %Client{} = client,
@@ -1901,6 +1916,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(arn)}"
@@ -1918,6 +1934,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec pause_campaign(map(), String.t(), pause_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, pause_campaign_errors()}
   def pause_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/pause"
@@ -1951,6 +1968,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_connect_instance_integration_errors()}
   def put_connect_instance_integration(
         %Client{} = client,
@@ -1991,6 +2009,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, put_outbound_request_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_outbound_request_batch_errors()}
   def put_outbound_request_batch(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/outbound-requests"
@@ -2027,6 +2046,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, put_profile_outbound_request_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_profile_outbound_request_batch_errors()}
   def put_profile_outbound_request_batch(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/profile-outbound-requests"
@@ -2055,6 +2075,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec resume_campaign(map(), String.t(), resume_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_campaign_errors()}
   def resume_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/resume"
@@ -2083,6 +2104,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec start_campaign(map(), String.t(), start_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_campaign_errors()}
   def start_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/start"
@@ -2116,6 +2138,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, start_instance_onboarding_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_instance_onboarding_job_errors()}
   def start_instance_onboarding_job(%Client{} = client, connect_instance_id, input, options \\ []) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/onboarding"
@@ -2144,6 +2167,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec stop_campaign(map(), String.t(), stop_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_campaign_errors()}
   def stop_campaign(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/stop"
@@ -2172,6 +2196,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(arn)}"
@@ -2200,6 +2225,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v2/tags/#{AWS.Util.encode_uri(arn)}"
@@ -2240,6 +2266,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_channel_subtype_config_errors()}
   def update_campaign_channel_subtype_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/channel-subtype-config"
@@ -2275,6 +2302,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_communication_limits_errors()}
   def update_campaign_communication_limits(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-limits"
@@ -2310,6 +2338,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_communication_time_errors()}
   def update_campaign_communication_time(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/communication-time"
@@ -2345,6 +2374,7 @@ defmodule AWS.ConnectCampaignsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_flow_association_errors()}
   def update_campaign_flow_association(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/flow"
@@ -2375,6 +2405,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec update_campaign_name(map(), String.t(), update_campaign_name_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_name_errors()}
   def update_campaign_name(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/name"
@@ -2405,6 +2436,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec update_campaign_schedule(map(), String.t(), update_campaign_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_schedule_errors()}
   def update_campaign_schedule(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/schedule"
@@ -2435,6 +2467,7 @@ defmodule AWS.ConnectCampaignsV2 do
   @spec update_campaign_source(map(), String.t(), update_campaign_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_source_errors()}
   def update_campaign_source(%Client{} = client, id, input, options \\ []) do
     url_path = "/v2/campaigns/#{AWS.Util.encode_uri(id)}/source"

@@ -3114,6 +3114,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, accept_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_resource_grouping_recommendations_errors()}
   def accept_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/accept-resource-grouping-recommendations"
@@ -3157,6 +3158,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, add_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_draft_app_version_resource_mappings_errors()}
   def add_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/add-draft-app-version-resource-mappings"
@@ -3189,6 +3191,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, batch_update_recommendation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_recommendation_status_errors()}
   def batch_update_recommendation_status(%Client{} = client, input, options \\ []) do
     url_path = "/batch-update-recommendation-status"
@@ -3238,6 +3241,7 @@ defmodule AWS.Resiliencehub do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/create-app"
@@ -3275,6 +3279,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, create_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_version_app_component_errors()}
   def create_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-app-component"
@@ -3320,6 +3325,7 @@ defmodule AWS.Resiliencehub do
   @spec create_app_version_resource(map(), create_app_version_resource_request(), list()) ::
           {:ok, create_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_version_resource_errors()}
   def create_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/create-app-version-resource"
@@ -3348,6 +3354,7 @@ defmodule AWS.Resiliencehub do
   @spec create_recommendation_template(map(), create_recommendation_template_request(), list()) ::
           {:ok, create_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recommendation_template_errors()}
   def create_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/create-recommendation-template"
@@ -3386,6 +3393,7 @@ defmodule AWS.Resiliencehub do
   @spec create_resiliency_policy(map(), create_resiliency_policy_request(), list()) ::
           {:ok, create_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resiliency_policy_errors()}
   def create_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/create-resiliency-policy"
@@ -3417,6 +3425,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_app(map(), delete_app_request(), list()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app"
@@ -3448,6 +3457,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_app_assessment(map(), delete_app_assessment_request(), list()) ::
           {:ok, delete_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_assessment_errors()}
   def delete_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-assessment"
@@ -3478,6 +3488,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_app_input_source(map(), delete_app_input_source_request(), list()) ::
           {:ok, delete_app_input_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_input_source_errors()}
   def delete_app_input_source(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-input-source"
@@ -3521,6 +3532,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, delete_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_version_app_component_errors()}
   def delete_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-app-component"
@@ -3561,6 +3573,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_app_version_resource(map(), delete_app_version_resource_request(), list()) ::
           {:ok, delete_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_version_resource_errors()}
   def delete_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/delete-app-version-resource"
@@ -3592,6 +3605,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_recommendation_template(map(), delete_recommendation_template_request(), list()) ::
           {:ok, delete_recommendation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recommendation_template_errors()}
   def delete_recommendation_template(%Client{} = client, input, options \\ []) do
     url_path = "/delete-recommendation-template"
@@ -3622,6 +3636,7 @@ defmodule AWS.Resiliencehub do
   @spec delete_resiliency_policy(map(), delete_resiliency_policy_request(), list()) ::
           {:ok, delete_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resiliency_policy_errors()}
   def delete_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/delete-resiliency-policy"
@@ -3650,6 +3665,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_app(map(), describe_app_request(), list()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app"
@@ -3678,6 +3694,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_app_assessment(map(), describe_app_assessment_request(), list()) ::
           {:ok, describe_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_assessment_errors()}
   def describe_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-assessment"
@@ -3706,6 +3723,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_app_version(map(), describe_app_version_request(), list()) ::
           {:ok, describe_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_version_errors()}
   def describe_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version"
@@ -3738,6 +3756,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, describe_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_version_app_component_errors()}
   def describe_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-app-component"
@@ -3781,6 +3800,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_app_version_resource(map(), describe_app_version_resource_request(), list()) ::
           {:ok, describe_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_version_resource_errors()}
   def describe_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resource"
@@ -3818,6 +3838,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, describe_app_version_resources_resolution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_version_resources_resolution_status_errors()}
   def describe_app_version_resources_resolution_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-resources-resolution-status"
@@ -3846,6 +3867,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_app_version_template(map(), describe_app_version_template_request(), list()) ::
           {:ok, describe_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_version_template_errors()}
   def describe_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/describe-app-version-template"
@@ -3884,6 +3906,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, describe_draft_app_version_resources_import_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_draft_app_version_resources_import_status_errors()}
   def describe_draft_app_version_resources_import_status(%Client{} = client, input, options \\ []) do
     url_path = "/describe-draft-app-version-resources-import-status"
@@ -3912,6 +3935,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_metrics_export(map(), describe_metrics_export_request(), list()) ::
           {:ok, describe_metrics_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metrics_export_errors()}
   def describe_metrics_export(%Client{} = client, input, options \\ []) do
     url_path = "/describe-metrics-export"
@@ -3945,6 +3969,7 @@ defmodule AWS.Resiliencehub do
   @spec describe_resiliency_policy(map(), describe_resiliency_policy_request(), list()) ::
           {:ok, describe_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resiliency_policy_errors()}
   def describe_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/describe-resiliency-policy"
@@ -3978,6 +4003,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, describe_resource_grouping_recommendation_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_grouping_recommendation_task_errors()}
   def describe_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
     url_path = "/describe-resource-grouping-recommendation-task"
@@ -4015,6 +4041,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, import_resources_to_draft_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_resources_to_draft_app_version_errors()}
   def import_resources_to_draft_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/import-resources-to-draft-app-version"
@@ -4043,6 +4070,7 @@ defmodule AWS.Resiliencehub do
   @spec list_alarm_recommendations(map(), list_alarm_recommendations_request(), list()) ::
           {:ok, list_alarm_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_alarm_recommendations_errors()}
   def list_alarm_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-alarm-recommendations"
@@ -4076,6 +4104,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_app_assessment_compliance_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_assessment_compliance_drifts_errors()}
   def list_app_assessment_compliance_drifts(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-assessment-compliance-drifts"
@@ -4109,6 +4138,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_app_assessment_resource_drifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_assessment_resource_drifts_errors()}
   def list_app_assessment_resource_drifts(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-assessment-resource-drifts"
@@ -4151,6 +4181,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_app_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_assessments_errors()}
   def list_app_assessments(
         %Client{} = client,
@@ -4235,6 +4266,7 @@ defmodule AWS.Resiliencehub do
   @spec list_app_component_compliances(map(), list_app_component_compliances_request(), list()) ::
           {:ok, list_app_component_compliances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_component_compliances_errors()}
   def list_app_component_compliances(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-compliances"
@@ -4267,6 +4299,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_app_component_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_component_recommendations_errors()}
   def list_app_component_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-component-recommendations"
@@ -4299,6 +4332,7 @@ defmodule AWS.Resiliencehub do
   @spec list_app_input_sources(map(), list_app_input_sources_request(), list()) ::
           {:ok, list_app_input_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_input_sources_errors()}
   def list_app_input_sources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-input-sources"
@@ -4327,6 +4361,7 @@ defmodule AWS.Resiliencehub do
   @spec list_app_version_app_components(map(), list_app_version_app_components_request(), list()) ::
           {:ok, list_app_version_app_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_version_app_components_errors()}
   def list_app_version_app_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-app-components"
@@ -4364,6 +4399,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_version_resource_mappings_errors()}
   def list_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resource-mappings"
@@ -4392,6 +4428,7 @@ defmodule AWS.Resiliencehub do
   @spec list_app_version_resources(map(), list_app_version_resources_request(), list()) ::
           {:ok, list_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_version_resources_errors()}
   def list_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-version-resources"
@@ -4420,6 +4457,7 @@ defmodule AWS.Resiliencehub do
   @spec list_app_versions(map(), list_app_versions_request(), list()) ::
           {:ok, list_app_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_versions_errors()}
   def list_app_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-app-versions"
@@ -4471,6 +4509,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(
         %Client{} = client,
@@ -4555,6 +4594,7 @@ defmodule AWS.Resiliencehub do
   @spec list_metrics(map(), list_metrics_request(), list()) ::
           {:ok, list_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metrics_errors()}
   def list_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/list-metrics"
@@ -4593,6 +4633,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_recommendation_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendation_templates_errors()}
   def list_recommendation_templates(
         %Client{} = client,
@@ -4675,6 +4716,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resiliency_policies_errors()}
   def list_resiliency_policies(
         %Client{} = client,
@@ -4726,6 +4768,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_grouping_recommendations_errors()}
   def list_resource_grouping_recommendations(
         %Client{} = client,
@@ -4771,6 +4814,7 @@ defmodule AWS.Resiliencehub do
   @spec list_sop_recommendations(map(), list_sop_recommendations_request(), list()) ::
           {:ok, list_sop_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sop_recommendations_errors()}
   def list_sop_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-sop-recommendations"
@@ -4800,6 +4844,7 @@ defmodule AWS.Resiliencehub do
   @spec list_suggested_resiliency_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_suggested_resiliency_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_suggested_resiliency_policies_errors()}
   def list_suggested_resiliency_policies(
         %Client{} = client,
@@ -4836,6 +4881,7 @@ defmodule AWS.Resiliencehub do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4853,6 +4899,7 @@ defmodule AWS.Resiliencehub do
   @spec list_test_recommendations(map(), list_test_recommendations_request(), list()) ::
           {:ok, list_test_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_recommendations_errors()}
   def list_test_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/list-test-recommendations"
@@ -4890,6 +4937,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, list_unsupported_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_unsupported_app_version_resources_errors()}
   def list_unsupported_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-unsupported-app-version-resources"
@@ -4918,6 +4966,7 @@ defmodule AWS.Resiliencehub do
   @spec publish_app_version(map(), publish_app_version_request(), list()) ::
           {:ok, publish_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_app_version_errors()}
   def publish_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/publish-app-version"
@@ -4947,6 +4996,7 @@ defmodule AWS.Resiliencehub do
   @spec put_draft_app_version_template(map(), put_draft_app_version_template_request(), list()) ::
           {:ok, put_draft_app_version_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_draft_app_version_template_errors()}
   def put_draft_app_version_template(%Client{} = client, input, options \\ []) do
     url_path = "/put-draft-app-version-template"
@@ -4979,6 +5029,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, reject_resource_grouping_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_resource_grouping_recommendations_errors()}
   def reject_resource_grouping_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/reject-resource-grouping-recommendations"
@@ -5011,6 +5062,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, remove_draft_app_version_resource_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_draft_app_version_resource_mappings_errors()}
   def remove_draft_app_version_resource_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/remove-draft-app-version-resource-mappings"
@@ -5039,6 +5091,7 @@ defmodule AWS.Resiliencehub do
   @spec resolve_app_version_resources(map(), resolve_app_version_resources_request(), list()) ::
           {:ok, resolve_app_version_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resolve_app_version_resources_errors()}
   def resolve_app_version_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resolve-app-version-resources"
@@ -5067,6 +5120,7 @@ defmodule AWS.Resiliencehub do
   @spec start_app_assessment(map(), start_app_assessment_request(), list()) ::
           {:ok, start_app_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_app_assessment_errors()}
   def start_app_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-app-assessment"
@@ -5095,6 +5149,7 @@ defmodule AWS.Resiliencehub do
   @spec start_metrics_export(map(), start_metrics_export_request(), list()) ::
           {:ok, start_metrics_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metrics_export_errors()}
   def start_metrics_export(%Client{} = client, input, options \\ []) do
     url_path = "/start-metrics-export"
@@ -5127,6 +5182,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, start_resource_grouping_recommendation_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_grouping_recommendation_task_errors()}
   def start_resource_grouping_recommendation_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-resource-grouping-recommendation-task"
@@ -5155,6 +5211,7 @@ defmodule AWS.Resiliencehub do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5183,6 +5240,7 @@ defmodule AWS.Resiliencehub do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5216,6 +5274,7 @@ defmodule AWS.Resiliencehub do
   @spec update_app(map(), update_app_request(), list()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
     url_path = "/update-app"
@@ -5249,6 +5308,7 @@ defmodule AWS.Resiliencehub do
   @spec update_app_version(map(), update_app_version_request(), list()) ::
           {:ok, update_app_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_version_errors()}
   def update_app_version(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version"
@@ -5286,6 +5346,7 @@ defmodule AWS.Resiliencehub do
         ) ::
           {:ok, update_app_version_app_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_version_app_component_errors()}
   def update_app_version_app_component(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-app-component"
@@ -5326,6 +5387,7 @@ defmodule AWS.Resiliencehub do
   @spec update_app_version_resource(map(), update_app_version_resource_request(), list()) ::
           {:ok, update_app_version_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_version_resource_errors()}
   def update_app_version_resource(%Client{} = client, input, options \\ []) do
     url_path = "/update-app-version-resource"
@@ -5364,6 +5426,7 @@ defmodule AWS.Resiliencehub do
   @spec update_resiliency_policy(map(), update_resiliency_policy_request(), list()) ::
           {:ok, update_resiliency_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resiliency_policy_errors()}
   def update_resiliency_policy(%Client{} = client, input, options \\ []) do
     url_path = "/update-resiliency-policy"

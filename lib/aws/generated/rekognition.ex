@@ -5224,6 +5224,7 @@ defmodule AWS.Rekognition do
   @spec associate_faces(map(), associate_faces_request(), list()) ::
           {:ok, associate_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_faces_errors()}
   def associate_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5310,6 +5311,7 @@ defmodule AWS.Rekognition do
   @spec compare_faces(map(), compare_faces_request(), list()) ::
           {:ok, compare_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, compare_faces_errors()}
   def compare_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5358,6 +5360,7 @@ defmodule AWS.Rekognition do
   @spec copy_project_version(map(), copy_project_version_request(), list()) ::
           {:ok, copy_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_project_version_errors()}
   def copy_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5393,6 +5396,7 @@ defmodule AWS.Rekognition do
   @spec create_collection(map(), create_collection_request(), list()) ::
           {:ok, create_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5436,6 +5440,7 @@ defmodule AWS.Rekognition do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5466,6 +5471,7 @@ defmodule AWS.Rekognition do
   @spec create_face_liveness_session(map(), create_face_liveness_session_request(), list()) ::
           {:ok, create_face_liveness_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_face_liveness_session_errors()}
   def create_face_liveness_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5490,6 +5496,7 @@ defmodule AWS.Rekognition do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5541,6 +5548,7 @@ defmodule AWS.Rekognition do
   @spec create_project_version(map(), create_project_version_request(), list()) ::
           {:ok, create_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_version_errors()}
   def create_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5593,6 +5601,7 @@ defmodule AWS.Rekognition do
   @spec create_stream_processor(map(), create_stream_processor_request(), list()) ::
           {:ok, create_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_processor_errors()}
   def create_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5618,6 +5627,7 @@ defmodule AWS.Rekognition do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5637,6 +5647,7 @@ defmodule AWS.Rekognition do
   @spec delete_collection(map(), delete_collection_request(), list()) ::
           {:ok, delete_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5665,6 +5676,7 @@ defmodule AWS.Rekognition do
   @spec delete_dataset(map(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5684,6 +5696,7 @@ defmodule AWS.Rekognition do
   @spec delete_faces(map(), delete_faces_request(), list()) ::
           {:ok, delete_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_faces_errors()}
   def delete_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5710,6 +5723,7 @@ defmodule AWS.Rekognition do
   @spec delete_project(map(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5733,6 +5747,7 @@ defmodule AWS.Rekognition do
   @spec delete_project_policy(map(), delete_project_policy_request(), list()) ::
           {:ok, delete_project_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_policy_errors()}
   def delete_project_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5758,6 +5773,7 @@ defmodule AWS.Rekognition do
   @spec delete_project_version(map(), delete_project_version_request(), list()) ::
           {:ok, delete_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_version_errors()}
   def delete_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5775,6 +5791,7 @@ defmodule AWS.Rekognition do
   @spec delete_stream_processor(map(), delete_stream_processor_request(), list()) ::
           {:ok, delete_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_processor_errors()}
   def delete_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5795,6 +5812,7 @@ defmodule AWS.Rekognition do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5816,6 +5834,7 @@ defmodule AWS.Rekognition do
   @spec describe_collection(map(), describe_collection_request(), list()) ::
           {:ok, describe_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_collection_errors()}
   def describe_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5837,6 +5856,7 @@ defmodule AWS.Rekognition do
   @spec describe_dataset(map(), describe_dataset_request(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5858,6 +5878,7 @@ defmodule AWS.Rekognition do
   @spec describe_project_versions(map(), describe_project_versions_request(), list()) ::
           {:ok, describe_project_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_project_versions_errors()}
   def describe_project_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5874,6 +5895,7 @@ defmodule AWS.Rekognition do
   @spec describe_projects(map(), describe_projects_request(), list()) ::
           {:ok, describe_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_projects_errors()}
   def describe_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5892,6 +5914,7 @@ defmodule AWS.Rekognition do
   @spec describe_stream_processor(map(), describe_stream_processor_request(), list()) ::
           {:ok, describe_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_processor_errors()}
   def describe_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5957,6 +5980,7 @@ defmodule AWS.Rekognition do
   @spec detect_custom_labels(map(), detect_custom_labels_request(), list()) ::
           {:ok, detect_custom_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_custom_labels_errors()}
   def detect_custom_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5998,6 +6022,7 @@ defmodule AWS.Rekognition do
   @spec detect_faces(map(), detect_faces_request(), list()) ::
           {:ok, detect_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_faces_errors()}
   def detect_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6150,6 +6175,7 @@ defmodule AWS.Rekognition do
   @spec detect_labels(map(), detect_labels_request(), list()) ::
           {:ok, detect_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_labels_errors()}
   def detect_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6186,6 +6212,7 @@ defmodule AWS.Rekognition do
   @spec detect_moderation_labels(map(), detect_moderation_labels_request(), list()) ::
           {:ok, detect_moderation_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_moderation_labels_errors()}
   def detect_moderation_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6246,6 +6273,7 @@ defmodule AWS.Rekognition do
   @spec detect_protective_equipment(map(), detect_protective_equipment_request(), list()) ::
           {:ok, detect_protective_equipment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_protective_equipment_errors()}
   def detect_protective_equipment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6296,6 +6324,7 @@ defmodule AWS.Rekognition do
   @spec detect_text(map(), detect_text_request(), list()) ::
           {:ok, detect_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_text_errors()}
   def detect_text(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6323,6 +6352,7 @@ defmodule AWS.Rekognition do
   @spec disassociate_faces(map(), disassociate_faces_request(), list()) ::
           {:ok, disassociate_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_faces_errors()}
   def disassociate_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6359,6 +6389,7 @@ defmodule AWS.Rekognition do
   @spec distribute_dataset_entries(map(), distribute_dataset_entries_request(), list()) ::
           {:ok, distribute_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, distribute_dataset_entries_errors()}
   def distribute_dataset_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6383,6 +6414,7 @@ defmodule AWS.Rekognition do
   @spec get_celebrity_info(map(), get_celebrity_info_request(), list()) ::
           {:ok, get_celebrity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_celebrity_info_errors()}
   def get_celebrity_info(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6453,6 +6485,7 @@ defmodule AWS.Rekognition do
   @spec get_celebrity_recognition(map(), get_celebrity_recognition_request(), list()) ::
           {:ok, get_celebrity_recognition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_celebrity_recognition_errors()}
   def get_celebrity_recognition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6511,6 +6544,7 @@ defmodule AWS.Rekognition do
   @spec get_content_moderation(map(), get_content_moderation_request(), list()) ::
           {:ok, get_content_moderation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_moderation_errors()}
   def get_content_moderation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6550,6 +6584,7 @@ defmodule AWS.Rekognition do
   @spec get_face_detection(map(), get_face_detection_request(), list()) ::
           {:ok, get_face_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_face_detection_errors()}
   def get_face_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6579,6 +6614,7 @@ defmodule AWS.Rekognition do
         ) ::
           {:ok, get_face_liveness_session_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_face_liveness_session_results_errors()}
   def get_face_liveness_session_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6630,6 +6666,7 @@ defmodule AWS.Rekognition do
   @spec get_face_search(map(), get_face_search_request(), list()) ::
           {:ok, get_face_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_face_search_errors()}
   def get_face_search(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6737,6 +6774,7 @@ defmodule AWS.Rekognition do
   @spec get_label_detection(map(), get_label_detection_request(), list()) ::
           {:ok, get_label_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_label_detection_errors()}
   def get_label_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6752,6 +6790,7 @@ defmodule AWS.Rekognition do
   @spec get_media_analysis_job(map(), get_media_analysis_job_request(), list()) ::
           {:ok, get_media_analysis_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_analysis_job_errors()}
   def get_media_analysis_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6801,6 +6840,7 @@ defmodule AWS.Rekognition do
   @spec get_person_tracking(map(), get_person_tracking_request(), list()) ::
           {:ok, get_person_tracking_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_person_tracking_errors()}
   def get_person_tracking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6853,6 +6893,7 @@ defmodule AWS.Rekognition do
   @spec get_segment_detection(map(), get_segment_detection_request(), list()) ::
           {:ok, get_segment_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_detection_errors()}
   def get_segment_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6899,6 +6940,7 @@ defmodule AWS.Rekognition do
   @spec get_text_detection(map(), get_text_detection_request(), list()) ::
           {:ok, get_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_text_detection_errors()}
   def get_text_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7035,6 +7077,7 @@ defmodule AWS.Rekognition do
   @spec index_faces(map(), index_faces_request(), list()) ::
           {:ok, index_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, index_faces_errors()}
   def index_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7059,6 +7102,7 @@ defmodule AWS.Rekognition do
   @spec list_collections(map(), list_collections_request(), list()) ::
           {:ok, list_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7091,6 +7135,7 @@ defmodule AWS.Rekognition do
   @spec list_dataset_entries(map(), list_dataset_entries_request(), list()) ::
           {:ok, list_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_entries_errors()}
   def list_dataset_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7113,6 +7158,7 @@ defmodule AWS.Rekognition do
   @spec list_dataset_labels(map(), list_dataset_labels_request(), list()) ::
           {:ok, list_dataset_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_labels_errors()}
   def list_dataset_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7136,6 +7182,7 @@ defmodule AWS.Rekognition do
   @spec list_faces(map(), list_faces_request(), list()) ::
           {:ok, list_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_faces_errors()}
   def list_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7151,6 +7198,7 @@ defmodule AWS.Rekognition do
   @spec list_media_analysis_jobs(map(), list_media_analysis_jobs_request(), list()) ::
           {:ok, list_media_analysis_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_media_analysis_jobs_errors()}
   def list_media_analysis_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7173,6 +7221,7 @@ defmodule AWS.Rekognition do
   @spec list_project_policies(map(), list_project_policies_request(), list()) ::
           {:ok, list_project_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_project_policies_errors()}
   def list_project_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7187,6 +7236,7 @@ defmodule AWS.Rekognition do
   @spec list_stream_processors(map(), list_stream_processors_request(), list()) ::
           {:ok, list_stream_processors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_processors_errors()}
   def list_stream_processors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7205,6 +7255,7 @@ defmodule AWS.Rekognition do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7225,6 +7276,7 @@ defmodule AWS.Rekognition do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7266,6 +7318,7 @@ defmodule AWS.Rekognition do
   @spec put_project_policy(map(), put_project_policy_request(), list()) ::
           {:ok, put_project_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_project_policy_errors()}
   def put_project_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7319,6 +7372,7 @@ defmodule AWS.Rekognition do
   @spec recognize_celebrities(map(), recognize_celebrities_request(), list()) ::
           {:ok, recognize_celebrities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, recognize_celebrities_errors()}
   def recognize_celebrities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7357,6 +7411,7 @@ defmodule AWS.Rekognition do
   @spec search_faces(map(), search_faces_request(), list()) ::
           {:ok, search_faces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_faces_errors()}
   def search_faces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7423,6 +7478,7 @@ defmodule AWS.Rekognition do
   @spec search_faces_by_image(map(), search_faces_by_image_request(), list()) ::
           {:ok, search_faces_by_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_faces_by_image_errors()}
   def search_faces_by_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7444,6 +7500,7 @@ defmodule AWS.Rekognition do
   @spec search_users(map(), search_users_request(), list()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_users_errors()}
   def search_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7473,6 +7530,7 @@ defmodule AWS.Rekognition do
   @spec search_users_by_image(map(), search_users_by_image_request(), list()) ::
           {:ok, search_users_by_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_users_by_image_errors()}
   def search_users_by_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7505,6 +7563,7 @@ defmodule AWS.Rekognition do
   @spec start_celebrity_recognition(map(), start_celebrity_recognition_request(), list()) ::
           {:ok, start_celebrity_recognition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_celebrity_recognition_errors()}
   def start_celebrity_recognition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7541,6 +7600,7 @@ defmodule AWS.Rekognition do
   @spec start_content_moderation(map(), start_content_moderation_request(), list()) ::
           {:ok, start_content_moderation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_content_moderation_errors()}
   def start_content_moderation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7571,6 +7631,7 @@ defmodule AWS.Rekognition do
   @spec start_face_detection(map(), start_face_detection_request(), list()) ::
           {:ok, start_face_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_face_detection_errors()}
   def start_face_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7600,6 +7661,7 @@ defmodule AWS.Rekognition do
   @spec start_face_search(map(), start_face_search_request(), list()) ::
           {:ok, start_face_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_face_search_errors()}
   def start_face_search(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7649,6 +7711,7 @@ defmodule AWS.Rekognition do
   @spec start_label_detection(map(), start_label_detection_request(), list()) ::
           {:ok, start_label_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_label_detection_errors()}
   def start_label_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7666,6 +7729,7 @@ defmodule AWS.Rekognition do
   @spec start_media_analysis_job(map(), start_media_analysis_job_request(), list()) ::
           {:ok, start_media_analysis_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_media_analysis_job_errors()}
   def start_media_analysis_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7695,6 +7759,7 @@ defmodule AWS.Rekognition do
   @spec start_person_tracking(map(), start_person_tracking_request(), list()) ::
           {:ok, start_person_tracking_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_person_tracking_errors()}
   def start_person_tracking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7723,6 +7788,7 @@ defmodule AWS.Rekognition do
   @spec start_project_version(map(), start_project_version_request(), list()) ::
           {:ok, start_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_project_version_errors()}
   def start_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7762,6 +7828,7 @@ defmodule AWS.Rekognition do
   @spec start_segment_detection(map(), start_segment_detection_request(), list()) ::
           {:ok, start_segment_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_segment_detection_errors()}
   def start_segment_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7784,6 +7851,7 @@ defmodule AWS.Rekognition do
   @spec start_stream_processor(map(), start_stream_processor_request(), list()) ::
           {:ok, start_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_stream_processor_errors()}
   def start_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7812,6 +7880,7 @@ defmodule AWS.Rekognition do
   @spec start_text_detection(map(), start_text_detection_request(), list()) ::
           {:ok, start_text_detection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_text_detection_errors()}
   def start_text_detection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7834,6 +7903,7 @@ defmodule AWS.Rekognition do
   @spec stop_project_version(map(), stop_project_version_request(), list()) ::
           {:ok, stop_project_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_project_version_errors()}
   def stop_project_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7847,6 +7917,7 @@ defmodule AWS.Rekognition do
   @spec stop_stream_processor(map(), stop_stream_processor_request(), list()) ::
           {:ok, stop_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_stream_processor_errors()}
   def stop_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7867,6 +7938,7 @@ defmodule AWS.Rekognition do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7885,6 +7957,7 @@ defmodule AWS.Rekognition do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7934,6 +8007,7 @@ defmodule AWS.Rekognition do
   @spec update_dataset_entries(map(), update_dataset_entries_request(), list()) ::
           {:ok, update_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_entries_errors()}
   def update_dataset_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7951,6 +8025,7 @@ defmodule AWS.Rekognition do
   @spec update_stream_processor(map(), update_stream_processor_request(), list()) ::
           {:ok, update_stream_processor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stream_processor_errors()}
   def update_stream_processor(%Client{} = client, input, options \\ []) do
     meta = metadata()

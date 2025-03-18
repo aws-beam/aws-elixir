@@ -1437,6 +1437,7 @@ defmodule AWS.SecurityLake do
   @spec create_aws_log_source(map(), create_aws_log_source_request(), list()) ::
           {:ok, create_aws_log_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_aws_log_source_errors()}
   def create_aws_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/aws"
@@ -1477,6 +1478,7 @@ defmodule AWS.SecurityLake do
   @spec create_custom_log_source(map(), create_custom_log_source_request(), list()) ::
           {:ok, create_custom_log_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_log_source_errors()}
   def create_custom_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/custom"
@@ -1530,6 +1532,7 @@ defmodule AWS.SecurityLake do
   @spec create_data_lake(map(), create_data_lake_request(), list()) ::
           {:ok, create_data_lake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_lake_errors()}
   def create_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake"
@@ -1567,6 +1570,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, create_data_lake_exception_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_lake_exception_subscription_errors()}
   def create_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
@@ -1610,6 +1614,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, create_data_lake_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_lake_organization_configuration_errors()}
   def create_data_lake_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/organization/configuration"
@@ -1643,6 +1648,7 @@ defmodule AWS.SecurityLake do
   @spec create_subscriber(map(), create_subscriber_request(), list()) ::
           {:ok, create_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscriber_errors()}
   def create_subscriber(%Client{} = client, input, options \\ []) do
     url_path = "/v1/subscribers"
@@ -1681,6 +1687,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, create_subscriber_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscriber_notification_errors()}
   def create_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"
@@ -1723,6 +1730,7 @@ defmodule AWS.SecurityLake do
   @spec delete_aws_log_source(map(), delete_aws_log_source_request(), list()) ::
           {:ok, delete_aws_log_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_aws_log_source_errors()}
   def delete_aws_log_source(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/aws/delete"
@@ -1753,6 +1761,7 @@ defmodule AWS.SecurityLake do
   @spec delete_custom_log_source(map(), String.t(), delete_custom_log_source_request(), list()) ::
           {:ok, delete_custom_log_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_log_source_errors()}
   def delete_custom_log_source(%Client{} = client, source_name, input, options \\ []) do
     url_path = "/v1/datalake/logsources/custom/#{AWS.Util.encode_uri(source_name)}"
@@ -1800,6 +1809,7 @@ defmodule AWS.SecurityLake do
   @spec delete_data_lake(map(), delete_data_lake_request(), list()) ::
           {:ok, delete_data_lake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_lake_errors()}
   def delete_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delete"
@@ -1834,6 +1844,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, delete_data_lake_exception_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_lake_exception_subscription_errors()}
   def delete_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
@@ -1872,6 +1883,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, delete_data_lake_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_lake_organization_configuration_errors()}
   def delete_data_lake_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/organization/configuration/delete"
@@ -1908,6 +1920,7 @@ defmodule AWS.SecurityLake do
   @spec delete_subscriber(map(), String.t(), delete_subscriber_request(), list()) ::
           {:ok, delete_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscriber_errors()}
   def delete_subscriber(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}"
@@ -1943,6 +1956,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, delete_subscriber_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscriber_notification_errors()}
   def delete_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"
@@ -1981,6 +1995,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, deregister_data_lake_delegated_administrator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_data_lake_delegated_administrator_errors()}
   def deregister_data_lake_delegated_administrator(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delegate"
@@ -2010,6 +2025,7 @@ defmodule AWS.SecurityLake do
   @spec get_data_lake_exception_subscription(map(), list()) ::
           {:ok, get_data_lake_exception_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_exception_subscription_errors()}
   def get_data_lake_exception_subscription(%Client{} = client, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
@@ -2032,6 +2048,7 @@ defmodule AWS.SecurityLake do
   @spec get_data_lake_organization_configuration(map(), list()) ::
           {:ok, get_data_lake_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_organization_configuration_errors()}
   def get_data_lake_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/v1/datalake/organization/configuration"
@@ -2051,6 +2068,7 @@ defmodule AWS.SecurityLake do
   @spec get_data_lake_sources(map(), get_data_lake_sources_request(), list()) ::
           {:ok, get_data_lake_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_sources_errors()}
   def get_data_lake_sources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/sources"
@@ -2082,6 +2100,7 @@ defmodule AWS.SecurityLake do
   @spec get_subscriber(map(), String.t(), list()) ::
           {:ok, get_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscriber_errors()}
   def get_subscriber(%Client{} = client, subscriber_id, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}"
@@ -2101,6 +2120,7 @@ defmodule AWS.SecurityLake do
   @spec list_data_lake_exceptions(map(), list_data_lake_exceptions_request(), list()) ::
           {:ok, list_data_lake_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_lake_exceptions_errors()}
   def list_data_lake_exceptions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions"
@@ -2133,6 +2153,7 @@ defmodule AWS.SecurityLake do
   @spec list_data_lakes(map(), String.t() | nil, list()) ::
           {:ok, list_data_lakes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_lakes_errors()}
   def list_data_lakes(%Client{} = client, regions \\ nil, options \\ []) do
     url_path = "/v1/datalakes"
@@ -2157,6 +2178,7 @@ defmodule AWS.SecurityLake do
   @spec list_log_sources(map(), list_log_sources_request(), list()) ::
           {:ok, list_log_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_sources_errors()}
   def list_log_sources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/logsources/list"
@@ -2189,6 +2211,7 @@ defmodule AWS.SecurityLake do
   @spec list_subscribers(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_subscribers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscribers_errors()}
   def list_subscribers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/subscribers"
@@ -2222,6 +2245,7 @@ defmodule AWS.SecurityLake do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2249,6 +2273,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, register_data_lake_delegated_administrator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_data_lake_delegated_administrator_errors()}
   def register_data_lake_delegated_administrator(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/delegate"
@@ -2291,6 +2316,7 @@ defmodule AWS.SecurityLake do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2321,6 +2347,7 @@ defmodule AWS.SecurityLake do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2376,6 +2403,7 @@ defmodule AWS.SecurityLake do
   @spec update_data_lake(map(), update_data_lake_request(), list()) ::
           {:ok, update_data_lake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_lake_errors()}
   def update_data_lake(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake"
@@ -2410,6 +2438,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, update_data_lake_exception_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_lake_exception_subscription_errors()}
   def update_data_lake_exception_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datalake/exceptions/subscription"
@@ -2441,6 +2470,7 @@ defmodule AWS.SecurityLake do
   @spec update_subscriber(map(), String.t(), update_subscriber_request(), list()) ::
           {:ok, update_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscriber_errors()}
   def update_subscriber(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}"
@@ -2476,6 +2506,7 @@ defmodule AWS.SecurityLake do
         ) ::
           {:ok, update_subscriber_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscriber_notification_errors()}
   def update_subscriber_notification(%Client{} = client, subscriber_id, input, options \\ []) do
     url_path = "/v1/subscribers/#{AWS.Util.encode_uri(subscriber_id)}/notification"

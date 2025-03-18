@@ -1931,6 +1931,7 @@ defmodule AWS.Evidently do
   @spec batch_evaluate_feature(map(), String.t(), batch_evaluate_feature_request(), list()) ::
           {:ok, batch_evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_evaluate_feature_errors()}
   def batch_evaluate_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/evaluations"
@@ -1976,6 +1977,7 @@ defmodule AWS.Evidently do
   @spec create_experiment(map(), String.t(), create_experiment_request(), list()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/experiments"
@@ -2011,6 +2013,7 @@ defmodule AWS.Evidently do
   @spec create_feature(map(), String.t(), create_feature_request(), list()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_feature_errors()}
   def create_feature(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/features"
@@ -2054,6 +2057,7 @@ defmodule AWS.Evidently do
   @spec create_launch(map(), String.t(), create_launch_request(), list()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_launch_errors()}
   def create_launch(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches"
@@ -2089,6 +2093,7 @@ defmodule AWS.Evidently do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -2142,6 +2147,7 @@ defmodule AWS.Evidently do
   @spec create_segment(map(), create_segment_request(), list()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_segment_errors()}
   def create_segment(%Client{} = client, input, options \\ []) do
     url_path = "/segments"
@@ -2175,6 +2181,7 @@ defmodule AWS.Evidently do
   @spec delete_experiment(map(), String.t(), String.t(), delete_experiment_request(), list()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
@@ -2205,6 +2212,7 @@ defmodule AWS.Evidently do
   @spec delete_feature(map(), String.t(), String.t(), delete_feature_request(), list()) ::
           {:ok, delete_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_feature_errors()}
   def delete_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
@@ -2240,6 +2248,7 @@ defmodule AWS.Evidently do
   @spec delete_launch(map(), String.t(), String.t(), delete_launch_request(), list()) ::
           {:ok, delete_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_launch_errors()}
   def delete_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
@@ -2272,6 +2281,7 @@ defmodule AWS.Evidently do
   @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
@@ -2304,6 +2314,7 @@ defmodule AWS.Evidently do
   @spec delete_segment(map(), String.t(), delete_segment_request(), list()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_segment_errors()}
   def delete_segment(%Client{} = client, segment, input, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
@@ -2373,6 +2384,7 @@ defmodule AWS.Evidently do
   @spec evaluate_feature(map(), String.t(), String.t(), evaluate_feature_request(), list()) ::
           {:ok, evaluate_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_feature_errors()}
   def evaluate_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
@@ -2407,6 +2419,7 @@ defmodule AWS.Evidently do
   @spec get_experiment(map(), String.t(), String.t(), list()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_experiment_errors()}
   def get_experiment(%Client{} = client, experiment, project, options \\ []) do
     url_path =
@@ -2446,6 +2459,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, get_experiment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_experiment_results_errors()}
   def get_experiment_results(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
@@ -2480,6 +2494,7 @@ defmodule AWS.Evidently do
   @spec get_feature(map(), String.t(), String.t(), list()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_feature_errors()}
   def get_feature(%Client{} = client, feature, project, options \\ []) do
     url_path =
@@ -2503,6 +2518,7 @@ defmodule AWS.Evidently do
   @spec get_launch(map(), String.t(), String.t(), list()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_launch_errors()}
   def get_launch(%Client{} = client, launch, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
@@ -2524,6 +2540,7 @@ defmodule AWS.Evidently do
   @spec get_project(map(), String.t(), list()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, project, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
@@ -2544,6 +2561,7 @@ defmodule AWS.Evidently do
   @spec get_segment(map(), String.t(), list()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_errors()}
   def get_segment(%Client{} = client, segment, options \\ []) do
     url_path = "/segments/#{AWS.Util.encode_uri(segment)}"
@@ -2569,6 +2587,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiments_errors()}
   def list_experiments(
         %Client{} = client,
@@ -2614,6 +2633,7 @@ defmodule AWS.Evidently do
   @spec list_features(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_features_errors()}
   def list_features(
         %Client{} = client,
@@ -2658,6 +2678,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_launches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_launches_errors()}
   def list_launches(
         %Client{} = client,
@@ -2705,6 +2726,7 @@ defmodule AWS.Evidently do
   @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/projects"
@@ -2744,6 +2766,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, list_segment_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_segment_references_errors()}
   def list_segment_references(
         %Client{} = client,
@@ -2790,6 +2813,7 @@ defmodule AWS.Evidently do
   @spec list_segments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_segments_errors()}
   def list_segments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/segments"
@@ -2821,6 +2845,7 @@ defmodule AWS.Evidently do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2841,6 +2866,7 @@ defmodule AWS.Evidently do
   @spec put_project_events(map(), String.t(), put_project_events_request(), list()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_project_events_errors()}
   def put_project_events(%Client{} = client, project, input, options \\ []) do
     url_path = "/events/projects/#{AWS.Util.encode_uri(project)}"
@@ -2873,6 +2899,7 @@ defmodule AWS.Evidently do
   @spec start_experiment(map(), String.t(), String.t(), start_experiment_request(), list()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_experiment_errors()}
   def start_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
@@ -2907,6 +2934,7 @@ defmodule AWS.Evidently do
   @spec start_launch(map(), String.t(), String.t(), start_launch_request(), list()) ::
           {:ok, start_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_launch_errors()}
   def start_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
@@ -2940,6 +2968,7 @@ defmodule AWS.Evidently do
   @spec stop_experiment(map(), String.t(), String.t(), stop_experiment_request(), list()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_experiment_errors()}
   def stop_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
@@ -2978,6 +3007,7 @@ defmodule AWS.Evidently do
   @spec stop_launch(map(), String.t(), String.t(), stop_launch_request(), list()) ::
           {:ok, stop_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_launch_errors()}
   def stop_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path =
@@ -3031,6 +3061,7 @@ defmodule AWS.Evidently do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3063,6 +3094,7 @@ defmodule AWS.Evidently do
   @spec test_segment_pattern(map(), test_segment_pattern_request(), list()) ::
           {:ok, test_segment_pattern_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_segment_pattern_errors()}
   def test_segment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/test-segment-pattern"
@@ -3091,6 +3123,7 @@ defmodule AWS.Evidently do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3127,6 +3160,7 @@ defmodule AWS.Evidently do
   @spec update_experiment(map(), String.t(), String.t(), update_experiment_request(), list()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, experiment, project, input, options \\ []) do
     url_path =
@@ -3161,6 +3195,7 @@ defmodule AWS.Evidently do
   @spec update_feature(map(), String.t(), String.t(), update_feature_request(), list()) ::
           {:ok, update_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_feature_errors()}
   def update_feature(%Client{} = client, feature, project, input, options \\ []) do
     url_path =
@@ -3194,6 +3229,7 @@ defmodule AWS.Evidently do
   @spec update_launch(map(), String.t(), String.t(), update_launch_request(), list()) ::
           {:ok, update_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_launch_errors()}
   def update_launch(%Client{} = client, launch, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/launches/#{AWS.Util.encode_uri(launch)}"
@@ -3230,6 +3266,7 @@ defmodule AWS.Evidently do
   @spec update_project(map(), String.t(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}"
@@ -3273,6 +3310,7 @@ defmodule AWS.Evidently do
         ) ::
           {:ok, update_project_data_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_data_delivery_errors()}
   def update_project_data_delivery(%Client{} = client, project, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project)}/data-delivery"

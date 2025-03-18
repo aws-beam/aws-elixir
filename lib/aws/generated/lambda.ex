@@ -3247,6 +3247,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, add_layer_version_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_layer_version_permission_errors()}
   def add_layer_version_permission(
         %Client{} = client,
@@ -3315,6 +3316,7 @@ defmodule AWS.Lambda do
   @spec add_permission(map(), String.t(), add_permission_request(), list()) ::
           {:ok, add_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
@@ -3361,6 +3363,7 @@ defmodule AWS.Lambda do
   @spec create_alias(map(), String.t(), create_alias_request(), list()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/aliases"
@@ -3395,6 +3398,7 @@ defmodule AWS.Lambda do
   @spec create_code_signing_config(map(), create_code_signing_config_request(), list()) ::
           {:ok, create_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_code_signing_config_errors()}
   def create_code_signing_config(%Client{} = client, input, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs"
@@ -3546,6 +3550,7 @@ defmodule AWS.Lambda do
   @spec create_event_source_mapping(map(), create_event_source_mapping_request(), list()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_source_mapping_errors()}
   def create_event_source_mapping(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings"
@@ -3649,6 +3654,7 @@ defmodule AWS.Lambda do
   @spec create_function(map(), create_function_request(), list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_function_errors()}
   def create_function(%Client{} = client, input, options \\ []) do
     url_path = "/2015-03-31/functions"
@@ -3685,6 +3691,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, create_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_function_url_config_errors()}
   def create_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
@@ -3719,6 +3726,7 @@ defmodule AWS.Lambda do
   @spec delete_alias(map(), String.t(), String.t(), delete_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =
@@ -3757,6 +3765,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, delete_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_code_signing_config_errors()}
   def delete_code_signing_config(
         %Client{} = client,
@@ -3802,6 +3811,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_source_mapping_errors()}
   def delete_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
@@ -3840,6 +3850,7 @@ defmodule AWS.Lambda do
   @spec delete_function(map(), String.t(), delete_function_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_errors()}
   def delete_function(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
@@ -3878,6 +3889,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_code_signing_config_errors()}
   def delete_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
@@ -3911,6 +3923,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_concurrency_errors()}
   def delete_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
@@ -3948,6 +3961,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_event_invoke_config_errors()}
   def delete_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
@@ -3990,6 +4004,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_url_config_errors()}
   def delete_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
@@ -4033,6 +4048,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_layer_version_errors()}
   def delete_layer_version(%Client{} = client, layer_name, version_number, input, options \\ []) do
     url_path =
@@ -4068,6 +4084,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioned_concurrency_config_errors()}
   def delete_provisioned_concurrency_config(
         %Client{} = client,
@@ -4110,6 +4127,7 @@ defmodule AWS.Lambda do
   @spec get_account_settings(map(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/2016-08-19/account-settings"
@@ -4128,6 +4146,7 @@ defmodule AWS.Lambda do
   @spec get_alias(map(), String.t(), String.t(), list()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_alias_errors()}
   def get_alias(%Client{} = client, function_name, name, options \\ []) do
     url_path =
@@ -4147,6 +4166,7 @@ defmodule AWS.Lambda do
   @spec get_code_signing_config(map(), String.t(), list()) ::
           {:ok, get_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_code_signing_config_errors()}
   def get_code_signing_config(%Client{} = client, code_signing_config_arn, options \\ []) do
     url_path = "/2020-04-22/code-signing-configs/#{AWS.Util.encode_uri(code_signing_config_arn)}"
@@ -4167,6 +4187,7 @@ defmodule AWS.Lambda do
   @spec get_event_source_mapping(map(), String.t(), list()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_source_mapping_errors()}
   def get_event_source_mapping(%Client{} = client, uuid, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
@@ -4190,6 +4211,7 @@ defmodule AWS.Lambda do
   @spec get_function(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_errors()}
   def get_function(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}"
@@ -4214,6 +4236,7 @@ defmodule AWS.Lambda do
   @spec get_function_code_signing_config(map(), String.t(), list()) ::
           {:ok, get_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_code_signing_config_errors()}
   def get_function_code_signing_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
@@ -4234,6 +4257,7 @@ defmodule AWS.Lambda do
   @spec get_function_concurrency(map(), String.t(), list()) ::
           {:ok, get_function_concurrency_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_concurrency_errors()}
   def get_function_concurrency(%Client{} = client, function_name, options \\ []) do
     url_path = "/2019-09-30/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
@@ -4258,6 +4282,7 @@ defmodule AWS.Lambda do
   @spec get_function_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_configuration_errors()}
   def get_function_configuration(
         %Client{} = client,
@@ -4291,6 +4316,7 @@ defmodule AWS.Lambda do
   @spec get_function_event_invoke_config(map(), String.t(), String.t() | nil, list()) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_event_invoke_config_errors()}
   def get_function_event_invoke_config(
         %Client{} = client,
@@ -4321,6 +4347,7 @@ defmodule AWS.Lambda do
   @spec get_function_recursion_config(map(), String.t(), list()) ::
           {:ok, get_function_recursion_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_recursion_config_errors()}
   def get_function_recursion_config(%Client{} = client, function_name, options \\ []) do
     url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
@@ -4338,6 +4365,7 @@ defmodule AWS.Lambda do
   @spec get_function_url_config(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_url_config_errors()}
   def get_function_url_config(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"
@@ -4364,6 +4392,7 @@ defmodule AWS.Lambda do
   @spec get_layer_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_layer_version_errors()}
   def get_layer_version(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
@@ -4385,6 +4414,7 @@ defmodule AWS.Lambda do
   @spec get_layer_version_by_arn(map(), String.t(), list()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_layer_version_by_arn_errors()}
   def get_layer_version_by_arn(%Client{} = client, arn, options \\ []) do
     url_path = "/2018-10-31/layers?find=LayerVersion"
@@ -4411,6 +4441,7 @@ defmodule AWS.Lambda do
   @spec get_layer_version_policy(map(), String.t(), String.t(), list()) ::
           {:ok, get_layer_version_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_layer_version_policy_errors()}
   def get_layer_version_policy(%Client{} = client, layer_name, version_number, options \\ []) do
     url_path =
@@ -4431,6 +4462,7 @@ defmodule AWS.Lambda do
   @spec get_policy(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, function_name, qualifier \\ nil, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/policy"
@@ -4456,6 +4488,7 @@ defmodule AWS.Lambda do
   @spec get_provisioned_concurrency_config(map(), String.t(), String.t(), list()) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_provisioned_concurrency_config_errors()}
   def get_provisioned_concurrency_config(
         %Client{} = client,
@@ -4493,6 +4526,7 @@ defmodule AWS.Lambda do
   @spec get_runtime_management_config(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_runtime_management_config_errors()}
   def get_runtime_management_config(
         %Client{} = client,
@@ -4575,6 +4609,7 @@ defmodule AWS.Lambda do
   @spec invoke(map(), String.t(), invocation_request(), list()) ::
           {:ok, invocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_errors()}
   def invoke(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/invocations"
@@ -4634,6 +4669,7 @@ defmodule AWS.Lambda do
   @spec invoke_async(map(), String.t(), invoke_async_request(), list()) ::
           {:ok, invoke_async_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_async_errors()}
   def invoke_async(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2014-11-13/functions/#{AWS.Util.encode_uri(function_name)}/invoke-async"
@@ -4675,6 +4711,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, invoke_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_with_response_stream_errors()}
   def invoke_with_response_stream(%Client{} = client, function_name, input, options \\ []) do
     url_path =
@@ -4736,6 +4773,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(
         %Client{} = client,
@@ -4786,6 +4824,7 @@ defmodule AWS.Lambda do
   @spec list_code_signing_configs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_code_signing_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_code_signing_configs_errors()}
   def list_code_signing_configs(
         %Client{} = client,
@@ -4832,6 +4871,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_event_source_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_source_mappings_errors()}
   def list_event_source_mappings(
         %Client{} = client,
@@ -4893,6 +4933,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_function_event_invoke_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_function_event_invoke_configs_errors()}
   def list_function_event_invoke_configs(
         %Client{} = client,
@@ -4932,6 +4973,7 @@ defmodule AWS.Lambda do
   @spec list_function_url_configs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_function_url_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_function_url_configs_errors()}
   def list_function_url_configs(
         %Client{} = client,
@@ -4991,6 +5033,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_functions_errors()}
   def list_functions(
         %Client{} = client,
@@ -5052,6 +5095,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_functions_by_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_functions_by_code_signing_config_errors()}
   def list_functions_by_code_signing_config(
         %Client{} = client,
@@ -5105,6 +5149,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_layer_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_layer_versions_errors()}
   def list_layer_versions(
         %Client{} = client,
@@ -5173,6 +5218,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_layers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_layers_errors()}
   def list_layers(
         %Client{} = client,
@@ -5231,6 +5277,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioned_concurrency_configs_errors()}
   def list_provisioned_concurrency_configs(
         %Client{} = client,
@@ -5274,6 +5321,7 @@ defmodule AWS.Lambda do
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, resource, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
@@ -5295,6 +5343,7 @@ defmodule AWS.Lambda do
   @spec list_versions_by_function(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_versions_by_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_versions_by_function_errors()}
   def list_versions_by_function(
         %Client{} = client,
@@ -5339,6 +5388,7 @@ defmodule AWS.Lambda do
   @spec publish_layer_version(map(), String.t(), publish_layer_version_request(), list()) ::
           {:ok, publish_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_layer_version_errors()}
   def publish_layer_version(%Client{} = client, layer_name, input, options \\ []) do
     url_path = "/2018-10-31/layers/#{AWS.Util.encode_uri(layer_name)}/versions"
@@ -5381,6 +5431,7 @@ defmodule AWS.Lambda do
   @spec publish_version(map(), String.t(), publish_version_request(), list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_version_errors()}
   def publish_version(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/versions"
@@ -5417,6 +5468,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, put_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_function_code_signing_config_errors()}
   def put_function_code_signing_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2020-06-30/functions/#{AWS.Util.encode_uri(function_name)}/code-signing-config"
@@ -5462,6 +5514,7 @@ defmodule AWS.Lambda do
   @spec put_function_concurrency(map(), String.t(), put_function_concurrency_request(), list()) ::
           {:ok, concurrency(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_function_concurrency_errors()}
   def put_function_concurrency(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2017-10-31/functions/#{AWS.Util.encode_uri(function_name)}/concurrency"
@@ -5522,6 +5575,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_function_event_invoke_config_errors()}
   def put_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
@@ -5575,6 +5629,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, put_function_recursion_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_function_recursion_config_errors()}
   def put_function_recursion_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2024-08-31/functions/#{AWS.Util.encode_uri(function_name)}/recursion-config"
@@ -5608,6 +5663,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, put_provisioned_concurrency_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_provisioned_concurrency_config_errors()}
   def put_provisioned_concurrency_config(%Client{} = client, function_name, input, options \\ []) do
     url_path =
@@ -5651,6 +5707,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, put_runtime_management_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_runtime_management_config_errors()}
   def put_runtime_management_config(%Client{} = client, function_name, input, options \\ []) do
     url_path =
@@ -5696,6 +5753,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_layer_version_permission_errors()}
   def remove_layer_version_permission(
         %Client{} = client,
@@ -5742,6 +5800,7 @@ defmodule AWS.Lambda do
   @spec remove_permission(map(), String.t(), String.t(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, function_name, statement_id, input, options \\ []) do
     url_path =
@@ -5779,6 +5838,7 @@ defmodule AWS.Lambda do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
@@ -5808,6 +5868,7 @@ defmodule AWS.Lambda do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource, input, options \\ []) do
     url_path = "/2017-03-31/tags/#{AWS.Util.encode_uri(resource)}"
@@ -5842,6 +5903,7 @@ defmodule AWS.Lambda do
   @spec update_alias(map(), String.t(), String.t(), update_alias_request(), list()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, function_name, name, input, options \\ []) do
     url_path =
@@ -5880,6 +5942,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, update_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_code_signing_config_errors()}
   def update_code_signing_config(
         %Client{} = client,
@@ -6042,6 +6105,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_source_mapping_errors()}
   def update_event_source_mapping(%Client{} = client, uuid, input, options \\ []) do
     url_path = "/2015-03-31/event-source-mappings/#{AWS.Util.encode_uri(uuid)}"
@@ -6099,6 +6163,7 @@ defmodule AWS.Lambda do
   @spec update_function_code(map(), String.t(), update_function_code_request(), list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_code_errors()}
   def update_function_code(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/code"
@@ -6154,6 +6219,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_configuration_errors()}
   def update_function_configuration(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2015-03-31/functions/#{AWS.Util.encode_uri(function_name)}/configuration"
@@ -6191,6 +6257,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, function_event_invoke_config(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_event_invoke_config_errors()}
   def update_function_event_invoke_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2019-09-25/functions/#{AWS.Util.encode_uri(function_name)}/event-invoke-config"
@@ -6229,6 +6296,7 @@ defmodule AWS.Lambda do
         ) ::
           {:ok, update_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_url_config_errors()}
   def update_function_url_config(%Client{} = client, function_name, input, options \\ []) do
     url_path = "/2021-10-31/functions/#{AWS.Util.encode_uri(function_name)}/url"

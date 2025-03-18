@@ -140,6 +140,7 @@ defmodule AWS.SageMakerMetrics do
   @spec batch_get_metrics(map(), batch_get_metrics_request(), list()) ::
           {:ok, batch_get_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_get_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetMetrics"
     headers = []
@@ -169,6 +170,7 @@ defmodule AWS.SageMakerMetrics do
   @spec batch_put_metrics(map(), batch_put_metrics_request(), list()) ::
           {:ok, batch_put_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_put_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutMetrics"
     headers = []

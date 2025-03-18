@@ -1372,6 +1372,7 @@ defmodule AWS.Budgets do
   @spec create_budget(map(), create_budget_request(), list()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1386,6 +1387,7 @@ defmodule AWS.Budgets do
   @spec create_budget_action(map(), create_budget_action_request(), list()) ::
           {:ok, create_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_budget_action_errors()}
   def create_budget_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1401,6 +1403,7 @@ defmodule AWS.Budgets do
   @spec create_notification(map(), create_notification_request(), list()) ::
           {:ok, create_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notification_errors()}
   def create_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1417,6 +1420,7 @@ defmodule AWS.Budgets do
   @spec create_subscriber(map(), create_subscriber_request(), list()) ::
           {:ok, create_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscriber_errors()}
   def create_subscriber(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1435,6 +1439,7 @@ defmodule AWS.Budgets do
   @spec delete_budget(map(), delete_budget_request(), list()) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_budget_errors()}
   def delete_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1449,6 +1454,7 @@ defmodule AWS.Budgets do
   @spec delete_budget_action(map(), delete_budget_action_request(), list()) ::
           {:ok, delete_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_budget_action_errors()}
   def delete_budget_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1465,6 +1471,7 @@ defmodule AWS.Budgets do
   @spec delete_notification(map(), delete_notification_request(), list()) ::
           {:ok, delete_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_errors()}
   def delete_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1480,6 +1487,7 @@ defmodule AWS.Budgets do
   @spec delete_subscriber(map(), delete_subscriber_request(), list()) ::
           {:ok, delete_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscriber_errors()}
   def delete_subscriber(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1498,6 +1506,7 @@ defmodule AWS.Budgets do
   @spec describe_budget(map(), describe_budget_request(), list()) ::
           {:ok, describe_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_errors()}
   def describe_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1512,6 +1521,7 @@ defmodule AWS.Budgets do
   @spec describe_budget_action(map(), describe_budget_action_request(), list()) ::
           {:ok, describe_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_action_errors()}
   def describe_budget_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1530,6 +1540,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_budget_action_histories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_action_histories_errors()}
   def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1548,6 +1559,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_budget_actions_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_actions_for_account_errors()}
   def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1566,6 +1578,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_budget_actions_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_actions_for_budget_errors()}
   def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1583,6 +1596,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_budget_notifications_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_notifications_for_account_errors()}
   def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1602,6 +1616,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_budget_performance_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budget_performance_history_errors()}
   def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1620,6 +1635,7 @@ defmodule AWS.Budgets do
   @spec describe_budgets(map(), describe_budgets_request(), list()) ::
           {:ok, describe_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_budgets_errors()}
   def describe_budgets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1637,6 +1653,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_notifications_for_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notifications_for_budget_errors()}
   def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1654,6 +1671,7 @@ defmodule AWS.Budgets do
         ) ::
           {:ok, describe_subscribers_for_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_subscribers_for_notification_errors()}
   def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1668,6 +1686,7 @@ defmodule AWS.Budgets do
   @spec execute_budget_action(map(), execute_budget_action_request(), list()) ::
           {:ok, execute_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_budget_action_errors()}
   def execute_budget_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1681,6 +1700,7 @@ defmodule AWS.Budgets do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1694,6 +1714,7 @@ defmodule AWS.Budgets do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1707,6 +1728,7 @@ defmodule AWS.Budgets do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1730,6 +1752,7 @@ defmodule AWS.Budgets do
   @spec update_budget(map(), update_budget_request(), list()) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,6 +1767,7 @@ defmodule AWS.Budgets do
   @spec update_budget_action(map(), update_budget_action_request(), list()) ::
           {:ok, update_budget_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_budget_action_errors()}
   def update_budget_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1757,6 +1781,7 @@ defmodule AWS.Budgets do
   @spec update_notification(map(), update_notification_request(), list()) ::
           {:ok, update_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_errors()}
   def update_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1770,6 +1795,7 @@ defmodule AWS.Budgets do
   @spec update_subscriber(map(), update_subscriber_request(), list()) ::
           {:ok, update_subscriber_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscriber_errors()}
   def update_subscriber(%Client{} = client, input, options \\ []) do
     meta = metadata()

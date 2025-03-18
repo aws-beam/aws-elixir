@@ -1703,6 +1703,7 @@ defmodule AWS.Fis do
   @spec create_experiment_template(map(), create_experiment_template_request(), list()) ::
           {:ok, create_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_experiment_template_errors()}
   def create_experiment_template(%Client{} = client, input, options \\ []) do
     url_path = "/experimentTemplates"
@@ -1743,6 +1744,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, create_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_target_account_configuration_errors()}
   def create_target_account_configuration(
         %Client{} = client,
@@ -1784,6 +1786,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, delete_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_experiment_template_errors()}
   def delete_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
@@ -1818,6 +1821,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, delete_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_target_account_configuration_errors()}
   def delete_target_account_configuration(
         %Client{} = client,
@@ -1854,6 +1858,7 @@ defmodule AWS.Fis do
   @spec get_action(map(), String.t(), list()) ::
           {:ok, get_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_action_errors()}
   def get_action(%Client{} = client, id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(id)}"
@@ -1871,6 +1876,7 @@ defmodule AWS.Fis do
   @spec get_experiment(map(), String.t(), list()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_experiment_errors()}
   def get_experiment(%Client{} = client, id, options \\ []) do
     url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
@@ -1889,6 +1895,7 @@ defmodule AWS.Fis do
   @spec get_experiment_target_account_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_experiment_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_experiment_target_account_configuration_errors()}
   def get_experiment_target_account_configuration(
         %Client{} = client,
@@ -1913,6 +1920,7 @@ defmodule AWS.Fis do
   @spec get_experiment_template(map(), String.t(), list()) ::
           {:ok, get_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_experiment_template_errors()}
   def get_experiment_template(%Client{} = client, id, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
@@ -1931,6 +1939,7 @@ defmodule AWS.Fis do
   @spec get_safety_lever(map(), String.t(), list()) ::
           {:ok, get_safety_lever_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_safety_lever_errors()}
   def get_safety_lever(%Client{} = client, id, options \\ []) do
     url_path = "/safetyLevers/#{AWS.Util.encode_uri(id)}"
@@ -1949,6 +1958,7 @@ defmodule AWS.Fis do
   @spec get_target_account_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_target_account_configuration_errors()}
   def get_target_account_configuration(
         %Client{} = client,
@@ -1973,6 +1983,7 @@ defmodule AWS.Fis do
   @spec get_target_resource_type(map(), String.t(), list()) ::
           {:ok, get_target_resource_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_target_resource_type_errors()}
   def get_target_resource_type(%Client{} = client, resource_type, options \\ []) do
     url_path = "/targetResourceTypes/#{AWS.Util.encode_uri(resource_type)}"
@@ -1990,6 +2001,7 @@ defmodule AWS.Fis do
   @spec list_actions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/actions"
@@ -2028,6 +2040,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, list_experiment_resolved_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiment_resolved_targets_errors()}
   def list_experiment_resolved_targets(
         %Client{} = client,
@@ -2073,6 +2086,7 @@ defmodule AWS.Fis do
   @spec list_experiment_target_account_configurations(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_experiment_target_account_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiment_target_account_configurations_errors()}
   def list_experiment_target_account_configurations(
         %Client{} = client,
@@ -2102,6 +2116,7 @@ defmodule AWS.Fis do
   @spec list_experiment_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_experiment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiment_templates_errors()}
   def list_experiment_templates(
         %Client{} = client,
@@ -2138,6 +2153,7 @@ defmodule AWS.Fis do
   @spec list_experiments(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiments_errors()}
   def list_experiments(
         %Client{} = client,
@@ -2182,6 +2198,7 @@ defmodule AWS.Fis do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2204,6 +2221,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, list_target_account_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_target_account_configurations_errors()}
   def list_target_account_configurations(
         %Client{} = client,
@@ -2243,6 +2261,7 @@ defmodule AWS.Fis do
   @spec list_target_resource_types(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_target_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_target_resource_types_errors()}
   def list_target_resource_types(
         %Client{} = client,
@@ -2279,6 +2298,7 @@ defmodule AWS.Fis do
   @spec start_experiment(map(), start_experiment_request(), list()) ::
           {:ok, start_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_experiment_errors()}
   def start_experiment(%Client{} = client, input, options \\ []) do
     url_path = "/experiments"
@@ -2307,6 +2327,7 @@ defmodule AWS.Fis do
   @spec stop_experiment(map(), String.t(), stop_experiment_request(), list()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_experiment_errors()}
   def stop_experiment(%Client{} = client, id, input, options \\ []) do
     url_path = "/experiments/#{AWS.Util.encode_uri(id)}"
@@ -2335,6 +2356,7 @@ defmodule AWS.Fis do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2362,6 +2384,7 @@ defmodule AWS.Fis do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -2399,6 +2422,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, update_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_experiment_template_errors()}
   def update_experiment_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/experimentTemplates/#{AWS.Util.encode_uri(id)}"
@@ -2428,6 +2452,7 @@ defmodule AWS.Fis do
   @spec update_safety_lever_state(map(), String.t(), update_safety_lever_state_request(), list()) ::
           {:ok, update_safety_lever_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_safety_lever_state_errors()}
   def update_safety_lever_state(%Client{} = client, id, input, options \\ []) do
     url_path = "/safetyLevers/#{AWS.Util.encode_uri(id)}/state"
@@ -2462,6 +2487,7 @@ defmodule AWS.Fis do
         ) ::
           {:ok, update_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_target_account_configuration_errors()}
   def update_target_account_configuration(
         %Client{} = client,

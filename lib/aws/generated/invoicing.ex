@@ -512,6 +512,7 @@ defmodule AWS.Invoicing do
   @spec batch_get_invoice_profile(map(), batch_get_invoice_profile_request(), list()) ::
           {:ok, batch_get_invoice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_invoice_profile_errors()}
   def batch_get_invoice_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -525,6 +526,7 @@ defmodule AWS.Invoicing do
   @spec create_invoice_unit(map(), create_invoice_unit_request(), list()) ::
           {:ok, create_invoice_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_invoice_unit_errors()}
   def create_invoice_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -538,6 +540,7 @@ defmodule AWS.Invoicing do
   @spec delete_invoice_unit(map(), delete_invoice_unit_request(), list()) ::
           {:ok, delete_invoice_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_invoice_unit_errors()}
   def delete_invoice_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -551,6 +554,7 @@ defmodule AWS.Invoicing do
   @spec get_invoice_unit(map(), get_invoice_unit_request(), list()) ::
           {:ok, get_invoice_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_invoice_unit_errors()}
   def get_invoice_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -565,6 +569,7 @@ defmodule AWS.Invoicing do
   @spec list_invoice_units(map(), list_invoice_units_request(), list()) ::
           {:ok, list_invoice_units_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invoice_units_errors()}
   def list_invoice_units(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -578,6 +583,7 @@ defmodule AWS.Invoicing do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -591,6 +597,7 @@ defmodule AWS.Invoicing do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -605,6 +612,7 @@ defmodule AWS.Invoicing do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -619,6 +627,7 @@ defmodule AWS.Invoicing do
   @spec update_invoice_unit(map(), update_invoice_unit_request(), list()) ::
           {:ok, update_invoice_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_invoice_unit_errors()}
   def update_invoice_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()

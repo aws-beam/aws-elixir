@@ -2372,6 +2372,7 @@ defmodule AWS.IoTTwinMaker do
   @spec batch_put_property_values(map(), String.t(), batch_put_property_values_request(), list()) ::
           {:ok, batch_put_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_property_values_errors()}
   def batch_put_property_values(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties"
@@ -2405,6 +2406,7 @@ defmodule AWS.IoTTwinMaker do
         ) ::
           {:ok, cancel_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_metadata_transfer_job_errors()}
   def cancel_metadata_transfer_job(
         %Client{} = client,
@@ -2444,6 +2446,7 @@ defmodule AWS.IoTTwinMaker do
         ) ::
           {:ok, create_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_type_errors()}
   def create_component_type(
         %Client{} = client,
@@ -2480,6 +2483,7 @@ defmodule AWS.IoTTwinMaker do
   @spec create_entity(map(), String.t(), create_entity_request(), list()) ::
           {:ok, create_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_entity_errors()}
   def create_entity(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities"
@@ -2508,6 +2512,7 @@ defmodule AWS.IoTTwinMaker do
   @spec create_metadata_transfer_job(map(), create_metadata_transfer_job_request(), list()) ::
           {:ok, create_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_metadata_transfer_job_errors()}
   def create_metadata_transfer_job(%Client{} = client, input, options \\ []) do
     url_path = "/metadata-transfer-jobs"
@@ -2536,6 +2541,7 @@ defmodule AWS.IoTTwinMaker do
   @spec create_scene(map(), String.t(), create_scene_request(), list()) ::
           {:ok, create_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scene_errors()}
   def create_scene(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes"
@@ -2564,6 +2570,7 @@ defmodule AWS.IoTTwinMaker do
   @spec create_sync_job(map(), String.t(), String.t(), create_sync_job_request(), list()) ::
           {:ok, create_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sync_job_errors()}
   def create_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
     url_path =
@@ -2594,6 +2601,7 @@ defmodule AWS.IoTTwinMaker do
   @spec create_workspace(map(), String.t(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_errors()}
   def create_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -2628,6 +2636,7 @@ defmodule AWS.IoTTwinMaker do
         ) ::
           {:ok, delete_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_type_errors()}
   def delete_component_type(
         %Client{} = client,
@@ -2664,6 +2673,7 @@ defmodule AWS.IoTTwinMaker do
   @spec delete_entity(map(), String.t(), String.t(), delete_entity_request(), list()) ::
           {:ok, delete_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_entity_errors()}
   def delete_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
     url_path =
@@ -2699,6 +2709,7 @@ defmodule AWS.IoTTwinMaker do
   @spec delete_scene(map(), String.t(), String.t(), delete_scene_request(), list()) ::
           {:ok, delete_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scene_errors()}
   def delete_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
     url_path =
@@ -2729,6 +2740,7 @@ defmodule AWS.IoTTwinMaker do
   @spec delete_sync_job(map(), String.t(), String.t(), delete_sync_job_request(), list()) ::
           {:ok, delete_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sync_job_errors()}
   def delete_sync_job(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
     url_path =
@@ -2759,6 +2771,7 @@ defmodule AWS.IoTTwinMaker do
   @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_errors()}
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -2791,6 +2804,7 @@ defmodule AWS.IoTTwinMaker do
   @spec execute_query(map(), execute_query_request(), list()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_query_errors()}
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries/execution"
@@ -2819,6 +2833,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_component_type(map(), String.t(), String.t(), list()) ::
           {:ok, get_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_type_errors()}
   def get_component_type(%Client{} = client, component_type_id, workspace_id, options \\ []) do
     url_path =
@@ -2838,6 +2853,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_entity(map(), String.t(), String.t(), list()) ::
           {:ok, get_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_entity_errors()}
   def get_entity(%Client{} = client, entity_id, workspace_id, options \\ []) do
     url_path =
@@ -2857,6 +2873,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_metadata_transfer_job(map(), String.t(), list()) ::
           {:ok, get_metadata_transfer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metadata_transfer_job_errors()}
   def get_metadata_transfer_job(%Client{} = client, metadata_transfer_job_id, options \\ []) do
     url_path = "/metadata-transfer-jobs/#{AWS.Util.encode_uri(metadata_transfer_job_id)}"
@@ -2874,6 +2891,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_pricing_plan(map(), list()) ::
           {:ok, get_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pricing_plan_errors()}
   def get_pricing_plan(%Client{} = client, options \\ []) do
     url_path = "/pricingplan"
@@ -2894,6 +2912,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_property_value(map(), String.t(), get_property_value_request(), list()) ::
           {:ok, get_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_property_value_errors()}
   def get_property_value(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/value"
@@ -2933,6 +2952,7 @@ defmodule AWS.IoTTwinMaker do
         ) ::
           {:ok, get_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_property_value_history_errors()}
   def get_property_value_history(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entity-properties/history"
@@ -2961,6 +2981,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_scene(map(), String.t(), String.t(), list()) ::
           {:ok, get_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_scene_errors()}
   def get_scene(%Client{} = client, scene_id, workspace_id, options \\ []) do
     url_path =
@@ -2980,6 +3001,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_sync_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sync_job_errors()}
   def get_sync_job(%Client{} = client, sync_source, workspace_id \\ nil, options \\ []) do
     url_path = "/sync-jobs/#{AWS.Util.encode_uri(sync_source)}"
@@ -3004,6 +3026,7 @@ defmodule AWS.IoTTwinMaker do
   @spec get_workspace(map(), String.t(), list()) ::
           {:ok, get_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workspace_errors()}
   def get_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -3021,6 +3044,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_component_types(map(), String.t(), list_component_types_request(), list()) ::
           {:ok, list_component_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_component_types_errors()}
   def list_component_types(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/component-types-list"
@@ -3049,6 +3073,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_components(map(), String.t(), String.t(), list_components_request(), list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
     url_path =
@@ -3079,6 +3104,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_entities(map(), String.t(), list_entities_request(), list()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entities_errors()}
   def list_entities(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/entities-list"
@@ -3107,6 +3133,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_metadata_transfer_jobs(map(), list_metadata_transfer_jobs_request(), list()) ::
           {:ok, list_metadata_transfer_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metadata_transfer_jobs_errors()}
   def list_metadata_transfer_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/metadata-transfer-jobs-list"
@@ -3135,6 +3162,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_properties(map(), String.t(), list_properties_request(), list()) ::
           {:ok, list_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_properties_errors()}
   def list_properties(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/properties-list"
@@ -3163,6 +3191,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_scenes(map(), String.t(), list_scenes_request(), list()) ::
           {:ok, list_scenes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scenes_errors()}
   def list_scenes(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/scenes-list"
@@ -3191,6 +3220,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_sync_jobs(map(), String.t(), list_sync_jobs_request(), list()) ::
           {:ok, list_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sync_jobs_errors()}
   def list_sync_jobs(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/sync-jobs-list"
@@ -3219,6 +3249,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_sync_resources(map(), String.t(), String.t(), list_sync_resources_request(), list()) ::
           {:ok, list_sync_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sync_resources_errors()}
   def list_sync_resources(%Client{} = client, sync_source, workspace_id, input, options \\ []) do
     url_path =
@@ -3249,6 +3280,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags-list"
@@ -3277,6 +3309,7 @@ defmodule AWS.IoTTwinMaker do
   @spec list_workspaces(map(), list_workspaces_request(), list()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workspaces_errors()}
   def list_workspaces(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces-list"
@@ -3305,6 +3338,7 @@ defmodule AWS.IoTTwinMaker do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -3333,6 +3367,7 @@ defmodule AWS.IoTTwinMaker do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -3373,6 +3408,7 @@ defmodule AWS.IoTTwinMaker do
         ) ::
           {:ok, update_component_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_component_type_errors()}
   def update_component_type(
         %Client{} = client,
@@ -3409,6 +3445,7 @@ defmodule AWS.IoTTwinMaker do
   @spec update_entity(map(), String.t(), String.t(), update_entity_request(), list()) ::
           {:ok, update_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_entity_errors()}
   def update_entity(%Client{} = client, entity_id, workspace_id, input, options \\ []) do
     url_path =
@@ -3439,6 +3476,7 @@ defmodule AWS.IoTTwinMaker do
   @spec update_pricing_plan(map(), update_pricing_plan_request(), list()) ::
           {:ok, update_pricing_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pricing_plan_errors()}
   def update_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/pricingplan"
@@ -3467,6 +3505,7 @@ defmodule AWS.IoTTwinMaker do
   @spec update_scene(map(), String.t(), String.t(), update_scene_request(), list()) ::
           {:ok, update_scene_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scene_errors()}
   def update_scene(%Client{} = client, scene_id, workspace_id, input, options \\ []) do
     url_path =
@@ -3497,6 +3536,7 @@ defmodule AWS.IoTTwinMaker do
   @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workspace_errors()}
   def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"

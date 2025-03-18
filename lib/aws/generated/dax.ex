@@ -1240,6 +1240,7 @@ defmodule AWS.DAX do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1256,6 +1257,7 @@ defmodule AWS.DAX do
   @spec create_parameter_group(map(), create_parameter_group_request(), list()) ::
           {:ok, create_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1269,6 +1271,7 @@ defmodule AWS.DAX do
   @spec create_subnet_group(map(), create_subnet_group_request(), list()) ::
           {:ok, create_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1285,6 +1288,7 @@ defmodule AWS.DAX do
   @spec decrease_replication_factor(map(), decrease_replication_factor_request(), list()) ::
           {:ok, decrease_replication_factor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrease_replication_factor_errors()}
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1304,6 +1308,7 @@ defmodule AWS.DAX do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1320,6 +1325,7 @@ defmodule AWS.DAX do
   @spec delete_parameter_group(map(), delete_parameter_group_request(), list()) ::
           {:ok, delete_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1336,6 +1342,7 @@ defmodule AWS.DAX do
   @spec delete_subnet_group(map(), delete_subnet_group_request(), list()) ::
           {:ok, delete_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1365,6 +1372,7 @@ defmodule AWS.DAX do
   @spec describe_clusters(map(), describe_clusters_request(), list()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1379,6 +1387,7 @@ defmodule AWS.DAX do
   @spec describe_default_parameters(map(), describe_default_parameters_request(), list()) ::
           {:ok, describe_default_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_default_parameters_errors()}
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1401,6 +1410,7 @@ defmodule AWS.DAX do
   @spec describe_events(map(), describe_events_request(), list()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1417,6 +1427,7 @@ defmodule AWS.DAX do
   @spec describe_parameter_groups(map(), describe_parameter_groups_request(), list()) ::
           {:ok, describe_parameter_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1430,6 +1441,7 @@ defmodule AWS.DAX do
   @spec describe_parameters(map(), describe_parameters_request(), list()) ::
           {:ok, describe_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1446,6 +1458,7 @@ defmodule AWS.DAX do
   @spec describe_subnet_groups(map(), describe_subnet_groups_request(), list()) ::
           {:ok, describe_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1459,6 +1472,7 @@ defmodule AWS.DAX do
   @spec increase_replication_factor(map(), increase_replication_factor_request(), list()) ::
           {:ok, increase_replication_factor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, increase_replication_factor_errors()}
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1475,6 +1489,7 @@ defmodule AWS.DAX do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1495,6 +1510,7 @@ defmodule AWS.DAX do
   @spec reboot_node(map(), reboot_node_request(), list()) ::
           {:ok, reboot_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_node_errors()}
   def reboot_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1511,6 +1527,7 @@ defmodule AWS.DAX do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1527,6 +1544,7 @@ defmodule AWS.DAX do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1544,6 +1562,7 @@ defmodule AWS.DAX do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1561,6 +1580,7 @@ defmodule AWS.DAX do
   @spec update_parameter_group(map(), update_parameter_group_request(), list()) ::
           {:ok, update_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1574,6 +1594,7 @@ defmodule AWS.DAX do
   @spec update_subnet_group(map(), update_subnet_group_request(), list()) ::
           {:ok, update_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

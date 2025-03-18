@@ -6986,6 +6986,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, batch_create_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_custom_vocabulary_item_errors()}
   def batch_create_custom_vocabulary_item(
         %Client{} = client,
@@ -7031,6 +7032,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, batch_delete_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_custom_vocabulary_item_errors()}
   def batch_delete_custom_vocabulary_item(
         %Client{} = client,
@@ -7076,6 +7078,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, batch_update_custom_vocabulary_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_custom_vocabulary_item_errors()}
   def batch_update_custom_vocabulary_item(
         %Client{} = client,
@@ -7124,6 +7127,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, build_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, build_bot_locale_errors()}
   def build_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -7154,6 +7158,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_bot(map(), create_bot_request(), list()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_errors()}
   def create_bot(%Client{} = client, input, options \\ []) do
     url_path = "/bots"
@@ -7189,6 +7194,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_bot_alias(map(), String.t(), create_bot_alias_request(), list()) ::
           {:ok, create_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_alias_errors()}
   def create_bot_alias(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
@@ -7222,6 +7228,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_bot_locale(map(), String.t(), String.t(), create_bot_locale_request(), list()) ::
           {:ok, create_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_locale_errors()}
   def create_bot_locale(%Client{} = client, bot_id, bot_version, input, options \\ []) do
     url_path =
@@ -7252,6 +7259,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_bot_replica(map(), String.t(), create_bot_replica_request(), list()) ::
           {:ok, create_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_replica_errors()}
   def create_bot_replica(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
@@ -7288,6 +7296,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_version_errors()}
   def create_bot_version(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
@@ -7328,6 +7337,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_export(map(), create_export_request(), list()) ::
           {:ok, create_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_export_errors()}
   def create_export(%Client{} = client, input, options \\ []) do
     url_path = "/exports"
@@ -7393,6 +7403,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_intent(map(), String.t(), String.t(), String.t(), create_intent_request(), list()) ::
           {:ok, create_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_intent_errors()}
   def create_intent(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -7424,6 +7435,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_resource_policy(map(), String.t(), create_resource_policy_request(), list()) ::
           {:ok, create_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_policy_errors()}
   def create_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7467,6 +7479,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, create_resource_policy_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_policy_statement_errors()}
   def create_resource_policy_statement(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}/statements"
@@ -7514,6 +7527,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, create_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_slot_errors()}
   def create_slot(
         %Client{} = client,
@@ -7563,6 +7577,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, create_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_slot_type_errors()}
   def create_slot_type(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -7598,6 +7613,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, create_test_set_discrepancy_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_set_discrepancy_report_errors()}
   def create_test_set_discrepancy_report(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testsetdiscrepancy"
@@ -7627,6 +7643,7 @@ defmodule AWS.LexModelsV2 do
   @spec create_upload_url(map(), create_upload_url_request(), list()) ::
           {:ok, create_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_upload_url_errors()}
   def create_upload_url(%Client{} = client, input, options \\ []) do
     url_path = "/createuploadurl"
@@ -7668,6 +7685,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
           {:ok, delete_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_errors()}
   def delete_bot(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
@@ -7701,6 +7719,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
           {:ok, delete_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_alias_errors()}
   def delete_bot_alias(%Client{} = client, bot_alias_id, bot_id, input, options \\ []) do
     url_path =
@@ -7746,6 +7765,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, delete_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_locale_errors()}
   def delete_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -7776,6 +7796,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_bot_replica(map(), String.t(), String.t(), delete_bot_replica_request(), list()) ::
           {:ok, delete_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_replica_errors()}
   def delete_bot_replica(%Client{} = client, bot_id, replica_region, input, options \\ []) do
     url_path =
@@ -7811,6 +7832,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
           {:ok, delete_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_version_errors()}
   def delete_bot_version(%Client{} = client, bot_id, bot_version, input, options \\ []) do
     url_path =
@@ -7854,6 +7876,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, delete_custom_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_vocabulary_errors()}
   def delete_custom_vocabulary(
         %Client{} = client,
@@ -7892,6 +7915,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_export(map(), String.t(), delete_export_request(), list()) ::
           {:ok, delete_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_export_errors()}
   def delete_export(%Client{} = client, export_id, input, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
@@ -7921,6 +7945,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_import(map(), String.t(), delete_import_request(), list()) ::
           {:ok, delete_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_import_errors()}
   def delete_import(%Client{} = client, import_id, input, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
@@ -7960,6 +7985,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_intent_errors()}
   def delete_intent(
         %Client{} = client,
@@ -8001,6 +8027,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8049,6 +8076,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, delete_resource_policy_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_statement_errors()}
   def delete_resource_policy_statement(
         %Client{} = client,
@@ -8099,6 +8127,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slot_errors()}
   def delete_slot(
         %Client{} = client,
@@ -8151,6 +8180,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slot_type_errors()}
   def delete_slot_type(
         %Client{} = client,
@@ -8194,6 +8224,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_test_set(map(), String.t(), delete_test_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_set_errors()}
   def delete_test_set(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
@@ -8237,6 +8268,7 @@ defmodule AWS.LexModelsV2 do
   @spec delete_utterances(map(), String.t(), delete_utterances_request(), list()) ::
           {:ok, delete_utterances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_utterances_errors()}
   def delete_utterances(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/utterances"
@@ -8271,6 +8303,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot(map(), String.t(), list()) ::
           {:ok, describe_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_errors()}
   def describe_bot(%Client{} = client, bot_id, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
@@ -8288,6 +8321,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot_alias(map(), String.t(), String.t(), list()) ::
           {:ok, describe_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_alias_errors()}
   def describe_bot_alias(%Client{} = client, bot_alias_id, bot_id, options \\ []) do
     url_path =
@@ -8307,6 +8341,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot_locale(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_locale_errors()}
   def describe_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, options \\ []) do
     url_path =
@@ -8332,6 +8367,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot_recommendation(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_recommendation_errors()}
   def describe_bot_recommendation(
         %Client{} = client,
@@ -8358,6 +8394,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot_replica(map(), String.t(), String.t(), list()) ::
           {:ok, describe_bot_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_replica_errors()}
   def describe_bot_replica(%Client{} = client, bot_id, replica_region, options \\ []) do
     url_path =
@@ -8391,6 +8428,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, describe_bot_resource_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_resource_generation_errors()}
   def describe_bot_resource_generation(
         %Client{} = client,
@@ -8417,6 +8455,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_bot_version(map(), String.t(), String.t(), list()) ::
           {:ok, describe_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bot_version_errors()}
   def describe_bot_version(%Client{} = client, bot_id, bot_version, options \\ []) do
     url_path =
@@ -8436,6 +8475,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_custom_vocabulary_metadata(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_custom_vocabulary_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_vocabulary_metadata_errors()}
   def describe_custom_vocabulary_metadata(
         %Client{} = client,
@@ -8461,6 +8501,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_export(map(), String.t(), list()) ::
           {:ok, describe_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_errors()}
   def describe_export(%Client{} = client, export_id, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
@@ -8478,6 +8519,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_import(map(), String.t(), list()) ::
           {:ok, describe_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_import_errors()}
   def describe_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
@@ -8495,6 +8537,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_intent(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_intent_errors()}
   def describe_intent(
         %Client{} = client,
@@ -8522,6 +8565,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_resource_policy(map(), String.t(), list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8539,6 +8583,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_slot(map(), String.t(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_slot_errors()}
   def describe_slot(
         %Client{} = client,
@@ -8566,6 +8611,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_slot_type(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_slot_type_errors()}
   def describe_slot_type(
         %Client{} = client,
@@ -8592,6 +8638,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_test_execution(map(), String.t(), list()) ::
           {:ok, describe_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_test_execution_errors()}
   def describe_test_execution(%Client{} = client, test_execution_id, options \\ []) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}"
@@ -8609,6 +8656,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_test_set(map(), String.t(), list()) ::
           {:ok, describe_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_test_set_errors()}
   def describe_test_set(%Client{} = client, test_set_id, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"
@@ -8626,6 +8674,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_test_set_discrepancy_report(map(), String.t(), list()) ::
           {:ok, describe_test_set_discrepancy_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_test_set_discrepancy_report_errors()}
   def describe_test_set_discrepancy_report(
         %Client{} = client,
@@ -8647,6 +8696,7 @@ defmodule AWS.LexModelsV2 do
   @spec describe_test_set_generation(map(), String.t(), list()) ::
           {:ok, describe_test_set_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_test_set_generation_errors()}
   def describe_test_set_generation(%Client{} = client, test_set_generation_id, options \\ []) do
     url_path = "/testsetgenerations/#{AWS.Util.encode_uri(test_set_generation_id)}"
@@ -8671,6 +8721,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, generate_bot_element_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_bot_element_errors()}
   def generate_bot_element(
         %Client{} = client,
@@ -8708,6 +8759,7 @@ defmodule AWS.LexModelsV2 do
   @spec get_test_execution_artifacts_url(map(), String.t(), list()) ::
           {:ok, get_test_execution_artifacts_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_execution_artifacts_url_errors()}
   def get_test_execution_artifacts_url(%Client{} = client, test_execution_id, options \\ []) do
     url_path = "/testexecutions/#{AWS.Util.encode_uri(test_execution_id)}/artifacturl"
@@ -8756,6 +8808,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_aggregated_utterances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aggregated_utterances_errors()}
   def list_aggregated_utterances(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/aggregatedutterances"
@@ -8790,6 +8843,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_bot_alias_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_alias_replicas_errors()}
   def list_bot_alias_replicas(%Client{} = client, bot_id, replica_region, input, options \\ []) do
     url_path =
@@ -8820,6 +8874,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_bot_aliases(map(), String.t(), list_bot_aliases_request(), list()) ::
           {:ok, list_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_aliases_errors()}
   def list_bot_aliases(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botaliases"
@@ -8848,6 +8903,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_bot_locales(map(), String.t(), String.t(), list_bot_locales_request(), list()) ::
           {:ok, list_bot_locales_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_locales_errors()}
   def list_bot_locales(%Client{} = client, bot_id, bot_version, input, options \\ []) do
     url_path =
@@ -8886,6 +8942,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_bot_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_recommendations_errors()}
   def list_bot_recommendations(
         %Client{} = client,
@@ -8923,6 +8980,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_bot_replicas(map(), String.t(), list_bot_replicas_request(), list()) ::
           {:ok, list_bot_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_replicas_errors()}
   def list_bot_replicas(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/replicas"
@@ -8958,6 +9016,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_bot_resource_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_resource_generations_errors()}
   def list_bot_resource_generations(
         %Client{} = client,
@@ -9002,6 +9061,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_bot_version_replicas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_version_replicas_errors()}
   def list_bot_version_replicas(%Client{} = client, bot_id, replica_region, input, options \\ []) do
     url_path =
@@ -9041,6 +9101,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_bot_versions(map(), String.t(), list_bot_versions_request(), list()) ::
           {:ok, list_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bot_versions_errors()}
   def list_bot_versions(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/botversions"
@@ -9069,6 +9130,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_bots(map(), list_bots_request(), list()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bots_errors()}
   def list_bots(%Client{} = client, input, options \\ []) do
     url_path = "/bots"
@@ -9104,6 +9166,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_built_in_intents(map(), String.t(), list_built_in_intents_request(), list()) ::
           {:ok, list_built_in_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_built_in_intents_errors()}
   def list_built_in_intents(%Client{} = client, locale_id, input, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/intents"
@@ -9133,6 +9196,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_built_in_slot_types(map(), String.t(), list_built_in_slot_types_request(), list()) ::
           {:ok, list_built_in_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_built_in_slot_types_errors()}
   def list_built_in_slot_types(%Client{} = client, locale_id, input, options \\ []) do
     url_path = "/builtins/locales/#{AWS.Util.encode_uri(locale_id)}/slottypes"
@@ -9169,6 +9233,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_custom_vocabulary_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_vocabulary_items_errors()}
   def list_custom_vocabulary_items(
         %Client{} = client,
@@ -9208,6 +9273,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_exports(map(), list_exports_request(), list()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     url_path = "/exports"
@@ -9238,6 +9304,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_imports(map(), list_imports_request(), list()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
@@ -9297,6 +9364,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_intent_metrics(map(), String.t(), list_intent_metrics_request(), list()) ::
           {:ok, list_intent_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_intent_metrics_errors()}
   def list_intent_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentmetrics"
@@ -9343,6 +9411,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_intent_paths(map(), String.t(), list_intent_paths_request(), list()) ::
           {:ok, list_intent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_intent_paths_errors()}
   def list_intent_paths(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentpaths"
@@ -9402,6 +9471,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_intent_stage_metrics(map(), String.t(), list_intent_stage_metrics_request(), list()) ::
           {:ok, list_intent_stage_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_intent_stage_metrics_errors()}
   def list_intent_stage_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/intentstagemetrics"
@@ -9430,6 +9500,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_intents(map(), String.t(), String.t(), String.t(), list_intents_request(), list()) ::
           {:ok, list_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_intents_errors()}
   def list_intents(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -9472,6 +9543,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_recommended_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommended_intents_errors()}
   def list_recommended_intents(
         %Client{} = client,
@@ -9528,6 +9600,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_session_analytics_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_session_analytics_data_errors()}
   def list_session_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessions"
@@ -9587,6 +9660,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_session_metrics(map(), String.t(), list_session_metrics_request(), list()) ::
           {:ok, list_session_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_session_metrics_errors()}
   def list_session_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/sessionmetrics"
@@ -9622,6 +9696,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_slot_types_errors()}
   def list_slot_types(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -9660,6 +9735,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_slots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_slots_errors()}
   def list_slots(
         %Client{} = client,
@@ -9701,6 +9777,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -9723,6 +9800,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_test_execution_result_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_execution_result_items_errors()}
   def list_test_execution_result_items(
         %Client{} = client,
@@ -9756,6 +9834,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_test_executions(map(), list_test_executions_request(), list()) ::
           {:ok, list_test_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_executions_errors()}
   def list_test_executions(%Client{} = client, input, options \\ []) do
     url_path = "/testexecutions"
@@ -9784,6 +9863,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_test_set_records(map(), String.t(), list_test_set_records_request(), list()) ::
           {:ok, list_test_set_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_set_records_errors()}
   def list_test_set_records(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/records"
@@ -9812,6 +9892,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_test_sets(map(), list_test_sets_request(), list()) ::
           {:ok, list_test_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_sets_errors()}
   def list_test_sets(%Client{} = client, input, options \\ []) do
     url_path = "/testsets"
@@ -9872,6 +9953,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, list_utterance_analytics_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_utterance_analytics_data_errors()}
   def list_utterance_analytics_data(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterances"
@@ -9940,6 +10022,7 @@ defmodule AWS.LexModelsV2 do
   @spec list_utterance_metrics(map(), String.t(), list_utterance_metrics_request(), list()) ::
           {:ok, list_utterance_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_utterance_metrics_errors()}
   def list_utterance_metrics(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}/analytics/utterancemetrics"
@@ -9977,6 +10060,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, search_associated_transcripts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_associated_transcripts_errors()}
   def search_associated_transcripts(
         %Client{} = client,
@@ -10023,6 +10107,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, start_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bot_recommendation_errors()}
   def start_bot_recommendation(
         %Client{} = client,
@@ -10076,6 +10161,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, start_bot_resource_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bot_resource_generation_errors()}
   def start_bot_resource_generation(
         %Client{} = client,
@@ -10114,6 +10200,7 @@ defmodule AWS.LexModelsV2 do
   @spec start_import(map(), start_import_request(), list()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
@@ -10142,6 +10229,7 @@ defmodule AWS.LexModelsV2 do
   @spec start_test_execution(map(), String.t(), start_test_execution_request(), list()) ::
           {:ok, start_test_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_test_execution_errors()}
   def start_test_execution(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}/testexecutions"
@@ -10170,6 +10258,7 @@ defmodule AWS.LexModelsV2 do
   @spec start_test_set_generation(map(), start_test_set_generation_request(), list()) ::
           {:ok, start_test_set_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_test_set_generation_errors()}
   def start_test_set_generation(%Client{} = client, input, options \\ []) do
     url_path = "/testsetgenerations"
@@ -10206,6 +10295,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, stop_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_bot_recommendation_errors()}
   def stop_bot_recommendation(
         %Client{} = client,
@@ -10248,6 +10338,7 @@ defmodule AWS.LexModelsV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -10276,6 +10367,7 @@ defmodule AWS.LexModelsV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -10309,6 +10401,7 @@ defmodule AWS.LexModelsV2 do
   @spec update_bot(map(), String.t(), update_bot_request(), list()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bot_errors()}
   def update_bot(%Client{} = client, bot_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_id)}"
@@ -10337,6 +10430,7 @@ defmodule AWS.LexModelsV2 do
   @spec update_bot_alias(map(), String.t(), String.t(), update_bot_alias_request(), list()) ::
           {:ok, update_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bot_alias_errors()}
   def update_bot_alias(%Client{} = client, bot_alias_id, bot_id, input, options \\ []) do
     url_path =
@@ -10374,6 +10468,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, update_bot_locale_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bot_locale_errors()}
   def update_bot_locale(%Client{} = client, bot_id, bot_version, locale_id, input, options \\ []) do
     url_path =
@@ -10412,6 +10507,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, update_bot_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bot_recommendation_errors()}
   def update_bot_recommendation(
         %Client{} = client,
@@ -10456,6 +10552,7 @@ defmodule AWS.LexModelsV2 do
   @spec update_export(map(), String.t(), update_export_request(), list()) ::
           {:ok, update_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_export_errors()}
   def update_export(%Client{} = client, export_id, input, options \\ []) do
     url_path = "/exports/#{AWS.Util.encode_uri(export_id)}"
@@ -10492,6 +10589,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, update_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_intent_errors()}
   def update_intent(
         %Client{} = client,
@@ -10534,6 +10632,7 @@ defmodule AWS.LexModelsV2 do
   @spec update_resource_policy(map(), String.t(), update_resource_policy_request(), list()) ::
           {:ok, update_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_policy_errors()}
   def update_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -10576,6 +10675,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, update_slot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_slot_errors()}
   def update_slot(
         %Client{} = client,
@@ -10623,6 +10723,7 @@ defmodule AWS.LexModelsV2 do
         ) ::
           {:ok, update_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_slot_type_errors()}
   def update_slot_type(
         %Client{} = client,
@@ -10661,6 +10762,7 @@ defmodule AWS.LexModelsV2 do
   @spec update_test_set(map(), String.t(), update_test_set_request(), list()) ::
           {:ok, update_test_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_test_set_errors()}
   def update_test_set(%Client{} = client, test_set_id, input, options \\ []) do
     url_path = "/testsets/#{AWS.Util.encode_uri(test_set_id)}"

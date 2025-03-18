@@ -1651,6 +1651,7 @@ defmodule AWS.ControlTower do
   @spec create_landing_zone(map(), create_landing_zone_input(), list()) ::
           {:ok, create_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_landing_zone_errors()}
   def create_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/create-landingzone"
@@ -1683,6 +1684,7 @@ defmodule AWS.ControlTower do
   @spec delete_landing_zone(map(), delete_landing_zone_input(), list()) ::
           {:ok, delete_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_landing_zone_errors()}
   def delete_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/delete-landingzone"
@@ -1717,6 +1719,7 @@ defmodule AWS.ControlTower do
   @spec disable_baseline(map(), disable_baseline_input(), list()) ::
           {:ok, disable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_baseline_errors()}
   def disable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/disable-baseline"
@@ -1753,6 +1756,7 @@ defmodule AWS.ControlTower do
   @spec disable_control(map(), disable_control_input(), list()) ::
           {:ok, disable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_control_errors()}
   def disable_control(%Client{} = client, input, options \\ []) do
     url_path = "/disable-control"
@@ -1786,6 +1790,7 @@ defmodule AWS.ControlTower do
   @spec enable_baseline(map(), enable_baseline_input(), list()) ::
           {:ok, enable_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_baseline_errors()}
   def enable_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/enable-baseline"
@@ -1822,6 +1827,7 @@ defmodule AWS.ControlTower do
   @spec enable_control(map(), enable_control_input(), list()) ::
           {:ok, enable_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_control_errors()}
   def enable_control(%Client{} = client, input, options \\ []) do
     url_path = "/enable-control"
@@ -1855,6 +1861,7 @@ defmodule AWS.ControlTower do
   @spec get_baseline(map(), get_baseline_input(), list()) ::
           {:ok, get_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_baseline_errors()}
   def get_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline"
@@ -1890,6 +1897,7 @@ defmodule AWS.ControlTower do
   @spec get_baseline_operation(map(), get_baseline_operation_input(), list()) ::
           {:ok, get_baseline_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_baseline_operation_errors()}
   def get_baseline_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-baseline-operation"
@@ -1924,6 +1932,7 @@ defmodule AWS.ControlTower do
   @spec get_control_operation(map(), get_control_operation_input(), list()) ::
           {:ok, get_control_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_control_operation_errors()}
   def get_control_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-control-operation"
@@ -1952,6 +1961,7 @@ defmodule AWS.ControlTower do
   @spec get_enabled_baseline(map(), get_enabled_baseline_input(), list()) ::
           {:ok, get_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_enabled_baseline_errors()}
   def get_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-baseline"
@@ -1984,6 +1994,7 @@ defmodule AWS.ControlTower do
   @spec get_enabled_control(map(), get_enabled_control_input(), list()) ::
           {:ok, get_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_enabled_control_errors()}
   def get_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-enabled-control"
@@ -2014,6 +2025,7 @@ defmodule AWS.ControlTower do
   @spec get_landing_zone(map(), get_landing_zone_input(), list()) ::
           {:ok, get_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_landing_zone_errors()}
   def get_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone"
@@ -2045,6 +2057,7 @@ defmodule AWS.ControlTower do
   @spec get_landing_zone_operation(map(), get_landing_zone_operation_input(), list()) ::
           {:ok, get_landing_zone_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_landing_zone_operation_errors()}
   def get_landing_zone_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-landingzone-operation"
@@ -2077,6 +2090,7 @@ defmodule AWS.ControlTower do
   @spec list_baselines(map(), list_baselines_input(), list()) ::
           {:ok, list_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_baselines_errors()}
   def list_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-baselines"
@@ -2107,6 +2121,7 @@ defmodule AWS.ControlTower do
   @spec list_control_operations(map(), list_control_operations_input(), list()) ::
           {:ok, list_control_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_control_operations_errors()}
   def list_control_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-control-operations"
@@ -2140,6 +2155,7 @@ defmodule AWS.ControlTower do
   @spec list_enabled_baselines(map(), list_enabled_baselines_input(), list()) ::
           {:ok, list_enabled_baselines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_enabled_baselines_errors()}
   def list_enabled_baselines(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-baselines"
@@ -2174,6 +2190,7 @@ defmodule AWS.ControlTower do
   @spec list_enabled_controls(map(), list_enabled_controls_input(), list()) ::
           {:ok, list_enabled_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_enabled_controls_errors()}
   def list_enabled_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-enabled-controls"
@@ -2204,6 +2221,7 @@ defmodule AWS.ControlTower do
   @spec list_landing_zone_operations(map(), list_landing_zone_operations_input(), list()) ::
           {:ok, list_landing_zone_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_landing_zone_operations_errors()}
   def list_landing_zone_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-landingzone-operations"
@@ -2238,6 +2256,7 @@ defmodule AWS.ControlTower do
   @spec list_landing_zones(map(), list_landing_zones_input(), list()) ::
           {:ok, list_landing_zones_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_landing_zones_errors()}
   def list_landing_zones(%Client{} = client, input, options \\ []) do
     url_path = "/list-landingzones"
@@ -2270,6 +2289,7 @@ defmodule AWS.ControlTower do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2292,6 +2312,7 @@ defmodule AWS.ControlTower do
   @spec reset_enabled_baseline(map(), reset_enabled_baseline_input(), list()) ::
           {:ok, reset_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_enabled_baseline_errors()}
   def reset_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/reset-enabled-baseline"
@@ -2320,6 +2341,7 @@ defmodule AWS.ControlTower do
   @spec reset_enabled_control(map(), reset_enabled_control_input(), list()) ::
           {:ok, reset_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_enabled_control_errors()}
   def reset_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/reset-enabled-control"
@@ -2357,6 +2379,7 @@ defmodule AWS.ControlTower do
   @spec reset_landing_zone(map(), reset_landing_zone_input(), list()) ::
           {:ok, reset_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_landing_zone_errors()}
   def reset_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/reset-landingzone"
@@ -2389,6 +2412,7 @@ defmodule AWS.ControlTower do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2421,6 +2445,7 @@ defmodule AWS.ControlTower do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2458,6 +2483,7 @@ defmodule AWS.ControlTower do
   @spec update_enabled_baseline(map(), update_enabled_baseline_input(), list()) ::
           {:ok, update_enabled_baseline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_enabled_baseline_errors()}
   def update_enabled_baseline(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-baseline"
@@ -2503,6 +2529,7 @@ defmodule AWS.ControlTower do
   @spec update_enabled_control(map(), update_enabled_control_input(), list()) ::
           {:ok, update_enabled_control_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_enabled_control_errors()}
   def update_enabled_control(%Client{} = client, input, options \\ []) do
     url_path = "/update-enabled-control"
@@ -2536,6 +2563,7 @@ defmodule AWS.ControlTower do
   @spec update_landing_zone(map(), update_landing_zone_input(), list()) ::
           {:ok, update_landing_zone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_landing_zone_errors()}
   def update_landing_zone(%Client{} = client, input, options \\ []) do
     url_path = "/update-landingzone"

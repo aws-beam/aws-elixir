@@ -4415,6 +4415,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_dominant_language(map(), batch_detect_dominant_language_request(), list()) ::
           {:ok, batch_detect_dominant_language_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_dominant_language_errors()}
   def batch_detect_dominant_language(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4434,6 +4435,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_entities(map(), batch_detect_entities_request(), list()) ::
           {:ok, batch_detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_entities_errors()}
   def batch_detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4447,6 +4449,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_key_phrases(map(), batch_detect_key_phrases_request(), list()) ::
           {:ok, batch_detect_key_phrases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_key_phrases_errors()}
   def batch_detect_key_phrases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4463,6 +4466,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_sentiment(map(), batch_detect_sentiment_request(), list()) ::
           {:ok, batch_detect_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_sentiment_errors()}
   def batch_detect_sentiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4482,6 +4486,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_syntax(map(), batch_detect_syntax_request(), list()) ::
           {:ok, batch_detect_syntax_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_syntax_errors()}
   def batch_detect_syntax(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4499,6 +4504,7 @@ defmodule AWS.Comprehend do
   @spec batch_detect_targeted_sentiment(map(), batch_detect_targeted_sentiment_request(), list()) ::
           {:ok, batch_detect_targeted_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_detect_targeted_sentiment_errors()}
   def batch_detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4544,6 +4550,7 @@ defmodule AWS.Comprehend do
   @spec classify_document(map(), classify_document_request(), list()) ::
           {:ok, classify_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, classify_document_errors()}
   def classify_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4561,6 +4568,7 @@ defmodule AWS.Comprehend do
   @spec contains_pii_entities(map(), contains_pii_entities_request(), list()) ::
           {:ok, contains_pii_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, contains_pii_entities_errors()}
   def contains_pii_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4580,6 +4588,7 @@ defmodule AWS.Comprehend do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4600,6 +4609,7 @@ defmodule AWS.Comprehend do
   @spec create_document_classifier(map(), create_document_classifier_request(), list()) ::
           {:ok, create_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_document_classifier_errors()}
   def create_document_classifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4616,6 +4626,7 @@ defmodule AWS.Comprehend do
   @spec create_endpoint(map(), create_endpoint_request(), list()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4634,6 +4645,7 @@ defmodule AWS.Comprehend do
   @spec create_entity_recognizer(map(), create_entity_recognizer_request(), list()) ::
           {:ok, create_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_entity_recognizer_errors()}
   def create_entity_recognizer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4669,6 +4681,7 @@ defmodule AWS.Comprehend do
   @spec create_flywheel(map(), create_flywheel_request(), list()) ::
           {:ok, create_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flywheel_errors()}
   def create_flywheel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4695,6 +4708,7 @@ defmodule AWS.Comprehend do
   @spec delete_document_classifier(map(), delete_document_classifier_request(), list()) ::
           {:ok, delete_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_document_classifier_errors()}
   def delete_document_classifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4712,6 +4726,7 @@ defmodule AWS.Comprehend do
   @spec delete_endpoint(map(), delete_endpoint_request(), list()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4737,6 +4752,7 @@ defmodule AWS.Comprehend do
   @spec delete_entity_recognizer(map(), delete_entity_recognizer_request(), list()) ::
           {:ok, delete_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_entity_recognizer_errors()}
   def delete_entity_recognizer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4758,6 +4774,7 @@ defmodule AWS.Comprehend do
   @spec delete_flywheel(map(), delete_flywheel_request(), list()) ::
           {:ok, delete_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flywheel_errors()}
   def delete_flywheel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4771,6 +4788,7 @@ defmodule AWS.Comprehend do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4789,6 +4807,7 @@ defmodule AWS.Comprehend do
   @spec describe_dataset(map(), describe_dataset_request(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4809,6 +4828,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_document_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_document_classification_job_errors()}
   def describe_document_classification_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4822,6 +4842,7 @@ defmodule AWS.Comprehend do
   @spec describe_document_classifier(map(), describe_document_classifier_request(), list()) ::
           {:ok, describe_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_document_classifier_errors()}
   def describe_document_classifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4842,6 +4863,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dominant_language_detection_job_errors()}
   def describe_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4859,6 +4881,7 @@ defmodule AWS.Comprehend do
   @spec describe_endpoint(map(), describe_endpoint_request(), list()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoint_errors()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4875,6 +4898,7 @@ defmodule AWS.Comprehend do
   @spec describe_entities_detection_job(map(), describe_entities_detection_job_request(), list()) ::
           {:ok, describe_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entities_detection_job_errors()}
   def describe_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4890,6 +4914,7 @@ defmodule AWS.Comprehend do
   @spec describe_entity_recognizer(map(), describe_entity_recognizer_request(), list()) ::
           {:ok, describe_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entity_recognizer_errors()}
   def describe_entity_recognizer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4903,6 +4928,7 @@ defmodule AWS.Comprehend do
   @spec describe_events_detection_job(map(), describe_events_detection_job_request(), list()) ::
           {:ok, describe_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_detection_job_errors()}
   def describe_events_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4921,6 +4947,7 @@ defmodule AWS.Comprehend do
   @spec describe_flywheel(map(), describe_flywheel_request(), list()) ::
           {:ok, describe_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flywheel_errors()}
   def describe_flywheel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4939,6 +4966,7 @@ defmodule AWS.Comprehend do
   @spec describe_flywheel_iteration(map(), describe_flywheel_iteration_request(), list()) ::
           {:ok, describe_flywheel_iteration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flywheel_iteration_errors()}
   def describe_flywheel_iteration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4959,6 +4987,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_key_phrases_detection_job_errors()}
   def describe_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4979,6 +5008,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pii_entities_detection_job_errors()}
   def describe_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4994,6 +5024,7 @@ defmodule AWS.Comprehend do
   @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5014,6 +5045,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_sentiment_detection_job_errors()}
   def describe_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5034,6 +5066,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, describe_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_targeted_sentiment_detection_job_errors()}
   def describe_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5050,6 +5083,7 @@ defmodule AWS.Comprehend do
   @spec describe_topics_detection_job(map(), describe_topics_detection_job_request(), list()) ::
           {:ok, describe_topics_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_topics_detection_job_errors()}
   def describe_topics_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5066,6 +5100,7 @@ defmodule AWS.Comprehend do
   @spec detect_dominant_language(map(), detect_dominant_language_request(), list()) ::
           {:ok, detect_dominant_language_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_dominant_language_errors()}
   def detect_dominant_language(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5103,6 +5138,7 @@ defmodule AWS.Comprehend do
   @spec detect_entities(map(), detect_entities_request(), list()) ::
           {:ok, detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_entities_errors()}
   def detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5116,6 +5152,7 @@ defmodule AWS.Comprehend do
   @spec detect_key_phrases(map(), detect_key_phrases_request(), list()) ::
           {:ok, detect_key_phrases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_key_phrases_errors()}
   def detect_key_phrases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5131,6 +5168,7 @@ defmodule AWS.Comprehend do
   @spec detect_pii_entities(map(), detect_pii_entities_request(), list()) ::
           {:ok, detect_pii_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_pii_entities_errors()}
   def detect_pii_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5145,6 +5183,7 @@ defmodule AWS.Comprehend do
   @spec detect_sentiment(map(), detect_sentiment_request(), list()) ::
           {:ok, detect_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_sentiment_errors()}
   def detect_sentiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5163,6 +5202,7 @@ defmodule AWS.Comprehend do
   @spec detect_syntax(map(), detect_syntax_request(), list()) ::
           {:ok, detect_syntax_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_syntax_errors()}
   def detect_syntax(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5180,6 +5220,7 @@ defmodule AWS.Comprehend do
   @spec detect_targeted_sentiment(map(), detect_targeted_sentiment_request(), list()) ::
           {:ok, detect_targeted_sentiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_targeted_sentiment_errors()}
   def detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5199,6 +5240,7 @@ defmodule AWS.Comprehend do
   @spec detect_toxic_content(map(), detect_toxic_content_request(), list()) ::
           {:ok, detect_toxic_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_toxic_content_errors()}
   def detect_toxic_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5224,6 +5266,7 @@ defmodule AWS.Comprehend do
   @spec import_model(map(), import_model_request(), list()) ::
           {:ok, import_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_model_errors()}
   def import_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5242,6 +5285,7 @@ defmodule AWS.Comprehend do
   @spec list_datasets(map(), list_datasets_request(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5259,6 +5303,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_document_classification_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_document_classification_jobs_errors()}
   def list_document_classification_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5276,6 +5321,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_document_classifier_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_document_classifier_summaries_errors()}
   def list_document_classifier_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5289,6 +5335,7 @@ defmodule AWS.Comprehend do
   @spec list_document_classifiers(map(), list_document_classifiers_request(), list()) ::
           {:ok, list_document_classifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_document_classifiers_errors()}
   def list_document_classifiers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5306,6 +5353,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_dominant_language_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dominant_language_detection_jobs_errors()}
   def list_dominant_language_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5321,6 +5369,7 @@ defmodule AWS.Comprehend do
   @spec list_endpoints(map(), list_endpoints_request(), list()) ::
           {:ok, list_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_endpoints_errors()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5334,6 +5383,7 @@ defmodule AWS.Comprehend do
   @spec list_entities_detection_jobs(map(), list_entities_detection_jobs_request(), list()) ::
           {:ok, list_entities_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entities_detection_jobs_errors()}
   def list_entities_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5351,6 +5401,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_entity_recognizer_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entity_recognizer_summaries_errors()}
   def list_entity_recognizer_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5375,6 +5426,7 @@ defmodule AWS.Comprehend do
   @spec list_entity_recognizers(map(), list_entity_recognizers_request(), list()) ::
           {:ok, list_entity_recognizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entity_recognizers_errors()}
   def list_entity_recognizers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5388,6 +5440,7 @@ defmodule AWS.Comprehend do
   @spec list_events_detection_jobs(map(), list_events_detection_jobs_request(), list()) ::
           {:ok, list_events_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_events_detection_jobs_errors()}
   def list_events_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5406,6 +5459,7 @@ defmodule AWS.Comprehend do
   @spec list_flywheel_iteration_history(map(), list_flywheel_iteration_history_request(), list()) ::
           {:ok, list_flywheel_iteration_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flywheel_iteration_history_errors()}
   def list_flywheel_iteration_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5419,6 +5473,7 @@ defmodule AWS.Comprehend do
   @spec list_flywheels(map(), list_flywheels_request(), list()) ::
           {:ok, list_flywheels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flywheels_errors()}
   def list_flywheels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5432,6 +5487,7 @@ defmodule AWS.Comprehend do
   @spec list_key_phrases_detection_jobs(map(), list_key_phrases_detection_jobs_request(), list()) ::
           {:ok, list_key_phrases_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_key_phrases_detection_jobs_errors()}
   def list_key_phrases_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5449,6 +5505,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_pii_entities_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pii_entities_detection_jobs_errors()}
   def list_pii_entities_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5462,6 +5519,7 @@ defmodule AWS.Comprehend do
   @spec list_sentiment_detection_jobs(map(), list_sentiment_detection_jobs_request(), list()) ::
           {:ok, list_sentiment_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sentiment_detection_jobs_errors()}
   def list_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5475,6 +5533,7 @@ defmodule AWS.Comprehend do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5492,6 +5551,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, list_targeted_sentiment_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targeted_sentiment_detection_jobs_errors()}
   def list_targeted_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5505,6 +5565,7 @@ defmodule AWS.Comprehend do
   @spec list_topics_detection_jobs(map(), list_topics_detection_jobs_request(), list()) ::
           {:ok, list_topics_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topics_detection_jobs_errors()}
   def list_topics_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5523,6 +5584,7 @@ defmodule AWS.Comprehend do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5545,6 +5607,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, start_document_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_document_classification_job_errors()}
   def start_document_classification_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5567,6 +5630,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, start_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_dominant_language_detection_job_errors()}
   def start_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5590,6 +5654,7 @@ defmodule AWS.Comprehend do
   @spec start_entities_detection_job(map(), start_entities_detection_job_request(), list()) ::
           {:ok, start_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_entities_detection_job_errors()}
   def start_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5603,6 +5668,7 @@ defmodule AWS.Comprehend do
   @spec start_events_detection_job(map(), start_events_detection_job_request(), list()) ::
           {:ok, start_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_events_detection_job_errors()}
   def start_events_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5622,6 +5688,7 @@ defmodule AWS.Comprehend do
   @spec start_flywheel_iteration(map(), start_flywheel_iteration_request(), list()) ::
           {:ok, start_flywheel_iteration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_flywheel_iteration_errors()}
   def start_flywheel_iteration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5639,6 +5706,7 @@ defmodule AWS.Comprehend do
   @spec start_key_phrases_detection_job(map(), start_key_phrases_detection_job_request(), list()) ::
           {:ok, start_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_key_phrases_detection_job_errors()}
   def start_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5656,6 +5724,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, start_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pii_entities_detection_job_errors()}
   def start_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5673,6 +5742,7 @@ defmodule AWS.Comprehend do
   @spec start_sentiment_detection_job(map(), start_sentiment_detection_job_request(), list()) ::
           {:ok, start_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_sentiment_detection_job_errors()}
   def start_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5695,6 +5765,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, start_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_targeted_sentiment_detection_job_errors()}
   def start_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5711,6 +5782,7 @@ defmodule AWS.Comprehend do
   @spec start_topics_detection_job(map(), start_topics_detection_job_request(), list()) ::
           {:ok, start_topics_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_topics_detection_job_errors()}
   def start_topics_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5741,6 +5813,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, stop_dominant_language_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_dominant_language_detection_job_errors()}
   def stop_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5767,6 +5840,7 @@ defmodule AWS.Comprehend do
   @spec stop_entities_detection_job(map(), stop_entities_detection_job_request(), list()) ::
           {:ok, stop_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_entities_detection_job_errors()}
   def stop_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5780,6 +5854,7 @@ defmodule AWS.Comprehend do
   @spec stop_events_detection_job(map(), stop_events_detection_job_request(), list()) ::
           {:ok, stop_events_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_events_detection_job_errors()}
   def stop_events_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5806,6 +5881,7 @@ defmodule AWS.Comprehend do
   @spec stop_key_phrases_detection_job(map(), stop_key_phrases_detection_job_request(), list()) ::
           {:ok, stop_key_phrases_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_key_phrases_detection_job_errors()}
   def stop_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5819,6 +5895,7 @@ defmodule AWS.Comprehend do
   @spec stop_pii_entities_detection_job(map(), stop_pii_entities_detection_job_request(), list()) ::
           {:ok, stop_pii_entities_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_pii_entities_detection_job_errors()}
   def stop_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5846,6 +5923,7 @@ defmodule AWS.Comprehend do
   @spec stop_sentiment_detection_job(map(), stop_sentiment_detection_job_request(), list()) ::
           {:ok, stop_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_sentiment_detection_job_errors()}
   def stop_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5877,6 +5955,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, stop_targeted_sentiment_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_targeted_sentiment_detection_job_errors()}
   def stop_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5902,6 +5981,7 @@ defmodule AWS.Comprehend do
         ) ::
           {:ok, stop_training_document_classifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_training_document_classifier_errors()}
   def stop_training_document_classifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5922,6 +6002,7 @@ defmodule AWS.Comprehend do
   @spec stop_training_entity_recognizer(map(), stop_training_entity_recognizer_request(), list()) ::
           {:ok, stop_training_entity_recognizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_training_entity_recognizer_errors()}
   def stop_training_entity_recognizer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5941,6 +6022,7 @@ defmodule AWS.Comprehend do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5954,6 +6036,7 @@ defmodule AWS.Comprehend do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5969,6 +6052,7 @@ defmodule AWS.Comprehend do
   @spec update_endpoint(map(), update_endpoint_request(), list()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5982,6 +6066,7 @@ defmodule AWS.Comprehend do
   @spec update_flywheel(map(), update_flywheel_request(), list()) ::
           {:ok, update_flywheel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flywheel_errors()}
   def update_flywheel(%Client{} = client, input, options \\ []) do
     meta = metadata()

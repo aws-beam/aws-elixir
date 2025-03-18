@@ -116,6 +116,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   @spec generate_data_set(map(), generate_data_set_request(), list()) ::
           {:ok, generate_data_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_data_set_errors()}
   def generate_data_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -145,6 +146,7 @@ defmodule AWS.MarketplaceCommerceAnalytics do
   @spec start_support_data_export(map(), start_support_data_export_request(), list()) ::
           {:ok, start_support_data_export_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_support_data_export_errors()}
   def start_support_data_export(%Client{} = client, input, options \\ []) do
     meta = metadata()

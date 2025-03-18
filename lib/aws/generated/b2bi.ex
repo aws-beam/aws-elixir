@@ -1397,6 +1397,7 @@ defmodule AWS.B2bi do
   @spec create_capability(map(), create_capability_request(), list()) ::
           {:ok, create_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_capability_errors()}
   def create_capability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1415,6 +1416,7 @@ defmodule AWS.B2bi do
   @spec create_partnership(map(), create_partnership_request(), list()) ::
           {:ok, create_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_partnership_errors()}
   def create_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1432,6 +1434,7 @@ defmodule AWS.B2bi do
   @spec create_profile(map(), create_profile_request(), list()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1459,6 +1462,7 @@ defmodule AWS.B2bi do
   @spec create_starter_mapping_template(map(), create_starter_mapping_template_request(), list()) ::
           {:ok, create_starter_mapping_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_starter_mapping_template_errors()}
   def create_starter_mapping_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1505,6 +1509,7 @@ defmodule AWS.B2bi do
   @spec create_transformer(map(), create_transformer_request(), list()) ::
           {:ok, create_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_transformer_errors()}
   def create_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1521,6 +1526,7 @@ defmodule AWS.B2bi do
   @spec delete_capability(map(), delete_capability_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_capability_errors()}
   def delete_capability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1538,6 +1544,7 @@ defmodule AWS.B2bi do
   @spec delete_partnership(map(), delete_partnership_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_partnership_errors()}
   def delete_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1554,6 +1561,7 @@ defmodule AWS.B2bi do
   @spec delete_profile(map(), delete_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1572,6 +1580,7 @@ defmodule AWS.B2bi do
   @spec delete_transformer(map(), delete_transformer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_transformer_errors()}
   def delete_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1595,6 +1604,7 @@ defmodule AWS.B2bi do
   @spec generate_mapping(map(), generate_mapping_request(), list()) ::
           {:ok, generate_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_mapping_errors()}
   def generate_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1611,6 +1621,7 @@ defmodule AWS.B2bi do
   @spec get_capability(map(), get_capability_request(), list()) ::
           {:ok, get_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_capability_errors()}
   def get_capability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1629,6 +1640,7 @@ defmodule AWS.B2bi do
   @spec get_partnership(map(), get_partnership_request(), list()) ::
           {:ok, get_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_partnership_errors()}
   def get_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1645,6 +1657,7 @@ defmodule AWS.B2bi do
   @spec get_profile(map(), get_profile_request(), list()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1663,6 +1676,7 @@ defmodule AWS.B2bi do
   @spec get_transformer(map(), get_transformer_request(), list()) ::
           {:ok, get_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transformer_errors()}
   def get_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1676,6 +1690,7 @@ defmodule AWS.B2bi do
   @spec get_transformer_job(map(), get_transformer_job_request(), list()) ::
           {:ok, get_transformer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transformer_job_errors()}
   def get_transformer_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1693,6 +1708,7 @@ defmodule AWS.B2bi do
   @spec list_capabilities(map(), list_capabilities_request(), list()) ::
           {:ok, list_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_capabilities_errors()}
   def list_capabilities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1711,6 +1727,7 @@ defmodule AWS.B2bi do
   @spec list_partnerships(map(), list_partnerships_request(), list()) ::
           {:ok, list_partnerships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_partnerships_errors()}
   def list_partnerships(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1728,6 +1745,7 @@ defmodule AWS.B2bi do
   @spec list_profiles(map(), list_profiles_request(), list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,6 +1762,7 @@ defmodule AWS.B2bi do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1762,6 +1781,7 @@ defmodule AWS.B2bi do
   @spec list_transformers(map(), list_transformers_request(), list()) ::
           {:ok, list_transformers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_transformers_errors()}
   def list_transformers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1782,6 +1802,7 @@ defmodule AWS.B2bi do
   @spec start_transformer_job(map(), start_transformer_job_request(), list()) ::
           {:ok, start_transformer_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_transformer_job_errors()}
   def start_transformer_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1800,6 +1821,7 @@ defmodule AWS.B2bi do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1816,6 +1838,7 @@ defmodule AWS.B2bi do
   @spec test_conversion(map(), test_conversion_request(), list()) ::
           {:ok, test_conversion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_conversion_errors()}
   def test_conversion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1832,6 +1855,7 @@ defmodule AWS.B2bi do
   @spec test_mapping(map(), test_mapping_request(), list()) ::
           {:ok, test_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_mapping_errors()}
   def test_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1847,6 +1871,7 @@ defmodule AWS.B2bi do
   @spec test_parsing(map(), test_parsing_request(), list()) ::
           {:ok, test_parsing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_parsing_errors()}
   def test_parsing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1863,6 +1888,7 @@ defmodule AWS.B2bi do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1880,6 +1906,7 @@ defmodule AWS.B2bi do
   @spec update_capability(map(), update_capability_request(), list()) ::
           {:ok, update_capability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_capability_errors()}
   def update_capability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1898,6 +1925,7 @@ defmodule AWS.B2bi do
   @spec update_partnership(map(), update_partnership_request(), list()) ::
           {:ok, update_partnership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_partnership_errors()}
   def update_partnership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1914,6 +1942,7 @@ defmodule AWS.B2bi do
   @spec update_profile(map(), update_profile_request(), list()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1932,6 +1961,7 @@ defmodule AWS.B2bi do
   @spec update_transformer(map(), update_transformer_request(), list()) ::
           {:ok, update_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_transformer_errors()}
   def update_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()

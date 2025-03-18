@@ -5548,6 +5548,7 @@ defmodule AWS.DatabaseMigration do
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5567,6 +5568,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, apply_pending_maintenance_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5592,6 +5594,7 @@ defmodule AWS.DatabaseMigration do
   @spec batch_start_recommendations(map(), batch_start_recommendations_request(), list()) ::
           {:ok, batch_start_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_start_recommendations_errors()}
   def batch_start_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5615,6 +5618,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, cancel_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_replication_task_assessment_run_errors()}
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5628,6 +5632,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_data_migration(map(), create_data_migration_message(), list()) ::
           {:ok, create_data_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_migration_errors()}
   def create_data_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5644,6 +5649,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_data_provider(map(), create_data_provider_message(), list()) ::
           {:ok, create_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_provider_errors()}
   def create_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5666,6 +5672,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_endpoint(map(), create_endpoint_message(), list()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5700,6 +5707,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5713,6 +5721,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_fleet_advisor_collector(map(), create_fleet_advisor_collector_request(), list()) ::
           {:ok, create_fleet_advisor_collector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_advisor_collector_errors()}
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5726,6 +5735,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_instance_profile(map(), create_instance_profile_message(), list()) ::
           {:ok, create_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5745,6 +5755,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_migration_project(map(), create_migration_project_message(), list()) ::
           {:ok, create_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_migration_project_errors()}
   def create_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5762,6 +5773,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_replication_config(map(), create_replication_config_message(), list()) ::
           {:ok, create_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_config_errors()}
   def create_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5788,6 +5800,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_replication_instance(map(), create_replication_instance_message(), list()) ::
           {:ok, create_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_instance_errors()}
   def create_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5816,6 +5829,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_replication_subnet_group(map(), create_replication_subnet_group_message(), list()) ::
           {:ok, create_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_subnet_group_errors()}
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5829,6 +5843,7 @@ defmodule AWS.DatabaseMigration do
   @spec create_replication_task(map(), create_replication_task_message(), list()) ::
           {:ok, create_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_task_errors()}
   def create_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5842,6 +5857,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_certificate(map(), delete_certificate_message(), list()) ::
           {:ok, delete_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5855,6 +5871,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_connection(map(), delete_connection_message(), list()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5868,6 +5885,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_data_migration(map(), delete_data_migration_message(), list()) ::
           {:ok, delete_data_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_migration_errors()}
   def delete_data_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5885,6 +5903,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_data_provider(map(), delete_data_provider_message(), list()) ::
           {:ok, delete_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_provider_errors()}
   def delete_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5901,6 +5920,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_endpoint(map(), delete_endpoint_message(), list()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5914,6 +5934,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
           {:ok, delete_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5927,6 +5948,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_fleet_advisor_collector(map(), delete_collector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_advisor_collector_errors()}
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5940,6 +5962,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_fleet_advisor_databases(map(), delete_fleet_advisor_databases_request(), list()) ::
           {:ok, delete_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_advisor_databases_errors()}
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5956,6 +5979,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_instance_profile(map(), delete_instance_profile_message(), list()) ::
           {:ok, delete_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5971,6 +5995,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_migration_project(map(), delete_migration_project_message(), list()) ::
           {:ok, delete_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_migration_project_errors()}
   def delete_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5991,6 +6016,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_replication_config(map(), delete_replication_config_message(), list()) ::
           {:ok, delete_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_config_errors()}
   def delete_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6008,6 +6034,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_replication_instance(map(), delete_replication_instance_message(), list()) ::
           {:ok, delete_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_instance_errors()}
   def delete_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6021,6 +6048,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_replication_subnet_group(map(), delete_replication_subnet_group_message(), list()) ::
           {:ok, delete_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_subnet_group_errors()}
   def delete_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6034,6 +6062,7 @@ defmodule AWS.DatabaseMigration do
   @spec delete_replication_task(map(), delete_replication_task_message(), list()) ::
           {:ok, delete_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_task_errors()}
   def delete_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6057,6 +6086,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, delete_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_task_assessment_run_errors()}
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6083,6 +6113,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_account_attributes(map(), describe_account_attributes_message(), list()) ::
           {:ok, describe_account_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6127,6 +6158,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_applicable_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_applicable_individual_assessments_errors()}
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6140,6 +6172,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_certificates(map(), describe_certificates_message(), list()) ::
           {:ok, describe_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6157,6 +6190,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_connections(map(), describe_connections_message(), list()) ::
           {:ok, describe_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6174,6 +6208,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_conversion_configuration_errors()}
   def describe_conversion_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6187,6 +6222,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_data_migrations(map(), describe_data_migrations_message(), list()) ::
           {:ok, describe_data_migrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_migrations_errors()}
   def describe_data_migrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6201,6 +6237,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_data_providers(map(), describe_data_providers_message(), list()) ::
           {:ok, describe_data_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_providers_errors()}
   def describe_data_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6216,6 +6253,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_endpoint_settings(map(), describe_endpoint_settings_message(), list()) ::
           {:ok, describe_endpoint_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6228,6 +6266,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_endpoint_types(map(), describe_endpoint_types_message(), list()) ::
           {:ok, describe_endpoint_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6240,6 +6279,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_endpoints(map(), describe_endpoints_message(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6253,6 +6293,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_engine_versions(map(), describe_engine_versions_message(), list()) ::
           {:ok, describe_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6272,6 +6313,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
           {:ok, describe_event_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6292,6 +6334,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
           {:ok, describe_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6310,6 +6353,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6332,6 +6376,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_extension_pack_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_extension_pack_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6348,6 +6393,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_fleet_advisor_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_advisor_collectors_errors()}
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6365,6 +6411,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_fleet_advisor_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_advisor_databases_errors()}
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6384,6 +6431,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_advisor_lsa_analysis_errors()}
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6402,6 +6450,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_fleet_advisor_schema_object_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_advisor_schema_object_summary_errors()}
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6415,6 +6464,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_fleet_advisor_schemas(map(), describe_fleet_advisor_schemas_request(), list()) ::
           {:ok, describe_fleet_advisor_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_advisor_schemas_errors()}
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6429,6 +6479,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_instance_profiles(map(), describe_instance_profiles_message(), list()) ::
           {:ok, describe_instance_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_profiles_errors()}
   def describe_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6448,6 +6499,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_metadata_model_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metadata_model_assessments_errors()}
   def describe_metadata_model_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6465,6 +6517,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_metadata_model_conversions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metadata_model_conversions_errors()}
   def describe_metadata_model_conversions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6482,6 +6535,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_metadata_model_exports_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metadata_model_exports_as_script_errors()}
   def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6499,6 +6553,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_metadata_model_exports_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metadata_model_exports_to_target_errors()}
   def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6512,6 +6567,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_metadata_model_imports(map(), describe_metadata_model_imports_message(), list()) ::
           {:ok, describe_metadata_model_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metadata_model_imports_errors()}
   def describe_metadata_model_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6526,6 +6582,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_migration_projects(map(), describe_migration_projects_message(), list()) ::
           {:ok, describe_migration_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_migration_projects_errors()}
   def describe_migration_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6545,6 +6602,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_orderable_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6563,6 +6621,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_pending_maintenance_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6582,6 +6641,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_recommendation_limitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recommendation_limitations_errors()}
   def describe_recommendation_limitations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6596,6 +6656,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_recommendations(map(), describe_recommendations_request(), list()) ::
           {:ok, describe_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recommendations_errors()}
   def describe_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6609,6 +6670,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_refresh_schemas_status(map(), describe_refresh_schemas_status_message(), list()) ::
           {:ok, describe_refresh_schemas_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_refresh_schemas_status_errors()}
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6624,6 +6686,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_replication_configs(map(), describe_replication_configs_message(), list()) ::
           {:ok, describe_replication_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_configs_errors()}
   def describe_replication_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6641,6 +6704,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_instance_task_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_instance_task_logs_errors()}
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6655,6 +6719,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_replication_instances(map(), describe_replication_instances_message(), list()) ::
           {:ok, describe_replication_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_instances_errors()}
   def describe_replication_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6672,6 +6737,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_subnet_groups_errors()}
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6691,6 +6757,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_table_statistics_errors()}
   def describe_replication_table_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6715,6 +6782,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_task_assessment_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_task_assessment_results_errors()}
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6740,6 +6808,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_task_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_task_assessment_runs_errors()}
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6760,6 +6829,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, describe_replication_task_individual_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_task_individual_assessments_errors()}
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6780,6 +6850,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_replication_tasks(map(), describe_replication_tasks_message(), list()) ::
           {:ok, describe_replication_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_tasks_errors()}
   def describe_replication_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6795,6 +6866,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_replications(map(), describe_replications_message(), list()) ::
           {:ok, describe_replications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replications_errors()}
   def describe_replications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6808,6 +6880,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_schemas(map(), describe_schemas_message(), list()) ::
           {:ok, describe_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_schemas_errors()}
   def describe_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6829,6 +6902,7 @@ defmodule AWS.DatabaseMigration do
   @spec describe_table_statistics(map(), describe_table_statistics_message(), list()) ::
           {:ok, describe_table_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_table_statistics_errors()}
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6849,6 +6923,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, export_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_metadata_model_assessment_errors()}
   def export_metadata_model_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6862,6 +6937,7 @@ defmodule AWS.DatabaseMigration do
   @spec import_certificate(map(), import_certificate_message(), list()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6882,6 +6958,7 @@ defmodule AWS.DatabaseMigration do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6896,6 +6973,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_conversion_configuration(map(), modify_conversion_configuration_message(), list()) ::
           {:ok, modify_conversion_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_conversion_configuration_errors()}
   def modify_conversion_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6909,6 +6987,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_data_migration(map(), modify_data_migration_message(), list()) ::
           {:ok, modify_data_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_data_migration_errors()}
   def modify_data_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6926,6 +7005,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_data_provider(map(), modify_data_provider_message(), list()) ::
           {:ok, modify_data_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_data_provider_errors()}
   def modify_data_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6948,6 +7028,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_endpoint(map(), modify_endpoint_message(), list()) ::
           {:ok, modify_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_endpoint_errors()}
   def modify_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6961,6 +7042,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
           {:ok, modify_event_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6977,6 +7059,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_instance_profile(map(), modify_instance_profile_message(), list()) ::
           {:ok, modify_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_instance_profile_errors()}
   def modify_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6992,6 +7075,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_migration_project(map(), modify_migration_project_message(), list()) ::
           {:ok, modify_migration_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_migration_project_errors()}
   def modify_migration_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7019,6 +7103,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_replication_config(map(), modify_replication_config_message(), list()) ::
           {:ok, modify_replication_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_config_errors()}
   def modify_replication_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7037,6 +7122,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_replication_instance(map(), modify_replication_instance_message(), list()) ::
           {:ok, modify_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_instance_errors()}
   def modify_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7050,6 +7136,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_replication_subnet_group(map(), modify_replication_subnet_group_message(), list()) ::
           {:ok, modify_replication_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_subnet_group_errors()}
   def modify_replication_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7069,6 +7156,7 @@ defmodule AWS.DatabaseMigration do
   @spec modify_replication_task(map(), modify_replication_task_message(), list()) ::
           {:ok, modify_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_task_errors()}
   def modify_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7088,6 +7176,7 @@ defmodule AWS.DatabaseMigration do
   @spec move_replication_task(map(), move_replication_task_message(), list()) ::
           {:ok, move_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, move_replication_task_errors()}
   def move_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7104,6 +7193,7 @@ defmodule AWS.DatabaseMigration do
   @spec reboot_replication_instance(map(), reboot_replication_instance_message(), list()) ::
           {:ok, reboot_replication_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_replication_instance_errors()}
   def reboot_replication_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7122,6 +7212,7 @@ defmodule AWS.DatabaseMigration do
   @spec refresh_schemas(map(), refresh_schemas_message(), list()) ::
           {:ok, refresh_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, refresh_schemas_errors()}
   def refresh_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7141,6 +7232,7 @@ defmodule AWS.DatabaseMigration do
   @spec reload_replication_tables(map(), reload_replication_tables_message(), list()) ::
           {:ok, reload_replication_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reload_replication_tables_errors()}
   def reload_replication_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7157,6 +7249,7 @@ defmodule AWS.DatabaseMigration do
   @spec reload_tables(map(), reload_tables_message(), list()) ::
           {:ok, reload_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reload_tables_errors()}
   def reload_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7177,6 +7270,7 @@ defmodule AWS.DatabaseMigration do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7191,6 +7285,7 @@ defmodule AWS.DatabaseMigration do
   @spec run_fleet_advisor_lsa_analysis(map(), %{}, list()) ::
           {:ok, run_fleet_advisor_lsa_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, run_fleet_advisor_lsa_analysis_errors()}
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7204,6 +7299,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_data_migration(map(), start_data_migration_message(), list()) ::
           {:ok, start_data_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_migration_errors()}
   def start_data_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7226,6 +7322,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, start_extension_pack_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_extension_pack_association_errors()}
   def start_extension_pack_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7246,6 +7343,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_metadata_model_assessment(map(), start_metadata_model_assessment_message(), list()) ::
           {:ok, start_metadata_model_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_model_assessment_errors()}
   def start_metadata_model_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7260,6 +7358,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_metadata_model_conversion(map(), start_metadata_model_conversion_message(), list()) ::
           {:ok, start_metadata_model_conversion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_model_conversion_errors()}
   def start_metadata_model_conversion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7279,6 +7378,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, start_metadata_model_export_as_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_model_export_as_script_errors()}
   def start_metadata_model_export_as_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7296,6 +7396,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, start_metadata_model_export_to_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_model_export_to_target_errors()}
   def start_metadata_model_export_to_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7313,6 +7414,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_metadata_model_import(map(), start_metadata_model_import_message(), list()) ::
           {:ok, start_metadata_model_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_model_import_errors()}
   def start_metadata_model_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7330,6 +7432,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_recommendations(map(), start_recommendations_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_recommendations_errors()}
   def start_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7351,6 +7454,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_replication(map(), start_replication_message(), list()) ::
           {:ok, start_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7368,6 +7472,7 @@ defmodule AWS.DatabaseMigration do
   @spec start_replication_task(map(), start_replication_task_message(), list()) ::
           {:ok, start_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_task_errors()}
   def start_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7401,6 +7506,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, start_replication_task_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_task_assessment_errors()}
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7430,6 +7536,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, start_replication_task_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_task_assessment_run_errors()}
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7443,6 +7550,7 @@ defmodule AWS.DatabaseMigration do
   @spec stop_data_migration(map(), stop_data_migration_message(), list()) ::
           {:ok, stop_data_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_data_migration_errors()}
   def stop_data_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7461,6 +7569,7 @@ defmodule AWS.DatabaseMigration do
   @spec stop_replication(map(), stop_replication_message(), list()) ::
           {:ok, stop_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7474,6 +7583,7 @@ defmodule AWS.DatabaseMigration do
   @spec stop_replication_task(map(), stop_replication_task_message(), list()) ::
           {:ok, stop_replication_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_replication_task_errors()}
   def stop_replication_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7487,6 +7597,7 @@ defmodule AWS.DatabaseMigration do
   @spec test_connection(map(), test_connection_message(), list()) ::
           {:ok, test_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7524,6 +7635,7 @@ defmodule AWS.DatabaseMigration do
         ) ::
           {:ok, update_subscriptions_to_event_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscriptions_to_event_bridge_errors()}
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ []) do
     meta = metadata()

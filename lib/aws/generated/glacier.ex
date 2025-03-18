@@ -1304,6 +1304,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, abort_multipart_upload_errors()}
   def abort_multipart_upload(
         %Client{} = client,
@@ -1362,6 +1363,7 @@ defmodule AWS.Glacier do
   @spec abort_vault_lock(map(), String.t(), String.t(), abort_vault_lock_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, abort_vault_lock_errors()}
   def abort_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -1401,6 +1403,7 @@ defmodule AWS.Glacier do
   @spec add_tags_to_vault(map(), String.t(), String.t(), add_tags_to_vault_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_vault_errors()}
   def add_tags_to_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -1499,6 +1502,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, archive_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_multipart_upload_errors()}
   def complete_multipart_upload(
         %Client{} = client,
@@ -1580,6 +1584,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_vault_lock_errors()}
   def complete_vault_lock(
         %Client{} = client,
@@ -1649,6 +1654,7 @@ defmodule AWS.Glacier do
   @spec create_vault(map(), String.t(), String.t(), create_vault_input(), list()) ::
           {:ok, create_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vault_errors()}
   def create_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
@@ -1720,6 +1726,7 @@ defmodule AWS.Glacier do
   @spec delete_archive(map(), String.t(), String.t(), String.t(), delete_archive_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, account_id, archive_id, vault_name, input, options \\ []) do
     url_path =
@@ -1780,6 +1787,7 @@ defmodule AWS.Glacier do
   @spec delete_vault(map(), String.t(), String.t(), delete_vault_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vault_errors()}
   def delete_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
@@ -1827,6 +1835,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vault_access_policy_errors()}
   def delete_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -1885,6 +1894,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vault_notifications_errors()}
   def delete_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -1945,6 +1955,7 @@ defmodule AWS.Glacier do
   @spec describe_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, glacier_job_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, account_id, job_id, vault_name, options \\ []) do
     url_path =
@@ -1995,6 +2006,7 @@ defmodule AWS.Glacier do
   @spec describe_vault(map(), String.t(), String.t(), list()) ::
           {:ok, describe_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vault_errors()}
   def describe_vault(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults/#{AWS.Util.encode_uri(vault_name)}"
@@ -2017,6 +2029,7 @@ defmodule AWS.Glacier do
   @spec get_data_retrieval_policy(map(), String.t(), list()) ::
           {:ok, get_data_retrieval_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_retrieval_policy_errors()}
   def get_data_retrieval_policy(%Client{} = client, account_id, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/policies/data-retrieval"
@@ -2095,6 +2108,7 @@ defmodule AWS.Glacier do
   @spec get_job_output(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_output_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_output_errors()}
   def get_job_output(
         %Client{} = client,
@@ -2149,6 +2163,7 @@ defmodule AWS.Glacier do
   @spec get_vault_access_policy(map(), String.t(), String.t(), list()) ::
           {:ok, get_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vault_access_policy_errors()}
   def get_vault_access_policy(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path =
@@ -2201,6 +2216,7 @@ defmodule AWS.Glacier do
   @spec get_vault_lock(map(), String.t(), String.t(), list()) ::
           {:ok, get_vault_lock_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vault_lock_errors()}
   def get_vault_lock(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path =
@@ -2242,6 +2258,7 @@ defmodule AWS.Glacier do
   @spec get_vault_notifications(map(), String.t(), String.t(), list()) ::
           {:ok, get_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vault_notifications_errors()}
   def get_vault_notifications(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path =
@@ -2267,6 +2284,7 @@ defmodule AWS.Glacier do
   @spec initiate_job(map(), String.t(), String.t(), initiate_job_input(), list()) ::
           {:ok, initiate_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_job_errors()}
   def initiate_job(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -2363,6 +2381,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, initiate_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_multipart_upload_errors()}
   def initiate_multipart_upload(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -2441,6 +2460,7 @@ defmodule AWS.Glacier do
   @spec initiate_vault_lock(map(), String.t(), String.t(), initiate_vault_lock_input(), list()) ::
           {:ok, initiate_vault_lock_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_vault_lock_errors()}
   def initiate_vault_lock(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -2535,6 +2555,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, list_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -2636,6 +2657,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, list_multipart_uploads_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multipart_uploads_errors()}
   def list_multipart_uploads(
         %Client{} = client,
@@ -2717,6 +2739,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, list_parts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_parts_errors()}
   def list_parts(
         %Client{} = client,
@@ -2759,6 +2782,7 @@ defmodule AWS.Glacier do
   @spec list_provisioned_capacity(map(), String.t(), list()) ::
           {:ok, list_provisioned_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioned_capacity_errors()}
   def list_provisioned_capacity(%Client{} = client, account_id, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/provisioned-capacity"
@@ -2780,6 +2804,7 @@ defmodule AWS.Glacier do
   @spec list_tags_for_vault(map(), String.t(), String.t(), list()) ::
           {:ok, list_tags_for_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_vault_errors()}
   def list_tags_for_vault(%Client{} = client, account_id, vault_name, options \\ []) do
     url_path =
@@ -2828,6 +2853,7 @@ defmodule AWS.Glacier do
   @spec list_vaults(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_vaults_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vaults_errors()}
   def list_vaults(%Client{} = client, account_id, limit \\ nil, marker \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/vaults"
@@ -2864,6 +2890,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, purchase_provisioned_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_provisioned_capacity_errors()}
   def purchase_provisioned_capacity(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/provisioned-capacity"
@@ -2912,6 +2939,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_vault_errors()}
   def remove_tags_from_vault(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -2953,6 +2981,7 @@ defmodule AWS.Glacier do
   @spec set_data_retrieval_policy(map(), String.t(), set_data_retrieval_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_data_retrieval_policy_errors()}
   def set_data_retrieval_policy(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(account_id)}/policies/data-retrieval"
@@ -2997,6 +3026,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_vault_access_policy_errors()}
   def set_vault_access_policy(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -3081,6 +3111,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_vault_notifications_errors()}
   def set_vault_notifications(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -3162,6 +3193,7 @@ defmodule AWS.Glacier do
   @spec upload_archive(map(), String.t(), String.t(), upload_archive_input(), list()) ::
           {:ok, archive_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_archive_errors()}
   def upload_archive(%Client{} = client, account_id, vault_name, input, options \\ []) do
     url_path =
@@ -3281,6 +3313,7 @@ defmodule AWS.Glacier do
         ) ::
           {:ok, upload_multipart_part_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_multipart_part_errors()}
   def upload_multipart_part(
         %Client{} = client,

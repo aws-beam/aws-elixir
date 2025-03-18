@@ -5301,6 +5301,7 @@ defmodule AWS.GameLift do
   @spec accept_match(map(), accept_match_input(), list()) ::
           {:ok, accept_match_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_match_errors()}
   def accept_match(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5366,6 +5367,7 @@ defmodule AWS.GameLift do
   @spec claim_game_server(map(), claim_game_server_input(), list()) ::
           {:ok, claim_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, claim_game_server_errors()}
   def claim_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5407,6 +5409,7 @@ defmodule AWS.GameLift do
   @spec create_alias(map(), create_alias_input(), list()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5467,6 +5470,7 @@ defmodule AWS.GameLift do
   @spec create_build(map(), create_build_input(), list()) ::
           {:ok, create_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_build_errors()}
   def create_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5577,6 +5581,7 @@ defmodule AWS.GameLift do
   @spec create_container_fleet(map(), create_container_fleet_input(), list()) ::
           {:ok, create_container_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_fleet_errors()}
   def create_container_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5747,6 +5752,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, create_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_group_definition_errors()}
   def create_container_group_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5851,6 +5857,7 @@ defmodule AWS.GameLift do
   @spec create_fleet(map(), create_fleet_input(), list()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5898,6 +5905,7 @@ defmodule AWS.GameLift do
   @spec create_fleet_locations(map(), create_fleet_locations_input(), list()) ::
           {:ok, create_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_locations_errors()}
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5970,6 +5978,7 @@ defmodule AWS.GameLift do
   @spec create_game_server_group(map(), create_game_server_group_input(), list()) ::
           {:ok, create_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_game_server_group_errors()}
   def create_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6037,6 +6046,7 @@ defmodule AWS.GameLift do
   @spec create_game_session(map(), create_game_session_input(), list()) ::
           {:ok, create_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_game_session_errors()}
   def create_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6115,6 +6125,7 @@ defmodule AWS.GameLift do
   @spec create_game_session_queue(map(), create_game_session_queue_input(), list()) ::
           {:ok, create_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_game_session_queue_errors()}
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6128,6 +6139,7 @@ defmodule AWS.GameLift do
   @spec create_location(map(), create_location_input(), list()) ::
           {:ok, create_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_errors()}
   def create_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6176,6 +6188,7 @@ defmodule AWS.GameLift do
   @spec create_matchmaking_configuration(map(), create_matchmaking_configuration_input(), list()) ::
           {:ok, create_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_matchmaking_configuration_errors()}
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6218,6 +6231,7 @@ defmodule AWS.GameLift do
   @spec create_matchmaking_rule_set(map(), create_matchmaking_rule_set_input(), list()) ::
           {:ok, create_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_matchmaking_rule_set_errors()}
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6256,6 +6270,7 @@ defmodule AWS.GameLift do
   @spec create_player_session(map(), create_player_session_input(), list()) ::
           {:ok, create_player_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_player_session_errors()}
   def create_player_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6291,6 +6306,7 @@ defmodule AWS.GameLift do
   @spec create_player_sessions(map(), create_player_sessions_input(), list()) ::
           {:ok, create_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_player_sessions_errors()}
   def create_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6349,6 +6365,7 @@ defmodule AWS.GameLift do
   @spec create_script(map(), create_script_input(), list()) ::
           {:ok, create_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6407,6 +6424,7 @@ defmodule AWS.GameLift do
   @spec create_vpc_peering_authorization(map(), create_vpc_peering_authorization_input(), list()) ::
           {:ok, create_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_peering_authorization_errors()}
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6462,6 +6480,7 @@ defmodule AWS.GameLift do
   @spec create_vpc_peering_connection(map(), create_vpc_peering_connection_input(), list()) ::
           {:ok, create_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_peering_connection_errors()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6484,6 +6503,7 @@ defmodule AWS.GameLift do
   @spec delete_alias(map(), delete_alias_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6511,6 +6531,7 @@ defmodule AWS.GameLift do
   @spec delete_build(map(), delete_build_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_build_errors()}
   def delete_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6537,6 +6558,7 @@ defmodule AWS.GameLift do
   @spec delete_container_fleet(map(), delete_container_fleet_input(), list()) ::
           {:ok, delete_container_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_fleet_errors()}
   def delete_container_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6595,6 +6617,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, delete_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_group_definition_errors()}
   def delete_container_group_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6626,6 +6649,7 @@ defmodule AWS.GameLift do
   @spec delete_fleet(map(), delete_fleet_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6656,6 +6680,7 @@ defmodule AWS.GameLift do
   @spec delete_fleet_locations(map(), delete_fleet_locations_input(), list()) ::
           {:ok, delete_fleet_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_locations_errors()}
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6710,6 +6735,7 @@ defmodule AWS.GameLift do
   @spec delete_game_server_group(map(), delete_game_server_group_input(), list()) ::
           {:ok, delete_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_game_server_group_errors()}
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6728,6 +6754,7 @@ defmodule AWS.GameLift do
   @spec delete_game_session_queue(map(), delete_game_session_queue_input(), list()) ::
           {:ok, delete_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_game_session_queue_errors()}
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6745,6 +6772,7 @@ defmodule AWS.GameLift do
   @spec delete_location(map(), delete_location_input(), list()) ::
           {:ok, delete_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6763,6 +6791,7 @@ defmodule AWS.GameLift do
   @spec delete_matchmaking_configuration(map(), delete_matchmaking_configuration_input(), list()) ::
           {:ok, delete_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_matchmaking_configuration_errors()}
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6787,6 +6816,7 @@ defmodule AWS.GameLift do
   @spec delete_matchmaking_rule_set(map(), delete_matchmaking_rule_set_input(), list()) ::
           {:ok, delete_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_matchmaking_rule_set_errors()}
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6810,6 +6840,7 @@ defmodule AWS.GameLift do
   @spec delete_scaling_policy(map(), delete_scaling_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6843,6 +6874,7 @@ defmodule AWS.GameLift do
   @spec delete_script(map(), delete_script_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_script_errors()}
   def delete_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6864,6 +6896,7 @@ defmodule AWS.GameLift do
   @spec delete_vpc_peering_authorization(map(), delete_vpc_peering_authorization_input(), list()) ::
           {:ok, delete_vpc_peering_authorization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_peering_authorization_errors()}
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6890,6 +6923,7 @@ defmodule AWS.GameLift do
   @spec delete_vpc_peering_connection(map(), delete_vpc_peering_connection_input(), list()) ::
           {:ok, delete_vpc_peering_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_peering_connection_errors()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6913,6 +6947,7 @@ defmodule AWS.GameLift do
   @spec deregister_compute(map(), deregister_compute_input(), list()) ::
           {:ok, deregister_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_compute_errors()}
   def deregister_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6944,6 +6979,7 @@ defmodule AWS.GameLift do
   @spec deregister_game_server(map(), deregister_game_server_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_game_server_errors()}
   def deregister_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6968,6 +7004,7 @@ defmodule AWS.GameLift do
   @spec describe_alias(map(), describe_alias_input(), list()) ::
           {:ok, describe_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alias_errors()}
   def describe_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6991,6 +7028,7 @@ defmodule AWS.GameLift do
   @spec describe_build(map(), describe_build_input(), list()) ::
           {:ok, describe_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_build_errors()}
   def describe_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7024,6 +7062,7 @@ defmodule AWS.GameLift do
   @spec describe_compute(map(), describe_compute_input(), list()) ::
           {:ok, describe_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compute_errors()}
   def describe_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7058,6 +7097,7 @@ defmodule AWS.GameLift do
   @spec describe_container_fleet(map(), describe_container_fleet_input(), list()) ::
           {:ok, describe_container_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_container_fleet_errors()}
   def describe_container_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7100,6 +7140,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_container_group_definition_errors()}
   def describe_container_group_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7178,6 +7219,7 @@ defmodule AWS.GameLift do
   @spec describe_ec2_instance_limits(map(), describe_ec2_instance_limits_input(), list()) ::
           {:ok, describe_ec2_instance_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ec2_instance_limits_errors()}
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7220,6 +7262,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_attributes(map(), describe_fleet_attributes_input(), list()) ::
           {:ok, describe_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_attributes_errors()}
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7271,6 +7314,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_capacity(map(), describe_fleet_capacity_input(), list()) ::
           {:ok, describe_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_capacity_errors()}
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7298,6 +7342,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_deployment(map(), describe_fleet_deployment_input(), list()) ::
           {:ok, describe_fleet_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_deployment_errors()}
   def describe_fleet_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7328,6 +7373,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_events(map(), describe_fleet_events_input(), list()) ::
           {:ok, describe_fleet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_events_errors()}
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7378,6 +7424,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_fleet_location_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_location_attributes_errors()}
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7417,6 +7464,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_location_capacity(map(), describe_fleet_location_capacity_input(), list()) ::
           {:ok, describe_fleet_location_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_location_capacity_errors()}
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7456,6 +7504,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_fleet_location_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_location_utilization_errors()}
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7496,6 +7545,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_port_settings(map(), describe_fleet_port_settings_input(), list()) ::
           {:ok, describe_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_port_settings_errors()}
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7547,6 +7597,7 @@ defmodule AWS.GameLift do
   @spec describe_fleet_utilization(map(), describe_fleet_utilization_input(), list()) ::
           {:ok, describe_fleet_utilization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_utilization_errors()}
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7576,6 +7627,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server(map(), describe_game_server_input(), list()) ::
           {:ok, describe_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_server_errors()}
   def describe_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7609,6 +7661,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server_group(map(), describe_game_server_group_input(), list()) ::
           {:ok, describe_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_server_group_errors()}
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7653,6 +7706,7 @@ defmodule AWS.GameLift do
   @spec describe_game_server_instances(map(), describe_game_server_instances_input(), list()) ::
           {:ok, describe_game_server_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_server_instances_errors()}
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7702,6 +7756,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_details(map(), describe_game_session_details_input(), list()) ::
           {:ok, describe_game_session_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_session_details_errors()}
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7727,6 +7782,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_placement(map(), describe_game_session_placement_input(), list()) ::
           {:ok, describe_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_session_placement_errors()}
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7753,6 +7809,7 @@ defmodule AWS.GameLift do
   @spec describe_game_session_queues(map(), describe_game_session_queues_input(), list()) ::
           {:ok, describe_game_session_queues_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_session_queues_errors()}
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7811,6 +7868,7 @@ defmodule AWS.GameLift do
   @spec describe_game_sessions(map(), describe_game_sessions_input(), list()) ::
           {:ok, describe_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_game_sessions_errors()}
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7867,6 +7925,7 @@ defmodule AWS.GameLift do
   @spec describe_instances(map(), describe_instances_input(), list()) ::
           {:ok, describe_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7906,6 +7965,7 @@ defmodule AWS.GameLift do
   @spec describe_matchmaking(map(), describe_matchmaking_input(), list()) ::
           {:ok, describe_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_matchmaking_errors()}
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7938,6 +7998,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_matchmaking_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_matchmaking_configurations_errors()}
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7963,6 +8024,7 @@ defmodule AWS.GameLift do
   @spec describe_matchmaking_rule_sets(map(), describe_matchmaking_rule_sets_input(), list()) ::
           {:ok, describe_matchmaking_rule_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_matchmaking_rule_sets_errors()}
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8004,6 +8066,7 @@ defmodule AWS.GameLift do
   @spec describe_player_sessions(map(), describe_player_sessions_input(), list()) ::
           {:ok, describe_player_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_player_sessions_errors()}
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8039,6 +8102,7 @@ defmodule AWS.GameLift do
   @spec describe_runtime_configuration(map(), describe_runtime_configuration_input(), list()) ::
           {:ok, describe_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_runtime_configuration_errors()}
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8064,6 +8128,7 @@ defmodule AWS.GameLift do
   @spec describe_scaling_policies(map(), describe_scaling_policies_input(), list()) ::
           {:ok, describe_scaling_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8089,6 +8154,7 @@ defmodule AWS.GameLift do
   @spec describe_script(map(), describe_script_input(), list()) ::
           {:ok, describe_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_script_errors()}
   def describe_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8115,6 +8181,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, describe_vpc_peering_authorizations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_peering_authorizations_errors()}
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8145,6 +8212,7 @@ defmodule AWS.GameLift do
   @spec describe_vpc_peering_connections(map(), describe_vpc_peering_connections_input(), list()) ::
           {:ok, describe_vpc_peering_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_peering_connections_errors()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8180,6 +8248,7 @@ defmodule AWS.GameLift do
   @spec get_compute_access(map(), get_compute_access_input(), list()) ::
           {:ok, get_compute_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compute_access_errors()}
   def get_compute_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8233,6 +8302,7 @@ defmodule AWS.GameLift do
   @spec get_compute_auth_token(map(), get_compute_auth_token_input(), list()) ::
           {:ok, get_compute_auth_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compute_auth_token_errors()}
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8258,6 +8328,7 @@ defmodule AWS.GameLift do
   @spec get_game_session_log_url(map(), get_game_session_log_url_input(), list()) ::
           {:ok, get_game_session_log_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_game_session_log_url_errors()}
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8308,6 +8379,7 @@ defmodule AWS.GameLift do
   @spec get_instance_access(map(), get_instance_access_input(), list()) ::
           {:ok, get_instance_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_access_errors()}
   def get_instance_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8332,6 +8404,7 @@ defmodule AWS.GameLift do
   @spec list_aliases(map(), list_aliases_input(), list()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8360,6 +8433,7 @@ defmodule AWS.GameLift do
   @spec list_builds(map(), list_builds_input(), list()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8402,6 +8476,7 @@ defmodule AWS.GameLift do
   @spec list_compute(map(), list_compute_input(), list()) ::
           {:ok, list_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compute_errors()}
   def list_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8445,6 +8520,7 @@ defmodule AWS.GameLift do
   @spec list_container_fleets(map(), list_container_fleets_input(), list()) ::
           {:ok, list_container_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_container_fleets_errors()}
   def list_container_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8489,6 +8565,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, list_container_group_definition_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_container_group_definition_versions_errors()}
   def list_container_group_definition_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8530,6 +8607,7 @@ defmodule AWS.GameLift do
   @spec list_container_group_definitions(map(), list_container_group_definitions_input(), list()) ::
           {:ok, list_container_group_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_container_group_definitions_errors()}
   def list_container_group_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8566,6 +8644,7 @@ defmodule AWS.GameLift do
   @spec list_fleet_deployments(map(), list_fleet_deployments_input(), list()) ::
           {:ok, list_fleet_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleet_deployments_errors()}
   def list_fleet_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8609,6 +8688,7 @@ defmodule AWS.GameLift do
   @spec list_fleets(map(), list_fleets_input(), list()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8622,6 +8702,7 @@ defmodule AWS.GameLift do
   @spec list_game_server_groups(map(), list_game_server_groups_input(), list()) ::
           {:ok, list_game_server_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_game_server_groups_errors()}
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8649,6 +8730,7 @@ defmodule AWS.GameLift do
   @spec list_game_servers(map(), list_game_servers_input(), list()) ::
           {:ok, list_game_servers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_game_servers_errors()}
   def list_game_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8662,6 +8744,7 @@ defmodule AWS.GameLift do
   @spec list_locations(map(), list_locations_input(), list()) ::
           {:ok, list_locations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8685,6 +8768,7 @@ defmodule AWS.GameLift do
   @spec list_scripts(map(), list_scripts_input(), list()) ::
           {:ok, list_scripts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scripts_errors()}
   def list_scripts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8718,6 +8802,7 @@ defmodule AWS.GameLift do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8822,6 +8907,7 @@ defmodule AWS.GameLift do
   @spec put_scaling_policy(map(), put_scaling_policy_input(), list()) ::
           {:ok, put_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8875,6 +8961,7 @@ defmodule AWS.GameLift do
   @spec register_compute(map(), register_compute_input(), list()) ::
           {:ok, register_compute_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_compute_errors()}
   def register_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8918,6 +9005,7 @@ defmodule AWS.GameLift do
   @spec register_game_server(map(), register_game_server_input(), list()) ::
           {:ok, register_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_game_server_errors()}
   def register_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8946,6 +9034,7 @@ defmodule AWS.GameLift do
   @spec request_upload_credentials(map(), request_upload_credentials_input(), list()) ::
           {:ok, request_upload_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_upload_credentials_errors()}
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8971,6 +9060,7 @@ defmodule AWS.GameLift do
   @spec resolve_alias(map(), resolve_alias_input(), list()) ::
           {:ok, resolve_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resolve_alias_errors()}
   def resolve_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9008,6 +9098,7 @@ defmodule AWS.GameLift do
   @spec resume_game_server_group(map(), resume_game_server_group_input(), list()) ::
           {:ok, resume_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_game_server_group_errors()}
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9115,6 +9206,7 @@ defmodule AWS.GameLift do
   @spec search_game_sessions(map(), search_game_sessions_input(), list()) ::
           {:ok, search_game_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_game_sessions_errors()}
   def search_game_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9153,6 +9245,7 @@ defmodule AWS.GameLift do
   @spec start_fleet_actions(map(), start_fleet_actions_input(), list()) ::
           {:ok, start_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fleet_actions_errors()}
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9254,6 +9347,7 @@ defmodule AWS.GameLift do
   @spec start_game_session_placement(map(), start_game_session_placement_input(), list()) ::
           {:ok, start_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_game_session_placement_errors()}
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9325,6 +9419,7 @@ defmodule AWS.GameLift do
   @spec start_match_backfill(map(), start_match_backfill_input(), list()) ::
           {:ok, start_match_backfill_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_match_backfill_errors()}
   def start_match_backfill(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9379,6 +9474,7 @@ defmodule AWS.GameLift do
   @spec start_matchmaking(map(), start_matchmaking_input(), list()) ::
           {:ok, start_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_matchmaking_errors()}
   def start_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9425,6 +9521,7 @@ defmodule AWS.GameLift do
   @spec stop_fleet_actions(map(), stop_fleet_actions_input(), list()) ::
           {:ok, stop_fleet_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_fleet_actions_errors()}
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9443,6 +9540,7 @@ defmodule AWS.GameLift do
   @spec stop_game_session_placement(map(), stop_game_session_placement_input(), list()) ::
           {:ok, stop_game_session_placement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_game_session_placement_errors()}
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9477,6 +9575,7 @@ defmodule AWS.GameLift do
   @spec stop_matchmaking(map(), stop_matchmaking_input(), list()) ::
           {:ok, stop_matchmaking_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_matchmaking_errors()}
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9521,6 +9620,7 @@ defmodule AWS.GameLift do
   @spec suspend_game_server_group(map(), suspend_game_server_group_input(), list()) ::
           {:ok, suspend_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, suspend_game_server_group_errors()}
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9560,6 +9660,7 @@ defmodule AWS.GameLift do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9628,6 +9729,7 @@ defmodule AWS.GameLift do
   @spec terminate_game_session(map(), terminate_game_session_input(), list()) ::
           {:ok, terminate_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_game_session_errors()}
   def terminate_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9665,6 +9767,7 @@ defmodule AWS.GameLift do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9688,6 +9791,7 @@ defmodule AWS.GameLift do
   @spec update_alias(map(), update_alias_input(), list()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9713,6 +9817,7 @@ defmodule AWS.GameLift do
   @spec update_build(map(), update_build_input(), list()) ::
           {:ok, update_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_build_errors()}
   def update_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9789,6 +9894,7 @@ defmodule AWS.GameLift do
   @spec update_container_fleet(map(), update_container_fleet_input(), list()) ::
           {:ok, update_container_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_container_fleet_errors()}
   def update_container_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9861,6 +9967,7 @@ defmodule AWS.GameLift do
         ) ::
           {:ok, update_container_group_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_container_group_definition_errors()}
   def update_container_group_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9885,6 +9992,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_attributes(map(), update_fleet_attributes_input(), list()) ::
           {:ok, update_fleet_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_attributes_errors()}
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9952,6 +10060,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_capacity(map(), update_fleet_capacity_input(), list()) ::
           {:ok, update_fleet_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_capacity_errors()}
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9985,6 +10094,7 @@ defmodule AWS.GameLift do
   @spec update_fleet_port_settings(map(), update_fleet_port_settings_input(), list()) ::
           {:ok, update_fleet_port_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_port_settings_errors()}
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10037,6 +10147,7 @@ defmodule AWS.GameLift do
   @spec update_game_server(map(), update_game_server_input(), list()) ::
           {:ok, update_game_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_game_server_errors()}
   def update_game_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10072,6 +10183,7 @@ defmodule AWS.GameLift do
   @spec update_game_server_group(map(), update_game_server_group_input(), list()) ::
           {:ok, update_game_server_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_game_server_group_errors()}
   def update_game_server_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10092,6 +10204,7 @@ defmodule AWS.GameLift do
   @spec update_game_session(map(), update_game_session_input(), list()) ::
           {:ok, update_game_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_game_session_errors()}
   def update_game_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10118,6 +10231,7 @@ defmodule AWS.GameLift do
   @spec update_game_session_queue(map(), update_game_session_queue_input(), list()) ::
           {:ok, update_game_session_queue_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_game_session_queue_errors()}
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10140,6 +10254,7 @@ defmodule AWS.GameLift do
   @spec update_matchmaking_configuration(map(), update_matchmaking_configuration_input(), list()) ::
           {:ok, update_matchmaking_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_matchmaking_configuration_errors()}
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10178,6 +10293,7 @@ defmodule AWS.GameLift do
   @spec update_runtime_configuration(map(), update_runtime_configuration_input(), list()) ::
           {:ok, update_runtime_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_runtime_configuration_errors()}
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10215,6 +10331,7 @@ defmodule AWS.GameLift do
   @spec update_script(map(), update_script_input(), list()) ::
           {:ok, update_script_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_script_errors()}
   def update_script(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10239,6 +10356,7 @@ defmodule AWS.GameLift do
   @spec validate_matchmaking_rule_set(map(), validate_matchmaking_rule_set_input(), list()) ::
           {:ok, validate_matchmaking_rule_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_matchmaking_rule_set_errors()}
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()

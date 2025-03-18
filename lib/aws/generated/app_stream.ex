@@ -3258,6 +3258,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, associate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_app_block_builder_app_block_errors()}
   def associate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3273,6 +3274,7 @@ defmodule AWS.AppStream do
   @spec associate_application_fleet(map(), associate_application_fleet_request(), list()) ::
           {:ok, associate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_application_fleet_errors()}
   def associate_application_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3290,6 +3292,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, associate_application_to_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_application_to_entitlement_errors()}
   def associate_application_to_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3303,6 +3306,7 @@ defmodule AWS.AppStream do
   @spec associate_fleet(map(), associate_fleet_request(), list()) ::
           {:ok, associate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_fleet_errors()}
   def associate_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3319,6 +3323,7 @@ defmodule AWS.AppStream do
   @spec batch_associate_user_stack(map(), batch_associate_user_stack_request(), list()) ::
           {:ok, batch_associate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_user_stack_errors()}
   def batch_associate_user_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3332,6 +3337,7 @@ defmodule AWS.AppStream do
   @spec batch_disassociate_user_stack(map(), batch_disassociate_user_stack_request(), list()) ::
           {:ok, batch_disassociate_user_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_user_stack_errors()}
   def batch_disassociate_user_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3348,6 +3354,7 @@ defmodule AWS.AppStream do
   @spec copy_image(map(), copy_image_request(), list()) ::
           {:ok, copy_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_image_errors()}
   def copy_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3373,6 +3380,7 @@ defmodule AWS.AppStream do
   @spec create_app_block(map(), create_app_block_request(), list()) ::
           {:ok, create_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_block_errors()}
   def create_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3386,6 +3394,7 @@ defmodule AWS.AppStream do
   @spec create_app_block_builder(map(), create_app_block_builder_request(), list()) ::
           {:ok, create_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_block_builder_errors()}
   def create_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3403,6 +3412,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_app_block_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_block_builder_streaming_url_errors()}
   def create_app_block_builder_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3428,6 +3438,7 @@ defmodule AWS.AppStream do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3444,6 +3455,7 @@ defmodule AWS.AppStream do
   @spec create_directory_config(map(), create_directory_config_request(), list()) ::
           {:ok, create_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_directory_config_errors()}
   def create_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3466,6 +3478,7 @@ defmodule AWS.AppStream do
   @spec create_entitlement(map(), create_entitlement_request(), list()) ::
           {:ok, create_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_entitlement_errors()}
   def create_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3482,6 +3495,7 @@ defmodule AWS.AppStream do
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3500,6 +3514,7 @@ defmodule AWS.AppStream do
   @spec create_image_builder(map(), create_image_builder_request(), list()) ::
           {:ok, create_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_builder_errors()}
   def create_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3517,6 +3532,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_image_builder_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_builder_streaming_url_errors()}
   def create_image_builder_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3533,6 +3549,7 @@ defmodule AWS.AppStream do
   @spec create_stack(map(), create_stack_request(), list()) ::
           {:ok, create_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3549,6 +3566,7 @@ defmodule AWS.AppStream do
   @spec create_streaming_url(map(), create_streaming_url_request(), list()) ::
           {:ok, create_streaming_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_streaming_url_errors()}
   def create_streaming_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3563,6 +3581,7 @@ defmodule AWS.AppStream do
   @spec create_theme_for_stack(map(), create_theme_for_stack_request(), list()) ::
           {:ok, create_theme_for_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_theme_for_stack_errors()}
   def create_theme_for_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3581,6 +3600,7 @@ defmodule AWS.AppStream do
   @spec create_updated_image(map(), create_updated_image_request(), list()) ::
           {:ok, create_updated_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_updated_image_errors()}
   def create_updated_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3600,6 +3620,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, create_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_usage_report_subscription_errors()}
   def create_usage_report_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3613,6 +3634,7 @@ defmodule AWS.AppStream do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3626,6 +3648,7 @@ defmodule AWS.AppStream do
   @spec delete_app_block(map(), delete_app_block_request(), list()) ::
           {:ok, delete_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_block_errors()}
   def delete_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3642,6 +3665,7 @@ defmodule AWS.AppStream do
   @spec delete_app_block_builder(map(), delete_app_block_builder_request(), list()) ::
           {:ok, delete_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_block_builder_errors()}
   def delete_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3655,6 +3679,7 @@ defmodule AWS.AppStream do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3671,6 +3696,7 @@ defmodule AWS.AppStream do
   @spec delete_directory_config(map(), delete_directory_config_request(), list()) ::
           {:ok, delete_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_directory_config_errors()}
   def delete_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3684,6 +3710,7 @@ defmodule AWS.AppStream do
   @spec delete_entitlement(map(), delete_entitlement_request(), list()) ::
           {:ok, delete_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_entitlement_errors()}
   def delete_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3697,6 +3724,7 @@ defmodule AWS.AppStream do
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3713,6 +3741,7 @@ defmodule AWS.AppStream do
   @spec delete_image(map(), delete_image_request(), list()) ::
           {:ok, delete_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3726,6 +3755,7 @@ defmodule AWS.AppStream do
   @spec delete_image_builder(map(), delete_image_builder_request(), list()) ::
           {:ok, delete_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_builder_errors()}
   def delete_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3742,6 +3772,7 @@ defmodule AWS.AppStream do
   @spec delete_image_permissions(map(), delete_image_permissions_request(), list()) ::
           {:ok, delete_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_permissions_errors()}
   def delete_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3759,6 +3790,7 @@ defmodule AWS.AppStream do
   @spec delete_stack(map(), delete_stack_request(), list()) ::
           {:ok, delete_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3773,6 +3805,7 @@ defmodule AWS.AppStream do
   @spec delete_theme_for_stack(map(), delete_theme_for_stack_request(), list()) ::
           {:ok, delete_theme_for_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_theme_for_stack_errors()}
   def delete_theme_for_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3790,6 +3823,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, delete_usage_report_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_usage_report_subscription_errors()}
   def delete_usage_report_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3803,6 +3837,7 @@ defmodule AWS.AppStream do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3820,6 +3855,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_app_block_builder_app_block_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_block_builder_app_block_associations_errors()}
   def describe_app_block_builder_app_block_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3839,6 +3875,7 @@ defmodule AWS.AppStream do
   @spec describe_app_block_builders(map(), describe_app_block_builders_request(), list()) ::
           {:ok, describe_app_block_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_block_builders_errors()}
   def describe_app_block_builders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3852,6 +3889,7 @@ defmodule AWS.AppStream do
   @spec describe_app_blocks(map(), describe_app_blocks_request(), list()) ::
           {:ok, describe_app_blocks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_blocks_errors()}
   def describe_app_blocks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3871,6 +3909,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_application_fleet_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_fleet_associations_errors()}
   def describe_application_fleet_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3884,6 +3923,7 @@ defmodule AWS.AppStream do
   @spec describe_applications(map(), describe_applications_request(), list()) ::
           {:ok, describe_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3905,6 +3945,7 @@ defmodule AWS.AppStream do
   @spec describe_directory_configs(map(), describe_directory_configs_request(), list()) ::
           {:ok, describe_directory_configs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_directory_configs_errors()}
   def describe_directory_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3918,6 +3959,7 @@ defmodule AWS.AppStream do
   @spec describe_entitlements(map(), describe_entitlements_request(), list()) ::
           {:ok, describe_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entitlements_errors()}
   def describe_entitlements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3934,6 +3976,7 @@ defmodule AWS.AppStream do
   @spec describe_fleets(map(), describe_fleets_request(), list()) ::
           {:ok, describe_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleets_errors()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3950,6 +3993,7 @@ defmodule AWS.AppStream do
   @spec describe_image_builders(map(), describe_image_builders_request(), list()) ::
           {:ok, describe_image_builders_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_builders_errors()}
   def describe_image_builders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3964,6 +4008,7 @@ defmodule AWS.AppStream do
   @spec describe_image_permissions(map(), describe_image_permissions_request(), list()) ::
           {:ok, describe_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_permissions_errors()}
   def describe_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3980,6 +4025,7 @@ defmodule AWS.AppStream do
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3999,6 +4045,7 @@ defmodule AWS.AppStream do
   @spec describe_sessions(map(), describe_sessions_request(), list()) ::
           {:ok, describe_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4015,6 +4062,7 @@ defmodule AWS.AppStream do
   @spec describe_stacks(map(), describe_stacks_request(), list()) ::
           {:ok, describe_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4031,6 +4079,7 @@ defmodule AWS.AppStream do
   @spec describe_theme_for_stack(map(), describe_theme_for_stack_request(), list()) ::
           {:ok, describe_theme_for_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_theme_for_stack_errors()}
   def describe_theme_for_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4048,6 +4097,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_usage_report_subscriptions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_usage_report_subscriptions_errors()}
   def describe_usage_report_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4074,6 +4124,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, describe_user_stack_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_stack_associations_errors()}
   def describe_user_stack_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4087,6 +4138,7 @@ defmodule AWS.AppStream do
   @spec describe_users(map(), describe_users_request(), list()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4103,6 +4155,7 @@ defmodule AWS.AppStream do
   @spec disable_user(map(), disable_user_request(), list()) ::
           {:ok, disable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4120,6 +4173,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, disassociate_app_block_builder_app_block_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_app_block_builder_app_block_errors()}
   def disassociate_app_block_builder_app_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4133,6 +4187,7 @@ defmodule AWS.AppStream do
   @spec disassociate_application_fleet(map(), disassociate_application_fleet_request(), list()) ::
           {:ok, disassociate_application_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_application_fleet_errors()}
   def disassociate_application_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4150,6 +4205,7 @@ defmodule AWS.AppStream do
         ) ::
           {:ok, disassociate_application_from_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_application_from_entitlement_errors()}
   def disassociate_application_from_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4163,6 +4219,7 @@ defmodule AWS.AppStream do
   @spec disassociate_fleet(map(), disassociate_fleet_request(), list()) ::
           {:ok, disassociate_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_fleet_errors()}
   def disassociate_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4179,6 +4236,7 @@ defmodule AWS.AppStream do
   @spec enable_user(map(), enable_user_request(), list()) ::
           {:ok, enable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4192,6 +4250,7 @@ defmodule AWS.AppStream do
   @spec expire_session(map(), expire_session_request(), list()) ::
           {:ok, expire_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def expire_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4204,6 +4263,7 @@ defmodule AWS.AppStream do
   @spec list_associated_fleets(map(), list_associated_fleets_request(), list()) ::
           {:ok, list_associated_fleets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_associated_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4216,6 +4276,7 @@ defmodule AWS.AppStream do
   @spec list_associated_stacks(map(), list_associated_stacks_request(), list()) ::
           {:ok, list_associated_stacks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_associated_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4228,6 +4289,7 @@ defmodule AWS.AppStream do
   @spec list_entitled_applications(map(), list_entitled_applications_request(), list()) ::
           {:ok, list_entitled_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entitled_applications_errors()}
   def list_entitled_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4246,6 +4308,7 @@ defmodule AWS.AppStream do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4266,6 +4329,7 @@ defmodule AWS.AppStream do
   @spec start_app_block_builder(map(), start_app_block_builder_request(), list()) ::
           {:ok, start_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_app_block_builder_errors()}
   def start_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4279,6 +4343,7 @@ defmodule AWS.AppStream do
   @spec start_fleet(map(), start_fleet_request(), list()) ::
           {:ok, start_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fleet_errors()}
   def start_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4292,6 +4357,7 @@ defmodule AWS.AppStream do
   @spec start_image_builder(map(), start_image_builder_request(), list()) ::
           {:ok, start_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_image_builder_errors()}
   def start_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4309,6 +4375,7 @@ defmodule AWS.AppStream do
   @spec stop_app_block_builder(map(), stop_app_block_builder_request(), list()) ::
           {:ok, stop_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_app_block_builder_errors()}
   def stop_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4322,6 +4389,7 @@ defmodule AWS.AppStream do
   @spec stop_fleet(map(), stop_fleet_request(), list()) ::
           {:ok, stop_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_fleet_errors()}
   def stop_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4335,6 +4403,7 @@ defmodule AWS.AppStream do
   @spec stop_image_builder(map(), stop_image_builder_request(), list()) ::
           {:ok, stop_image_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_image_builder_errors()}
   def stop_image_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4360,6 +4429,7 @@ defmodule AWS.AppStream do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4379,6 +4449,7 @@ defmodule AWS.AppStream do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4398,6 +4469,7 @@ defmodule AWS.AppStream do
   @spec update_app_block_builder(map(), update_app_block_builder_request(), list()) ::
           {:ok, update_app_block_builder_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_block_builder_errors()}
   def update_app_block_builder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4411,6 +4483,7 @@ defmodule AWS.AppStream do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4427,6 +4500,7 @@ defmodule AWS.AppStream do
   @spec update_directory_config(map(), update_directory_config_request(), list()) ::
           {:ok, update_directory_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_directory_config_errors()}
   def update_directory_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4440,6 +4514,7 @@ defmodule AWS.AppStream do
   @spec update_entitlement(map(), update_entitlement_request(), list()) ::
           {:ok, update_entitlement_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_entitlement_errors()}
   def update_entitlement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4477,6 +4552,7 @@ defmodule AWS.AppStream do
   @spec update_fleet(map(), update_fleet_request(), list()) ::
           {:ok, update_fleet_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4490,6 +4566,7 @@ defmodule AWS.AppStream do
   @spec update_image_permissions(map(), update_image_permissions_request(), list()) ::
           {:ok, update_image_permissions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_permissions_errors()}
   def update_image_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4503,6 +4580,7 @@ defmodule AWS.AppStream do
   @spec update_stack(map(), update_stack_request(), list()) ::
           {:ok, update_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4517,6 +4595,7 @@ defmodule AWS.AppStream do
   @spec update_theme_for_stack(map(), update_theme_for_stack_request(), list()) ::
           {:ok, update_theme_for_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_theme_for_stack_errors()}
   def update_theme_for_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()

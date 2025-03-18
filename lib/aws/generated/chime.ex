@@ -2467,6 +2467,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_phone_number_with_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_phone_number_with_user_errors()}
   def associate_phone_number_with_user(
         %Client{} = client,
@@ -2509,6 +2510,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, associate_signin_delegate_groups_with_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_signin_delegate_groups_with_account_errors()}
   def associate_signin_delegate_groups_with_account(
         %Client{} = client,
@@ -2553,6 +2555,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, batch_create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_room_membership_errors()}
   def batch_create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
@@ -2591,6 +2594,7 @@ defmodule AWS.Chime do
   @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_phone_number_errors()}
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
@@ -2640,6 +2644,7 @@ defmodule AWS.Chime do
   @spec batch_suspend_user(map(), String.t(), batch_suspend_user_request(), list()) ::
           {:ok, batch_suspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_suspend_user_errors()}
   def batch_suspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=suspend"
@@ -2682,6 +2687,7 @@ defmodule AWS.Chime do
   @spec batch_unsuspend_user(map(), String.t(), batch_unsuspend_user_request(), list()) ::
           {:ok, batch_unsuspend_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_unsuspend_user_errors()}
   def batch_unsuspend_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=unsuspend"
@@ -2721,6 +2727,7 @@ defmodule AWS.Chime do
   @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_phone_number_errors()}
   def batch_update_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
@@ -2752,6 +2759,7 @@ defmodule AWS.Chime do
   @spec batch_update_user(map(), String.t(), batch_update_user_request(), list()) ::
           {:ok, batch_update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_user_errors()}
   def batch_update_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users"
@@ -2787,6 +2795,7 @@ defmodule AWS.Chime do
   @spec create_account(map(), create_account_request(), list()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -2815,6 +2824,7 @@ defmodule AWS.Chime do
   @spec create_bot(map(), String.t(), create_bot_request(), list()) ::
           {:ok, create_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_errors()}
   def create_bot(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots"
@@ -2853,6 +2863,7 @@ defmodule AWS.Chime do
   @spec create_meeting_dial_out(map(), String.t(), create_meeting_dial_out_request(), list()) ::
           {:ok, create_meeting_dial_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_meeting_dial_out_errors()}
   def create_meeting_dial_out(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/dial-outs"
@@ -2886,6 +2897,7 @@ defmodule AWS.Chime do
   @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_phone_number_order_errors()}
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
@@ -2914,6 +2926,7 @@ defmodule AWS.Chime do
   @spec create_room(map(), String.t(), create_room_request(), list()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_room_errors()}
   def create_room(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/rooms"
@@ -2951,6 +2964,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, create_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_room_membership_errors()}
   def create_room_membership(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
@@ -2981,6 +2995,7 @@ defmodule AWS.Chime do
   @spec create_user(map(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=create"
@@ -3025,6 +3040,7 @@ defmodule AWS.Chime do
   @spec delete_account(map(), String.t(), delete_account_request(), list()) ::
           {:ok, delete_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_errors()}
   def delete_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
@@ -3059,6 +3075,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_events_configuration_errors()}
   def delete_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
@@ -3098,6 +3115,7 @@ defmodule AWS.Chime do
   @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_phone_number_errors()}
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -3126,6 +3144,7 @@ defmodule AWS.Chime do
   @spec delete_room(map(), String.t(), String.t(), delete_room_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_room_errors()}
   def delete_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
@@ -3163,6 +3182,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_room_membership_errors()}
   def delete_room_membership(
         %Client{} = client,
@@ -3207,6 +3227,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_phone_number_from_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_phone_number_from_user_errors()}
   def disassociate_phone_number_from_user(
         %Client{} = client,
@@ -3249,6 +3270,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, disassociate_signin_delegate_groups_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_signin_delegate_groups_from_account_errors()}
   def disassociate_signin_delegate_groups_from_account(
         %Client{} = client,
@@ -3286,6 +3308,7 @@ defmodule AWS.Chime do
   @spec get_account(map(), String.t(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
@@ -3309,6 +3332,7 @@ defmodule AWS.Chime do
   @spec get_account_settings(map(), String.t(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
@@ -3327,6 +3351,7 @@ defmodule AWS.Chime do
   @spec get_bot(map(), String.t(), String.t(), list()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_errors()}
   def get_bot(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
@@ -3345,6 +3370,7 @@ defmodule AWS.Chime do
   @spec get_events_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_events_configuration_errors()}
   def get_events_configuration(%Client{} = client, account_id, bot_id, options \\ []) do
     url_path =
@@ -3366,6 +3392,7 @@ defmodule AWS.Chime do
   @spec get_global_settings(map(), list()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
@@ -3384,6 +3411,7 @@ defmodule AWS.Chime do
   @spec get_phone_number(map(), String.t(), list()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_errors()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -3403,6 +3431,7 @@ defmodule AWS.Chime do
   @spec get_phone_number_order(map(), String.t(), list()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_order_errors()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
@@ -3421,6 +3450,7 @@ defmodule AWS.Chime do
   @spec get_phone_number_settings(map(), list()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_settings_errors()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
@@ -3443,6 +3473,7 @@ defmodule AWS.Chime do
   @spec get_retention_settings(map(), String.t(), list()) ::
           {:ok, get_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_retention_settings_errors()}
   def get_retention_settings(%Client{} = client, account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
@@ -3461,6 +3492,7 @@ defmodule AWS.Chime do
   @spec get_room(map(), String.t(), String.t(), list()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_room_errors()}
   def get_room(%Client{} = client, account_id, room_id, options \\ []) do
     url_path =
@@ -3484,6 +3516,7 @@ defmodule AWS.Chime do
   @spec get_user(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
@@ -3504,6 +3537,7 @@ defmodule AWS.Chime do
   @spec get_user_settings(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_settings_errors()}
   def get_user_settings(%Client{} = client, account_id, user_id, options \\ []) do
     url_path =
@@ -3528,6 +3562,7 @@ defmodule AWS.Chime do
   @spec invite_users(map(), String.t(), invite_users_request(), list()) ::
           {:ok, invite_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invite_users_errors()}
   def invite_users(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/users?operation=add"
@@ -3568,6 +3603,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accounts_errors()}
   def list_accounts(
         %Client{} = client,
@@ -3621,6 +3657,7 @@ defmodule AWS.Chime do
   @spec list_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bots_errors()}
   def list_bots(
         %Client{} = client,
@@ -3658,6 +3695,7 @@ defmodule AWS.Chime do
   @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_number_orders_errors()}
   def list_phone_number_orders(
         %Client{} = client,
@@ -3704,6 +3742,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_numbers_errors()}
   def list_phone_numbers(
         %Client{} = client,
@@ -3781,6 +3820,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_room_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_room_memberships_errors()}
   def list_room_memberships(
         %Client{} = client,
@@ -3831,6 +3871,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rooms_errors()}
   def list_rooms(
         %Client{} = client,
@@ -3876,6 +3917,7 @@ defmodule AWS.Chime do
   @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_supported_phone_number_countries_errors()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
@@ -3911,6 +3953,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(
         %Client{} = client,
@@ -3965,6 +4008,7 @@ defmodule AWS.Chime do
   @spec logout_user(map(), String.t(), String.t(), logout_user_request(), list()) ::
           {:ok, logout_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, logout_user_errors()}
   def logout_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
@@ -4006,6 +4050,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, put_events_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_events_configuration_errors()}
   def put_events_configuration(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
@@ -4051,6 +4096,7 @@ defmodule AWS.Chime do
   @spec put_retention_settings(map(), String.t(), put_retention_settings_request(), list()) ::
           {:ok, put_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_retention_settings_errors()}
   def put_retention_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/retention-settings"
@@ -4086,6 +4132,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, redact_conversation_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, redact_conversation_message_errors()}
   def redact_conversation_message(
         %Client{} = client,
@@ -4130,6 +4177,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, redact_room_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, redact_room_message_errors()}
   def redact_room_message(
         %Client{} = client,
@@ -4173,6 +4221,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, regenerate_security_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, regenerate_security_token_errors()}
   def regenerate_security_token(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path =
@@ -4207,6 +4256,7 @@ defmodule AWS.Chime do
   @spec reset_personal_pin(map(), String.t(), String.t(), reset_personal_pin_request(), list()) ::
           {:ok, reset_personal_pin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_personal_pin_errors()}
   def reset_personal_pin(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
@@ -4238,6 +4288,7 @@ defmodule AWS.Chime do
   @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_phone_number_errors()}
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
@@ -4283,6 +4334,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_available_phone_numbers_errors()}
   def search_available_phone_numbers(
         %Client{} = client,
@@ -4370,6 +4422,7 @@ defmodule AWS.Chime do
   @spec update_account(map(), String.t(), update_account_request(), list()) ::
           {:ok, update_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_errors()}
   def update_account(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}"
@@ -4405,6 +4458,7 @@ defmodule AWS.Chime do
   @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/settings"
@@ -4434,6 +4488,7 @@ defmodule AWS.Chime do
   @spec update_bot(map(), String.t(), String.t(), update_bot_request(), list()) ::
           {:ok, update_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bot_errors()}
   def update_bot(%Client{} = client, account_id, bot_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(account_id)}/bots/#{AWS.Util.encode_uri(bot_id)}"
@@ -4463,6 +4518,7 @@ defmodule AWS.Chime do
   @spec update_global_settings(map(), update_global_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_settings_errors()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
@@ -4503,6 +4559,7 @@ defmodule AWS.Chime do
   @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -4536,6 +4593,7 @@ defmodule AWS.Chime do
   @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_settings_errors()}
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
@@ -4565,6 +4623,7 @@ defmodule AWS.Chime do
   @spec update_room(map(), String.t(), String.t(), update_room_request(), list()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_room_errors()}
   def update_room(%Client{} = client, account_id, room_id, input, options \\ []) do
     url_path =
@@ -4609,6 +4668,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, update_room_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_room_membership_errors()}
   def update_room_membership(
         %Client{} = client,
@@ -4648,6 +4708,7 @@ defmodule AWS.Chime do
   @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =
@@ -4684,6 +4745,7 @@ defmodule AWS.Chime do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_settings_errors()}
   def update_user_settings(%Client{} = client, account_id, user_id, input, options \\ []) do
     url_path =

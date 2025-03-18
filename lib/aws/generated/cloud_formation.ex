@@ -4066,6 +4066,7 @@ defmodule AWS.CloudFormation do
   @spec activate_organizations_access(map(), activate_organizations_access_input(), list()) ::
           {:ok, activate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_organizations_access_errors()}
   def activate_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4087,6 +4088,7 @@ defmodule AWS.CloudFormation do
   @spec activate_type(map(), activate_type_input(), list()) ::
           {:ok, activate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_type_errors()}
   def activate_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4111,6 +4113,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, batch_describe_type_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_describe_type_configurations_errors()}
   def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4129,6 +4132,7 @@ defmodule AWS.CloudFormation do
   @spec cancel_update_stack(map(), cancel_update_stack_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_update_stack_errors()}
   def cancel_update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4159,6 +4163,7 @@ defmodule AWS.CloudFormation do
   @spec continue_update_rollback(map(), continue_update_rollback_input(), list()) ::
           {:ok, continue_update_rollback_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, continue_update_rollback_errors()}
   def continue_update_rollback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4206,6 +4211,7 @@ defmodule AWS.CloudFormation do
   @spec create_change_set(map(), create_change_set_input(), list()) ::
           {:ok, create_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_change_set_errors()}
   def create_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4223,6 +4229,7 @@ defmodule AWS.CloudFormation do
   @spec create_generated_template(map(), create_generated_template_input(), list()) ::
           {:ok, create_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_generated_template_errors()}
   def create_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4246,6 +4253,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack(map(), create_stack_input(), list()) ::
           {:ok, create_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4266,6 +4274,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack_instances(map(), create_stack_instances_input(), list()) ::
           {:ok, create_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stack_instances_errors()}
   def create_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4280,6 +4289,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack_refactor(map(), create_stack_refactor_input(), list()) ::
           {:ok, create_stack_refactor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_stack_refactor(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4292,6 +4302,7 @@ defmodule AWS.CloudFormation do
   @spec create_stack_set(map(), create_stack_set_input(), list()) ::
           {:ok, create_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stack_set_errors()}
   def create_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4309,6 +4320,7 @@ defmodule AWS.CloudFormation do
   @spec deactivate_organizations_access(map(), deactivate_organizations_access_input(), list()) ::
           {:ok, deactivate_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_organizations_access_errors()}
   def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4331,6 +4343,7 @@ defmodule AWS.CloudFormation do
   @spec deactivate_type(map(), deactivate_type_input(), list()) ::
           {:ok, deactivate_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_type_errors()}
   def deactivate_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4357,6 +4370,7 @@ defmodule AWS.CloudFormation do
   @spec delete_change_set(map(), delete_change_set_input(), list()) ::
           {:ok, delete_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_change_set_errors()}
   def delete_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4370,6 +4384,7 @@ defmodule AWS.CloudFormation do
   @spec delete_generated_template(map(), delete_generated_template_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_generated_template_errors()}
   def delete_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4391,6 +4406,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack(map(), delete_stack_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4405,6 +4421,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack_instances(map(), delete_stack_instances_input(), list()) ::
           {:ok, delete_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stack_instances_errors()}
   def delete_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4422,6 +4439,7 @@ defmodule AWS.CloudFormation do
   @spec delete_stack_set(map(), delete_stack_set_input(), list()) ::
           {:ok, delete_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stack_set_errors()}
   def delete_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4456,6 +4474,7 @@ defmodule AWS.CloudFormation do
   @spec deregister_type(map(), deregister_type_input(), list()) ::
           {:ok, deregister_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_type_errors()}
   def deregister_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4474,6 +4493,7 @@ defmodule AWS.CloudFormation do
   @spec describe_account_limits(map(), describe_account_limits_input(), list()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4493,6 +4513,7 @@ defmodule AWS.CloudFormation do
   @spec describe_change_set(map(), describe_change_set_input(), list()) ::
           {:ok, describe_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4508,6 +4529,7 @@ defmodule AWS.CloudFormation do
   @spec describe_change_set_hooks(map(), describe_change_set_hooks_input(), list()) ::
           {:ok, describe_change_set_hooks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_change_set_hooks_errors()}
   def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4528,6 +4550,7 @@ defmodule AWS.CloudFormation do
   @spec describe_generated_template(map(), describe_generated_template_input(), list()) ::
           {:ok, describe_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_generated_template_errors()}
   def describe_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4547,6 +4570,7 @@ defmodule AWS.CloudFormation do
   @spec describe_organizations_access(map(), describe_organizations_access_input(), list()) ::
           {:ok, describe_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organizations_access_errors()}
   def describe_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4578,6 +4602,7 @@ defmodule AWS.CloudFormation do
   @spec describe_publisher(map(), describe_publisher_input(), list()) ::
           {:ok, describe_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_publisher_errors()}
   def describe_publisher(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4591,6 +4616,7 @@ defmodule AWS.CloudFormation do
   @spec describe_resource_scan(map(), describe_resource_scan_input(), list()) ::
           {:ok, describe_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_scan_errors()}
   def describe_resource_scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4626,6 +4652,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, describe_stack_drift_detection_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stack_drift_detection_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4649,6 +4676,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_events(map(), describe_stack_events_input(), list()) ::
           {:ok, describe_stack_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stack_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4666,6 +4694,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_instance(map(), describe_stack_instance_input(), list()) ::
           {:ok, describe_stack_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_instance_errors()}
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4679,6 +4708,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_refactor(map(), describe_stack_refactor_input(), list()) ::
           {:ok, describe_stack_refactor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_refactor_errors()}
   def describe_stack_refactor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4696,6 +4726,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_resource(map(), describe_stack_resource_input(), list()) ::
           {:ok, describe_stack_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stack_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4726,6 +4757,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_resource_drifts(map(), describe_stack_resource_drifts_input(), list()) ::
           {:ok, describe_stack_resource_drifts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stack_resource_drifts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4761,6 +4793,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_resources(map(), describe_stack_resources_input(), list()) ::
           {:ok, describe_stack_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stack_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4773,6 +4806,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_set(map(), describe_stack_set_input(), list()) ::
           {:ok, describe_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_set_errors()}
   def describe_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4786,6 +4820,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stack_set_operation(map(), describe_stack_set_operation_input(), list()) ::
           {:ok, describe_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stack_set_operation_errors()}
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4808,6 +4843,7 @@ defmodule AWS.CloudFormation do
   @spec describe_stacks(map(), describe_stacks_input(), list()) ::
           {:ok, describe_stacks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4825,6 +4861,7 @@ defmodule AWS.CloudFormation do
   @spec describe_type(map(), describe_type_input(), list()) ::
           {:ok, describe_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_type_errors()}
   def describe_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4847,6 +4884,7 @@ defmodule AWS.CloudFormation do
   @spec describe_type_registration(map(), describe_type_registration_input(), list()) ::
           {:ok, describe_type_registration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_type_registration_errors()}
   def describe_type_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4893,6 +4931,7 @@ defmodule AWS.CloudFormation do
   @spec detect_stack_drift(map(), detect_stack_drift_input(), list()) ::
           {:ok, detect_stack_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def detect_stack_drift(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4925,6 +4964,7 @@ defmodule AWS.CloudFormation do
   @spec detect_stack_resource_drift(map(), detect_stack_resource_drift_input(), list()) ::
           {:ok, detect_stack_resource_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def detect_stack_resource_drift(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4976,6 +5016,7 @@ defmodule AWS.CloudFormation do
   @spec detect_stack_set_drift(map(), detect_stack_set_drift_input(), list()) ::
           {:ok, detect_stack_set_drift_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_stack_set_drift_errors()}
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4994,6 +5035,7 @@ defmodule AWS.CloudFormation do
   @spec estimate_template_cost(map(), estimate_template_cost_input(), list()) ::
           {:ok, estimate_template_cost_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def estimate_template_cost(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5023,6 +5065,7 @@ defmodule AWS.CloudFormation do
   @spec execute_change_set(map(), execute_change_set_input(), list()) ::
           {:ok, execute_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_change_set_errors()}
   def execute_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5036,6 +5079,7 @@ defmodule AWS.CloudFormation do
   @spec execute_stack_refactor(map(), execute_stack_refactor_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def execute_stack_refactor(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5053,6 +5097,7 @@ defmodule AWS.CloudFormation do
   @spec get_generated_template(map(), get_generated_template_input(), list()) ::
           {:ok, get_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_generated_template_errors()}
   def get_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5069,6 +5114,7 @@ defmodule AWS.CloudFormation do
   @spec get_stack_policy(map(), get_stack_policy_input(), list()) ::
           {:ok, get_stack_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_stack_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5089,6 +5135,7 @@ defmodule AWS.CloudFormation do
   @spec get_template(map(), get_template_input(), list()) ::
           {:ok, get_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5114,6 +5161,7 @@ defmodule AWS.CloudFormation do
   @spec get_template_summary(map(), get_template_summary_input(), list()) ::
           {:ok, get_template_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_summary_errors()}
   def get_template_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5134,6 +5182,7 @@ defmodule AWS.CloudFormation do
   @spec import_stacks_to_stack_set(map(), import_stacks_to_stack_set_input(), list()) ::
           {:ok, import_stacks_to_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_stacks_to_stack_set_errors()}
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5151,6 +5200,7 @@ defmodule AWS.CloudFormation do
   @spec list_change_sets(map(), list_change_sets_input(), list()) ::
           {:ok, list_change_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_change_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5172,6 +5222,7 @@ defmodule AWS.CloudFormation do
   @spec list_exports(map(), list_exports_input(), list()) ::
           {:ok, list_exports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5184,6 +5235,7 @@ defmodule AWS.CloudFormation do
   @spec list_generated_templates(map(), list_generated_templates_input(), list()) ::
           {:ok, list_generated_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_generated_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5197,6 +5249,7 @@ defmodule AWS.CloudFormation do
   @spec list_hook_results(map(), list_hook_results_input(), list()) ::
           {:ok, list_hook_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hook_results_errors()}
   def list_hook_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5219,6 +5272,7 @@ defmodule AWS.CloudFormation do
   @spec list_imports(map(), list_imports_input(), list()) ::
           {:ok, list_imports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5238,6 +5292,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, list_resource_scan_related_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_scan_related_resources_errors()}
   def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5258,6 +5313,7 @@ defmodule AWS.CloudFormation do
   @spec list_resource_scan_resources(map(), list_resource_scan_resources_input(), list()) ::
           {:ok, list_resource_scan_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_scan_resources_errors()}
   def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5274,6 +5330,7 @@ defmodule AWS.CloudFormation do
   @spec list_resource_scans(map(), list_resource_scans_input(), list()) ::
           {:ok, list_resource_scans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_resource_scans(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5295,6 +5352,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, list_stack_instance_resource_drifts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_instance_resource_drifts_errors()}
   def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5313,6 +5371,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_instances(map(), list_stack_instances_input(), list()) ::
           {:ok, list_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_instances_errors()}
   def list_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5327,6 +5386,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_refactor_actions(map(), list_stack_refactor_actions_input(), list()) ::
           {:ok, list_stack_refactor_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stack_refactor_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5339,6 +5399,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_refactors(map(), list_stack_refactors_input(), list()) ::
           {:ok, list_stack_refactors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stack_refactors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5355,6 +5416,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_resources(map(), list_stack_resources_input(), list()) ::
           {:ok, list_stack_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stack_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5371,6 +5433,7 @@ defmodule AWS.CloudFormation do
         ) ::
           {:ok, list_stack_set_auto_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_set_auto_deployment_targets_errors()}
   def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5384,6 +5447,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_set_operation_results(map(), list_stack_set_operation_results_input(), list()) ::
           {:ok, list_stack_set_operation_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_set_operation_results_errors()}
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5397,6 +5461,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_set_operations(map(), list_stack_set_operations_input(), list()) ::
           {:ok, list_stack_set_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_set_operations_errors()}
   def list_stack_set_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5425,6 +5490,7 @@ defmodule AWS.CloudFormation do
   @spec list_stack_sets(map(), list_stack_sets_input(), list()) ::
           {:ok, list_stack_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stack_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5444,6 +5510,7 @@ defmodule AWS.CloudFormation do
   @spec list_stacks(map(), list_stacks_input(), list()) ::
           {:ok, list_stacks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stacks(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5456,6 +5523,7 @@ defmodule AWS.CloudFormation do
   @spec list_type_registrations(map(), list_type_registrations_input(), list()) ::
           {:ok, list_type_registrations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_type_registrations_errors()}
   def list_type_registrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5469,6 +5537,7 @@ defmodule AWS.CloudFormation do
   @spec list_type_versions(map(), list_type_versions_input(), list()) ::
           {:ok, list_type_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_type_versions_errors()}
   def list_type_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5483,6 +5552,7 @@ defmodule AWS.CloudFormation do
   @spec list_types(map(), list_types_input(), list()) ::
           {:ok, list_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5510,6 +5580,7 @@ defmodule AWS.CloudFormation do
   @spec publish_type(map(), publish_type_input(), list()) ::
           {:ok, publish_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_type_errors()}
   def publish_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5526,6 +5597,7 @@ defmodule AWS.CloudFormation do
   @spec record_handler_progress(map(), record_handler_progress_input(), list()) ::
           {:ok, record_handler_progress_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, record_handler_progress_errors()}
   def record_handler_progress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5550,6 +5622,7 @@ defmodule AWS.CloudFormation do
   @spec register_publisher(map(), register_publisher_input(), list()) ::
           {:ok, register_publisher_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_publisher_errors()}
   def register_publisher(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5599,6 +5672,7 @@ defmodule AWS.CloudFormation do
   @spec register_type(map(), register_type_input(), list()) ::
           {:ok, register_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_type_errors()}
   def register_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5644,6 +5718,7 @@ defmodule AWS.CloudFormation do
   @spec rollback_stack(map(), rollback_stack_input(), list()) ::
           {:ok, rollback_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rollback_stack_errors()}
   def rollback_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5657,6 +5732,7 @@ defmodule AWS.CloudFormation do
   @spec set_stack_policy(map(), set_stack_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def set_stack_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5688,6 +5764,7 @@ defmodule AWS.CloudFormation do
   @spec set_type_configuration(map(), set_type_configuration_input(), list()) ::
           {:ok, set_type_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_type_configuration_errors()}
   def set_type_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5704,6 +5781,7 @@ defmodule AWS.CloudFormation do
   @spec set_type_default_version(map(), set_type_default_version_input(), list()) ::
           {:ok, set_type_default_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_type_default_version_errors()}
   def set_type_default_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5727,6 +5805,7 @@ defmodule AWS.CloudFormation do
   @spec signal_resource(map(), signal_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def signal_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5742,6 +5821,7 @@ defmodule AWS.CloudFormation do
   @spec start_resource_scan(map(), start_resource_scan_input(), list()) ::
           {:ok, start_resource_scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5761,6 +5841,7 @@ defmodule AWS.CloudFormation do
   @spec stop_stack_set_operation(map(), stop_stack_set_operation_input(), list()) ::
           {:ok, stop_stack_set_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_stack_set_operation_errors()}
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5807,6 +5888,7 @@ defmodule AWS.CloudFormation do
   @spec test_type(map(), test_type_input(), list()) ::
           {:ok, test_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_type_errors()}
   def test_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5825,6 +5907,7 @@ defmodule AWS.CloudFormation do
   @spec update_generated_template(map(), update_generated_template_input(), list()) ::
           {:ok, update_generated_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_generated_template_errors()}
   def update_generated_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5852,6 +5935,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack(map(), update_stack_input(), list()) ::
           {:ok, update_stack_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5890,6 +5974,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack_instances(map(), update_stack_instances_input(), list()) ::
           {:ok, update_stack_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stack_instances_errors()}
   def update_stack_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5912,6 +5997,7 @@ defmodule AWS.CloudFormation do
   @spec update_stack_set(map(), update_stack_set_input(), list()) ::
           {:ok, update_stack_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stack_set_errors()}
   def update_stack_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5937,6 +6023,7 @@ defmodule AWS.CloudFormation do
   @spec update_termination_protection(map(), update_termination_protection_input(), list()) ::
           {:ok, update_termination_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_termination_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5954,6 +6041,7 @@ defmodule AWS.CloudFormation do
   @spec validate_template(map(), validate_template_input(), list()) ::
           {:ok, validate_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def validate_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

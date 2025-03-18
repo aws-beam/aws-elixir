@@ -1459,6 +1459,7 @@ defmodule AWS.AppConfig do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1537,6 +1538,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_profile_errors()}
   def create_configuration_profile(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/configurationprofiles"
@@ -1572,6 +1574,7 @@ defmodule AWS.AppConfig do
   @spec create_deployment_strategy(map(), create_deployment_strategy_request(), list()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_strategy_errors()}
   def create_deployment_strategy(%Client{} = client, input, options \\ []) do
     url_path = "/deploymentstrategies"
@@ -1611,6 +1614,7 @@ defmodule AWS.AppConfig do
   @spec create_environment(map(), String.t(), create_environment_request(), list()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/environments"
@@ -1669,6 +1673,7 @@ defmodule AWS.AppConfig do
   @spec create_extension(map(), create_extension_request(), list()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_extension_errors()}
   def create_extension(%Client{} = client, input, options \\ []) do
     url_path = "/extensions"
@@ -1725,6 +1730,7 @@ defmodule AWS.AppConfig do
   @spec create_extension_association(map(), create_extension_association_request(), list()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_extension_association_errors()}
   def create_extension_association(%Client{} = client, input, options \\ []) do
     url_path = "/extensionassociations"
@@ -1766,6 +1772,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hosted_configuration_version_errors()}
   def create_hosted_configuration_version(
         %Client{} = client,
@@ -1825,6 +1832,7 @@ defmodule AWS.AppConfig do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -1863,6 +1871,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_profile_errors()}
   def delete_configuration_profile(
         %Client{} = client,
@@ -1909,6 +1918,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_strategy_errors()}
   def delete_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
     url_path = "/deployementstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
@@ -1940,6 +1950,7 @@ defmodule AWS.AppConfig do
   @spec delete_environment(map(), String.t(), String.t(), delete_environment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
@@ -1978,6 +1989,7 @@ defmodule AWS.AppConfig do
   @spec delete_extension(map(), String.t(), delete_extension_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_extension_errors()}
   def delete_extension(%Client{} = client, extension_identifier, input, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
@@ -2019,6 +2031,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_extension_association_errors()}
   def delete_extension_association(
         %Client{} = client,
@@ -2060,6 +2073,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hosted_configuration_version_errors()}
   def delete_hosted_configuration_version(
         %Client{} = client,
@@ -2098,6 +2112,7 @@ defmodule AWS.AppConfig do
   @spec get_account_settings(map(), list()) ::
           {:ok, account_settings(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
@@ -2115,6 +2130,7 @@ defmodule AWS.AppConfig do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -2154,6 +2170,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_errors()}
   def get_configuration(
         %Client{} = client,
@@ -2205,6 +2222,7 @@ defmodule AWS.AppConfig do
   @spec get_configuration_profile(map(), String.t(), String.t(), list()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_profile_errors()}
   def get_configuration_profile(
         %Client{} = client,
@@ -2229,6 +2247,7 @@ defmodule AWS.AppConfig do
   @spec get_deployment(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(
         %Client{} = client,
@@ -2263,6 +2282,7 @@ defmodule AWS.AppConfig do
   @spec get_deployment_strategy(map(), String.t(), list()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_strategy_errors()}
   def get_deployment_strategy(%Client{} = client, deployment_strategy_id, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
@@ -2288,6 +2308,7 @@ defmodule AWS.AppConfig do
   @spec get_environment(map(), String.t(), String.t(), list()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, application_id, environment_id, options \\ []) do
     url_path =
@@ -2307,6 +2328,7 @@ defmodule AWS.AppConfig do
   @spec get_extension(map(), String.t(), String.t() | nil, list()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_extension_errors()}
   def get_extension(
         %Client{} = client,
@@ -2340,6 +2362,7 @@ defmodule AWS.AppConfig do
   @spec get_extension_association(map(), String.t(), list()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_extension_association_errors()}
   def get_extension_association(%Client{} = client, extension_association_id, options \\ []) do
     url_path = "/extensionassociations/#{AWS.Util.encode_uri(extension_association_id)}"
@@ -2357,6 +2380,7 @@ defmodule AWS.AppConfig do
   @spec get_hosted_configuration_version(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, hosted_configuration_version(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hosted_configuration_version_errors()}
   def get_hosted_configuration_version(
         %Client{} = client,
@@ -2397,6 +2421,7 @@ defmodule AWS.AppConfig do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, applications(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -2435,6 +2460,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, configuration_profiles(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_profiles_errors()}
   def list_configuration_profiles(
         %Client{} = client,
@@ -2480,6 +2506,7 @@ defmodule AWS.AppConfig do
   @spec list_deployment_strategies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, deployment_strategies(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_strategies_errors()}
   def list_deployment_strategies(
         %Client{} = client,
@@ -2523,6 +2550,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, deployments(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
@@ -2563,6 +2591,7 @@ defmodule AWS.AppConfig do
   @spec list_environments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, environments(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(
         %Client{} = client,
@@ -2612,6 +2641,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, extension_associations(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_extension_associations_errors()}
   def list_extension_associations(
         %Client{} = client,
@@ -2676,6 +2706,7 @@ defmodule AWS.AppConfig do
   @spec list_extensions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, extensions(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_extensions_errors()}
   def list_extensions(
         %Client{} = client,
@@ -2729,6 +2760,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, hosted_configuration_versions(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hosted_configuration_versions_errors()}
   def list_hosted_configuration_versions(
         %Client{} = client,
@@ -2777,6 +2809,7 @@ defmodule AWS.AppConfig do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, resource_tags(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2794,6 +2827,7 @@ defmodule AWS.AppConfig do
   @spec start_deployment(map(), String.t(), String.t(), start_deployment_request(), list()) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_deployment_errors()}
   def start_deployment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
@@ -2838,6 +2872,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, deployment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_deployment_errors()}
   def stop_deployment(
         %Client{} = client,
@@ -2884,6 +2919,7 @@ defmodule AWS.AppConfig do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2912,6 +2948,7 @@ defmodule AWS.AppConfig do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2945,6 +2982,7 @@ defmodule AWS.AppConfig do
   @spec update_account_settings(map(), update_account_settings_request(), list()) ::
           {:ok, account_settings(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
@@ -2973,6 +3011,7 @@ defmodule AWS.AppConfig do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -3007,6 +3046,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_profile_errors()}
   def update_configuration_profile(
         %Client{} = client,
@@ -3048,6 +3088,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_deployment_strategy_errors()}
   def update_deployment_strategy(%Client{} = client, deployment_strategy_id, input, options \\ []) do
     url_path = "/deploymentstrategies/#{AWS.Util.encode_uri(deployment_strategy_id)}"
@@ -3076,6 +3117,7 @@ defmodule AWS.AppConfig do
   @spec update_environment(map(), String.t(), String.t(), update_environment_request(), list()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, application_id, environment_id, input, options \\ []) do
     url_path =
@@ -3110,6 +3152,7 @@ defmodule AWS.AppConfig do
   @spec update_extension(map(), String.t(), update_extension_request(), list()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_extension_errors()}
   def update_extension(%Client{} = client, extension_identifier, input, options \\ []) do
     url_path = "/extensions/#{AWS.Util.encode_uri(extension_identifier)}"
@@ -3147,6 +3190,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_extension_association_errors()}
   def update_extension_association(
         %Client{} = client,
@@ -3186,6 +3230,7 @@ defmodule AWS.AppConfig do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_configuration_errors()}
   def validate_configuration(
         %Client{} = client,

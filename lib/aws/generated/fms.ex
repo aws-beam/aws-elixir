@@ -2540,6 +2540,7 @@ defmodule AWS.FMS do
   @spec associate_admin_account(map(), associate_admin_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_admin_account_errors()}
   def associate_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2557,6 +2558,7 @@ defmodule AWS.FMS do
   @spec associate_third_party_firewall(map(), associate_third_party_firewall_request(), list()) ::
           {:ok, associate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_third_party_firewall_errors()}
   def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2570,6 +2572,7 @@ defmodule AWS.FMS do
   @spec batch_associate_resource(map(), batch_associate_resource_request(), list()) ::
           {:ok, batch_associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_resource_errors()}
   def batch_associate_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2583,6 +2586,7 @@ defmodule AWS.FMS do
   @spec batch_disassociate_resource(map(), batch_disassociate_resource_request(), list()) ::
           {:ok, batch_disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_resource_errors()}
   def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2596,6 +2600,7 @@ defmodule AWS.FMS do
   @spec delete_apps_list(map(), delete_apps_list_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_apps_list_errors()}
   def delete_apps_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2611,6 +2616,7 @@ defmodule AWS.FMS do
   @spec delete_notification_channel(map(), delete_notification_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_channel_errors()}
   def delete_notification_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2624,6 +2630,7 @@ defmodule AWS.FMS do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2637,6 +2644,7 @@ defmodule AWS.FMS do
   @spec delete_protocols_list(map(), delete_protocols_list_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_protocols_list_errors()}
   def delete_protocols_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2650,6 +2658,7 @@ defmodule AWS.FMS do
   @spec delete_resource_set(map(), delete_resource_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2672,6 +2681,7 @@ defmodule AWS.FMS do
   @spec disassociate_admin_account(map(), disassociate_admin_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_admin_account_errors()}
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2693,6 +2703,7 @@ defmodule AWS.FMS do
         ) ::
           {:ok, disassociate_third_party_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_third_party_firewall_errors()}
   def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2707,6 +2718,7 @@ defmodule AWS.FMS do
   @spec get_admin_account(map(), get_admin_account_request(), list()) ::
           {:ok, get_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_admin_account_errors()}
   def get_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2723,6 +2735,7 @@ defmodule AWS.FMS do
   @spec get_admin_scope(map(), get_admin_scope_request(), list()) ::
           {:ok, get_admin_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_admin_scope_errors()}
   def get_admin_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2736,6 +2749,7 @@ defmodule AWS.FMS do
   @spec get_apps_list(map(), get_apps_list_request(), list()) ::
           {:ok, get_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apps_list_errors()}
   def get_apps_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2755,6 +2769,7 @@ defmodule AWS.FMS do
   @spec get_compliance_detail(map(), get_compliance_detail_request(), list()) ::
           {:ok, get_compliance_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compliance_detail_errors()}
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2770,6 +2785,7 @@ defmodule AWS.FMS do
   @spec get_notification_channel(map(), get_notification_channel_request(), list()) ::
           {:ok, get_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notification_channel_errors()}
   def get_notification_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2783,6 +2799,7 @@ defmodule AWS.FMS do
   @spec get_policy(map(), get_policy_request(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2800,6 +2817,7 @@ defmodule AWS.FMS do
   @spec get_protection_status(map(), get_protection_status_request(), list()) ::
           {:ok, get_protection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_protection_status_errors()}
   def get_protection_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2813,6 +2831,7 @@ defmodule AWS.FMS do
   @spec get_protocols_list(map(), get_protocols_list_request(), list()) ::
           {:ok, get_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_protocols_list_errors()}
   def get_protocols_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2826,6 +2845,7 @@ defmodule AWS.FMS do
   @spec get_resource_set(map(), get_resource_set_request(), list()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2844,6 +2864,7 @@ defmodule AWS.FMS do
         ) ::
           {:ok, get_third_party_firewall_association_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_third_party_firewall_association_status_errors()}
   def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2858,6 +2879,7 @@ defmodule AWS.FMS do
   @spec get_violation_details(map(), get_violation_details_request(), list()) ::
           {:ok, get_violation_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_violation_details_errors()}
   def get_violation_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2879,6 +2901,7 @@ defmodule AWS.FMS do
         ) ::
           {:ok, list_admin_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_admin_accounts_for_organization_errors()}
   def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2896,6 +2919,7 @@ defmodule AWS.FMS do
   @spec list_admins_managing_account(map(), list_admins_managing_account_request(), list()) ::
           {:ok, list_admins_managing_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_admins_managing_account_errors()}
   def list_admins_managing_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2909,6 +2933,7 @@ defmodule AWS.FMS do
   @spec list_apps_lists(map(), list_apps_lists_request(), list()) ::
           {:ok, list_apps_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apps_lists_errors()}
   def list_apps_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2926,6 +2951,7 @@ defmodule AWS.FMS do
   @spec list_compliance_status(map(), list_compliance_status_request(), list()) ::
           {:ok, list_compliance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compliance_status_errors()}
   def list_compliance_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2940,6 +2966,7 @@ defmodule AWS.FMS do
   @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
           {:ok, list_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2957,6 +2984,7 @@ defmodule AWS.FMS do
   @spec list_member_accounts(map(), list_member_accounts_request(), list()) ::
           {:ok, list_member_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_member_accounts_errors()}
   def list_member_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2970,6 +2998,7 @@ defmodule AWS.FMS do
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2983,6 +3012,7 @@ defmodule AWS.FMS do
   @spec list_protocols_lists(map(), list_protocols_lists_request(), list()) ::
           {:ok, list_protocols_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protocols_lists_errors()}
   def list_protocols_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2996,6 +3026,7 @@ defmodule AWS.FMS do
   @spec list_resource_set_resources(map(), list_resource_set_resources_request(), list()) ::
           {:ok, list_resource_set_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_set_resources_errors()}
   def list_resource_set_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3009,6 +3040,7 @@ defmodule AWS.FMS do
   @spec list_resource_sets(map(), list_resource_sets_request(), list()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3022,6 +3054,7 @@ defmodule AWS.FMS do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3040,6 +3073,7 @@ defmodule AWS.FMS do
         ) ::
           {:ok, list_third_party_firewall_firewall_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_third_party_firewall_firewall_policies_errors()}
   def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3063,6 +3097,7 @@ defmodule AWS.FMS do
   @spec put_admin_account(map(), put_admin_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_admin_account_errors()}
   def put_admin_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3076,6 +3111,7 @@ defmodule AWS.FMS do
   @spec put_apps_list(map(), put_apps_list_request(), list()) ::
           {:ok, put_apps_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_apps_list_errors()}
   def put_apps_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3099,6 +3135,7 @@ defmodule AWS.FMS do
   @spec put_notification_channel(map(), put_notification_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_notification_channel_errors()}
   def put_notification_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3180,6 +3217,7 @@ defmodule AWS.FMS do
   @spec put_policy(map(), put_policy_request(), list()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3193,6 +3231,7 @@ defmodule AWS.FMS do
   @spec put_protocols_list(map(), put_protocols_list_request(), list()) ::
           {:ok, put_protocols_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_protocols_list_errors()}
   def put_protocols_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3209,6 +3248,7 @@ defmodule AWS.FMS do
   @spec put_resource_set(map(), put_resource_set_request(), list()) ::
           {:ok, put_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_set_errors()}
   def put_resource_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3222,6 +3262,7 @@ defmodule AWS.FMS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3235,6 +3276,7 @@ defmodule AWS.FMS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -614,6 +614,7 @@ defmodule AWS.MarketplaceAgreement do
   @spec describe_agreement(map(), describe_agreement_input(), list()) ::
           {:ok, describe_agreement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -655,6 +656,7 @@ defmodule AWS.MarketplaceAgreement do
   @spec get_agreement_terms(map(), get_agreement_terms_input(), list()) ::
           {:ok, get_agreement_terms_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agreement_terms_errors()}
   def get_agreement_terms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -745,6 +747,7 @@ defmodule AWS.MarketplaceAgreement do
   @spec search_agreements(map(), search_agreements_input(), list()) ::
           {:ok, search_agreements_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_agreements_errors()}
   def search_agreements(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -2925,6 +2925,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, batch_associate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_scram_secret_errors()}
   def batch_associate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
@@ -2958,6 +2959,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, batch_disassociate_scram_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_scram_secret_errors()}
   def batch_disassociate_scram_secret(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/scram-secrets"
@@ -2986,6 +2988,7 @@ defmodule AWS.Kafka do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/v1/clusters"
@@ -3014,6 +3017,7 @@ defmodule AWS.Kafka do
   @spec create_cluster_v2(map(), create_cluster_v2_request(), list()) ::
           {:ok, create_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_v2_errors()}
   def create_cluster_v2(%Client{} = client, input, options \\ []) do
     url_path = "/api/v2/clusters"
@@ -3042,6 +3046,7 @@ defmodule AWS.Kafka do
   @spec create_configuration(map(), create_configuration_request(), list()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_errors()}
   def create_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/configurations"
@@ -3070,6 +3075,7 @@ defmodule AWS.Kafka do
   @spec create_replicator(map(), create_replicator_request(), list()) ::
           {:ok, create_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replicator_errors()}
   def create_replicator(%Client{} = client, input, options \\ []) do
     url_path = "/replication/v1/replicators"
@@ -3098,6 +3104,7 @@ defmodule AWS.Kafka do
   @spec create_vpc_connection(map(), create_vpc_connection_request(), list()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_connection_errors()}
   def create_vpc_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/vpc-connection"
@@ -3127,6 +3134,7 @@ defmodule AWS.Kafka do
   @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -3161,6 +3169,7 @@ defmodule AWS.Kafka do
   @spec delete_cluster_policy(map(), String.t(), delete_cluster_policy_request(), list()) ::
           {:ok, delete_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_policy_errors()}
   def delete_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -3189,6 +3198,7 @@ defmodule AWS.Kafka do
   @spec delete_configuration(map(), String.t(), delete_configuration_request(), list()) ::
           {:ok, delete_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_errors()}
   def delete_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
@@ -3217,6 +3227,7 @@ defmodule AWS.Kafka do
   @spec delete_replicator(map(), String.t(), delete_replicator_request(), list()) ::
           {:ok, delete_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replicator_errors()}
   def delete_replicator(%Client{} = client, replicator_arn, input, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
@@ -3250,6 +3261,7 @@ defmodule AWS.Kafka do
   @spec delete_vpc_connection(map(), String.t(), delete_vpc_connection_request(), list()) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_connection_errors()}
   def delete_vpc_connection(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
@@ -3279,6 +3291,7 @@ defmodule AWS.Kafka do
   @spec describe_cluster(map(), String.t(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -3296,6 +3309,7 @@ defmodule AWS.Kafka do
   @spec describe_cluster_operation(map(), String.t(), list()) ::
           {:ok, describe_cluster_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_operation_errors()}
   def describe_cluster_operation(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/v1/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
@@ -3313,6 +3327,7 @@ defmodule AWS.Kafka do
   @spec describe_cluster_operation_v2(map(), String.t(), list()) ::
           {:ok, describe_cluster_operation_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_operation_v2_errors()}
   def describe_cluster_operation_v2(%Client{} = client, cluster_operation_arn, options \\ []) do
     url_path = "/api/v2/operations/#{AWS.Util.encode_uri(cluster_operation_arn)}"
@@ -3331,6 +3346,7 @@ defmodule AWS.Kafka do
   @spec describe_cluster_v2(map(), String.t(), list()) ::
           {:ok, describe_cluster_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_v2_errors()}
   def describe_cluster_v2(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/api/v2/clusters/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -3348,6 +3364,7 @@ defmodule AWS.Kafka do
   @spec describe_configuration(map(), String.t(), list()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_errors()}
   def describe_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
@@ -3365,6 +3382,7 @@ defmodule AWS.Kafka do
   @spec describe_configuration_revision(map(), String.t(), String.t(), list()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_revision_errors()}
   def describe_configuration_revision(%Client{} = client, arn, revision, options \\ []) do
     url_path =
@@ -3384,6 +3402,7 @@ defmodule AWS.Kafka do
   @spec describe_replicator(map(), String.t(), list()) ::
           {:ok, describe_replicator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replicator_errors()}
   def describe_replicator(%Client{} = client, replicator_arn, options \\ []) do
     url_path = "/replication/v1/replicators/#{AWS.Util.encode_uri(replicator_arn)}"
@@ -3401,6 +3420,7 @@ defmodule AWS.Kafka do
   @spec describe_vpc_connection(map(), String.t(), list()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_connection_errors()}
   def describe_vpc_connection(%Client{} = client, arn, options \\ []) do
     url_path = "/v1/vpc-connection/#{AWS.Util.encode_uri(arn)}"
@@ -3424,6 +3444,7 @@ defmodule AWS.Kafka do
   @spec get_bootstrap_brokers(map(), String.t(), list()) ::
           {:ok, get_bootstrap_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bootstrap_brokers_errors()}
   def get_bootstrap_brokers(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/bootstrap-brokers"
@@ -3442,6 +3463,7 @@ defmodule AWS.Kafka do
   @spec get_cluster_policy(map(), String.t(), list()) ::
           {:ok, get_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_policy_errors()}
   def get_cluster_policy(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -3459,6 +3481,7 @@ defmodule AWS.Kafka do
   @spec get_compatible_kafka_versions(map(), String.t() | nil, list()) ::
           {:ok, get_compatible_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compatible_kafka_versions_errors()}
   def get_compatible_kafka_versions(%Client{} = client, cluster_arn \\ nil, options \\ []) do
     url_path = "/v1/compatible-kafka-versions"
@@ -3483,6 +3506,7 @@ defmodule AWS.Kafka do
   @spec list_client_vpc_connections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_client_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_client_vpc_connections_errors()}
   def list_client_vpc_connections(
         %Client{} = client,
@@ -3521,6 +3545,7 @@ defmodule AWS.Kafka do
   @spec list_cluster_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cluster_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cluster_operations_errors()}
   def list_cluster_operations(
         %Client{} = client,
@@ -3559,6 +3584,7 @@ defmodule AWS.Kafka do
   @spec list_cluster_operations_v2(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cluster_operations_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cluster_operations_v2_errors()}
   def list_cluster_operations_v2(
         %Client{} = client,
@@ -3596,6 +3622,7 @@ defmodule AWS.Kafka do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(
         %Client{} = client,
@@ -3647,6 +3674,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, list_clusters_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_v2_errors()}
   def list_clusters_v2(
         %Client{} = client,
@@ -3705,6 +3733,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_revisions_errors()}
   def list_configuration_revisions(
         %Client{} = client,
@@ -3742,6 +3771,7 @@ defmodule AWS.Kafka do
   @spec list_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(
         %Client{} = client,
@@ -3778,6 +3808,7 @@ defmodule AWS.Kafka do
   @spec list_kafka_versions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_kafka_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kafka_versions_errors()}
   def list_kafka_versions(
         %Client{} = client,
@@ -3814,6 +3845,7 @@ defmodule AWS.Kafka do
   @spec list_nodes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(
         %Client{} = client,
@@ -3851,6 +3883,7 @@ defmodule AWS.Kafka do
   @spec list_replicators(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_replicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_replicators_errors()}
   def list_replicators(
         %Client{} = client,
@@ -3895,6 +3928,7 @@ defmodule AWS.Kafka do
   @spec list_scram_secrets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scram_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scram_secrets_errors()}
   def list_scram_secrets(
         %Client{} = client,
@@ -3932,6 +3966,7 @@ defmodule AWS.Kafka do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3949,6 +3984,7 @@ defmodule AWS.Kafka do
   @spec list_vpc_connections(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_connections_errors()}
   def list_vpc_connections(
         %Client{} = client,
@@ -3986,6 +4022,7 @@ defmodule AWS.Kafka do
   @spec put_cluster_policy(map(), String.t(), put_cluster_policy_request(), list()) ::
           {:ok, put_cluster_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_cluster_policy_errors()}
   def put_cluster_policy(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/policy"
@@ -4014,6 +4051,7 @@ defmodule AWS.Kafka do
   @spec reboot_broker(map(), String.t(), reboot_broker_request(), list()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_broker_errors()}
   def reboot_broker(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/reboot-broker"
@@ -4047,6 +4085,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, reject_client_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_client_vpc_connection_errors()}
   def reject_client_vpc_connection(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/client-vpc-connection"
@@ -4075,6 +4114,7 @@ defmodule AWS.Kafka do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4103,6 +4143,7 @@ defmodule AWS.Kafka do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4136,6 +4177,7 @@ defmodule AWS.Kafka do
   @spec update_broker_count(map(), String.t(), update_broker_count_request(), list()) ::
           {:ok, update_broker_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_broker_count_errors()}
   def update_broker_count(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/count"
@@ -4164,6 +4206,7 @@ defmodule AWS.Kafka do
   @spec update_broker_storage(map(), String.t(), update_broker_storage_request(), list()) ::
           {:ok, update_broker_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_broker_storage_errors()}
   def update_broker_storage(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/storage"
@@ -4192,6 +4235,7 @@ defmodule AWS.Kafka do
   @spec update_broker_type(map(), String.t(), update_broker_type_request(), list()) ::
           {:ok, update_broker_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_broker_type_errors()}
   def update_broker_type(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/nodes/type"
@@ -4226,6 +4270,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, update_cluster_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_configuration_errors()}
   def update_cluster_configuration(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/configuration"
@@ -4259,6 +4304,7 @@ defmodule AWS.Kafka do
         ) ::
           {:ok, update_cluster_kafka_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_kafka_version_errors()}
   def update_cluster_kafka_version(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/version"
@@ -4287,6 +4333,7 @@ defmodule AWS.Kafka do
   @spec update_configuration(map(), String.t(), update_configuration_request(), list()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_errors()}
   def update_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(arn)}"
@@ -4315,6 +4362,7 @@ defmodule AWS.Kafka do
   @spec update_connectivity(map(), String.t(), update_connectivity_request(), list()) ::
           {:ok, update_connectivity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connectivity_errors()}
   def update_connectivity(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/connectivity"
@@ -4347,6 +4395,7 @@ defmodule AWS.Kafka do
   @spec update_monitoring(map(), String.t(), update_monitoring_request(), list()) ::
           {:ok, update_monitoring_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitoring_errors()}
   def update_monitoring(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/monitoring"
@@ -4375,6 +4424,7 @@ defmodule AWS.Kafka do
   @spec update_replication_info(map(), String.t(), update_replication_info_request(), list()) ::
           {:ok, update_replication_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_info_errors()}
   def update_replication_info(%Client{} = client, replicator_arn, input, options \\ []) do
     url_path =
@@ -4408,6 +4458,7 @@ defmodule AWS.Kafka do
   @spec update_security(map(), String.t(), update_security_request(), list()) ::
           {:ok, update_security_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_errors()}
   def update_security(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/security"
@@ -4436,6 +4487,7 @@ defmodule AWS.Kafka do
   @spec update_storage(map(), String.t(), update_storage_request(), list()) ::
           {:ok, update_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_storage_errors()}
   def update_storage(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/storage"

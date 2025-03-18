@@ -1206,6 +1206,7 @@ defmodule AWS.Mq do
   @spec create_broker(map(), create_broker_request(), list()) ::
           {:ok, create_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_broker_errors()}
   def create_broker(%Client{} = client, input, options \\ []) do
     url_path = "/v1/brokers"
@@ -1236,6 +1237,7 @@ defmodule AWS.Mq do
   @spec create_configuration(map(), create_configuration_request(), list()) ::
           {:ok, create_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_errors()}
   def create_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/configurations"
@@ -1264,6 +1266,7 @@ defmodule AWS.Mq do
   @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1297,6 +1300,7 @@ defmodule AWS.Mq do
   @spec create_user(map(), String.t(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, broker_id, username, input, options \\ []) do
     url_path =
@@ -1329,6 +1333,7 @@ defmodule AWS.Mq do
   @spec delete_broker(map(), String.t(), delete_broker_request(), list()) ::
           {:ok, delete_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_broker_errors()}
   def delete_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
@@ -1357,6 +1362,7 @@ defmodule AWS.Mq do
   @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1390,6 +1396,7 @@ defmodule AWS.Mq do
   @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, broker_id, username, input, options \\ []) do
     url_path =
@@ -1420,6 +1427,7 @@ defmodule AWS.Mq do
   @spec describe_broker(map(), String.t(), list()) ::
           {:ok, describe_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_broker_errors()}
   def describe_broker(%Client{} = client, broker_id, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
@@ -1443,6 +1451,7 @@ defmodule AWS.Mq do
         ) ::
           {:ok, describe_broker_engine_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_broker_engine_types_errors()}
   def describe_broker_engine_types(
         %Client{} = client,
@@ -1495,6 +1504,7 @@ defmodule AWS.Mq do
         ) ::
           {:ok, describe_broker_instance_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_broker_instance_options_errors()}
   def describe_broker_instance_options(
         %Client{} = client,
@@ -1555,6 +1565,7 @@ defmodule AWS.Mq do
   @spec describe_configuration(map(), String.t(), list()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_errors()}
   def describe_configuration(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
@@ -1572,6 +1583,7 @@ defmodule AWS.Mq do
   @spec describe_configuration_revision(map(), String.t(), String.t(), list()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_revision_errors()}
   def describe_configuration_revision(
         %Client{} = client,
@@ -1596,6 +1608,7 @@ defmodule AWS.Mq do
   @spec describe_user(map(), String.t(), String.t(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, broker_id, username, options \\ []) do
     url_path =
@@ -1615,6 +1628,7 @@ defmodule AWS.Mq do
   @spec list_brokers(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_brokers_errors()}
   def list_brokers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/brokers"
@@ -1652,6 +1666,7 @@ defmodule AWS.Mq do
         ) ::
           {:ok, list_configuration_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_revisions_errors()}
   def list_configuration_revisions(
         %Client{} = client,
@@ -1689,6 +1704,7 @@ defmodule AWS.Mq do
   @spec list_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(
         %Client{} = client,
@@ -1725,6 +1741,7 @@ defmodule AWS.Mq do
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1742,6 +1759,7 @@ defmodule AWS.Mq do
   @spec list_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(
         %Client{} = client,
@@ -1779,6 +1797,7 @@ defmodule AWS.Mq do
   @spec promote(map(), String.t(), promote_request(), list()) ::
           {:ok, promote_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_errors()}
   def promote(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/promote"
@@ -1809,6 +1828,7 @@ defmodule AWS.Mq do
   @spec reboot_broker(map(), String.t(), reboot_broker_request(), list()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_broker_errors()}
   def reboot_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/reboot"
@@ -1837,6 +1857,7 @@ defmodule AWS.Mq do
   @spec update_broker(map(), String.t(), update_broker_request(), list()) ::
           {:ok, update_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_broker_errors()}
   def update_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
@@ -1865,6 +1886,7 @@ defmodule AWS.Mq do
   @spec update_configuration(map(), String.t(), update_configuration_request(), list()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_errors()}
   def update_configuration(%Client{} = client, configuration_id, input, options \\ []) do
     url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
@@ -1893,6 +1915,7 @@ defmodule AWS.Mq do
   @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, broker_id, username, input, options \\ []) do
     url_path =

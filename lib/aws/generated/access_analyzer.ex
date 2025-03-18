@@ -2222,6 +2222,7 @@ defmodule AWS.AccessAnalyzer do
   @spec apply_archive_rule(map(), apply_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_archive_rule_errors()}
   def apply_archive_rule(%Client{} = client, input, options \\ []) do
     url_path = "/archive-rule"
@@ -2250,6 +2251,7 @@ defmodule AWS.AccessAnalyzer do
   @spec cancel_policy_generation(map(), String.t(), cancel_policy_generation_request(), list()) ::
           {:ok, cancel_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_policy_generation_errors()}
   def cancel_policy_generation(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/policy/generation/#{AWS.Util.encode_uri(job_id)}"
@@ -2278,6 +2280,7 @@ defmodule AWS.AccessAnalyzer do
   @spec check_access_not_granted(map(), check_access_not_granted_request(), list()) ::
           {:ok, check_access_not_granted_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_access_not_granted_errors()}
   def check_access_not_granted(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-access-not-granted"
@@ -2315,6 +2318,7 @@ defmodule AWS.AccessAnalyzer do
   @spec check_no_new_access(map(), check_no_new_access_request(), list()) ::
           {:ok, check_no_new_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_no_new_access_errors()}
   def check_no_new_access(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-no-new-access"
@@ -2345,6 +2349,7 @@ defmodule AWS.AccessAnalyzer do
   @spec check_no_public_access(map(), check_no_public_access_request(), list()) ::
           {:ok, check_no_public_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_no_public_access_errors()}
   def check_no_public_access(%Client{} = client, input, options \\ []) do
     url_path = "/policy/check-no-public-access"
@@ -2375,6 +2380,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_access_preview(map(), create_access_preview_request(), list()) ::
           {:ok, create_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_preview_errors()}
   def create_access_preview(%Client{} = client, input, options \\ []) do
     url_path = "/access-preview"
@@ -2403,6 +2409,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_analyzer(map(), create_analyzer_request(), list()) ::
           {:ok, create_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_analyzer_errors()}
   def create_analyzer(%Client{} = client, input, options \\ []) do
     url_path = "/analyzer"
@@ -2438,6 +2445,7 @@ defmodule AWS.AccessAnalyzer do
   @spec create_archive_rule(map(), String.t(), create_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_archive_rule_errors()}
   def create_archive_rule(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}/archive-rule"
@@ -2471,6 +2479,7 @@ defmodule AWS.AccessAnalyzer do
   @spec delete_analyzer(map(), String.t(), delete_analyzer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_analyzer_errors()}
   def delete_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
@@ -2504,6 +2513,7 @@ defmodule AWS.AccessAnalyzer do
   @spec delete_archive_rule(map(), String.t(), String.t(), delete_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_archive_rule_errors()}
   def delete_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
     url_path =
@@ -2544,6 +2554,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_finding_recommendation_errors()}
   def generate_finding_recommendation(%Client{} = client, id, input, options \\ []) do
     url_path = "/recommendation/#{AWS.Util.encode_uri(id)}"
@@ -2577,6 +2588,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_access_preview(map(), String.t(), String.t(), list()) ::
           {:ok, get_access_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_access_preview_errors()}
   def get_access_preview(%Client{} = client, access_preview_id, analyzer_arn, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
@@ -2601,6 +2613,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_analyzed_resource(map(), String.t(), String.t(), list()) ::
           {:ok, get_analyzed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_analyzed_resource_errors()}
   def get_analyzed_resource(%Client{} = client, analyzer_arn, resource_arn, options \\ []) do
     url_path = "/analyzed-resource"
@@ -2632,6 +2645,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_analyzer(map(), String.t(), list()) ::
           {:ok, get_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_analyzer_errors()}
   def get_analyzer(%Client{} = client, analyzer_name, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
@@ -2653,6 +2667,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_archive_rule(map(), String.t(), String.t(), list()) ::
           {:ok, get_archive_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_rule_errors()}
   def get_archive_rule(%Client{} = client, analyzer_name, rule_name, options \\ []) do
     url_path =
@@ -2677,6 +2692,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_finding(map(), String.t(), String.t(), list()) ::
           {:ok, get_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_errors()}
   def get_finding(%Client{} = client, id, analyzer_arn, options \\ []) do
     url_path = "/finding/#{AWS.Util.encode_uri(id)}"
@@ -2708,6 +2724,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, get_finding_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_recommendation_errors()}
   def get_finding_recommendation(
         %Client{} = client,
@@ -2758,6 +2775,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_finding_v2(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_finding_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_v2_errors()}
   def get_finding_v2(
         %Client{} = client,
@@ -2805,6 +2823,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_findings_statistics(map(), get_findings_statistics_request(), list()) ::
           {:ok, get_findings_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_statistics_errors()}
   def get_findings_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/analyzer/findings/statistics"
@@ -2833,6 +2852,7 @@ defmodule AWS.AccessAnalyzer do
   @spec get_generated_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_generated_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_generated_policy_errors()}
   def get_generated_policy(
         %Client{} = client,
@@ -2876,6 +2896,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, list_access_preview_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_preview_findings_errors()}
   def list_access_preview_findings(%Client{} = client, access_preview_id, input, options \\ []) do
     url_path = "/access-preview/#{AWS.Util.encode_uri(access_preview_id)}"
@@ -2904,6 +2925,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_access_previews(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_access_previews_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_previews_errors()}
   def list_access_previews(
         %Client{} = client,
@@ -2950,6 +2972,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_analyzed_resources(map(), list_analyzed_resources_request(), list()) ::
           {:ok, list_analyzed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analyzed_resources_errors()}
   def list_analyzed_resources(%Client{} = client, input, options \\ []) do
     url_path = "/analyzed-resource"
@@ -2978,6 +3001,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_analyzers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_analyzers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analyzers_errors()}
   def list_analyzers(
         %Client{} = client,
@@ -3022,6 +3046,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_archive_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_archive_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_archive_rules_errors()}
   def list_archive_rules(
         %Client{} = client,
@@ -3068,6 +3093,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
@@ -3105,6 +3131,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_findings_v2(map(), list_findings_v2_request(), list()) ::
           {:ok, list_findings_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_v2_errors()}
   def list_findings_v2(%Client{} = client, input, options \\ []) do
     url_path = "/findingv2"
@@ -3139,6 +3166,7 @@ defmodule AWS.AccessAnalyzer do
         ) ::
           {:ok, list_policy_generations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_generations_errors()}
   def list_policy_generations(
         %Client{} = client,
@@ -3183,6 +3211,7 @@ defmodule AWS.AccessAnalyzer do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3200,6 +3229,7 @@ defmodule AWS.AccessAnalyzer do
   @spec start_policy_generation(map(), start_policy_generation_request(), list()) ::
           {:ok, start_policy_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_policy_generation_errors()}
   def start_policy_generation(%Client{} = client, input, options \\ []) do
     url_path = "/policy/generation"
@@ -3228,6 +3258,7 @@ defmodule AWS.AccessAnalyzer do
   @spec start_resource_scan(map(), start_resource_scan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
     url_path = "/resource/scan"
@@ -3256,6 +3287,7 @@ defmodule AWS.AccessAnalyzer do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3284,6 +3316,7 @@ defmodule AWS.AccessAnalyzer do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3317,6 +3350,7 @@ defmodule AWS.AccessAnalyzer do
   @spec update_analyzer(map(), String.t(), update_analyzer_request(), list()) ::
           {:ok, update_analyzer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_analyzer_errors()}
   def update_analyzer(%Client{} = client, analyzer_name, input, options \\ []) do
     url_path = "/analyzer/#{AWS.Util.encode_uri(analyzer_name)}"
@@ -3345,6 +3379,7 @@ defmodule AWS.AccessAnalyzer do
   @spec update_archive_rule(map(), String.t(), String.t(), update_archive_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_archive_rule_errors()}
   def update_archive_rule(%Client{} = client, analyzer_name, rule_name, input, options \\ []) do
     url_path =
@@ -3375,6 +3410,7 @@ defmodule AWS.AccessAnalyzer do
   @spec update_findings(map(), update_findings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_findings_errors()}
   def update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/finding"
@@ -3408,6 +3444,7 @@ defmodule AWS.AccessAnalyzer do
   @spec validate_policy(map(), validate_policy_request(), list()) ::
           {:ok, validate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_policy_errors()}
   def validate_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policy/validation"

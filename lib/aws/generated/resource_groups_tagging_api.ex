@@ -417,6 +417,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec describe_report_creation(map(), describe_report_creation_input(), list()) ::
           {:ok, describe_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_report_creation_errors()}
   def describe_report_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -449,6 +450,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec get_compliance_summary(map(), get_compliance_summary_input(), list()) ::
           {:ok, get_compliance_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compliance_summary_errors()}
   def get_compliance_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -487,6 +489,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec get_resources(map(), get_resources_input(), list()) ::
           {:ok, get_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resources_errors()}
   def get_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -512,6 +515,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec get_tag_keys(map(), get_tag_keys_input(), list()) ::
           {:ok, get_tag_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tag_keys_errors()}
   def get_tag_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -537,6 +541,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec get_tag_values(map(), get_tag_values_input(), list()) ::
           {:ok, get_tag_values_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tag_values_errors()}
   def get_tag_values(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -561,6 +566,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec start_report_creation(map(), start_report_creation_input(), list()) ::
           {:ok, start_report_creation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_report_creation_errors()}
   def start_report_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -624,6 +630,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec tag_resources(map(), tag_resources_input(), list()) ::
           {:ok, tag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resources_errors()}
   def tag_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -673,6 +680,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   @spec untag_resources(map(), untag_resources_input(), list()) ::
           {:ok, untag_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resources_errors()}
   def untag_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()

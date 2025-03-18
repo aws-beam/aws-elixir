@@ -606,6 +606,7 @@ defmodule AWS.STS do
   @spec assume_role(map(), assume_role_request(), list()) ::
           {:ok, assume_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_role_errors()}
   def assume_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -796,6 +797,7 @@ defmodule AWS.STS do
   @spec assume_role_with_saml(map(), assume_role_with_saml_request(), list()) ::
           {:ok, assume_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_role_with_saml_errors()}
   def assume_role_with_saml(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -980,6 +982,7 @@ defmodule AWS.STS do
   @spec assume_role_with_web_identity(map(), assume_role_with_web_identity_request(), list()) ::
           {:ok, assume_role_with_web_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_role_with_web_identity_errors()}
   def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1014,6 +1017,7 @@ defmodule AWS.STS do
   @spec assume_root(map(), assume_root_request(), list()) ::
           {:ok, assume_root_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_root_errors()}
   def assume_root(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1075,6 +1079,7 @@ defmodule AWS.STS do
   @spec decode_authorization_message(map(), decode_authorization_message_request(), list()) ::
           {:ok, decode_authorization_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decode_authorization_message_errors()}
   def decode_authorization_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1114,6 +1119,7 @@ defmodule AWS.STS do
   @spec get_access_key_info(map(), get_access_key_info_request(), list()) ::
           {:ok, get_access_key_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_access_key_info(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1137,6 +1143,7 @@ defmodule AWS.STS do
   @spec get_caller_identity(map(), get_caller_identity_request(), list()) ::
           {:ok, get_caller_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_caller_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1278,6 +1285,7 @@ defmodule AWS.STS do
   @spec get_federation_token(map(), get_federation_token_request(), list()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1366,6 +1374,7 @@ defmodule AWS.STS do
   @spec get_session_token(map(), get_session_token_request(), list()) ::
           {:ok, get_session_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_token_errors()}
   def get_session_token(%Client{} = client, input, options \\ []) do
     meta = metadata()

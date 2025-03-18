@@ -1411,6 +1411,7 @@ defmodule AWS.SageMakerGeospatial do
         ) ::
           {:ok, delete_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_earth_observation_job_errors()}
   def delete_earth_observation_job(%Client{} = client, arn, input, options \\ []) do
     url_path = "/earth-observation-jobs/#{AWS.Util.encode_uri(arn)}"
@@ -1444,6 +1445,7 @@ defmodule AWS.SageMakerGeospatial do
         ) ::
           {:ok, delete_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vector_enrichment_job_errors()}
   def delete_vector_enrichment_job(%Client{} = client, arn, input, options \\ []) do
     url_path = "/vector-enrichment-jobs/#{AWS.Util.encode_uri(arn)}"
@@ -1473,6 +1475,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec export_earth_observation_job(map(), export_earth_observation_job_input(), list()) ::
           {:ok, export_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_earth_observation_job_errors()}
   def export_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-earth-observation-job"
@@ -1502,6 +1505,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec export_vector_enrichment_job(map(), export_vector_enrichment_job_input(), list()) ::
           {:ok, export_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_vector_enrichment_job_errors()}
   def export_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/export-vector-enrichment-jobs"
@@ -1530,6 +1534,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec get_earth_observation_job(map(), String.t(), list()) ::
           {:ok, get_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_earth_observation_job_errors()}
   def get_earth_observation_job(%Client{} = client, arn, options \\ []) do
     url_path = "/earth-observation-jobs/#{AWS.Util.encode_uri(arn)}"
@@ -1547,6 +1552,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec get_raster_data_collection(map(), String.t(), list()) ::
           {:ok, get_raster_data_collection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_raster_data_collection_errors()}
   def get_raster_data_collection(%Client{} = client, arn, options \\ []) do
     url_path = "/raster-data-collection/#{AWS.Util.encode_uri(arn)}"
@@ -1579,6 +1585,7 @@ defmodule AWS.SageMakerGeospatial do
         ) ::
           {:ok, get_tile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tile_errors()}
   def get_tile(
         %Client{} = client,
@@ -1677,6 +1684,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec get_vector_enrichment_job(map(), String.t(), list()) ::
           {:ok, get_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vector_enrichment_job_errors()}
   def get_vector_enrichment_job(%Client{} = client, arn, options \\ []) do
     url_path = "/vector-enrichment-jobs/#{AWS.Util.encode_uri(arn)}"
@@ -1695,6 +1703,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec list_earth_observation_jobs(map(), list_earth_observation_job_input(), list()) ::
           {:ok, list_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_earth_observation_jobs_errors()}
   def list_earth_observation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/list-earth-observation-jobs"
@@ -1723,6 +1732,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec list_raster_data_collections(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_raster_data_collections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_raster_data_collections_errors()}
   def list_raster_data_collections(
         %Client{} = client,
@@ -1759,6 +1769,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1776,6 +1787,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec list_vector_enrichment_jobs(map(), list_vector_enrichment_job_input(), list()) ::
           {:ok, list_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vector_enrichment_jobs_errors()}
   def list_vector_enrichment_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/list-vector-enrichment-jobs"
@@ -1805,6 +1817,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec search_raster_data_collection(map(), search_raster_data_collection_input(), list()) ::
           {:ok, search_raster_data_collection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_raster_data_collection_errors()}
   def search_raster_data_collection(%Client{} = client, input, options \\ []) do
     url_path = "/search-raster-data-collection"
@@ -1833,6 +1846,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec start_earth_observation_job(map(), start_earth_observation_job_input(), list()) ::
           {:ok, start_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_earth_observation_job_errors()}
   def start_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/earth-observation-jobs"
@@ -1864,6 +1878,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec start_vector_enrichment_job(map(), start_vector_enrichment_job_input(), list()) ::
           {:ok, start_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_vector_enrichment_job_errors()}
   def start_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/vector-enrichment-jobs"
@@ -1892,6 +1907,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec stop_earth_observation_job(map(), stop_earth_observation_job_input(), list()) ::
           {:ok, stop_earth_observation_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_earth_observation_job_errors()}
   def stop_earth_observation_job(%Client{} = client, input, options \\ []) do
     url_path = "/earth-observation-jobs/stop"
@@ -1920,6 +1936,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec stop_vector_enrichment_job(map(), stop_vector_enrichment_job_input(), list()) ::
           {:ok, stop_vector_enrichment_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_vector_enrichment_job_errors()}
   def stop_vector_enrichment_job(%Client{} = client, input, options \\ []) do
     url_path = "/vector-enrichment-jobs/stop"
@@ -1948,6 +1965,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1976,6 +1994,7 @@ defmodule AWS.SageMakerGeospatial do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

@@ -928,6 +928,7 @@ defmodule AWS.BackupGateway do
   @spec associate_gateway_to_server(map(), associate_gateway_to_server_input(), list()) ::
           {:ok, associate_gateway_to_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_gateway_to_server_errors()}
   def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -944,6 +945,7 @@ defmodule AWS.BackupGateway do
   @spec create_gateway(map(), create_gateway_input(), list()) ::
           {:ok, create_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -956,6 +958,7 @@ defmodule AWS.BackupGateway do
   @spec delete_gateway(map(), delete_gateway_input(), list()) ::
           {:ok, delete_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -969,6 +972,7 @@ defmodule AWS.BackupGateway do
   @spec delete_hypervisor(map(), delete_hypervisor_input(), list()) ::
           {:ok, delete_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hypervisor_errors()}
   def delete_hypervisor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -985,6 +989,7 @@ defmodule AWS.BackupGateway do
   @spec disassociate_gateway_from_server(map(), disassociate_gateway_from_server_input(), list()) ::
           {:ok, disassociate_gateway_from_server_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_gateway_from_server_errors()}
   def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1006,6 +1011,7 @@ defmodule AWS.BackupGateway do
         ) ::
           {:ok, get_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bandwidth_rate_limit_schedule_errors()}
   def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1020,6 +1026,7 @@ defmodule AWS.BackupGateway do
   @spec get_gateway(map(), get_gateway_input(), list()) ::
           {:ok, get_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_gateway_errors()}
   def get_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1038,6 +1045,7 @@ defmodule AWS.BackupGateway do
   @spec get_hypervisor(map(), get_hypervisor_input(), list()) ::
           {:ok, get_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hypervisor_errors()}
   def get_hypervisor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1055,6 +1063,7 @@ defmodule AWS.BackupGateway do
   @spec get_hypervisor_property_mappings(map(), get_hypervisor_property_mappings_input(), list()) ::
           {:ok, get_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hypervisor_property_mappings_errors()}
   def get_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1069,6 +1078,7 @@ defmodule AWS.BackupGateway do
   @spec get_virtual_machine(map(), get_virtual_machine_input(), list()) ::
           {:ok, get_virtual_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_virtual_machine_errors()}
   def get_virtual_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1082,6 +1092,7 @@ defmodule AWS.BackupGateway do
   @spec import_hypervisor_configuration(map(), import_hypervisor_configuration_input(), list()) ::
           {:ok, import_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_hypervisor_configuration_errors()}
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1098,6 +1109,7 @@ defmodule AWS.BackupGateway do
   @spec list_gateways(map(), list_gateways_input(), list()) ::
           {:ok, list_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1110,6 +1122,7 @@ defmodule AWS.BackupGateway do
   @spec list_hypervisors(map(), list_hypervisors_input(), list()) ::
           {:ok, list_hypervisors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_hypervisors(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1123,6 +1136,7 @@ defmodule AWS.BackupGateway do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1136,6 +1150,7 @@ defmodule AWS.BackupGateway do
   @spec list_virtual_machines(map(), list_virtual_machines_input(), list()) ::
           {:ok, list_virtual_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_virtual_machines(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1156,6 +1171,7 @@ defmodule AWS.BackupGateway do
         ) ::
           {:ok, put_bandwidth_rate_limit_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_bandwidth_rate_limit_schedule_errors()}
   def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1173,6 +1189,7 @@ defmodule AWS.BackupGateway do
   @spec put_hypervisor_property_mappings(map(), put_hypervisor_property_mappings_input(), list()) ::
           {:ok, put_hypervisor_property_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_hypervisor_property_mappings_errors()}
   def put_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1186,6 +1203,7 @@ defmodule AWS.BackupGateway do
   @spec put_maintenance_start_time(map(), put_maintenance_start_time_input(), list()) ::
           {:ok, put_maintenance_start_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_maintenance_start_time_errors()}
   def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1204,6 +1222,7 @@ defmodule AWS.BackupGateway do
         ) ::
           {:ok, start_virtual_machines_metadata_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_virtual_machines_metadata_sync_errors()}
   def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1217,6 +1236,7 @@ defmodule AWS.BackupGateway do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1232,6 +1252,7 @@ defmodule AWS.BackupGateway do
   @spec test_hypervisor_configuration(map(), test_hypervisor_configuration_input(), list()) ::
           {:ok, test_hypervisor_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_hypervisor_configuration_errors()}
   def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1245,6 +1266,7 @@ defmodule AWS.BackupGateway do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1261,6 +1283,7 @@ defmodule AWS.BackupGateway do
   @spec update_gateway_information(map(), update_gateway_information_input(), list()) ::
           {:ok, update_gateway_information_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1280,6 +1303,7 @@ defmodule AWS.BackupGateway do
   @spec update_gateway_software_now(map(), update_gateway_software_now_input(), list()) ::
           {:ok, update_gateway_software_now_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1298,6 +1322,7 @@ defmodule AWS.BackupGateway do
   @spec update_hypervisor(map(), update_hypervisor_input(), list()) ::
           {:ok, update_hypervisor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hypervisor_errors()}
   def update_hypervisor(%Client{} = client, input, options \\ []) do
     meta = metadata()

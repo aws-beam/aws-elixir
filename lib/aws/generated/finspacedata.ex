@@ -1414,6 +1414,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, associate_user_to_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_user_to_permission_group_errors()}
   def associate_user_to_permission_group(
         %Client{} = client,
@@ -1450,6 +1451,7 @@ defmodule AWS.Finspacedata do
   @spec create_changeset(map(), String.t(), create_changeset_request(), list()) ::
           {:ok, create_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_changeset_errors()}
   def create_changeset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/changesetsv2"
@@ -1478,6 +1480,7 @@ defmodule AWS.Finspacedata do
   @spec create_data_view(map(), String.t(), create_data_view_request(), list()) ::
           {:ok, create_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_view_errors()}
   def create_data_view(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/dataviewsv2"
@@ -1506,6 +1509,7 @@ defmodule AWS.Finspacedata do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasetsv2"
@@ -1535,6 +1539,7 @@ defmodule AWS.Finspacedata do
   @spec create_permission_group(map(), create_permission_group_request(), list()) ::
           {:ok, create_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_permission_group_errors()}
   def create_permission_group(%Client{} = client, input, options \\ []) do
     url_path = "/permission-group"
@@ -1563,6 +1568,7 @@ defmodule AWS.Finspacedata do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/user"
@@ -1591,6 +1597,7 @@ defmodule AWS.Finspacedata do
   @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
@@ -1626,6 +1633,7 @@ defmodule AWS.Finspacedata do
   @spec delete_permission_group(map(), String.t(), delete_permission_group_request(), list()) ::
           {:ok, delete_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_group_errors()}
   def delete_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
@@ -1659,6 +1667,7 @@ defmodule AWS.Finspacedata do
   @spec disable_user(map(), String.t(), disable_user_request(), list()) ::
           {:ok, disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/disable"
@@ -1693,6 +1702,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, disassociate_user_from_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_user_from_permission_group_errors()}
   def disassociate_user_from_permission_group(
         %Client{} = client,
@@ -1734,6 +1744,7 @@ defmodule AWS.Finspacedata do
   @spec enable_user(map(), String.t(), enable_user_request(), list()) ::
           {:ok, enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_user_errors()}
   def enable_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/enable"
@@ -1762,6 +1773,7 @@ defmodule AWS.Finspacedata do
   @spec get_changeset(map(), String.t(), String.t(), list()) ::
           {:ok, get_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_changeset_errors()}
   def get_changeset(%Client{} = client, changeset_id, dataset_id, options \\ []) do
     url_path =
@@ -1781,6 +1793,7 @@ defmodule AWS.Finspacedata do
   @spec get_data_view(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_view_errors()}
   def get_data_view(%Client{} = client, data_view_id, dataset_id, options \\ []) do
     url_path =
@@ -1800,6 +1813,7 @@ defmodule AWS.Finspacedata do
   @spec get_dataset(map(), String.t(), list()) ::
           {:ok, get_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dataset_errors()}
   def get_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
@@ -1832,6 +1846,7 @@ defmodule AWS.Finspacedata do
         ) ::
           {:ok, get_external_data_view_access_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_external_data_view_access_details_errors()}
   def get_external_data_view_access_details(
         %Client{} = client,
@@ -1868,6 +1883,7 @@ defmodule AWS.Finspacedata do
   @spec get_permission_group(map(), String.t(), list()) ::
           {:ok, get_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_permission_group_errors()}
   def get_permission_group(%Client{} = client, permission_group_id, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
@@ -1888,6 +1904,7 @@ defmodule AWS.Finspacedata do
   @spec get_programmatic_access_credentials(map(), String.t() | nil, String.t(), list()) ::
           {:ok, get_programmatic_access_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_programmatic_access_credentials_errors()}
   def get_programmatic_access_credentials(
         %Client{} = client,
@@ -1924,6 +1941,7 @@ defmodule AWS.Finspacedata do
   @spec get_user(map(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, user_id, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"
@@ -1943,6 +1961,7 @@ defmodule AWS.Finspacedata do
   @spec get_working_location(map(), get_working_location_request(), list()) ::
           {:ok, get_working_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_working_location_errors()}
   def get_working_location(%Client{} = client, input, options \\ []) do
     url_path = "/workingLocationV1"
@@ -1971,6 +1990,7 @@ defmodule AWS.Finspacedata do
   @spec list_changesets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_changesets_errors()}
   def list_changesets(
         %Client{} = client,
@@ -2008,6 +2028,7 @@ defmodule AWS.Finspacedata do
   @spec list_data_views(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_views_errors()}
   def list_data_views(
         %Client{} = client,
@@ -2045,6 +2066,7 @@ defmodule AWS.Finspacedata do
   @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasetsv2"
@@ -2076,6 +2098,7 @@ defmodule AWS.Finspacedata do
   @spec list_permission_groups(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_permission_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_groups_errors()}
   def list_permission_groups(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/permission-group"
@@ -2107,6 +2130,7 @@ defmodule AWS.Finspacedata do
   @spec list_permission_groups_by_user(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_permission_groups_by_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_groups_by_user_errors()}
   def list_permission_groups_by_user(
         %Client{} = client,
@@ -2144,6 +2168,7 @@ defmodule AWS.Finspacedata do
   @spec list_users(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, max_results, next_token \\ nil, options \\ []) do
     url_path = "/user"
@@ -2175,6 +2200,7 @@ defmodule AWS.Finspacedata do
   @spec list_users_by_permission_group(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_users_by_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_by_permission_group_errors()}
   def list_users_by_permission_group(
         %Client{} = client,
@@ -2215,6 +2241,7 @@ defmodule AWS.Finspacedata do
   @spec reset_user_password(map(), String.t(), reset_user_password_request(), list()) ::
           {:ok, reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}/password"
@@ -2243,6 +2270,7 @@ defmodule AWS.Finspacedata do
   @spec update_changeset(map(), String.t(), String.t(), update_changeset_request(), list()) ::
           {:ok, update_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_changeset_errors()}
   def update_changeset(%Client{} = client, changeset_id, dataset_id, input, options \\ []) do
     url_path =
@@ -2273,6 +2301,7 @@ defmodule AWS.Finspacedata do
   @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasetsv2/#{AWS.Util.encode_uri(dataset_id)}"
@@ -2303,6 +2332,7 @@ defmodule AWS.Finspacedata do
   @spec update_permission_group(map(), String.t(), update_permission_group_request(), list()) ::
           {:ok, update_permission_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_permission_group_errors()}
   def update_permission_group(%Client{} = client, permission_group_id, input, options \\ []) do
     url_path = "/permission-group/#{AWS.Util.encode_uri(permission_group_id)}"
@@ -2333,6 +2363,7 @@ defmodule AWS.Finspacedata do
   @spec update_user(map(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/user/#{AWS.Util.encode_uri(user_id)}"

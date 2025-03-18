@@ -2535,6 +2535,7 @@ defmodule AWS.Neptunedata do
   @spec cancel_gremlin_query(map(), String.t(), cancel_gremlin_query_input(), list()) ::
           {:ok, cancel_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_gremlin_query_errors()}
   def cancel_gremlin_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
@@ -2574,6 +2575,7 @@ defmodule AWS.Neptunedata do
   @spec cancel_loader_job(map(), String.t(), cancel_loader_job_input(), list()) ::
           {:ok, cancel_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_loader_job_errors()}
   def cancel_loader_job(%Client{} = client, load_id, input, options \\ []) do
     url_path = "/loader/#{AWS.Util.encode_uri(load_id)}"
@@ -2616,6 +2618,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, cancel_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_ml_data_processing_job_errors()}
   def cancel_ml_data_processing_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/dataprocessing/#{AWS.Util.encode_uri(id)}"
@@ -2664,6 +2667,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, cancel_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_ml_model_training_job_errors()}
   def cancel_ml_model_training_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/modeltraining/#{AWS.Util.encode_uri(id)}"
@@ -2712,6 +2716,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, cancel_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_ml_model_transform_job_errors()}
   def cancel_ml_model_transform_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/modeltransform/#{AWS.Util.encode_uri(id)}"
@@ -2756,6 +2761,7 @@ defmodule AWS.Neptunedata do
   @spec cancel_open_cypher_query(map(), String.t(), cancel_open_cypher_query_input(), list()) ::
           {:ok, cancel_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_open_cypher_query_errors()}
   def cancel_open_cypher_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
@@ -2800,6 +2806,7 @@ defmodule AWS.Neptunedata do
   @spec create_ml_endpoint(map(), create_ml_endpoint_input(), list()) ::
           {:ok, create_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ml_endpoint_errors()}
   def create_ml_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/ml/endpoints"
@@ -2838,6 +2845,7 @@ defmodule AWS.Neptunedata do
   @spec delete_ml_endpoint(map(), String.t(), delete_ml_endpoint_input(), list()) ::
           {:ok, delete_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ml_endpoint_errors()}
   def delete_ml_endpoint(%Client{} = client, id, input, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
@@ -2879,6 +2887,7 @@ defmodule AWS.Neptunedata do
   @spec delete_propertygraph_statistics(map(), %{}, list()) ::
           {:ok, delete_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_propertygraph_statistics_errors()}
   def delete_propertygraph_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/propertygraph/statistics"
@@ -2913,6 +2922,7 @@ defmodule AWS.Neptunedata do
   @spec delete_sparql_statistics(map(), %{}, list()) ::
           {:ok, delete_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sparql_statistics_errors()}
   def delete_sparql_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/sparql/statistics"
@@ -2954,6 +2964,7 @@ defmodule AWS.Neptunedata do
   @spec execute_fast_reset(map(), execute_fast_reset_input(), list()) ::
           {:ok, execute_fast_reset_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_fast_reset_errors()}
   def execute_fast_reset(%Client{} = client, input, options \\ []) do
     url_path = "/system"
@@ -3019,6 +3030,7 @@ defmodule AWS.Neptunedata do
   @spec execute_gremlin_explain_query(map(), execute_gremlin_explain_query_input(), list()) ::
           {:ok, execute_gremlin_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_gremlin_explain_query_errors()}
   def execute_gremlin_explain_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin/explain"
@@ -3064,6 +3076,7 @@ defmodule AWS.Neptunedata do
   @spec execute_gremlin_profile_query(map(), execute_gremlin_profile_query_input(), list()) ::
           {:ok, execute_gremlin_profile_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_gremlin_profile_query_errors()}
   def execute_gremlin_profile_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin/profile"
@@ -3122,6 +3135,7 @@ defmodule AWS.Neptunedata do
   @spec execute_gremlin_query(map(), execute_gremlin_query_input(), list()) ::
           {:ok, execute_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_gremlin_query_errors()}
   def execute_gremlin_query(%Client{} = client, input, options \\ []) do
     url_path = "/gremlin"
@@ -3176,6 +3190,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, execute_open_cypher_explain_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_open_cypher_explain_query_errors()}
   def execute_open_cypher_explain_query(%Client{} = client, input, options \\ []) do
     url_path = "/opencypher/explain"
@@ -3242,6 +3257,7 @@ defmodule AWS.Neptunedata do
   @spec execute_open_cypher_query(map(), execute_open_cypher_query_input(), list()) ::
           {:ok, execute_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_open_cypher_query_errors()}
   def execute_open_cypher_query(%Client{} = client, input, options \\ []) do
     url_path = "/opencypher"
@@ -3276,6 +3292,7 @@ defmodule AWS.Neptunedata do
   @spec get_engine_status(map(), list()) ::
           {:ok, get_engine_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_engine_status_errors()}
   def get_engine_status(%Client{} = client, options \\ []) do
     url_path = "/status"
@@ -3304,6 +3321,7 @@ defmodule AWS.Neptunedata do
   @spec get_gremlin_query_status(map(), String.t(), list()) ::
           {:ok, get_gremlin_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_gremlin_query_status_errors()}
   def get_gremlin_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/gremlin/status/#{AWS.Util.encode_uri(query_id)}"
@@ -3342,6 +3360,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, get_loader_job_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_loader_job_status_errors()}
   def get_loader_job_status(
         %Client{} = client,
@@ -3404,6 +3423,7 @@ defmodule AWS.Neptunedata do
   @spec get_ml_data_processing_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_data_processing_job_errors()}
   def get_ml_data_processing_job(
         %Client{} = client,
@@ -3442,6 +3462,7 @@ defmodule AWS.Neptunedata do
   @spec get_ml_endpoint(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_endpoint_errors()}
   def get_ml_endpoint(%Client{} = client, id, neptune_iam_role_arn \\ nil, options \\ []) do
     url_path = "/ml/endpoints/#{AWS.Util.encode_uri(id)}"
@@ -3475,6 +3496,7 @@ defmodule AWS.Neptunedata do
   @spec get_ml_model_training_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_model_training_job_errors()}
   def get_ml_model_training_job(
         %Client{} = client,
@@ -3513,6 +3535,7 @@ defmodule AWS.Neptunedata do
   @spec get_ml_model_transform_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_model_transform_job_errors()}
   def get_ml_model_transform_job(
         %Client{} = client,
@@ -3553,6 +3576,7 @@ defmodule AWS.Neptunedata do
   @spec get_open_cypher_query_status(map(), String.t(), list()) ::
           {:ok, get_open_cypher_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_open_cypher_query_status_errors()}
   def get_open_cypher_query_status(%Client{} = client, query_id, options \\ []) do
     url_path = "/opencypher/status/#{AWS.Util.encode_uri(query_id)}"
@@ -3576,6 +3600,7 @@ defmodule AWS.Neptunedata do
   @spec get_propertygraph_statistics(map(), list()) ::
           {:ok, get_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_propertygraph_statistics_errors()}
   def get_propertygraph_statistics(%Client{} = client, options \\ []) do
     url_path = "/propertygraph/statistics"
@@ -3639,6 +3664,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, get_propertygraph_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_propertygraph_stream_errors()}
   def get_propertygraph_stream(
         %Client{} = client,
@@ -3706,6 +3732,7 @@ defmodule AWS.Neptunedata do
   @spec get_propertygraph_summary(map(), String.t() | nil, list()) ::
           {:ok, get_propertygraph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_propertygraph_summary_errors()}
   def get_propertygraph_summary(%Client{} = client, mode \\ nil, options \\ []) do
     url_path = "/propertygraph/statistics/summary"
@@ -3736,6 +3763,7 @@ defmodule AWS.Neptunedata do
   @spec get_r_d_f_graph_summary(map(), String.t() | nil, list()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_r_d_f_graph_summary_errors()}
   def get_r_d_f_graph_summary(%Client{} = client, mode \\ nil, options \\ []) do
     url_path = "/rdf/statistics/summary"
@@ -3760,6 +3788,7 @@ defmodule AWS.Neptunedata do
   @spec get_sparql_statistics(map(), list()) ::
           {:ok, get_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sparql_statistics_errors()}
   def get_sparql_statistics(%Client{} = client, options \\ []) do
     url_path = "/sparql/statistics"
@@ -3809,6 +3838,7 @@ defmodule AWS.Neptunedata do
         ) ::
           {:ok, get_sparql_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sparql_stream_errors()}
   def get_sparql_stream(
         %Client{} = client,
@@ -3885,6 +3915,7 @@ defmodule AWS.Neptunedata do
   @spec list_gremlin_queries(map(), String.t() | nil, list()) ::
           {:ok, list_gremlin_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gremlin_queries_errors()}
   def list_gremlin_queries(%Client{} = client, include_waiting \\ nil, options \\ []) do
     url_path = "/gremlin/status"
@@ -3916,6 +3947,7 @@ defmodule AWS.Neptunedata do
   @spec list_loader_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_loader_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_loader_jobs_errors()}
   def list_loader_jobs(
         %Client{} = client,
@@ -3961,6 +3993,7 @@ defmodule AWS.Neptunedata do
   @spec list_ml_data_processing_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ml_data_processing_jobs_errors()}
   def list_ml_data_processing_jobs(
         %Client{} = client,
@@ -4006,6 +4039,7 @@ defmodule AWS.Neptunedata do
   @spec list_ml_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ml_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ml_endpoints_errors()}
   def list_ml_endpoints(
         %Client{} = client,
@@ -4051,6 +4085,7 @@ defmodule AWS.Neptunedata do
   @spec list_ml_model_training_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ml_model_training_jobs_errors()}
   def list_ml_model_training_jobs(
         %Client{} = client,
@@ -4096,6 +4131,7 @@ defmodule AWS.Neptunedata do
   @spec list_ml_model_transform_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ml_model_transform_jobs_errors()}
   def list_ml_model_transform_jobs(
         %Client{} = client,
@@ -4147,6 +4183,7 @@ defmodule AWS.Neptunedata do
   @spec list_open_cypher_queries(map(), String.t() | nil, list()) ::
           {:ok, list_open_cypher_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_open_cypher_queries_errors()}
   def list_open_cypher_queries(%Client{} = client, include_waiting \\ nil, options \\ []) do
     url_path = "/opencypher/status"
@@ -4177,6 +4214,7 @@ defmodule AWS.Neptunedata do
   @spec manage_propertygraph_statistics(map(), manage_propertygraph_statistics_input(), list()) ::
           {:ok, manage_propertygraph_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, manage_propertygraph_statistics_errors()}
   def manage_propertygraph_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/propertygraph/statistics"
@@ -4211,6 +4249,7 @@ defmodule AWS.Neptunedata do
   @spec manage_sparql_statistics(map(), manage_sparql_statistics_input(), list()) ::
           {:ok, manage_sparql_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, manage_sparql_statistics_errors()}
   def manage_sparql_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/sparql/statistics"
@@ -4249,6 +4288,7 @@ defmodule AWS.Neptunedata do
   @spec start_loader_job(map(), start_loader_job_input(), list()) ::
           {:ok, start_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_loader_job_errors()}
   def start_loader_job(%Client{} = client, input, options \\ []) do
     url_path = "/loader"
@@ -4287,6 +4327,7 @@ defmodule AWS.Neptunedata do
   @spec start_ml_data_processing_job(map(), start_ml_data_processing_job_input(), list()) ::
           {:ok, start_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_ml_data_processing_job_errors()}
   def start_ml_data_processing_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/dataprocessing"
@@ -4324,6 +4365,7 @@ defmodule AWS.Neptunedata do
   @spec start_ml_model_training_job(map(), start_ml_model_training_job_input(), list()) ::
           {:ok, start_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_ml_model_training_job_errors()}
   def start_ml_model_training_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/modeltraining"
@@ -4361,6 +4403,7 @@ defmodule AWS.Neptunedata do
   @spec start_ml_model_transform_job(map(), start_ml_model_transform_job_input(), list()) ::
           {:ok, start_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_ml_model_transform_job_errors()}
   def start_ml_model_transform_job(%Client{} = client, input, options \\ []) do
     url_path = "/ml/modeltransform"

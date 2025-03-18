@@ -901,6 +901,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_acknowledge_alarm(map(), batch_acknowledge_alarm_request(), list()) ::
           {:ok, batch_acknowledge_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_acknowledge_alarm_errors()}
   def batch_acknowledge_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/acknowledge"
@@ -935,6 +936,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_delete_detector(map(), batch_delete_detector_request(), list()) ::
           {:ok, batch_delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_detector_errors()}
   def batch_delete_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detectors/delete"
@@ -966,6 +968,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_disable_alarm(map(), batch_disable_alarm_request(), list()) ::
           {:ok, batch_disable_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disable_alarm_errors()}
   def batch_disable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/disable"
@@ -997,6 +1000,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_enable_alarm(map(), batch_enable_alarm_request(), list()) ::
           {:ok, batch_enable_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_enable_alarm_errors()}
   def batch_enable_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/enable"
@@ -1034,6 +1038,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_put_message(map(), batch_put_message_request(), list()) ::
           {:ok, batch_put_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_message_errors()}
   def batch_put_message(%Client{} = client, input, options \\ []) do
     url_path = "/inputs/messages"
@@ -1065,6 +1070,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_reset_alarm(map(), batch_reset_alarm_request(), list()) ::
           {:ok, batch_reset_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_reset_alarm_errors()}
   def batch_reset_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/reset"
@@ -1096,6 +1102,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_snooze_alarm(map(), batch_snooze_alarm_request(), list()) ::
           {:ok, batch_snooze_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_snooze_alarm_errors()}
   def batch_snooze_alarm(%Client{} = client, input, options \\ []) do
     url_path = "/alarms/snooze"
@@ -1125,6 +1132,7 @@ defmodule AWS.IoTEventsData do
   @spec batch_update_detector(map(), batch_update_detector_request(), list()) ::
           {:ok, batch_update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_detector_errors()}
   def batch_update_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detectors"
@@ -1153,6 +1161,7 @@ defmodule AWS.IoTEventsData do
   @spec describe_alarm(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alarm_errors()}
   def describe_alarm(%Client{} = client, alarm_model_name, key_value \\ nil, options \\ []) do
     url_path = "/alarms/#{AWS.Util.encode_uri(alarm_model_name)}/keyValues"
@@ -1177,6 +1186,7 @@ defmodule AWS.IoTEventsData do
   @spec describe_detector(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_detector_errors()}
   def describe_detector(%Client{} = client, detector_model_name, key_value \\ nil, options \\ []) do
     url_path = "/detectors/#{AWS.Util.encode_uri(detector_model_name)}/keyValues"
@@ -1204,6 +1214,7 @@ defmodule AWS.IoTEventsData do
   @spec list_alarms(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_alarms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_alarms_errors()}
   def list_alarms(
         %Client{} = client,
@@ -1248,6 +1259,7 @@ defmodule AWS.IoTEventsData do
         ) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_detectors_errors()}
   def list_detectors(
         %Client{} = client,

@@ -3185,6 +3185,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec create_invocation(map(), String.t(), create_invocation_request(), list()) ::
           {:ok, create_invocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_invocation_errors()}
   def create_invocation(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocations/"
@@ -3249,6 +3250,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec create_session(map(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
     url_path = "/sessions/"
@@ -3277,6 +3279,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec delete_agent_memory(map(), String.t(), String.t(), delete_agent_memory_request(), list()) ::
           {:ok, delete_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_memory_errors()}
   def delete_agent_memory(%Client{} = client, agent_alias_id, agent_id, input, options \\ []) do
     url_path =
@@ -3320,6 +3323,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec delete_session(map(), String.t(), delete_session_request(), list()) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"
@@ -3354,6 +3358,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec end_session(map(), String.t(), end_session_request(), list()) ::
           {:ok, end_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, end_session_errors()}
   def end_session(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}"
@@ -3385,6 +3390,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec generate_query(map(), generate_query_request(), list()) ::
           {:ok, generate_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_query_errors()}
   def generate_query(%Client{} = client, input, options \\ []) do
     url_path = "/generateQuery"
@@ -3422,6 +3428,7 @@ defmodule AWS.BedrockAgentRuntime do
         ) ::
           {:ok, get_agent_memory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_memory_errors()}
   def get_agent_memory(
         %Client{} = client,
@@ -3482,6 +3489,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec get_invocation_step(map(), String.t(), String.t(), get_invocation_step_request(), list()) ::
           {:ok, get_invocation_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_invocation_step_errors()}
   def get_invocation_step(
         %Client{} = client,
@@ -3521,6 +3529,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec get_session(map(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, session_identifier, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"
@@ -3594,6 +3603,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec invoke_agent(map(), String.t(), String.t(), String.t(), invoke_agent_request(), list()) ::
           {:ok, invoke_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_agent_errors()}
   def invoke_agent(%Client{} = client, agent_alias_id, agent_id, session_id, input, options \\ []) do
     url_path =
@@ -3648,6 +3658,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec invoke_flow(map(), String.t(), String.t(), invoke_flow_request(), list()) ::
           {:ok, invoke_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_flow_errors()}
   def invoke_flow(
         %Client{} = client,
@@ -3714,6 +3725,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec invoke_inline_agent(map(), String.t(), invoke_inline_agent_request(), list()) ::
           {:ok, invoke_inline_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_inline_agent_errors()}
   def invoke_inline_agent(%Client{} = client, session_id, input, options \\ []) do
     url_path = "/agents/#{AWS.Util.encode_uri(session_id)}"
@@ -3756,6 +3768,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec list_invocation_steps(map(), String.t(), list_invocation_steps_request(), list()) ::
           {:ok, list_invocation_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invocation_steps_errors()}
   def list_invocation_steps(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocationSteps/"
@@ -3793,6 +3806,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec list_invocations(map(), String.t(), list_invocations_request(), list()) ::
           {:ok, list_invocations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invocations_errors()}
   def list_invocations(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocations/"
@@ -3830,6 +3844,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec list_sessions(map(), list_sessions_request(), list()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/sessions/"
@@ -3864,6 +3879,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3884,6 +3900,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec optimize_prompt(map(), optimize_prompt_request(), list()) ::
           {:ok, optimize_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, optimize_prompt_errors()}
   def optimize_prompt(%Client{} = client, input, options \\ []) do
     url_path = "/optimize-prompt"
@@ -3934,6 +3951,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec put_invocation_step(map(), String.t(), put_invocation_step_request(), list()) ::
           {:ok, put_invocation_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_invocation_step_errors()}
   def put_invocation_step(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/invocationSteps/"
@@ -3965,6 +3983,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec rerank(map(), rerank_request(), list()) ::
           {:ok, rerank_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rerank_errors()}
   def rerank(%Client{} = client, input, options \\ []) do
     url_path = "/rerank"
@@ -3993,6 +4012,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec retrieve(map(), String.t(), retrieve_request(), list()) ::
           {:ok, retrieve_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/retrieve"
@@ -4024,6 +4044,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec retrieve_and_generate(map(), retrieve_and_generate_request(), list()) ::
           {:ok, retrieve_and_generate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_and_generate_errors()}
   def retrieve_and_generate(%Client{} = client, input, options \\ []) do
     url_path = "/retrieveAndGenerate"
@@ -4059,6 +4080,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec retrieve_and_generate_stream(map(), retrieve_and_generate_stream_request(), list()) ::
           {:ok, retrieve_and_generate_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_and_generate_stream_errors()}
   def retrieve_and_generate_stream(%Client{} = client, input, options \\ []) do
     url_path = "/retrieveAndGenerateStream"
@@ -4097,6 +4119,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4125,6 +4148,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4161,6 +4185,7 @@ defmodule AWS.BedrockAgentRuntime do
   @spec update_session(map(), String.t(), update_session_request(), list()) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_session_errors()}
   def update_session(%Client{} = client, session_identifier, input, options \\ []) do
     url_path = "/sessions/#{AWS.Util.encode_uri(session_identifier)}/"

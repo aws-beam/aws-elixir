@@ -4119,6 +4119,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, batch_get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_collaboration_analysis_template_errors()}
   def batch_get_collaboration_analysis_template(
         %Client{} = client,
@@ -4154,6 +4155,7 @@ defmodule AWS.CleanRooms do
   @spec batch_get_schema(map(), String.t(), batch_get_schema_input(), list()) ::
           {:ok, batch_get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_schema_errors()}
   def batch_get_schema(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}/batch-schema"
@@ -4187,6 +4189,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, batch_get_schema_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_schema_analysis_rule_errors()}
   def batch_get_schema_analysis_rule(
         %Client{} = client,
@@ -4222,6 +4225,7 @@ defmodule AWS.CleanRooms do
   @spec create_analysis_template(map(), String.t(), create_analysis_template_input(), list()) ::
           {:ok, create_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_analysis_template_errors()}
   def create_analysis_template(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/analysistemplates"
@@ -4250,6 +4254,7 @@ defmodule AWS.CleanRooms do
   @spec create_collaboration(map(), create_collaboration_input(), list()) ::
           {:ok, create_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_collaboration_errors()}
   def create_collaboration(%Client{} = client, input, options \\ []) do
     url_path = "/collaborations"
@@ -4284,6 +4289,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_audience_model_association_errors()}
   def create_configured_audience_model_association(
         %Client{} = client,
@@ -4319,6 +4325,7 @@ defmodule AWS.CleanRooms do
   @spec create_configured_table(map(), create_configured_table_input(), list()) ::
           {:ok, create_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_table_errors()}
   def create_configured_table(%Client{} = client, input, options \\ []) do
     url_path = "/configuredTables"
@@ -4355,6 +4362,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_table_analysis_rule_errors()}
   def create_configured_table_analysis_rule(
         %Client{} = client,
@@ -4398,6 +4406,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_table_association_errors()}
   def create_configured_table_association(
         %Client{} = client,
@@ -4439,6 +4448,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_table_association_analysis_rule_errors()}
   def create_configured_table_association_analysis_rule(
         %Client{} = client,
@@ -4475,6 +4485,7 @@ defmodule AWS.CleanRooms do
   @spec create_id_mapping_table(map(), String.t(), create_id_mapping_table_input(), list()) ::
           {:ok, create_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_id_mapping_table_errors()}
   def create_id_mapping_table(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables"
@@ -4508,6 +4519,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_id_namespace_association_errors()}
   def create_id_namespace_association(
         %Client{} = client,
@@ -4544,6 +4556,7 @@ defmodule AWS.CleanRooms do
   @spec create_membership(map(), create_membership_input(), list()) ::
           {:ok, create_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_membership_errors()}
   def create_membership(%Client{} = client, input, options \\ []) do
     url_path = "/memberships"
@@ -4581,6 +4594,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, create_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_privacy_budget_template_errors()}
   def create_privacy_budget_template(
         %Client{} = client,
@@ -4620,6 +4634,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_analysis_template_errors()}
   def delete_analysis_template(
         %Client{} = client,
@@ -4658,6 +4673,7 @@ defmodule AWS.CleanRooms do
   @spec delete_collaboration(map(), String.t(), delete_collaboration_input(), list()) ::
           {:ok, delete_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_collaboration_errors()}
   def delete_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
@@ -4693,6 +4709,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_audience_model_association_errors()}
   def delete_configured_audience_model_association(
         %Client{} = client,
@@ -4729,6 +4746,7 @@ defmodule AWS.CleanRooms do
   @spec delete_configured_table(map(), String.t(), delete_configured_table_input(), list()) ::
           {:ok, delete_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_table_errors()}
   def delete_configured_table(
         %Client{} = client,
@@ -4768,6 +4786,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_table_analysis_rule_errors()}
   def delete_configured_table_analysis_rule(
         %Client{} = client,
@@ -4810,6 +4829,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_table_association_errors()}
   def delete_configured_table_association(
         %Client{} = client,
@@ -4853,6 +4873,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_table_association_analysis_rule_errors()}
   def delete_configured_table_association_analysis_rule(
         %Client{} = client,
@@ -4896,6 +4917,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_id_mapping_table_errors()}
   def delete_id_mapping_table(
         %Client{} = client,
@@ -4938,6 +4960,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_id_namespace_association_errors()}
   def delete_id_namespace_association(
         %Client{} = client,
@@ -4979,6 +5002,7 @@ defmodule AWS.CleanRooms do
   @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_member_errors()}
   def delete_member(
         %Client{} = client,
@@ -5017,6 +5041,7 @@ defmodule AWS.CleanRooms do
   @spec delete_membership(map(), String.t(), delete_membership_input(), list()) ::
           {:ok, delete_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_membership_errors()}
   def delete_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
@@ -5051,6 +5076,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, delete_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_privacy_budget_template_errors()}
   def delete_privacy_budget_template(
         %Client{} = client,
@@ -5087,6 +5113,7 @@ defmodule AWS.CleanRooms do
   @spec get_analysis_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_analysis_template_errors()}
   def get_analysis_template(
         %Client{} = client,
@@ -5111,6 +5138,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration(map(), String.t(), list()) ::
           {:ok, get_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_errors()}
   def get_collaboration(%Client{} = client, collaboration_identifier, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
@@ -5128,6 +5156,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration_analysis_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_analysis_template_errors()}
   def get_collaboration_analysis_template(
         %Client{} = client,
@@ -5157,6 +5186,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, get_collaboration_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_configured_audience_model_association_errors()}
   def get_collaboration_configured_audience_model_association(
         %Client{} = client,
@@ -5181,6 +5211,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration_id_namespace_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_id_namespace_association_errors()}
   def get_collaboration_id_namespace_association(
         %Client{} = client,
@@ -5205,6 +5236,7 @@ defmodule AWS.CleanRooms do
   @spec get_collaboration_privacy_budget_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_privacy_budget_template_errors()}
   def get_collaboration_privacy_budget_template(
         %Client{} = client,
@@ -5229,6 +5261,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_audience_model_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_audience_model_association_errors()}
   def get_configured_audience_model_association(
         %Client{} = client,
@@ -5253,6 +5286,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table(map(), String.t(), list()) ::
           {:ok, get_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_table_errors()}
   def get_configured_table(%Client{} = client, configured_table_identifier, options \\ []) do
     url_path = "/configuredTables/#{AWS.Util.encode_uri(configured_table_identifier)}"
@@ -5270,6 +5304,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table_analysis_rule(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_table_analysis_rule_errors()}
   def get_configured_table_analysis_rule(
         %Client{} = client,
@@ -5294,6 +5329,7 @@ defmodule AWS.CleanRooms do
   @spec get_configured_table_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_table_association_errors()}
   def get_configured_table_association(
         %Client{} = client,
@@ -5324,6 +5360,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, get_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_table_association_analysis_rule_errors()}
   def get_configured_table_association_analysis_rule(
         %Client{} = client,
@@ -5349,6 +5386,7 @@ defmodule AWS.CleanRooms do
   @spec get_id_mapping_table(map(), String.t(), String.t(), list()) ::
           {:ok, get_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_id_mapping_table_errors()}
   def get_id_mapping_table(
         %Client{} = client,
@@ -5373,6 +5411,7 @@ defmodule AWS.CleanRooms do
   @spec get_id_namespace_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_id_namespace_association_errors()}
   def get_id_namespace_association(
         %Client{} = client,
@@ -5397,6 +5436,7 @@ defmodule AWS.CleanRooms do
   @spec get_membership(map(), String.t(), list()) ::
           {:ok, get_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_membership_errors()}
   def get_membership(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
@@ -5414,6 +5454,7 @@ defmodule AWS.CleanRooms do
   @spec get_privacy_budget_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_privacy_budget_template_errors()}
   def get_privacy_budget_template(
         %Client{} = client,
@@ -5438,6 +5479,7 @@ defmodule AWS.CleanRooms do
   @spec get_protected_query(map(), String.t(), String.t(), list()) ::
           {:ok, get_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_protected_query_errors()}
   def get_protected_query(
         %Client{} = client,
@@ -5462,6 +5504,7 @@ defmodule AWS.CleanRooms do
   @spec get_schema(map(), String.t(), String.t(), list()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, collaboration_identifier, name, options \\ []) do
     url_path =
@@ -5481,6 +5524,7 @@ defmodule AWS.CleanRooms do
   @spec get_schema_analysis_rule(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_schema_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_analysis_rule_errors()}
   def get_schema_analysis_rule(
         %Client{} = client,
@@ -5506,6 +5550,7 @@ defmodule AWS.CleanRooms do
   @spec list_analysis_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analysis_templates_errors()}
   def list_analysis_templates(
         %Client{} = client,
@@ -5549,6 +5594,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_analysis_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_analysis_templates_errors()}
   def list_collaboration_analysis_templates(
         %Client{} = client,
@@ -5594,6 +5640,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_configured_audience_model_associations_errors()}
   def list_collaboration_configured_audience_model_associations(
         %Client{} = client,
@@ -5639,6 +5686,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_id_namespace_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_id_namespace_associations_errors()}
   def list_collaboration_id_namespace_associations(
         %Client{} = client,
@@ -5685,6 +5733,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_privacy_budget_templates_errors()}
   def list_collaboration_privacy_budget_templates(
         %Client{} = client,
@@ -5735,6 +5784,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_collaboration_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_privacy_budgets_errors()}
   def list_collaboration_privacy_budgets(
         %Client{} = client,
@@ -5780,6 +5830,7 @@ defmodule AWS.CleanRooms do
   @spec list_collaborations(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_collaborations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaborations_errors()}
   def list_collaborations(
         %Client{} = client,
@@ -5830,6 +5881,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_configured_audience_model_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_audience_model_associations_errors()}
   def list_configured_audience_model_associations(
         %Client{} = client,
@@ -5875,6 +5927,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_configured_table_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_table_associations_errors()}
   def list_configured_table_associations(
         %Client{} = client,
@@ -5914,6 +5967,7 @@ defmodule AWS.CleanRooms do
   @spec list_configured_tables(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configured_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_tables_errors()}
   def list_configured_tables(
         %Client{} = client,
@@ -5950,6 +6004,7 @@ defmodule AWS.CleanRooms do
   @spec list_id_mapping_tables(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_id_mapping_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_id_mapping_tables_errors()}
   def list_id_mapping_tables(
         %Client{} = client,
@@ -5993,6 +6048,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_id_namespace_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_id_namespace_associations_errors()}
   def list_id_namespace_associations(
         %Client{} = client,
@@ -6032,6 +6088,7 @@ defmodule AWS.CleanRooms do
   @spec list_members(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
@@ -6069,6 +6126,7 @@ defmodule AWS.CleanRooms do
   @spec list_memberships(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_memberships_errors()}
   def list_memberships(
         %Client{} = client,
@@ -6120,6 +6178,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_privacy_budget_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_privacy_budget_templates_errors()}
   def list_privacy_budget_templates(
         %Client{} = client,
@@ -6165,6 +6224,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_privacy_budgets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_privacy_budgets_errors()}
   def list_privacy_budgets(
         %Client{} = client,
@@ -6217,6 +6277,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_protected_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protected_queries_errors()}
   def list_protected_queries(
         %Client{} = client,
@@ -6269,6 +6330,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, list_schemas_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(
         %Client{} = client,
@@ -6314,6 +6376,7 @@ defmodule AWS.CleanRooms do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6337,6 +6400,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, populate_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, populate_id_mapping_table_errors()}
   def populate_id_mapping_table(
         %Client{} = client,
@@ -6374,6 +6438,7 @@ defmodule AWS.CleanRooms do
   @spec preview_privacy_impact(map(), String.t(), preview_privacy_impact_input(), list()) ::
           {:ok, preview_privacy_impact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, preview_privacy_impact_errors()}
   def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
@@ -6402,6 +6467,7 @@ defmodule AWS.CleanRooms do
   @spec start_protected_query(map(), String.t(), start_protected_query_input(), list()) ::
           {:ok, start_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_protected_query_errors()}
   def start_protected_query(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedQueries"
@@ -6430,6 +6496,7 @@ defmodule AWS.CleanRooms do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6458,6 +6525,7 @@ defmodule AWS.CleanRooms do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6497,6 +6565,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_analysis_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_analysis_template_errors()}
   def update_analysis_template(
         %Client{} = client,
@@ -6534,6 +6603,7 @@ defmodule AWS.CleanRooms do
   @spec update_collaboration(map(), String.t(), update_collaboration_input(), list()) ::
           {:ok, update_collaboration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_collaboration_errors()}
   def update_collaboration(%Client{} = client, collaboration_identifier, input, options \\ []) do
     url_path = "/collaborations/#{AWS.Util.encode_uri(collaboration_identifier)}"
@@ -6569,6 +6639,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_audience_model_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_audience_model_association_errors()}
   def update_configured_audience_model_association(
         %Client{} = client,
@@ -6605,6 +6676,7 @@ defmodule AWS.CleanRooms do
   @spec update_configured_table(map(), String.t(), update_configured_table_input(), list()) ::
           {:ok, update_configured_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_table_errors()}
   def update_configured_table(
         %Client{} = client,
@@ -6644,6 +6716,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_table_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_table_analysis_rule_errors()}
   def update_configured_table_analysis_rule(
         %Client{} = client,
@@ -6686,6 +6759,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_table_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_table_association_errors()}
   def update_configured_table_association(
         %Client{} = client,
@@ -6729,6 +6803,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_configured_table_association_analysis_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_table_association_analysis_rule_errors()}
   def update_configured_table_association_analysis_rule(
         %Client{} = client,
@@ -6772,6 +6847,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_id_mapping_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_id_mapping_table_errors()}
   def update_id_mapping_table(
         %Client{} = client,
@@ -6814,6 +6890,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_id_namespace_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_id_namespace_association_errors()}
   def update_id_namespace_association(
         %Client{} = client,
@@ -6850,6 +6927,7 @@ defmodule AWS.CleanRooms do
   @spec update_membership(map(), String.t(), update_membership_input(), list()) ::
           {:ok, update_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_membership_errors()}
   def update_membership(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}"
@@ -6884,6 +6962,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_privacy_budget_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_privacy_budget_template_errors()}
   def update_privacy_budget_template(
         %Client{} = client,
@@ -6926,6 +7005,7 @@ defmodule AWS.CleanRooms do
         ) ::
           {:ok, update_protected_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_protected_query_errors()}
   def update_protected_query(
         %Client{} = client,

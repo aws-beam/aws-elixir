@@ -873,6 +873,7 @@ defmodule AWS.DataPipeline do
   @spec activate_pipeline(map(), activate_pipeline_input(), list()) ::
           {:ok, activate_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_pipeline_errors()}
   def activate_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -886,6 +887,7 @@ defmodule AWS.DataPipeline do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -931,6 +933,7 @@ defmodule AWS.DataPipeline do
   @spec create_pipeline(map(), create_pipeline_input(), list()) ::
           {:ok, create_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -951,6 +954,7 @@ defmodule AWS.DataPipeline do
   @spec deactivate_pipeline(map(), deactivate_pipeline_input(), list()) ::
           {:ok, deactivate_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_pipeline_errors()}
   def deactivate_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1000,6 +1004,7 @@ defmodule AWS.DataPipeline do
   @spec delete_pipeline(map(), delete_pipeline_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1072,6 +1077,7 @@ defmodule AWS.DataPipeline do
   @spec describe_objects(map(), describe_objects_input(), list()) ::
           {:ok, describe_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_objects_errors()}
   def describe_objects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1152,6 +1158,7 @@ defmodule AWS.DataPipeline do
   @spec describe_pipelines(map(), describe_pipelines_input(), list()) ::
           {:ok, describe_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipelines_errors()}
   def describe_pipelines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1198,6 +1205,7 @@ defmodule AWS.DataPipeline do
   @spec evaluate_expression(map(), evaluate_expression_input(), list()) ::
           {:ok, evaluate_expression_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_expression_errors()}
   def evaluate_expression(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1276,6 +1284,7 @@ defmodule AWS.DataPipeline do
   @spec get_pipeline_definition(map(), get_pipeline_definition_input(), list()) ::
           {:ok, get_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_definition_errors()}
   def get_pipeline_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1321,6 +1330,7 @@ defmodule AWS.DataPipeline do
   @spec list_pipelines(map(), list_pipelines_input(), list()) ::
           {:ok, list_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1422,6 +1432,7 @@ defmodule AWS.DataPipeline do
   @spec poll_for_task(map(), poll_for_task_input(), list()) ::
           {:ok, poll_for_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, poll_for_task_errors()}
   def poll_for_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1602,6 +1613,7 @@ defmodule AWS.DataPipeline do
   @spec put_pipeline_definition(map(), put_pipeline_definition_input(), list()) ::
           {:ok, put_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_pipeline_definition_errors()}
   def put_pipeline_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1653,6 +1665,7 @@ defmodule AWS.DataPipeline do
   @spec query_objects(map(), query_objects_input(), list()) ::
           {:ok, query_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_objects_errors()}
   def query_objects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1666,6 +1679,7 @@ defmodule AWS.DataPipeline do
   @spec remove_tags(map(), remove_tags_input(), list()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1726,6 +1740,7 @@ defmodule AWS.DataPipeline do
   @spec report_task_progress(map(), report_task_progress_input(), list()) ::
           {:ok, report_task_progress_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, report_task_progress_errors()}
   def report_task_progress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1775,6 +1790,7 @@ defmodule AWS.DataPipeline do
   @spec report_task_runner_heartbeat(map(), report_task_runner_heartbeat_input(), list()) ::
           {:ok, report_task_runner_heartbeat_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, report_task_runner_heartbeat_errors()}
   def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1825,6 +1841,7 @@ defmodule AWS.DataPipeline do
   @spec set_status(map(), set_status_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_status_errors()}
   def set_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1873,6 +1890,7 @@ defmodule AWS.DataPipeline do
   @spec set_task_status(map(), set_task_status_input(), list()) ::
           {:ok, set_task_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_task_status_errors()}
   def set_task_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2039,6 +2057,7 @@ defmodule AWS.DataPipeline do
   @spec validate_pipeline_definition(map(), validate_pipeline_definition_input(), list()) ::
           {:ok, validate_pipeline_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_pipeline_definition_errors()}
   def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()

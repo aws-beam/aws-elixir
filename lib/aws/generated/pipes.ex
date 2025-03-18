@@ -1400,6 +1400,7 @@ defmodule AWS.Pipes do
   @spec create_pipe(map(), String.t(), create_pipe_request(), list()) ::
           {:ok, create_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipe_errors()}
   def create_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
@@ -1431,6 +1432,7 @@ defmodule AWS.Pipes do
   @spec delete_pipe(map(), String.t(), delete_pipe_request(), list()) ::
           {:ok, delete_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipe_errors()}
   def delete_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
@@ -1462,6 +1464,7 @@ defmodule AWS.Pipes do
   @spec describe_pipe(map(), String.t(), list()) ::
           {:ok, describe_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipe_errors()}
   def describe_pipe(%Client{} = client, name, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"
@@ -1492,6 +1495,7 @@ defmodule AWS.Pipes do
         ) ::
           {:ok, list_pipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipes_errors()}
   def list_pipes(
         %Client{} = client,
@@ -1568,6 +1572,7 @@ defmodule AWS.Pipes do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1585,6 +1590,7 @@ defmodule AWS.Pipes do
   @spec start_pipe(map(), String.t(), start_pipe_request(), list()) ::
           {:ok, start_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pipe_errors()}
   def start_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/start"
@@ -1613,6 +1619,7 @@ defmodule AWS.Pipes do
   @spec stop_pipe(map(), String.t(), stop_pipe_request(), list()) ::
           {:ok, stop_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_pipe_errors()}
   def stop_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}/stop"
@@ -1660,6 +1667,7 @@ defmodule AWS.Pipes do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1688,6 +1696,7 @@ defmodule AWS.Pipes do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1740,6 +1749,7 @@ defmodule AWS.Pipes do
   @spec update_pipe(map(), String.t(), update_pipe_request(), list()) ::
           {:ok, update_pipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipe_errors()}
   def update_pipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/pipes/#{AWS.Util.encode_uri(name)}"

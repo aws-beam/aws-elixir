@@ -1528,6 +1528,7 @@ defmodule AWS.AmplifyBackend do
   @spec clone_backend(map(), String.t(), String.t(), clone_backend_request(), list()) ::
           {:ok, clone_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, clone_backend_errors()}
   def clone_backend(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
@@ -1560,6 +1561,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_backend(map(), create_backend_request(), list()) ::
           {:ok, create_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_errors()}
   def create_backend(%Client{} = client, input, options \\ []) do
     url_path = "/backend"
@@ -1588,6 +1590,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_backend_api(map(), String.t(), create_backend_api_request(), list()) ::
           {:ok, create_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_api_errors()}
   def create_backend_api(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/api"
@@ -1616,6 +1619,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_backend_auth(map(), String.t(), create_backend_auth_request(), list()) ::
           {:ok, create_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_auth_errors()}
   def create_backend_auth(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/auth"
@@ -1644,6 +1648,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_backend_config(map(), String.t(), create_backend_config_request(), list()) ::
           {:ok, create_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_config_errors()}
   def create_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config"
@@ -1672,6 +1677,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_backend_storage(map(), String.t(), create_backend_storage_request(), list()) ::
           {:ok, create_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_storage_errors()}
   def create_backend_storage(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/storage"
@@ -1701,6 +1707,7 @@ defmodule AWS.AmplifyBackend do
   @spec create_token(map(), String.t(), create_token_request(), list()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/challenge"
@@ -1729,6 +1736,7 @@ defmodule AWS.AmplifyBackend do
   @spec delete_backend(map(), String.t(), String.t(), delete_backend_request(), list()) ::
           {:ok, delete_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backend_errors()}
   def delete_backend(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
@@ -1759,6 +1767,7 @@ defmodule AWS.AmplifyBackend do
   @spec delete_backend_api(map(), String.t(), String.t(), delete_backend_api_request(), list()) ::
           {:ok, delete_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backend_api_errors()}
   def delete_backend_api(
         %Client{} = client,
@@ -1795,6 +1804,7 @@ defmodule AWS.AmplifyBackend do
   @spec delete_backend_auth(map(), String.t(), String.t(), delete_backend_auth_request(), list()) ::
           {:ok, delete_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backend_auth_errors()}
   def delete_backend_auth(
         %Client{} = client,
@@ -1837,6 +1847,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, delete_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backend_storage_errors()}
   def delete_backend_storage(
         %Client{} = client,
@@ -1873,6 +1884,7 @@ defmodule AWS.AmplifyBackend do
   @spec delete_token(map(), String.t(), String.t(), delete_token_request(), list()) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_token_errors()}
   def delete_token(%Client{} = client, app_id, session_id, input, options \\ []) do
     url_path =
@@ -1909,6 +1921,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, generate_backend_api_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_backend_api_models_errors()}
   def generate_backend_api_models(
         %Client{} = client,
@@ -1945,6 +1958,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_backend(map(), String.t(), get_backend_request(), list()) ::
           {:ok, get_backend_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_errors()}
   def get_backend(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/details"
@@ -1973,6 +1987,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_backend_api(map(), String.t(), String.t(), get_backend_api_request(), list()) ::
           {:ok, get_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_api_errors()}
   def get_backend_api(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
@@ -2009,6 +2024,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, get_backend_api_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_api_models_errors()}
   def get_backend_api_models(
         %Client{} = client,
@@ -2045,6 +2061,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_backend_auth(map(), String.t(), String.t(), get_backend_auth_request(), list()) ::
           {:ok, get_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_auth_errors()}
   def get_backend_auth(%Client{} = client, app_id, backend_environment_name, input, options \\ []) do
     url_path =
@@ -2075,6 +2092,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_backend_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_backend_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_job_errors()}
   def get_backend_job(%Client{} = client, app_id, backend_environment_name, job_id, options \\ []) do
     url_path =
@@ -2094,6 +2112,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_backend_storage(map(), String.t(), String.t(), get_backend_storage_request(), list()) ::
           {:ok, get_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_storage_errors()}
   def get_backend_storage(
         %Client{} = client,
@@ -2130,6 +2149,7 @@ defmodule AWS.AmplifyBackend do
   @spec get_token(map(), String.t(), String.t(), list()) ::
           {:ok, get_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_token_errors()}
   def get_token(%Client{} = client, app_id, session_id, options \\ []) do
     url_path =
@@ -2149,6 +2169,7 @@ defmodule AWS.AmplifyBackend do
   @spec import_backend_auth(map(), String.t(), String.t(), import_backend_auth_request(), list()) ::
           {:ok, import_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_backend_auth_errors()}
   def import_backend_auth(
         %Client{} = client,
@@ -2191,6 +2212,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, import_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_backend_storage_errors()}
   def import_backend_storage(
         %Client{} = client,
@@ -2227,6 +2249,7 @@ defmodule AWS.AmplifyBackend do
   @spec list_backend_jobs(map(), String.t(), String.t(), list_backend_jobs_request(), list()) ::
           {:ok, list_backend_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backend_jobs_errors()}
   def list_backend_jobs(
         %Client{} = client,
@@ -2263,6 +2286,7 @@ defmodule AWS.AmplifyBackend do
   @spec list_s3_buckets(map(), list_s3_buckets_request(), list()) ::
           {:ok, list_s3_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_s3_buckets_errors()}
   def list_s3_buckets(%Client{} = client, input, options \\ []) do
     url_path = "/s3Buckets"
@@ -2291,6 +2315,7 @@ defmodule AWS.AmplifyBackend do
   @spec remove_all_backends(map(), String.t(), remove_all_backends_request(), list()) ::
           {:ok, remove_all_backends_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_all_backends_errors()}
   def remove_all_backends(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/remove"
@@ -2319,6 +2344,7 @@ defmodule AWS.AmplifyBackend do
   @spec remove_backend_config(map(), String.t(), remove_backend_config_request(), list()) ::
           {:ok, remove_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_backend_config_errors()}
   def remove_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/remove"
@@ -2347,6 +2373,7 @@ defmodule AWS.AmplifyBackend do
   @spec update_backend_api(map(), String.t(), String.t(), update_backend_api_request(), list()) ::
           {:ok, update_backend_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backend_api_errors()}
   def update_backend_api(
         %Client{} = client,
@@ -2383,6 +2410,7 @@ defmodule AWS.AmplifyBackend do
   @spec update_backend_auth(map(), String.t(), String.t(), update_backend_auth_request(), list()) ::
           {:ok, update_backend_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backend_auth_errors()}
   def update_backend_auth(
         %Client{} = client,
@@ -2419,6 +2447,7 @@ defmodule AWS.AmplifyBackend do
   @spec update_backend_config(map(), String.t(), update_backend_config_request(), list()) ::
           {:ok, update_backend_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backend_config_errors()}
   def update_backend_config(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/backend/#{AWS.Util.encode_uri(app_id)}/config/update"
@@ -2454,6 +2483,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, update_backend_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backend_job_errors()}
   def update_backend_job(
         %Client{} = client,
@@ -2497,6 +2527,7 @@ defmodule AWS.AmplifyBackend do
         ) ::
           {:ok, update_backend_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_backend_storage_errors()}
   def update_backend_storage(
         %Client{} = client,

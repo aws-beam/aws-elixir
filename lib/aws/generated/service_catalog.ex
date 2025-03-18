@@ -3648,6 +3648,7 @@ defmodule AWS.ServiceCatalog do
   @spec accept_portfolio_share(map(), accept_portfolio_share_input(), list()) ::
           {:ok, accept_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_portfolio_share_errors()}
   def accept_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3661,6 +3662,7 @@ defmodule AWS.ServiceCatalog do
   @spec associate_budget_with_resource(map(), associate_budget_with_resource_input(), list()) ::
           {:ok, associate_budget_with_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_budget_with_resource_errors()}
   def associate_budget_with_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3703,6 +3705,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, associate_principal_with_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_principal_with_portfolio_errors()}
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3718,6 +3721,7 @@ defmodule AWS.ServiceCatalog do
   @spec associate_product_with_portfolio(map(), associate_product_with_portfolio_input(), list()) ::
           {:ok, associate_product_with_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_product_with_portfolio_errors()}
   def associate_product_with_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3735,6 +3739,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, associate_service_action_with_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_service_action_with_provisioning_artifact_errors()}
   def associate_service_action_with_provisioning_artifact(
         %Client{} = client,
@@ -3762,6 +3767,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, associate_tag_option_with_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_tag_option_with_resource_errors()}
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3779,6 +3785,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, batch_associate_service_action_with_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_service_action_with_provisioning_artifact_errors()}
   def batch_associate_service_action_with_provisioning_artifact(
         %Client{} = client,
@@ -3807,6 +3814,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, batch_disassociate_service_action_from_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_service_action_from_provisioning_artifact_errors()}
   def batch_disassociate_service_action_from_provisioning_artifact(
         %Client{} = client,
@@ -3840,6 +3848,7 @@ defmodule AWS.ServiceCatalog do
   @spec copy_product(map(), copy_product_input(), list()) ::
           {:ok, copy_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_product_errors()}
   def copy_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3855,6 +3864,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_constraint(map(), create_constraint_input(), list()) ::
           {:ok, create_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_constraint_errors()}
   def create_constraint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3870,6 +3880,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_portfolio(map(), create_portfolio_input(), list()) ::
           {:ok, create_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_portfolio_errors()}
   def create_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3918,6 +3929,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_portfolio_share(map(), create_portfolio_share_input(), list()) ::
           {:ok, create_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_portfolio_share_errors()}
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3938,6 +3950,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_product(map(), create_product_input(), list()) ::
           {:ok, create_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_product_errors()}
   def create_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3965,6 +3978,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_provisioned_product_plan(map(), create_provisioned_product_plan_input(), list()) ::
           {:ok, create_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioned_product_plan_errors()}
   def create_provisioned_product_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3987,6 +4001,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_provisioning_artifact(map(), create_provisioning_artifact_input(), list()) ::
           {:ok, create_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioning_artifact_errors()}
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4000,6 +4015,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_service_action(map(), create_service_action_input(), list()) ::
           {:ok, create_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_action_errors()}
   def create_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4013,6 +4029,7 @@ defmodule AWS.ServiceCatalog do
   @spec create_tag_option(map(), create_tag_option_input(), list()) ::
           {:ok, create_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tag_option_errors()}
   def create_tag_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4028,6 +4045,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_constraint(map(), delete_constraint_input(), list()) ::
           {:ok, delete_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_constraint_errors()}
   def delete_constraint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4046,6 +4064,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_portfolio(map(), delete_portfolio_input(), list()) ::
           {:ok, delete_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_portfolio_errors()}
   def delete_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4067,6 +4086,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_portfolio_share(map(), delete_portfolio_share_input(), list()) ::
           {:ok, delete_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_portfolio_share_errors()}
   def delete_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4085,6 +4105,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_product(map(), delete_product_input(), list()) ::
           {:ok, delete_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_product_errors()}
   def delete_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4098,6 +4119,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_provisioned_product_plan(map(), delete_provisioned_product_plan_input(), list()) ::
           {:ok, delete_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioned_product_plan_errors()}
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4118,6 +4140,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_provisioning_artifact(map(), delete_provisioning_artifact_input(), list()) ::
           {:ok, delete_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioning_artifact_errors()}
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4131,6 +4154,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_service_action(map(), delete_service_action_input(), list()) ::
           {:ok, delete_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_action_errors()}
   def delete_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4146,6 +4170,7 @@ defmodule AWS.ServiceCatalog do
   @spec delete_tag_option(map(), delete_tag_option_input(), list()) ::
           {:ok, delete_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tag_option_errors()}
   def delete_tag_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4159,6 +4184,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_constraint(map(), describe_constraint_input(), list()) ::
           {:ok, describe_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_constraint_errors()}
   def describe_constraint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4172,6 +4198,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_copy_product_status(map(), describe_copy_product_status_input(), list()) ::
           {:ok, describe_copy_product_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_copy_product_status_errors()}
   def describe_copy_product_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4187,6 +4214,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_portfolio(map(), describe_portfolio_input(), list()) ::
           {:ok, describe_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_portfolio_errors()}
   def describe_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4203,6 +4231,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_portfolio_share_status(map(), describe_portfolio_share_status_input(), list()) ::
           {:ok, describe_portfolio_share_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_portfolio_share_status_errors()}
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4224,6 +4253,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_portfolio_shares(map(), describe_portfolio_shares_input(), list()) ::
           {:ok, describe_portfolio_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_portfolio_shares_errors()}
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4243,6 +4273,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_product(map(), describe_product_input(), list()) ::
           {:ok, describe_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_product_errors()}
   def describe_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4258,6 +4289,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_product_as_admin(map(), describe_product_as_admin_input(), list()) ::
           {:ok, describe_product_as_admin_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_product_as_admin_errors()}
   def describe_product_as_admin(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4271,6 +4303,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_product_view(map(), describe_product_view_input(), list()) ::
           {:ok, describe_product_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_product_view_errors()}
   def describe_product_view(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4284,6 +4317,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_provisioned_product(map(), describe_provisioned_product_input(), list()) ::
           {:ok, describe_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioned_product_errors()}
   def describe_provisioned_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4301,6 +4335,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, describe_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioned_product_plan_errors()}
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4315,6 +4350,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_provisioning_artifact(map(), describe_provisioning_artifact_input(), list()) ::
           {:ok, describe_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioning_artifact_errors()}
   def describe_provisioning_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4339,6 +4375,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_provisioning_parameters(map(), describe_provisioning_parameters_input(), list()) ::
           {:ok, describe_provisioning_parameters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioning_parameters_errors()}
   def describe_provisioning_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4362,6 +4399,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_record(map(), describe_record_input(), list()) ::
           {:ok, describe_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_record_errors()}
   def describe_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4375,6 +4413,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_service_action(map(), describe_service_action_input(), list()) ::
           {:ok, describe_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_action_errors()}
   def describe_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4393,6 +4432,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, describe_service_action_execution_parameters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_action_execution_parameters_errors()}
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4406,6 +4446,7 @@ defmodule AWS.ServiceCatalog do
   @spec describe_tag_option(map(), describe_tag_option_input(), list()) ::
           {:ok, describe_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tag_option_errors()}
   def describe_tag_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4441,6 +4482,7 @@ defmodule AWS.ServiceCatalog do
   @spec disable_aws_organizations_access(map(), disable_aws_organizations_access_input(), list()) ::
           {:ok, disable_aws_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_aws_organizations_access_errors()}
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4458,6 +4500,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, disassociate_budget_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_budget_from_resource_errors()}
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4502,6 +4545,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, disassociate_principal_from_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_principal_from_portfolio_errors()}
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4521,6 +4565,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, disassociate_product_from_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_product_from_portfolio_errors()}
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4539,6 +4584,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, disassociate_service_action_from_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_service_action_from_provisioning_artifact_errors()}
   def disassociate_service_action_from_provisioning_artifact(
         %Client{} = client,
@@ -4566,6 +4612,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, disassociate_tag_option_from_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_tag_option_from_resource_errors()}
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4605,6 +4652,7 @@ defmodule AWS.ServiceCatalog do
   @spec enable_aws_organizations_access(map(), enable_aws_organizations_access_input(), list()) ::
           {:ok, enable_aws_organizations_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_aws_organizations_access_errors()}
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4619,6 +4667,7 @@ defmodule AWS.ServiceCatalog do
   @spec execute_provisioned_product_plan(map(), execute_provisioned_product_plan_input(), list()) ::
           {:ok, execute_provisioned_product_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_provisioned_product_plan_errors()}
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4636,6 +4685,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, execute_provisioned_product_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_provisioned_product_service_action_errors()}
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4656,6 +4706,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, get_aws_organizations_access_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aws_organizations_access_status_errors()}
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4671,6 +4722,7 @@ defmodule AWS.ServiceCatalog do
   @spec get_provisioned_product_outputs(map(), get_provisioned_product_outputs_input(), list()) ::
           {:ok, get_provisioned_product_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_provisioned_product_outputs_errors()}
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4716,6 +4768,7 @@ defmodule AWS.ServiceCatalog do
   @spec import_as_provisioned_product(map(), import_as_provisioned_product_input(), list()) ::
           {:ok, import_as_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_as_provisioned_product_errors()}
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4734,6 +4787,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_accepted_portfolio_shares(map(), list_accepted_portfolio_shares_input(), list()) ::
           {:ok, list_accepted_portfolio_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accepted_portfolio_shares_errors()}
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4747,6 +4801,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_budgets_for_resource(map(), list_budgets_for_resource_input(), list()) ::
           {:ok, list_budgets_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_budgets_for_resource_errors()}
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4760,6 +4815,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_constraints_for_portfolio(map(), list_constraints_for_portfolio_input(), list()) ::
           {:ok, list_constraints_for_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_constraints_for_portfolio_errors()}
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4795,6 +4851,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_launch_paths(map(), list_launch_paths_input(), list()) ::
           {:ok, list_launch_paths_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_launch_paths_errors()}
   def list_launch_paths(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4819,6 +4876,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, list_organization_portfolio_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_portfolio_access_errors()}
   def list_organization_portfolio_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4836,6 +4894,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_portfolio_access(map(), list_portfolio_access_input(), list()) ::
           {:ok, list_portfolio_access_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_portfolio_access_errors()}
   def list_portfolio_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4849,6 +4908,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_portfolios(map(), list_portfolios_input(), list()) ::
           {:ok, list_portfolios_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_portfolios_errors()}
   def list_portfolios(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4862,6 +4922,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_portfolios_for_product(map(), list_portfolios_for_product_input(), list()) ::
           {:ok, list_portfolios_for_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_portfolios_for_product_errors()}
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4876,6 +4937,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_principals_for_portfolio(map(), list_principals_for_portfolio_input(), list()) ::
           {:ok, list_principals_for_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_principals_for_portfolio_errors()}
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4890,6 +4952,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_provisioned_product_plans(map(), list_provisioned_product_plans_input(), list()) ::
           {:ok, list_provisioned_product_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioned_product_plans_errors()}
   def list_provisioned_product_plans(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4904,6 +4967,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_provisioning_artifacts(map(), list_provisioning_artifacts_input(), list()) ::
           {:ok, list_provisioning_artifacts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioning_artifacts_errors()}
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4922,6 +4986,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, list_provisioning_artifacts_for_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioning_artifacts_for_service_action_errors()}
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4941,6 +5006,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_record_history(map(), list_record_history_input(), list()) ::
           {:ok, list_record_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_record_history_errors()}
   def list_record_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4954,6 +5020,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_resources_for_tag_option(map(), list_resources_for_tag_option_input(), list()) ::
           {:ok, list_resources_for_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_for_tag_option_errors()}
   def list_resources_for_tag_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4967,6 +5034,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_service_actions(map(), list_service_actions_input(), list()) ::
           {:ok, list_service_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_actions_errors()}
   def list_service_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4985,6 +5053,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, list_service_actions_for_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_actions_for_provisioning_artifact_errors()}
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5012,6 +5081,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, list_stack_instances_for_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stack_instances_for_provisioned_product_errors()}
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5025,6 +5095,7 @@ defmodule AWS.ServiceCatalog do
   @spec list_tag_options(map(), list_tag_options_input(), list()) ::
           {:ok, list_tag_options_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tag_options_errors()}
   def list_tag_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5044,6 +5115,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, notify_provision_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_provision_product_engine_workflow_result_errors()}
   def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5069,6 +5141,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, notify_terminate_provisioned_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_terminate_provisioned_product_engine_workflow_result_errors()}
   def notify_terminate_provisioned_product_engine_workflow_result(
         %Client{} = client,
@@ -5098,6 +5171,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, notify_update_provisioned_product_engine_workflow_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_update_provisioned_product_engine_workflow_result_errors()}
   def notify_update_provisioned_product_engine_workflow_result(
         %Client{} = client,
@@ -5153,6 +5227,7 @@ defmodule AWS.ServiceCatalog do
   @spec provision_product(map(), provision_product_input(), list()) ::
           {:ok, provision_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, provision_product_errors()}
   def provision_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5166,6 +5241,7 @@ defmodule AWS.ServiceCatalog do
   @spec reject_portfolio_share(map(), reject_portfolio_share_input(), list()) ::
           {:ok, reject_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_portfolio_share_errors()}
   def reject_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5181,6 +5257,7 @@ defmodule AWS.ServiceCatalog do
   @spec scan_provisioned_products(map(), scan_provisioned_products_input(), list()) ::
           {:ok, scan_provisioned_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, scan_provisioned_products_errors()}
   def scan_provisioned_products(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5194,6 +5271,7 @@ defmodule AWS.ServiceCatalog do
   @spec search_products(map(), search_products_input(), list()) ::
           {:ok, search_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_products_errors()}
   def search_products(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5207,6 +5285,7 @@ defmodule AWS.ServiceCatalog do
   @spec search_products_as_admin(map(), search_products_as_admin_input(), list()) ::
           {:ok, search_products_as_admin_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_products_as_admin_errors()}
   def search_products_as_admin(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5221,6 +5300,7 @@ defmodule AWS.ServiceCatalog do
   @spec search_provisioned_products(map(), search_provisioned_products_input(), list()) ::
           {:ok, search_provisioned_products_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_provisioned_products_errors()}
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5239,6 +5319,7 @@ defmodule AWS.ServiceCatalog do
   @spec terminate_provisioned_product(map(), terminate_provisioned_product_input(), list()) ::
           {:ok, terminate_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_provisioned_product_errors()}
   def terminate_provisioned_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5252,6 +5333,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_constraint(map(), update_constraint_input(), list()) ::
           {:ok, update_constraint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_constraint_errors()}
   def update_constraint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5267,6 +5349,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_portfolio(map(), update_portfolio_input(), list()) ::
           {:ok, update_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_portfolio_errors()}
   def update_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5312,6 +5395,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_portfolio_share(map(), update_portfolio_share_input(), list()) ::
           {:ok, update_portfolio_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_portfolio_share_errors()}
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5325,6 +5409,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_product(map(), update_product_input(), list()) ::
           {:ok, update_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_product_errors()}
   def update_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5345,6 +5430,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_provisioned_product(map(), update_provisioned_product_input(), list()) ::
           {:ok, update_provisioned_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_provisioned_product_errors()}
   def update_provisioned_product(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5362,6 +5448,7 @@ defmodule AWS.ServiceCatalog do
         ) ::
           {:ok, update_provisioned_product_properties_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_provisioned_product_properties_errors()}
   def update_provisioned_product_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5379,6 +5466,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_provisioning_artifact(map(), update_provisioning_artifact_input(), list()) ::
           {:ok, update_provisioning_artifact_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_provisioning_artifact_errors()}
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5392,6 +5480,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_service_action(map(), update_service_action_input(), list()) ::
           {:ok, update_service_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_action_errors()}
   def update_service_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5405,6 +5494,7 @@ defmodule AWS.ServiceCatalog do
   @spec update_tag_option(map(), update_tag_option_input(), list()) ::
           {:ok, update_tag_option_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_tag_option_errors()}
   def update_tag_option(%Client{} = client, input, options \\ []) do
     meta = metadata()

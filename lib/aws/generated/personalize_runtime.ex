@@ -195,6 +195,7 @@ defmodule AWS.PersonalizeRuntime do
   @spec get_action_recommendations(map(), get_action_recommendations_request(), list()) ::
           {:ok, get_action_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_action_recommendations_errors()}
   def get_action_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/action-recommendations"
@@ -229,6 +230,7 @@ defmodule AWS.PersonalizeRuntime do
   @spec get_personalized_ranking(map(), get_personalized_ranking_request(), list()) ::
           {:ok, get_personalized_ranking_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_personalized_ranking_errors()}
   def get_personalized_ranking(%Client{} = client, input, options \\ []) do
     url_path = "/personalize-ranking"
@@ -275,6 +277,7 @@ defmodule AWS.PersonalizeRuntime do
   @spec get_recommendations(map(), get_recommendations_request(), list()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendations_errors()}
   def get_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"

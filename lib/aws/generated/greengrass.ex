@@ -2993,6 +2993,7 @@ defmodule AWS.Greengrass do
   @spec associate_role_to_group(map(), String.t(), associate_role_to_group_request(), list()) ::
           {:ok, associate_role_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_role_to_group_errors()}
   def associate_role_to_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
@@ -3030,6 +3031,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_service_role_to_account_errors()}
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -3061,6 +3063,7 @@ defmodule AWS.Greengrass do
   @spec create_connector_definition(map(), create_connector_definition_request(), list()) ::
           {:ok, create_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_definition_errors()}
   def create_connector_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/connectors"
@@ -3100,6 +3103,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_definition_version_errors()}
   def create_connector_definition_version(
         %Client{} = client,
@@ -3144,6 +3148,7 @@ defmodule AWS.Greengrass do
   @spec create_core_definition(map(), create_core_definition_request(), list()) ::
           {:ok, create_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_core_definition_errors()}
   def create_core_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/cores"
@@ -3185,6 +3190,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_core_definition_version_errors()}
   def create_core_definition_version(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}/versions"
@@ -3222,6 +3228,7 @@ defmodule AWS.Greengrass do
   @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments"
@@ -3259,6 +3266,7 @@ defmodule AWS.Greengrass do
   @spec create_device_definition(map(), create_device_definition_request(), list()) ::
           {:ok, create_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_definition_errors()}
   def create_device_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/devices"
@@ -3298,6 +3306,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_definition_version_errors()}
   def create_device_definition_version(
         %Client{} = client,
@@ -3343,6 +3352,7 @@ defmodule AWS.Greengrass do
   @spec create_function_definition(map(), create_function_definition_request(), list()) ::
           {:ok, create_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_function_definition_errors()}
   def create_function_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/functions"
@@ -3382,6 +3392,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_function_definition_version_errors()}
   def create_function_definition_version(
         %Client{} = client,
@@ -3427,6 +3438,7 @@ defmodule AWS.Greengrass do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/groups"
@@ -3468,6 +3480,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_certificate_authority_errors()}
   def create_group_certificate_authority(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
@@ -3502,6 +3515,7 @@ defmodule AWS.Greengrass do
   @spec create_group_version(map(), String.t(), create_group_version_request(), list()) ::
           {:ok, create_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_version_errors()}
   def create_group_version(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/versions"
@@ -3539,6 +3553,7 @@ defmodule AWS.Greengrass do
   @spec create_logger_definition(map(), create_logger_definition_request(), list()) ::
           {:ok, create_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_logger_definition_errors()}
   def create_logger_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/loggers"
@@ -3578,6 +3593,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_logger_definition_version_errors()}
   def create_logger_definition_version(
         %Client{} = client,
@@ -3622,6 +3638,7 @@ defmodule AWS.Greengrass do
   @spec create_resource_definition(map(), create_resource_definition_request(), list()) ::
           {:ok, create_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_definition_errors()}
   def create_resource_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/resources"
@@ -3661,6 +3678,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_definition_version_errors()}
   def create_resource_definition_version(
         %Client{} = client,
@@ -3706,6 +3724,7 @@ defmodule AWS.Greengrass do
   @spec create_software_update_job(map(), create_software_update_job_request(), list()) ::
           {:ok, create_software_update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_software_update_job_errors()}
   def create_software_update_job(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/updates"
@@ -3743,6 +3762,7 @@ defmodule AWS.Greengrass do
   @spec create_subscription_definition(map(), create_subscription_definition_request(), list()) ::
           {:ok, create_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_definition_errors()}
   def create_subscription_definition(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/definition/subscriptions"
@@ -3782,6 +3802,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, create_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_definition_version_errors()}
   def create_subscription_definition_version(
         %Client{} = client,
@@ -3827,6 +3848,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, delete_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_definition_errors()}
   def delete_connector_definition(
         %Client{} = client,
@@ -3860,6 +3882,7 @@ defmodule AWS.Greengrass do
   @spec delete_core_definition(map(), String.t(), delete_core_definition_request(), list()) ::
           {:ok, delete_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_core_definition_errors()}
   def delete_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
@@ -3888,6 +3911,7 @@ defmodule AWS.Greengrass do
   @spec delete_device_definition(map(), String.t(), delete_device_definition_request(), list()) ::
           {:ok, delete_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_definition_errors()}
   def delete_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
@@ -3921,6 +3945,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, delete_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_definition_errors()}
   def delete_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
@@ -3949,6 +3974,7 @@ defmodule AWS.Greengrass do
   @spec delete_group(map(), String.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
@@ -3977,6 +4003,7 @@ defmodule AWS.Greengrass do
   @spec delete_logger_definition(map(), String.t(), delete_logger_definition_request(), list()) ::
           {:ok, delete_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_logger_definition_errors()}
   def delete_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
@@ -4010,6 +4037,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, delete_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_definition_errors()}
   def delete_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
@@ -4043,6 +4071,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, delete_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_definition_errors()}
   def delete_subscription_definition(
         %Client{} = client,
@@ -4083,6 +4112,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, disassociate_role_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_role_from_group_errors()}
   def disassociate_role_from_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
@@ -4117,6 +4147,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_service_role_from_account_errors()}
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -4145,6 +4176,7 @@ defmodule AWS.Greengrass do
   @spec get_associated_role(map(), String.t(), list()) ::
           {:ok, get_associated_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_associated_role_errors()}
   def get_associated_role(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/role"
@@ -4162,6 +4194,7 @@ defmodule AWS.Greengrass do
   @spec get_bulk_deployment_status(map(), String.t(), list()) ::
           {:ok, get_bulk_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bulk_deployment_status_errors()}
   def get_bulk_deployment_status(%Client{} = client, bulk_deployment_id, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/status"
@@ -4179,6 +4212,7 @@ defmodule AWS.Greengrass do
   @spec get_connectivity_info(map(), String.t(), list()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
@@ -4196,6 +4230,7 @@ defmodule AWS.Greengrass do
   @spec get_connector_definition(map(), String.t(), list()) ::
           {:ok, get_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connector_definition_errors()}
   def get_connector_definition(%Client{} = client, connector_definition_id, options \\ []) do
     url_path = "/greengrass/definition/connectors/#{AWS.Util.encode_uri(connector_definition_id)}"
@@ -4217,6 +4252,7 @@ defmodule AWS.Greengrass do
   @spec get_connector_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_connector_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connector_definition_version_errors()}
   def get_connector_definition_version(
         %Client{} = client,
@@ -4249,6 +4285,7 @@ defmodule AWS.Greengrass do
   @spec get_core_definition(map(), String.t(), list()) ::
           {:ok, get_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_definition_errors()}
   def get_core_definition(%Client{} = client, core_definition_id, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
@@ -4266,6 +4303,7 @@ defmodule AWS.Greengrass do
   @spec get_core_definition_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_definition_version_errors()}
   def get_core_definition_version(
         %Client{} = client,
@@ -4290,6 +4328,7 @@ defmodule AWS.Greengrass do
   @spec get_deployment_status(map(), String.t(), String.t(), list()) ::
           {:ok, get_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_status_errors()}
   def get_deployment_status(%Client{} = client, deployment_id, group_id, options \\ []) do
     url_path =
@@ -4309,6 +4348,7 @@ defmodule AWS.Greengrass do
   @spec get_device_definition(map(), String.t(), list()) ::
           {:ok, get_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_definition_errors()}
   def get_device_definition(%Client{} = client, device_definition_id, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
@@ -4326,6 +4366,7 @@ defmodule AWS.Greengrass do
   @spec get_device_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_device_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_definition_version_errors()}
   def get_device_definition_version(
         %Client{} = client,
@@ -4359,6 +4400,7 @@ defmodule AWS.Greengrass do
   @spec get_function_definition(map(), String.t(), list()) ::
           {:ok, get_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_definition_errors()}
   def get_function_definition(%Client{} = client, function_definition_id, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
@@ -4377,6 +4419,7 @@ defmodule AWS.Greengrass do
   @spec get_function_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_function_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_definition_version_errors()}
   def get_function_definition_version(
         %Client{} = client,
@@ -4409,6 +4452,7 @@ defmodule AWS.Greengrass do
   @spec get_group(map(), String.t(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
@@ -4428,6 +4472,7 @@ defmodule AWS.Greengrass do
   @spec get_group_certificate_authority(map(), String.t(), String.t(), list()) ::
           {:ok, get_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_certificate_authority_errors()}
   def get_group_certificate_authority(
         %Client{} = client,
@@ -4452,6 +4497,7 @@ defmodule AWS.Greengrass do
   @spec get_group_certificate_configuration(map(), String.t(), list()) ::
           {:ok, get_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_certificate_configuration_errors()}
   def get_group_certificate_configuration(%Client{} = client, group_id, options \\ []) do
     url_path =
@@ -4471,6 +4517,7 @@ defmodule AWS.Greengrass do
   @spec get_group_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_version_errors()}
   def get_group_version(%Client{} = client, group_id, group_version_id, options \\ []) do
     url_path =
@@ -4490,6 +4537,7 @@ defmodule AWS.Greengrass do
   @spec get_logger_definition(map(), String.t(), list()) ::
           {:ok, get_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logger_definition_errors()}
   def get_logger_definition(%Client{} = client, logger_definition_id, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
@@ -4507,6 +4555,7 @@ defmodule AWS.Greengrass do
   @spec get_logger_definition_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_logger_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logger_definition_version_errors()}
   def get_logger_definition_version(
         %Client{} = client,
@@ -4540,6 +4589,7 @@ defmodule AWS.Greengrass do
   @spec get_resource_definition(map(), String.t(), list()) ::
           {:ok, get_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_definition_errors()}
   def get_resource_definition(%Client{} = client, resource_definition_id, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
@@ -4558,6 +4608,7 @@ defmodule AWS.Greengrass do
   @spec get_resource_definition_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_definition_version_errors()}
   def get_resource_definition_version(
         %Client{} = client,
@@ -4582,6 +4633,7 @@ defmodule AWS.Greengrass do
   @spec get_service_role_for_account(map(), list()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -4599,6 +4651,7 @@ defmodule AWS.Greengrass do
   @spec get_subscription_definition(map(), String.t(), list()) ::
           {:ok, get_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_definition_errors()}
   def get_subscription_definition(%Client{} = client, subscription_definition_id, options \\ []) do
     url_path =
@@ -4624,6 +4677,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, get_subscription_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_definition_version_errors()}
   def get_subscription_definition_version(
         %Client{} = client,
@@ -4656,6 +4710,7 @@ defmodule AWS.Greengrass do
   @spec get_thing_runtime_configuration(map(), String.t(), list()) ::
           {:ok, get_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_thing_runtime_configuration_errors()}
   def get_thing_runtime_configuration(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"
@@ -4680,6 +4735,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bulk_deployment_detailed_reports_errors()}
   def list_bulk_deployment_detailed_reports(
         %Client{} = client,
@@ -4719,6 +4775,7 @@ defmodule AWS.Greengrass do
   @spec list_bulk_deployments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bulk_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bulk_deployments_errors()}
   def list_bulk_deployments(
         %Client{} = client,
@@ -4765,6 +4822,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_connector_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connector_definition_versions_errors()}
   def list_connector_definition_versions(
         %Client{} = client,
@@ -4804,6 +4862,7 @@ defmodule AWS.Greengrass do
   @spec list_connector_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_connector_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_connector_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -4845,6 +4904,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_core_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_core_definition_versions_errors()}
   def list_core_definition_versions(
         %Client{} = client,
@@ -4882,6 +4942,7 @@ defmodule AWS.Greengrass do
   @spec list_core_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_core_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_core_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -4917,6 +4978,7 @@ defmodule AWS.Greengrass do
   @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
@@ -4960,6 +5022,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_device_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_definition_versions_errors()}
   def list_device_definition_versions(
         %Client{} = client,
@@ -4999,6 +5062,7 @@ defmodule AWS.Greengrass do
   @spec list_device_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_device_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_device_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -5040,6 +5104,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_function_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_function_definition_versions_errors()}
   def list_function_definition_versions(
         %Client{} = client,
@@ -5079,6 +5144,7 @@ defmodule AWS.Greengrass do
   @spec list_function_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_function_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_function_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -5114,6 +5180,7 @@ defmodule AWS.Greengrass do
   @spec list_group_certificate_authorities(map(), String.t(), list()) ::
           {:ok, list_group_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_certificate_authorities_errors()}
   def list_group_certificate_authorities(%Client{} = client, group_id, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/certificateauthorities"
@@ -5131,6 +5198,7 @@ defmodule AWS.Greengrass do
   @spec list_group_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_group_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_versions_errors()}
   def list_group_versions(
         %Client{} = client,
@@ -5168,6 +5236,7 @@ defmodule AWS.Greengrass do
   @spec list_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_groups(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/greengrass/groups"
     headers = []
@@ -5204,6 +5273,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_logger_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_logger_definition_versions_errors()}
   def list_logger_definition_versions(
         %Client{} = client,
@@ -5243,6 +5313,7 @@ defmodule AWS.Greengrass do
   @spec list_logger_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_logger_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_logger_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -5284,6 +5355,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_resource_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_definition_versions_errors()}
   def list_resource_definition_versions(
         %Client{} = client,
@@ -5323,6 +5395,7 @@ defmodule AWS.Greengrass do
   @spec list_resource_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_resource_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_resource_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -5364,6 +5437,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, list_subscription_definition_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscription_definition_versions_errors()}
   def list_subscription_definition_versions(
         %Client{} = client,
@@ -5403,6 +5477,7 @@ defmodule AWS.Greengrass do
   @spec list_subscription_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_subscription_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_subscription_definitions(
         %Client{} = client,
         max_results \\ nil,
@@ -5438,6 +5513,7 @@ defmodule AWS.Greengrass do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5455,6 +5531,7 @@ defmodule AWS.Greengrass do
   @spec reset_deployments(map(), String.t(), reset_deployments_request(), list()) ::
           {:ok, reset_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_deployments_errors()}
   def reset_deployments(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}/deployments/$reset"
@@ -5495,6 +5572,7 @@ defmodule AWS.Greengrass do
   @spec start_bulk_deployment(map(), start_bulk_deployment_request(), list()) ::
           {:ok, start_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bulk_deployment_errors()}
   def start_bulk_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/bulk/deployments"
@@ -5534,6 +5612,7 @@ defmodule AWS.Greengrass do
   @spec stop_bulk_deployment(map(), String.t(), stop_bulk_deployment_request(), list()) ::
           {:ok, stop_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_bulk_deployment_errors()}
   def stop_bulk_deployment(%Client{} = client, bulk_deployment_id, input, options \\ []) do
     url_path = "/greengrass/bulk/deployments/#{AWS.Util.encode_uri(bulk_deployment_id)}/$stop"
@@ -5566,6 +5645,7 @@ defmodule AWS.Greengrass do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5594,6 +5674,7 @@ defmodule AWS.Greengrass do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5630,6 +5711,7 @@ defmodule AWS.Greengrass do
   @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connectivity_info_errors()}
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
@@ -5663,6 +5745,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_definition_errors()}
   def update_connector_definition(
         %Client{} = client,
@@ -5696,6 +5779,7 @@ defmodule AWS.Greengrass do
   @spec update_core_definition(map(), String.t(), update_core_definition_request(), list()) ::
           {:ok, update_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_core_definition_errors()}
   def update_core_definition(%Client{} = client, core_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/cores/#{AWS.Util.encode_uri(core_definition_id)}"
@@ -5724,6 +5808,7 @@ defmodule AWS.Greengrass do
   @spec update_device_definition(map(), String.t(), update_device_definition_request(), list()) ::
           {:ok, update_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_definition_errors()}
   def update_device_definition(%Client{} = client, device_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/devices/#{AWS.Util.encode_uri(device_definition_id)}"
@@ -5757,6 +5842,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_definition_errors()}
   def update_function_definition(%Client{} = client, function_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/functions/#{AWS.Util.encode_uri(function_definition_id)}"
@@ -5785,6 +5871,7 @@ defmodule AWS.Greengrass do
   @spec update_group(map(), String.t(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, group_id, input, options \\ []) do
     url_path = "/greengrass/groups/#{AWS.Util.encode_uri(group_id)}"
@@ -5818,6 +5905,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_certificate_configuration_errors()}
   def update_group_certificate_configuration(%Client{} = client, group_id, input, options \\ []) do
     url_path =
@@ -5848,6 +5936,7 @@ defmodule AWS.Greengrass do
   @spec update_logger_definition(map(), String.t(), update_logger_definition_request(), list()) ::
           {:ok, update_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_logger_definition_errors()}
   def update_logger_definition(%Client{} = client, logger_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/loggers/#{AWS.Util.encode_uri(logger_definition_id)}"
@@ -5881,6 +5970,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_definition_errors()}
   def update_resource_definition(%Client{} = client, resource_definition_id, input, options \\ []) do
     url_path = "/greengrass/definition/resources/#{AWS.Util.encode_uri(resource_definition_id)}"
@@ -5914,6 +6004,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_definition_errors()}
   def update_subscription_definition(
         %Client{} = client,
@@ -5954,6 +6045,7 @@ defmodule AWS.Greengrass do
         ) ::
           {:ok, update_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_runtime_configuration_errors()}
   def update_thing_runtime_configuration(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/runtimeconfig"

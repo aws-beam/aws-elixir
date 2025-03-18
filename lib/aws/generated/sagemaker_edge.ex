@@ -214,6 +214,7 @@ defmodule AWS.SagemakerEdge do
   @spec get_deployments(map(), get_deployments_request(), list()) ::
           {:ok, get_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployments_errors()}
   def get_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeployments"
@@ -242,6 +243,7 @@ defmodule AWS.SagemakerEdge do
   @spec get_device_registration(map(), get_device_registration_request(), list()) ::
           {:ok, get_device_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_registration_errors()}
   def get_device_registration(%Client{} = client, input, options \\ []) do
     url_path = "/GetDeviceRegistration"
@@ -270,6 +272,7 @@ defmodule AWS.SagemakerEdge do
   @spec send_heartbeat(map(), send_heartbeat_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_heartbeat_errors()}
   def send_heartbeat(%Client{} = client, input, options \\ []) do
     url_path = "/SendHeartbeat"

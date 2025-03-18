@@ -697,6 +697,7 @@ defmodule AWS.MWAA do
   @spec create_cli_token(map(), String.t(), create_cli_token_request(), list()) ::
           {:ok, create_cli_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cli_token_errors()}
   def create_cli_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/clitoken/#{AWS.Util.encode_uri(name)}"
@@ -726,6 +727,7 @@ defmodule AWS.MWAA do
   @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
@@ -756,6 +758,7 @@ defmodule AWS.MWAA do
   @spec create_web_login_token(map(), String.t(), create_web_login_token_request(), list()) ::
           {:ok, create_web_login_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_web_login_token_errors()}
   def create_web_login_token(%Client{} = client, name, input, options \\ []) do
     url_path = "/webtoken/#{AWS.Util.encode_uri(name)}"
@@ -785,6 +788,7 @@ defmodule AWS.MWAA do
   @spec delete_environment(map(), String.t(), delete_environment_input(), list()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
@@ -813,6 +817,7 @@ defmodule AWS.MWAA do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, name, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"
@@ -833,6 +838,7 @@ defmodule AWS.MWAA do
   @spec invoke_rest_api(map(), String.t(), invoke_rest_api_request(), list()) ::
           {:ok, invoke_rest_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_rest_api_errors()}
   def invoke_rest_api(%Client{} = client, name, input, options \\ []) do
     url_path = "/restapi/#{AWS.Util.encode_uri(name)}"
@@ -861,6 +867,7 @@ defmodule AWS.MWAA do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environments"
@@ -895,6 +902,7 @@ defmodule AWS.MWAA do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -915,6 +923,7 @@ defmodule AWS.MWAA do
   @spec publish_metrics(map(), String.t(), publish_metrics_input(), list()) ::
           {:ok, publish_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_metrics_errors()}
   def publish_metrics(%Client{} = client, environment_name, input, options \\ []) do
     url_path = "/metrics/environments/#{AWS.Util.encode_uri(environment_name)}"
@@ -944,6 +953,7 @@ defmodule AWS.MWAA do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -975,6 +985,7 @@ defmodule AWS.MWAA do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1008,6 +1019,7 @@ defmodule AWS.MWAA do
   @spec update_environment(map(), String.t(), update_environment_input(), list()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, name, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(name)}"

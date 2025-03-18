@@ -2902,6 +2902,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, attach_customer_managed_policy_reference_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_customer_managed_policy_reference_to_permission_set_errors()}
   def attach_customer_managed_policy_reference_to_permission_set(
         %Client{} = client,
@@ -2942,6 +2943,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, attach_managed_policy_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_managed_policy_to_permission_set_errors()}
   def attach_managed_policy_to_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2983,6 +2985,7 @@ defmodule AWS.SSOAdmin do
   @spec create_account_assignment(map(), create_account_assignment_request(), list()) ::
           {:ok, create_account_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_assignment_errors()}
   def create_account_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2997,6 +3000,7 @@ defmodule AWS.SSOAdmin do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3010,6 +3014,7 @@ defmodule AWS.SSOAdmin do
   @spec create_application_assignment(map(), create_application_assignment_request(), list()) ::
           {:ok, create_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_assignment_errors()}
   def create_application_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3037,6 +3042,7 @@ defmodule AWS.SSOAdmin do
   @spec create_instance(map(), create_instance_request(), list()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3064,6 +3070,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, create_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_access_control_attribute_configuration_errors()}
   def create_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -3097,6 +3104,7 @@ defmodule AWS.SSOAdmin do
   @spec create_permission_set(map(), create_permission_set_request(), list()) ::
           {:ok, create_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_permission_set_errors()}
   def create_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3120,6 +3128,7 @@ defmodule AWS.SSOAdmin do
   @spec create_trusted_token_issuer(map(), create_trusted_token_issuer_request(), list()) ::
           {:ok, create_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trusted_token_issuer_errors()}
   def create_trusted_token_issuer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3139,6 +3148,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_account_assignment(map(), delete_account_assignment_request(), list()) ::
           {:ok, delete_account_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_assignment_errors()}
   def delete_account_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3155,6 +3165,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3168,6 +3179,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_application_access_scope(map(), delete_application_access_scope_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_access_scope_errors()}
   def delete_application_access_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3183,6 +3195,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_application_assignment(map(), delete_application_assignment_request(), list()) ::
           {:ok, delete_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_assignment_errors()}
   def delete_application_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3200,6 +3213,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_authentication_method_errors()}
   def delete_application_authentication_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3213,6 +3227,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_application_grant(map(), delete_application_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_grant_errors()}
   def delete_application_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3230,6 +3245,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, delete_inline_policy_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inline_policy_from_permission_set_errors()}
   def delete_inline_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3248,6 +3264,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_instance(map(), delete_instance_request(), list()) ::
           {:ok, delete_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3273,6 +3290,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, delete_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_access_control_attribute_configuration_errors()}
   def delete_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -3296,6 +3314,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_permission_set(map(), delete_permission_set_request(), list()) ::
           {:ok, delete_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_set_errors()}
   def delete_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3313,6 +3332,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, delete_permissions_boundary_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permissions_boundary_from_permission_set_errors()}
   def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3336,6 +3356,7 @@ defmodule AWS.SSOAdmin do
   @spec delete_trusted_token_issuer(map(), delete_trusted_token_issuer_request(), list()) ::
           {:ok, delete_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trusted_token_issuer_errors()}
   def delete_trusted_token_issuer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3353,6 +3374,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, describe_account_assignment_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_assignment_creation_status_errors()}
   def describe_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3370,6 +3392,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, describe_account_assignment_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_assignment_deletion_status_errors()}
   def describe_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3384,6 +3407,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_application(map(), describe_application_request(), list()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3402,6 +3426,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_application_assignment(map(), describe_application_assignment_request(), list()) ::
           {:ok, describe_application_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_assignment_errors()}
   def describe_application_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3417,6 +3442,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_application_provider(map(), describe_application_provider_request(), list()) ::
           {:ok, describe_application_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_provider_errors()}
   def describe_application_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3449,6 +3475,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_instance(map(), describe_instance_request(), list()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_errors()}
   def describe_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3474,6 +3501,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, describe_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_access_control_attribute_configuration_errors()}
   def describe_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -3497,6 +3525,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_permission_set(map(), describe_permission_set_request(), list()) ::
           {:ok, describe_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_permission_set_errors()}
   def describe_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3514,6 +3543,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, describe_permission_set_provisioning_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_permission_set_provisioning_status_errors()}
   def describe_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3532,6 +3562,7 @@ defmodule AWS.SSOAdmin do
   @spec describe_trusted_token_issuer(map(), describe_trusted_token_issuer_request(), list()) ::
           {:ok, describe_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusted_token_issuer_errors()}
   def describe_trusted_token_issuer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3550,6 +3581,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, detach_customer_managed_policy_reference_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_customer_managed_policy_reference_from_permission_set_errors()}
   def detach_customer_managed_policy_reference_from_permission_set(
         %Client{} = client,
@@ -3579,6 +3611,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, detach_managed_policy_from_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_managed_policy_from_permission_set_errors()}
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3593,6 +3626,7 @@ defmodule AWS.SSOAdmin do
   @spec get_application_access_scope(map(), get_application_access_scope_request(), list()) ::
           {:ok, get_application_access_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_access_scope_errors()}
   def get_application_access_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3610,6 +3644,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, get_application_assignment_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_assignment_configuration_errors()}
   def get_application_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3627,6 +3662,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, get_application_authentication_method_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_authentication_method_errors()}
   def get_application_authentication_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3640,6 +3676,7 @@ defmodule AWS.SSOAdmin do
   @spec get_application_grant(map(), get_application_grant_request(), list()) ::
           {:ok, get_application_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_grant_errors()}
   def get_application_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3657,6 +3694,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, get_inline_policy_for_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_inline_policy_for_permission_set_errors()}
   def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3674,6 +3712,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, get_permissions_boundary_for_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_permissions_boundary_for_permission_set_errors()}
   def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3693,6 +3732,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_account_assignment_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_assignment_creation_status_errors()}
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3712,6 +3752,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_account_assignment_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_assignment_deletion_status_errors()}
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3727,6 +3768,7 @@ defmodule AWS.SSOAdmin do
   @spec list_account_assignments(map(), list_account_assignments_request(), list()) ::
           {:ok, list_account_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_assignments_errors()}
   def list_account_assignments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3746,6 +3788,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_account_assignments_for_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_assignments_for_principal_errors()}
   def list_account_assignments_for_principal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3764,6 +3807,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_accounts_for_provisioned_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accounts_for_provisioned_permission_set_errors()}
   def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3777,6 +3821,7 @@ defmodule AWS.SSOAdmin do
   @spec list_application_access_scopes(map(), list_application_access_scopes_request(), list()) ::
           {:ok, list_application_access_scopes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_access_scopes_errors()}
   def list_application_access_scopes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3790,6 +3835,7 @@ defmodule AWS.SSOAdmin do
   @spec list_application_assignments(map(), list_application_assignments_request(), list()) ::
           {:ok, list_application_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_assignments_errors()}
   def list_application_assignments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3807,6 +3853,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_application_assignments_for_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_assignments_for_principal_errors()}
   def list_application_assignments_for_principal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3824,6 +3871,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_application_authentication_methods_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_authentication_methods_errors()}
   def list_application_authentication_methods(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3837,6 +3885,7 @@ defmodule AWS.SSOAdmin do
   @spec list_application_grants(map(), list_application_grants_request(), list()) ::
           {:ok, list_application_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_grants_errors()}
   def list_application_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3851,6 +3900,7 @@ defmodule AWS.SSOAdmin do
   @spec list_application_providers(map(), list_application_providers_request(), list()) ::
           {:ok, list_application_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_providers_errors()}
   def list_application_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3868,6 +3918,7 @@ defmodule AWS.SSOAdmin do
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3885,6 +3936,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_customer_managed_policy_references_in_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_customer_managed_policy_references_in_permission_set_errors()}
   def list_customer_managed_policy_references_in_permission_set(
         %Client{} = client,
@@ -3910,6 +3962,7 @@ defmodule AWS.SSOAdmin do
   @spec list_instances(map(), list_instances_request(), list()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3928,6 +3981,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_managed_policies_in_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_policies_in_permission_set_errors()}
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3947,6 +4001,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_permission_set_provisioning_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_set_provisioning_status_errors()}
   def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3960,6 +4015,7 @@ defmodule AWS.SSOAdmin do
   @spec list_permission_sets(map(), list_permission_sets_request(), list()) ::
           {:ok, list_permission_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_sets_errors()}
   def list_permission_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3979,6 +4035,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, list_permission_sets_provisioned_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_sets_provisioned_to_account_errors()}
   def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3992,6 +4049,7 @@ defmodule AWS.SSOAdmin do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4006,6 +4064,7 @@ defmodule AWS.SSOAdmin do
   @spec list_trusted_token_issuers(map(), list_trusted_token_issuers_request(), list()) ::
           {:ok, list_trusted_token_issuers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trusted_token_issuers_errors()}
   def list_trusted_token_issuers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4020,6 +4079,7 @@ defmodule AWS.SSOAdmin do
   @spec provision_permission_set(map(), provision_permission_set_request(), list()) ::
           {:ok, provision_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, provision_permission_set_errors()}
   def provision_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4035,6 +4095,7 @@ defmodule AWS.SSOAdmin do
   @spec put_application_access_scope(map(), put_application_access_scope_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_application_access_scope_errors()}
   def put_application_access_scope(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4060,6 +4121,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, put_application_assignment_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_application_assignment_configuration_errors()}
   def put_application_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4077,6 +4139,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_application_authentication_method_errors()}
   def put_application_authentication_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4090,6 +4153,7 @@ defmodule AWS.SSOAdmin do
   @spec put_application_grant(map(), put_application_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_application_grant_errors()}
   def put_application_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4120,6 +4184,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, put_inline_policy_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_inline_policy_to_permission_set_errors()}
   def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4138,6 +4203,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, put_permissions_boundary_to_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_permissions_boundary_to_permission_set_errors()}
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4151,6 +4217,7 @@ defmodule AWS.SSOAdmin do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4164,6 +4231,7 @@ defmodule AWS.SSOAdmin do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4177,6 +4245,7 @@ defmodule AWS.SSOAdmin do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4191,6 +4260,7 @@ defmodule AWS.SSOAdmin do
   @spec update_instance(map(), update_instance_request(), list()) ::
           {:ok, update_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4220,6 +4290,7 @@ defmodule AWS.SSOAdmin do
         ) ::
           {:ok, update_instance_access_control_attribute_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_access_control_attribute_configuration_errors()}
   def update_instance_access_control_attribute_configuration(
         %Client{} = client,
@@ -4243,6 +4314,7 @@ defmodule AWS.SSOAdmin do
   @spec update_permission_set(map(), update_permission_set_request(), list()) ::
           {:ok, update_permission_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_permission_set_errors()}
   def update_permission_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4260,6 +4332,7 @@ defmodule AWS.SSOAdmin do
   @spec update_trusted_token_issuer(map(), update_trusted_token_issuer_request(), list()) ::
           {:ok, update_trusted_token_issuer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trusted_token_issuer_errors()}
   def update_trusted_token_issuer(%Client{} = client, input, options \\ []) do
     meta = metadata()

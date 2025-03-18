@@ -1079,6 +1079,7 @@ defmodule AWS.Translate do
   @spec create_parallel_data(map(), create_parallel_data_request(), list()) ::
           {:ok, create_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_parallel_data_errors()}
   def create_parallel_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1092,6 +1093,7 @@ defmodule AWS.Translate do
   @spec delete_parallel_data(map(), delete_parallel_data_request(), list()) ::
           {:ok, delete_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_parallel_data_errors()}
   def delete_parallel_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1105,6 +1107,7 @@ defmodule AWS.Translate do
   @spec delete_terminology(map(), delete_terminology_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_terminology_errors()}
   def delete_terminology(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1120,6 +1123,7 @@ defmodule AWS.Translate do
   @spec describe_text_translation_job(map(), describe_text_translation_job_request(), list()) ::
           {:ok, describe_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_text_translation_job_errors()}
   def describe_text_translation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1133,6 +1137,7 @@ defmodule AWS.Translate do
   @spec get_parallel_data(map(), get_parallel_data_request(), list()) ::
           {:ok, get_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parallel_data_errors()}
   def get_parallel_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1146,6 +1151,7 @@ defmodule AWS.Translate do
   @spec get_terminology(map(), get_terminology_request(), list()) ::
           {:ok, get_terminology_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_terminology_errors()}
   def get_terminology(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1174,6 +1180,7 @@ defmodule AWS.Translate do
   @spec import_terminology(map(), import_terminology_request(), list()) ::
           {:ok, import_terminology_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_terminology_errors()}
   def import_terminology(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1188,6 +1195,7 @@ defmodule AWS.Translate do
   @spec list_languages(map(), list_languages_request(), list()) ::
           {:ok, list_languages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_languages_errors()}
   def list_languages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1201,6 +1209,7 @@ defmodule AWS.Translate do
   @spec list_parallel_data(map(), list_parallel_data_request(), list()) ::
           {:ok, list_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_parallel_data_errors()}
   def list_parallel_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1218,6 +1227,7 @@ defmodule AWS.Translate do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1231,6 +1241,7 @@ defmodule AWS.Translate do
   @spec list_terminologies(map(), list_terminologies_request(), list()) ::
           {:ok, list_terminologies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_terminologies_errors()}
   def list_terminologies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1244,6 +1255,7 @@ defmodule AWS.Translate do
   @spec list_text_translation_jobs(map(), list_text_translation_jobs_request(), list()) ::
           {:ok, list_text_translation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_text_translation_jobs_errors()}
   def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1271,6 +1283,7 @@ defmodule AWS.Translate do
   @spec start_text_translation_job(map(), start_text_translation_job_request(), list()) ::
           {:ok, start_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_text_translation_job_errors()}
   def start_text_translation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1295,6 +1308,7 @@ defmodule AWS.Translate do
   @spec stop_text_translation_job(map(), stop_text_translation_job_request(), list()) ::
           {:ok, stop_text_translation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_text_translation_job_errors()}
   def stop_text_translation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1314,6 +1328,7 @@ defmodule AWS.Translate do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1342,6 +1357,7 @@ defmodule AWS.Translate do
   @spec translate_document(map(), translate_document_request(), list()) ::
           {:ok, translate_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, translate_document_errors()}
   def translate_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1358,6 +1374,7 @@ defmodule AWS.Translate do
   @spec translate_text(map(), translate_text_request(), list()) ::
           {:ok, translate_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, translate_text_errors()}
   def translate_text(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1375,6 +1392,7 @@ defmodule AWS.Translate do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1390,6 +1408,7 @@ defmodule AWS.Translate do
   @spec update_parallel_data(map(), update_parallel_data_request(), list()) ::
           {:ok, update_parallel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_parallel_data_errors()}
   def update_parallel_data(%Client{} = client, input, options \\ []) do
     meta = metadata()

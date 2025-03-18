@@ -3128,6 +3128,7 @@ defmodule AWS.Personalize do
   @spec create_batch_inference_job(map(), create_batch_inference_job_request(), list()) ::
           {:ok, create_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_inference_job_errors()}
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3145,6 +3146,7 @@ defmodule AWS.Personalize do
   @spec create_batch_segment_job(map(), create_batch_segment_job_request(), list()) ::
           {:ok, create_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_segment_job_errors()}
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3234,6 +3236,7 @@ defmodule AWS.Personalize do
   @spec create_campaign(map(), create_campaign_request(), list()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3299,6 +3302,7 @@ defmodule AWS.Personalize do
   @spec create_data_deletion_job(map(), create_data_deletion_job_request(), list()) ::
           {:ok, create_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_deletion_job_errors()}
   def create_data_deletion_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3367,6 +3371,7 @@ defmodule AWS.Personalize do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3401,6 +3406,7 @@ defmodule AWS.Personalize do
   @spec create_dataset_export_job(map(), create_dataset_export_job_request(), list()) ::
           {:ok, create_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_export_job_errors()}
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3492,6 +3498,7 @@ defmodule AWS.Personalize do
   @spec create_dataset_group(map(), create_dataset_group_request(), list()) ::
           {:ok, create_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3552,6 +3559,7 @@ defmodule AWS.Personalize do
   @spec create_dataset_import_job(map(), create_dataset_import_job_request(), list()) ::
           {:ok, create_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3606,6 +3614,7 @@ defmodule AWS.Personalize do
   @spec create_event_tracker(map(), create_event_tracker_request(), list()) ::
           {:ok, create_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_tracker_errors()}
   def create_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3621,6 +3630,7 @@ defmodule AWS.Personalize do
   @spec create_filter(map(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_filter_errors()}
   def create_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3639,6 +3649,7 @@ defmodule AWS.Personalize do
   @spec create_metric_attribution(map(), create_metric_attribution_request(), list()) ::
           {:ok, create_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_metric_attribution_errors()}
   def create_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3734,6 +3745,7 @@ defmodule AWS.Personalize do
   @spec create_recommender(map(), create_recommender_request(), list()) ::
           {:ok, create_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recommender_errors()}
   def create_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3771,6 +3783,7 @@ defmodule AWS.Personalize do
   @spec create_schema(map(), create_schema_request(), list()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3875,6 +3888,7 @@ defmodule AWS.Personalize do
   @spec create_solution(map(), create_solution_request(), list()) ::
           {:ok, create_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_solution_errors()}
   def create_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3949,6 +3963,7 @@ defmodule AWS.Personalize do
   @spec create_solution_version(map(), create_solution_version_request(), list()) ::
           {:ok, create_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_solution_version_errors()}
   def create_solution_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3970,6 +3985,7 @@ defmodule AWS.Personalize do
   @spec delete_campaign(map(), delete_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3988,6 +4004,7 @@ defmodule AWS.Personalize do
   @spec delete_dataset(map(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4013,6 +4030,7 @@ defmodule AWS.Personalize do
   @spec delete_dataset_group(map(), delete_dataset_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4031,6 +4049,7 @@ defmodule AWS.Personalize do
   @spec delete_event_tracker(map(), delete_event_tracker_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_tracker_errors()}
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4044,6 +4063,7 @@ defmodule AWS.Personalize do
   @spec delete_filter(map(), delete_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_filter_errors()}
   def delete_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4057,6 +4077,7 @@ defmodule AWS.Personalize do
   @spec delete_metric_attribution(map(), delete_metric_attribution_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_metric_attribution_errors()}
   def delete_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4074,6 +4095,7 @@ defmodule AWS.Personalize do
   @spec delete_recommender(map(), delete_recommender_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recommender_errors()}
   def delete_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4091,6 +4113,7 @@ defmodule AWS.Personalize do
   @spec delete_schema(map(), delete_schema_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4112,6 +4135,7 @@ defmodule AWS.Personalize do
   @spec delete_solution(map(), delete_solution_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_solution_errors()}
   def delete_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4125,6 +4149,7 @@ defmodule AWS.Personalize do
   @spec describe_algorithm(map(), describe_algorithm_request(), list()) ::
           {:ok, describe_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_algorithm_errors()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4142,6 +4167,7 @@ defmodule AWS.Personalize do
   @spec describe_batch_inference_job(map(), describe_batch_inference_job_request(), list()) ::
           {:ok, describe_batch_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_batch_inference_job_errors()}
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4159,6 +4185,7 @@ defmodule AWS.Personalize do
   @spec describe_batch_segment_job(map(), describe_batch_segment_job_request(), list()) ::
           {:ok, describe_batch_segment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_batch_segment_job_errors()}
   def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4186,6 +4213,7 @@ defmodule AWS.Personalize do
   @spec describe_campaign(map(), describe_campaign_request(), list()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_campaign_errors()}
   def describe_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4201,6 +4229,7 @@ defmodule AWS.Personalize do
   @spec describe_data_deletion_job(map(), describe_data_deletion_job_request(), list()) ::
           {:ok, describe_data_deletion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_deletion_job_errors()}
   def describe_data_deletion_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4217,6 +4246,7 @@ defmodule AWS.Personalize do
   @spec describe_dataset(map(), describe_dataset_request(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4232,6 +4262,7 @@ defmodule AWS.Personalize do
   @spec describe_dataset_export_job(map(), describe_dataset_export_job_request(), list()) ::
           {:ok, describe_dataset_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_export_job_errors()}
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4249,6 +4280,7 @@ defmodule AWS.Personalize do
   @spec describe_dataset_group(map(), describe_dataset_group_request(), list()) ::
           {:ok, describe_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4264,6 +4296,7 @@ defmodule AWS.Personalize do
   @spec describe_dataset_import_job(map(), describe_dataset_import_job_request(), list()) ::
           {:ok, describe_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4282,6 +4315,7 @@ defmodule AWS.Personalize do
   @spec describe_event_tracker(map(), describe_event_tracker_request(), list()) ::
           {:ok, describe_event_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_tracker_errors()}
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4295,6 +4329,7 @@ defmodule AWS.Personalize do
   @spec describe_feature_transformation(map(), describe_feature_transformation_request(), list()) ::
           {:ok, describe_feature_transformation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_feature_transformation_errors()}
   def describe_feature_transformation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4308,6 +4343,7 @@ defmodule AWS.Personalize do
   @spec describe_filter(map(), describe_filter_request(), list()) ::
           {:ok, describe_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_filter_errors()}
   def describe_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4321,6 +4357,7 @@ defmodule AWS.Personalize do
   @spec describe_metric_attribution(map(), describe_metric_attribution_request(), list()) ::
           {:ok, describe_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metric_attribution_errors()}
   def describe_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4356,6 +4393,7 @@ defmodule AWS.Personalize do
   @spec describe_recipe(map(), describe_recipe_request(), list()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recipe_errors()}
   def describe_recipe(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4390,6 +4428,7 @@ defmodule AWS.Personalize do
   @spec describe_recommender(map(), describe_recommender_request(), list()) ::
           {:ok, describe_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recommender_errors()}
   def describe_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4406,6 +4445,7 @@ defmodule AWS.Personalize do
   @spec describe_schema(map(), describe_schema_request(), list()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_schema_errors()}
   def describe_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4422,6 +4462,7 @@ defmodule AWS.Personalize do
   @spec describe_solution(map(), describe_solution_request(), list()) ::
           {:ok, describe_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_solution_errors()}
   def describe_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4438,6 +4479,7 @@ defmodule AWS.Personalize do
   @spec describe_solution_version(map(), describe_solution_version_request(), list()) ::
           {:ok, describe_solution_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_solution_version_errors()}
   def describe_solution_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4451,6 +4493,7 @@ defmodule AWS.Personalize do
   @spec get_solution_metrics(map(), get_solution_metrics_request(), list()) ::
           {:ok, get_solution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_solution_metrics_errors()}
   def get_solution_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4466,6 +4509,7 @@ defmodule AWS.Personalize do
   @spec list_batch_inference_jobs(map(), list_batch_inference_jobs_request(), list()) ::
           {:ok, list_batch_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_inference_jobs_errors()}
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4480,6 +4524,7 @@ defmodule AWS.Personalize do
   @spec list_batch_segment_jobs(map(), list_batch_segment_jobs_request(), list()) ::
           {:ok, list_batch_segment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_segment_jobs_errors()}
   def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4500,6 +4545,7 @@ defmodule AWS.Personalize do
   @spec list_campaigns(map(), list_campaigns_request(), list()) ::
           {:ok, list_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4521,6 +4567,7 @@ defmodule AWS.Personalize do
   @spec list_data_deletion_jobs(map(), list_data_deletion_jobs_request(), list()) ::
           {:ok, list_data_deletion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_deletion_jobs_errors()}
   def list_data_deletion_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4542,6 +4589,7 @@ defmodule AWS.Personalize do
   @spec list_dataset_export_jobs(map(), list_dataset_export_jobs_request(), list()) ::
           {:ok, list_dataset_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_export_jobs_errors()}
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4560,6 +4608,7 @@ defmodule AWS.Personalize do
   @spec list_dataset_groups(map(), list_dataset_groups_request(), list()) ::
           {:ok, list_dataset_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4581,6 +4630,7 @@ defmodule AWS.Personalize do
   @spec list_dataset_import_jobs(map(), list_dataset_import_jobs_request(), list()) ::
           {:ok, list_dataset_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4599,6 +4649,7 @@ defmodule AWS.Personalize do
   @spec list_datasets(map(), list_datasets_request(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4618,6 +4669,7 @@ defmodule AWS.Personalize do
   @spec list_event_trackers(map(), list_event_trackers_request(), list()) ::
           {:ok, list_event_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_trackers_errors()}
   def list_event_trackers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4631,6 +4683,7 @@ defmodule AWS.Personalize do
   @spec list_filters(map(), list_filters_request(), list()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_filters_errors()}
   def list_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4644,6 +4697,7 @@ defmodule AWS.Personalize do
   @spec list_metric_attribution_metrics(map(), list_metric_attribution_metrics_request(), list()) ::
           {:ok, list_metric_attribution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metric_attribution_metrics_errors()}
   def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4657,6 +4711,7 @@ defmodule AWS.Personalize do
   @spec list_metric_attributions(map(), list_metric_attributions_request(), list()) ::
           {:ok, list_metric_attributions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metric_attributions_errors()}
   def list_metric_attributions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4673,6 +4728,7 @@ defmodule AWS.Personalize do
   @spec list_recipes(map(), list_recipes_request(), list()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recipes_errors()}
   def list_recipes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4693,6 +4749,7 @@ defmodule AWS.Personalize do
   @spec list_recommenders(map(), list_recommenders_request(), list()) ::
           {:ok, list_recommenders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommenders_errors()}
   def list_recommenders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4711,6 +4768,7 @@ defmodule AWS.Personalize do
   @spec list_schemas(map(), list_schemas_request(), list()) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4730,6 +4788,7 @@ defmodule AWS.Personalize do
   @spec list_solution_versions(map(), list_solution_versions_request(), list()) ::
           {:ok, list_solution_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_solution_versions_errors()}
   def list_solution_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4750,6 +4809,7 @@ defmodule AWS.Personalize do
   @spec list_solutions(map(), list_solutions_request(), list()) ::
           {:ok, list_solutions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4765,6 +4825,7 @@ defmodule AWS.Personalize do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4782,6 +4843,7 @@ defmodule AWS.Personalize do
   @spec start_recommender(map(), start_recommender_request(), list()) ::
           {:ok, start_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_recommender_errors()}
   def start_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4798,6 +4860,7 @@ defmodule AWS.Personalize do
   @spec stop_recommender(map(), stop_recommender_request(), list()) ::
           {:ok, stop_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_recommender_errors()}
   def stop_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4827,6 +4890,7 @@ defmodule AWS.Personalize do
   @spec stop_solution_version_creation(map(), stop_solution_version_creation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_solution_version_creation_errors()}
   def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4840,6 +4904,7 @@ defmodule AWS.Personalize do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4855,6 +4920,7 @@ defmodule AWS.Personalize do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4899,6 +4965,7 @@ defmodule AWS.Personalize do
   @spec update_campaign(map(), update_campaign_request(), list()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4914,6 +4981,7 @@ defmodule AWS.Personalize do
   @spec update_dataset(map(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4927,6 +4995,7 @@ defmodule AWS.Personalize do
   @spec update_metric_attribution(map(), update_metric_attribution_request(), list()) ::
           {:ok, update_metric_attribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_metric_attribution_errors()}
   def update_metric_attribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4950,6 +5019,7 @@ defmodule AWS.Personalize do
   @spec update_recommender(map(), update_recommender_request(), list()) ::
           {:ok, update_recommender_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recommender_errors()}
   def update_recommender(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4980,6 +5050,7 @@ defmodule AWS.Personalize do
   @spec update_solution(map(), update_solution_request(), list()) ::
           {:ok, update_solution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_solution_errors()}
   def update_solution(%Client{} = client, input, options \\ []) do
     meta = metadata()

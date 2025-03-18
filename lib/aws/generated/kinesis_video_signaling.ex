@@ -202,6 +202,7 @@ defmodule AWS.KinesisVideoSignaling do
   @spec get_ice_server_config(map(), get_ice_server_config_request(), list()) ::
           {:ok, get_ice_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ice_server_config_errors()}
   def get_ice_server_config(%Client{} = client, input, options \\ []) do
     url_path = "/v1/get-ice-server-config"
@@ -242,6 +243,7 @@ defmodule AWS.KinesisVideoSignaling do
   @spec send_alexa_offer_to_master(map(), send_alexa_offer_to_master_request(), list()) ::
           {:ok, send_alexa_offer_to_master_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_alexa_offer_to_master_errors()}
   def send_alexa_offer_to_master(%Client{} = client, input, options \\ []) do
     url_path = "/v1/send-alexa-offer-to-master"

@@ -3677,6 +3677,7 @@ defmodule AWS.WorkMail do
   @spec associate_delegate_to_resource(map(), associate_delegate_to_resource_request(), list()) ::
           {:ok, associate_delegate_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_delegate_to_resource_errors()}
   def associate_delegate_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3690,6 +3691,7 @@ defmodule AWS.WorkMail do
   @spec associate_member_to_group(map(), associate_member_to_group_request(), list()) ::
           {:ok, associate_member_to_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_member_to_group_errors()}
   def associate_member_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3706,6 +3708,7 @@ defmodule AWS.WorkMail do
   @spec assume_impersonation_role(map(), assume_impersonation_role_request(), list()) ::
           {:ok, assume_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_impersonation_role_errors()}
   def assume_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3722,6 +3725,7 @@ defmodule AWS.WorkMail do
   @spec cancel_mailbox_export_job(map(), cancel_mailbox_export_job_request(), list()) ::
           {:ok, cancel_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_mailbox_export_job_errors()}
   def cancel_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3735,6 +3739,7 @@ defmodule AWS.WorkMail do
   @spec create_alias(map(), create_alias_request(), list()) ::
           {:ok, create_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3753,6 +3758,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, create_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_availability_configuration_errors()}
   def create_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3767,6 +3773,7 @@ defmodule AWS.WorkMail do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3789,6 +3796,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, create_identity_center_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_identity_center_application_errors()}
   def create_identity_center_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3808,6 +3816,7 @@ defmodule AWS.WorkMail do
   @spec create_impersonation_role(map(), create_impersonation_role_request(), list()) ::
           {:ok, create_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_impersonation_role_errors()}
   def create_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3825,6 +3834,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, create_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mobile_device_access_rule_errors()}
   def create_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3858,6 +3868,7 @@ defmodule AWS.WorkMail do
   @spec create_organization(map(), create_organization_request(), list()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3871,6 +3882,7 @@ defmodule AWS.WorkMail do
   @spec create_resource(map(), create_resource_request(), list()) ::
           {:ok, create_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3885,6 +3897,7 @@ defmodule AWS.WorkMail do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3902,6 +3915,7 @@ defmodule AWS.WorkMail do
   @spec delete_access_control_rule(map(), delete_access_control_rule_request(), list()) ::
           {:ok, delete_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_control_rule_errors()}
   def delete_access_control_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3916,6 +3930,7 @@ defmodule AWS.WorkMail do
   @spec delete_alias(map(), delete_alias_request(), list()) ::
           {:ok, delete_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3934,6 +3949,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_availability_configuration_errors()}
   def delete_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3951,6 +3967,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_monitoring_configuration_errors()}
   def delete_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3964,6 +3981,7 @@ defmodule AWS.WorkMail do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3985,6 +4003,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_identity_center_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_center_application_errors()}
   def delete_identity_center_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4007,6 +4026,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_provider_configuration_errors()}
   def delete_identity_provider_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4020,6 +4040,7 @@ defmodule AWS.WorkMail do
   @spec delete_impersonation_role(map(), delete_impersonation_role_request(), list()) ::
           {:ok, delete_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_impersonation_role_errors()}
   def delete_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4033,6 +4054,7 @@ defmodule AWS.WorkMail do
   @spec delete_mailbox_permissions(map(), delete_mailbox_permissions_request(), list()) ::
           {:ok, delete_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mailbox_permissions_errors()}
   def delete_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4055,6 +4077,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mobile_device_access_override_errors()}
   def delete_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4076,6 +4099,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, delete_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mobile_device_access_rule_errors()}
   def delete_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4094,6 +4118,7 @@ defmodule AWS.WorkMail do
   @spec delete_organization(map(), delete_organization_request(), list()) ::
           {:ok, delete_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4108,6 +4133,7 @@ defmodule AWS.WorkMail do
   @spec delete_personal_access_token(map(), delete_personal_access_token_request(), list()) ::
           {:ok, delete_personal_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_personal_access_token_errors()}
   def delete_personal_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4121,6 +4147,7 @@ defmodule AWS.WorkMail do
   @spec delete_resource(map(), delete_resource_request(), list()) ::
           {:ok, delete_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4134,6 +4161,7 @@ defmodule AWS.WorkMail do
   @spec delete_retention_policy(map(), delete_retention_policy_request(), list()) ::
           {:ok, delete_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4155,6 +4183,7 @@ defmodule AWS.WorkMail do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4174,6 +4203,7 @@ defmodule AWS.WorkMail do
   @spec deregister_from_work_mail(map(), deregister_from_work_mail_request(), list()) ::
           {:ok, deregister_from_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_from_work_mail_errors()}
   def deregister_from_work_mail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4191,6 +4221,7 @@ defmodule AWS.WorkMail do
   @spec deregister_mail_domain(map(), deregister_mail_domain_request(), list()) ::
           {:ok, deregister_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_mail_domain_errors()}
   def deregister_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4209,6 +4240,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, describe_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_email_monitoring_configuration_errors()}
   def describe_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4222,6 +4254,7 @@ defmodule AWS.WorkMail do
   @spec describe_entity(map(), describe_entity_request(), list()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4235,6 +4268,7 @@ defmodule AWS.WorkMail do
   @spec describe_group(map(), describe_group_request(), list()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4254,6 +4288,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, describe_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_identity_provider_configuration_errors()}
   def describe_identity_provider_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4267,6 +4302,7 @@ defmodule AWS.WorkMail do
   @spec describe_inbound_dmarc_settings(map(), describe_inbound_dmarc_settings_request(), list()) ::
           {:ok, describe_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inbound_dmarc_settings_errors()}
   def describe_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4280,6 +4316,7 @@ defmodule AWS.WorkMail do
   @spec describe_mailbox_export_job(map(), describe_mailbox_export_job_request(), list()) ::
           {:ok, describe_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mailbox_export_job_errors()}
   def describe_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4294,6 +4331,7 @@ defmodule AWS.WorkMail do
   @spec describe_organization(map(), describe_organization_request(), list()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4307,6 +4345,7 @@ defmodule AWS.WorkMail do
   @spec describe_resource(map(), describe_resource_request(), list()) ::
           {:ok, describe_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_errors()}
   def describe_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4320,6 +4359,7 @@ defmodule AWS.WorkMail do
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4337,6 +4377,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, disassociate_delegate_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_delegate_from_resource_errors()}
   def disassociate_delegate_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4350,6 +4391,7 @@ defmodule AWS.WorkMail do
   @spec disassociate_member_from_group(map(), disassociate_member_from_group_request(), list()) ::
           {:ok, disassociate_member_from_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_from_group_errors()}
   def disassociate_member_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4368,6 +4410,7 @@ defmodule AWS.WorkMail do
   @spec get_access_control_effect(map(), get_access_control_effect_request(), list()) ::
           {:ok, get_access_control_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_access_control_effect_errors()}
   def get_access_control_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4381,6 +4424,7 @@ defmodule AWS.WorkMail do
   @spec get_default_retention_policy(map(), get_default_retention_policy_request(), list()) ::
           {:ok, get_default_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_default_retention_policy_errors()}
   def get_default_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4394,6 +4438,7 @@ defmodule AWS.WorkMail do
   @spec get_impersonation_role(map(), get_impersonation_role_request(), list()) ::
           {:ok, get_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_impersonation_role_errors()}
   def get_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4407,6 +4452,7 @@ defmodule AWS.WorkMail do
   @spec get_impersonation_role_effect(map(), get_impersonation_role_effect_request(), list()) ::
           {:ok, get_impersonation_role_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_impersonation_role_effect_errors()}
   def get_impersonation_role_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4421,6 +4467,7 @@ defmodule AWS.WorkMail do
   @spec get_mail_domain(map(), get_mail_domain_request(), list()) ::
           {:ok, get_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mail_domain_errors()}
   def get_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4434,6 +4481,7 @@ defmodule AWS.WorkMail do
   @spec get_mailbox_details(map(), get_mailbox_details_request(), list()) ::
           {:ok, get_mailbox_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mailbox_details_errors()}
   def get_mailbox_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4451,6 +4499,7 @@ defmodule AWS.WorkMail do
   @spec get_mobile_device_access_effect(map(), get_mobile_device_access_effect_request(), list()) ::
           {:ok, get_mobile_device_access_effect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mobile_device_access_effect_errors()}
   def get_mobile_device_access_effect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4469,6 +4518,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, get_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mobile_device_access_override_errors()}
   def get_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4488,6 +4538,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, get_personal_access_token_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_personal_access_token_metadata_errors()}
   def get_personal_access_token_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4501,6 +4552,7 @@ defmodule AWS.WorkMail do
   @spec list_access_control_rules(map(), list_access_control_rules_request(), list()) ::
           {:ok, list_access_control_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_control_rules_errors()}
   def list_access_control_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4515,6 +4567,7 @@ defmodule AWS.WorkMail do
   @spec list_aliases(map(), list_aliases_request(), list()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4532,6 +4585,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, list_availability_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_availability_configurations_errors()}
   def list_availability_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4548,6 +4602,7 @@ defmodule AWS.WorkMail do
   @spec list_group_members(map(), list_group_members_request(), list()) ::
           {:ok, list_group_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_members_errors()}
   def list_group_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4561,6 +4616,7 @@ defmodule AWS.WorkMail do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4574,6 +4630,7 @@ defmodule AWS.WorkMail do
   @spec list_groups_for_entity(map(), list_groups_for_entity_request(), list()) ::
           {:ok, list_groups_for_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_for_entity_errors()}
   def list_groups_for_entity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4587,6 +4644,7 @@ defmodule AWS.WorkMail do
   @spec list_impersonation_roles(map(), list_impersonation_roles_request(), list()) ::
           {:ok, list_impersonation_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_impersonation_roles_errors()}
   def list_impersonation_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4600,6 +4658,7 @@ defmodule AWS.WorkMail do
   @spec list_mail_domains(map(), list_mail_domains_request(), list()) ::
           {:ok, list_mail_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mail_domains_errors()}
   def list_mail_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4615,6 +4674,7 @@ defmodule AWS.WorkMail do
   @spec list_mailbox_export_jobs(map(), list_mailbox_export_jobs_request(), list()) ::
           {:ok, list_mailbox_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mailbox_export_jobs_errors()}
   def list_mailbox_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4629,6 +4689,7 @@ defmodule AWS.WorkMail do
   @spec list_mailbox_permissions(map(), list_mailbox_permissions_request(), list()) ::
           {:ok, list_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mailbox_permissions_errors()}
   def list_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4647,6 +4708,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, list_mobile_device_access_overrides_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mobile_device_access_overrides_errors()}
   def list_mobile_device_access_overrides(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4660,6 +4722,7 @@ defmodule AWS.WorkMail do
   @spec list_mobile_device_access_rules(map(), list_mobile_device_access_rules_request(), list()) ::
           {:ok, list_mobile_device_access_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mobile_device_access_rules_errors()}
   def list_mobile_device_access_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4673,6 +4736,7 @@ defmodule AWS.WorkMail do
   @spec list_organizations(map(), list_organizations_request(), list()) ::
           {:ok, list_organizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organizations_errors()}
   def list_organizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4687,6 +4751,7 @@ defmodule AWS.WorkMail do
   @spec list_personal_access_tokens(map(), list_personal_access_tokens_request(), list()) ::
           {:ok, list_personal_access_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_personal_access_tokens_errors()}
   def list_personal_access_tokens(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4703,6 +4768,7 @@ defmodule AWS.WorkMail do
   @spec list_resource_delegates(map(), list_resource_delegates_request(), list()) ::
           {:ok, list_resource_delegates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_delegates_errors()}
   def list_resource_delegates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4716,6 +4782,7 @@ defmodule AWS.WorkMail do
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4729,6 +4796,7 @@ defmodule AWS.WorkMail do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4742,6 +4810,7 @@ defmodule AWS.WorkMail do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4762,6 +4831,7 @@ defmodule AWS.WorkMail do
   @spec put_access_control_rule(map(), put_access_control_rule_request(), list()) ::
           {:ok, put_access_control_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_access_control_rule_errors()}
   def put_access_control_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4780,6 +4850,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, put_email_monitoring_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_monitoring_configuration_errors()}
   def put_email_monitoring_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4805,6 +4876,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, put_identity_provider_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_identity_provider_configuration_errors()}
   def put_identity_provider_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4818,6 +4890,7 @@ defmodule AWS.WorkMail do
   @spec put_inbound_dmarc_settings(map(), put_inbound_dmarc_settings_request(), list()) ::
           {:ok, put_inbound_dmarc_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_inbound_dmarc_settings_errors()}
   def put_inbound_dmarc_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4834,6 +4907,7 @@ defmodule AWS.WorkMail do
   @spec put_mailbox_permissions(map(), put_mailbox_permissions_request(), list()) ::
           {:ok, put_mailbox_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_mailbox_permissions_errors()}
   def put_mailbox_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4852,6 +4926,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, put_mobile_device_access_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_mobile_device_access_override_errors()}
   def put_mobile_device_access_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4865,6 +4940,7 @@ defmodule AWS.WorkMail do
   @spec put_retention_policy(map(), put_retention_policy_request(), list()) ::
           {:ok, put_retention_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4883,6 +4959,7 @@ defmodule AWS.WorkMail do
   @spec register_mail_domain(map(), register_mail_domain_request(), list()) ::
           {:ok, register_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_mail_domain_errors()}
   def register_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4908,6 +4985,7 @@ defmodule AWS.WorkMail do
   @spec register_to_work_mail(map(), register_to_work_mail_request(), list()) ::
           {:ok, register_to_work_mail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_to_work_mail_errors()}
   def register_to_work_mail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4921,6 +4999,7 @@ defmodule AWS.WorkMail do
   @spec reset_password(map(), reset_password_request(), list()) ::
           {:ok, reset_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_password_errors()}
   def reset_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4942,6 +5021,7 @@ defmodule AWS.WorkMail do
   @spec start_mailbox_export_job(map(), start_mailbox_export_job_request(), list()) ::
           {:ok, start_mailbox_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_mailbox_export_job_errors()}
   def start_mailbox_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4956,6 +5036,7 @@ defmodule AWS.WorkMail do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4980,6 +5061,7 @@ defmodule AWS.WorkMail do
   @spec test_availability_configuration(map(), test_availability_configuration_request(), list()) ::
           {:ok, test_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_availability_configuration_errors()}
   def test_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4994,6 +5076,7 @@ defmodule AWS.WorkMail do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5012,6 +5095,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, update_availability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_availability_configuration_errors()}
   def update_availability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5028,6 +5112,7 @@ defmodule AWS.WorkMail do
   @spec update_default_mail_domain(map(), update_default_mail_domain_request(), list()) ::
           {:ok, update_default_mail_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_default_mail_domain_errors()}
   def update_default_mail_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5041,6 +5126,7 @@ defmodule AWS.WorkMail do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5054,6 +5140,7 @@ defmodule AWS.WorkMail do
   @spec update_impersonation_role(map(), update_impersonation_role_request(), list()) ::
           {:ok, update_impersonation_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_impersonation_role_errors()}
   def update_impersonation_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5068,6 +5155,7 @@ defmodule AWS.WorkMail do
   @spec update_mailbox_quota(map(), update_mailbox_quota_request(), list()) ::
           {:ok, update_mailbox_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mailbox_quota_errors()}
   def update_mailbox_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5085,6 +5173,7 @@ defmodule AWS.WorkMail do
         ) ::
           {:ok, update_mobile_device_access_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mobile_device_access_rule_errors()}
   def update_mobile_device_access_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5103,6 +5192,7 @@ defmodule AWS.WorkMail do
   @spec update_primary_email_address(map(), update_primary_email_address_request(), list()) ::
           {:ok, update_primary_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_primary_email_address_errors()}
   def update_primary_email_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5120,6 +5210,7 @@ defmodule AWS.WorkMail do
   @spec update_resource(map(), update_resource_request(), list()) ::
           {:ok, update_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5137,6 +5228,7 @@ defmodule AWS.WorkMail do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()

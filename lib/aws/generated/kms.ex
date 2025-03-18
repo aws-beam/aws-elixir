@@ -2605,6 +2605,7 @@ defmodule AWS.KMS do
   @spec cancel_key_deletion(map(), cancel_key_deletion_request(), list()) ::
           {:ok, cancel_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_key_deletion_errors()}
   def cancel_key_deletion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2746,6 +2747,7 @@ defmodule AWS.KMS do
   @spec connect_custom_key_store(map(), connect_custom_key_store_request(), list()) ::
           {:ok, connect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, connect_custom_key_store_errors()}
   def connect_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2828,6 +2830,7 @@ defmodule AWS.KMS do
   @spec create_alias(map(), create_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2956,6 +2959,7 @@ defmodule AWS.KMS do
   @spec create_custom_key_store(map(), create_custom_key_store_request(), list()) ::
           {:ok, create_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_key_store_errors()}
   def create_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3045,6 +3049,7 @@ defmodule AWS.KMS do
   @spec create_grant(map(), create_grant_request(), list()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3288,6 +3293,7 @@ defmodule AWS.KMS do
   @spec create_key(map(), create_key_request(), list()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3416,6 +3422,7 @@ defmodule AWS.KMS do
   @spec decrypt(map(), decrypt_request(), list()) ::
           {:ok, decrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrypt_errors()}
   def decrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3482,6 +3489,7 @@ defmodule AWS.KMS do
   @spec delete_alias(map(), delete_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3571,6 +3579,7 @@ defmodule AWS.KMS do
   @spec delete_custom_key_store(map(), delete_custom_key_store_request(), list()) ::
           {:ok, delete_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_key_store_errors()}
   def delete_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3621,6 +3630,7 @@ defmodule AWS.KMS do
   @spec delete_imported_key_material(map(), delete_imported_key_material_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_imported_key_material_errors()}
   def delete_imported_key_material(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3738,6 +3748,7 @@ defmodule AWS.KMS do
   @spec derive_shared_secret(map(), derive_shared_secret_request(), list()) ::
           {:ok, derive_shared_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, derive_shared_secret_errors()}
   def derive_shared_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3825,6 +3836,7 @@ defmodule AWS.KMS do
   @spec describe_custom_key_stores(map(), describe_custom_key_stores_request(), list()) ::
           {:ok, describe_custom_key_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_key_stores_errors()}
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3927,6 +3939,7 @@ defmodule AWS.KMS do
   @spec describe_key(map(), describe_key_request(), list()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_key_errors()}
   def describe_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3966,6 +3979,7 @@ defmodule AWS.KMS do
   @spec disable_key(map(), disable_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_key_errors()}
   def disable_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4034,6 +4048,7 @@ defmodule AWS.KMS do
   @spec disable_key_rotation(map(), disable_key_rotation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_key_rotation_errors()}
   def disable_key_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4110,6 +4125,7 @@ defmodule AWS.KMS do
   @spec disconnect_custom_key_store(map(), disconnect_custom_key_store_request(), list()) ::
           {:ok, disconnect_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_custom_key_store_errors()}
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4143,6 +4159,7 @@ defmodule AWS.KMS do
   @spec enable_key(map(), enable_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_key_errors()}
   def enable_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4242,6 +4259,7 @@ defmodule AWS.KMS do
   @spec enable_key_rotation(map(), enable_key_rotation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_key_rotation_errors()}
   def enable_key_rotation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4373,6 +4391,7 @@ defmodule AWS.KMS do
   @spec encrypt(map(), encrypt_request(), list()) ::
           {:ok, encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, encrypt_errors()}
   def encrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4517,6 +4536,7 @@ defmodule AWS.KMS do
   @spec generate_data_key(map(), generate_data_key_request(), list()) ::
           {:ok, generate_data_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_data_key_errors()}
   def generate_data_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4648,6 +4668,7 @@ defmodule AWS.KMS do
   @spec generate_data_key_pair(map(), generate_data_key_pair_request(), list()) ::
           {:ok, generate_data_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_data_key_pair_errors()}
   def generate_data_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4750,6 +4771,7 @@ defmodule AWS.KMS do
         ) ::
           {:ok, generate_data_key_pair_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_data_key_pair_without_plaintext_errors()}
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4868,6 +4890,7 @@ defmodule AWS.KMS do
         ) ::
           {:ok, generate_data_key_without_plaintext_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_data_key_without_plaintext_errors()}
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4926,6 +4949,7 @@ defmodule AWS.KMS do
   @spec generate_mac(map(), generate_mac_request(), list()) ::
           {:ok, generate_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_mac_errors()}
   def generate_mac(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4976,6 +5000,7 @@ defmodule AWS.KMS do
   @spec generate_random(map(), generate_random_request(), list()) ::
           {:ok, generate_random_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_random_errors()}
   def generate_random(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5001,6 +5026,7 @@ defmodule AWS.KMS do
   @spec get_key_policy(map(), get_key_policy_request(), list()) ::
           {:ok, get_key_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_policy_errors()}
   def get_key_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5100,6 +5126,7 @@ defmodule AWS.KMS do
   @spec get_key_rotation_status(map(), get_key_rotation_status_request(), list()) ::
           {:ok, get_key_rotation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_rotation_status_errors()}
   def get_key_rotation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5203,6 +5230,7 @@ defmodule AWS.KMS do
   @spec get_parameters_for_import(map(), get_parameters_for_import_request(), list()) ::
           {:ok, get_parameters_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5291,6 +5319,7 @@ defmodule AWS.KMS do
   @spec get_public_key(map(), get_public_key_request(), list()) ::
           {:ok, get_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_public_key_errors()}
   def get_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5440,6 +5469,7 @@ defmodule AWS.KMS do
   @spec import_key_material(map(), import_key_material_request(), list()) ::
           {:ok, import_key_material_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_key_material_errors()}
   def import_key_material(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5502,6 +5532,7 @@ defmodule AWS.KMS do
   @spec list_aliases(map(), list_aliases_request(), list()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5563,6 +5594,7 @@ defmodule AWS.KMS do
   @spec list_grants(map(), list_grants_request(), list()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_grants_errors()}
   def list_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5599,6 +5631,7 @@ defmodule AWS.KMS do
   @spec list_key_policies(map(), list_key_policies_request(), list()) ::
           {:ok, list_key_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_key_policies_errors()}
   def list_key_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5651,6 +5684,7 @@ defmodule AWS.KMS do
   @spec list_key_rotations(map(), list_key_rotations_request(), list()) ::
           {:ok, list_key_rotations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_key_rotations_errors()}
   def list_key_rotations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5693,6 +5727,7 @@ defmodule AWS.KMS do
   @spec list_keys(map(), list_keys_request(), list()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5739,6 +5774,7 @@ defmodule AWS.KMS do
   @spec list_resource_tags(map(), list_resource_tags_request(), list()) ::
           {:ok, list_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_tags_errors()}
   def list_resource_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5811,6 +5847,7 @@ defmodule AWS.KMS do
   @spec list_retirable_grants(map(), list_retirable_grants_request(), list()) ::
           {:ok, list_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_retirable_grants_errors()}
   def list_retirable_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5845,6 +5882,7 @@ defmodule AWS.KMS do
   @spec put_key_policy(map(), put_key_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_key_policy_errors()}
   def put_key_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5976,6 +6014,7 @@ defmodule AWS.KMS do
   @spec re_encrypt(map(), re_encrypt_request(), list()) ::
           {:ok, re_encrypt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, re_encrypt_errors()}
   def re_encrypt(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6099,6 +6138,7 @@ defmodule AWS.KMS do
   @spec replicate_key(map(), replicate_key_request(), list()) ::
           {:ok, replicate_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, replicate_key_errors()}
   def replicate_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6162,6 +6202,7 @@ defmodule AWS.KMS do
   @spec retire_grant(map(), retire_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retire_grant_errors()}
   def retire_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6226,6 +6267,7 @@ defmodule AWS.KMS do
   @spec revoke_grant(map(), revoke_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_grant_errors()}
   def revoke_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6311,6 +6353,7 @@ defmodule AWS.KMS do
   @spec rotate_key_on_demand(map(), rotate_key_on_demand_request(), list()) ::
           {:ok, rotate_key_on_demand_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rotate_key_on_demand_errors()}
   def rotate_key_on_demand(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6408,6 +6451,7 @@ defmodule AWS.KMS do
   @spec schedule_key_deletion(map(), schedule_key_deletion_request(), list()) ::
           {:ok, schedule_key_deletion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, schedule_key_deletion_errors()}
   def schedule_key_deletion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6493,6 +6537,7 @@ defmodule AWS.KMS do
   @spec sign(map(), sign_request(), list()) ::
           {:ok, sign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sign_errors()}
   def sign(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6566,6 +6611,7 @@ defmodule AWS.KMS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6631,6 +6677,7 @@ defmodule AWS.KMS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6720,6 +6767,7 @@ defmodule AWS.KMS do
   @spec update_alias(map(), update_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6850,6 +6898,7 @@ defmodule AWS.KMS do
   @spec update_custom_key_store(map(), update_custom_key_store_request(), list()) ::
           {:ok, update_custom_key_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_key_store_errors()}
   def update_custom_key_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6890,6 +6939,7 @@ defmodule AWS.KMS do
   @spec update_key_description(map(), update_key_description_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_key_description_errors()}
   def update_key_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6997,6 +7047,7 @@ defmodule AWS.KMS do
   @spec update_primary_region(map(), update_primary_region_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_primary_region_errors()}
   def update_primary_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7068,6 +7119,7 @@ defmodule AWS.KMS do
   @spec verify(map(), verify_request(), list()) ::
           {:ok, verify_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_errors()}
   def verify(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7117,6 +7169,7 @@ defmodule AWS.KMS do
   @spec verify_mac(map(), verify_mac_request(), list()) ::
           {:ok, verify_mac_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_mac_errors()}
   def verify_mac(%Client{} = client, input, options \\ []) do
     meta = metadata()

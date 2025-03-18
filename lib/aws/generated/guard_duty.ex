@@ -4947,6 +4947,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_administrator_invitation_errors()}
   def accept_administrator_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
@@ -4975,6 +4976,7 @@ defmodule AWS.GuardDuty do
   @spec accept_invitation(map(), String.t(), accept_invitation_request(), list()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
@@ -5006,6 +5008,7 @@ defmodule AWS.GuardDuty do
   @spec archive_findings(map(), String.t(), archive_findings_request(), list()) ::
           {:ok, archive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, archive_findings_errors()}
   def archive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/archive"
@@ -5063,6 +5066,7 @@ defmodule AWS.GuardDuty do
   @spec create_detector(map(), create_detector_request(), list()) ::
           {:ok, create_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_detector_errors()}
   def create_detector(%Client{} = client, input, options \\ []) do
     url_path = "/detector"
@@ -5095,6 +5099,7 @@ defmodule AWS.GuardDuty do
   @spec create_filter(map(), String.t(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_filter_errors()}
   def create_filter(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/filter"
@@ -5132,6 +5137,7 @@ defmodule AWS.GuardDuty do
   @spec create_ip_set(map(), String.t(), create_ip_set_request(), list()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/ipset"
@@ -5165,6 +5171,7 @@ defmodule AWS.GuardDuty do
   @spec create_malware_protection_plan(map(), create_malware_protection_plan_request(), list()) ::
           {:ok, create_malware_protection_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_malware_protection_plan_errors()}
   def create_malware_protection_plan(%Client{} = client, input, options \\ []) do
     url_path = "/malware-protection-plan"
@@ -5231,6 +5238,7 @@ defmodule AWS.GuardDuty do
   @spec create_members(map(), String.t(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_members_errors()}
   def create_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member"
@@ -5267,6 +5275,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, create_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_publishing_destination_errors()}
   def create_publishing_destination(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/publishingDestination"
@@ -5299,6 +5308,7 @@ defmodule AWS.GuardDuty do
   @spec create_sample_findings(map(), String.t(), create_sample_findings_request(), list()) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sample_findings_errors()}
   def create_sample_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/create"
@@ -5332,6 +5342,7 @@ defmodule AWS.GuardDuty do
   @spec create_threat_intel_set(map(), String.t(), create_threat_intel_set_request(), list()) ::
           {:ok, create_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_threat_intel_set_errors()}
   def create_threat_intel_set(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/threatintelset"
@@ -5362,6 +5373,7 @@ defmodule AWS.GuardDuty do
   @spec decline_invitations(map(), decline_invitations_request(), list()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decline_invitations_errors()}
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/decline"
@@ -5390,6 +5402,7 @@ defmodule AWS.GuardDuty do
   @spec delete_detector(map(), String.t(), delete_detector_request(), list()) ::
           {:ok, delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_detector_errors()}
   def delete_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -5418,6 +5431,7 @@ defmodule AWS.GuardDuty do
   @spec delete_filter(map(), String.t(), String.t(), delete_filter_request(), list()) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_filter_errors()}
   def delete_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
     url_path =
@@ -5450,6 +5464,7 @@ defmodule AWS.GuardDuty do
   @spec delete_invitations(map(), delete_invitations_request(), list()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_invitations_errors()}
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/delete"
@@ -5481,6 +5496,7 @@ defmodule AWS.GuardDuty do
   @spec delete_ip_set(map(), String.t(), String.t(), delete_ip_set_request(), list()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path =
@@ -5521,6 +5537,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_malware_protection_plan_errors()}
   def delete_malware_protection_plan(
         %Client{} = client,
@@ -5560,6 +5577,7 @@ defmodule AWS.GuardDuty do
   @spec delete_members(map(), String.t(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_members_errors()}
   def delete_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/delete"
@@ -5594,6 +5612,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, delete_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_publishing_destination_errors()}
   def delete_publishing_destination(
         %Client{} = client,
@@ -5636,6 +5655,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, delete_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_threat_intel_set_errors()}
   def delete_threat_intel_set(
         %Client{} = client,
@@ -5681,6 +5701,7 @@ defmodule AWS.GuardDuty do
   @spec describe_malware_scans(map(), String.t(), describe_malware_scans_request(), list()) ::
           {:ok, describe_malware_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_malware_scans_errors()}
   def describe_malware_scans(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scans"
@@ -5722,6 +5743,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(
         %Client{} = client,
@@ -5760,6 +5782,7 @@ defmodule AWS.GuardDuty do
   @spec describe_publishing_destination(map(), String.t(), String.t(), list()) ::
           {:ok, describe_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_publishing_destination_errors()}
   def describe_publishing_destination(
         %Client{} = client,
@@ -5792,6 +5815,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/disable"
@@ -5843,6 +5867,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_administrator_account_errors()}
   def disassociate_from_administrator_account(
         %Client{} = client,
@@ -5895,6 +5920,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_master_account_errors()}
   def disassociate_from_master_account(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master/disassociate"
@@ -5959,6 +5985,7 @@ defmodule AWS.GuardDuty do
   @spec disassociate_members(map(), String.t(), disassociate_members_request(), list()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_members_errors()}
   def disassociate_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/disassociate"
@@ -5996,6 +6023,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin/enable"
@@ -6030,6 +6058,7 @@ defmodule AWS.GuardDuty do
   @spec get_administrator_account(map(), String.t(), list()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/administrator"
@@ -6054,6 +6083,7 @@ defmodule AWS.GuardDuty do
   @spec get_coverage_statistics(map(), String.t(), get_coverage_statistics_request(), list()) ::
           {:ok, get_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_coverage_statistics_errors()}
   def get_coverage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage/statistics"
@@ -6087,6 +6117,7 @@ defmodule AWS.GuardDuty do
   @spec get_detector(map(), String.t(), list()) ::
           {:ok, get_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_detector_errors()}
   def get_detector(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -6104,6 +6135,7 @@ defmodule AWS.GuardDuty do
   @spec get_filter(map(), String.t(), String.t(), list()) ::
           {:ok, get_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_filter_errors()}
   def get_filter(%Client{} = client, detector_id, filter_name, options \\ []) do
     url_path =
@@ -6123,6 +6155,7 @@ defmodule AWS.GuardDuty do
   @spec get_findings(map(), String.t(), get_findings_request(), list()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_errors()}
   def get_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/get"
@@ -6159,6 +6192,7 @@ defmodule AWS.GuardDuty do
   @spec get_findings_statistics(map(), String.t(), get_findings_statistics_request(), list()) ::
           {:ok, get_findings_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_statistics_errors()}
   def get_findings_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/statistics"
@@ -6189,6 +6223,7 @@ defmodule AWS.GuardDuty do
   @spec get_invitations_count(map(), list()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitation/count"
@@ -6206,6 +6241,7 @@ defmodule AWS.GuardDuty do
   @spec get_ip_set(map(), String.t(), String.t(), list()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, detector_id, ip_set_id, options \\ []) do
     url_path =
@@ -6227,6 +6263,7 @@ defmodule AWS.GuardDuty do
   @spec get_malware_protection_plan(map(), String.t(), list()) ::
           {:ok, get_malware_protection_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_malware_protection_plan_errors()}
   def get_malware_protection_plan(%Client{} = client, malware_protection_plan_id, options \\ []) do
     url_path = "/malware-protection-plan/#{AWS.Util.encode_uri(malware_protection_plan_id)}"
@@ -6249,6 +6286,7 @@ defmodule AWS.GuardDuty do
   @spec get_malware_scan_settings(map(), String.t(), list()) ::
           {:ok, get_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_malware_scan_settings_errors()}
   def get_malware_scan_settings(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -6268,6 +6306,7 @@ defmodule AWS.GuardDuty do
   @spec get_master_account(map(), String.t(), list()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, detector_id, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/master"
@@ -6290,6 +6329,7 @@ defmodule AWS.GuardDuty do
   @spec get_member_detectors(map(), String.t(), get_member_detectors_request(), list()) ::
           {:ok, get_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_member_detectors_errors()}
   def get_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/get"
@@ -6320,6 +6360,7 @@ defmodule AWS.GuardDuty do
   @spec get_members(map(), String.t(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_members_errors()}
   def get_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/get"
@@ -6354,6 +6395,7 @@ defmodule AWS.GuardDuty do
   @spec get_organization_statistics(map(), list()) ::
           {:ok, get_organization_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_statistics_errors()}
   def get_organization_statistics(%Client{} = client, options \\ []) do
     url_path = "/organization/statistics"
@@ -6377,6 +6419,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, get_remaining_free_trial_days_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_remaining_free_trial_days_errors()}
   def get_remaining_free_trial_days(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/freeTrial/daysRemaining"
@@ -6405,6 +6448,7 @@ defmodule AWS.GuardDuty do
   @spec get_threat_intel_set(map(), String.t(), String.t(), list()) ::
           {:ok, get_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_threat_intel_set_errors()}
   def get_threat_intel_set(%Client{} = client, detector_id, threat_intel_set_id, options \\ []) do
     url_path =
@@ -6433,6 +6477,7 @@ defmodule AWS.GuardDuty do
   @spec get_usage_statistics(map(), String.t(), get_usage_statistics_request(), list()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_usage_statistics_errors()}
   def get_usage_statistics(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/usage/statistics"
@@ -6508,6 +6553,7 @@ defmodule AWS.GuardDuty do
   @spec invite_members(map(), String.t(), invite_members_request(), list()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invite_members_errors()}
   def invite_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/invite"
@@ -6544,6 +6590,7 @@ defmodule AWS.GuardDuty do
   @spec list_coverage(map(), String.t(), list_coverage_request(), list()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_coverage_errors()}
   def list_coverage(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/coverage"
@@ -6572,6 +6619,7 @@ defmodule AWS.GuardDuty do
   @spec list_detectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_detectors_errors()}
   def list_detectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/detector"
@@ -6603,6 +6651,7 @@ defmodule AWS.GuardDuty do
   @spec list_filters(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_filters_errors()}
   def list_filters(
         %Client{} = client,
@@ -6644,6 +6693,7 @@ defmodule AWS.GuardDuty do
   @spec list_findings(map(), String.t(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
@@ -6674,6 +6724,7 @@ defmodule AWS.GuardDuty do
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitation"
@@ -6710,6 +6761,7 @@ defmodule AWS.GuardDuty do
   @spec list_ip_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(
         %Client{} = client,
@@ -6748,6 +6800,7 @@ defmodule AWS.GuardDuty do
   @spec list_malware_protection_plans(map(), String.t() | nil, list()) ::
           {:ok, list_malware_protection_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_malware_protection_plans_errors()}
   def list_malware_protection_plans(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/malware-protection-plan"
@@ -6780,6 +6833,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
@@ -6828,6 +6882,7 @@ defmodule AWS.GuardDuty do
   @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -6871,6 +6926,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, list_publishing_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_publishing_destinations_errors()}
   def list_publishing_destinations(
         %Client{} = client,
@@ -6914,6 +6970,7 @@ defmodule AWS.GuardDuty do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6936,6 +6993,7 @@ defmodule AWS.GuardDuty do
   @spec list_threat_intel_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_threat_intel_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_threat_intel_sets_errors()}
   def list_threat_intel_sets(
         %Client{} = client,
@@ -6982,6 +7040,7 @@ defmodule AWS.GuardDuty do
   @spec start_malware_scan(map(), start_malware_scan_request(), list()) ::
           {:ok, start_malware_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_malware_scan_errors()}
   def start_malware_scan(%Client{} = client, input, options \\ []) do
     url_path = "/malware-scan/start"
@@ -7015,6 +7074,7 @@ defmodule AWS.GuardDuty do
   @spec start_monitoring_members(map(), String.t(), start_monitoring_members_request(), list()) ::
           {:ok, start_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_monitoring_members_errors()}
   def start_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/start"
@@ -7051,6 +7111,7 @@ defmodule AWS.GuardDuty do
   @spec stop_monitoring_members(map(), String.t(), stop_monitoring_members_request(), list()) ::
           {:ok, stop_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_monitoring_members_errors()}
   def stop_monitoring_members(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/stop"
@@ -7079,6 +7140,7 @@ defmodule AWS.GuardDuty do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7107,6 +7169,7 @@ defmodule AWS.GuardDuty do
   @spec unarchive_findings(map(), String.t(), unarchive_findings_request(), list()) ::
           {:ok, unarchive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unarchive_findings_errors()}
   def unarchive_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/unarchive"
@@ -7135,6 +7198,7 @@ defmodule AWS.GuardDuty do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7180,6 +7244,7 @@ defmodule AWS.GuardDuty do
   @spec update_detector(map(), String.t(), update_detector_request(), list()) ::
           {:ok, update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_detector_errors()}
   def update_detector(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}"
@@ -7208,6 +7273,7 @@ defmodule AWS.GuardDuty do
   @spec update_filter(map(), String.t(), String.t(), update_filter_request(), list()) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_filter_errors()}
   def update_filter(%Client{} = client, detector_id, filter_name, input, options \\ []) do
     url_path =
@@ -7238,6 +7304,7 @@ defmodule AWS.GuardDuty do
   @spec update_findings_feedback(map(), String.t(), update_findings_feedback_request(), list()) ::
           {:ok, update_findings_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_findings_feedback_errors()}
   def update_findings_feedback(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings/feedback"
@@ -7266,6 +7333,7 @@ defmodule AWS.GuardDuty do
   @spec update_ip_set(map(), String.t(), String.t(), update_ip_set_request(), list()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, detector_id, ip_set_id, input, options \\ []) do
     url_path =
@@ -7301,6 +7369,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_malware_protection_plan_errors()}
   def update_malware_protection_plan(
         %Client{} = client,
@@ -7344,6 +7413,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_malware_scan_settings_errors()}
   def update_malware_scan_settings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/malware-scan-settings"
@@ -7384,6 +7454,7 @@ defmodule AWS.GuardDuty do
   @spec update_member_detectors(map(), String.t(), update_member_detectors_request(), list()) ::
           {:ok, update_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_member_detectors_errors()}
   def update_member_detectors(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/member/detector/update"
@@ -7433,6 +7504,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/admin"
@@ -7468,6 +7540,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_publishing_destination_errors()}
   def update_publishing_destination(
         %Client{} = client,
@@ -7510,6 +7583,7 @@ defmodule AWS.GuardDuty do
         ) ::
           {:ok, update_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_threat_intel_set_errors()}
   def update_threat_intel_set(
         %Client{} = client,

@@ -245,6 +245,7 @@ defmodule AWS.SSO do
   @spec get_role_credentials(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_role_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_role_credentials_errors()}
   def get_role_credentials(%Client{} = client, account_id, role_name, access_token, options \\ []) do
     url_path = "/federation/credentials"
@@ -291,6 +292,7 @@ defmodule AWS.SSO do
         ) ::
           {:ok, list_account_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_roles_errors()}
   def list_account_roles(
         %Client{} = client,
@@ -349,6 +351,7 @@ defmodule AWS.SSO do
   @spec list_accounts(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accounts_errors()}
   def list_accounts(
         %Client{} = client,
@@ -413,6 +416,7 @@ defmodule AWS.SSO do
   @spec logout(map(), logout_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, logout_errors()}
   def logout(%Client{} = client, input, options \\ []) do
     url_path = "/logout"

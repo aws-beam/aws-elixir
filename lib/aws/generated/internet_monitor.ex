@@ -965,6 +965,7 @@ defmodule AWS.InternetMonitor do
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/v20210603/Monitors"
@@ -993,6 +994,7 @@ defmodule AWS.InternetMonitor do
   @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
@@ -1032,6 +1034,7 @@ defmodule AWS.InternetMonitor do
   @spec get_health_event(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_health_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_health_event_errors()}
   def get_health_event(
         %Client{} = client,
@@ -1075,6 +1078,7 @@ defmodule AWS.InternetMonitor do
   @spec get_internet_event(map(), String.t(), list()) ::
           {:ok, get_internet_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_internet_event_errors()}
   def get_internet_event(%Client{} = client, event_id, options \\ []) do
     url_path = "/v20210603/InternetEvents/#{AWS.Util.encode_uri(event_id)}"
@@ -1096,6 +1100,7 @@ defmodule AWS.InternetMonitor do
   @spec get_monitor(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_name, linked_account_id \\ nil, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"
@@ -1135,6 +1140,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(
         %Client{} = client,
@@ -1199,6 +1205,7 @@ defmodule AWS.InternetMonitor do
   @spec get_query_status(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_status_errors()}
   def get_query_status(%Client{} = client, monitor_name, query_id, options \\ []) do
     url_path =
@@ -1235,6 +1242,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, list_health_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_health_events_errors()}
   def list_health_events(
         %Client{} = client,
@@ -1328,6 +1336,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, list_internet_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_internet_events_errors()}
   def list_internet_events(
         %Client{} = client,
@@ -1404,6 +1413,7 @@ defmodule AWS.InternetMonitor do
         ) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(
         %Client{} = client,
@@ -1458,6 +1468,7 @@ defmodule AWS.InternetMonitor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1486,6 +1497,7 @@ defmodule AWS.InternetMonitor do
   @spec start_query(map(), String.t(), start_query_input(), list()) ::
           {:ok, start_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_query_errors()}
   def start_query(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}/Queries"
@@ -1514,6 +1526,7 @@ defmodule AWS.InternetMonitor do
   @spec stop_query(map(), String.t(), String.t(), stop_query_input(), list()) ::
           {:ok, stop_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_query_errors()}
   def stop_query(%Client{} = client, monitor_name, query_id, input, options \\ []) do
     url_path =
@@ -1550,6 +1563,7 @@ defmodule AWS.InternetMonitor do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1578,6 +1592,7 @@ defmodule AWS.InternetMonitor do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1621,6 +1636,7 @@ defmodule AWS.InternetMonitor do
   @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/v20210603/Monitors/#{AWS.Util.encode_uri(monitor_name)}"

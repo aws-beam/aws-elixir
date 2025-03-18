@@ -760,6 +760,7 @@ defmodule AWS.QLDB do
         ) ::
           {:ok, cancel_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_journal_kinesis_stream_errors()}
   def cancel_journal_kinesis_stream(
         %Client{} = client,
@@ -796,6 +797,7 @@ defmodule AWS.QLDB do
   @spec create_ledger(map(), create_ledger_request(), list()) ::
           {:ok, create_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ledger_errors()}
   def create_ledger(%Client{} = client, input, options \\ []) do
     url_path = "/ledgers"
@@ -831,6 +833,7 @@ defmodule AWS.QLDB do
   @spec delete_ledger(map(), String.t(), delete_ledger_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ledger_errors()}
   def delete_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
@@ -870,6 +873,7 @@ defmodule AWS.QLDB do
   @spec describe_journal_kinesis_stream(map(), String.t(), String.t(), list()) ::
           {:ok, describe_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_journal_kinesis_stream_errors()}
   def describe_journal_kinesis_stream(%Client{} = client, ledger_name, stream_id, options \\ []) do
     url_path =
@@ -904,6 +908,7 @@ defmodule AWS.QLDB do
   @spec describe_journal_s3_export(map(), String.t(), String.t(), list()) ::
           {:ok, describe_journal_s3_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_journal_s3_export_errors()}
   def describe_journal_s3_export(%Client{} = client, export_id, name, options \\ []) do
     url_path =
@@ -925,6 +930,7 @@ defmodule AWS.QLDB do
   @spec describe_ledger(map(), String.t(), list()) ::
           {:ok, describe_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ledger_errors()}
   def describe_ledger(%Client{} = client, name, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
@@ -958,6 +964,7 @@ defmodule AWS.QLDB do
   @spec export_journal_to_s3(map(), String.t(), export_journal_to_s3_request(), list()) ::
           {:ok, export_journal_to_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_journal_to_s3_errors()}
   def export_journal_to_s3(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/journal-s3-exports"
@@ -1002,6 +1009,7 @@ defmodule AWS.QLDB do
   @spec get_block(map(), String.t(), get_block_request(), list()) ::
           {:ok, get_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_block_errors()}
   def get_block(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/block"
@@ -1033,6 +1041,7 @@ defmodule AWS.QLDB do
   @spec get_digest(map(), String.t(), get_digest_request(), list()) ::
           {:ok, get_digest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_digest_errors()}
   def get_digest(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/digest"
@@ -1065,6 +1074,7 @@ defmodule AWS.QLDB do
   @spec get_revision(map(), String.t(), get_revision_request(), list()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_revision_errors()}
   def get_revision(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/revision"
@@ -1109,6 +1119,7 @@ defmodule AWS.QLDB do
         ) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_journal_kinesis_streams_for_ledger_errors()}
   def list_journal_kinesis_streams_for_ledger(
         %Client{} = client,
@@ -1157,6 +1168,7 @@ defmodule AWS.QLDB do
   @spec list_journal_s3_exports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_journal_s3_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_journal_s3_exports(
         %Client{} = client,
         max_results \\ nil,
@@ -1207,6 +1219,7 @@ defmodule AWS.QLDB do
         ) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_journal_s3_exports_for_ledger(
         %Client{} = client,
         name,
@@ -1248,6 +1261,7 @@ defmodule AWS.QLDB do
   @spec list_ledgers(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ledgers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_ledgers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/ledgers"
     headers = []
@@ -1278,6 +1292,7 @@ defmodule AWS.QLDB do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1300,6 +1315,7 @@ defmodule AWS.QLDB do
   @spec stream_journal_to_kinesis(map(), String.t(), stream_journal_to_kinesis_request(), list()) ::
           {:ok, stream_journal_to_kinesis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stream_journal_to_kinesis_errors()}
   def stream_journal_to_kinesis(%Client{} = client, ledger_name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(ledger_name)}/journal-kinesis-streams"
@@ -1331,6 +1347,7 @@ defmodule AWS.QLDB do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1362,6 +1379,7 @@ defmodule AWS.QLDB do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1395,6 +1413,7 @@ defmodule AWS.QLDB do
   @spec update_ledger(map(), String.t(), update_ledger_request(), list()) ::
           {:ok, update_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ledger_errors()}
   def update_ledger(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}"
@@ -1435,6 +1454,7 @@ defmodule AWS.QLDB do
         ) ::
           {:ok, update_ledger_permissions_mode_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ledger_permissions_mode_errors()}
   def update_ledger_permissions_mode(%Client{} = client, name, input, options \\ []) do
     url_path = "/ledgers/#{AWS.Util.encode_uri(name)}/permissions-mode"

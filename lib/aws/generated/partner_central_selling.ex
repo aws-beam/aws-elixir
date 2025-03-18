@@ -2241,6 +2241,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec accept_engagement_invitation(map(), accept_engagement_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_engagement_invitation_errors()}
   def accept_engagement_invitation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2267,6 +2268,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec assign_opportunity(map(), assign_opportunity_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assign_opportunity_errors()}
   def assign_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2326,6 +2328,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec associate_opportunity(map(), associate_opportunity_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_opportunity_errors()}
   def associate_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2345,6 +2348,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec create_engagement(map(), create_engagement_request(), list()) ::
           {:ok, create_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_engagement_errors()}
   def create_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2359,6 +2363,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec create_engagement_invitation(map(), create_engagement_invitation_request(), list()) ::
           {:ok, create_engagement_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_engagement_invitation_errors()}
   def create_engagement_invitation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2407,6 +2412,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec create_opportunity(map(), create_opportunity_request(), list()) ::
           {:ok, create_opportunity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_opportunity_errors()}
   def create_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2425,6 +2431,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec create_resource_snapshot(map(), create_resource_snapshot_request(), list()) ::
           {:ok, create_resource_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_snapshot_errors()}
   def create_resource_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2444,6 +2451,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec create_resource_snapshot_job(map(), create_resource_snapshot_job_request(), list()) ::
           {:ok, create_resource_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_snapshot_job_errors()}
   def create_resource_snapshot_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2460,6 +2468,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec delete_resource_snapshot_job(map(), delete_resource_snapshot_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_snapshot_job_errors()}
   def delete_resource_snapshot_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2489,6 +2498,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec disassociate_opportunity(map(), disassociate_opportunity_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_opportunity_errors()}
   def disassociate_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2508,6 +2518,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_aws_opportunity_summary(map(), get_aws_opportunity_summary_request(), list()) ::
           {:ok, get_aws_opportunity_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aws_opportunity_summary_errors()}
   def get_aws_opportunity_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2522,6 +2533,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_engagement(map(), get_engagement_request(), list()) ::
           {:ok, get_engagement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_engagement_errors()}
   def get_engagement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2541,6 +2553,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_engagement_invitation(map(), get_engagement_invitation_request(), list()) ::
           {:ok, get_engagement_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_engagement_invitation_errors()}
   def get_engagement_invitation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2558,6 +2571,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_opportunity(map(), get_opportunity_request(), list()) ::
           {:ok, get_opportunity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_opportunity_errors()}
   def get_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2571,6 +2585,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_resource_snapshot(map(), get_resource_snapshot_request(), list()) ::
           {:ok, get_resource_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_snapshot_errors()}
   def get_resource_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2585,6 +2600,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_resource_snapshot_job(map(), get_resource_snapshot_job_request(), list()) ::
           {:ok, get_resource_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_snapshot_job_errors()}
   def get_resource_snapshot_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2599,6 +2615,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec get_selling_system_settings(map(), get_selling_system_settings_request(), list()) ::
           {:ok, get_selling_system_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_selling_system_settings_errors()}
   def get_selling_system_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2618,6 +2635,7 @@ defmodule AWS.PartnerCentralSelling do
         ) ::
           {:ok, list_engagement_by_accepting_invitation_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagement_by_accepting_invitation_tasks_errors()}
   def list_engagement_by_accepting_invitation_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2636,6 +2654,7 @@ defmodule AWS.PartnerCentralSelling do
         ) ::
           {:ok, list_engagement_from_opportunity_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagement_from_opportunity_tasks_errors()}
   def list_engagement_from_opportunity_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2654,6 +2673,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_engagement_invitations(map(), list_engagement_invitations_request(), list()) ::
           {:ok, list_engagement_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagement_invitations_errors()}
   def list_engagement_invitations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2673,6 +2693,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_engagement_members(map(), list_engagement_members_request(), list()) ::
           {:ok, list_engagement_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagement_members_errors()}
   def list_engagement_members(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2692,6 +2713,7 @@ defmodule AWS.PartnerCentralSelling do
         ) ::
           {:ok, list_engagement_resource_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagement_resource_associations_errors()}
   def list_engagement_resource_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2709,6 +2731,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_engagements(map(), list_engagements_request(), list()) ::
           {:ok, list_engagements_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2751,6 +2774,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_opportunities(map(), list_opportunities_request(), list()) ::
           {:ok, list_opportunities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_opportunities_errors()}
   def list_opportunities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2769,6 +2793,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_resource_snapshot_jobs(map(), list_resource_snapshot_jobs_request(), list()) ::
           {:ok, list_resource_snapshot_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_snapshot_jobs_errors()}
   def list_resource_snapshot_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2801,6 +2826,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_resource_snapshots(map(), list_resource_snapshots_request(), list()) ::
           {:ok, list_resource_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_snapshots_errors()}
   def list_resource_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2819,6 +2845,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_solutions(map(), list_solutions_request(), list()) ::
           {:ok, list_solutions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2832,6 +2859,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2846,6 +2874,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec put_selling_system_settings(map(), put_selling_system_settings_request(), list()) ::
           {:ok, put_selling_system_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_selling_system_settings_errors()}
   def put_selling_system_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2864,6 +2893,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec reject_engagement_invitation(map(), reject_engagement_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_engagement_invitation_errors()}
   def reject_engagement_invitation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2889,6 +2919,7 @@ defmodule AWS.PartnerCentralSelling do
         ) ::
           {:ok, start_engagement_by_accepting_invitation_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_engagement_by_accepting_invitation_task_errors()}
   def start_engagement_by_accepting_invitation_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2913,6 +2944,7 @@ defmodule AWS.PartnerCentralSelling do
         ) ::
           {:ok, start_engagement_from_opportunity_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_engagement_from_opportunity_task_errors()}
   def start_engagement_from_opportunity_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2926,6 +2958,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec start_resource_snapshot_job(map(), start_resource_snapshot_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_snapshot_job_errors()}
   def start_resource_snapshot_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2941,6 +2974,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec stop_resource_snapshot_job(map(), stop_resource_snapshot_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_resource_snapshot_job_errors()}
   def stop_resource_snapshot_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2960,6 +2994,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec submit_opportunity(map(), submit_opportunity_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_opportunity_errors()}
   def submit_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2973,6 +3008,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2986,6 +3022,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3011,6 +3048,7 @@ defmodule AWS.PartnerCentralSelling do
   @spec update_opportunity(map(), update_opportunity_request(), list()) ::
           {:ok, update_opportunity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_opportunity_errors()}
   def update_opportunity(%Client{} = client, input, options \\ []) do
     meta = metadata()

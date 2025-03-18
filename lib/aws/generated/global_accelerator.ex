@@ -2327,6 +2327,7 @@ defmodule AWS.GlobalAccelerator do
   @spec add_custom_routing_endpoints(map(), add_custom_routing_endpoints_request(), list()) ::
           {:ok, add_custom_routing_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_custom_routing_endpoints_errors()}
   def add_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2370,6 +2371,7 @@ defmodule AWS.GlobalAccelerator do
   @spec add_endpoints(map(), add_endpoints_request(), list()) ::
           {:ok, add_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_endpoints_errors()}
   def add_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2396,6 +2398,7 @@ defmodule AWS.GlobalAccelerator do
   @spec advertise_byoip_cidr(map(), advertise_byoip_cidr_request(), list()) ::
           {:ok, advertise_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, advertise_byoip_cidr_errors()}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2421,6 +2424,7 @@ defmodule AWS.GlobalAccelerator do
   @spec allow_custom_routing_traffic(map(), allow_custom_routing_traffic_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allow_custom_routing_traffic_errors()}
   def allow_custom_routing_traffic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2445,6 +2449,7 @@ defmodule AWS.GlobalAccelerator do
   @spec create_accelerator(map(), create_accelerator_request(), list()) ::
           {:ok, create_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_accelerator_errors()}
   def create_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2488,6 +2493,7 @@ defmodule AWS.GlobalAccelerator do
   @spec create_cross_account_attachment(map(), create_cross_account_attachment_request(), list()) ::
           {:ok, create_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cross_account_attachment_errors()}
   def create_cross_account_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2523,6 +2529,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, create_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_routing_accelerator_errors()}
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2544,6 +2551,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, create_custom_routing_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_routing_endpoint_group_errors()}
   def create_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2561,6 +2569,7 @@ defmodule AWS.GlobalAccelerator do
   @spec create_custom_routing_listener(map(), create_custom_routing_listener_request(), list()) ::
           {:ok, create_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_routing_listener_errors()}
   def create_custom_routing_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2584,6 +2593,7 @@ defmodule AWS.GlobalAccelerator do
   @spec create_endpoint_group(map(), create_endpoint_group_request(), list()) ::
           {:ok, create_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_group_errors()}
   def create_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2600,6 +2610,7 @@ defmodule AWS.GlobalAccelerator do
   @spec create_listener(map(), create_listener_request(), list()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2637,6 +2648,7 @@ defmodule AWS.GlobalAccelerator do
   @spec delete_accelerator(map(), delete_accelerator_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_accelerator_errors()}
   def delete_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2661,6 +2673,7 @@ defmodule AWS.GlobalAccelerator do
   @spec delete_cross_account_attachment(map(), delete_cross_account_attachment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cross_account_attachment_errors()}
   def delete_cross_account_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2701,6 +2714,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_routing_accelerator_errors()}
   def delete_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2718,6 +2732,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_routing_endpoint_group_errors()}
   def delete_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2731,6 +2746,7 @@ defmodule AWS.GlobalAccelerator do
   @spec delete_custom_routing_listener(map(), delete_custom_routing_listener_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_routing_listener_errors()}
   def delete_custom_routing_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2744,6 +2760,7 @@ defmodule AWS.GlobalAccelerator do
   @spec delete_endpoint_group(map(), delete_endpoint_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_group_errors()}
   def delete_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2757,6 +2774,7 @@ defmodule AWS.GlobalAccelerator do
   @spec delete_listener(map(), delete_listener_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2782,6 +2800,7 @@ defmodule AWS.GlobalAccelerator do
   @spec deny_custom_routing_traffic(map(), deny_custom_routing_traffic_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deny_custom_routing_traffic_errors()}
   def deny_custom_routing_traffic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2808,6 +2827,7 @@ defmodule AWS.GlobalAccelerator do
   @spec deprovision_byoip_cidr(map(), deprovision_byoip_cidr_request(), list()) ::
           {:ok, deprovision_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprovision_byoip_cidr_errors()}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2821,6 +2841,7 @@ defmodule AWS.GlobalAccelerator do
   @spec describe_accelerator(map(), describe_accelerator_request(), list()) ::
           {:ok, describe_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_accelerator_errors()}
   def describe_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2834,6 +2855,7 @@ defmodule AWS.GlobalAccelerator do
   @spec describe_accelerator_attributes(map(), describe_accelerator_attributes_request(), list()) ::
           {:ok, describe_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_accelerator_attributes_errors()}
   def describe_accelerator_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2851,6 +2873,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, describe_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cross_account_attachment_errors()}
   def describe_cross_account_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2868,6 +2891,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, describe_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_routing_accelerator_errors()}
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2885,6 +2909,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, describe_custom_routing_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_routing_accelerator_attributes_errors()}
   def describe_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2908,6 +2933,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, describe_custom_routing_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_routing_endpoint_group_errors()}
   def describe_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2925,6 +2951,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, describe_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_routing_listener_errors()}
   def describe_custom_routing_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2938,6 +2965,7 @@ defmodule AWS.GlobalAccelerator do
   @spec describe_endpoint_group(map(), describe_endpoint_group_request(), list()) ::
           {:ok, describe_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoint_group_errors()}
   def describe_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2951,6 +2979,7 @@ defmodule AWS.GlobalAccelerator do
   @spec describe_listener(map(), describe_listener_request(), list()) ::
           {:ok, describe_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_listener_errors()}
   def describe_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2964,6 +2993,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_accelerators(map(), list_accelerators_request(), list()) ::
           {:ok, list_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accelerators_errors()}
   def list_accelerators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2980,6 +3010,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_byoip_cidrs(map(), list_byoip_cidrs_request(), list()) ::
           {:ok, list_byoip_cidrs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_byoip_cidrs_errors()}
   def list_byoip_cidrs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2993,6 +3024,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_cross_account_attachments(map(), list_cross_account_attachments_request(), list()) ::
           {:ok, list_cross_account_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cross_account_attachments_errors()}
   def list_cross_account_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3016,6 +3048,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, list_cross_account_resource_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cross_account_resource_accounts_errors()}
   def list_cross_account_resource_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3029,6 +3062,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_cross_account_resources(map(), list_cross_account_resources_request(), list()) ::
           {:ok, list_cross_account_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cross_account_resources_errors()}
   def list_cross_account_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3046,6 +3080,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, list_custom_routing_accelerators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_routing_accelerators_errors()}
   def list_custom_routing_accelerators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3064,6 +3099,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, list_custom_routing_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_routing_endpoint_groups_errors()}
   def list_custom_routing_endpoint_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3077,6 +3113,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_custom_routing_listeners(map(), list_custom_routing_listeners_request(), list()) ::
           {:ok, list_custom_routing_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_routing_listeners_errors()}
   def list_custom_routing_listeners(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3113,6 +3150,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, list_custom_routing_port_mappings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_routing_port_mappings_errors()}
   def list_custom_routing_port_mappings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3138,6 +3176,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, list_custom_routing_port_mappings_by_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_routing_port_mappings_by_destination_errors()}
   def list_custom_routing_port_mappings_by_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3157,6 +3196,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_endpoint_groups(map(), list_endpoint_groups_request(), list()) ::
           {:ok, list_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_endpoint_groups_errors()}
   def list_endpoint_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3170,6 +3210,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_listeners(map(), list_listeners_request(), list()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_listeners_errors()}
   def list_listeners(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3187,6 +3228,7 @@ defmodule AWS.GlobalAccelerator do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3210,6 +3252,7 @@ defmodule AWS.GlobalAccelerator do
   @spec provision_byoip_cidr(map(), provision_byoip_cidr_request(), list()) ::
           {:ok, provision_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, provision_byoip_cidr_errors()}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3223,6 +3266,7 @@ defmodule AWS.GlobalAccelerator do
   @spec remove_custom_routing_endpoints(map(), remove_custom_routing_endpoints_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_custom_routing_endpoints_errors()}
   def remove_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3258,6 +3302,7 @@ defmodule AWS.GlobalAccelerator do
   @spec remove_endpoints(map(), remove_endpoints_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_endpoints_errors()}
   def remove_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3275,6 +3320,7 @@ defmodule AWS.GlobalAccelerator do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3297,6 +3343,7 @@ defmodule AWS.GlobalAccelerator do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3336,6 +3383,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_accelerator(map(), update_accelerator_request(), list()) ::
           {:ok, update_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_accelerator_errors()}
   def update_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3349,6 +3397,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_accelerator_attributes(map(), update_accelerator_attributes_request(), list()) ::
           {:ok, update_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_accelerator_attributes_errors()}
   def update_accelerator_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3373,6 +3422,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_cross_account_attachment(map(), update_cross_account_attachment_request(), list()) ::
           {:ok, update_cross_account_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cross_account_attachment_errors()}
   def update_cross_account_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3390,6 +3440,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, update_custom_routing_accelerator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_routing_accelerator_errors()}
   def update_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3407,6 +3458,7 @@ defmodule AWS.GlobalAccelerator do
         ) ::
           {:ok, update_custom_routing_accelerator_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_routing_accelerator_attributes_errors()}
   def update_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3420,6 +3472,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_custom_routing_listener(map(), update_custom_routing_listener_request(), list()) ::
           {:ok, update_custom_routing_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_routing_listener_errors()}
   def update_custom_routing_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3435,6 +3488,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_endpoint_group(map(), update_endpoint_group_request(), list()) ::
           {:ok, update_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_group_errors()}
   def update_endpoint_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3448,6 +3502,7 @@ defmodule AWS.GlobalAccelerator do
   @spec update_listener(map(), update_listener_request(), list()) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_listener_errors()}
   def update_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3473,6 +3528,7 @@ defmodule AWS.GlobalAccelerator do
   @spec withdraw_byoip_cidr(map(), withdraw_byoip_cidr_request(), list()) ::
           {:ok, withdraw_byoip_cidr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, withdraw_byoip_cidr_errors()}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
     meta = metadata()

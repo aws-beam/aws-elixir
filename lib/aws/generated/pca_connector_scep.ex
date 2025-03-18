@@ -559,6 +559,7 @@ defmodule AWS.PcaConnectorScep do
   @spec create_challenge(map(), create_challenge_request(), list()) ::
           {:ok, create_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_challenge_errors()}
   def create_challenge(%Client{} = client, input, options \\ []) do
     url_path = "/challenges"
@@ -593,6 +594,7 @@ defmodule AWS.PcaConnectorScep do
   @spec create_connector(map(), create_connector_request(), list()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/connectors"
@@ -622,6 +624,7 @@ defmodule AWS.PcaConnectorScep do
   @spec delete_challenge(map(), String.t(), delete_challenge_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_challenge_errors()}
   def delete_challenge(%Client{} = client, challenge_arn, input, options \\ []) do
     url_path = "/challenges/#{AWS.Util.encode_uri(challenge_arn)}"
@@ -653,6 +656,7 @@ defmodule AWS.PcaConnectorScep do
   @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
@@ -682,6 +686,7 @@ defmodule AWS.PcaConnectorScep do
   @spec get_challenge_metadata(map(), String.t(), list()) ::
           {:ok, get_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_challenge_metadata_errors()}
   def get_challenge_metadata(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengeMetadata/#{AWS.Util.encode_uri(challenge_arn)}"
@@ -700,6 +705,7 @@ defmodule AWS.PcaConnectorScep do
   @spec get_challenge_password(map(), String.t(), list()) ::
           {:ok, get_challenge_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_challenge_password_errors()}
   def get_challenge_password(%Client{} = client, challenge_arn, options \\ []) do
     url_path = "/challengePasswords/#{AWS.Util.encode_uri(challenge_arn)}"
@@ -721,6 +727,7 @@ defmodule AWS.PcaConnectorScep do
   @spec get_connector(map(), String.t(), list()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connector_errors()}
   def get_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/connectors/#{AWS.Util.encode_uri(connector_arn)}"
@@ -738,6 +745,7 @@ defmodule AWS.PcaConnectorScep do
   @spec list_challenge_metadata(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_challenge_metadata_errors()}
   def list_challenge_metadata(
         %Client{} = client,
@@ -782,6 +790,7 @@ defmodule AWS.PcaConnectorScep do
   @spec list_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/connectors"
@@ -822,6 +831,7 @@ defmodule AWS.PcaConnectorScep do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -839,6 +849,7 @@ defmodule AWS.PcaConnectorScep do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -867,6 +878,7 @@ defmodule AWS.PcaConnectorScep do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

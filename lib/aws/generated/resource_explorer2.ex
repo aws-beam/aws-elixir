@@ -1040,6 +1040,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec associate_default_view(map(), associate_default_view_input(), list()) ::
           {:ok, associate_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_default_view_errors()}
   def associate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateDefaultView"
@@ -1068,6 +1069,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec batch_get_view(map(), batch_get_view_input(), list()) ::
           {:ok, batch_get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_view_errors()}
   def batch_get_view(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetView"
@@ -1161,6 +1163,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec create_index(map(), create_index_input(), list()) ::
           {:ok, create_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/CreateIndex"
@@ -1201,6 +1204,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec create_view(map(), create_view_input(), list()) ::
           {:ok, create_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_view_errors()}
   def create_view(%Client{} = client, input, options \\ []) do
     url_path = "/CreateView"
@@ -1246,6 +1250,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec delete_index(map(), delete_index_input(), list()) ::
           {:ok, delete_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteIndex"
@@ -1280,6 +1285,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec delete_view(map(), delete_view_input(), list()) ::
           {:ok, delete_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_view_errors()}
   def delete_view(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteView"
@@ -1317,6 +1323,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec disassociate_default_view(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_default_view_errors()}
   def disassociate_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateDefaultView"
@@ -1350,6 +1357,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec get_account_level_service_configuration(map(), %{}, list()) ::
           {:ok, get_account_level_service_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_level_service_configuration_errors()}
   def get_account_level_service_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetAccountLevelServiceConfiguration"
@@ -1381,6 +1389,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec get_default_view(map(), %{}, list()) ::
           {:ok, get_default_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_default_view_errors()}
   def get_default_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetDefaultView"
@@ -1411,6 +1420,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec get_index(map(), %{}, list()) ::
           {:ok, get_index_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_index_errors()}
   def get_index(%Client{} = client, input, options \\ []) do
     url_path = "/GetIndex"
@@ -1439,6 +1449,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec get_managed_view(map(), get_managed_view_input(), list()) ::
           {:ok, get_managed_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_view_errors()}
   def get_managed_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetManagedView"
@@ -1467,6 +1478,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec get_view(map(), get_view_input(), list()) ::
           {:ok, get_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_view_errors()}
   def get_view(%Client{} = client, input, options \\ []) do
     url_path = "/GetView"
@@ -1497,6 +1509,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_indexes(map(), list_indexes_input(), list()) ::
           {:ok, list_indexes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indexes_errors()}
   def list_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexes"
@@ -1530,6 +1543,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_indexes_for_members(map(), list_indexes_for_members_input(), list()) ::
           {:ok, list_indexes_for_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indexes_for_members_errors()}
   def list_indexes_for_members(%Client{} = client, input, options \\ []) do
     url_path = "/ListIndexesForMembers"
@@ -1561,6 +1575,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_managed_views(map(), list_managed_views_input(), list()) ::
           {:ok, list_managed_views_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_views_errors()}
   def list_managed_views(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedViews"
@@ -1594,6 +1609,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_resources(map(), list_resources_input(), list()) ::
           {:ok, list_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListResources"
@@ -1623,6 +1639,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_supported_resource_types(map(), list_supported_resource_types_input(), list()) ::
           {:ok, list_supported_resource_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_supported_resource_types_errors()}
   def list_supported_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/ListSupportedResourceTypes"
@@ -1651,6 +1668,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1678,6 +1696,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec list_views(map(), list_views_input(), list()) ::
           {:ok, list_views_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_views_errors()}
   def list_views(%Client{} = client, input, options \\ []) do
     url_path = "/ListViews"
@@ -1724,6 +1743,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec search(map(), search_input(), list()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_errors()}
   def search(%Client{} = client, input, options \\ []) do
     url_path = "/Search"
@@ -1753,6 +1773,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1782,6 +1803,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1881,6 +1903,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec update_index_type(map(), update_index_type_input(), list()) ::
           {:ok, update_index_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_index_type_errors()}
   def update_index_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIndexType"
@@ -1912,6 +1935,7 @@ defmodule AWS.ResourceExplorer2 do
   @spec update_view(map(), update_view_input(), list()) ::
           {:ok, update_view_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_view_errors()}
   def update_view(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateView"

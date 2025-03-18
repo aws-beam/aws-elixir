@@ -8981,6 +8981,7 @@ defmodule AWS.RDS do
   @spec add_role_to_db_cluster(map(), add_role_to_db_cluster_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9000,6 +9001,7 @@ defmodule AWS.RDS do
   @spec add_role_to_db_instance(map(), add_role_to_db_instance_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_role_to_db_instance_errors()}
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9017,6 +9019,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9038,6 +9041,7 @@ defmodule AWS.RDS do
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9056,6 +9060,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9101,6 +9106,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, authorize_db_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_db_security_group_ingress_errors()}
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9123,6 +9129,7 @@ defmodule AWS.RDS do
   @spec backtrack_db_cluster(map(), backtrack_db_cluster_message(), list()) ::
           {:ok, db_cluster_backtrack(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, backtrack_db_cluster_errors()}
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9139,6 +9146,7 @@ defmodule AWS.RDS do
   @spec cancel_export_task(map(), cancel_export_task_message(), list()) ::
           {:ok, export_task(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9157,6 +9165,7 @@ defmodule AWS.RDS do
   @spec copy_db_cluster_parameter_group(map(), copy_db_cluster_parameter_group_message(), list()) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9227,6 +9236,7 @@ defmodule AWS.RDS do
   @spec copy_db_cluster_snapshot(map(), copy_db_cluster_snapshot_message(), list()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9244,6 +9254,7 @@ defmodule AWS.RDS do
   @spec copy_db_parameter_group(map(), copy_db_parameter_group_message(), list()) ::
           {:ok, copy_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9271,6 +9282,7 @@ defmodule AWS.RDS do
   @spec copy_db_snapshot(map(), copy_db_snapshot_message(), list()) ::
           {:ok, copy_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_snapshot_errors()}
   def copy_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9284,6 +9296,7 @@ defmodule AWS.RDS do
   @spec copy_option_group(map(), copy_option_group_message(), list()) ::
           {:ok, copy_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_option_group_errors()}
   def copy_option_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9323,6 +9336,7 @@ defmodule AWS.RDS do
   @spec create_blue_green_deployment(map(), create_blue_green_deployment_request(), list()) ::
           {:ok, create_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_blue_green_deployment_errors()}
   def create_blue_green_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9336,6 +9350,7 @@ defmodule AWS.RDS do
   @spec create_custom_db_engine_version(map(), create_custom_db_engine_version_message(), list()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_db_engine_version_errors()}
   def create_custom_db_engine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9374,6 +9389,7 @@ defmodule AWS.RDS do
   @spec create_db_cluster(map(), create_db_cluster_message(), list()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9390,6 +9406,7 @@ defmodule AWS.RDS do
   @spec create_db_cluster_endpoint(map(), create_db_cluster_endpoint_message(), list()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9455,6 +9472,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9476,6 +9494,7 @@ defmodule AWS.RDS do
   @spec create_db_cluster_snapshot(map(), create_db_cluster_snapshot_message(), list()) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9506,6 +9525,7 @@ defmodule AWS.RDS do
   @spec create_db_instance(map(), create_db_instance_message(), list()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9541,6 +9561,7 @@ defmodule AWS.RDS do
   @spec create_db_instance_read_replica(map(), create_db_instance_read_replica_message(), list()) ::
           {:ok, create_db_instance_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_instance_read_replica_errors()}
   def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9565,6 +9586,7 @@ defmodule AWS.RDS do
   @spec create_db_parameter_group(map(), create_db_parameter_group_message(), list()) ::
           {:ok, create_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9578,6 +9600,7 @@ defmodule AWS.RDS do
   @spec create_db_proxy(map(), create_db_proxy_request(), list()) ::
           {:ok, create_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_proxy_errors()}
   def create_db_proxy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9597,6 +9620,7 @@ defmodule AWS.RDS do
   @spec create_db_proxy_endpoint(map(), create_db_proxy_endpoint_request(), list()) ::
           {:ok, create_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_proxy_endpoint_errors()}
   def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9626,6 +9650,7 @@ defmodule AWS.RDS do
   @spec create_db_security_group(map(), create_db_security_group_message(), list()) ::
           {:ok, create_db_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_security_group_errors()}
   def create_db_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9643,6 +9668,7 @@ defmodule AWS.RDS do
   @spec create_db_shard_group(map(), create_db_shard_group_message(), list()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_shard_group_errors()}
   def create_db_shard_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9659,6 +9685,7 @@ defmodule AWS.RDS do
   @spec create_db_snapshot(map(), create_db_snapshot_message(), list()) ::
           {:ok, create_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_snapshot_errors()}
   def create_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9675,6 +9702,7 @@ defmodule AWS.RDS do
   @spec create_db_subnet_group(map(), create_db_subnet_group_message(), list()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9728,6 +9756,7 @@ defmodule AWS.RDS do
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9755,6 +9784,7 @@ defmodule AWS.RDS do
   @spec create_global_cluster(map(), create_global_cluster_message(), list()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9768,6 +9798,7 @@ defmodule AWS.RDS do
   @spec create_integration(map(), create_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9785,6 +9816,7 @@ defmodule AWS.RDS do
   @spec create_option_group(map(), create_option_group_message(), list()) ::
           {:ok, create_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_option_group_errors()}
   def create_option_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9801,6 +9833,7 @@ defmodule AWS.RDS do
   @spec create_tenant_database(map(), create_tenant_database_message(), list()) ::
           {:ok, create_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tenant_database_errors()}
   def create_tenant_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9822,6 +9855,7 @@ defmodule AWS.RDS do
   @spec delete_blue_green_deployment(map(), delete_blue_green_deployment_request(), list()) ::
           {:ok, delete_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_blue_green_deployment_errors()}
   def delete_blue_green_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9861,6 +9895,7 @@ defmodule AWS.RDS do
   @spec delete_custom_db_engine_version(map(), delete_custom_db_engine_version_message(), list()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_db_engine_version_errors()}
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9893,6 +9928,7 @@ defmodule AWS.RDS do
   @spec delete_db_cluster(map(), delete_db_cluster_message(), list()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9912,6 +9948,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, delete_db_cluster_automated_backup_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_automated_backup_errors()}
   def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9927,6 +9964,7 @@ defmodule AWS.RDS do
   @spec delete_db_cluster_endpoint(map(), delete_db_cluster_endpoint_message(), list()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9958,6 +9996,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9987,6 +10026,7 @@ defmodule AWS.RDS do
   @spec delete_db_cluster_snapshot(map(), delete_db_cluster_snapshot_message(), list()) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10036,6 +10076,7 @@ defmodule AWS.RDS do
   @spec delete_db_instance(map(), delete_db_instance_message(), list()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10054,6 +10095,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, delete_db_instance_automated_backup_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_instance_automated_backup_errors()}
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10069,6 +10111,7 @@ defmodule AWS.RDS do
   @spec delete_db_parameter_group(map(), delete_db_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10082,6 +10125,7 @@ defmodule AWS.RDS do
   @spec delete_db_proxy(map(), delete_db_proxy_request(), list()) ::
           {:ok, delete_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_proxy_errors()}
   def delete_db_proxy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10101,6 +10145,7 @@ defmodule AWS.RDS do
   @spec delete_db_proxy_endpoint(map(), delete_db_proxy_endpoint_request(), list()) ::
           {:ok, delete_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_proxy_endpoint_errors()}
   def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10127,6 +10172,7 @@ defmodule AWS.RDS do
   @spec delete_db_security_group(map(), delete_db_security_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_security_group_errors()}
   def delete_db_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10140,6 +10186,7 @@ defmodule AWS.RDS do
   @spec delete_db_shard_group(map(), delete_db_shard_group_message(), list()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_shard_group_errors()}
   def delete_db_shard_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10158,6 +10205,7 @@ defmodule AWS.RDS do
   @spec delete_db_snapshot(map(), delete_db_snapshot_message(), list()) ::
           {:ok, delete_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_snapshot_errors()}
   def delete_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10174,6 +10222,7 @@ defmodule AWS.RDS do
   @spec delete_db_subnet_group(map(), delete_db_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10187,6 +10236,7 @@ defmodule AWS.RDS do
   @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10205,6 +10255,7 @@ defmodule AWS.RDS do
   @spec delete_global_cluster(map(), delete_global_cluster_message(), list()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10218,6 +10269,7 @@ defmodule AWS.RDS do
   @spec delete_integration(map(), delete_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10231,6 +10283,7 @@ defmodule AWS.RDS do
   @spec delete_option_group(map(), delete_option_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_option_group_errors()}
   def delete_option_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10250,6 +10303,7 @@ defmodule AWS.RDS do
   @spec delete_tenant_database(map(), delete_tenant_database_message(), list()) ::
           {:ok, delete_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tenant_database_errors()}
   def delete_tenant_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10264,6 +10318,7 @@ defmodule AWS.RDS do
   @spec deregister_db_proxy_targets(map(), deregister_db_proxy_targets_request(), list()) ::
           {:ok, deregister_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_db_proxy_targets_errors()}
   def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10283,6 +10338,7 @@ defmodule AWS.RDS do
   @spec describe_account_attributes(map(), describe_account_attributes_message(), list()) ::
           {:ok, account_attributes_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10304,6 +10360,7 @@ defmodule AWS.RDS do
   @spec describe_blue_green_deployments(map(), describe_blue_green_deployments_request(), list()) ::
           {:ok, describe_blue_green_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_blue_green_deployments_errors()}
   def describe_blue_green_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10326,6 +10383,7 @@ defmodule AWS.RDS do
   @spec describe_certificates(map(), describe_certificates_message(), list()) ::
           {:ok, certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10350,6 +10408,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_cluster_automated_backup_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_automated_backups_errors()}
   def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10371,6 +10430,7 @@ defmodule AWS.RDS do
   @spec describe_db_cluster_backtracks(map(), describe_db_cluster_backtracks_message(), list()) ::
           {:ok, db_cluster_backtrack_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_backtracks_errors()}
   def describe_db_cluster_backtracks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10386,6 +10446,7 @@ defmodule AWS.RDS do
   @spec describe_db_cluster_endpoints(map(), describe_db_cluster_endpoints_message(), list()) ::
           {:ok, db_cluster_endpoint_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10419,6 +10480,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10443,6 +10505,7 @@ defmodule AWS.RDS do
   @spec describe_db_cluster_parameters(map(), describe_db_cluster_parameters_message(), list()) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10476,6 +10539,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10502,6 +10566,7 @@ defmodule AWS.RDS do
   @spec describe_db_cluster_snapshots(map(), describe_db_cluster_snapshots_message(), list()) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10531,6 +10596,7 @@ defmodule AWS.RDS do
   @spec describe_db_clusters(map(), describe_db_clusters_message(), list()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10544,6 +10610,7 @@ defmodule AWS.RDS do
   @spec describe_db_engine_versions(map(), describe_db_engine_versions_message(), list()) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10570,6 +10637,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_instance_automated_backup_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_instance_automated_backups_errors()}
   def describe_db_instance_automated_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10588,6 +10656,7 @@ defmodule AWS.RDS do
   @spec describe_db_instances(map(), describe_db_instances_message(), list()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10603,6 +10672,7 @@ defmodule AWS.RDS do
   @spec describe_db_log_files(map(), describe_db_log_files_message(), list()) ::
           {:ok, describe_db_log_files_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_log_files_errors()}
   def describe_db_log_files(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10619,6 +10689,7 @@ defmodule AWS.RDS do
   @spec describe_db_parameter_groups(map(), describe_db_parameter_groups_message(), list()) ::
           {:ok, db_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10632,6 +10703,7 @@ defmodule AWS.RDS do
   @spec describe_db_parameters(map(), describe_db_parameters_message(), list()) ::
           {:ok, db_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10645,6 +10717,7 @@ defmodule AWS.RDS do
   @spec describe_db_proxies(map(), describe_db_proxies_request(), list()) ::
           {:ok, describe_db_proxies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_proxies_errors()}
   def describe_db_proxies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10658,6 +10731,7 @@ defmodule AWS.RDS do
   @spec describe_db_proxy_endpoints(map(), describe_db_proxy_endpoints_request(), list()) ::
           {:ok, describe_db_proxy_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_proxy_endpoints_errors()}
   def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10672,6 +10746,7 @@ defmodule AWS.RDS do
   @spec describe_db_proxy_target_groups(map(), describe_db_proxy_target_groups_request(), list()) ::
           {:ok, describe_db_proxy_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_proxy_target_groups_errors()}
   def describe_db_proxy_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10687,6 +10762,7 @@ defmodule AWS.RDS do
   @spec describe_db_proxy_targets(map(), describe_db_proxy_targets_request(), list()) ::
           {:ok, describe_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_proxy_targets_errors()}
   def describe_db_proxy_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10701,6 +10777,7 @@ defmodule AWS.RDS do
   @spec describe_db_recommendations(map(), describe_db_recommendations_message(), list()) ::
           {:ok, db_recommendations_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_db_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10727,6 +10804,7 @@ defmodule AWS.RDS do
   @spec describe_db_security_groups(map(), describe_db_security_groups_message(), list()) ::
           {:ok, db_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_security_groups_errors()}
   def describe_db_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10740,6 +10818,7 @@ defmodule AWS.RDS do
   @spec describe_db_shard_groups(map(), describe_db_shard_groups_message(), list()) ::
           {:ok, describe_db_shard_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_shard_groups_errors()}
   def describe_db_shard_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10768,6 +10847,7 @@ defmodule AWS.RDS do
   @spec describe_db_snapshot_attributes(map(), describe_db_snapshot_attributes_message(), list()) ::
           {:ok, describe_db_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_snapshot_attributes_errors()}
   def describe_db_snapshot_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10795,6 +10875,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_snapshot_tenant_databases_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_snapshot_tenant_databases_errors()}
   def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10810,6 +10891,7 @@ defmodule AWS.RDS do
   @spec describe_db_snapshots(map(), describe_db_snapshots_message(), list()) ::
           {:ok, db_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_snapshots_errors()}
   def describe_db_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10829,6 +10911,7 @@ defmodule AWS.RDS do
   @spec describe_db_subnet_groups(map(), describe_db_subnet_groups_message(), list()) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10853,6 +10936,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10870,6 +10954,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10892,6 +10977,7 @@ defmodule AWS.RDS do
   @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10911,6 +10997,7 @@ defmodule AWS.RDS do
   @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10936,6 +11023,7 @@ defmodule AWS.RDS do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -10951,6 +11039,7 @@ defmodule AWS.RDS do
   @spec describe_export_tasks(map(), describe_export_tasks_message(), list()) ::
           {:ok, export_tasks_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10972,6 +11061,7 @@ defmodule AWS.RDS do
   @spec describe_global_clusters(map(), describe_global_clusters_message(), list()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10985,6 +11075,7 @@ defmodule AWS.RDS do
   @spec describe_integrations(map(), describe_integrations_message(), list()) ::
           {:ok, describe_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10998,6 +11089,7 @@ defmodule AWS.RDS do
   @spec describe_option_group_options(map(), describe_option_group_options_message(), list()) ::
           {:ok, option_group_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -11010,6 +11102,7 @@ defmodule AWS.RDS do
   @spec describe_option_groups(map(), describe_option_groups_message(), list()) ::
           {:ok, option_groups(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_option_groups_errors()}
   def describe_option_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11027,6 +11120,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -11051,6 +11145,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11065,6 +11160,7 @@ defmodule AWS.RDS do
   @spec describe_reserved_db_instances(map(), describe_reserved_db_instances_message(), list()) ::
           {:ok, reserved_db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_db_instances_errors()}
   def describe_reserved_db_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11082,6 +11178,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, reserved_db_instances_offering_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_db_instances_offerings_errors()}
   def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11108,6 +11205,7 @@ defmodule AWS.RDS do
   @spec describe_source_regions(map(), describe_source_regions_message(), list()) ::
           {:ok, source_region_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_source_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -11123,6 +11221,7 @@ defmodule AWS.RDS do
   @spec describe_tenant_databases(map(), describe_tenant_databases_message(), list()) ::
           {:ok, tenant_databases_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tenant_databases_errors()}
   def describe_tenant_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11146,6 +11245,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, describe_valid_db_instance_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11169,6 +11269,7 @@ defmodule AWS.RDS do
   @spec disable_http_endpoint(map(), disable_http_endpoint_request(), list()) ::
           {:ok, disable_http_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_http_endpoint_errors()}
   def disable_http_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11184,6 +11285,7 @@ defmodule AWS.RDS do
   @spec download_db_log_file_portion(map(), download_db_log_file_portion_message(), list()) ::
           {:ok, download_db_log_file_portion_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, download_db_log_file_portion_errors()}
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11214,6 +11316,7 @@ defmodule AWS.RDS do
   @spec enable_http_endpoint(map(), enable_http_endpoint_request(), list()) ::
           {:ok, enable_http_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_http_endpoint_errors()}
   def enable_http_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11260,6 +11363,7 @@ defmodule AWS.RDS do
   @spec failover_db_cluster(map(), failover_db_cluster_message(), list()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11322,6 +11426,7 @@ defmodule AWS.RDS do
   @spec failover_global_cluster(map(), failover_global_cluster_message(), list()) ::
           {:ok, failover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11341,6 +11446,7 @@ defmodule AWS.RDS do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11365,6 +11471,7 @@ defmodule AWS.RDS do
   @spec modify_activity_stream(map(), modify_activity_stream_request(), list()) ::
           {:ok, modify_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_activity_stream_errors()}
   def modify_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11416,6 +11523,7 @@ defmodule AWS.RDS do
   @spec modify_certificates(map(), modify_certificates_message(), list()) ::
           {:ok, modify_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_certificates_errors()}
   def modify_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11461,6 +11569,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_cluster_capacity_info(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_current_db_cluster_capacity_errors()}
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11490,6 +11599,7 @@ defmodule AWS.RDS do
   @spec modify_custom_db_engine_version(map(), modify_custom_db_engine_version_message(), list()) ::
           {:ok, db_engine_version(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_custom_db_engine_version_errors()}
   def modify_custom_db_engine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11518,6 +11628,7 @@ defmodule AWS.RDS do
   @spec modify_db_cluster(map(), modify_db_cluster_message(), list()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11533,6 +11644,7 @@ defmodule AWS.RDS do
   @spec modify_db_cluster_endpoint(map(), modify_db_cluster_endpoint_message(), list()) ::
           {:ok, db_cluster_endpoint(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11590,6 +11702,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11634,6 +11747,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11653,6 +11767,7 @@ defmodule AWS.RDS do
   @spec modify_db_instance(map(), modify_db_instance_message(), list()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11685,6 +11800,7 @@ defmodule AWS.RDS do
   @spec modify_db_parameter_group(map(), modify_db_parameter_group_message(), list()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11698,6 +11814,7 @@ defmodule AWS.RDS do
   @spec modify_db_proxy(map(), modify_db_proxy_request(), list()) ::
           {:ok, modify_db_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_proxy_errors()}
   def modify_db_proxy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11711,6 +11828,7 @@ defmodule AWS.RDS do
   @spec modify_db_proxy_endpoint(map(), modify_db_proxy_endpoint_request(), list()) ::
           {:ok, modify_db_proxy_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_proxy_endpoint_errors()}
   def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11724,6 +11842,7 @@ defmodule AWS.RDS do
   @spec modify_db_proxy_target_group(map(), modify_db_proxy_target_group_request(), list()) ::
           {:ok, modify_db_proxy_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_proxy_target_group_errors()}
   def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11738,6 +11857,7 @@ defmodule AWS.RDS do
   @spec modify_db_recommendation(map(), modify_db_recommendation_message(), list()) ::
           {:ok, db_recommendation_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def modify_db_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -11753,6 +11873,7 @@ defmodule AWS.RDS do
   @spec modify_db_shard_group(map(), modify_db_shard_group_message(), list()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_shard_group_errors()}
   def modify_db_shard_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11773,6 +11894,7 @@ defmodule AWS.RDS do
   @spec modify_db_snapshot(map(), modify_db_snapshot_message(), list()) ::
           {:ok, modify_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_snapshot_errors()}
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11812,6 +11934,7 @@ defmodule AWS.RDS do
   @spec modify_db_snapshot_attribute(map(), modify_db_snapshot_attribute_message(), list()) ::
           {:ok, modify_db_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_snapshot_attribute_errors()}
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11828,6 +11951,7 @@ defmodule AWS.RDS do
   @spec modify_db_subnet_group(map(), modify_db_subnet_group_message(), list()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11853,6 +11977,7 @@ defmodule AWS.RDS do
   @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11875,6 +12000,7 @@ defmodule AWS.RDS do
   @spec modify_global_cluster(map(), modify_global_cluster_message(), list()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11888,6 +12014,7 @@ defmodule AWS.RDS do
   @spec modify_integration(map(), modify_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11901,6 +12028,7 @@ defmodule AWS.RDS do
   @spec modify_option_group(map(), modify_option_group_message(), list()) ::
           {:ok, modify_option_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_option_group_errors()}
   def modify_option_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11919,6 +12047,7 @@ defmodule AWS.RDS do
   @spec modify_tenant_database(map(), modify_tenant_database_message(), list()) ::
           {:ok, modify_tenant_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_tenant_database_errors()}
   def modify_tenant_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11946,6 +12075,7 @@ defmodule AWS.RDS do
   @spec promote_read_replica(map(), promote_read_replica_message(), list()) ::
           {:ok, promote_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_read_replica_errors()}
   def promote_read_replica(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11959,6 +12089,7 @@ defmodule AWS.RDS do
   @spec promote_read_replica_db_cluster(map(), promote_read_replica_db_cluster_message(), list()) ::
           {:ok, promote_read_replica_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11976,6 +12107,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, purchase_reserved_db_instances_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_db_instances_offering_errors()}
   def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12004,6 +12136,7 @@ defmodule AWS.RDS do
   @spec reboot_db_cluster(map(), reboot_db_cluster_message(), list()) ::
           {:ok, reboot_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_db_cluster_errors()}
   def reboot_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12033,6 +12166,7 @@ defmodule AWS.RDS do
   @spec reboot_db_instance(map(), reboot_db_instance_message(), list()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12051,6 +12185,7 @@ defmodule AWS.RDS do
   @spec reboot_db_shard_group(map(), reboot_db_shard_group_message(), list()) ::
           {:ok, db_shard_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_db_shard_group_errors()}
   def reboot_db_shard_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12065,6 +12200,7 @@ defmodule AWS.RDS do
   @spec register_db_proxy_targets(map(), register_db_proxy_targets_request(), list()) ::
           {:ok, register_db_proxy_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_db_proxy_targets_errors()}
   def register_db_proxy_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12085,6 +12221,7 @@ defmodule AWS.RDS do
   @spec remove_from_global_cluster(map(), remove_from_global_cluster_message(), list()) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12111,6 +12248,7 @@ defmodule AWS.RDS do
   @spec remove_role_from_db_cluster(map(), remove_role_from_db_cluster_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12125,6 +12263,7 @@ defmodule AWS.RDS do
   @spec remove_role_from_db_instance(map(), remove_role_from_db_instance_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_role_from_db_instance_errors()}
   def remove_role_from_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12143,6 +12282,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12162,6 +12302,7 @@ defmodule AWS.RDS do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12203,6 +12344,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12225,6 +12367,7 @@ defmodule AWS.RDS do
   @spec reset_db_parameter_group(map(), reset_db_parameter_group_message(), list()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12263,6 +12406,7 @@ defmodule AWS.RDS do
   @spec restore_db_cluster_from_s3(map(), restore_db_cluster_from_s3_message(), list()) ::
           {:ok, restore_db_cluster_from_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_cluster_from_s3_errors()}
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12303,6 +12447,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12347,6 +12492,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12396,6 +12542,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, restore_db_instance_from_db_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_instance_from_db_snapshot_errors()}
   def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12419,6 +12566,7 @@ defmodule AWS.RDS do
   @spec restore_db_instance_from_s3(map(), restore_db_instance_from_s3_message(), list()) ::
           {:ok, restore_db_instance_from_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_instance_from_s3_errors()}
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12454,6 +12602,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, restore_db_instance_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_instance_to_point_in_time_errors()}
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12488,6 +12637,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, revoke_db_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_db_security_group_ingress_errors()}
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12511,6 +12661,7 @@ defmodule AWS.RDS do
   @spec start_activity_stream(map(), start_activity_stream_request(), list()) ::
           {:ok, start_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_activity_stream_errors()}
   def start_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12534,6 +12685,7 @@ defmodule AWS.RDS do
   @spec start_db_cluster(map(), start_db_cluster_message(), list()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12558,6 +12710,7 @@ defmodule AWS.RDS do
   @spec start_db_instance(map(), start_db_instance_message(), list()) ::
           {:ok, start_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_db_instance_errors()}
   def start_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12583,6 +12736,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, start_db_instance_automated_backups_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_db_instance_automated_backups_replication_errors()}
   def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12623,6 +12777,7 @@ defmodule AWS.RDS do
   @spec start_export_task(map(), start_export_task_message(), list()) ::
           {:ok, export_task(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12648,6 +12803,7 @@ defmodule AWS.RDS do
   @spec stop_activity_stream(map(), stop_activity_stream_request(), list()) ::
           {:ok, stop_activity_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_activity_stream_errors()}
   def stop_activity_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12673,6 +12829,7 @@ defmodule AWS.RDS do
   @spec stop_db_cluster(map(), stop_db_cluster_message(), list()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12703,6 +12860,7 @@ defmodule AWS.RDS do
   @spec stop_db_instance(map(), stop_db_instance_message(), list()) ::
           {:ok, stop_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_db_instance_errors()}
   def stop_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12727,6 +12885,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, stop_db_instance_automated_backups_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_db_instance_automated_backups_replication_errors()}
   def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12763,6 +12922,7 @@ defmodule AWS.RDS do
         ) ::
           {:ok, switchover_blue_green_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, switchover_blue_green_deployment_errors()}
   def switchover_blue_green_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12795,6 +12955,7 @@ defmodule AWS.RDS do
   @spec switchover_global_cluster(map(), switchover_global_cluster_message(), list()) ::
           {:ok, switchover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -12812,6 +12973,7 @@ defmodule AWS.RDS do
   @spec switchover_read_replica(map(), switchover_read_replica_message(), list()) ::
           {:ok, switchover_read_replica_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, switchover_read_replica_errors()}
   def switchover_read_replica(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -18715,6 +18715,7 @@ defmodule AWS.SageMaker do
   @spec add_association(map(), add_association_request(), list()) ::
           {:ok, add_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_association_errors()}
   def add_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18764,6 +18765,7 @@ defmodule AWS.SageMaker do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18781,6 +18783,7 @@ defmodule AWS.SageMaker do
   @spec associate_trial_component(map(), associate_trial_component_request(), list()) ::
           {:ok, associate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_trial_component_errors()}
   def associate_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18810,6 +18813,7 @@ defmodule AWS.SageMaker do
   @spec batch_delete_cluster_nodes(map(), batch_delete_cluster_nodes_request(), list()) ::
           {:ok, batch_delete_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_cluster_nodes_errors()}
   def batch_delete_cluster_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18823,6 +18827,7 @@ defmodule AWS.SageMaker do
   @spec batch_describe_model_package(map(), batch_describe_model_package_input(), list()) ::
           {:ok, batch_describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_describe_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18842,6 +18847,7 @@ defmodule AWS.SageMaker do
   @spec create_action(map(), create_action_request(), list()) ::
           {:ok, create_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_action_errors()}
   def create_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18856,6 +18862,7 @@ defmodule AWS.SageMaker do
   @spec create_algorithm(map(), create_algorithm_input(), list()) ::
           {:ok, create_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -18874,6 +18881,7 @@ defmodule AWS.SageMaker do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18892,6 +18900,7 @@ defmodule AWS.SageMaker do
   @spec create_app_image_config(map(), create_app_image_config_request(), list()) ::
           {:ok, create_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_image_config_errors()}
   def create_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18912,6 +18921,7 @@ defmodule AWS.SageMaker do
   @spec create_artifact(map(), create_artifact_request(), list()) ::
           {:ok, create_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_artifact_errors()}
   def create_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -18968,6 +18978,7 @@ defmodule AWS.SageMaker do
   @spec create_auto_ml_job(map(), create_auto_ml_job_request(), list()) ::
           {:ok, create_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_auto_ml_job_errors()}
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19034,6 +19045,7 @@ defmodule AWS.SageMaker do
   @spec create_auto_ml_job_v2(map(), create_auto_ml_job_v2_request(), list()) ::
           {:ok, create_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_auto_ml_job_v2_errors()}
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19054,6 +19066,7 @@ defmodule AWS.SageMaker do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19072,6 +19085,7 @@ defmodule AWS.SageMaker do
   @spec create_cluster_scheduler_config(map(), create_cluster_scheduler_config_request(), list()) ::
           {:ok, create_cluster_scheduler_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_scheduler_config_errors()}
   def create_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19098,6 +19112,7 @@ defmodule AWS.SageMaker do
   @spec create_code_repository(map(), create_code_repository_input(), list()) ::
           {:ok, create_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_code_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -19151,6 +19166,7 @@ defmodule AWS.SageMaker do
   @spec create_compilation_job(map(), create_compilation_job_request(), list()) ::
           {:ok, create_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_compilation_job_errors()}
   def create_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19169,6 +19185,7 @@ defmodule AWS.SageMaker do
   @spec create_compute_quota(map(), create_compute_quota_request(), list()) ::
           {:ok, create_compute_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_compute_quota_errors()}
   def create_compute_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19189,6 +19206,7 @@ defmodule AWS.SageMaker do
   @spec create_context(map(), create_context_request(), list()) ::
           {:ok, create_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_context_errors()}
   def create_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19209,6 +19227,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_quality_job_definition_errors()}
   def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19222,6 +19241,7 @@ defmodule AWS.SageMaker do
   @spec create_device_fleet(map(), create_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_fleet_errors()}
   def create_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19292,6 +19312,7 @@ defmodule AWS.SageMaker do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19308,6 +19329,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_deployment_plan(map(), create_edge_deployment_plan_request(), list()) ::
           {:ok, create_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_edge_deployment_plan_errors()}
   def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19321,6 +19343,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_deployment_stage(map(), create_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_edge_deployment_stage_errors()}
   def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19338,6 +19361,7 @@ defmodule AWS.SageMaker do
   @spec create_edge_packaging_job(map(), create_edge_packaging_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_edge_packaging_job_errors()}
   def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19445,6 +19469,7 @@ defmodule AWS.SageMaker do
   @spec create_endpoint(map(), create_endpoint_input(), list()) ::
           {:ok, create_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19503,6 +19528,7 @@ defmodule AWS.SageMaker do
   @spec create_endpoint_config(map(), create_endpoint_config_input(), list()) ::
           {:ok, create_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_config_errors()}
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19554,6 +19580,7 @@ defmodule AWS.SageMaker do
   @spec create_experiment(map(), create_experiment_request(), list()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19587,6 +19614,7 @@ defmodule AWS.SageMaker do
   @spec create_feature_group(map(), create_feature_group_request(), list()) ::
           {:ok, create_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_feature_group_errors()}
   def create_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19600,6 +19628,7 @@ defmodule AWS.SageMaker do
   @spec create_flow_definition(map(), create_flow_definition_request(), list()) ::
           {:ok, create_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_definition_errors()}
   def create_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19613,6 +19642,7 @@ defmodule AWS.SageMaker do
   @spec create_hub(map(), create_hub_request(), list()) ::
           {:ok, create_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hub_errors()}
   def create_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19627,6 +19657,7 @@ defmodule AWS.SageMaker do
   @spec create_hub_content_reference(map(), create_hub_content_reference_request(), list()) ::
           {:ok, create_hub_content_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hub_content_reference_errors()}
   def create_hub_content_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19643,6 +19674,7 @@ defmodule AWS.SageMaker do
   @spec create_human_task_ui(map(), create_human_task_ui_request(), list()) ::
           {:ok, create_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_human_task_ui_errors()}
   def create_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19682,6 +19714,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hyper_parameter_tuning_job_errors()}
   def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19700,6 +19733,7 @@ defmodule AWS.SageMaker do
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19716,6 +19750,7 @@ defmodule AWS.SageMaker do
   @spec create_image_version(map(), create_image_version_request(), list()) ::
           {:ok, create_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_image_version_errors()}
   def create_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19744,6 +19779,7 @@ defmodule AWS.SageMaker do
   @spec create_inference_component(map(), create_inference_component_input(), list()) ::
           {:ok, create_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_inference_component_errors()}
   def create_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19771,6 +19807,7 @@ defmodule AWS.SageMaker do
   @spec create_inference_experiment(map(), create_inference_experiment_request(), list()) ::
           {:ok, create_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_inference_experiment_errors()}
   def create_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19791,6 +19828,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_inference_recommendations_job_errors()}
   def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19852,6 +19890,7 @@ defmodule AWS.SageMaker do
   @spec create_labeling_job(map(), create_labeling_job_request(), list()) ::
           {:ok, create_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_labeling_job_errors()}
   def create_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19869,6 +19908,7 @@ defmodule AWS.SageMaker do
   @spec create_mlflow_tracking_server(map(), create_mlflow_tracking_server_request(), list()) ::
           {:ok, create_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mlflow_tracking_server_errors()}
   def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19909,6 +19949,7 @@ defmodule AWS.SageMaker do
   @spec create_model(map(), create_model_input(), list()) ::
           {:ok, create_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19926,6 +19967,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_bias_job_definition_errors()}
   def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19941,6 +19983,7 @@ defmodule AWS.SageMaker do
   @spec create_model_card(map(), create_model_card_request(), list()) ::
           {:ok, create_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_card_errors()}
   def create_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19954,6 +19997,7 @@ defmodule AWS.SageMaker do
   @spec create_model_card_export_job(map(), create_model_card_export_job_request(), list()) ::
           {:ok, create_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_card_export_job_errors()}
   def create_model_card_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -19971,6 +20015,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_explainability_job_definition_errors()}
   def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20008,6 +20053,7 @@ defmodule AWS.SageMaker do
   @spec create_model_package(map(), create_model_package_input(), list()) ::
           {:ok, create_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_package_errors()}
   def create_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20023,6 +20069,7 @@ defmodule AWS.SageMaker do
   @spec create_model_package_group(map(), create_model_package_group_input(), list()) ::
           {:ok, create_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_package_group_errors()}
   def create_model_package_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20043,6 +20090,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_quality_job_definition_errors()}
   def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20057,6 +20105,7 @@ defmodule AWS.SageMaker do
   @spec create_monitoring_schedule(map(), create_monitoring_schedule_request(), list()) ::
           {:ok, create_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_monitoring_schedule_errors()}
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20116,6 +20165,7 @@ defmodule AWS.SageMaker do
   @spec create_notebook_instance(map(), create_notebook_instance_input(), list()) ::
           {:ok, create_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notebook_instance_errors()}
   def create_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20155,6 +20205,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notebook_instance_lifecycle_config_errors()}
   def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20179,6 +20230,7 @@ defmodule AWS.SageMaker do
   @spec create_optimization_job(map(), create_optimization_job_request(), list()) ::
           {:ok, create_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_optimization_job_errors()}
   def create_optimization_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20192,6 +20244,7 @@ defmodule AWS.SageMaker do
   @spec create_partner_app(map(), create_partner_app_request(), list()) ::
           {:ok, create_partner_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_partner_app_errors()}
   def create_partner_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20209,6 +20262,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_partner_app_presigned_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_partner_app_presigned_url_errors()}
   def create_partner_app_presigned_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20222,6 +20276,7 @@ defmodule AWS.SageMaker do
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20266,6 +20321,7 @@ defmodule AWS.SageMaker do
   @spec create_presigned_domain_url(map(), create_presigned_domain_url_request(), list()) ::
           {:ok, create_presigned_domain_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_presigned_domain_url_errors()}
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20287,6 +20343,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_presigned_mlflow_tracking_server_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_presigned_mlflow_tracking_server_url_errors()}
   def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20331,6 +20388,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, create_presigned_notebook_instance_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -20343,6 +20401,7 @@ defmodule AWS.SageMaker do
   @spec create_processing_job(map(), create_processing_job_request(), list()) ::
           {:ok, create_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_processing_job_errors()}
   def create_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20358,6 +20417,7 @@ defmodule AWS.SageMaker do
   @spec create_project(map(), create_project_input(), list()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20371,6 +20431,7 @@ defmodule AWS.SageMaker do
   @spec create_space(map(), create_space_request(), list()) ::
           {:ok, create_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20384,6 +20445,7 @@ defmodule AWS.SageMaker do
   @spec create_studio_lifecycle_config(map(), create_studio_lifecycle_config_request(), list()) ::
           {:ok, create_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_studio_lifecycle_config_errors()}
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20479,6 +20541,7 @@ defmodule AWS.SageMaker do
   @spec create_training_job(map(), create_training_job_request(), list()) ::
           {:ok, create_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_training_job_errors()}
   def create_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20564,6 +20627,7 @@ defmodule AWS.SageMaker do
   @spec create_training_plan(map(), create_training_plan_request(), list()) ::
           {:ok, create_training_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_training_plan_errors()}
   def create_training_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20617,6 +20681,7 @@ defmodule AWS.SageMaker do
   @spec create_transform_job(map(), create_transform_job_request(), list()) ::
           {:ok, create_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_transform_job_errors()}
   def create_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20653,6 +20718,7 @@ defmodule AWS.SageMaker do
   @spec create_trial(map(), create_trial_request(), list()) ::
           {:ok, create_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trial_errors()}
   def create_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20684,6 +20750,7 @@ defmodule AWS.SageMaker do
   @spec create_trial_component(map(), create_trial_component_request(), list()) ::
           {:ok, create_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trial_component_errors()}
   def create_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20710,6 +20777,7 @@ defmodule AWS.SageMaker do
   @spec create_user_profile(map(), create_user_profile_request(), list()) ::
           {:ok, create_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20753,6 +20821,7 @@ defmodule AWS.SageMaker do
   @spec create_workforce(map(), create_workforce_request(), list()) ::
           {:ok, create_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_workforce(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -20772,6 +20841,7 @@ defmodule AWS.SageMaker do
   @spec create_workteam(map(), create_workteam_request(), list()) ::
           {:ok, create_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workteam_errors()}
   def create_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20785,6 +20855,7 @@ defmodule AWS.SageMaker do
   @spec delete_action(map(), delete_action_request(), list()) ::
           {:ok, delete_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_action_errors()}
   def delete_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20798,6 +20869,7 @@ defmodule AWS.SageMaker do
   @spec delete_algorithm(map(), delete_algorithm_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_algorithm_errors()}
   def delete_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20811,6 +20883,7 @@ defmodule AWS.SageMaker do
   @spec delete_app(map(), delete_app_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20824,6 +20897,7 @@ defmodule AWS.SageMaker do
   @spec delete_app_image_config(map(), delete_app_image_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_image_config_errors()}
   def delete_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20840,6 +20914,7 @@ defmodule AWS.SageMaker do
   @spec delete_artifact(map(), delete_artifact_request(), list()) ::
           {:ok, delete_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_artifact_errors()}
   def delete_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20853,6 +20928,7 @@ defmodule AWS.SageMaker do
   @spec delete_association(map(), delete_association_request(), list()) ::
           {:ok, delete_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20866,6 +20942,7 @@ defmodule AWS.SageMaker do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20879,6 +20956,7 @@ defmodule AWS.SageMaker do
   @spec delete_cluster_scheduler_config(map(), delete_cluster_scheduler_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_scheduler_config_errors()}
   def delete_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20892,6 +20970,7 @@ defmodule AWS.SageMaker do
   @spec delete_code_repository(map(), delete_code_repository_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_code_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -20916,6 +20995,7 @@ defmodule AWS.SageMaker do
   @spec delete_compilation_job(map(), delete_compilation_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_compilation_job_errors()}
   def delete_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20929,6 +21009,7 @@ defmodule AWS.SageMaker do
   @spec delete_compute_quota(map(), delete_compute_quota_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_compute_quota_errors()}
   def delete_compute_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20942,6 +21023,7 @@ defmodule AWS.SageMaker do
   @spec delete_context(map(), delete_context_request(), list()) ::
           {:ok, delete_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_context_errors()}
   def delete_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20959,6 +21041,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_quality_job_definition_errors()}
   def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20972,6 +21055,7 @@ defmodule AWS.SageMaker do
   @spec delete_device_fleet(map(), delete_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_fleet_errors()}
   def delete_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -20991,6 +21075,7 @@ defmodule AWS.SageMaker do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21005,6 +21090,7 @@ defmodule AWS.SageMaker do
   @spec delete_edge_deployment_plan(map(), delete_edge_deployment_plan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_edge_deployment_plan_errors()}
   def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21019,6 +21105,7 @@ defmodule AWS.SageMaker do
   @spec delete_edge_deployment_stage(map(), delete_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_edge_deployment_stage_errors()}
   def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21057,6 +21144,7 @@ defmodule AWS.SageMaker do
   @spec delete_endpoint(map(), delete_endpoint_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21083,6 +21171,7 @@ defmodule AWS.SageMaker do
   @spec delete_endpoint_config(map(), delete_endpoint_config_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_endpoint_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21101,6 +21190,7 @@ defmodule AWS.SageMaker do
   @spec delete_experiment(map(), delete_experiment_request(), list()) ::
           {:ok, delete_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21126,6 +21216,7 @@ defmodule AWS.SageMaker do
   @spec delete_feature_group(map(), delete_feature_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_feature_group_errors()}
   def delete_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21139,6 +21230,7 @@ defmodule AWS.SageMaker do
   @spec delete_flow_definition(map(), delete_flow_definition_request(), list()) ::
           {:ok, delete_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_definition_errors()}
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21152,6 +21244,7 @@ defmodule AWS.SageMaker do
   @spec delete_hub(map(), delete_hub_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hub_errors()}
   def delete_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21165,6 +21258,7 @@ defmodule AWS.SageMaker do
   @spec delete_hub_content(map(), delete_hub_content_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hub_content_errors()}
   def delete_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21178,6 +21272,7 @@ defmodule AWS.SageMaker do
   @spec delete_hub_content_reference(map(), delete_hub_content_reference_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hub_content_reference_errors()}
   def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21197,6 +21292,7 @@ defmodule AWS.SageMaker do
   @spec delete_human_task_ui(map(), delete_human_task_ui_request(), list()) ::
           {:ok, delete_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_human_task_ui_errors()}
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21220,6 +21316,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21235,6 +21332,7 @@ defmodule AWS.SageMaker do
   @spec delete_image(map(), delete_image_request(), list()) ::
           {:ok, delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21251,6 +21349,7 @@ defmodule AWS.SageMaker do
   @spec delete_image_version(map(), delete_image_version_request(), list()) ::
           {:ok, delete_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_version_errors()}
   def delete_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21264,6 +21363,7 @@ defmodule AWS.SageMaker do
   @spec delete_inference_component(map(), delete_inference_component_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21280,6 +21380,7 @@ defmodule AWS.SageMaker do
   @spec delete_inference_experiment(map(), delete_inference_experiment_request(), list()) ::
           {:ok, delete_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inference_experiment_errors()}
   def delete_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21295,6 +21396,7 @@ defmodule AWS.SageMaker do
   @spec delete_mlflow_tracking_server(map(), delete_mlflow_tracking_server_request(), list()) ::
           {:ok, delete_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mlflow_tracking_server_errors()}
   def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21315,6 +21417,7 @@ defmodule AWS.SageMaker do
   @spec delete_model(map(), delete_model_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21331,6 +21434,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_bias_job_definition_errors()}
   def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21344,6 +21448,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_card(map(), delete_model_card_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_card_errors()}
   def delete_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21361,6 +21466,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_explainability_job_definition_errors()}
   def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21380,6 +21486,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_package(map(), delete_model_package_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_package_errors()}
   def delete_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21393,6 +21500,7 @@ defmodule AWS.SageMaker do
   @spec delete_model_package_group(map(), delete_model_package_group_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_package_group_errors()}
   def delete_model_package_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21410,6 +21518,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21426,6 +21535,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_quality_job_definition_errors()}
   def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21442,6 +21552,7 @@ defmodule AWS.SageMaker do
   @spec delete_monitoring_schedule(map(), delete_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_monitoring_schedule_errors()}
   def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21462,6 +21573,7 @@ defmodule AWS.SageMaker do
   @spec delete_notebook_instance(map(), delete_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21478,6 +21590,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21490,6 +21603,7 @@ defmodule AWS.SageMaker do
   @spec delete_optimization_job(map(), delete_optimization_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_optimization_job_errors()}
   def delete_optimization_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21503,6 +21617,7 @@ defmodule AWS.SageMaker do
   @spec delete_partner_app(map(), delete_partner_app_request(), list()) ::
           {:ok, delete_partner_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_partner_app_errors()}
   def delete_partner_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21521,6 +21636,7 @@ defmodule AWS.SageMaker do
   @spec delete_pipeline(map(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21534,6 +21650,7 @@ defmodule AWS.SageMaker do
   @spec delete_project(map(), delete_project_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21547,6 +21664,7 @@ defmodule AWS.SageMaker do
   @spec delete_space(map(), delete_space_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21567,6 +21685,7 @@ defmodule AWS.SageMaker do
   @spec delete_studio_lifecycle_config(map(), delete_studio_lifecycle_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_studio_lifecycle_config_errors()}
   def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21592,6 +21711,7 @@ defmodule AWS.SageMaker do
   @spec delete_tags(map(), delete_tags_input(), list()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21610,6 +21730,7 @@ defmodule AWS.SageMaker do
   @spec delete_trial(map(), delete_trial_request(), list()) ::
           {:ok, delete_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trial_errors()}
   def delete_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21630,6 +21751,7 @@ defmodule AWS.SageMaker do
   @spec delete_trial_component(map(), delete_trial_component_request(), list()) ::
           {:ok, delete_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trial_component_errors()}
   def delete_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21646,6 +21768,7 @@ defmodule AWS.SageMaker do
   @spec delete_user_profile(map(), delete_user_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21671,6 +21794,7 @@ defmodule AWS.SageMaker do
   @spec delete_workforce(map(), delete_workforce_request(), list()) ::
           {:ok, delete_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_workforce(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21685,6 +21809,7 @@ defmodule AWS.SageMaker do
   @spec delete_workteam(map(), delete_workteam_request(), list()) ::
           {:ok, delete_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workteam_errors()}
   def delete_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21700,6 +21825,7 @@ defmodule AWS.SageMaker do
   @spec deregister_devices(map(), deregister_devices_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def deregister_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21712,6 +21838,7 @@ defmodule AWS.SageMaker do
   @spec describe_action(map(), describe_action_request(), list()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21725,6 +21852,7 @@ defmodule AWS.SageMaker do
   @spec describe_algorithm(map(), describe_algorithm_input(), list()) ::
           {:ok, describe_algorithm_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21737,6 +21865,7 @@ defmodule AWS.SageMaker do
   @spec describe_app(map(), describe_app_request(), list()) ::
           {:ok, describe_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21750,6 +21879,7 @@ defmodule AWS.SageMaker do
   @spec describe_app_image_config(map(), describe_app_image_config_request(), list()) ::
           {:ok, describe_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_image_config_errors()}
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21763,6 +21893,7 @@ defmodule AWS.SageMaker do
   @spec describe_artifact(map(), describe_artifact_request(), list()) ::
           {:ok, describe_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_artifact_errors()}
   def describe_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21782,6 +21913,7 @@ defmodule AWS.SageMaker do
   @spec describe_auto_ml_job(map(), describe_auto_ml_job_request(), list()) ::
           {:ok, describe_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_ml_job_errors()}
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21797,6 +21929,7 @@ defmodule AWS.SageMaker do
   @spec describe_auto_ml_job_v2(map(), describe_auto_ml_job_v2_request(), list()) ::
           {:ok, describe_auto_ml_job_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_ml_job_v2_errors()}
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21810,6 +21943,7 @@ defmodule AWS.SageMaker do
   @spec describe_cluster(map(), describe_cluster_request(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21824,6 +21958,7 @@ defmodule AWS.SageMaker do
   @spec describe_cluster_node(map(), describe_cluster_node_request(), list()) ::
           {:ok, describe_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_node_errors()}
   def describe_cluster_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21845,6 +21980,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_cluster_scheduler_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_scheduler_config_errors()}
   def describe_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21858,6 +21994,7 @@ defmodule AWS.SageMaker do
   @spec describe_code_repository(map(), describe_code_repository_input(), list()) ::
           {:ok, describe_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_code_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -21875,6 +22012,7 @@ defmodule AWS.SageMaker do
   @spec describe_compilation_job(map(), describe_compilation_job_request(), list()) ::
           {:ok, describe_compilation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compilation_job_errors()}
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21888,6 +22026,7 @@ defmodule AWS.SageMaker do
   @spec describe_compute_quota(map(), describe_compute_quota_request(), list()) ::
           {:ok, describe_compute_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compute_quota_errors()}
   def describe_compute_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21901,6 +22040,7 @@ defmodule AWS.SageMaker do
   @spec describe_context(map(), describe_context_request(), list()) ::
           {:ok, describe_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_context_errors()}
   def describe_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21918,6 +22058,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_data_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_quality_job_definition_errors()}
   def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21931,6 +22072,7 @@ defmodule AWS.SageMaker do
   @spec describe_device(map(), describe_device_request(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21944,6 +22086,7 @@ defmodule AWS.SageMaker do
   @spec describe_device_fleet(map(), describe_device_fleet_request(), list()) ::
           {:ok, describe_device_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_fleet_errors()}
   def describe_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21957,6 +22100,7 @@ defmodule AWS.SageMaker do
   @spec describe_domain(map(), describe_domain_request(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21970,6 +22114,7 @@ defmodule AWS.SageMaker do
   @spec describe_edge_deployment_plan(map(), describe_edge_deployment_plan_request(), list()) ::
           {:ok, describe_edge_deployment_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_edge_deployment_plan_errors()}
   def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21983,6 +22128,7 @@ defmodule AWS.SageMaker do
   @spec describe_edge_packaging_job(map(), describe_edge_packaging_job_request(), list()) ::
           {:ok, describe_edge_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_edge_packaging_job_errors()}
   def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -21996,6 +22142,7 @@ defmodule AWS.SageMaker do
   @spec describe_endpoint(map(), describe_endpoint_input(), list()) ::
           {:ok, describe_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22009,6 +22156,7 @@ defmodule AWS.SageMaker do
   @spec describe_endpoint_config(map(), describe_endpoint_config_input(), list()) ::
           {:ok, describe_endpoint_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_endpoint_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22021,6 +22169,7 @@ defmodule AWS.SageMaker do
   @spec describe_experiment(map(), describe_experiment_request(), list()) ::
           {:ok, describe_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_experiment_errors()}
   def describe_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22038,6 +22187,7 @@ defmodule AWS.SageMaker do
   @spec describe_feature_group(map(), describe_feature_group_request(), list()) ::
           {:ok, describe_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_feature_group_errors()}
   def describe_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22051,6 +22201,7 @@ defmodule AWS.SageMaker do
   @spec describe_feature_metadata(map(), describe_feature_metadata_request(), list()) ::
           {:ok, describe_feature_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_feature_metadata_errors()}
   def describe_feature_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22064,6 +22215,7 @@ defmodule AWS.SageMaker do
   @spec describe_flow_definition(map(), describe_flow_definition_request(), list()) ::
           {:ok, describe_flow_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_definition_errors()}
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22077,6 +22229,7 @@ defmodule AWS.SageMaker do
   @spec describe_hub(map(), describe_hub_request(), list()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22090,6 +22243,7 @@ defmodule AWS.SageMaker do
   @spec describe_hub_content(map(), describe_hub_content_request(), list()) ::
           {:ok, describe_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hub_content_errors()}
   def describe_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22104,6 +22258,7 @@ defmodule AWS.SageMaker do
   @spec describe_human_task_ui(map(), describe_human_task_ui_request(), list()) ::
           {:ok, describe_human_task_ui_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_human_task_ui_errors()}
   def describe_human_task_ui(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22125,6 +22280,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hyper_parameter_tuning_job_errors()}
   def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22138,6 +22294,7 @@ defmodule AWS.SageMaker do
   @spec describe_image(map(), describe_image_request(), list()) ::
           {:ok, describe_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_errors()}
   def describe_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22151,6 +22308,7 @@ defmodule AWS.SageMaker do
   @spec describe_image_version(map(), describe_image_version_request(), list()) ::
           {:ok, describe_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_version_errors()}
   def describe_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22164,6 +22322,7 @@ defmodule AWS.SageMaker do
   @spec describe_inference_component(map(), describe_inference_component_input(), list()) ::
           {:ok, describe_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22176,6 +22335,7 @@ defmodule AWS.SageMaker do
   @spec describe_inference_experiment(map(), describe_inference_experiment_request(), list()) ::
           {:ok, describe_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inference_experiment_errors()}
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22195,6 +22355,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_inference_recommendations_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inference_recommendations_job_errors()}
   def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22208,6 +22369,7 @@ defmodule AWS.SageMaker do
   @spec describe_labeling_job(map(), describe_labeling_job_request(), list()) ::
           {:ok, describe_labeling_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_labeling_job_errors()}
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22226,6 +22388,7 @@ defmodule AWS.SageMaker do
   @spec describe_lineage_group(map(), describe_lineage_group_request(), list()) ::
           {:ok, describe_lineage_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lineage_group_errors()}
   def describe_lineage_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22239,6 +22402,7 @@ defmodule AWS.SageMaker do
   @spec describe_mlflow_tracking_server(map(), describe_mlflow_tracking_server_request(), list()) ::
           {:ok, describe_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mlflow_tracking_server_errors()}
   def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22253,6 +22417,7 @@ defmodule AWS.SageMaker do
   @spec describe_model(map(), describe_model_input(), list()) ::
           {:ok, describe_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22269,6 +22434,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_bias_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_bias_job_definition_errors()}
   def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22283,6 +22449,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_card(map(), describe_model_card_request(), list()) ::
           {:ok, describe_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_card_errors()}
   def describe_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22296,6 +22463,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_card_export_job(map(), describe_model_card_export_job_request(), list()) ::
           {:ok, describe_model_card_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_card_export_job_errors()}
   def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22313,6 +22481,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_explainability_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_explainability_job_definition_errors()}
   def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22336,6 +22505,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_package(map(), describe_model_package_input(), list()) ::
           {:ok, describe_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22348,6 +22518,7 @@ defmodule AWS.SageMaker do
   @spec describe_model_package_group(map(), describe_model_package_group_input(), list()) ::
           {:ok, describe_model_package_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_model_package_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22364,6 +22535,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_model_quality_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_quality_job_definition_errors()}
   def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22377,6 +22549,7 @@ defmodule AWS.SageMaker do
   @spec describe_monitoring_schedule(map(), describe_monitoring_schedule_request(), list()) ::
           {:ok, describe_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_monitoring_schedule_errors()}
   def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22390,6 +22563,7 @@ defmodule AWS.SageMaker do
   @spec describe_notebook_instance(map(), describe_notebook_instance_input(), list()) ::
           {:ok, describe_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22409,6 +22583,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22421,6 +22596,7 @@ defmodule AWS.SageMaker do
   @spec describe_optimization_job(map(), describe_optimization_job_request(), list()) ::
           {:ok, describe_optimization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_optimization_job_errors()}
   def describe_optimization_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22434,6 +22610,7 @@ defmodule AWS.SageMaker do
   @spec describe_partner_app(map(), describe_partner_app_request(), list()) ::
           {:ok, describe_partner_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_partner_app_errors()}
   def describe_partner_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22447,6 +22624,7 @@ defmodule AWS.SageMaker do
   @spec describe_pipeline(map(), describe_pipeline_request(), list()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22464,6 +22642,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_pipeline_definition_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipeline_definition_for_execution_errors()}
   def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22477,6 +22656,7 @@ defmodule AWS.SageMaker do
   @spec describe_pipeline_execution(map(), describe_pipeline_execution_request(), list()) ::
           {:ok, describe_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipeline_execution_errors()}
   def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22490,6 +22670,7 @@ defmodule AWS.SageMaker do
   @spec describe_processing_job(map(), describe_processing_job_request(), list()) ::
           {:ok, describe_processing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_processing_job_errors()}
   def describe_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22503,6 +22684,7 @@ defmodule AWS.SageMaker do
   @spec describe_project(map(), describe_project_input(), list()) ::
           {:ok, describe_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22515,6 +22697,7 @@ defmodule AWS.SageMaker do
   @spec describe_space(map(), describe_space_request(), list()) ::
           {:ok, describe_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_space_errors()}
   def describe_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22532,6 +22715,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, describe_studio_lifecycle_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_studio_lifecycle_config_errors()}
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22548,6 +22732,7 @@ defmodule AWS.SageMaker do
   @spec describe_subscribed_workteam(map(), describe_subscribed_workteam_request(), list()) ::
           {:ok, describe_subscribed_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_subscribed_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22568,6 +22753,7 @@ defmodule AWS.SageMaker do
   @spec describe_training_job(map(), describe_training_job_request(), list()) ::
           {:ok, describe_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_training_job_errors()}
   def describe_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22581,6 +22767,7 @@ defmodule AWS.SageMaker do
   @spec describe_training_plan(map(), describe_training_plan_request(), list()) ::
           {:ok, describe_training_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_training_plan_errors()}
   def describe_training_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22594,6 +22781,7 @@ defmodule AWS.SageMaker do
   @spec describe_transform_job(map(), describe_transform_job_request(), list()) ::
           {:ok, describe_transform_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_transform_job_errors()}
   def describe_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22607,6 +22795,7 @@ defmodule AWS.SageMaker do
   @spec describe_trial(map(), describe_trial_request(), list()) ::
           {:ok, describe_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trial_errors()}
   def describe_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22620,6 +22809,7 @@ defmodule AWS.SageMaker do
   @spec describe_trial_component(map(), describe_trial_component_request(), list()) ::
           {:ok, describe_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trial_component_errors()}
   def describe_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22635,6 +22825,7 @@ defmodule AWS.SageMaker do
   @spec describe_user_profile(map(), describe_user_profile_request(), list()) ::
           {:ok, describe_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22656,6 +22847,7 @@ defmodule AWS.SageMaker do
   @spec describe_workforce(map(), describe_workforce_request(), list()) ::
           {:ok, describe_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_workforce(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22673,6 +22865,7 @@ defmodule AWS.SageMaker do
   @spec describe_workteam(map(), describe_workteam_request(), list()) ::
           {:ok, describe_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22692,6 +22885,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, disable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22717,6 +22911,7 @@ defmodule AWS.SageMaker do
   @spec disassociate_trial_component(map(), disassociate_trial_component_request(), list()) ::
           {:ok, disassociate_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_trial_component_errors()}
   def disassociate_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22737,6 +22932,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, enable_sagemaker_servicecatalog_portfolio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22749,6 +22945,7 @@ defmodule AWS.SageMaker do
   @spec get_device_fleet_report(map(), get_device_fleet_report_request(), list()) ::
           {:ok, get_device_fleet_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_device_fleet_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22761,6 +22958,7 @@ defmodule AWS.SageMaker do
   @spec get_lineage_group_policy(map(), get_lineage_group_policy_request(), list()) ::
           {:ok, get_lineage_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lineage_group_policy_errors()}
   def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22780,6 +22978,7 @@ defmodule AWS.SageMaker do
   @spec get_model_package_group_policy(map(), get_model_package_group_policy_input(), list()) ::
           {:ok, get_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22799,6 +22998,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, get_sagemaker_servicecatalog_portfolio_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22824,6 +23024,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, get_scaling_configuration_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_scaling_configuration_recommendation_errors()}
   def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22842,6 +23043,7 @@ defmodule AWS.SageMaker do
   @spec get_search_suggestions(map(), get_search_suggestions_request(), list()) ::
           {:ok, get_search_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_search_suggestions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22854,6 +23056,7 @@ defmodule AWS.SageMaker do
   @spec import_hub_content(map(), import_hub_content_request(), list()) ::
           {:ok, import_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_hub_content_errors()}
   def import_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22867,6 +23070,7 @@ defmodule AWS.SageMaker do
   @spec list_actions(map(), list_actions_request(), list()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22880,6 +23084,7 @@ defmodule AWS.SageMaker do
   @spec list_algorithms(map(), list_algorithms_input(), list()) ::
           {:ok, list_algorithms_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_algorithms(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22892,6 +23097,7 @@ defmodule AWS.SageMaker do
   @spec list_aliases(map(), list_aliases_request(), list()) ::
           {:ok, list_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22910,6 +23116,7 @@ defmodule AWS.SageMaker do
   @spec list_app_image_configs(map(), list_app_image_configs_request(), list()) ::
           {:ok, list_app_image_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_app_image_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22922,6 +23129,7 @@ defmodule AWS.SageMaker do
   @spec list_apps(map(), list_apps_request(), list()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_apps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22934,6 +23142,7 @@ defmodule AWS.SageMaker do
   @spec list_artifacts(map(), list_artifacts_request(), list()) ::
           {:ok, list_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22947,6 +23156,7 @@ defmodule AWS.SageMaker do
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22960,6 +23170,7 @@ defmodule AWS.SageMaker do
   @spec list_auto_ml_jobs(map(), list_auto_ml_jobs_request(), list()) ::
           {:ok, list_auto_ml_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -22972,6 +23183,7 @@ defmodule AWS.SageMaker do
   @spec list_candidates_for_auto_ml_job(map(), list_candidates_for_auto_ml_job_request(), list()) ::
           {:ok, list_candidates_for_auto_ml_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_candidates_for_auto_ml_job_errors()}
   def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22986,6 +23198,7 @@ defmodule AWS.SageMaker do
   @spec list_cluster_nodes(map(), list_cluster_nodes_request(), list()) ::
           {:ok, list_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cluster_nodes_errors()}
   def list_cluster_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -22999,6 +23212,7 @@ defmodule AWS.SageMaker do
   @spec list_cluster_scheduler_configs(map(), list_cluster_scheduler_configs_request(), list()) ::
           {:ok, list_cluster_scheduler_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_cluster_scheduler_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23011,6 +23225,7 @@ defmodule AWS.SageMaker do
   @spec list_clusters(map(), list_clusters_request(), list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23023,6 +23238,7 @@ defmodule AWS.SageMaker do
   @spec list_code_repositories(map(), list_code_repositories_input(), list()) ::
           {:ok, list_code_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_code_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23040,6 +23256,7 @@ defmodule AWS.SageMaker do
   @spec list_compilation_jobs(map(), list_compilation_jobs_request(), list()) ::
           {:ok, list_compilation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_compilation_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23052,6 +23269,7 @@ defmodule AWS.SageMaker do
   @spec list_compute_quotas(map(), list_compute_quotas_request(), list()) ::
           {:ok, list_compute_quotas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_compute_quotas(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23064,6 +23282,7 @@ defmodule AWS.SageMaker do
   @spec list_contexts(map(), list_contexts_request(), list()) ::
           {:ok, list_contexts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contexts_errors()}
   def list_contexts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23081,6 +23300,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_data_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23093,6 +23313,7 @@ defmodule AWS.SageMaker do
   @spec list_device_fleets(map(), list_device_fleets_request(), list()) ::
           {:ok, list_device_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_device_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23105,6 +23326,7 @@ defmodule AWS.SageMaker do
   @spec list_devices(map(), list_devices_request(), list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23117,6 +23339,7 @@ defmodule AWS.SageMaker do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23129,6 +23352,7 @@ defmodule AWS.SageMaker do
   @spec list_edge_deployment_plans(map(), list_edge_deployment_plans_request(), list()) ::
           {:ok, list_edge_deployment_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23141,6 +23365,7 @@ defmodule AWS.SageMaker do
   @spec list_edge_packaging_jobs(map(), list_edge_packaging_jobs_request(), list()) ::
           {:ok, list_edge_packaging_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23153,6 +23378,7 @@ defmodule AWS.SageMaker do
   @spec list_endpoint_configs(map(), list_endpoint_configs_input(), list()) ::
           {:ok, list_endpoint_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_endpoint_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23165,6 +23391,7 @@ defmodule AWS.SageMaker do
   @spec list_endpoints(map(), list_endpoints_input(), list()) ::
           {:ok, list_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23182,6 +23409,7 @@ defmodule AWS.SageMaker do
   @spec list_experiments(map(), list_experiments_request(), list()) ::
           {:ok, list_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_experiments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23194,6 +23422,7 @@ defmodule AWS.SageMaker do
   @spec list_feature_groups(map(), list_feature_groups_request(), list()) ::
           {:ok, list_feature_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_feature_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23206,6 +23435,7 @@ defmodule AWS.SageMaker do
   @spec list_flow_definitions(map(), list_flow_definitions_request(), list()) ::
           {:ok, list_flow_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_flow_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23218,6 +23448,7 @@ defmodule AWS.SageMaker do
   @spec list_hub_content_versions(map(), list_hub_content_versions_request(), list()) ::
           {:ok, list_hub_content_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hub_content_versions_errors()}
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23231,6 +23462,7 @@ defmodule AWS.SageMaker do
   @spec list_hub_contents(map(), list_hub_contents_request(), list()) ::
           {:ok, list_hub_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hub_contents_errors()}
   def list_hub_contents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23244,6 +23476,7 @@ defmodule AWS.SageMaker do
   @spec list_hubs(map(), list_hubs_request(), list()) ::
           {:ok, list_hubs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_hubs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23256,6 +23489,7 @@ defmodule AWS.SageMaker do
   @spec list_human_task_uis(map(), list_human_task_uis_request(), list()) ::
           {:ok, list_human_task_uis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_human_task_uis(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23276,6 +23510,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_hyper_parameter_tuning_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23291,6 +23526,7 @@ defmodule AWS.SageMaker do
   @spec list_image_versions(map(), list_image_versions_request(), list()) ::
           {:ok, list_image_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_versions_errors()}
   def list_image_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23308,6 +23544,7 @@ defmodule AWS.SageMaker do
   @spec list_images(map(), list_images_request(), list()) ::
           {:ok, list_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23320,6 +23557,7 @@ defmodule AWS.SageMaker do
   @spec list_inference_components(map(), list_inference_components_input(), list()) ::
           {:ok, list_inference_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_inference_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23332,6 +23570,7 @@ defmodule AWS.SageMaker do
   @spec list_inference_experiments(map(), list_inference_experiments_request(), list()) ::
           {:ok, list_inference_experiments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_inference_experiments(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23351,6 +23590,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_inference_recommendations_job_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inference_recommendations_job_steps_errors()}
   def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23368,6 +23608,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_inference_recommendations_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23380,6 +23621,7 @@ defmodule AWS.SageMaker do
   @spec list_labeling_jobs(map(), list_labeling_jobs_request(), list()) ::
           {:ok, list_labeling_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_labeling_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23392,6 +23634,7 @@ defmodule AWS.SageMaker do
   @spec list_labeling_jobs_for_workteam(map(), list_labeling_jobs_for_workteam_request(), list()) ::
           {:ok, list_labeling_jobs_for_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_labeling_jobs_for_workteam_errors()}
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23410,6 +23653,7 @@ defmodule AWS.SageMaker do
   @spec list_lineage_groups(map(), list_lineage_groups_request(), list()) ::
           {:ok, list_lineage_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_lineage_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23422,6 +23666,7 @@ defmodule AWS.SageMaker do
   @spec list_mlflow_tracking_servers(map(), list_mlflow_tracking_servers_request(), list()) ::
           {:ok, list_mlflow_tracking_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23434,6 +23679,7 @@ defmodule AWS.SageMaker do
   @spec list_model_bias_job_definitions(map(), list_model_bias_job_definitions_request(), list()) ::
           {:ok, list_model_bias_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23446,6 +23692,7 @@ defmodule AWS.SageMaker do
   @spec list_model_card_export_jobs(map(), list_model_card_export_jobs_request(), list()) ::
           {:ok, list_model_card_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23458,6 +23705,7 @@ defmodule AWS.SageMaker do
   @spec list_model_card_versions(map(), list_model_card_versions_request(), list()) ::
           {:ok, list_model_card_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_card_versions_errors()}
   def list_model_card_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23471,6 +23719,7 @@ defmodule AWS.SageMaker do
   @spec list_model_cards(map(), list_model_cards_request(), list()) ::
           {:ok, list_model_cards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_cards(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23487,6 +23736,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_model_explainability_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23500,6 +23750,7 @@ defmodule AWS.SageMaker do
   @spec list_model_metadata(map(), list_model_metadata_request(), list()) ::
           {:ok, list_model_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23512,6 +23763,7 @@ defmodule AWS.SageMaker do
   @spec list_model_package_groups(map(), list_model_package_groups_input(), list()) ::
           {:ok, list_model_package_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_package_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23524,6 +23776,7 @@ defmodule AWS.SageMaker do
   @spec list_model_packages(map(), list_model_packages_input(), list()) ::
           {:ok, list_model_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_packages(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23540,6 +23793,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_model_quality_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23552,6 +23806,7 @@ defmodule AWS.SageMaker do
   @spec list_models(map(), list_models_input(), list()) ::
           {:ok, list_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23564,6 +23819,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_alert_history(map(), list_monitoring_alert_history_request(), list()) ::
           {:ok, list_monitoring_alert_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitoring_alert_history_errors()}
   def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23577,6 +23833,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_alerts(map(), list_monitoring_alerts_request(), list()) ::
           {:ok, list_monitoring_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitoring_alerts_errors()}
   def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23590,6 +23847,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_executions(map(), list_monitoring_executions_request(), list()) ::
           {:ok, list_monitoring_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_monitoring_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23602,6 +23860,7 @@ defmodule AWS.SageMaker do
   @spec list_monitoring_schedules(map(), list_monitoring_schedules_request(), list()) ::
           {:ok, list_monitoring_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_monitoring_schedules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23620,6 +23879,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_notebook_instance_lifecycle_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23633,6 +23893,7 @@ defmodule AWS.SageMaker do
   @spec list_notebook_instances(map(), list_notebook_instances_input(), list()) ::
           {:ok, list_notebook_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_notebook_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23645,6 +23906,7 @@ defmodule AWS.SageMaker do
   @spec list_optimization_jobs(map(), list_optimization_jobs_request(), list()) ::
           {:ok, list_optimization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_optimization_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23657,6 +23919,7 @@ defmodule AWS.SageMaker do
   @spec list_partner_apps(map(), list_partner_apps_request(), list()) ::
           {:ok, list_partner_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_partner_apps(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23669,6 +23932,7 @@ defmodule AWS.SageMaker do
   @spec list_pipeline_execution_steps(map(), list_pipeline_execution_steps_request(), list()) ::
           {:ok, list_pipeline_execution_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipeline_execution_steps_errors()}
   def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23682,6 +23946,7 @@ defmodule AWS.SageMaker do
   @spec list_pipeline_executions(map(), list_pipeline_executions_request(), list()) ::
           {:ok, list_pipeline_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23699,6 +23964,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_pipeline_parameters_for_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipeline_parameters_for_execution_errors()}
   def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23712,6 +23978,7 @@ defmodule AWS.SageMaker do
   @spec list_pipelines(map(), list_pipelines_request(), list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23724,6 +23991,7 @@ defmodule AWS.SageMaker do
   @spec list_processing_jobs(map(), list_processing_jobs_request(), list()) ::
           {:ok, list_processing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_processing_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23736,6 +24004,7 @@ defmodule AWS.SageMaker do
   @spec list_projects(map(), list_projects_input(), list()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23751,6 +24020,7 @@ defmodule AWS.SageMaker do
   @spec list_resource_catalogs(map(), list_resource_catalogs_request(), list()) ::
           {:ok, list_resource_catalogs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_resource_catalogs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23763,6 +24033,7 @@ defmodule AWS.SageMaker do
   @spec list_spaces(map(), list_spaces_request(), list()) ::
           {:ok, list_spaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_spaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23776,6 +24047,7 @@ defmodule AWS.SageMaker do
   @spec list_stage_devices(map(), list_stage_devices_request(), list()) ::
           {:ok, list_stage_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_stage_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23790,6 +24062,7 @@ defmodule AWS.SageMaker do
   @spec list_studio_lifecycle_configs(map(), list_studio_lifecycle_configs_request(), list()) ::
           {:ok, list_studio_lifecycle_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_studio_lifecycle_configs_errors()}
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23808,6 +24081,7 @@ defmodule AWS.SageMaker do
   @spec list_subscribed_workteams(map(), list_subscribed_workteams_request(), list()) ::
           {:ok, list_subscribed_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_subscribed_workteams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23820,6 +24094,7 @@ defmodule AWS.SageMaker do
   @spec list_tags(map(), list_tags_input(), list()) ::
           {:ok, list_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23855,6 +24130,7 @@ defmodule AWS.SageMaker do
   @spec list_training_jobs(map(), list_training_jobs_request(), list()) ::
           {:ok, list_training_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_training_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23874,6 +24150,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, list_training_jobs_for_hyper_parameter_tuning_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23893,6 +24170,7 @@ defmodule AWS.SageMaker do
   @spec list_training_plans(map(), list_training_plans_request(), list()) ::
           {:ok, list_training_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_training_plans(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23905,6 +24183,7 @@ defmodule AWS.SageMaker do
   @spec list_transform_jobs(map(), list_transform_jobs_request(), list()) ::
           {:ok, list_transform_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_transform_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23934,6 +24213,7 @@ defmodule AWS.SageMaker do
   @spec list_trial_components(map(), list_trial_components_request(), list()) ::
           {:ok, list_trial_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trial_components_errors()}
   def list_trial_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23956,6 +24236,7 @@ defmodule AWS.SageMaker do
   @spec list_trials(map(), list_trials_request(), list()) ::
           {:ok, list_trials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trials_errors()}
   def list_trials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -23969,6 +24250,7 @@ defmodule AWS.SageMaker do
   @spec list_user_profiles(map(), list_user_profiles_request(), list()) ::
           {:ok, list_user_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -23985,6 +24267,7 @@ defmodule AWS.SageMaker do
   @spec list_workforces(map(), list_workforces_request(), list()) ::
           {:ok, list_workforces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_workforces(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24001,6 +24284,7 @@ defmodule AWS.SageMaker do
   @spec list_workteams(map(), list_workteams_request(), list()) ::
           {:ok, list_workteams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_workteams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24019,6 +24303,7 @@ defmodule AWS.SageMaker do
   @spec put_model_package_group_policy(map(), put_model_package_group_policy_input(), list()) ::
           {:ok, put_model_package_group_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_model_package_group_policy_errors()}
   def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24038,6 +24323,7 @@ defmodule AWS.SageMaker do
   @spec query_lineage(map(), query_lineage_request(), list()) ::
           {:ok, query_lineage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_lineage_errors()}
   def query_lineage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24051,6 +24337,7 @@ defmodule AWS.SageMaker do
   @spec register_devices(map(), register_devices_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_devices_errors()}
   def register_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24064,6 +24351,7 @@ defmodule AWS.SageMaker do
   @spec render_ui_template(map(), render_ui_template_request(), list()) ::
           {:ok, render_ui_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, render_ui_template_errors()}
   def render_ui_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24077,6 +24365,7 @@ defmodule AWS.SageMaker do
   @spec retry_pipeline_execution(map(), retry_pipeline_execution_request(), list()) ::
           {:ok, retry_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_pipeline_execution_errors()}
   def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24103,6 +24392,7 @@ defmodule AWS.SageMaker do
   @spec search(map(), search_request(), list()) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def search(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24135,6 +24425,7 @@ defmodule AWS.SageMaker do
   @spec search_training_plan_offerings(map(), search_training_plan_offerings_request(), list()) ::
           {:ok, search_training_plan_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_training_plan_offerings_errors()}
   def search_training_plan_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24157,6 +24448,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, send_pipeline_execution_step_failure_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_pipeline_execution_step_failure_errors()}
   def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24180,6 +24472,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, send_pipeline_execution_step_success_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_pipeline_execution_step_success_errors()}
   def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24193,6 +24486,7 @@ defmodule AWS.SageMaker do
   @spec start_edge_deployment_stage(map(), start_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24205,6 +24499,7 @@ defmodule AWS.SageMaker do
   @spec start_inference_experiment(map(), start_inference_experiment_request(), list()) ::
           {:ok, start_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_inference_experiment_errors()}
   def start_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24218,6 +24513,7 @@ defmodule AWS.SageMaker do
   @spec start_mlflow_tracking_server(map(), start_mlflow_tracking_server_request(), list()) ::
           {:ok, start_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_mlflow_tracking_server_errors()}
   def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24235,6 +24531,7 @@ defmodule AWS.SageMaker do
   @spec start_monitoring_schedule(map(), start_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_monitoring_schedule_errors()}
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24254,6 +24551,7 @@ defmodule AWS.SageMaker do
   @spec start_notebook_instance(map(), start_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_notebook_instance_errors()}
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24267,6 +24565,7 @@ defmodule AWS.SageMaker do
   @spec start_pipeline_execution(map(), start_pipeline_execution_request(), list()) ::
           {:ok, start_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24280,6 +24579,7 @@ defmodule AWS.SageMaker do
   @spec stop_auto_ml_job(map(), stop_auto_ml_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_auto_ml_job_errors()}
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24302,6 +24602,7 @@ defmodule AWS.SageMaker do
   @spec stop_compilation_job(map(), stop_compilation_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_compilation_job_errors()}
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24315,6 +24616,7 @@ defmodule AWS.SageMaker do
   @spec stop_edge_deployment_stage(map(), stop_edge_deployment_stage_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24327,6 +24629,7 @@ defmodule AWS.SageMaker do
   @spec stop_edge_packaging_job(map(), stop_edge_packaging_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24348,6 +24651,7 @@ defmodule AWS.SageMaker do
   @spec stop_hyper_parameter_tuning_job(map(), stop_hyper_parameter_tuning_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_hyper_parameter_tuning_job_errors()}
   def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24361,6 +24665,7 @@ defmodule AWS.SageMaker do
   @spec stop_inference_experiment(map(), stop_inference_experiment_request(), list()) ::
           {:ok, stop_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_inference_experiment_errors()}
   def stop_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24378,6 +24683,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_inference_recommendations_job_errors()}
   def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24394,6 +24700,7 @@ defmodule AWS.SageMaker do
   @spec stop_labeling_job(map(), stop_labeling_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_labeling_job_errors()}
   def stop_labeling_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24407,6 +24714,7 @@ defmodule AWS.SageMaker do
   @spec stop_mlflow_tracking_server(map(), stop_mlflow_tracking_server_request(), list()) ::
           {:ok, stop_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_mlflow_tracking_server_errors()}
   def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24420,6 +24728,7 @@ defmodule AWS.SageMaker do
   @spec stop_monitoring_schedule(map(), stop_monitoring_schedule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_monitoring_schedule_errors()}
   def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24444,6 +24753,7 @@ defmodule AWS.SageMaker do
   @spec stop_notebook_instance(map(), stop_notebook_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24456,6 +24766,7 @@ defmodule AWS.SageMaker do
   @spec stop_optimization_job(map(), stop_optimization_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_optimization_job_errors()}
   def stop_optimization_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24501,6 +24812,7 @@ defmodule AWS.SageMaker do
   @spec stop_pipeline_execution(map(), stop_pipeline_execution_request(), list()) ::
           {:ok, stop_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24514,6 +24826,7 @@ defmodule AWS.SageMaker do
   @spec stop_processing_job(map(), stop_processing_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_processing_job_errors()}
   def stop_processing_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24537,6 +24850,7 @@ defmodule AWS.SageMaker do
   @spec stop_training_job(map(), stop_training_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_training_job_errors()}
   def stop_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24558,6 +24872,7 @@ defmodule AWS.SageMaker do
   @spec stop_transform_job(map(), stop_transform_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_transform_job_errors()}
   def stop_transform_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24571,6 +24886,7 @@ defmodule AWS.SageMaker do
   @spec update_action(map(), update_action_request(), list()) ::
           {:ok, update_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_action_errors()}
   def update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24584,6 +24900,7 @@ defmodule AWS.SageMaker do
   @spec update_app_image_config(map(), update_app_image_config_request(), list()) ::
           {:ok, update_app_image_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_image_config_errors()}
   def update_app_image_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24597,6 +24914,7 @@ defmodule AWS.SageMaker do
   @spec update_artifact(map(), update_artifact_request(), list()) ::
           {:ok, update_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_artifact_errors()}
   def update_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24610,6 +24928,7 @@ defmodule AWS.SageMaker do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24623,6 +24942,7 @@ defmodule AWS.SageMaker do
   @spec update_cluster_scheduler_config(map(), update_cluster_scheduler_config_request(), list()) ::
           {:ok, update_cluster_scheduler_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_scheduler_config_errors()}
   def update_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24645,6 +24965,7 @@ defmodule AWS.SageMaker do
   @spec update_cluster_software(map(), update_cluster_software_request(), list()) ::
           {:ok, update_cluster_software_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_software_errors()}
   def update_cluster_software(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24658,6 +24979,7 @@ defmodule AWS.SageMaker do
   @spec update_code_repository(map(), update_code_repository_input(), list()) ::
           {:ok, update_code_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_code_repository_errors()}
   def update_code_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24671,6 +24993,7 @@ defmodule AWS.SageMaker do
   @spec update_compute_quota(map(), update_compute_quota_request(), list()) ::
           {:ok, update_compute_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_compute_quota_errors()}
   def update_compute_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24684,6 +25007,7 @@ defmodule AWS.SageMaker do
   @spec update_context(map(), update_context_request(), list()) ::
           {:ok, update_context_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_context_errors()}
   def update_context(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24697,6 +25021,7 @@ defmodule AWS.SageMaker do
   @spec update_device_fleet(map(), update_device_fleet_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_fleet_errors()}
   def update_device_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24710,6 +25035,7 @@ defmodule AWS.SageMaker do
   @spec update_devices(map(), update_devices_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -24722,6 +25048,7 @@ defmodule AWS.SageMaker do
   @spec update_domain(map(), update_domain_request(), list()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24758,6 +25085,7 @@ defmodule AWS.SageMaker do
   @spec update_endpoint(map(), update_endpoint_input(), list()) ::
           {:ok, update_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24783,6 +25111,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_endpoint_weights_and_capacities_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_weights_and_capacities_errors()}
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24799,6 +25128,7 @@ defmodule AWS.SageMaker do
   @spec update_experiment(map(), update_experiment_request(), list()) ::
           {:ok, update_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24830,6 +25160,7 @@ defmodule AWS.SageMaker do
   @spec update_feature_group(map(), update_feature_group_request(), list()) ::
           {:ok, update_feature_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_feature_group_errors()}
   def update_feature_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24843,6 +25174,7 @@ defmodule AWS.SageMaker do
   @spec update_feature_metadata(map(), update_feature_metadata_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_feature_metadata_errors()}
   def update_feature_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24856,6 +25188,7 @@ defmodule AWS.SageMaker do
   @spec update_hub(map(), update_hub_request(), list()) ::
           {:ok, update_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hub_errors()}
   def update_hub(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24900,6 +25233,7 @@ defmodule AWS.SageMaker do
   @spec update_hub_content(map(), update_hub_content_request(), list()) ::
           {:ok, update_hub_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hub_content_errors()}
   def update_hub_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24931,6 +25265,7 @@ defmodule AWS.SageMaker do
   @spec update_hub_content_reference(map(), update_hub_content_reference_request(), list()) ::
           {:ok, update_hub_content_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hub_content_reference_errors()}
   def update_hub_content_reference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24949,6 +25284,7 @@ defmodule AWS.SageMaker do
   @spec update_image(map(), update_image_request(), list()) ::
           {:ok, update_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_errors()}
   def update_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24962,6 +25298,7 @@ defmodule AWS.SageMaker do
   @spec update_image_version(map(), update_image_version_request(), list()) ::
           {:ok, update_image_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_version_errors()}
   def update_image_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24975,6 +25312,7 @@ defmodule AWS.SageMaker do
   @spec update_inference_component(map(), update_inference_component_input(), list()) ::
           {:ok, update_inference_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_inference_component_errors()}
   def update_inference_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -24992,6 +25330,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_inference_component_runtime_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_inference_component_runtime_config_errors()}
   def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25012,6 +25351,7 @@ defmodule AWS.SageMaker do
   @spec update_inference_experiment(map(), update_inference_experiment_request(), list()) ::
           {:ok, update_inference_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_inference_experiment_errors()}
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25025,6 +25365,7 @@ defmodule AWS.SageMaker do
   @spec update_mlflow_tracking_server(map(), update_mlflow_tracking_server_request(), list()) ::
           {:ok, update_mlflow_tracking_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mlflow_tracking_server_errors()}
   def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25041,6 +25382,7 @@ defmodule AWS.SageMaker do
   @spec update_model_card(map(), update_model_card_request(), list()) ::
           {:ok, update_model_card_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_card_errors()}
   def update_model_card(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25054,6 +25396,7 @@ defmodule AWS.SageMaker do
   @spec update_model_package(map(), update_model_package_input(), list()) ::
           {:ok, update_model_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_model_package_errors()}
   def update_model_package(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25067,6 +25410,7 @@ defmodule AWS.SageMaker do
   @spec update_monitoring_alert(map(), update_monitoring_alert_request(), list()) ::
           {:ok, update_monitoring_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitoring_alert_errors()}
   def update_monitoring_alert(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25080,6 +25424,7 @@ defmodule AWS.SageMaker do
   @spec update_monitoring_schedule(map(), update_monitoring_schedule_request(), list()) ::
           {:ok, update_monitoring_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitoring_schedule_errors()}
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25098,6 +25443,7 @@ defmodule AWS.SageMaker do
   @spec update_notebook_instance(map(), update_notebook_instance_input(), list()) ::
           {:ok, update_notebook_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notebook_instance_errors()}
   def update_notebook_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25117,6 +25463,7 @@ defmodule AWS.SageMaker do
         ) ::
           {:ok, update_notebook_instance_lifecycle_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notebook_instance_lifecycle_config_errors()}
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25130,6 +25477,7 @@ defmodule AWS.SageMaker do
   @spec update_partner_app(map(), update_partner_app_request(), list()) ::
           {:ok, update_partner_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_partner_app_errors()}
   def update_partner_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25143,6 +25491,7 @@ defmodule AWS.SageMaker do
   @spec update_pipeline(map(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25156,6 +25505,7 @@ defmodule AWS.SageMaker do
   @spec update_pipeline_execution(map(), update_pipeline_execution_request(), list()) ::
           {:ok, update_pipeline_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_execution_errors()}
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25175,6 +25525,7 @@ defmodule AWS.SageMaker do
   @spec update_project(map(), update_project_input(), list()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25190,6 +25541,7 @@ defmodule AWS.SageMaker do
   @spec update_space(map(), update_space_request(), list()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_space_errors()}
   def update_space(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25205,6 +25557,7 @@ defmodule AWS.SageMaker do
   @spec update_training_job(map(), update_training_job_request(), list()) ::
           {:ok, update_training_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_training_job_errors()}
   def update_training_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25218,6 +25571,7 @@ defmodule AWS.SageMaker do
   @spec update_trial(map(), update_trial_request(), list()) ::
           {:ok, update_trial_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trial_errors()}
   def update_trial(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25231,6 +25585,7 @@ defmodule AWS.SageMaker do
   @spec update_trial_component(map(), update_trial_component_request(), list()) ::
           {:ok, update_trial_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trial_component_errors()}
   def update_trial_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25244,6 +25599,7 @@ defmodule AWS.SageMaker do
   @spec update_user_profile(map(), update_user_profile_request(), list()) ::
           {:ok, update_user_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25296,6 +25652,7 @@ defmodule AWS.SageMaker do
   @spec update_workforce(map(), update_workforce_request(), list()) ::
           {:ok, update_workforce_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workforce_errors()}
   def update_workforce(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -25309,6 +25666,7 @@ defmodule AWS.SageMaker do
   @spec update_workteam(map(), update_workteam_request(), list()) ::
           {:ok, update_workteam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workteam_errors()}
   def update_workteam(%Client{} = client, input, options \\ []) do
     meta = metadata()

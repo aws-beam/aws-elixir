@@ -1434,6 +1434,7 @@ defmodule AWS.KinesisVideo do
   @spec create_signaling_channel(map(), create_signaling_channel_input(), list()) ::
           {:ok, create_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_signaling_channel_errors()}
   def create_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/createSignalingChannel"
@@ -1473,6 +1474,7 @@ defmodule AWS.KinesisVideo do
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, create_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, input, options \\ []) do
     url_path = "/createStream"
@@ -1511,6 +1513,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_edge_configuration(map(), delete_edge_configuration_input(), list()) ::
           {:ok, delete_edge_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_edge_configuration_errors()}
   def delete_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/deleteEdgeConfiguration"
@@ -1544,6 +1547,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_signaling_channel(map(), delete_signaling_channel_input(), list()) ::
           {:ok, delete_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_signaling_channel_errors()}
   def delete_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/deleteSignalingChannel"
@@ -1585,6 +1589,7 @@ defmodule AWS.KinesisVideo do
   @spec delete_stream(map(), delete_stream_input(), list()) ::
           {:ok, delete_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, input, options \\ []) do
     url_path = "/deleteStream"
@@ -1620,6 +1625,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_edge_configuration(map(), describe_edge_configuration_input(), list()) ::
           {:ok, describe_edge_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_edge_configuration_errors()}
   def describe_edge_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeEdgeConfiguration"
@@ -1652,6 +1658,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_image_generation_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_generation_configuration_errors()}
   def describe_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeImageGenerationConfiguration"
@@ -1687,6 +1694,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_mapped_resource_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mapped_resource_configuration_errors()}
   def describe_mapped_resource_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMappedResourceConfiguration"
@@ -1722,6 +1730,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_media_storage_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_media_storage_configuration_errors()}
   def describe_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeMediaStorageConfiguration"
@@ -1754,6 +1763,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, describe_notification_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notification_configuration_errors()}
   def describe_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/describeNotificationConfiguration"
@@ -1787,6 +1797,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_signaling_channel(map(), describe_signaling_channel_input(), list()) ::
           {:ok, describe_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_signaling_channel_errors()}
   def describe_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/describeSignalingChannel"
@@ -1818,6 +1829,7 @@ defmodule AWS.KinesisVideo do
   @spec describe_stream(map(), describe_stream_input(), list()) ::
           {:ok, describe_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
     url_path = "/describeStream"
@@ -1857,6 +1869,7 @@ defmodule AWS.KinesisVideo do
   @spec get_data_endpoint(map(), get_data_endpoint_input(), list()) ::
           {:ok, get_data_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_endpoint_errors()}
   def get_data_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getDataEndpoint"
@@ -1900,6 +1913,7 @@ defmodule AWS.KinesisVideo do
   @spec get_signaling_channel_endpoint(map(), get_signaling_channel_endpoint_input(), list()) ::
           {:ok, get_signaling_channel_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signaling_channel_endpoint_errors()}
   def get_signaling_channel_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/getSignalingChannelEndpoint"
@@ -1931,6 +1945,7 @@ defmodule AWS.KinesisVideo do
   @spec list_edge_agent_configurations(map(), list_edge_agent_configurations_input(), list()) ::
           {:ok, list_edge_agent_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_edge_agent_configurations_errors()}
   def list_edge_agent_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/listEdgeAgentConfigurations"
@@ -1964,6 +1979,7 @@ defmodule AWS.KinesisVideo do
   @spec list_signaling_channels(map(), list_signaling_channels_input(), list()) ::
           {:ok, list_signaling_channels_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signaling_channels_errors()}
   def list_signaling_channels(%Client{} = client, input, options \\ []) do
     url_path = "/listSignalingChannels"
@@ -1997,6 +2013,7 @@ defmodule AWS.KinesisVideo do
   @spec list_streams(map(), list_streams_input(), list()) ::
           {:ok, list_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/listStreams"
@@ -2025,6 +2042,7 @@ defmodule AWS.KinesisVideo do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -2056,6 +2074,7 @@ defmodule AWS.KinesisVideo do
   @spec list_tags_for_stream(map(), list_tags_for_stream_input(), list()) ::
           {:ok, list_tags_for_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_stream_errors()}
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForStream"
@@ -2109,6 +2128,7 @@ defmodule AWS.KinesisVideo do
   @spec start_edge_configuration_update(map(), start_edge_configuration_update_input(), list()) ::
           {:ok, start_edge_configuration_update_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_edge_configuration_update_errors()}
   def start_edge_configuration_update(%Client{} = client, input, options \\ []) do
     url_path = "/startEdgeConfigurationUpdate"
@@ -2146,6 +2166,7 @@ defmodule AWS.KinesisVideo do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -2190,6 +2211,7 @@ defmodule AWS.KinesisVideo do
   @spec tag_stream(map(), tag_stream_input(), list()) ::
           {:ok, tag_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_stream_errors()}
   def tag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/tagStream"
@@ -2223,6 +2245,7 @@ defmodule AWS.KinesisVideo do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
@@ -2259,6 +2282,7 @@ defmodule AWS.KinesisVideo do
   @spec untag_stream(map(), untag_stream_input(), list()) ::
           {:ok, untag_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_stream_errors()}
   def untag_stream(%Client{} = client, input, options \\ []) do
     url_path = "/untagStream"
@@ -2310,6 +2334,7 @@ defmodule AWS.KinesisVideo do
   @spec update_data_retention(map(), update_data_retention_input(), list()) ::
           {:ok, update_data_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_retention_errors()}
   def update_data_retention(%Client{} = client, input, options \\ []) do
     url_path = "/updateDataRetention"
@@ -2342,6 +2367,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_image_generation_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_generation_configuration_errors()}
   def update_image_generation_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateImageGenerationConfiguration"
@@ -2393,6 +2419,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_media_storage_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_media_storage_configuration_errors()}
   def update_media_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateMediaStorageConfiguration"
@@ -2425,6 +2452,7 @@ defmodule AWS.KinesisVideo do
         ) ::
           {:ok, update_notification_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_configuration_errors()}
   def update_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateNotificationConfiguration"
@@ -2462,6 +2490,7 @@ defmodule AWS.KinesisVideo do
   @spec update_signaling_channel(map(), update_signaling_channel_input(), list()) ::
           {:ok, update_signaling_channel_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_signaling_channel_errors()}
   def update_signaling_channel(%Client{} = client, input, options \\ []) do
     url_path = "/updateSignalingChannel"
@@ -2504,6 +2533,7 @@ defmodule AWS.KinesisVideo do
   @spec update_stream(map(), update_stream_input(), list()) ::
           {:ok, update_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stream_errors()}
   def update_stream(%Client{} = client, input, options \\ []) do
     url_path = "/updateStream"

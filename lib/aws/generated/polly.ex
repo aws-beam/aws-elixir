@@ -625,6 +625,7 @@ defmodule AWS.Polly do
   @spec delete_lexicon(map(), String.t(), delete_lexicon_input(), list()) ::
           {:ok, delete_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lexicon_errors()}
   def delete_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
@@ -681,6 +682,7 @@ defmodule AWS.Polly do
         ) ::
           {:ok, describe_voices_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_voices_errors()}
   def describe_voices(
         %Client{} = client,
@@ -736,6 +738,7 @@ defmodule AWS.Polly do
   @spec get_lexicon(map(), String.t(), list()) ::
           {:ok, get_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lexicon_errors()}
   def get_lexicon(%Client{} = client, name, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
@@ -757,6 +760,7 @@ defmodule AWS.Polly do
   @spec get_speech_synthesis_task(map(), String.t(), list()) ::
           {:ok, get_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_speech_synthesis_task_errors()}
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
@@ -777,6 +781,7 @@ defmodule AWS.Polly do
   @spec list_lexicons(map(), String.t() | nil, list()) ::
           {:ok, list_lexicons_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lexicons_errors()}
   def list_lexicons(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/v1/lexicons"
@@ -811,6 +816,7 @@ defmodule AWS.Polly do
         ) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_speech_synthesis_tasks_errors()}
   def list_speech_synthesis_tasks(
         %Client{} = client,
@@ -863,6 +869,7 @@ defmodule AWS.Polly do
   @spec put_lexicon(map(), String.t(), put_lexicon_input(), list()) ::
           {:ok, put_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_lexicon_errors()}
   def put_lexicon(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/lexicons/#{AWS.Util.encode_uri(name)}"
@@ -902,6 +909,7 @@ defmodule AWS.Polly do
   @spec start_speech_synthesis_task(map(), start_speech_synthesis_task_input(), list()) ::
           {:ok, start_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_speech_synthesis_task_errors()}
   def start_speech_synthesis_task(%Client{} = client, input, options \\ []) do
     url_path = "/v1/synthesisTasks"
@@ -935,6 +943,7 @@ defmodule AWS.Polly do
   @spec synthesize_speech(map(), synthesize_speech_input(), list()) ::
           {:ok, synthesize_speech_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, synthesize_speech_errors()}
   def synthesize_speech(%Client{} = client, input, options \\ []) do
     url_path = "/v1/speech"

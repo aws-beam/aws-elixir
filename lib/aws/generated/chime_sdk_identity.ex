@@ -1293,6 +1293,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance(map(), create_app_instance_request(), list()) ::
           {:ok, create_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_instance_errors()}
   def create_app_instance(%Client{} = client, input, options \\ []) do
     url_path = "/app-instances"
@@ -1338,6 +1339,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_admin(map(), String.t(), create_app_instance_admin_request(), list()) ::
           {:ok, create_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_instance_admin_errors()}
   def create_app_instance_admin(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/admins"
@@ -1369,6 +1371,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_bot(map(), create_app_instance_bot_request(), list()) ::
           {:ok, create_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_instance_bot_errors()}
   def create_app_instance_bot(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-bots"
@@ -1400,6 +1403,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec create_app_instance_user(map(), create_app_instance_user_request(), list()) ::
           {:ok, create_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_instance_user_errors()}
   def create_app_instance_user(%Client{} = client, input, options \\ []) do
     url_path = "/app-instance-users"
@@ -1428,6 +1432,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance(map(), String.t(), delete_app_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_instance_errors()}
   def delete_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -1466,6 +1471,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_instance_admin_errors()}
   def delete_app_instance_admin(
         %Client{} = client,
@@ -1502,6 +1508,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance_bot(map(), String.t(), delete_app_instance_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_instance_bot_errors()}
   def delete_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
@@ -1530,6 +1537,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec delete_app_instance_user(map(), String.t(), delete_app_instance_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_instance_user_errors()}
   def delete_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -1564,6 +1572,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_app_instance_user_endpoint_errors()}
   def deregister_app_instance_user_endpoint(
         %Client{} = client,
@@ -1600,6 +1609,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance(map(), String.t(), list()) ::
           {:ok, describe_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_instance_errors()}
   def describe_app_instance(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -1617,6 +1627,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_admin(map(), String.t(), String.t(), list()) ::
           {:ok, describe_app_instance_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_instance_admin_errors()}
   def describe_app_instance_admin(
         %Client{} = client,
@@ -1641,6 +1652,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_bot(map(), String.t(), list()) ::
           {:ok, describe_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_instance_bot_errors()}
   def describe_app_instance_bot(%Client{} = client, app_instance_bot_arn, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
@@ -1658,6 +1670,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_user(map(), String.t(), list()) ::
           {:ok, describe_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_instance_user_errors()}
   def describe_app_instance_user(%Client{} = client, app_instance_user_arn, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -1675,6 +1688,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec describe_app_instance_user_endpoint(map(), String.t(), String.t(), list()) ::
           {:ok, describe_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_app_instance_user_endpoint_errors()}
   def describe_app_instance_user_endpoint(
         %Client{} = client,
@@ -1699,6 +1713,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec get_app_instance_retention_settings(map(), String.t(), list()) ::
           {:ok, get_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_instance_retention_settings_errors()}
   def get_app_instance_retention_settings(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/retention-settings"
@@ -1716,6 +1731,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_admins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_admins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_instance_admins_errors()}
   def list_app_instance_admins(
         %Client{} = client,
@@ -1753,6 +1769,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_instance_bots_errors()}
   def list_app_instance_bots(
         %Client{} = client,
@@ -1804,6 +1821,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, list_app_instance_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_instance_user_endpoints_errors()}
   def list_app_instance_user_endpoints(
         %Client{} = client,
@@ -1842,6 +1860,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instance_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instance_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_instance_users_errors()}
   def list_app_instance_users(
         %Client{} = client,
@@ -1887,6 +1906,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_app_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_instances_errors()}
   def list_app_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/app-instances"
@@ -1918,6 +1938,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -1948,6 +1969,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, put_app_instance_retention_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_app_instance_retention_settings_errors()}
   def put_app_instance_retention_settings(
         %Client{} = client,
@@ -1994,6 +2016,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, put_app_instance_user_expiration_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_app_instance_user_expiration_settings_errors()}
   def put_app_instance_user_expiration_settings(
         %Client{} = client,
@@ -2037,6 +2060,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, register_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_app_instance_user_endpoint_errors()}
   def register_app_instance_user_endpoint(
         %Client{} = client,
@@ -2070,6 +2094,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -2099,6 +2124,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -2127,6 +2153,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance(map(), String.t(), update_app_instance_request(), list()) ::
           {:ok, update_app_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_instance_errors()}
   def update_app_instance(%Client{} = client, app_instance_arn, input, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}"
@@ -2155,6 +2182,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance_bot(map(), String.t(), update_app_instance_bot_request(), list()) ::
           {:ok, update_app_instance_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_instance_bot_errors()}
   def update_app_instance_bot(%Client{} = client, app_instance_bot_arn, input, options \\ []) do
     url_path = "/app-instance-bots/#{AWS.Util.encode_uri(app_instance_bot_arn)}"
@@ -2186,6 +2214,7 @@ defmodule AWS.ChimeSDKIdentity do
   @spec update_app_instance_user(map(), String.t(), update_app_instance_user_request(), list()) ::
           {:ok, update_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_instance_user_errors()}
   def update_app_instance_user(%Client{} = client, app_instance_user_arn, input, options \\ []) do
     url_path = "/app-instance-users/#{AWS.Util.encode_uri(app_instance_user_arn)}"
@@ -2222,6 +2251,7 @@ defmodule AWS.ChimeSDKIdentity do
         ) ::
           {:ok, update_app_instance_user_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_instance_user_endpoint_errors()}
   def update_app_instance_user_endpoint(
         %Client{} = client,

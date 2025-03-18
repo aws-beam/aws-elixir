@@ -776,6 +776,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec batch_get_findings(map(), batch_get_findings_request(), list()) ::
           {:ok, batch_get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_findings_errors()}
   def batch_get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/batchGetFindings"
@@ -804,6 +805,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec create_scan(map(), create_scan_request(), list()) ::
           {:ok, create_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scan_errors()}
   def create_scan(%Client{} = client, input, options \\ []) do
     url_path = "/scans"
@@ -838,6 +840,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec create_upload_url(map(), create_upload_url_request(), list()) ::
           {:ok, create_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_upload_url_errors()}
   def create_upload_url(%Client{} = client, input, options \\ []) do
     url_path = "/uploadUrl"
@@ -866,6 +869,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec get_account_configuration(map(), list()) ::
           {:ok, get_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/accountConfiguration/get"
@@ -890,6 +894,7 @@ defmodule AWS.CodeGuruSecurity do
         ) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_errors()}
   def get_findings(
         %Client{} = client,
@@ -939,6 +944,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec get_metrics_summary(map(), String.t(), list()) ::
           {:ok, get_metrics_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metrics_summary_errors()}
   def get_metrics_summary(%Client{} = client, date, options \\ []) do
     url_path = "/metrics/summary"
@@ -963,6 +969,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec get_scan(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_scan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_scan_errors()}
   def get_scan(%Client{} = client, scan_name, run_id \\ nil, options \\ []) do
     url_path = "/scans/#{AWS.Util.encode_uri(scan_name)}"
@@ -994,6 +1001,7 @@ defmodule AWS.CodeGuruSecurity do
         ) ::
           {:ok, list_findings_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_metrics_errors()}
   def list_findings_metrics(
         %Client{} = client,
@@ -1049,6 +1057,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec list_scans(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scans_errors()}
   def list_scans(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/scans"
@@ -1080,6 +1089,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1097,6 +1107,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1125,6 +1136,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1158,6 +1170,7 @@ defmodule AWS.CodeGuruSecurity do
   @spec update_account_configuration(map(), update_account_configuration_request(), list()) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_configuration_errors()}
   def update_account_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/updateAccountConfiguration"

@@ -411,6 +411,7 @@ defmodule AWS.NotificationsContacts do
         ) ::
           {:ok, activate_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_email_contact_errors()}
   def activate_email_contact(%Client{} = client, arn, code, input, options \\ []) do
     url_path = "/emailcontacts/#{AWS.Util.encode_uri(arn)}/activate/#{AWS.Util.encode_uri(code)}"
@@ -439,6 +440,7 @@ defmodule AWS.NotificationsContacts do
   @spec create_email_contact(map(), create_email_contact_request(), list()) ::
           {:ok, create_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_contact_errors()}
   def create_email_contact(%Client{} = client, input, options \\ []) do
     url_path = "/2022-09-19/emailcontacts"
@@ -470,6 +472,7 @@ defmodule AWS.NotificationsContacts do
   @spec delete_email_contact(map(), String.t(), delete_email_contact_request(), list()) ::
           {:ok, delete_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_contact_errors()}
   def delete_email_contact(%Client{} = client, arn, input, options \\ []) do
     url_path = "/emailcontacts/#{AWS.Util.encode_uri(arn)}"
@@ -498,6 +501,7 @@ defmodule AWS.NotificationsContacts do
   @spec get_email_contact(map(), String.t(), list()) ::
           {:ok, get_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_contact_errors()}
   def get_email_contact(%Client{} = client, arn, options \\ []) do
     url_path = "/emailcontacts/#{AWS.Util.encode_uri(arn)}"
@@ -515,6 +519,7 @@ defmodule AWS.NotificationsContacts do
   @spec list_email_contacts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_email_contacts_errors()}
   def list_email_contacts(
         %Client{} = client,
@@ -554,6 +559,7 @@ defmodule AWS.NotificationsContacts do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -575,6 +581,7 @@ defmodule AWS.NotificationsContacts do
   @spec send_activation_code(map(), String.t(), send_activation_code_request(), list()) ::
           {:ok, send_activation_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_activation_code_errors()}
   def send_activation_code(%Client{} = client, arn, input, options \\ []) do
     url_path = "/2022-10-31/emailcontacts/#{AWS.Util.encode_uri(arn)}/activate/send"
@@ -606,6 +613,7 @@ defmodule AWS.NotificationsContacts do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -637,6 +645,7 @@ defmodule AWS.NotificationsContacts do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"

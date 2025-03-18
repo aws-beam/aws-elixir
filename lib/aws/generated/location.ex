@@ -2855,6 +2855,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, associate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_tracker_consumer_errors()}
   def associate_tracker_consumer(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/consumers"
@@ -2888,6 +2889,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, batch_delete_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_device_position_history_errors()}
   def batch_delete_device_position_history(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/delete-positions"
@@ -2918,6 +2920,7 @@ defmodule AWS.Location do
   @spec batch_delete_geofence(map(), String.t(), batch_delete_geofence_request(), list()) ::
           {:ok, batch_delete_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_geofence_errors()}
   def batch_delete_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path =
@@ -2974,6 +2977,7 @@ defmodule AWS.Location do
   @spec batch_evaluate_geofences(map(), String.t(), batch_evaluate_geofences_request(), list()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_evaluate_geofences_errors()}
   def batch_evaluate_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/positions"
@@ -3002,6 +3006,7 @@ defmodule AWS.Location do
   @spec batch_get_device_position(map(), String.t(), batch_get_device_position_request(), list()) ::
           {:ok, batch_get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_device_position_errors()}
   def batch_get_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/get-positions"
@@ -3033,6 +3038,7 @@ defmodule AWS.Location do
   @spec batch_put_geofence(map(), String.t(), batch_put_geofence_request(), list()) ::
           {:ok, batch_put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_geofence_errors()}
   def batch_put_geofence(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/put-geofences"
@@ -3094,6 +3100,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, batch_update_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_device_position_errors()}
   def batch_update_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions"
@@ -3158,6 +3165,7 @@ defmodule AWS.Location do
   @spec calculate_route(map(), String.t(), calculate_route_request(), list()) ::
           {:ok, calculate_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, calculate_route_errors()}
   def calculate_route(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}/calculate/route"
@@ -3236,6 +3244,7 @@ defmodule AWS.Location do
   @spec calculate_route_matrix(map(), String.t(), calculate_route_matrix_request(), list()) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, calculate_route_matrix_errors()}
   def calculate_route_matrix(%Client{} = client, calculator_name, input, options \\ []) do
     url_path =
@@ -3271,6 +3280,7 @@ defmodule AWS.Location do
   @spec create_geofence_collection(map(), create_geofence_collection_request(), list()) ::
           {:ok, create_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_geofence_collection_errors()}
   def create_geofence_collection(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/collections"
@@ -3303,6 +3313,7 @@ defmodule AWS.Location do
   @spec create_key(map(), create_key_request(), list()) ::
           {:ok, create_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/keys"
@@ -3337,6 +3348,7 @@ defmodule AWS.Location do
   @spec create_map(map(), create_map_request(), list()) ::
           {:ok, create_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_map_errors()}
   def create_map(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/maps"
@@ -3375,6 +3387,7 @@ defmodule AWS.Location do
   @spec create_place_index(map(), create_place_index_request(), list()) ::
           {:ok, create_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_place_index_errors()}
   def create_place_index(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/indexes"
@@ -3412,6 +3425,7 @@ defmodule AWS.Location do
   @spec create_route_calculator(map(), create_route_calculator_request(), list()) ::
           {:ok, create_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_route_calculator_errors()}
   def create_route_calculator(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/calculators"
@@ -3442,6 +3456,7 @@ defmodule AWS.Location do
   @spec create_tracker(map(), create_tracker_request(), list()) ::
           {:ok, create_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tracker_errors()}
   def create_tracker(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/trackers"
@@ -3479,6 +3494,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, delete_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_geofence_collection_errors()}
   def delete_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
@@ -3510,6 +3526,7 @@ defmodule AWS.Location do
   @spec delete_key(map(), String.t(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
@@ -3547,6 +3564,7 @@ defmodule AWS.Location do
   @spec delete_map(map(), String.t(), delete_map_request(), list()) ::
           {:ok, delete_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_map_errors()}
   def delete_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
@@ -3577,6 +3595,7 @@ defmodule AWS.Location do
   @spec delete_place_index(map(), String.t(), delete_place_index_request(), list()) ::
           {:ok, delete_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_place_index_errors()}
   def delete_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
@@ -3607,6 +3626,7 @@ defmodule AWS.Location do
   @spec delete_route_calculator(map(), String.t(), delete_route_calculator_request(), list()) ::
           {:ok, delete_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_calculator_errors()}
   def delete_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
@@ -3641,6 +3661,7 @@ defmodule AWS.Location do
   @spec delete_tracker(map(), String.t(), delete_tracker_request(), list()) ::
           {:ok, delete_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tracker_errors()}
   def delete_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
@@ -3669,6 +3690,7 @@ defmodule AWS.Location do
   @spec describe_geofence_collection(map(), String.t(), list()) ::
           {:ok, describe_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_geofence_collection_errors()}
   def describe_geofence_collection(%Client{} = client, collection_name, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
@@ -3686,6 +3708,7 @@ defmodule AWS.Location do
   @spec describe_key(map(), String.t(), list()) ::
           {:ok, describe_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_key_errors()}
   def describe_key(%Client{} = client, key_name, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
@@ -3703,6 +3726,7 @@ defmodule AWS.Location do
   @spec describe_map(map(), String.t(), list()) ::
           {:ok, describe_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_map_errors()}
   def describe_map(%Client{} = client, map_name, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
@@ -3720,6 +3744,7 @@ defmodule AWS.Location do
   @spec describe_place_index(map(), String.t(), list()) ::
           {:ok, describe_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_place_index_errors()}
   def describe_place_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
@@ -3737,6 +3762,7 @@ defmodule AWS.Location do
   @spec describe_route_calculator(map(), String.t(), list()) ::
           {:ok, describe_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_route_calculator_errors()}
   def describe_route_calculator(%Client{} = client, calculator_name, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
@@ -3754,6 +3780,7 @@ defmodule AWS.Location do
   @spec describe_tracker(map(), String.t(), list()) ::
           {:ok, describe_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tracker_errors()}
   def describe_tracker(%Client{} = client, tracker_name, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
@@ -3780,6 +3807,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, disassociate_tracker_consumer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_tracker_consumer_errors()}
   def disassociate_tracker_consumer(
         %Client{} = client,
@@ -3828,6 +3856,7 @@ defmodule AWS.Location do
   @spec forecast_geofence_events(map(), String.t(), forecast_geofence_events_request(), list()) ::
           {:ok, forecast_geofence_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, forecast_geofence_events_errors()}
   def forecast_geofence_events(%Client{} = client, collection_name, input, options \\ []) do
     url_path =
@@ -3860,6 +3889,7 @@ defmodule AWS.Location do
   @spec get_device_position(map(), String.t(), String.t(), list()) ::
           {:ok, get_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_position_errors()}
   def get_device_position(%Client{} = client, device_id, tracker_name, options \\ []) do
     url_path =
@@ -3889,6 +3919,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, get_device_position_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_position_history_errors()}
   def get_device_position_history(
         %Client{} = client,
@@ -3928,6 +3959,7 @@ defmodule AWS.Location do
   @spec get_geofence(map(), String.t(), String.t(), list()) ::
           {:ok, get_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_geofence_errors()}
   def get_geofence(%Client{} = client, collection_name, geofence_id, options \\ []) do
     url_path =
@@ -3947,6 +3979,7 @@ defmodule AWS.Location do
   @spec get_map_glyphs(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_glyphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_map_glyphs_errors()}
   def get_map_glyphs(
         %Client{} = client,
@@ -3992,6 +4025,7 @@ defmodule AWS.Location do
   @spec get_map_sprites(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_sprites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_map_sprites_errors()}
   def get_map_sprites(%Client{} = client, file_name, map_name, key \\ nil, options \\ []) do
     url_path =
@@ -4030,6 +4064,7 @@ defmodule AWS.Location do
   @spec get_map_style_descriptor(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_map_style_descriptor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_map_style_descriptor_errors()}
   def get_map_style_descriptor(%Client{} = client, map_name, key \\ nil, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}/style-descriptor"
@@ -4079,6 +4114,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, get_map_tile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_map_tile_errors()}
   def get_map_tile(%Client{} = client, map_name, x, y, z, key \\ nil, options \\ []) do
     url_path =
@@ -4127,6 +4163,7 @@ defmodule AWS.Location do
   @spec get_place(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_place_errors()}
   def get_place(
         %Client{} = client,
@@ -4167,6 +4204,7 @@ defmodule AWS.Location do
   @spec list_device_positions(map(), String.t(), list_device_positions_request(), list()) ::
           {:ok, list_device_positions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_positions_errors()}
   def list_device_positions(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-positions"
@@ -4195,6 +4233,7 @@ defmodule AWS.Location do
   @spec list_geofence_collections(map(), list_geofence_collections_request(), list()) ::
           {:ok, list_geofence_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_geofence_collections_errors()}
   def list_geofence_collections(%Client{} = client, input, options \\ []) do
     url_path = "/geofencing/v0/list-collections"
@@ -4223,6 +4262,7 @@ defmodule AWS.Location do
   @spec list_geofences(map(), String.t(), list_geofences_request(), list()) ::
           {:ok, list_geofences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_geofences_errors()}
   def list_geofences(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}/list-geofences"
@@ -4251,6 +4291,7 @@ defmodule AWS.Location do
   @spec list_keys(map(), list_keys_request(), list()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
     url_path = "/metadata/v0/list-keys"
@@ -4279,6 +4320,7 @@ defmodule AWS.Location do
   @spec list_maps(map(), list_maps_request(), list()) ::
           {:ok, list_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_maps_errors()}
   def list_maps(%Client{} = client, input, options \\ []) do
     url_path = "/maps/v0/list-maps"
@@ -4307,6 +4349,7 @@ defmodule AWS.Location do
   @spec list_place_indexes(map(), list_place_indexes_request(), list()) ::
           {:ok, list_place_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_place_indexes_errors()}
   def list_place_indexes(%Client{} = client, input, options \\ []) do
     url_path = "/places/v0/list-indexes"
@@ -4335,6 +4378,7 @@ defmodule AWS.Location do
   @spec list_route_calculators(map(), list_route_calculators_request(), list()) ::
           {:ok, list_route_calculators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_route_calculators_errors()}
   def list_route_calculators(%Client{} = client, input, options \\ []) do
     url_path = "/routes/v0/list-calculators"
@@ -4364,6 +4408,7 @@ defmodule AWS.Location do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4381,6 +4426,7 @@ defmodule AWS.Location do
   @spec list_tracker_consumers(map(), String.t(), list_tracker_consumers_request(), list()) ::
           {:ok, list_tracker_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tracker_consumers_errors()}
   def list_tracker_consumers(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/list-consumers"
@@ -4409,6 +4455,7 @@ defmodule AWS.Location do
   @spec list_trackers(map(), list_trackers_request(), list()) ::
           {:ok, list_trackers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trackers_errors()}
   def list_trackers(%Client{} = client, input, options \\ []) do
     url_path = "/tracking/v0/list-trackers"
@@ -4439,6 +4486,7 @@ defmodule AWS.Location do
   @spec put_geofence(map(), String.t(), String.t(), put_geofence_request(), list()) ::
           {:ok, put_geofence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_geofence_errors()}
   def put_geofence(%Client{} = client, collection_name, geofence_id, input, options \\ []) do
     url_path =
@@ -4477,6 +4525,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_place_index_for_position_errors()}
   def search_place_index_for_position(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/position"
@@ -4529,6 +4578,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_place_index_for_suggestions_errors()}
   def search_place_index_for_suggestions(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/suggestions"
@@ -4579,6 +4629,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, search_place_index_for_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_place_index_for_text_errors()}
   def search_place_index_for_text(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}/search/text"
@@ -4631,6 +4682,7 @@ defmodule AWS.Location do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4659,6 +4711,7 @@ defmodule AWS.Location do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4697,6 +4750,7 @@ defmodule AWS.Location do
         ) ::
           {:ok, update_geofence_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_geofence_collection_errors()}
   def update_geofence_collection(%Client{} = client, collection_name, input, options \\ []) do
     url_path = "/geofencing/v0/collections/#{AWS.Util.encode_uri(collection_name)}"
@@ -4725,6 +4779,7 @@ defmodule AWS.Location do
   @spec update_key(map(), String.t(), update_key_request(), list()) ::
           {:ok, update_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_key_errors()}
   def update_key(%Client{} = client, key_name, input, options \\ []) do
     url_path = "/metadata/v0/keys/#{AWS.Util.encode_uri(key_name)}"
@@ -4753,6 +4808,7 @@ defmodule AWS.Location do
   @spec update_map(map(), String.t(), update_map_request(), list()) ::
           {:ok, update_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_map_errors()}
   def update_map(%Client{} = client, map_name, input, options \\ []) do
     url_path = "/maps/v0/maps/#{AWS.Util.encode_uri(map_name)}"
@@ -4781,6 +4837,7 @@ defmodule AWS.Location do
   @spec update_place_index(map(), String.t(), update_place_index_request(), list()) ::
           {:ok, update_place_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_place_index_errors()}
   def update_place_index(%Client{} = client, index_name, input, options \\ []) do
     url_path = "/places/v0/indexes/#{AWS.Util.encode_uri(index_name)}"
@@ -4809,6 +4866,7 @@ defmodule AWS.Location do
   @spec update_route_calculator(map(), String.t(), update_route_calculator_request(), list()) ::
           {:ok, update_route_calculator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_route_calculator_errors()}
   def update_route_calculator(%Client{} = client, calculator_name, input, options \\ []) do
     url_path = "/routes/v0/calculators/#{AWS.Util.encode_uri(calculator_name)}"
@@ -4837,6 +4895,7 @@ defmodule AWS.Location do
   @spec update_tracker(map(), String.t(), update_tracker_request(), list()) ::
           {:ok, update_tracker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_tracker_errors()}
   def update_tracker(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}"
@@ -4867,6 +4926,7 @@ defmodule AWS.Location do
   @spec verify_device_position(map(), String.t(), verify_device_position_request(), list()) ::
           {:ok, verify_device_position_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_device_position_errors()}
   def verify_device_position(%Client{} = client, tracker_name, input, options \\ []) do
     url_path = "/tracking/v0/trackers/#{AWS.Util.encode_uri(tracker_name)}/positions/verify"

@@ -11634,6 +11634,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_certificate_transfer_errors()}
   def accept_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/accept-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
@@ -11671,6 +11672,7 @@ defmodule AWS.IoT do
   @spec add_thing_to_billing_group(map(), add_thing_to_billing_group_request(), list()) ::
           {:ok, add_thing_to_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_thing_to_billing_group_errors()}
   def add_thing_to_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/billing-groups/addThingToBillingGroup"
@@ -11703,6 +11705,7 @@ defmodule AWS.IoT do
   @spec add_thing_to_thing_group(map(), add_thing_to_thing_group_request(), list()) ::
           {:ok, add_thing_to_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_thing_to_thing_group_errors()}
   def add_thing_to_thing_group(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/addThingToThingGroup"
@@ -11742,6 +11745,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, associate_sbom_with_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_sbom_with_package_version_errors()}
   def associate_sbom_with_package_version(
         %Client{} = client,
@@ -11805,6 +11809,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, associate_targets_with_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_targets_with_job_errors()}
   def associate_targets_with_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/targets"
@@ -11843,6 +11848,7 @@ defmodule AWS.IoT do
   @spec attach_policy(map(), String.t(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -11880,6 +11886,7 @@ defmodule AWS.IoT do
   @spec attach_principal_policy(map(), String.t(), attach_principal_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_principal_policy_errors()}
   def attach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -11922,6 +11929,7 @@ defmodule AWS.IoT do
   @spec attach_security_profile(map(), String.t(), attach_security_profile_request(), list()) ::
           {:ok, attach_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_security_profile_errors()}
   def attach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
@@ -11962,6 +11970,7 @@ defmodule AWS.IoT do
   @spec attach_thing_principal(map(), String.t(), attach_thing_principal_request(), list()) ::
           {:ok, attach_thing_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_thing_principal_errors()}
   def attach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
@@ -12014,6 +12023,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, cancel_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_audit_mitigation_actions_task_errors()}
   def cancel_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -12049,6 +12059,7 @@ defmodule AWS.IoT do
   @spec cancel_audit_task(map(), String.t(), cancel_audit_task_request(), list()) ::
           {:ok, cancel_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_audit_task_errors()}
   def cancel_audit_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -12097,6 +12108,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_certificate_transfer_errors()}
   def cancel_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cancel-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
@@ -12135,6 +12147,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, cancel_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_detect_mitigation_actions_task_errors()}
   def cancel_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -12167,6 +12180,7 @@ defmodule AWS.IoT do
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
@@ -12210,6 +12224,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_execution_errors()}
   def cancel_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
     url_path =
@@ -12249,6 +12264,7 @@ defmodule AWS.IoT do
   @spec clear_default_authorizer(map(), clear_default_authorizer_request(), list()) ::
           {:ok, clear_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, clear_default_authorizer_errors()}
   def clear_default_authorizer(%Client{} = client, input, options \\ []) do
     url_path = "/default-authorizer"
@@ -12287,6 +12303,7 @@ defmodule AWS.IoT do
   @spec confirm_topic_rule_destination(map(), String.t(), list()) ::
           {:ok, confirm_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_topic_rule_destination_errors()}
   def confirm_topic_rule_destination(%Client{} = client, confirmation_token, options \\ []) do
     url_path = "/confirmdestination/#{AWS.Util.encode_multi_segment_uri(confirmation_token)}"
@@ -12309,6 +12326,7 @@ defmodule AWS.IoT do
   @spec create_audit_suppression(map(), create_audit_suppression_request(), list()) ::
           {:ok, create_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_audit_suppression_errors()}
   def create_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/create"
@@ -12341,6 +12359,7 @@ defmodule AWS.IoT do
   @spec create_authorizer(map(), String.t(), create_authorizer_request(), list()) ::
           {:ok, create_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_authorizer_errors()}
   def create_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
@@ -12379,6 +12398,7 @@ defmodule AWS.IoT do
   @spec create_billing_group(map(), String.t(), create_billing_group_request(), list()) ::
           {:ok, create_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_billing_group_errors()}
   def create_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
@@ -12470,6 +12490,7 @@ defmodule AWS.IoT do
   @spec create_certificate_from_csr(map(), create_certificate_from_csr_request(), list()) ::
           {:ok, create_certificate_from_csr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_certificate_from_csr_errors()}
   def create_certificate_from_csr(%Client{} = client, input, options \\ []) do
     url_path = "/certificates"
@@ -12528,6 +12549,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, create_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_certificate_provider_errors()}
   def create_certificate_provider(
         %Client{} = client,
@@ -12564,6 +12586,7 @@ defmodule AWS.IoT do
   @spec create_command(map(), String.t(), create_command_request(), list()) ::
           {:ok, create_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_command_errors()}
   def create_command(%Client{} = client, command_id, input, options \\ []) do
     url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
@@ -12599,6 +12622,7 @@ defmodule AWS.IoT do
   @spec create_custom_metric(map(), String.t(), create_custom_metric_request(), list()) ::
           {:ok, create_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_metric_errors()}
   def create_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -12636,6 +12660,7 @@ defmodule AWS.IoT do
   @spec create_dimension(map(), String.t(), create_dimension_request(), list()) ::
           {:ok, create_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dimension_errors()}
   def create_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
@@ -12673,6 +12698,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, create_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_configuration_errors()}
   def create_domain_configuration(
         %Client{} = client,
@@ -12715,6 +12741,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, create_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dynamic_thing_group_errors()}
   def create_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -12747,6 +12774,7 @@ defmodule AWS.IoT do
   @spec create_fleet_metric(map(), String.t(), create_fleet_metric_request(), list()) ::
           {:ok, create_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_metric_errors()}
   def create_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -12779,6 +12807,7 @@ defmodule AWS.IoT do
   @spec create_job(map(), String.t(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -12811,6 +12840,7 @@ defmodule AWS.IoT do
   @spec create_job_template(map(), String.t(), create_job_template_request(), list()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_template_errors()}
   def create_job_template(%Client{} = client, job_template_id, input, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
@@ -12850,6 +12880,7 @@ defmodule AWS.IoT do
   @spec create_keys_and_certificate(map(), create_keys_and_certificate_request(), list()) ::
           {:ok, create_keys_and_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_keys_and_certificate_errors()}
   def create_keys_and_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/keys-and-certificate"
@@ -12892,6 +12923,7 @@ defmodule AWS.IoT do
   @spec create_mitigation_action(map(), String.t(), create_mitigation_action_request(), list()) ::
           {:ok, create_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mitigation_action_errors()}
   def create_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
@@ -12924,6 +12956,7 @@ defmodule AWS.IoT do
   @spec create_ota_update(map(), String.t(), create_ota_update_request(), list()) ::
           {:ok, create_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ota_update_errors()}
   def create_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
@@ -12957,6 +12990,7 @@ defmodule AWS.IoT do
   @spec create_package(map(), String.t(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_errors()}
   def create_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
@@ -13001,6 +13035,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, create_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_version_errors()}
   def create_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
     url_path =
@@ -13045,6 +13080,7 @@ defmodule AWS.IoT do
   @spec create_policy(map(), String.t(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -13088,6 +13124,7 @@ defmodule AWS.IoT do
   @spec create_policy_version(map(), String.t(), create_policy_version_request(), list()) ::
           {:ok, create_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_version_errors()}
   def create_policy_version(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
@@ -13125,6 +13162,7 @@ defmodule AWS.IoT do
   @spec create_provisioning_claim(map(), String.t(), create_provisioning_claim_request(), list()) ::
           {:ok, create_provisioning_claim_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioning_claim_errors()}
   def create_provisioning_claim(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}/provisioning-claim"
@@ -13157,6 +13195,7 @@ defmodule AWS.IoT do
   @spec create_provisioning_template(map(), create_provisioning_template_request(), list()) ::
           {:ok, create_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioning_template_errors()}
   def create_provisioning_template(%Client{} = client, input, options \\ []) do
     url_path = "/provisioning-templates"
@@ -13194,6 +13233,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, create_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioning_template_version_errors()}
   def create_provisioning_template_version(
         %Client{} = client,
@@ -13246,6 +13286,7 @@ defmodule AWS.IoT do
   @spec create_role_alias(map(), String.t(), create_role_alias_request(), list()) ::
           {:ok, create_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_role_alias_errors()}
   def create_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
@@ -13279,6 +13320,7 @@ defmodule AWS.IoT do
   @spec create_scheduled_audit(map(), String.t(), create_scheduled_audit_request(), list()) ::
           {:ok, create_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scheduled_audit_errors()}
   def create_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
@@ -13311,6 +13353,7 @@ defmodule AWS.IoT do
   @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_profile_errors()}
   def create_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
@@ -13348,6 +13391,7 @@ defmodule AWS.IoT do
   @spec create_stream(map(), String.t(), create_stream_request(), list()) ::
           {:ok, create_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -13390,6 +13434,7 @@ defmodule AWS.IoT do
   @spec create_thing(map(), String.t(), create_thing_request(), list()) ::
           {:ok, create_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_thing_errors()}
   def create_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
@@ -13429,6 +13474,7 @@ defmodule AWS.IoT do
   @spec create_thing_group(map(), String.t(), create_thing_group_request(), list()) ::
           {:ok, create_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_thing_group_errors()}
   def create_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -13467,6 +13513,7 @@ defmodule AWS.IoT do
   @spec create_thing_type(map(), String.t(), create_thing_type_request(), list()) ::
           {:ok, create_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_thing_type_errors()}
   def create_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
@@ -13502,6 +13549,7 @@ defmodule AWS.IoT do
   @spec create_topic_rule(map(), String.t(), create_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_topic_rule_errors()}
   def create_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
@@ -13542,6 +13590,7 @@ defmodule AWS.IoT do
   @spec create_topic_rule_destination(map(), create_topic_rule_destination_request(), list()) ::
           {:ok, create_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_topic_rule_destination_errors()}
   def create_topic_rule_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
@@ -13582,6 +13631,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_audit_configuration_errors()}
   def delete_account_audit_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/audit/configuration"
@@ -13620,6 +13670,7 @@ defmodule AWS.IoT do
   @spec delete_audit_suppression(map(), delete_audit_suppression_request(), list()) ::
           {:ok, delete_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_audit_suppression_errors()}
   def delete_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/delete"
@@ -13652,6 +13703,7 @@ defmodule AWS.IoT do
   @spec delete_authorizer(map(), String.t(), delete_authorizer_request(), list()) ::
           {:ok, delete_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_authorizer_errors()}
   def delete_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
@@ -13684,6 +13736,7 @@ defmodule AWS.IoT do
   @spec delete_billing_group(map(), String.t(), delete_billing_group_request(), list()) ::
           {:ok, delete_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_billing_group_errors()}
   def delete_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
@@ -13721,6 +13774,7 @@ defmodule AWS.IoT do
   @spec delete_ca_certificate(map(), String.t(), delete_ca_certificate_request(), list()) ::
           {:ok, delete_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ca_certificate_errors()}
   def delete_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
@@ -13760,6 +13814,7 @@ defmodule AWS.IoT do
   @spec delete_certificate(map(), String.t(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
@@ -13806,6 +13861,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_provider_errors()}
   def delete_certificate_provider(
         %Client{} = client,
@@ -13839,6 +13895,7 @@ defmodule AWS.IoT do
   @spec delete_command(map(), String.t(), delete_command_request(), list()) ::
           {:ok, delete_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_command_errors()}
   def delete_command(%Client{} = client, command_id, input, options \\ []) do
     url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
@@ -13870,6 +13927,7 @@ defmodule AWS.IoT do
   @spec delete_command_execution(map(), String.t(), delete_command_execution_request(), list()) ::
           {:ok, delete_command_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_command_execution_errors()}
   def delete_command_execution(%Client{} = client, execution_id, input, options \\ []) do
     url_path = "/command-executions/#{AWS.Util.encode_uri(execution_id)}"
@@ -13916,6 +13974,7 @@ defmodule AWS.IoT do
   @spec delete_custom_metric(map(), String.t(), delete_custom_metric_request(), list()) ::
           {:ok, delete_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_metric_errors()}
   def delete_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -13948,6 +14007,7 @@ defmodule AWS.IoT do
   @spec delete_dimension(map(), String.t(), delete_dimension_request(), list()) ::
           {:ok, delete_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dimension_errors()}
   def delete_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
@@ -13985,6 +14045,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_configuration_errors()}
   def delete_domain_configuration(
         %Client{} = client,
@@ -14027,6 +14088,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dynamic_thing_group_errors()}
   def delete_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -14067,6 +14129,7 @@ defmodule AWS.IoT do
   @spec delete_fleet_metric(map(), String.t(), delete_fleet_metric_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_metric_errors()}
   def delete_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -14115,6 +14178,7 @@ defmodule AWS.IoT do
   @spec delete_job(map(), String.t(), delete_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -14160,6 +14224,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_execution_errors()}
   def delete_job_execution(
         %Client{} = client,
@@ -14203,6 +14268,7 @@ defmodule AWS.IoT do
   @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_template_errors()}
   def delete_job_template(%Client{} = client, job_template_id, input, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
@@ -14235,6 +14301,7 @@ defmodule AWS.IoT do
   @spec delete_mitigation_action(map(), String.t(), delete_mitigation_action_request(), list()) ::
           {:ok, delete_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mitigation_action_errors()}
   def delete_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
@@ -14267,6 +14334,7 @@ defmodule AWS.IoT do
   @spec delete_ota_update(map(), String.t(), delete_ota_update_request(), list()) ::
           {:ok, delete_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ota_update_errors()}
   def delete_ota_update(%Client{} = client, ota_update_id, input, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
@@ -14308,6 +14376,7 @@ defmodule AWS.IoT do
   @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
@@ -14350,6 +14419,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_version_errors()}
   def delete_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
     url_path =
@@ -14406,6 +14476,7 @@ defmodule AWS.IoT do
   @spec delete_policy(map(), String.t(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -14450,6 +14521,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_version_errors()}
   def delete_policy_version(
         %Client{} = client,
@@ -14495,6 +14567,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioning_template_errors()}
   def delete_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -14533,6 +14606,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioning_template_version_errors()}
   def delete_provisioning_template_version(
         %Client{} = client,
@@ -14573,6 +14647,7 @@ defmodule AWS.IoT do
   @spec delete_registration_code(map(), delete_registration_code_request(), list()) ::
           {:ok, delete_registration_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_registration_code_errors()}
   def delete_registration_code(%Client{} = client, input, options \\ []) do
     url_path = "/registrationcode"
@@ -14605,6 +14680,7 @@ defmodule AWS.IoT do
   @spec delete_role_alias(map(), String.t(), delete_role_alias_request(), list()) ::
           {:ok, delete_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_alias_errors()}
   def delete_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
@@ -14637,6 +14713,7 @@ defmodule AWS.IoT do
   @spec delete_scheduled_audit(map(), String.t(), delete_scheduled_audit_request(), list()) ::
           {:ok, delete_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_audit_errors()}
   def delete_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
@@ -14669,6 +14746,7 @@ defmodule AWS.IoT do
   @spec delete_security_profile(map(), String.t(), delete_security_profile_request(), list()) ::
           {:ok, delete_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_security_profile_errors()}
   def delete_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
@@ -14706,6 +14784,7 @@ defmodule AWS.IoT do
   @spec delete_stream(map(), String.t(), delete_stream_request(), list()) ::
           {:ok, delete_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -14741,6 +14820,7 @@ defmodule AWS.IoT do
   @spec delete_thing(map(), String.t(), delete_thing_request(), list()) ::
           {:ok, delete_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_thing_errors()}
   def delete_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
@@ -14778,6 +14858,7 @@ defmodule AWS.IoT do
   @spec delete_thing_group(map(), String.t(), delete_thing_group_request(), list()) ::
           {:ok, delete_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_thing_group_errors()}
   def delete_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -14821,6 +14902,7 @@ defmodule AWS.IoT do
   @spec delete_thing_type(map(), String.t(), delete_thing_type_request(), list()) ::
           {:ok, delete_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_thing_type_errors()}
   def delete_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
@@ -14853,6 +14935,7 @@ defmodule AWS.IoT do
   @spec delete_topic_rule(map(), String.t(), delete_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_topic_rule_errors()}
   def delete_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
@@ -14890,6 +14973,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, delete_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_topic_rule_destination_errors()}
   def delete_topic_rule_destination(%Client{} = client, arn, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
@@ -14922,6 +15006,7 @@ defmodule AWS.IoT do
   @spec delete_v2_logging_level(map(), delete_v2_logging_level_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_v2_logging_level_errors()}
   def delete_v2_logging_level(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingLevel"
@@ -14963,6 +15048,7 @@ defmodule AWS.IoT do
   @spec deprecate_thing_type(map(), String.t(), deprecate_thing_type_request(), list()) ::
           {:ok, deprecate_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_thing_type_errors()}
   def deprecate_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}/deprecate"
@@ -14998,6 +15084,7 @@ defmodule AWS.IoT do
   @spec describe_account_audit_configuration(map(), list()) ::
           {:ok, describe_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_audit_configuration_errors()}
   def describe_account_audit_configuration(%Client{} = client, options \\ []) do
     url_path = "/audit/configuration"
@@ -15025,6 +15112,7 @@ defmodule AWS.IoT do
   @spec describe_audit_finding(map(), String.t(), list()) ::
           {:ok, describe_audit_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_audit_finding_errors()}
   def describe_audit_finding(%Client{} = client, finding_id, options \\ []) do
     url_path = "/audit/findings/#{AWS.Util.encode_uri(finding_id)}"
@@ -15046,6 +15134,7 @@ defmodule AWS.IoT do
   @spec describe_audit_mitigation_actions_task(map(), String.t(), list()) ::
           {:ok, describe_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_audit_mitigation_actions_task_errors()}
   def describe_audit_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -15064,6 +15153,7 @@ defmodule AWS.IoT do
   @spec describe_audit_suppression(map(), describe_audit_suppression_request(), list()) ::
           {:ok, describe_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_audit_suppression_errors()}
   def describe_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/describe"
@@ -15096,6 +15186,7 @@ defmodule AWS.IoT do
   @spec describe_audit_task(map(), String.t(), list()) ::
           {:ok, describe_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_audit_task_errors()}
   def describe_audit_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/audit/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -15117,6 +15208,7 @@ defmodule AWS.IoT do
   @spec describe_authorizer(map(), String.t(), list()) ::
           {:ok, describe_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_authorizer_errors()}
   def describe_authorizer(%Client{} = client, authorizer_name, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
@@ -15138,6 +15230,7 @@ defmodule AWS.IoT do
   @spec describe_billing_group(map(), String.t(), list()) ::
           {:ok, describe_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_billing_group_errors()}
   def describe_billing_group(%Client{} = client, billing_group_name, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
@@ -15159,6 +15252,7 @@ defmodule AWS.IoT do
   @spec describe_ca_certificate(map(), String.t(), list()) ::
           {:ok, describe_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ca_certificate_errors()}
   def describe_ca_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
@@ -15180,6 +15274,7 @@ defmodule AWS.IoT do
   @spec describe_certificate(map(), String.t(), list()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, certificate_id, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
@@ -15201,6 +15296,7 @@ defmodule AWS.IoT do
   @spec describe_certificate_provider(map(), String.t(), list()) ::
           {:ok, describe_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_provider_errors()}
   def describe_certificate_provider(%Client{} = client, certificate_provider_name, options \\ []) do
     url_path = "/certificate-providers/#{AWS.Util.encode_uri(certificate_provider_name)}"
@@ -15223,6 +15319,7 @@ defmodule AWS.IoT do
   @spec describe_custom_metric(map(), String.t(), list()) ::
           {:ok, describe_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_metric_errors()}
   def describe_custom_metric(%Client{} = client, metric_name, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -15244,6 +15341,7 @@ defmodule AWS.IoT do
   @spec describe_default_authorizer(map(), list()) ::
           {:ok, describe_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_default_authorizer_errors()}
   def describe_default_authorizer(%Client{} = client, options \\ []) do
     url_path = "/default-authorizer"
@@ -15266,6 +15364,7 @@ defmodule AWS.IoT do
   @spec describe_detect_mitigation_actions_task(map(), String.t(), list()) ::
           {:ok, describe_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_detect_mitigation_actions_task_errors()}
   def describe_detect_mitigation_actions_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -15288,6 +15387,7 @@ defmodule AWS.IoT do
   @spec describe_dimension(map(), String.t(), list()) ::
           {:ok, describe_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dimension_errors()}
   def describe_dimension(%Client{} = client, name, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
@@ -15309,6 +15409,7 @@ defmodule AWS.IoT do
   @spec describe_domain_configuration(map(), String.t(), list()) ::
           {:ok, describe_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_configuration_errors()}
   def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
@@ -15335,6 +15436,7 @@ defmodule AWS.IoT do
   @spec describe_endpoint(map(), String.t() | nil, list()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoint_errors()}
   def describe_endpoint(%Client{} = client, endpoint_type \\ nil, options \\ []) do
     url_path = "/endpoint"
@@ -15363,6 +15465,7 @@ defmodule AWS.IoT do
   @spec describe_event_configurations(map(), list()) ::
           {:ok, describe_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_configurations_errors()}
   def describe_event_configurations(%Client{} = client, options \\ []) do
     url_path = "/event-configurations"
@@ -15384,6 +15487,7 @@ defmodule AWS.IoT do
   @spec describe_fleet_metric(map(), String.t(), list()) ::
           {:ok, describe_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_metric_errors()}
   def describe_fleet_metric(%Client{} = client, metric_name, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -15405,6 +15509,7 @@ defmodule AWS.IoT do
   @spec describe_index(map(), String.t(), list()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, index_name, options \\ []) do
     url_path = "/indices/#{AWS.Util.encode_uri(index_name)}"
@@ -15426,6 +15531,7 @@ defmodule AWS.IoT do
   @spec describe_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, job_id, before_substitution \\ nil, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -15454,6 +15560,7 @@ defmodule AWS.IoT do
   @spec describe_job_execution(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_execution_errors()}
   def describe_job_execution(
         %Client{} = client,
@@ -15484,6 +15591,7 @@ defmodule AWS.IoT do
   @spec describe_job_template(map(), String.t(), list()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_template_errors()}
   def describe_job_template(%Client{} = client, job_template_id, options \\ []) do
     url_path = "/job-templates/#{AWS.Util.encode_uri(job_template_id)}"
@@ -15501,6 +15609,7 @@ defmodule AWS.IoT do
   @spec describe_managed_job_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_managed_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_managed_job_template_errors()}
   def describe_managed_job_template(
         %Client{} = client,
@@ -15534,6 +15643,7 @@ defmodule AWS.IoT do
   @spec describe_mitigation_action(map(), String.t(), list()) ::
           {:ok, describe_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mitigation_action_errors()}
   def describe_mitigation_action(%Client{} = client, action_name, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
@@ -15555,6 +15665,7 @@ defmodule AWS.IoT do
   @spec describe_provisioning_template(map(), String.t(), list()) ::
           {:ok, describe_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioning_template_errors()}
   def describe_provisioning_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -15576,6 +15687,7 @@ defmodule AWS.IoT do
   @spec describe_provisioning_template_version(map(), String.t(), String.t(), list()) ::
           {:ok, describe_provisioning_template_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_provisioning_template_version_errors()}
   def describe_provisioning_template_version(
         %Client{} = client,
@@ -15604,6 +15716,7 @@ defmodule AWS.IoT do
   @spec describe_role_alias(map(), String.t(), list()) ::
           {:ok, describe_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_role_alias_errors()}
   def describe_role_alias(%Client{} = client, role_alias, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
@@ -15625,6 +15738,7 @@ defmodule AWS.IoT do
   @spec describe_scheduled_audit(map(), String.t(), list()) ::
           {:ok, describe_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduled_audit_errors()}
   def describe_scheduled_audit(%Client{} = client, scheduled_audit_name, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
@@ -15646,6 +15760,7 @@ defmodule AWS.IoT do
   @spec describe_security_profile(map(), String.t(), list()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_security_profile_errors()}
   def describe_security_profile(%Client{} = client, security_profile_name, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
@@ -15667,6 +15782,7 @@ defmodule AWS.IoT do
   @spec describe_stream(map(), String.t(), list()) ::
           {:ok, describe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, stream_id, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -15688,6 +15804,7 @@ defmodule AWS.IoT do
   @spec describe_thing(map(), String.t(), list()) ::
           {:ok, describe_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thing_errors()}
   def describe_thing(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
@@ -15709,6 +15826,7 @@ defmodule AWS.IoT do
   @spec describe_thing_group(map(), String.t(), list()) ::
           {:ok, describe_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thing_group_errors()}
   def describe_thing_group(%Client{} = client, thing_group_name, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -15730,6 +15848,7 @@ defmodule AWS.IoT do
   @spec describe_thing_registration_task(map(), String.t(), list()) ::
           {:ok, describe_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thing_registration_task_errors()}
   def describe_thing_registration_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -15751,6 +15870,7 @@ defmodule AWS.IoT do
   @spec describe_thing_type(map(), String.t(), list()) ::
           {:ok, describe_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thing_type_errors()}
   def describe_thing_type(%Client{} = client, thing_type_name, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
@@ -15776,6 +15896,7 @@ defmodule AWS.IoT do
   @spec detach_policy(map(), String.t(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/target-policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -15812,6 +15933,7 @@ defmodule AWS.IoT do
   @spec detach_principal_policy(map(), String.t(), detach_principal_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_principal_policy_errors()}
   def detach_principal_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/principal-policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -15851,6 +15973,7 @@ defmodule AWS.IoT do
   @spec detach_security_profile(map(), String.t(), detach_security_profile_request(), list()) ::
           {:ok, detach_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_security_profile_errors()}
   def detach_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}/targets"
@@ -15896,6 +16019,7 @@ defmodule AWS.IoT do
   @spec detach_thing_principal(map(), String.t(), detach_thing_principal_request(), list()) ::
           {:ok, detach_thing_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_thing_principal_errors()}
   def detach_thing_principal(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/principals"
@@ -15934,6 +16058,7 @@ defmodule AWS.IoT do
   @spec disable_topic_rule(map(), String.t(), disable_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_topic_rule_errors()}
   def disable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/disable"
@@ -15973,6 +16098,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, disassociate_sbom_from_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_sbom_from_package_version_errors()}
   def disassociate_sbom_from_package_version(
         %Client{} = client,
@@ -16018,6 +16144,7 @@ defmodule AWS.IoT do
   @spec enable_topic_rule(map(), String.t(), enable_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_topic_rule_errors()}
   def enable_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}/enable"
@@ -16057,6 +16184,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, get_behavior_model_training_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_behavior_model_training_summaries_errors()}
   def get_behavior_model_training_summaries(
         %Client{} = client,
@@ -16105,6 +16233,7 @@ defmodule AWS.IoT do
   @spec get_buckets_aggregation(map(), get_buckets_aggregation_request(), list()) ::
           {:ok, get_buckets_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_buckets_aggregation_errors()}
   def get_buckets_aggregation(%Client{} = client, input, options \\ []) do
     url_path = "/indices/buckets"
@@ -16137,6 +16266,7 @@ defmodule AWS.IoT do
   @spec get_cardinality(map(), get_cardinality_request(), list()) ::
           {:ok, get_cardinality_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cardinality_errors()}
   def get_cardinality(%Client{} = client, input, options \\ []) do
     url_path = "/indices/cardinality"
@@ -16165,6 +16295,7 @@ defmodule AWS.IoT do
   @spec get_command(map(), String.t(), list()) ::
           {:ok, get_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_command_errors()}
   def get_command(%Client{} = client, command_id, options \\ []) do
     url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
@@ -16182,6 +16313,7 @@ defmodule AWS.IoT do
   @spec get_command_execution(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_command_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_command_execution_errors()}
   def get_command_execution(
         %Client{} = client,
@@ -16225,6 +16357,7 @@ defmodule AWS.IoT do
   @spec get_effective_policies(map(), get_effective_policies_request(), list()) ::
           {:ok, get_effective_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_effective_policies_errors()}
   def get_effective_policies(%Client{} = client, input, options \\ []) do
     url_path = "/effective-policies"
@@ -16262,6 +16395,7 @@ defmodule AWS.IoT do
   @spec get_indexing_configuration(map(), list()) ::
           {:ok, get_indexing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_indexing_configuration_errors()}
   def get_indexing_configuration(%Client{} = client, options \\ []) do
     url_path = "/indexing/config"
@@ -16283,6 +16417,7 @@ defmodule AWS.IoT do
   @spec get_job_document(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_document_errors()}
   def get_job_document(%Client{} = client, job_id, before_substitution \\ nil, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}/job-document"
@@ -16314,6 +16449,7 @@ defmodule AWS.IoT do
   @spec get_logging_options(map(), list()) ::
           {:ok, get_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logging_options_errors()}
   def get_logging_options(%Client{} = client, options \\ []) do
     url_path = "/loggingOptions"
@@ -16335,6 +16471,7 @@ defmodule AWS.IoT do
   @spec get_ota_update(map(), String.t(), list()) ::
           {:ok, get_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ota_update_errors()}
   def get_ota_update(%Client{} = client, ota_update_id, options \\ []) do
     url_path = "/otaUpdates/#{AWS.Util.encode_uri(ota_update_id)}"
@@ -16356,6 +16493,7 @@ defmodule AWS.IoT do
   @spec get_package(map(), String.t(), list()) ::
           {:ok, get_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_errors()}
   def get_package(%Client{} = client, package_name, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
@@ -16377,6 +16515,7 @@ defmodule AWS.IoT do
   @spec get_package_configuration(map(), list()) ::
           {:ok, get_package_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_configuration_errors()}
   def get_package_configuration(%Client{} = client, options \\ []) do
     url_path = "/package-configuration"
@@ -16398,6 +16537,7 @@ defmodule AWS.IoT do
   @spec get_package_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_version_errors()}
   def get_package_version(%Client{} = client, package_name, version_name, options \\ []) do
     url_path =
@@ -16436,6 +16576,7 @@ defmodule AWS.IoT do
   @spec get_percentiles(map(), get_percentiles_request(), list()) ::
           {:ok, get_percentiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_percentiles_errors()}
   def get_percentiles(%Client{} = client, input, options \\ []) do
     url_path = "/indices/percentiles"
@@ -16470,6 +16611,7 @@ defmodule AWS.IoT do
   @spec get_policy(map(), String.t(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, policy_name, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}"
@@ -16491,6 +16633,7 @@ defmodule AWS.IoT do
   @spec get_policy_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_version_errors()}
   def get_policy_version(%Client{} = client, policy_name, policy_version_id, options \\ []) do
     url_path =
@@ -16519,6 +16662,7 @@ defmodule AWS.IoT do
   @spec get_registration_code(map(), list()) ::
           {:ok, get_registration_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_registration_code_errors()}
   def get_registration_code(%Client{} = client, options \\ []) do
     url_path = "/registrationcode"
@@ -16544,6 +16688,7 @@ defmodule AWS.IoT do
   @spec get_statistics(map(), get_statistics_request(), list()) ::
           {:ok, get_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_statistics_errors()}
   def get_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/indices/statistics"
@@ -16577,6 +16722,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, get_thing_connectivity_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_thing_connectivity_data_errors()}
   def get_thing_connectivity_data(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/connectivity-data"
@@ -16609,6 +16755,7 @@ defmodule AWS.IoT do
   @spec get_topic_rule(map(), String.t(), list()) ::
           {:ok, get_topic_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_topic_rule_errors()}
   def get_topic_rule(%Client{} = client, rule_name, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
@@ -16630,6 +16777,7 @@ defmodule AWS.IoT do
   @spec get_topic_rule_destination(map(), String.t(), list()) ::
           {:ok, get_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_topic_rule_destination_errors()}
   def get_topic_rule_destination(%Client{} = client, arn, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_multi_segment_uri(arn)}"
@@ -16651,6 +16799,7 @@ defmodule AWS.IoT do
   @spec get_v2_logging_options(map(), list()) ::
           {:ok, get_v2_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_v2_logging_options_errors()}
   def get_v2_logging_options(%Client{} = client, options \\ []) do
     url_path = "/v2LoggingOptions"
@@ -16682,6 +16831,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_active_violations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_active_violations_errors()}
   def list_active_violations(
         %Client{} = client,
@@ -16762,6 +16912,7 @@ defmodule AWS.IoT do
   @spec list_attached_policies(map(), String.t(), list_attached_policies_request(), list()) ::
           {:ok, list_attached_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_policies_errors()}
   def list_attached_policies(%Client{} = client, target, input, options \\ []) do
     url_path = "/attached-policies/#{AWS.Util.encode_uri(target)}"
@@ -16804,6 +16955,7 @@ defmodule AWS.IoT do
   @spec list_audit_findings(map(), list_audit_findings_request(), list()) ::
           {:ok, list_audit_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audit_findings_errors()}
   def list_audit_findings(%Client{} = client, input, options \\ []) do
     url_path = "/audit/findings"
@@ -16845,6 +16997,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_audit_mitigation_actions_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audit_mitigation_actions_executions_errors()}
   def list_audit_mitigation_actions_executions(
         %Client{} = client,
@@ -16919,6 +17072,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_audit_mitigation_actions_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audit_mitigation_actions_tasks_errors()}
   def list_audit_mitigation_actions_tasks(
         %Client{} = client,
@@ -17000,6 +17154,7 @@ defmodule AWS.IoT do
   @spec list_audit_suppressions(map(), list_audit_suppressions_request(), list()) ::
           {:ok, list_audit_suppressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audit_suppressions_errors()}
   def list_audit_suppressions(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/list"
@@ -17042,6 +17197,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_audit_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audit_tasks_errors()}
   def list_audit_tasks(
         %Client{} = client,
@@ -17121,6 +17277,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_authorizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_authorizers_errors()}
   def list_authorizers(
         %Client{} = client,
@@ -17177,6 +17334,7 @@ defmodule AWS.IoT do
   @spec list_billing_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_billing_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_billing_groups_errors()}
   def list_billing_groups(
         %Client{} = client,
@@ -17236,6 +17394,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_ca_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ca_certificates_errors()}
   def list_ca_certificates(
         %Client{} = client,
@@ -17292,6 +17451,7 @@ defmodule AWS.IoT do
   @spec list_certificate_providers(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_certificate_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificate_providers_errors()}
   def list_certificate_providers(
         %Client{} = client,
@@ -17336,6 +17496,7 @@ defmodule AWS.IoT do
   @spec list_certificates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(
         %Client{} = client,
@@ -17391,6 +17552,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_certificates_by_ca_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificates_by_ca_errors()}
   def list_certificates_by_ca(
         %Client{} = client,
@@ -17453,6 +17615,7 @@ defmodule AWS.IoT do
   @spec list_command_executions(map(), list_command_executions_request(), list()) ::
           {:ok, list_command_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_command_executions_errors()}
   def list_command_executions(%Client{} = client, input, options \\ []) do
     url_path = "/command-executions"
@@ -17495,6 +17658,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_commands_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_commands_errors()}
   def list_commands(
         %Client{} = client,
@@ -17560,6 +17724,7 @@ defmodule AWS.IoT do
   @spec list_custom_metrics(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_custom_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_metrics_errors()}
   def list_custom_metrics(
         %Client{} = client,
@@ -17612,6 +17777,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_detect_mitigation_actions_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_detect_mitigation_actions_executions_errors()}
   def list_detect_mitigation_actions_executions(
         %Client{} = client,
@@ -17700,6 +17866,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_detect_mitigation_actions_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_detect_mitigation_actions_tasks_errors()}
   def list_detect_mitigation_actions_tasks(
         %Client{} = client,
@@ -17757,6 +17924,7 @@ defmodule AWS.IoT do
   @spec list_dimensions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dimensions_errors()}
   def list_dimensions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/dimensions"
@@ -17801,6 +17969,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_domain_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_configurations_errors()}
   def list_domain_configurations(
         %Client{} = client,
@@ -17849,6 +18018,7 @@ defmodule AWS.IoT do
   @spec list_fleet_metrics(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_fleet_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleet_metrics_errors()}
   def list_fleet_metrics(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/fleet-metrics"
@@ -17884,6 +18054,7 @@ defmodule AWS.IoT do
   @spec list_indices(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/indices"
@@ -17926,6 +18097,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_job_executions_for_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_executions_for_job_errors()}
   def list_job_executions_for_job(
         %Client{} = client,
@@ -17984,6 +18156,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_job_executions_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_executions_for_thing_errors()}
   def list_job_executions_for_thing(
         %Client{} = client,
@@ -18049,6 +18222,7 @@ defmodule AWS.IoT do
   @spec list_job_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_templates_errors()}
   def list_job_templates(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/job-templates"
@@ -18094,6 +18268,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -18176,6 +18351,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_managed_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_job_templates_errors()}
   def list_managed_job_templates(
         %Client{} = client,
@@ -18233,6 +18409,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_metric_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metric_values_errors()}
   def list_metric_values(
         %Client{} = client,
@@ -18327,6 +18504,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_mitigation_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mitigation_actions_errors()}
   def list_mitigation_actions(
         %Client{} = client,
@@ -18375,6 +18553,7 @@ defmodule AWS.IoT do
   @spec list_ota_updates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ota_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ota_updates_errors()}
   def list_ota_updates(
         %Client{} = client,
@@ -18429,6 +18608,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_outgoing_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_outgoing_certificates_errors()}
   def list_outgoing_certificates(
         %Client{} = client,
@@ -18484,6 +18664,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_package_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_versions_errors()}
   def list_package_versions(
         %Client{} = client,
@@ -18533,6 +18714,7 @@ defmodule AWS.IoT do
   @spec list_packages(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packages_errors()}
   def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/packages"
@@ -18568,6 +18750,7 @@ defmodule AWS.IoT do
   @spec list_policies(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(
         %Client{} = client,
@@ -18627,6 +18810,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_policy_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_principals_errors()}
   def list_policy_principals(
         %Client{} = client,
@@ -18685,6 +18869,7 @@ defmodule AWS.IoT do
   @spec list_policy_versions(map(), String.t(), list()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_versions_errors()}
   def list_policy_versions(%Client{} = client, policy_name, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_name)}/version"
@@ -18720,6 +18905,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_principal_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_principal_policies_errors()}
   def list_principal_policies(
         %Client{} = client,
@@ -18782,6 +18968,7 @@ defmodule AWS.IoT do
   @spec list_principal_things(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_principal_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_principal_things_errors()}
   def list_principal_things(
         %Client{} = client,
@@ -18841,6 +19028,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_principal_things_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_principal_things_v2_errors()}
   def list_principal_things_v2(
         %Client{} = client,
@@ -18904,6 +19092,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_provisioning_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioning_template_versions_errors()}
   def list_provisioning_template_versions(
         %Client{} = client,
@@ -18945,6 +19134,7 @@ defmodule AWS.IoT do
   @spec list_provisioning_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_provisioning_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioning_templates_errors()}
   def list_provisioning_templates(
         %Client{} = client,
@@ -19025,6 +19215,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_related_resources_for_audit_finding_errors()}
   def list_related_resources_for_audit_finding(
         %Client{} = client,
@@ -19073,6 +19264,7 @@ defmodule AWS.IoT do
   @spec list_role_aliases(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_role_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_role_aliases_errors()}
   def list_role_aliases(
         %Client{} = client,
@@ -19130,6 +19322,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_sbom_validation_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sbom_validation_results_errors()}
   def list_sbom_validation_results(
         %Client{} = client,
@@ -19182,6 +19375,7 @@ defmodule AWS.IoT do
   @spec list_scheduled_audits(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scheduled_audits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scheduled_audits_errors()}
   def list_scheduled_audits(
         %Client{} = client,
@@ -19235,6 +19429,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_profiles_errors()}
   def list_security_profiles(
         %Client{} = client,
@@ -19298,6 +19493,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_security_profiles_for_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_profiles_for_target_errors()}
   def list_security_profiles_for_target(
         %Client{} = client,
@@ -19354,6 +19550,7 @@ defmodule AWS.IoT do
   @spec list_streams(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(
         %Client{} = client,
@@ -19402,6 +19599,7 @@ defmodule AWS.IoT do
   @spec list_tags_for_resource(map(), String.t() | nil, String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, next_token \\ nil, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -19437,6 +19635,7 @@ defmodule AWS.IoT do
   @spec list_targets_for_policy(map(), String.t(), list_targets_for_policy_request(), list()) ::
           {:ok, list_targets_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_for_policy_errors()}
   def list_targets_for_policy(%Client{} = client, policy_name, input, options \\ []) do
     url_path = "/policy-targets/#{AWS.Util.encode_uri(policy_name)}"
@@ -19482,6 +19681,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_targets_for_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_for_security_profile_errors()}
   def list_targets_for_security_profile(
         %Client{} = client,
@@ -19531,6 +19731,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_thing_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_groups_errors()}
   def list_thing_groups(
         %Client{} = client,
@@ -19595,6 +19796,7 @@ defmodule AWS.IoT do
   @spec list_thing_groups_for_thing(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_thing_groups_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_groups_for_thing_errors()}
   def list_thing_groups_for_thing(
         %Client{} = client,
@@ -19641,6 +19843,7 @@ defmodule AWS.IoT do
   @spec list_thing_principals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_thing_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_principals_errors()}
   def list_thing_principals(
         %Client{} = client,
@@ -19692,6 +19895,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_thing_principals_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_principals_v2_errors()}
   def list_thing_principals_v2(
         %Client{} = client,
@@ -19744,6 +19948,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_thing_registration_task_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_registration_task_reports_errors()}
   def list_thing_registration_task_reports(
         %Client{} = client,
@@ -19799,6 +20004,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_thing_registration_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_registration_tasks_errors()}
   def list_thing_registration_tasks(
         %Client{} = client,
@@ -19847,6 +20053,7 @@ defmodule AWS.IoT do
   @spec list_thing_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_thing_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thing_types_errors()}
   def list_thing_types(
         %Client{} = client,
@@ -19917,6 +20124,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_things_errors()}
   def list_things(
         %Client{} = client,
@@ -19995,6 +20203,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_things_in_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_things_in_billing_group_errors()}
   def list_things_in_billing_group(
         %Client{} = client,
@@ -20043,6 +20252,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_things_in_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_things_in_thing_group_errors()}
   def list_things_in_thing_group(
         %Client{} = client,
@@ -20092,6 +20302,7 @@ defmodule AWS.IoT do
   @spec list_topic_rule_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_topic_rule_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topic_rule_destinations_errors()}
   def list_topic_rule_destinations(
         %Client{} = client,
@@ -20139,6 +20350,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_topic_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topic_rules_errors()}
   def list_topic_rules(
         %Client{} = client,
@@ -20201,6 +20413,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_v2_logging_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_v2_logging_levels_errors()}
   def list_v2_logging_levels(
         %Client{} = client,
@@ -20266,6 +20479,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, list_violation_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_violation_events_errors()}
   def list_violation_events(
         %Client{} = client,
@@ -20364,6 +20578,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, put_verification_state_on_violation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_verification_state_on_violation_errors()}
   def put_verification_state_on_violation(%Client{} = client, violation_id, input, options \\ []) do
     url_path = "/violations/verification-state/#{AWS.Util.encode_uri(violation_id)}"
@@ -20401,6 +20616,7 @@ defmodule AWS.IoT do
   @spec register_ca_certificate(map(), register_ca_certificate_request(), list()) ::
           {:ok, register_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_ca_certificate_errors()}
   def register_ca_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/cacertificate"
@@ -20445,6 +20661,7 @@ defmodule AWS.IoT do
   @spec register_certificate(map(), register_certificate_request(), list()) ::
           {:ok, register_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_certificate_errors()}
   def register_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/certificate/register"
@@ -20482,6 +20699,7 @@ defmodule AWS.IoT do
   @spec register_certificate_without_ca(map(), register_certificate_without_ca_request(), list()) ::
           {:ok, register_certificate_without_ca_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_certificate_without_ca_errors()}
   def register_certificate_without_ca(%Client{} = client, input, options \\ []) do
     url_path = "/certificate/register-no-ca"
@@ -20521,6 +20739,7 @@ defmodule AWS.IoT do
   @spec register_thing(map(), register_thing_request(), list()) ::
           {:ok, register_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_thing_errors()}
   def register_thing(%Client{} = client, input, options \\ []) do
     url_path = "/things"
@@ -20569,6 +20788,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_certificate_transfer_errors()}
   def reject_certificate_transfer(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/reject-certificate-transfer/#{AWS.Util.encode_uri(certificate_id)}"
@@ -20604,6 +20824,7 @@ defmodule AWS.IoT do
   @spec remove_thing_from_billing_group(map(), remove_thing_from_billing_group_request(), list()) ::
           {:ok, remove_thing_from_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_thing_from_billing_group_errors()}
   def remove_thing_from_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/billing-groups/removeThingFromBillingGroup"
@@ -20641,6 +20862,7 @@ defmodule AWS.IoT do
   @spec remove_thing_from_thing_group(map(), remove_thing_from_thing_group_request(), list()) ::
           {:ok, remove_thing_from_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_thing_from_thing_group_errors()}
   def remove_thing_from_thing_group(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/removeThingFromThingGroup"
@@ -20678,6 +20900,7 @@ defmodule AWS.IoT do
   @spec replace_topic_rule(map(), String.t(), replace_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, replace_topic_rule_errors()}
   def replace_topic_rule(%Client{} = client, rule_name, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(rule_name)}"
@@ -20710,6 +20933,7 @@ defmodule AWS.IoT do
   @spec search_index(map(), search_index_request(), list()) ::
           {:ok, search_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_index_errors()}
   def search_index(%Client{} = client, input, options \\ []) do
     url_path = "/indices/search"
@@ -20745,6 +20969,7 @@ defmodule AWS.IoT do
   @spec set_default_authorizer(map(), set_default_authorizer_request(), list()) ::
           {:ok, set_default_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_authorizer_errors()}
   def set_default_authorizer(%Client{} = client, input, options \\ []) do
     url_path = "/default-authorizer"
@@ -20789,6 +21014,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_policy_version_errors()}
   def set_default_policy_version(
         %Client{} = client,
@@ -20832,6 +21058,7 @@ defmodule AWS.IoT do
   @spec set_logging_options(map(), set_logging_options_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_logging_options_errors()}
   def set_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/loggingOptions"
@@ -20864,6 +21091,7 @@ defmodule AWS.IoT do
   @spec set_v2_logging_level(map(), set_v2_logging_level_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_v2_logging_level_errors()}
   def set_v2_logging_level(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingLevel"
@@ -20896,6 +21124,7 @@ defmodule AWS.IoT do
   @spec set_v2_logging_options(map(), set_v2_logging_options_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_v2_logging_options_errors()}
   def set_v2_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/v2LoggingOptions"
@@ -20933,6 +21162,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, start_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_audit_mitigation_actions_task_errors()}
   def start_audit_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/audit/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -20971,6 +21201,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, start_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_detect_mitigation_actions_task_errors()}
   def start_detect_mitigation_actions_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/detect/mitigationactions/tasks/#{AWS.Util.encode_uri(task_id)}"
@@ -21003,6 +21234,7 @@ defmodule AWS.IoT do
   @spec start_on_demand_audit_task(map(), start_on_demand_audit_task_request(), list()) ::
           {:ok, start_on_demand_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_on_demand_audit_task_errors()}
   def start_on_demand_audit_task(%Client{} = client, input, options \\ []) do
     url_path = "/audit/tasks"
@@ -21035,6 +21267,7 @@ defmodule AWS.IoT do
   @spec start_thing_registration_task(map(), start_thing_registration_task_request(), list()) ::
           {:ok, start_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_thing_registration_task_errors()}
   def start_thing_registration_task(%Client{} = client, input, options \\ []) do
     url_path = "/thing-registration-tasks"
@@ -21072,6 +21305,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, stop_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_thing_registration_task_errors()}
   def stop_thing_registration_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/thing-registration-tasks/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -21107,6 +21341,7 @@ defmodule AWS.IoT do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -21143,6 +21378,7 @@ defmodule AWS.IoT do
   @spec test_authorization(map(), test_authorization_request(), list()) ::
           {:ok, test_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_authorization_errors()}
   def test_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/test-authorization"
@@ -21185,6 +21421,7 @@ defmodule AWS.IoT do
   @spec test_invoke_authorizer(map(), String.t(), test_invoke_authorizer_request(), list()) ::
           {:ok, test_invoke_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_invoke_authorizer_errors()}
   def test_invoke_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}/test"
@@ -21231,6 +21468,7 @@ defmodule AWS.IoT do
   @spec transfer_certificate(map(), String.t(), transfer_certificate_request(), list()) ::
           {:ok, transfer_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transfer_certificate_errors()}
   def transfer_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/transfer-certificate/#{AWS.Util.encode_uri(certificate_id)}"
@@ -21268,6 +21506,7 @@ defmodule AWS.IoT do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag"
@@ -21307,6 +21546,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_account_audit_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_audit_configuration_errors()}
   def update_account_audit_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/audit/configuration"
@@ -21336,6 +21576,7 @@ defmodule AWS.IoT do
   @spec update_audit_suppression(map(), update_audit_suppression_request(), list()) ::
           {:ok, update_audit_suppression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_audit_suppression_errors()}
   def update_audit_suppression(%Client{} = client, input, options \\ []) do
     url_path = "/audit/suppressions/update"
@@ -21368,6 +21609,7 @@ defmodule AWS.IoT do
   @spec update_authorizer(map(), String.t(), update_authorizer_request(), list()) ::
           {:ok, update_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_authorizer_errors()}
   def update_authorizer(%Client{} = client, authorizer_name, input, options \\ []) do
     url_path = "/authorizer/#{AWS.Util.encode_uri(authorizer_name)}"
@@ -21400,6 +21642,7 @@ defmodule AWS.IoT do
   @spec update_billing_group(map(), String.t(), update_billing_group_request(), list()) ::
           {:ok, update_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_billing_group_errors()}
   def update_billing_group(%Client{} = client, billing_group_name, input, options \\ []) do
     url_path = "/billing-groups/#{AWS.Util.encode_uri(billing_group_name)}"
@@ -21432,6 +21675,7 @@ defmodule AWS.IoT do
   @spec update_ca_certificate(map(), String.t(), update_ca_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ca_certificate_errors()}
   def update_ca_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/cacertificate/#{AWS.Util.encode_uri(certificate_id)}"
@@ -21482,6 +21726,7 @@ defmodule AWS.IoT do
   @spec update_certificate(map(), String.t(), update_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_certificate_errors()}
   def update_certificate(%Client{} = client, certificate_id, input, options \\ []) do
     url_path = "/certificates/#{AWS.Util.encode_uri(certificate_id)}"
@@ -21524,6 +21769,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_certificate_provider_errors()}
   def update_certificate_provider(
         %Client{} = client,
@@ -21557,6 +21803,7 @@ defmodule AWS.IoT do
   @spec update_command(map(), String.t(), update_command_request(), list()) ::
           {:ok, update_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_command_errors()}
   def update_command(%Client{} = client, command_id, input, options \\ []) do
     url_path = "/commands/#{AWS.Util.encode_uri(command_id)}"
@@ -21590,6 +21837,7 @@ defmodule AWS.IoT do
   @spec update_custom_metric(map(), String.t(), update_custom_metric_request(), list()) ::
           {:ok, update_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_metric_errors()}
   def update_custom_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/custom-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -21629,6 +21877,7 @@ defmodule AWS.IoT do
   @spec update_dimension(map(), String.t(), update_dimension_request(), list()) ::
           {:ok, update_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dimension_errors()}
   def update_dimension(%Client{} = client, name, input, options \\ []) do
     url_path = "/dimensions/#{AWS.Util.encode_uri(name)}"
@@ -21669,6 +21918,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_configuration_errors()}
   def update_domain_configuration(
         %Client{} = client,
@@ -21711,6 +21961,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_dynamic_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dynamic_thing_group_errors()}
   def update_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -21743,6 +21994,7 @@ defmodule AWS.IoT do
   @spec update_event_configurations(map(), update_event_configurations_request(), list()) ::
           {:ok, update_event_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_configurations_errors()}
   def update_event_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/event-configurations"
@@ -21775,6 +22027,7 @@ defmodule AWS.IoT do
   @spec update_fleet_metric(map(), String.t(), update_fleet_metric_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_metric_errors()}
   def update_fleet_metric(%Client{} = client, metric_name, input, options \\ []) do
     url_path = "/fleet-metric/#{AWS.Util.encode_uri(metric_name)}"
@@ -21807,6 +22060,7 @@ defmodule AWS.IoT do
   @spec update_indexing_configuration(map(), update_indexing_configuration_request(), list()) ::
           {:ok, update_indexing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_indexing_configuration_errors()}
   def update_indexing_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/indexing/config"
@@ -21839,6 +22093,7 @@ defmodule AWS.IoT do
   @spec update_job(map(), String.t(), update_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -21876,6 +22131,7 @@ defmodule AWS.IoT do
   @spec update_mitigation_action(map(), String.t(), update_mitigation_action_request(), list()) ::
           {:ok, update_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mitigation_action_errors()}
   def update_mitigation_action(%Client{} = client, action_name, input, options \\ []) do
     url_path = "/mitigationactions/actions/#{AWS.Util.encode_uri(action_name)}"
@@ -21909,6 +22165,7 @@ defmodule AWS.IoT do
   @spec update_package(map(), String.t(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_errors()}
   def update_package(%Client{} = client, package_name, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_name)}"
@@ -21947,6 +22204,7 @@ defmodule AWS.IoT do
   @spec update_package_configuration(map(), update_package_configuration_request(), list()) ::
           {:ok, update_package_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_configuration_errors()}
   def update_package_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/package-configuration"
@@ -21991,6 +22249,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_version_errors()}
   def update_package_version(%Client{} = client, package_name, version_name, input, options \\ []) do
     url_path =
@@ -22035,6 +22294,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, update_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_provisioning_template_errors()}
   def update_provisioning_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/provisioning-templates/#{AWS.Util.encode_uri(template_name)}"
@@ -22077,6 +22337,7 @@ defmodule AWS.IoT do
   @spec update_role_alias(map(), String.t(), update_role_alias_request(), list()) ::
           {:ok, update_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_role_alias_errors()}
   def update_role_alias(%Client{} = client, role_alias, input, options \\ []) do
     url_path = "/role-aliases/#{AWS.Util.encode_uri(role_alias)}"
@@ -22110,6 +22371,7 @@ defmodule AWS.IoT do
   @spec update_scheduled_audit(map(), String.t(), update_scheduled_audit_request(), list()) ::
           {:ok, update_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scheduled_audit_errors()}
   def update_scheduled_audit(%Client{} = client, scheduled_audit_name, input, options \\ []) do
     url_path = "/audit/scheduledaudits/#{AWS.Util.encode_uri(scheduled_audit_name)}"
@@ -22142,6 +22404,7 @@ defmodule AWS.IoT do
   @spec update_security_profile(map(), String.t(), update_security_profile_request(), list()) ::
           {:ok, update_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_profile_errors()}
   def update_security_profile(%Client{} = client, security_profile_name, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(security_profile_name)}"
@@ -22181,6 +22444,7 @@ defmodule AWS.IoT do
   @spec update_stream(map(), String.t(), update_stream_request(), list()) ::
           {:ok, update_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_stream_errors()}
   def update_stream(%Client{} = client, stream_id, input, options \\ []) do
     url_path = "/streams/#{AWS.Util.encode_uri(stream_id)}"
@@ -22213,6 +22477,7 @@ defmodule AWS.IoT do
   @spec update_thing(map(), String.t(), update_thing_request(), list()) ::
           {:ok, update_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_errors()}
   def update_thing(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}"
@@ -22245,6 +22510,7 @@ defmodule AWS.IoT do
   @spec update_thing_group(map(), String.t(), update_thing_group_request(), list()) ::
           {:ok, update_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_group_errors()}
   def update_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
@@ -22277,6 +22543,7 @@ defmodule AWS.IoT do
   @spec update_thing_groups_for_thing(map(), update_thing_groups_for_thing_request(), list()) ::
           {:ok, update_thing_groups_for_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_groups_for_thing_errors()}
   def update_thing_groups_for_thing(%Client{} = client, input, options \\ []) do
     url_path = "/thing-groups/updateThingGroupsForThing"
@@ -22305,6 +22572,7 @@ defmodule AWS.IoT do
   @spec update_thing_type(map(), String.t(), update_thing_type_request(), list()) ::
           {:ok, update_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thing_type_errors()}
   def update_thing_type(%Client{} = client, thing_type_name, input, options \\ []) do
     url_path = "/thing-types/#{AWS.Util.encode_uri(thing_type_name)}"
@@ -22340,6 +22608,7 @@ defmodule AWS.IoT do
   @spec update_topic_rule_destination(map(), update_topic_rule_destination_request(), list()) ::
           {:ok, update_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_topic_rule_destination_errors()}
   def update_topic_rule_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
@@ -22376,6 +22645,7 @@ defmodule AWS.IoT do
         ) ::
           {:ok, validate_security_profile_behaviors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_security_profile_behaviors_errors()}
   def validate_security_profile_behaviors(%Client{} = client, input, options \\ []) do
     url_path = "/security-profile-behaviors/validate"

@@ -2634,6 +2634,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, delete_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recommendation_preferences_errors()}
   def delete_recommendation_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2656,6 +2657,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, describe_recommendation_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recommendation_export_jobs_errors()}
   def describe_recommendation_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2684,6 +2686,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_auto_scaling_group_recommendations_errors()}
   def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2711,6 +2714,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_e_c_s_service_recommendations_errors()}
   def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2739,6 +2743,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_ebs_volume_recommendations_errors()}
   def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2767,6 +2772,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_ec2_instance_recommendations_errors()}
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2792,6 +2798,7 @@ defmodule AWS.ComputeOptimizer do
   @spec export_idle_recommendations(map(), export_idle_recommendations_request(), list()) ::
           {:ok, export_idle_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_idle_recommendations_errors()}
   def export_idle_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2820,6 +2827,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_lambda_function_recommendations_errors()}
   def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2845,6 +2853,7 @@ defmodule AWS.ComputeOptimizer do
   @spec export_license_recommendations(map(), export_license_recommendations_request(), list()) ::
           {:ok, export_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_license_recommendations_errors()}
   def export_license_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2875,6 +2884,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, export_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_rds_database_recommendations_errors()}
   def export_rds_database_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2899,6 +2909,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_auto_scaling_group_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_auto_scaling_group_recommendations_errors()}
   def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2917,6 +2928,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_e_c_s_service_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_e_c_s_service_recommendation_projected_metrics_errors()}
   def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2947,6 +2959,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_e_c_s_service_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_e_c_s_service_recommendations_errors()}
   def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2966,6 +2979,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_ebs_volume_recommendations(map(), get_ebs_volume_recommendations_request(), list()) ::
           {:ok, get_ebs_volume_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ebs_volume_recommendations_errors()}
   def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2989,6 +3003,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_ec2_instance_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ec2_instance_recommendations_errors()}
   def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3013,6 +3028,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_ec2_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ec2_recommendation_projected_metrics_errors()}
   def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3039,6 +3055,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_effective_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_effective_recommendation_preferences_errors()}
   def get_effective_recommendation_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3059,6 +3076,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_enrollment_status(map(), get_enrollment_status_request(), list()) ::
           {:ok, get_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_enrollment_status_errors()}
   def get_enrollment_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3080,6 +3098,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_enrollment_statuses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_enrollment_statuses_for_organization_errors()}
   def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3100,6 +3119,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_idle_recommendations(map(), get_idle_recommendations_request(), list()) ::
           {:ok, get_idle_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_idle_recommendations_errors()}
   def get_idle_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3123,6 +3143,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_lambda_function_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lambda_function_recommendations_errors()}
   def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3143,6 +3164,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_license_recommendations(map(), get_license_recommendations_request(), list()) ::
           {:ok, get_license_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_recommendations_errors()}
   def get_license_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3161,6 +3183,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_rds_database_recommendation_projected_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rds_database_recommendation_projected_metrics_errors()}
   def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3191,6 +3214,7 @@ defmodule AWS.ComputeOptimizer do
         ) ::
           {:ok, get_rds_database_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rds_database_recommendations_errors()}
   def get_rds_database_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3215,6 +3239,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_recommendation_preferences(map(), get_recommendation_preferences_request(), list()) ::
           {:ok, get_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendation_preferences_errors()}
   def get_recommendation_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3251,6 +3276,7 @@ defmodule AWS.ComputeOptimizer do
   @spec get_recommendation_summaries(map(), get_recommendation_summaries_request(), list()) ::
           {:ok, get_recommendation_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendation_summaries_errors()}
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3270,6 +3296,7 @@ defmodule AWS.ComputeOptimizer do
   @spec put_recommendation_preferences(map(), put_recommendation_preferences_request(), list()) ::
           {:ok, put_recommendation_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_recommendation_preferences_errors()}
   def put_recommendation_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3300,6 +3327,7 @@ defmodule AWS.ComputeOptimizer do
   @spec update_enrollment_status(map(), update_enrollment_status_request(), list()) ::
           {:ok, update_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
     meta = metadata()

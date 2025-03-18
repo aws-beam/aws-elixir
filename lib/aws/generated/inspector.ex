@@ -1654,6 +1654,7 @@ defmodule AWS.Inspector do
   @spec add_attributes_to_findings(map(), add_attributes_to_findings_request(), list()) ::
           {:ok, add_attributes_to_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_attributes_to_findings_errors()}
   def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1683,6 +1684,7 @@ defmodule AWS.Inspector do
   @spec create_assessment_target(map(), create_assessment_target_request(), list()) ::
           {:ok, create_assessment_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assessment_target_errors()}
   def create_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1704,6 +1706,7 @@ defmodule AWS.Inspector do
   @spec create_assessment_template(map(), create_assessment_template_request(), list()) ::
           {:ok, create_assessment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assessment_template_errors()}
   def create_assessment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1722,6 +1725,7 @@ defmodule AWS.Inspector do
   @spec create_exclusions_preview(map(), create_exclusions_preview_request(), list()) ::
           {:ok, create_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_exclusions_preview_errors()}
   def create_exclusions_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1742,6 +1746,7 @@ defmodule AWS.Inspector do
   @spec create_resource_group(map(), create_resource_group_request(), list()) ::
           {:ok, create_resource_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_group_errors()}
   def create_resource_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1756,6 +1761,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_run(map(), delete_assessment_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_run_errors()}
   def delete_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1770,6 +1776,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_target(map(), delete_assessment_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_target_errors()}
   def delete_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1784,6 +1791,7 @@ defmodule AWS.Inspector do
   @spec delete_assessment_template(map(), delete_assessment_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_template_errors()}
   def delete_assessment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1798,6 +1806,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_runs(map(), describe_assessment_runs_request(), list()) ::
           {:ok, describe_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_assessment_runs_errors()}
   def describe_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1813,6 +1822,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_targets(map(), describe_assessment_targets_request(), list()) ::
           {:ok, describe_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_assessment_targets_errors()}
   def describe_assessment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1828,6 +1838,7 @@ defmodule AWS.Inspector do
   @spec describe_assessment_templates(map(), describe_assessment_templates_request(), list()) ::
           {:ok, describe_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_assessment_templates_errors()}
   def describe_assessment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1842,6 +1853,7 @@ defmodule AWS.Inspector do
   @spec describe_cross_account_access_role(map(), %{}, list()) ::
           {:ok, describe_cross_account_access_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cross_account_access_role_errors()}
   def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1855,6 +1867,7 @@ defmodule AWS.Inspector do
   @spec describe_exclusions(map(), describe_exclusions_request(), list()) ::
           {:ok, describe_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_exclusions_errors()}
   def describe_exclusions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1868,6 +1881,7 @@ defmodule AWS.Inspector do
   @spec describe_findings(map(), describe_findings_request(), list()) ::
           {:ok, describe_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_findings_errors()}
   def describe_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1882,6 +1896,7 @@ defmodule AWS.Inspector do
   @spec describe_resource_groups(map(), describe_resource_groups_request(), list()) ::
           {:ok, describe_resource_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_groups_errors()}
   def describe_resource_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1896,6 +1911,7 @@ defmodule AWS.Inspector do
   @spec describe_rules_packages(map(), describe_rules_packages_request(), list()) ::
           {:ok, describe_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rules_packages_errors()}
   def describe_rules_packages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1911,6 +1927,7 @@ defmodule AWS.Inspector do
   @spec get_assessment_report(map(), get_assessment_report_request(), list()) ::
           {:ok, get_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assessment_report_errors()}
   def get_assessment_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1929,6 +1946,7 @@ defmodule AWS.Inspector do
   @spec get_exclusions_preview(map(), get_exclusions_preview_request(), list()) ::
           {:ok, get_exclusions_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_exclusions_preview_errors()}
   def get_exclusions_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1943,6 +1961,7 @@ defmodule AWS.Inspector do
   @spec get_telemetry_metadata(map(), get_telemetry_metadata_request(), list()) ::
           {:ok, get_telemetry_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_telemetry_metadata_errors()}
   def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1957,6 +1976,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_run_agents(map(), list_assessment_run_agents_request(), list()) ::
           {:ok, list_assessment_run_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_run_agents_errors()}
   def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1971,6 +1991,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_runs(map(), list_assessment_runs_request(), list()) ::
           {:ok, list_assessment_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_runs_errors()}
   def list_assessment_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1987,6 +2008,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_targets(map(), list_assessment_targets_request(), list()) ::
           {:ok, list_assessment_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_targets_errors()}
   def list_assessment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2002,6 +2024,7 @@ defmodule AWS.Inspector do
   @spec list_assessment_templates(map(), list_assessment_templates_request(), list()) ::
           {:ok, list_assessment_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_templates_errors()}
   def list_assessment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2019,6 +2042,7 @@ defmodule AWS.Inspector do
   @spec list_event_subscriptions(map(), list_event_subscriptions_request(), list()) ::
           {:ok, list_event_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_subscriptions_errors()}
   def list_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2032,6 +2056,7 @@ defmodule AWS.Inspector do
   @spec list_exclusions(map(), list_exclusions_request(), list()) ::
           {:ok, list_exclusions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_exclusions_errors()}
   def list_exclusions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2047,6 +2072,7 @@ defmodule AWS.Inspector do
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2060,6 +2086,7 @@ defmodule AWS.Inspector do
   @spec list_rules_packages(map(), list_rules_packages_request(), list()) ::
           {:ok, list_rules_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_packages_errors()}
   def list_rules_packages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2073,6 +2100,7 @@ defmodule AWS.Inspector do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2088,6 +2116,7 @@ defmodule AWS.Inspector do
   @spec preview_agents(map(), preview_agents_request(), list()) ::
           {:ok, preview_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, preview_agents_errors()}
   def preview_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2107,6 +2136,7 @@ defmodule AWS.Inspector do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_cross_account_access_role_errors()}
   def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2122,6 +2152,7 @@ defmodule AWS.Inspector do
   @spec remove_attributes_from_findings(map(), remove_attributes_from_findings_request(), list()) ::
           {:ok, remove_attributes_from_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_attributes_from_findings_errors()}
   def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2137,6 +2168,7 @@ defmodule AWS.Inspector do
   @spec set_tags_for_resource(map(), set_tags_for_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_tags_for_resource_errors()}
   def set_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2155,6 +2187,7 @@ defmodule AWS.Inspector do
   @spec start_assessment_run(map(), start_assessment_run_request(), list()) ::
           {:ok, start_assessment_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_assessment_run_errors()}
   def start_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2169,6 +2202,7 @@ defmodule AWS.Inspector do
   @spec stop_assessment_run(map(), stop_assessment_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_assessment_run_errors()}
   def stop_assessment_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2184,6 +2218,7 @@ defmodule AWS.Inspector do
   @spec subscribe_to_event(map(), subscribe_to_event_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, subscribe_to_event_errors()}
   def subscribe_to_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2198,6 +2233,7 @@ defmodule AWS.Inspector do
   @spec unsubscribe_from_event(map(), unsubscribe_from_event_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unsubscribe_from_event_errors()}
   def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2216,6 +2252,7 @@ defmodule AWS.Inspector do
   @spec update_assessment_target(map(), update_assessment_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_target_errors()}
   def update_assessment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()

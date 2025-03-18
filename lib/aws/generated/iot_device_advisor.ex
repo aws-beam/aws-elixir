@@ -603,6 +603,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec create_suite_definition(map(), create_suite_definition_request(), list()) ::
           {:ok, create_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_suite_definition_errors()}
   def create_suite_definition(%Client{} = client, input, options \\ []) do
     url_path = "/suiteDefinitions"
@@ -635,6 +636,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec delete_suite_definition(map(), String.t(), delete_suite_definition_request(), list()) ::
           {:ok, delete_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_suite_definition_errors()}
   def delete_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"
@@ -670,6 +672,7 @@ defmodule AWS.IotDeviceAdvisor do
         ) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_endpoint_errors()}
   def get_endpoint(
         %Client{} = client,
@@ -726,6 +729,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec get_suite_definition(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_suite_definition_errors()}
   def get_suite_definition(
         %Client{} = client,
@@ -759,6 +763,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec get_suite_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_suite_run_errors()}
   def get_suite_run(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
@@ -783,6 +788,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec get_suite_run_report(map(), String.t(), String.t(), list()) ::
           {:ok, get_suite_run_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_suite_run_report_errors()}
   def get_suite_run_report(%Client{} = client, suite_definition_id, suite_run_id, options \\ []) do
     url_path =
@@ -806,6 +812,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec list_suite_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_suite_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_suite_definitions_errors()}
   def list_suite_definitions(
         %Client{} = client,
@@ -856,6 +863,7 @@ defmodule AWS.IotDeviceAdvisor do
         ) ::
           {:ok, list_suite_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_suite_runs_errors()}
   def list_suite_runs(
         %Client{} = client,
@@ -912,6 +920,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -933,6 +942,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec start_suite_run(map(), String.t(), start_suite_run_request(), list()) ::
           {:ok, start_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_suite_run_errors()}
   def start_suite_run(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}/suiteRuns"
@@ -965,6 +975,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec stop_suite_run(map(), String.t(), String.t(), stop_suite_run_request(), list()) ::
           {:ok, stop_suite_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_suite_run_errors()}
   def stop_suite_run(%Client{} = client, suite_definition_id, suite_run_id, input, options \\ []) do
     url_path =
@@ -999,6 +1010,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1031,6 +1043,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1068,6 +1081,7 @@ defmodule AWS.IotDeviceAdvisor do
   @spec update_suite_definition(map(), String.t(), update_suite_definition_request(), list()) ::
           {:ok, update_suite_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_suite_definition_errors()}
   def update_suite_definition(%Client{} = client, suite_definition_id, input, options \\ []) do
     url_path = "/suiteDefinitions/#{AWS.Util.encode_uri(suite_definition_id)}"

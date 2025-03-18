@@ -1092,6 +1092,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec delete_scaling_policy(map(), delete_scaling_policy_request(), list()) ::
           {:ok, delete_scaling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1109,6 +1110,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec delete_scheduled_action(map(), delete_scheduled_action_request(), list()) ::
           {:ok, delete_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1130,6 +1132,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec deregister_scalable_target(map(), deregister_scalable_target_request(), list()) ::
           {:ok, deregister_scalable_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_scalable_target_errors()}
   def deregister_scalable_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1146,6 +1149,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec describe_scalable_targets(map(), describe_scalable_targets_request(), list()) ::
           {:ok, describe_scalable_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scalable_targets_errors()}
   def describe_scalable_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1167,6 +1171,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec describe_scaling_activities(map(), describe_scaling_activities_request(), list()) ::
           {:ok, describe_scaling_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1188,6 +1193,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec describe_scaling_policies(map(), describe_scaling_policies_request(), list()) ::
           {:ok, describe_scaling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1208,6 +1214,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_request(), list()) ::
           {:ok, describe_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1233,6 +1240,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec get_predictive_scaling_forecast(map(), get_predictive_scaling_forecast_request(), list()) ::
           {:ok, get_predictive_scaling_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1250,6 +1258,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1310,6 +1319,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec put_scaling_policy(map(), put_scaling_policy_request(), list()) ::
           {:ok, put_scaling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1350,6 +1360,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec put_scheduled_action(map(), put_scheduled_action_request(), list()) ::
           {:ok, put_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_scheduled_action_errors()}
   def put_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1420,6 +1431,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec register_scalable_target(map(), register_scalable_target_request(), list()) ::
           {:ok, register_scalable_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_scalable_target_errors()}
   def register_scalable_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1456,6 +1468,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1472,6 +1485,7 @@ defmodule AWS.ApplicationAutoScaling do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

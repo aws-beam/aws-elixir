@@ -6545,6 +6545,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_approval_rule_template_with_repository_errors()}
   def associate_approval_rule_template_with_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6569,6 +6570,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, batch_associate_approval_rule_template_with_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_approval_rule_template_with_repositories_errors()}
   def batch_associate_approval_rule_template_with_repositories(
         %Client{} = client,
@@ -6593,6 +6595,7 @@ defmodule AWS.CodeCommit do
   @spec batch_describe_merge_conflicts(map(), batch_describe_merge_conflicts_input(), list()) ::
           {:ok, batch_describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_describe_merge_conflicts_errors()}
   def batch_describe_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6611,6 +6614,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, batch_disassociate_approval_rule_template_from_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_approval_rule_template_from_repositories_errors()}
   def batch_disassociate_approval_rule_template_from_repositories(
         %Client{} = client,
@@ -6634,6 +6638,7 @@ defmodule AWS.CodeCommit do
   @spec batch_get_commits(map(), batch_get_commits_input(), list()) ::
           {:ok, batch_get_commits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_commits_errors()}
   def batch_get_commits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6656,6 +6661,7 @@ defmodule AWS.CodeCommit do
   @spec batch_get_repositories(map(), batch_get_repositories_input(), list()) ::
           {:ok, batch_get_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_repositories_errors()}
   def batch_get_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6678,6 +6684,7 @@ defmodule AWS.CodeCommit do
   @spec create_approval_rule_template(map(), create_approval_rule_template_input(), list()) ::
           {:ok, create_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_approval_rule_template_errors()}
   def create_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6694,6 +6701,7 @@ defmodule AWS.CodeCommit do
   @spec create_branch(map(), create_branch_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_branch_errors()}
   def create_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6707,6 +6715,7 @@ defmodule AWS.CodeCommit do
   @spec create_commit(map(), create_commit_input(), list()) ::
           {:ok, create_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_commit_errors()}
   def create_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6720,6 +6729,7 @@ defmodule AWS.CodeCommit do
   @spec create_pull_request(map(), create_pull_request_input(), list()) ::
           {:ok, create_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pull_request_errors()}
   def create_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6737,6 +6747,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, create_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pull_request_approval_rule_errors()}
   def create_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6750,6 +6761,7 @@ defmodule AWS.CodeCommit do
   @spec create_repository(map(), create_repository_input(), list()) ::
           {:ok, create_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6774,6 +6786,7 @@ defmodule AWS.CodeCommit do
   @spec create_unreferenced_merge_commit(map(), create_unreferenced_merge_commit_input(), list()) ::
           {:ok, create_unreferenced_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_unreferenced_merge_commit_errors()}
   def create_unreferenced_merge_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6790,6 +6803,7 @@ defmodule AWS.CodeCommit do
   @spec delete_approval_rule_template(map(), delete_approval_rule_template_input(), list()) ::
           {:ok, delete_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_approval_rule_template_errors()}
   def delete_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6804,6 +6818,7 @@ defmodule AWS.CodeCommit do
   @spec delete_branch(map(), delete_branch_input(), list()) ::
           {:ok, delete_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_branch_errors()}
   def delete_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6818,6 +6833,7 @@ defmodule AWS.CodeCommit do
   @spec delete_comment_content(map(), delete_comment_content_input(), list()) ::
           {:ok, delete_comment_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_comment_content_errors()}
   def delete_comment_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6836,6 +6852,7 @@ defmodule AWS.CodeCommit do
   @spec delete_file(map(), delete_file_input(), list()) ::
           {:ok, delete_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_errors()}
   def delete_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6860,6 +6877,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, delete_pull_request_approval_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pull_request_approval_rule_errors()}
   def delete_pull_request_approval_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6880,6 +6898,7 @@ defmodule AWS.CodeCommit do
   @spec delete_repository(map(), delete_repository_input(), list()) ::
           {:ok, delete_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6898,6 +6917,7 @@ defmodule AWS.CodeCommit do
   @spec describe_merge_conflicts(map(), describe_merge_conflicts_input(), list()) ::
           {:ok, describe_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_merge_conflicts_errors()}
   def describe_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6911,6 +6931,7 @@ defmodule AWS.CodeCommit do
   @spec describe_pull_request_events(map(), describe_pull_request_events_input(), list()) ::
           {:ok, describe_pull_request_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pull_request_events_errors()}
   def describe_pull_request_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6935,6 +6956,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_approval_rule_template_from_repository_errors()}
   def disassociate_approval_rule_template_from_repository(
         %Client{} = client,
@@ -6963,6 +6985,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, evaluate_pull_request_approval_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_pull_request_approval_rules_errors()}
   def evaluate_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6976,6 +6999,7 @@ defmodule AWS.CodeCommit do
   @spec get_approval_rule_template(map(), get_approval_rule_template_input(), list()) ::
           {:ok, get_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_approval_rule_template_errors()}
   def get_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6989,6 +7013,7 @@ defmodule AWS.CodeCommit do
   @spec get_blob(map(), get_blob_input(), list()) ::
           {:ok, get_blob_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_blob_errors()}
   def get_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7003,6 +7028,7 @@ defmodule AWS.CodeCommit do
   @spec get_branch(map(), get_branch_input(), list()) ::
           {:ok, get_branch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_branch_errors()}
   def get_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7021,6 +7047,7 @@ defmodule AWS.CodeCommit do
   @spec get_comment(map(), get_comment_input(), list()) ::
           {:ok, get_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_comment_errors()}
   def get_comment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7036,6 +7063,7 @@ defmodule AWS.CodeCommit do
   @spec get_comment_reactions(map(), get_comment_reactions_input(), list()) ::
           {:ok, get_comment_reactions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_comment_reactions_errors()}
   def get_comment_reactions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7053,6 +7081,7 @@ defmodule AWS.CodeCommit do
   @spec get_comments_for_compared_commit(map(), get_comments_for_compared_commit_input(), list()) ::
           {:ok, get_comments_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_comments_for_compared_commit_errors()}
   def get_comments_for_compared_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7070,6 +7099,7 @@ defmodule AWS.CodeCommit do
   @spec get_comments_for_pull_request(map(), get_comments_for_pull_request_input(), list()) ::
           {:ok, get_comments_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_comments_for_pull_request_errors()}
   def get_comments_for_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7084,6 +7114,7 @@ defmodule AWS.CodeCommit do
   @spec get_commit(map(), get_commit_input(), list()) ::
           {:ok, get_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_commit_errors()}
   def get_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7101,6 +7132,7 @@ defmodule AWS.CodeCommit do
   @spec get_differences(map(), get_differences_input(), list()) ::
           {:ok, get_differences_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_differences_errors()}
   def get_differences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7114,6 +7146,7 @@ defmodule AWS.CodeCommit do
   @spec get_file(map(), get_file_input(), list()) ::
           {:ok, get_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_file_errors()}
   def get_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7127,6 +7160,7 @@ defmodule AWS.CodeCommit do
   @spec get_folder(map(), get_folder_input(), list()) ::
           {:ok, get_folder_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_folder_errors()}
   def get_folder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7140,6 +7174,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_commit(map(), get_merge_commit_input(), list()) ::
           {:ok, get_merge_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_merge_commit_errors()}
   def get_merge_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7154,6 +7189,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_conflicts(map(), get_merge_conflicts_input(), list()) ::
           {:ok, get_merge_conflicts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_merge_conflicts_errors()}
   def get_merge_conflicts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7171,6 +7207,7 @@ defmodule AWS.CodeCommit do
   @spec get_merge_options(map(), get_merge_options_input(), list()) ::
           {:ok, get_merge_options_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_merge_options_errors()}
   def get_merge_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7184,6 +7221,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request(map(), get_pull_request_input(), list()) ::
           {:ok, get_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pull_request_errors()}
   def get_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7200,6 +7238,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request_approval_states(map(), get_pull_request_approval_states_input(), list()) ::
           {:ok, get_pull_request_approval_states_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pull_request_approval_states_errors()}
   def get_pull_request_approval_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7216,6 +7255,7 @@ defmodule AWS.CodeCommit do
   @spec get_pull_request_override_state(map(), get_pull_request_override_state_input(), list()) ::
           {:ok, get_pull_request_override_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pull_request_override_state_errors()}
   def get_pull_request_override_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7238,6 +7278,7 @@ defmodule AWS.CodeCommit do
   @spec get_repository(map(), get_repository_input(), list()) ::
           {:ok, get_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7251,6 +7292,7 @@ defmodule AWS.CodeCommit do
   @spec get_repository_triggers(map(), get_repository_triggers_input(), list()) ::
           {:ok, get_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_triggers_errors()}
   def get_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7269,6 +7311,7 @@ defmodule AWS.CodeCommit do
   @spec list_approval_rule_templates(map(), list_approval_rule_templates_input(), list()) ::
           {:ok, list_approval_rule_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_approval_rule_templates_errors()}
   def list_approval_rule_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7287,6 +7330,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, list_associated_approval_rule_templates_for_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_approval_rule_templates_for_repository_errors()}
   def list_associated_approval_rule_templates_for_repository(
         %Client{} = client,
@@ -7310,6 +7354,7 @@ defmodule AWS.CodeCommit do
   @spec list_branches(map(), list_branches_input(), list()) ::
           {:ok, list_branches_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_branches_errors()}
   def list_branches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7323,6 +7368,7 @@ defmodule AWS.CodeCommit do
   @spec list_file_commit_history(map(), list_file_commit_history_request(), list()) ::
           {:ok, list_file_commit_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_file_commit_history_errors()}
   def list_file_commit_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7339,6 +7385,7 @@ defmodule AWS.CodeCommit do
   @spec list_pull_requests(map(), list_pull_requests_input(), list()) ::
           {:ok, list_pull_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pull_requests_errors()}
   def list_pull_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7352,6 +7399,7 @@ defmodule AWS.CodeCommit do
   @spec list_repositories(map(), list_repositories_input(), list()) ::
           {:ok, list_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7369,6 +7417,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, list_repositories_for_approval_rule_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repositories_for_approval_rule_template_errors()}
   def list_repositories_for_approval_rule_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7387,6 +7436,7 @@ defmodule AWS.CodeCommit do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7400,6 +7450,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_fast_forward(map(), merge_branches_by_fast_forward_input(), list()) ::
           {:ok, merge_branches_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_branches_by_fast_forward_errors()}
   def merge_branches_by_fast_forward(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7413,6 +7464,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_squash(map(), merge_branches_by_squash_input(), list()) ::
           {:ok, merge_branches_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_branches_by_squash_errors()}
   def merge_branches_by_squash(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7426,6 +7478,7 @@ defmodule AWS.CodeCommit do
   @spec merge_branches_by_three_way(map(), merge_branches_by_three_way_input(), list()) ::
           {:ok, merge_branches_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_branches_by_three_way_errors()}
   def merge_branches_by_three_way(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7448,6 +7501,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, merge_pull_request_by_fast_forward_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_pull_request_by_fast_forward_errors()}
   def merge_pull_request_by_fast_forward(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7466,6 +7520,7 @@ defmodule AWS.CodeCommit do
   @spec merge_pull_request_by_squash(map(), merge_pull_request_by_squash_input(), list()) ::
           {:ok, merge_pull_request_by_squash_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_pull_request_by_squash_errors()}
   def merge_pull_request_by_squash(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7484,6 +7539,7 @@ defmodule AWS.CodeCommit do
   @spec merge_pull_request_by_three_way(map(), merge_pull_request_by_three_way_input(), list()) ::
           {:ok, merge_pull_request_by_three_way_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_pull_request_by_three_way_errors()}
   def merge_pull_request_by_three_way(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7502,6 +7558,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, override_pull_request_approval_rules_errors()}
   def override_pull_request_approval_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7515,6 +7572,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_for_compared_commit(map(), post_comment_for_compared_commit_input(), list()) ::
           {:ok, post_comment_for_compared_commit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_comment_for_compared_commit_errors()}
   def post_comment_for_compared_commit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7528,6 +7586,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_for_pull_request(map(), post_comment_for_pull_request_input(), list()) ::
           {:ok, post_comment_for_pull_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_comment_for_pull_request_errors()}
   def post_comment_for_pull_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7542,6 +7601,7 @@ defmodule AWS.CodeCommit do
   @spec post_comment_reply(map(), post_comment_reply_input(), list()) ::
           {:ok, post_comment_reply_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_comment_reply_errors()}
   def post_comment_reply(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7560,6 +7620,7 @@ defmodule AWS.CodeCommit do
   @spec put_comment_reaction(map(), put_comment_reaction_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_comment_reaction_errors()}
   def put_comment_reaction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7574,6 +7635,7 @@ defmodule AWS.CodeCommit do
   @spec put_file(map(), put_file_input(), list()) ::
           {:ok, put_file_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_file_errors()}
   def put_file(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7589,6 +7651,7 @@ defmodule AWS.CodeCommit do
   @spec put_repository_triggers(map(), put_repository_triggers_input(), list()) ::
           {:ok, put_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_repository_triggers_errors()}
   def put_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7607,6 +7670,7 @@ defmodule AWS.CodeCommit do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7625,6 +7689,7 @@ defmodule AWS.CodeCommit do
   @spec test_repository_triggers(map(), test_repository_triggers_input(), list()) ::
           {:ok, test_repository_triggers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_repository_triggers_errors()}
   def test_repository_triggers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7642,6 +7707,7 @@ defmodule AWS.CodeCommit do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7664,6 +7730,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_approval_rule_template_content_errors()}
   def update_approval_rule_template_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7681,6 +7748,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_approval_rule_template_description_errors()}
   def update_approval_rule_template_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7698,6 +7766,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_approval_rule_template_name_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_approval_rule_template_name_errors()}
   def update_approval_rule_template_name(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7711,6 +7780,7 @@ defmodule AWS.CodeCommit do
   @spec update_comment(map(), update_comment_input(), list()) ::
           {:ok, update_comment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_comment_errors()}
   def update_comment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7728,6 +7798,7 @@ defmodule AWS.CodeCommit do
   @spec update_default_branch(map(), update_default_branch_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_default_branch_errors()}
   def update_default_branch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7749,6 +7820,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, update_pull_request_approval_rule_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pull_request_approval_rule_content_errors()}
   def update_pull_request_approval_rule_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7768,6 +7840,7 @@ defmodule AWS.CodeCommit do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pull_request_approval_state_errors()}
   def update_pull_request_approval_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7781,6 +7854,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_description(map(), update_pull_request_description_input(), list()) ::
           {:ok, update_pull_request_description_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pull_request_description_errors()}
   def update_pull_request_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7794,6 +7868,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_status(map(), update_pull_request_status_input(), list()) ::
           {:ok, update_pull_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pull_request_status_errors()}
   def update_pull_request_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7807,6 +7882,7 @@ defmodule AWS.CodeCommit do
   @spec update_pull_request_title(map(), update_pull_request_title_input(), list()) ::
           {:ok, update_pull_request_title_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pull_request_title_errors()}
   def update_pull_request_title(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7829,6 +7905,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_description(map(), update_repository_description_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_repository_description_errors()}
   def update_repository_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7843,6 +7920,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_encryption_key(map(), update_repository_encryption_key_input(), list()) ::
           {:ok, update_repository_encryption_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_repository_encryption_key_errors()}
   def update_repository_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7866,6 +7944,7 @@ defmodule AWS.CodeCommit do
   @spec update_repository_name(map(), update_repository_name_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_repository_name_errors()}
   def update_repository_name(%Client{} = client, input, options \\ []) do
     meta = metadata()

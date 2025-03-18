@@ -3180,6 +3180,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, associate_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_access_policy_errors()}
   def associate_access_policy(
         %Client{} = client,
@@ -3226,6 +3227,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, associate_encryption_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_encryption_config_errors()}
   def associate_encryption_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/encryption-config/associate"
@@ -3269,6 +3271,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, associate_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_identity_provider_config_errors()}
   def associate_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path =
@@ -3317,6 +3320,7 @@ defmodule AWS.EKS do
   @spec create_access_entry(map(), String.t(), create_access_entry_request(), list()) ::
           {:ok, create_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_entry_errors()}
   def create_access_entry(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/access-entries"
@@ -3351,6 +3355,7 @@ defmodule AWS.EKS do
   @spec create_addon(map(), String.t(), create_addon_request(), list()) ::
           {:ok, create_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_addon_errors()}
   def create_addon(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/addons"
@@ -3437,6 +3442,7 @@ defmodule AWS.EKS do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/clusters"
@@ -3476,6 +3482,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, create_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_eks_anywhere_subscription_errors()}
   def create_eks_anywhere_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions"
@@ -3548,6 +3555,7 @@ defmodule AWS.EKS do
   @spec create_fargate_profile(map(), String.t(), create_fargate_profile_request(), list()) ::
           {:ok, create_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fargate_profile_errors()}
   def create_fargate_profile(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/fargate-profiles"
@@ -3605,6 +3613,7 @@ defmodule AWS.EKS do
   @spec create_nodegroup(map(), String.t(), create_nodegroup_request(), list()) ::
           {:ok, create_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_nodegroup_errors()}
   def create_nodegroup(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/node-groups"
@@ -3659,6 +3668,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, create_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pod_identity_association_errors()}
   def create_pod_identity_association(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/pod-identity-associations"
@@ -3692,6 +3702,7 @@ defmodule AWS.EKS do
   @spec delete_access_entry(map(), String.t(), String.t(), delete_access_entry_request(), list()) ::
           {:ok, delete_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_entry_errors()}
   def delete_access_entry(%Client{} = client, cluster_name, principal_arn, input, options \\ []) do
     url_path =
@@ -3726,6 +3737,7 @@ defmodule AWS.EKS do
   @spec delete_addon(map(), String.t(), String.t(), delete_addon_request(), list()) ::
           {:ok, delete_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_addon_errors()}
   def delete_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
     url_path =
@@ -3775,6 +3787,7 @@ defmodule AWS.EKS do
   @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
@@ -3815,6 +3828,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, delete_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_eks_anywhere_subscription_errors()}
   def delete_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
@@ -3862,6 +3876,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, delete_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fargate_profile_errors()}
   def delete_fargate_profile(
         %Client{} = client,
@@ -3898,6 +3913,7 @@ defmodule AWS.EKS do
   @spec delete_nodegroup(map(), String.t(), String.t(), delete_nodegroup_request(), list()) ::
           {:ok, delete_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_nodegroup_errors()}
   def delete_nodegroup(%Client{} = client, cluster_name, nodegroup_name, input, options \\ []) do
     url_path =
@@ -3938,6 +3954,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, delete_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pod_identity_association_errors()}
   def delete_pod_identity_association(
         %Client{} = client,
@@ -3978,6 +3995,7 @@ defmodule AWS.EKS do
   @spec deregister_cluster(map(), String.t(), deregister_cluster_request(), list()) ::
           {:ok, deregister_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_cluster_errors()}
   def deregister_cluster(%Client{} = client, name, input, options \\ []) do
     url_path = "/cluster-registrations/#{AWS.Util.encode_uri(name)}"
@@ -4006,6 +4024,7 @@ defmodule AWS.EKS do
   @spec describe_access_entry(map(), String.t(), String.t(), list()) ::
           {:ok, describe_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_access_entry_errors()}
   def describe_access_entry(%Client{} = client, cluster_name, principal_arn, options \\ []) do
     url_path =
@@ -4025,6 +4044,7 @@ defmodule AWS.EKS do
   @spec describe_addon(map(), String.t(), String.t(), list()) ::
           {:ok, describe_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_addon_errors()}
   def describe_addon(%Client{} = client, addon_name, cluster_name, options \\ []) do
     url_path =
@@ -4044,6 +4064,7 @@ defmodule AWS.EKS do
   @spec describe_addon_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, describe_addon_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_addon_configuration_errors()}
   def describe_addon_configuration(%Client{} = client, addon_name, addon_version, options \\ []) do
     url_path = "/addons/configuration-schemas"
@@ -4090,6 +4111,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, describe_addon_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_addon_versions_errors()}
   def describe_addon_versions(
         %Client{} = client,
@@ -4176,6 +4198,7 @@ defmodule AWS.EKS do
   @spec describe_cluster(map(), String.t(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, name, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}"
@@ -4204,6 +4227,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, describe_cluster_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_versions_errors()}
   def describe_cluster_versions(
         %Client{} = client,
@@ -4288,6 +4312,7 @@ defmodule AWS.EKS do
   @spec describe_eks_anywhere_subscription(map(), String.t(), list()) ::
           {:ok, describe_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_eks_anywhere_subscription_errors()}
   def describe_eks_anywhere_subscription(%Client{} = client, id, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
@@ -4305,6 +4330,7 @@ defmodule AWS.EKS do
   @spec describe_fargate_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fargate_profile_errors()}
   def describe_fargate_profile(
         %Client{} = client,
@@ -4334,6 +4360,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, describe_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_identity_provider_config_errors()}
   def describe_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/describe"
@@ -4362,6 +4389,7 @@ defmodule AWS.EKS do
   @spec describe_insight(map(), String.t(), String.t(), list()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_insight_errors()}
   def describe_insight(%Client{} = client, cluster_name, id, options \\ []) do
     url_path =
@@ -4381,6 +4409,7 @@ defmodule AWS.EKS do
   @spec describe_nodegroup(map(), String.t(), String.t(), list()) ::
           {:ok, describe_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_nodegroup_errors()}
   def describe_nodegroup(%Client{} = client, cluster_name, nodegroup_name, options \\ []) do
     url_path =
@@ -4406,6 +4435,7 @@ defmodule AWS.EKS do
   @spec describe_pod_identity_association(map(), String.t(), String.t(), list()) ::
           {:ok, describe_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pod_identity_association_errors()}
   def describe_pod_identity_association(
         %Client{} = client,
@@ -4434,6 +4464,7 @@ defmodule AWS.EKS do
   @spec describe_update(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_update_errors()}
   def describe_update(
         %Client{} = client,
@@ -4479,6 +4510,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, disassociate_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_access_policy_errors()}
   def disassociate_access_policy(
         %Client{} = client,
@@ -4527,6 +4559,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, disassociate_identity_provider_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_identity_provider_config_errors()}
   def disassociate_identity_provider_config(
         %Client{} = client,
@@ -4569,6 +4602,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_access_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_entries_errors()}
   def list_access_entries(
         %Client{} = client,
@@ -4614,6 +4648,7 @@ defmodule AWS.EKS do
   @spec list_access_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(
         %Client{} = client,
@@ -4650,6 +4685,7 @@ defmodule AWS.EKS do
   @spec list_addons(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_addons_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_addons_errors()}
   def list_addons(
         %Client{} = client,
@@ -4694,6 +4730,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_associated_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_access_policies_errors()}
   def list_associated_access_policies(
         %Client{} = client,
@@ -4735,6 +4772,7 @@ defmodule AWS.EKS do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(
         %Client{} = client,
@@ -4785,6 +4823,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_eks_anywhere_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_eks_anywhere_subscriptions_errors()}
   def list_eks_anywhere_subscriptions(
         %Client{} = client,
@@ -4831,6 +4870,7 @@ defmodule AWS.EKS do
   @spec list_fargate_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_fargate_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fargate_profiles_errors()}
   def list_fargate_profiles(
         %Client{} = client,
@@ -4874,6 +4914,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_identity_provider_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_provider_configs_errors()}
   def list_identity_provider_configs(
         %Client{} = client,
@@ -4916,6 +4957,7 @@ defmodule AWS.EKS do
   @spec list_insights(map(), String.t(), list_insights_request(), list()) ::
           {:ok, list_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_insights_errors()}
   def list_insights(%Client{} = client, cluster_name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(cluster_name)}/insights"
@@ -4948,6 +4990,7 @@ defmodule AWS.EKS do
   @spec list_nodegroups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_nodegroups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodegroups_errors()}
   def list_nodegroups(
         %Client{} = client,
@@ -4996,6 +5039,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_pod_identity_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pod_identity_associations_errors()}
   def list_pod_identity_associations(
         %Client{} = client,
@@ -5049,6 +5093,7 @@ defmodule AWS.EKS do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5076,6 +5121,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, list_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_updates_errors()}
   def list_updates(
         %Client{} = client,
@@ -5152,6 +5198,7 @@ defmodule AWS.EKS do
   @spec register_cluster(map(), register_cluster_request(), list()) ::
           {:ok, register_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_cluster_errors()}
   def register_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster-registrations"
@@ -5192,6 +5239,7 @@ defmodule AWS.EKS do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5220,6 +5268,7 @@ defmodule AWS.EKS do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5253,6 +5302,7 @@ defmodule AWS.EKS do
   @spec update_access_entry(map(), String.t(), String.t(), update_access_entry_request(), list()) ::
           {:ok, update_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_entry_errors()}
   def update_access_entry(%Client{} = client, cluster_name, principal_arn, input, options \\ []) do
     url_path =
@@ -5283,6 +5333,7 @@ defmodule AWS.EKS do
   @spec update_addon(map(), String.t(), String.t(), update_addon_request(), list()) ::
           {:ok, update_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_addon_errors()}
   def update_addon(%Client{} = client, addon_name, cluster_name, input, options \\ []) do
     url_path =
@@ -5367,6 +5418,7 @@ defmodule AWS.EKS do
   @spec update_cluster_config(map(), String.t(), update_cluster_config_request(), list()) ::
           {:ok, update_cluster_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_config_errors()}
   def update_cluster_config(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/update-config"
@@ -5415,6 +5467,7 @@ defmodule AWS.EKS do
   @spec update_cluster_version(map(), String.t(), update_cluster_version_request(), list()) ::
           {:ok, update_cluster_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_version_errors()}
   def update_cluster_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/clusters/#{AWS.Util.encode_uri(name)}/updates"
@@ -5451,6 +5504,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, update_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_eks_anywhere_subscription_errors()}
   def update_eks_anywhere_subscription(%Client{} = client, id, input, options \\ []) do
     url_path = "/eks-anywhere-subscriptions/#{AWS.Util.encode_uri(id)}"
@@ -5494,6 +5548,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, update_nodegroup_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_nodegroup_config_errors()}
   def update_nodegroup_config(
         %Client{} = client,
@@ -5576,6 +5631,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, update_nodegroup_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_nodegroup_version_errors()}
   def update_nodegroup_version(
         %Client{} = client,
@@ -5624,6 +5680,7 @@ defmodule AWS.EKS do
         ) ::
           {:ok, update_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pod_identity_association_errors()}
   def update_pod_identity_association(
         %Client{} = client,

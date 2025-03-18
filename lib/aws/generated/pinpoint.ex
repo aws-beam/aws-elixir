@@ -7062,6 +7062,7 @@ defmodule AWS.Pinpoint do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/v1/apps"
@@ -7091,6 +7092,7 @@ defmodule AWS.Pinpoint do
   @spec create_campaign(map(), String.t(), create_campaign_request(), list()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/campaigns"
@@ -7119,6 +7121,7 @@ defmodule AWS.Pinpoint do
   @spec create_email_template(map(), String.t(), create_email_template_request(), list()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_template_errors()}
   def create_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
@@ -7147,6 +7150,7 @@ defmodule AWS.Pinpoint do
   @spec create_export_job(map(), String.t(), create_export_job_request(), list()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_export_job_errors()}
   def create_export_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/export"
@@ -7175,6 +7179,7 @@ defmodule AWS.Pinpoint do
   @spec create_import_job(map(), String.t(), create_import_job_request(), list()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_import_job_errors()}
   def create_import_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/jobs/import"
@@ -7203,6 +7208,7 @@ defmodule AWS.Pinpoint do
   @spec create_in_app_template(map(), String.t(), create_in_app_template_request(), list()) ::
           {:ok, create_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_in_app_template_errors()}
   def create_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
@@ -7231,6 +7237,7 @@ defmodule AWS.Pinpoint do
   @spec create_journey(map(), String.t(), create_journey_request(), list()) ::
           {:ok, create_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_journey_errors()}
   def create_journey(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/journeys"
@@ -7260,6 +7267,7 @@ defmodule AWS.Pinpoint do
   @spec create_push_template(map(), String.t(), create_push_template_request(), list()) ::
           {:ok, create_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_push_template_errors()}
   def create_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
@@ -7292,6 +7300,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, create_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recommender_configuration_errors()}
   def create_recommender_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/recommenders"
@@ -7322,6 +7331,7 @@ defmodule AWS.Pinpoint do
   @spec create_segment(map(), String.t(), create_segment_request(), list()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_segment_errors()}
   def create_segment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/segments"
@@ -7350,6 +7360,7 @@ defmodule AWS.Pinpoint do
   @spec create_sms_template(map(), String.t(), create_sms_template_request(), list()) ::
           {:ok, create_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sms_template_errors()}
   def create_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
@@ -7378,6 +7389,7 @@ defmodule AWS.Pinpoint do
   @spec create_voice_template(map(), String.t(), create_voice_template_request(), list()) ::
           {:ok, create_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_voice_template_errors()}
   def create_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
@@ -7407,6 +7419,7 @@ defmodule AWS.Pinpoint do
   @spec delete_adm_channel(map(), String.t(), delete_adm_channel_request(), list()) ::
           {:ok, delete_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_adm_channel_errors()}
   def delete_adm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
@@ -7436,6 +7449,7 @@ defmodule AWS.Pinpoint do
   @spec delete_apns_channel(map(), String.t(), delete_apns_channel_request(), list()) ::
           {:ok, delete_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_apns_channel_errors()}
   def delete_apns_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
@@ -7470,6 +7484,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, delete_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_apns_sandbox_channel_errors()}
   def delete_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
@@ -7499,6 +7514,7 @@ defmodule AWS.Pinpoint do
   @spec delete_apns_voip_channel(map(), String.t(), delete_apns_voip_channel_request(), list()) ::
           {:ok, delete_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_apns_voip_channel_errors()}
   def delete_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
@@ -7533,6 +7549,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, delete_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_apns_voip_sandbox_channel_errors()}
   def delete_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
@@ -7561,6 +7578,7 @@ defmodule AWS.Pinpoint do
   @spec delete_app(map(), String.t(), delete_app_request(), list()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
@@ -7590,6 +7608,7 @@ defmodule AWS.Pinpoint do
   @spec delete_baidu_channel(map(), String.t(), delete_baidu_channel_request(), list()) ::
           {:ok, delete_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_baidu_channel_errors()}
   def delete_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
@@ -7618,6 +7637,7 @@ defmodule AWS.Pinpoint do
   @spec delete_campaign(map(), String.t(), String.t(), delete_campaign_request(), list()) ::
           {:ok, delete_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, application_id, campaign_id, input, options \\ []) do
     url_path =
@@ -7649,6 +7669,7 @@ defmodule AWS.Pinpoint do
   @spec delete_email_channel(map(), String.t(), delete_email_channel_request(), list()) ::
           {:ok, delete_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_channel_errors()}
   def delete_email_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
@@ -7678,6 +7699,7 @@ defmodule AWS.Pinpoint do
   @spec delete_email_template(map(), String.t(), delete_email_template_request(), list()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_template_errors()}
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
@@ -7711,6 +7733,7 @@ defmodule AWS.Pinpoint do
   @spec delete_endpoint(map(), String.t(), String.t(), delete_endpoint_request(), list()) ::
           {:ok, delete_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, application_id, endpoint_id, input, options \\ []) do
     url_path =
@@ -7741,6 +7764,7 @@ defmodule AWS.Pinpoint do
   @spec delete_event_stream(map(), String.t(), delete_event_stream_request(), list()) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_stream_errors()}
   def delete_event_stream(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
@@ -7770,6 +7794,7 @@ defmodule AWS.Pinpoint do
   @spec delete_gcm_channel(map(), String.t(), delete_gcm_channel_request(), list()) ::
           {:ok, delete_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gcm_channel_errors()}
   def delete_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
@@ -7798,6 +7823,7 @@ defmodule AWS.Pinpoint do
   @spec delete_in_app_template(map(), String.t(), delete_in_app_template_request(), list()) ::
           {:ok, delete_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_in_app_template_errors()}
   def delete_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
@@ -7831,6 +7857,7 @@ defmodule AWS.Pinpoint do
   @spec delete_journey(map(), String.t(), String.t(), delete_journey_request(), list()) ::
           {:ok, delete_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_journey_errors()}
   def delete_journey(%Client{} = client, application_id, journey_id, input, options \\ []) do
     url_path =
@@ -7862,6 +7889,7 @@ defmodule AWS.Pinpoint do
   @spec delete_push_template(map(), String.t(), delete_push_template_request(), list()) ::
           {:ok, delete_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_push_template_errors()}
   def delete_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
@@ -7900,6 +7928,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, delete_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recommender_configuration_errors()}
   def delete_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
@@ -7928,6 +7957,7 @@ defmodule AWS.Pinpoint do
   @spec delete_segment(map(), String.t(), String.t(), delete_segment_request(), list()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_segment_errors()}
   def delete_segment(%Client{} = client, application_id, segment_id, input, options \\ []) do
     url_path =
@@ -7959,6 +7989,7 @@ defmodule AWS.Pinpoint do
   @spec delete_sms_channel(map(), String.t(), delete_sms_channel_request(), list()) ::
           {:ok, delete_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sms_channel_errors()}
   def delete_sms_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
@@ -7987,6 +8018,7 @@ defmodule AWS.Pinpoint do
   @spec delete_sms_template(map(), String.t(), delete_sms_template_request(), list()) ::
           {:ok, delete_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sms_template_errors()}
   def delete_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
@@ -8026,6 +8058,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, delete_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_endpoints_errors()}
   def delete_user_endpoints(%Client{} = client, application_id, user_id, input, options \\ []) do
     url_path =
@@ -8057,6 +8090,7 @@ defmodule AWS.Pinpoint do
   @spec delete_voice_channel(map(), String.t(), delete_voice_channel_request(), list()) ::
           {:ok, delete_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_channel_errors()}
   def delete_voice_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
@@ -8086,6 +8120,7 @@ defmodule AWS.Pinpoint do
   @spec delete_voice_template(map(), String.t(), delete_voice_template_request(), list()) ::
           {:ok, delete_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_template_errors()}
   def delete_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
@@ -8120,6 +8155,7 @@ defmodule AWS.Pinpoint do
   @spec get_adm_channel(map(), String.t(), list()) ::
           {:ok, get_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_adm_channel_errors()}
   def get_adm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
@@ -8138,6 +8174,7 @@ defmodule AWS.Pinpoint do
   @spec get_apns_channel(map(), String.t(), list()) ::
           {:ok, get_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apns_channel_errors()}
   def get_apns_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
@@ -8156,6 +8193,7 @@ defmodule AWS.Pinpoint do
   @spec get_apns_sandbox_channel(map(), String.t(), list()) ::
           {:ok, get_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apns_sandbox_channel_errors()}
   def get_apns_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
@@ -8174,6 +8212,7 @@ defmodule AWS.Pinpoint do
   @spec get_apns_voip_channel(map(), String.t(), list()) ::
           {:ok, get_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apns_voip_channel_errors()}
   def get_apns_voip_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
@@ -8192,6 +8231,7 @@ defmodule AWS.Pinpoint do
   @spec get_apns_voip_sandbox_channel(map(), String.t(), list()) ::
           {:ok, get_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apns_voip_sandbox_channel_errors()}
   def get_apns_voip_sandbox_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
@@ -8209,6 +8249,7 @@ defmodule AWS.Pinpoint do
   @spec get_app(map(), String.t(), list()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}"
@@ -8236,6 +8277,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_application_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_date_range_kpi_errors()}
   def get_application_date_range_kpi(
         %Client{} = client,
@@ -8292,6 +8334,7 @@ defmodule AWS.Pinpoint do
   @spec get_application_settings(map(), String.t(), list()) ::
           {:ok, get_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_settings_errors()}
   def get_application_settings(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
@@ -8310,6 +8353,7 @@ defmodule AWS.Pinpoint do
   @spec get_apps(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_apps_errors()}
   def get_apps(%Client{} = client, page_size \\ nil, token \\ nil, options \\ []) do
     url_path = "/v1/apps"
@@ -8342,6 +8386,7 @@ defmodule AWS.Pinpoint do
   @spec get_baidu_channel(map(), String.t(), list()) ::
           {:ok, get_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_baidu_channel_errors()}
   def get_baidu_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
@@ -8360,6 +8405,7 @@ defmodule AWS.Pinpoint do
   @spec get_campaign(map(), String.t(), String.t(), list()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_errors()}
   def get_campaign(%Client{} = client, application_id, campaign_id, options \\ []) do
     url_path =
@@ -8386,6 +8432,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_campaign_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_activities_errors()}
   def get_campaign_activities(
         %Client{} = client,
@@ -8437,6 +8484,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_campaign_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_date_range_kpi_errors()}
   def get_campaign_date_range_kpi(
         %Client{} = client,
@@ -8495,6 +8543,7 @@ defmodule AWS.Pinpoint do
   @spec get_campaign_version(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_campaign_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_version_errors()}
   def get_campaign_version(
         %Client{} = client,
@@ -8528,6 +8577,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_campaign_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaign_versions_errors()}
   def get_campaign_versions(
         %Client{} = client,
@@ -8569,6 +8619,7 @@ defmodule AWS.Pinpoint do
   @spec get_campaigns(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_campaigns_errors()}
   def get_campaigns(
         %Client{} = client,
@@ -8607,6 +8658,7 @@ defmodule AWS.Pinpoint do
   @spec get_channels(map(), String.t(), list()) ::
           {:ok, get_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channels_errors()}
   def get_channels(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels"
@@ -8625,6 +8677,7 @@ defmodule AWS.Pinpoint do
   @spec get_email_channel(map(), String.t(), list()) ::
           {:ok, get_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_channel_errors()}
   def get_email_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
@@ -8643,6 +8696,7 @@ defmodule AWS.Pinpoint do
   @spec get_email_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_template_errors()}
   def get_email_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
@@ -8668,6 +8722,7 @@ defmodule AWS.Pinpoint do
   @spec get_endpoint(map(), String.t(), String.t(), list()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_endpoint_errors()}
   def get_endpoint(%Client{} = client, application_id, endpoint_id, options \\ []) do
     url_path =
@@ -8687,6 +8742,7 @@ defmodule AWS.Pinpoint do
   @spec get_event_stream(map(), String.t(), list()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_stream_errors()}
   def get_event_stream(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
@@ -8705,6 +8761,7 @@ defmodule AWS.Pinpoint do
   @spec get_export_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_job_errors()}
   def get_export_job(%Client{} = client, application_id, job_id, options \\ []) do
     url_path =
@@ -8725,6 +8782,7 @@ defmodule AWS.Pinpoint do
   @spec get_export_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_jobs_errors()}
   def get_export_jobs(
         %Client{} = client,
@@ -8763,6 +8821,7 @@ defmodule AWS.Pinpoint do
   @spec get_gcm_channel(map(), String.t(), list()) ::
           {:ok, get_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_gcm_channel_errors()}
   def get_gcm_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
@@ -8781,6 +8840,7 @@ defmodule AWS.Pinpoint do
   @spec get_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, application_id, job_id, options \\ []) do
     url_path =
@@ -8801,6 +8861,7 @@ defmodule AWS.Pinpoint do
   @spec get_import_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_jobs_errors()}
   def get_import_jobs(
         %Client{} = client,
@@ -8838,6 +8899,7 @@ defmodule AWS.Pinpoint do
   @spec get_in_app_messages(map(), String.t(), String.t(), list()) ::
           {:ok, get_in_app_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_in_app_messages_errors()}
   def get_in_app_messages(%Client{} = client, application_id, endpoint_id, options \\ []) do
     url_path =
@@ -8858,6 +8920,7 @@ defmodule AWS.Pinpoint do
   @spec get_in_app_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_in_app_template_errors()}
   def get_in_app_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
@@ -8883,6 +8946,7 @@ defmodule AWS.Pinpoint do
   @spec get_journey(map(), String.t(), String.t(), list()) ::
           {:ok, get_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_errors()}
   def get_journey(%Client{} = client, application_id, journey_id, options \\ []) do
     url_path =
@@ -8913,6 +8977,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_date_range_kpi_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_date_range_kpi_errors()}
   def get_journey_date_range_kpi(
         %Client{} = client,
@@ -8979,6 +9044,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_execution_activity_metrics_errors()}
   def get_journey_execution_activity_metrics(
         %Client{} = client,
@@ -9028,6 +9094,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_execution_metrics_errors()}
   def get_journey_execution_metrics(
         %Client{} = client,
@@ -9078,6 +9145,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_run_execution_activity_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_run_execution_activity_metrics_errors()}
   def get_journey_run_execution_activity_metrics(
         %Client{} = client,
@@ -9129,6 +9197,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_run_execution_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_run_execution_metrics_errors()}
   def get_journey_run_execution_metrics(
         %Client{} = client,
@@ -9177,6 +9246,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_journey_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_journey_runs_errors()}
   def get_journey_runs(
         %Client{} = client,
@@ -9218,6 +9288,7 @@ defmodule AWS.Pinpoint do
   @spec get_push_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_push_template_errors()}
   def get_push_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
@@ -9243,6 +9314,7 @@ defmodule AWS.Pinpoint do
   @spec get_recommender_configuration(map(), String.t(), list()) ::
           {:ok, get_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommender_configuration_errors()}
   def get_recommender_configuration(%Client{} = client, recommender_id, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
@@ -9261,6 +9333,7 @@ defmodule AWS.Pinpoint do
   @spec get_recommender_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_recommender_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommender_configurations_errors()}
   def get_recommender_configurations(
         %Client{} = client,
@@ -9298,6 +9371,7 @@ defmodule AWS.Pinpoint do
   @spec get_segment(map(), String.t(), String.t(), list()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_errors()}
   def get_segment(%Client{} = client, application_id, segment_id, options \\ []) do
     url_path =
@@ -9325,6 +9399,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_segment_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_export_jobs_errors()}
   def get_segment_export_jobs(
         %Client{} = client,
@@ -9373,6 +9448,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_segment_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_import_jobs_errors()}
   def get_segment_import_jobs(
         %Client{} = client,
@@ -9414,6 +9490,7 @@ defmodule AWS.Pinpoint do
   @spec get_segment_version(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_segment_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_version_errors()}
   def get_segment_version(%Client{} = client, application_id, segment_id, version, options \\ []) do
     url_path =
@@ -9441,6 +9518,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, get_segment_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_versions_errors()}
   def get_segment_versions(
         %Client{} = client,
@@ -9482,6 +9560,7 @@ defmodule AWS.Pinpoint do
   @spec get_segments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segments_errors()}
   def get_segments(
         %Client{} = client,
@@ -9520,6 +9599,7 @@ defmodule AWS.Pinpoint do
   @spec get_sms_channel(map(), String.t(), list()) ::
           {:ok, get_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sms_channel_errors()}
   def get_sms_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
@@ -9538,6 +9618,7 @@ defmodule AWS.Pinpoint do
   @spec get_sms_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sms_template_errors()}
   def get_sms_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
@@ -9563,6 +9644,7 @@ defmodule AWS.Pinpoint do
   @spec get_user_endpoints(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_endpoints_errors()}
   def get_user_endpoints(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
@@ -9583,6 +9665,7 @@ defmodule AWS.Pinpoint do
   @spec get_voice_channel(map(), String.t(), list()) ::
           {:ok, get_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_channel_errors()}
   def get_voice_channel(%Client{} = client, application_id, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
@@ -9601,6 +9684,7 @@ defmodule AWS.Pinpoint do
   @spec get_voice_template(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_template_errors()}
   def get_voice_template(%Client{} = client, template_name, version \\ nil, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
@@ -9626,6 +9710,7 @@ defmodule AWS.Pinpoint do
   @spec list_journeys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_journeys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_journeys_errors()}
   def list_journeys(
         %Client{} = client,
@@ -9664,6 +9749,7 @@ defmodule AWS.Pinpoint do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -9687,6 +9773,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_versions_errors()}
   def list_template_versions(
         %Client{} = client,
@@ -9735,6 +9822,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_templates_errors()}
   def list_templates(
         %Client{} = client,
@@ -9787,6 +9875,7 @@ defmodule AWS.Pinpoint do
   @spec phone_number_validate(map(), phone_number_validate_request(), list()) ::
           {:ok, phone_number_validate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, phone_number_validate_errors()}
   def phone_number_validate(%Client{} = client, input, options \\ []) do
     url_path = "/v1/phone/number/validate"
@@ -9816,6 +9905,7 @@ defmodule AWS.Pinpoint do
   @spec put_event_stream(map(), String.t(), put_event_stream_request(), list()) ::
           {:ok, put_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_event_stream_errors()}
   def put_event_stream(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/eventstream"
@@ -9845,6 +9935,7 @@ defmodule AWS.Pinpoint do
   @spec put_events(map(), String.t(), put_events_request(), list()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_events_errors()}
   def put_events(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/events"
@@ -9877,6 +9968,7 @@ defmodule AWS.Pinpoint do
   @spec remove_attributes(map(), String.t(), String.t(), remove_attributes_request(), list()) ::
           {:ok, remove_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_attributes_errors()}
   def remove_attributes(%Client{} = client, application_id, attribute_type, input, options \\ []) do
     url_path =
@@ -9907,6 +9999,7 @@ defmodule AWS.Pinpoint do
   @spec send_messages(map(), String.t(), send_messages_request(), list()) ::
           {:ok, send_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_messages_errors()}
   def send_messages(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/messages"
@@ -9935,6 +10028,7 @@ defmodule AWS.Pinpoint do
   @spec send_o_t_p_message(map(), String.t(), send_o_t_p_message_request(), list()) ::
           {:ok, send_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_o_t_p_message_errors()}
   def send_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/otp"
@@ -9963,6 +10057,7 @@ defmodule AWS.Pinpoint do
   @spec send_users_messages(map(), String.t(), send_users_messages_request(), list()) ::
           {:ok, send_users_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_users_messages_errors()}
   def send_users_messages(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/users-messages"
@@ -9992,6 +10087,7 @@ defmodule AWS.Pinpoint do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -10020,6 +10116,7 @@ defmodule AWS.Pinpoint do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -10053,6 +10150,7 @@ defmodule AWS.Pinpoint do
   @spec update_adm_channel(map(), String.t(), update_adm_channel_request(), list()) ::
           {:ok, update_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_adm_channel_errors()}
   def update_adm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/adm"
@@ -10082,6 +10180,7 @@ defmodule AWS.Pinpoint do
   @spec update_apns_channel(map(), String.t(), update_apns_channel_request(), list()) ::
           {:ok, update_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_apns_channel_errors()}
   def update_apns_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns"
@@ -10116,6 +10215,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_apns_sandbox_channel_errors()}
   def update_apns_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_sandbox"
@@ -10145,6 +10245,7 @@ defmodule AWS.Pinpoint do
   @spec update_apns_voip_channel(map(), String.t(), update_apns_voip_channel_request(), list()) ::
           {:ok, update_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_apns_voip_channel_errors()}
   def update_apns_voip_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip"
@@ -10179,6 +10280,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_apns_voip_sandbox_channel_errors()}
   def update_apns_voip_sandbox_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/apns_voip_sandbox"
@@ -10212,6 +10314,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_settings_errors()}
   def update_application_settings(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/settings"
@@ -10241,6 +10344,7 @@ defmodule AWS.Pinpoint do
   @spec update_baidu_channel(map(), String.t(), update_baidu_channel_request(), list()) ::
           {:ok, update_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_baidu_channel_errors()}
   def update_baidu_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/baidu"
@@ -10269,6 +10373,7 @@ defmodule AWS.Pinpoint do
   @spec update_campaign(map(), String.t(), String.t(), update_campaign_request(), list()) ::
           {:ok, update_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, application_id, campaign_id, input, options \\ []) do
     url_path =
@@ -10300,6 +10405,7 @@ defmodule AWS.Pinpoint do
   @spec update_email_channel(map(), String.t(), update_email_channel_request(), list()) ::
           {:ok, update_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_email_channel_errors()}
   def update_email_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/email"
@@ -10329,6 +10435,7 @@ defmodule AWS.Pinpoint do
   @spec update_email_template(map(), String.t(), update_email_template_request(), list()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_email_template_errors()}
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/email"
@@ -10368,6 +10475,7 @@ defmodule AWS.Pinpoint do
   @spec update_endpoint(map(), String.t(), String.t(), update_endpoint_request(), list()) ::
           {:ok, update_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, application_id, endpoint_id, input, options \\ []) do
     url_path =
@@ -10403,6 +10511,7 @@ defmodule AWS.Pinpoint do
   @spec update_endpoints_batch(map(), String.t(), update_endpoints_batch_request(), list()) ::
           {:ok, update_endpoints_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_endpoints_batch_errors()}
   def update_endpoints_batch(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/endpoints"
@@ -10432,6 +10541,7 @@ defmodule AWS.Pinpoint do
   @spec update_gcm_channel(map(), String.t(), update_gcm_channel_request(), list()) ::
           {:ok, update_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gcm_channel_errors()}
   def update_gcm_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/gcm"
@@ -10461,6 +10571,7 @@ defmodule AWS.Pinpoint do
   @spec update_in_app_template(map(), String.t(), update_in_app_template_request(), list()) ::
           {:ok, update_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_in_app_template_errors()}
   def update_in_app_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/inapp"
@@ -10495,6 +10606,7 @@ defmodule AWS.Pinpoint do
   @spec update_journey(map(), String.t(), String.t(), update_journey_request(), list()) ::
           {:ok, update_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_journey_errors()}
   def update_journey(%Client{} = client, application_id, journey_id, input, options \\ []) do
     url_path =
@@ -10531,6 +10643,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_journey_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_journey_state_errors()}
   def update_journey_state(%Client{} = client, application_id, journey_id, input, options \\ []) do
     url_path =
@@ -10562,6 +10675,7 @@ defmodule AWS.Pinpoint do
   @spec update_push_template(map(), String.t(), update_push_template_request(), list()) ::
           {:ok, update_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_push_template_errors()}
   def update_push_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/push"
@@ -10601,6 +10715,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recommender_configuration_errors()}
   def update_recommender_configuration(%Client{} = client, recommender_id, input, options \\ []) do
     url_path = "/v1/recommenders/#{AWS.Util.encode_uri(recommender_id)}"
@@ -10631,6 +10746,7 @@ defmodule AWS.Pinpoint do
   @spec update_segment(map(), String.t(), String.t(), update_segment_request(), list()) ::
           {:ok, update_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_segment_errors()}
   def update_segment(%Client{} = client, application_id, segment_id, input, options \\ []) do
     url_path =
@@ -10662,6 +10778,7 @@ defmodule AWS.Pinpoint do
   @spec update_sms_channel(map(), String.t(), update_sms_channel_request(), list()) ::
           {:ok, update_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sms_channel_errors()}
   def update_sms_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/sms"
@@ -10691,6 +10808,7 @@ defmodule AWS.Pinpoint do
   @spec update_sms_template(map(), String.t(), update_sms_template_request(), list()) ::
           {:ok, update_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sms_template_errors()}
   def update_sms_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/sms"
@@ -10731,6 +10849,7 @@ defmodule AWS.Pinpoint do
         ) ::
           {:ok, update_template_active_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_active_version_errors()}
   def update_template_active_version(
         %Client{} = client,
@@ -10768,6 +10887,7 @@ defmodule AWS.Pinpoint do
   @spec update_voice_channel(map(), String.t(), update_voice_channel_request(), list()) ::
           {:ok, update_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_channel_errors()}
   def update_voice_channel(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/channels/voice"
@@ -10797,6 +10917,7 @@ defmodule AWS.Pinpoint do
   @spec update_voice_template(map(), String.t(), update_voice_template_request(), list()) ::
           {:ok, update_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_template_errors()}
   def update_voice_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v1/templates/#{AWS.Util.encode_uri(template_name)}/voice"
@@ -10831,6 +10952,7 @@ defmodule AWS.Pinpoint do
   @spec verify_o_t_p_message(map(), String.t(), verify_o_t_p_message_request(), list()) ::
           {:ok, verify_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_o_t_p_message_errors()}
   def verify_o_t_p_message(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/v1/apps/#{AWS.Util.encode_uri(application_id)}/verify-otp"

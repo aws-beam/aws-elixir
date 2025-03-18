@@ -151,6 +151,7 @@ defmodule AWS.WorkMailMessageFlow do
   @spec get_raw_message_content(map(), String.t(), list()) ::
           {:ok, get_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_raw_message_content_errors()}
   def get_raw_message_content(%Client{} = client, message_id, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"
@@ -186,6 +187,7 @@ defmodule AWS.WorkMailMessageFlow do
   @spec put_raw_message_content(map(), String.t(), put_raw_message_content_request(), list()) ::
           {:ok, put_raw_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_raw_message_content_errors()}
   def put_raw_message_content(%Client{} = client, message_id, input, options \\ []) do
     url_path = "/messages/#{AWS.Util.encode_uri(message_id)}"

@@ -1675,6 +1675,7 @@ defmodule AWS.Ivs do
   @spec batch_get_channel(map(), batch_get_channel_request(), list()) ::
           {:ok, batch_get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetChannel"
     headers = []
@@ -1702,6 +1703,7 @@ defmodule AWS.Ivs do
   @spec batch_get_stream_key(map(), batch_get_stream_key_request(), list()) ::
           {:ok, batch_get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetStreamKey"
     headers = []
@@ -1734,6 +1736,7 @@ defmodule AWS.Ivs do
         ) ::
           {:ok, batch_start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_start_viewer_session_revocation_errors()}
   def batch_start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/BatchStartViewerSessionRevocation"
@@ -1762,6 +1765,7 @@ defmodule AWS.Ivs do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChannel"
@@ -1796,6 +1800,7 @@ defmodule AWS.Ivs do
         ) ::
           {:ok, create_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_playback_restriction_policy_errors()}
   def create_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/CreatePlaybackRestrictionPolicy"
@@ -1839,6 +1844,7 @@ defmodule AWS.Ivs do
   @spec create_recording_configuration(map(), create_recording_configuration_request(), list()) ::
           {:ok, create_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recording_configuration_errors()}
   def create_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRecordingConfiguration"
@@ -1873,6 +1879,7 @@ defmodule AWS.Ivs do
   @spec create_stream_key(map(), create_stream_key_request(), list()) ::
           {:ok, create_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_stream_key_errors()}
   def create_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/CreateStreamKey"
@@ -1908,6 +1915,7 @@ defmodule AWS.Ivs do
   @spec delete_channel(map(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteChannel"
@@ -1941,6 +1949,7 @@ defmodule AWS.Ivs do
   @spec delete_playback_key_pair(map(), delete_playback_key_pair_request(), list()) ::
           {:ok, delete_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_playback_key_pair_errors()}
   def delete_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackKeyPair"
@@ -1973,6 +1982,7 @@ defmodule AWS.Ivs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_playback_restriction_policy_errors()}
   def delete_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeletePlaybackRestrictionPolicy"
@@ -2009,6 +2019,7 @@ defmodule AWS.Ivs do
   @spec delete_recording_configuration(map(), delete_recording_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recording_configuration_errors()}
   def delete_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRecordingConfiguration"
@@ -2038,6 +2049,7 @@ defmodule AWS.Ivs do
   @spec delete_stream_key(map(), delete_stream_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stream_key_errors()}
   def delete_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteStreamKey"
@@ -2068,6 +2080,7 @@ defmodule AWS.Ivs do
   @spec get_channel(map(), get_channel_request(), list()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_errors()}
   def get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/GetChannel"
@@ -2104,6 +2117,7 @@ defmodule AWS.Ivs do
   @spec get_playback_key_pair(map(), get_playback_key_pair_request(), list()) ::
           {:ok, get_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_playback_key_pair_errors()}
   def get_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackKeyPair"
@@ -2132,6 +2146,7 @@ defmodule AWS.Ivs do
   @spec get_playback_restriction_policy(map(), get_playback_restriction_policy_request(), list()) ::
           {:ok, get_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_playback_restriction_policy_errors()}
   def get_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/GetPlaybackRestrictionPolicy"
@@ -2160,6 +2175,7 @@ defmodule AWS.Ivs do
   @spec get_recording_configuration(map(), get_recording_configuration_request(), list()) ::
           {:ok, get_recording_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recording_configuration_errors()}
   def get_recording_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetRecordingConfiguration"
@@ -2188,6 +2204,7 @@ defmodule AWS.Ivs do
   @spec get_stream(map(), get_stream_request(), list()) ::
           {:ok, get_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stream_errors()}
   def get_stream(%Client{} = client, input, options \\ []) do
     url_path = "/GetStream"
@@ -2216,6 +2233,7 @@ defmodule AWS.Ivs do
   @spec get_stream_key(map(), get_stream_key_request(), list()) ::
           {:ok, get_stream_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stream_key_errors()}
   def get_stream_key(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamKey"
@@ -2244,6 +2262,7 @@ defmodule AWS.Ivs do
   @spec get_stream_session(map(), get_stream_session_request(), list()) ::
           {:ok, get_stream_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stream_session_errors()}
   def get_stream_session(%Client{} = client, input, options \\ []) do
     url_path = "/GetStreamSession"
@@ -2280,6 +2299,7 @@ defmodule AWS.Ivs do
   @spec import_playback_key_pair(map(), import_playback_key_pair_request(), list()) ::
           {:ok, import_playback_key_pair_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_playback_key_pair_errors()}
   def import_playback_key_pair(%Client{} = client, input, options \\ []) do
     url_path = "/ImportPlaybackKeyPair"
@@ -2315,6 +2335,7 @@ defmodule AWS.Ivs do
   @spec list_channels(map(), list_channels_request(), list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, input, options \\ []) do
     url_path = "/ListChannels"
@@ -2346,6 +2367,7 @@ defmodule AWS.Ivs do
   @spec list_playback_key_pairs(map(), list_playback_key_pairs_request(), list()) ::
           {:ok, list_playback_key_pairs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_playback_key_pairs_errors()}
   def list_playback_key_pairs(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackKeyPairs"
@@ -2378,6 +2400,7 @@ defmodule AWS.Ivs do
         ) ::
           {:ok, list_playback_restriction_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_playback_restriction_policies_errors()}
   def list_playback_restriction_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListPlaybackRestrictionPolicies"
@@ -2408,6 +2431,7 @@ defmodule AWS.Ivs do
   @spec list_recording_configurations(map(), list_recording_configurations_request(), list()) ::
           {:ok, list_recording_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recording_configurations_errors()}
   def list_recording_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListRecordingConfigurations"
@@ -2436,6 +2460,7 @@ defmodule AWS.Ivs do
   @spec list_stream_keys(map(), list_stream_keys_request(), list()) ::
           {:ok, list_stream_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_keys_errors()}
   def list_stream_keys(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamKeys"
@@ -2466,6 +2491,7 @@ defmodule AWS.Ivs do
   @spec list_stream_sessions(map(), list_stream_sessions_request(), list()) ::
           {:ok, list_stream_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stream_sessions_errors()}
   def list_stream_sessions(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreamSessions"
@@ -2496,6 +2522,7 @@ defmodule AWS.Ivs do
   @spec list_streams(map(), list_streams_request(), list()) ::
           {:ok, list_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
     url_path = "/ListStreams"
@@ -2524,6 +2551,7 @@ defmodule AWS.Ivs do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2550,6 +2578,7 @@ defmodule AWS.Ivs do
   @spec put_metadata(map(), put_metadata_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metadata_errors()}
   def put_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/PutMetadata"
@@ -2586,6 +2615,7 @@ defmodule AWS.Ivs do
   @spec start_viewer_session_revocation(map(), start_viewer_session_revocation_request(), list()) ::
           {:ok, start_viewer_session_revocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_viewer_session_revocation_errors()}
   def start_viewer_session_revocation(%Client{} = client, input, options \\ []) do
     url_path = "/StartViewerSessionRevocation"
@@ -2622,6 +2652,7 @@ defmodule AWS.Ivs do
   @spec stop_stream(map(), stop_stream_request(), list()) ::
           {:ok, stop_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_stream_errors()}
   def stop_stream(%Client{} = client, input, options \\ []) do
     url_path = "/StopStream"
@@ -2651,6 +2682,7 @@ defmodule AWS.Ivs do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2679,6 +2711,7 @@ defmodule AWS.Ivs do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2717,6 +2750,7 @@ defmodule AWS.Ivs do
   @spec update_channel(map(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"
@@ -2749,6 +2783,7 @@ defmodule AWS.Ivs do
         ) ::
           {:ok, update_playback_restriction_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_playback_restriction_policy_errors()}
   def update_playback_restriction_policy(%Client{} = client, input, options \\ []) do
     url_path = "/UpdatePlaybackRestrictionPolicy"

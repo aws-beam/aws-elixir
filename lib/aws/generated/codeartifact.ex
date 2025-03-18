@@ -2574,6 +2574,7 @@ defmodule AWS.Codeartifact do
   @spec associate_external_connection(map(), associate_external_connection_request(), list()) ::
           {:ok, associate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_external_connection_errors()}
   def associate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
@@ -2614,6 +2615,7 @@ defmodule AWS.Codeartifact do
   @spec copy_package_versions(map(), copy_package_versions_request(), list()) ::
           {:ok, copy_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_package_versions_errors()}
   def copy_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/copy"
@@ -2666,6 +2668,7 @@ defmodule AWS.Codeartifact do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
@@ -2704,6 +2707,7 @@ defmodule AWS.Codeartifact do
   @spec create_package_group(map(), create_package_group_request(), list()) ::
           {:ok, create_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_group_errors()}
   def create_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
@@ -2739,6 +2743,7 @@ defmodule AWS.Codeartifact do
   @spec create_repository(map(), create_repository_request(), list()) ::
           {:ok, create_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
@@ -2779,6 +2784,7 @@ defmodule AWS.Codeartifact do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain"
@@ -2818,6 +2824,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, delete_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_permissions_policy_errors()}
   def delete_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
@@ -2858,6 +2865,7 @@ defmodule AWS.Codeartifact do
   @spec delete_package(map(), delete_package_request(), list()) ::
           {:ok, delete_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
@@ -2904,6 +2912,7 @@ defmodule AWS.Codeartifact do
   @spec delete_package_group(map(), delete_package_group_request(), list()) ::
           {:ok, delete_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_group_errors()}
   def delete_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
@@ -2948,6 +2957,7 @@ defmodule AWS.Codeartifact do
   @spec delete_package_versions(map(), delete_package_versions_request(), list()) ::
           {:ok, delete_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_versions_errors()}
   def delete_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/delete"
@@ -2987,6 +2997,7 @@ defmodule AWS.Codeartifact do
   @spec delete_repository(map(), delete_repository_request(), list()) ::
           {:ok, delete_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"
@@ -3035,6 +3046,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, delete_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_permissions_policy_errors()}
   def delete_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policies"
@@ -3075,6 +3087,7 @@ defmodule AWS.Codeartifact do
   @spec describe_domain(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, domain, domain_owner \\ nil, options \\ []) do
     url_path = "/v1/domain"
@@ -3118,6 +3131,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, describe_package_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_errors()}
   def describe_package(
         %Client{} = client,
@@ -3189,6 +3203,7 @@ defmodule AWS.Codeartifact do
   @spec describe_package_group(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, describe_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_group_errors()}
   def describe_package_group(
         %Client{} = client,
@@ -3247,6 +3262,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, describe_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_version_errors()}
   def describe_package_version(
         %Client{} = client,
@@ -3325,6 +3341,7 @@ defmodule AWS.Codeartifact do
   @spec describe_repository(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, describe_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_repository_errors()}
   def describe_repository(
         %Client{} = client,
@@ -3374,6 +3391,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, disassociate_external_connection_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_external_connection_errors()}
   def disassociate_external_connection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/external-connection"
@@ -3424,6 +3442,7 @@ defmodule AWS.Codeartifact do
   @spec dispose_package_versions(map(), dispose_package_versions_request(), list()) ::
           {:ok, dispose_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dispose_package_versions_errors()}
   def dispose_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/dispose"
@@ -3481,6 +3500,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_associated_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_associated_package_group_errors()}
   def get_associated_package_group(
         %Client{} = client,
@@ -3570,6 +3590,7 @@ defmodule AWS.Codeartifact do
   @spec get_authorization_token(map(), get_authorization_token_request(), list()) ::
           {:ok, get_authorization_token_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/authorization-token"
@@ -3612,6 +3633,7 @@ defmodule AWS.Codeartifact do
   @spec get_domain_permissions_policy(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_permissions_policy_errors()}
   def get_domain_permissions_policy(
         %Client{} = client,
@@ -3665,6 +3687,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_package_version_asset_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_version_asset_errors()}
   def get_package_version_asset(
         %Client{} = client,
@@ -3782,6 +3805,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_package_version_readme_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_version_readme_errors()}
   def get_package_version_readme(
         %Client{} = client,
@@ -3902,6 +3926,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, get_repository_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_endpoint_errors()}
   def get_repository_endpoint(
         %Client{} = client,
@@ -3963,6 +3988,7 @@ defmodule AWS.Codeartifact do
   @spec get_repository_permissions_policy(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_permissions_policy_errors()}
   def get_repository_permissions_policy(
         %Client{} = client,
@@ -4021,6 +4047,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, list_allowed_repositories_for_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_allowed_repositories_for_group_errors()}
   def list_allowed_repositories_for_group(
         %Client{} = client,
@@ -4103,6 +4130,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, list_associated_packages_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_packages_errors()}
   def list_associated_packages(
         %Client{} = client,
@@ -4177,6 +4205,7 @@ defmodule AWS.Codeartifact do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domains"
@@ -4205,6 +4234,7 @@ defmodule AWS.Codeartifact do
   @spec list_package_groups(map(), list_package_groups_request(), list()) ::
           {:ok, list_package_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_groups_errors()}
   def list_package_groups(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-groups"
@@ -4246,6 +4276,7 @@ defmodule AWS.Codeartifact do
   @spec list_package_version_assets(map(), list_package_version_assets_request(), list()) ::
           {:ok, list_package_version_assets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_version_assets_errors()}
   def list_package_version_assets(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/assets"
@@ -4302,6 +4333,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, list_package_version_dependencies_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_version_dependencies_errors()}
   def list_package_version_dependencies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/dependencies"
@@ -4349,6 +4381,7 @@ defmodule AWS.Codeartifact do
   @spec list_package_versions(map(), list_package_versions_request(), list()) ::
           {:ok, list_package_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_versions_errors()}
   def list_package_versions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions"
@@ -4396,6 +4429,7 @@ defmodule AWS.Codeartifact do
   @spec list_packages(map(), list_packages_request(), list()) ::
           {:ok, list_packages_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packages_errors()}
   def list_packages(%Client{} = client, input, options \\ []) do
     url_path = "/v1/packages"
@@ -4446,6 +4480,7 @@ defmodule AWS.Codeartifact do
   @spec list_repositories(map(), list_repositories_request(), list()) ::
           {:ok, list_repositories_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repositories"
@@ -4489,6 +4524,7 @@ defmodule AWS.Codeartifact do
   @spec list_repositories_in_domain(map(), list_repositories_in_domain_request(), list()) ::
           {:ok, list_repositories_in_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repositories_in_domain_errors()}
   def list_repositories_in_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/repositories"
@@ -4532,6 +4568,7 @@ defmodule AWS.Codeartifact do
   @spec list_sub_package_groups(map(), list_sub_package_groups_request(), list()) ::
           {:ok, list_sub_package_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sub_package_groups_errors()}
   def list_sub_package_groups(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-groups/sub-groups"
@@ -4570,6 +4607,7 @@ defmodule AWS.Codeartifact do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags"
@@ -4617,6 +4655,7 @@ defmodule AWS.Codeartifact do
   @spec publish_package_version(map(), publish_package_version_request(), list()) ::
           {:ok, publish_package_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_package_version_errors()}
   def publish_package_version(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/version/publish"
@@ -4671,6 +4710,7 @@ defmodule AWS.Codeartifact do
   @spec put_domain_permissions_policy(map(), put_domain_permissions_policy_request(), list()) ::
           {:ok, put_domain_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_domain_permissions_policy_errors()}
   def put_domain_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domain/permissions/policy"
@@ -4720,6 +4760,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, put_package_origin_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_package_origin_configuration_errors()}
   def put_package_origin_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package"
@@ -4770,6 +4811,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, put_repository_permissions_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_repository_permissions_policy_errors()}
   def put_repository_permissions_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository/permissions/policy"
@@ -4805,6 +4847,7 @@ defmodule AWS.Codeartifact do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tag"
@@ -4838,6 +4881,7 @@ defmodule AWS.Codeartifact do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/untag"
@@ -4876,6 +4920,7 @@ defmodule AWS.Codeartifact do
   @spec update_package_group(map(), update_package_group_request(), list()) ::
           {:ok, update_package_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_group_errors()}
   def update_package_group(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group"
@@ -4922,6 +4967,7 @@ defmodule AWS.Codeartifact do
         ) ::
           {:ok, update_package_group_origin_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_group_origin_configuration_errors()}
   def update_package_group_origin_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package-group-origin-configuration"
@@ -4964,6 +5010,7 @@ defmodule AWS.Codeartifact do
   @spec update_package_versions_status(map(), update_package_versions_status_request(), list()) ::
           {:ok, update_package_versions_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_versions_status_errors()}
   def update_package_versions_status(%Client{} = client, input, options \\ []) do
     url_path = "/v1/package/versions/update_status"
@@ -5003,6 +5050,7 @@ defmodule AWS.Codeartifact do
   @spec update_repository(map(), update_repository_request(), list()) ::
           {:ok, update_repository_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_repository_errors()}
   def update_repository(%Client{} = client, input, options \\ []) do
     url_path = "/v1/repository"

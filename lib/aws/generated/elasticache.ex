@@ -4439,6 +4439,7 @@ defmodule AWS.ElastiCache do
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4465,6 +4466,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, authorize_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_cache_security_group_ingress_errors()}
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4481,6 +4483,7 @@ defmodule AWS.ElastiCache do
   @spec batch_apply_update_action(map(), batch_apply_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_apply_update_action_errors()}
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4498,6 +4501,7 @@ defmodule AWS.ElastiCache do
   @spec batch_stop_update_action(map(), batch_stop_update_action_message(), list()) ::
           {:ok, update_action_results_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_stop_update_action_errors()}
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4511,6 +4515,7 @@ defmodule AWS.ElastiCache do
   @spec complete_migration(map(), complete_migration_message(), list()) ::
           {:ok, complete_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_migration_errors()}
   def complete_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4526,6 +4531,7 @@ defmodule AWS.ElastiCache do
   @spec copy_serverless_cache_snapshot(map(), copy_serverless_cache_snapshot_request(), list()) ::
           {:ok, copy_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_serverless_cache_snapshot_errors()}
   def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4636,6 +4642,7 @@ defmodule AWS.ElastiCache do
   @spec copy_snapshot(map(), copy_snapshot_message(), list()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4655,6 +4662,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_cluster(map(), create_cache_cluster_message(), list()) ::
           {:ok, create_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cache_cluster_errors()}
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4690,6 +4698,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_parameter_group(map(), create_cache_parameter_group_message(), list()) ::
           {:ok, create_cache_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cache_parameter_group_errors()}
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4713,6 +4722,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_security_group(map(), create_cache_security_group_message(), list()) ::
           {:ok, create_cache_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cache_security_group_errors()}
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4730,6 +4740,7 @@ defmodule AWS.ElastiCache do
   @spec create_cache_subnet_group(map(), create_cache_subnet_group_message(), list()) ::
           {:ok, create_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cache_subnet_group_errors()}
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4758,6 +4769,7 @@ defmodule AWS.ElastiCache do
   @spec create_global_replication_group(map(), create_global_replication_group_message(), list()) ::
           {:ok, create_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_global_replication_group_errors()}
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4821,6 +4833,7 @@ defmodule AWS.ElastiCache do
   @spec create_replication_group(map(), create_replication_group_message(), list()) ::
           {:ok, create_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_group_errors()}
   def create_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4834,6 +4847,7 @@ defmodule AWS.ElastiCache do
   @spec create_serverless_cache(map(), create_serverless_cache_request(), list()) ::
           {:ok, create_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_serverless_cache_errors()}
   def create_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4854,6 +4868,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, create_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_serverless_cache_snapshot_errors()}
   def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4870,6 +4885,7 @@ defmodule AWS.ElastiCache do
   @spec create_snapshot(map(), create_snapshot_message(), list()) ::
           {:ok, create_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4886,6 +4902,7 @@ defmodule AWS.ElastiCache do
   @spec create_user(map(), create_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4903,6 +4920,7 @@ defmodule AWS.ElastiCache do
   @spec create_user_group(map(), create_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_group_errors()}
   def create_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4920,6 +4938,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, decrease_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrease_node_groups_in_global_replication_group_errors()}
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4946,6 +4965,7 @@ defmodule AWS.ElastiCache do
   @spec decrease_replica_count(map(), decrease_replica_count_message(), list()) ::
           {:ok, decrease_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decrease_replica_count_errors()}
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4989,6 +5009,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_cluster(map(), delete_cache_cluster_message(), list()) ::
           {:ok, delete_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cache_cluster_errors()}
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5006,6 +5027,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_parameter_group(map(), delete_cache_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cache_parameter_group_errors()}
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5022,6 +5044,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_security_group(map(), delete_cache_security_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cache_security_group_errors()}
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5039,6 +5062,7 @@ defmodule AWS.ElastiCache do
   @spec delete_cache_subnet_group(map(), delete_cache_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cache_subnet_group_errors()}
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5074,6 +5098,7 @@ defmodule AWS.ElastiCache do
   @spec delete_global_replication_group(map(), delete_global_replication_group_message(), list()) ::
           {:ok, delete_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_global_replication_group_errors()}
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5108,6 +5133,7 @@ defmodule AWS.ElastiCache do
   @spec delete_replication_group(map(), delete_replication_group_message(), list()) ::
           {:ok, delete_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_group_errors()}
   def delete_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5126,6 +5152,7 @@ defmodule AWS.ElastiCache do
   @spec delete_serverless_cache(map(), delete_serverless_cache_request(), list()) ::
           {:ok, delete_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_serverless_cache_errors()}
   def delete_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5145,6 +5172,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, delete_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_serverless_cache_snapshot_errors()}
   def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5165,6 +5193,7 @@ defmodule AWS.ElastiCache do
   @spec delete_snapshot(map(), delete_snapshot_message(), list()) ::
           {:ok, delete_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5183,6 +5212,7 @@ defmodule AWS.ElastiCache do
   @spec delete_user(map(), delete_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5201,6 +5231,7 @@ defmodule AWS.ElastiCache do
   @spec delete_user_group(map(), delete_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_group_errors()}
   def delete_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5240,6 +5271,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_clusters(map(), describe_cache_clusters_message(), list()) ::
           {:ok, cache_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_clusters_errors()}
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5253,6 +5285,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_engine_versions(map(), describe_cache_engine_versions_message(), list()) ::
           {:ok, cache_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5268,6 +5301,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_parameter_groups(map(), describe_cache_parameter_groups_message(), list()) ::
           {:ok, cache_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_parameter_groups_errors()}
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5281,6 +5315,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_parameters(map(), describe_cache_parameters_message(), list()) ::
           {:ok, cache_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_parameters_errors()}
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5299,6 +5334,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_security_groups(map(), describe_cache_security_groups_message(), list()) ::
           {:ok, cache_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_security_groups_errors()}
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5319,6 +5355,7 @@ defmodule AWS.ElastiCache do
   @spec describe_cache_subnet_groups(map(), describe_cache_subnet_groups_message(), list()) ::
           {:ok, cache_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cache_subnet_groups_errors()}
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5338,6 +5375,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_engine_default_parameters_errors()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5360,6 +5398,7 @@ defmodule AWS.ElastiCache do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5380,6 +5419,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_global_replication_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_replication_groups_errors()}
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5399,6 +5439,7 @@ defmodule AWS.ElastiCache do
   @spec describe_replication_groups(map(), describe_replication_groups_message(), list()) ::
           {:ok, replication_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_groups_errors()}
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5414,6 +5455,7 @@ defmodule AWS.ElastiCache do
   @spec describe_reserved_cache_nodes(map(), describe_reserved_cache_nodes_message(), list()) ::
           {:ok, reserved_cache_node_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_cache_nodes_errors()}
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5431,6 +5473,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, reserved_cache_nodes_offering_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_cache_nodes_offerings_errors()}
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5454,6 +5497,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, describe_serverless_cache_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_serverless_cache_snapshots_errors()}
   def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5471,6 +5515,7 @@ defmodule AWS.ElastiCache do
   @spec describe_serverless_caches(map(), describe_serverless_caches_request(), list()) ::
           {:ok, describe_serverless_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_serverless_caches_errors()}
   def describe_serverless_caches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5484,6 +5529,7 @@ defmodule AWS.ElastiCache do
   @spec describe_service_updates(map(), describe_service_updates_message(), list()) ::
           {:ok, service_updates_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5505,6 +5551,7 @@ defmodule AWS.ElastiCache do
   @spec describe_snapshots(map(), describe_snapshots_message(), list()) ::
           {:ok, describe_snapshots_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5518,6 +5565,7 @@ defmodule AWS.ElastiCache do
   @spec describe_update_actions(map(), describe_update_actions_message(), list()) ::
           {:ok, update_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_update_actions_errors()}
   def describe_update_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5531,6 +5579,7 @@ defmodule AWS.ElastiCache do
   @spec describe_user_groups(map(), describe_user_groups_message(), list()) ::
           {:ok, describe_user_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_groups_errors()}
   def describe_user_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5544,6 +5593,7 @@ defmodule AWS.ElastiCache do
   @spec describe_users(map(), describe_users_message(), list()) ::
           {:ok, describe_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5566,6 +5616,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, disassociate_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_global_replication_group_errors()}
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5586,6 +5637,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, export_serverless_cache_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_serverless_cache_snapshot_errors()}
   def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5606,6 +5658,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, failover_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_global_replication_group_errors()}
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5623,6 +5676,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, increase_node_groups_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, increase_node_groups_in_global_replication_group_errors()}
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5649,6 +5703,7 @@ defmodule AWS.ElastiCache do
   @spec increase_replica_count(map(), increase_replica_count_message(), list()) ::
           {:ok, increase_replica_count_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, increase_replica_count_errors()}
   def increase_replica_count(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5673,6 +5728,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, allowed_node_type_modifications_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_allowed_node_type_modifications_errors()}
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5699,6 +5755,7 @@ defmodule AWS.ElastiCache do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5716,6 +5773,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_cluster(map(), modify_cache_cluster_message(), list()) ::
           {:ok, modify_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cache_cluster_errors()}
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5732,6 +5790,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_parameter_group(map(), modify_cache_parameter_group_message(), list()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cache_parameter_group_errors()}
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5745,6 +5804,7 @@ defmodule AWS.ElastiCache do
   @spec modify_cache_subnet_group(map(), modify_cache_subnet_group_message(), list()) ::
           {:ok, modify_cache_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cache_subnet_group_errors()}
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5758,6 +5818,7 @@ defmodule AWS.ElastiCache do
   @spec modify_global_replication_group(map(), modify_global_replication_group_message(), list()) ::
           {:ok, modify_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_global_replication_group_errors()}
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5787,6 +5848,7 @@ defmodule AWS.ElastiCache do
   @spec modify_replication_group(map(), modify_replication_group_message(), list()) ::
           {:ok, modify_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_group_errors()}
   def modify_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5806,6 +5868,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, modify_replication_group_shard_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_replication_group_shard_configuration_errors()}
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5819,6 +5882,7 @@ defmodule AWS.ElastiCache do
   @spec modify_serverless_cache(map(), modify_serverless_cache_request(), list()) ::
           {:ok, modify_serverless_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_serverless_cache_errors()}
   def modify_serverless_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5832,6 +5896,7 @@ defmodule AWS.ElastiCache do
   @spec modify_user(map(), modify_user_message(), list()) ::
           {:ok, user(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_user_errors()}
   def modify_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5845,6 +5910,7 @@ defmodule AWS.ElastiCache do
   @spec modify_user_group(map(), modify_user_group_message(), list()) ::
           {:ok, user_group(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_user_group_errors()}
   def modify_user_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5866,6 +5932,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, purchase_reserved_cache_nodes_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_cache_nodes_offering_errors()}
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5884,6 +5951,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, rebalance_slots_in_global_replication_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rebalance_slots_in_global_replication_group_errors()}
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5921,6 +5989,7 @@ defmodule AWS.ElastiCache do
   @spec reboot_cache_cluster(map(), reboot_cache_cluster_message(), list()) ::
           {:ok, reboot_cache_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_cache_cluster_errors()}
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5943,6 +6012,7 @@ defmodule AWS.ElastiCache do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5962,6 +6032,7 @@ defmodule AWS.ElastiCache do
   @spec reset_cache_parameter_group(map(), reset_cache_parameter_group_message(), list()) ::
           {:ok, cache_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_cache_parameter_group_errors()}
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5982,6 +6053,7 @@ defmodule AWS.ElastiCache do
         ) ::
           {:ok, revoke_cache_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_cache_security_group_ingress_errors()}
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5995,6 +6067,7 @@ defmodule AWS.ElastiCache do
   @spec start_migration(map(), start_migration_message(), list()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6101,6 +6174,7 @@ defmodule AWS.ElastiCache do
   @spec test_failover(map(), test_failover_message(), list()) ::
           {:ok, test_failover_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_failover_errors()}
   def test_failover(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6114,6 +6188,7 @@ defmodule AWS.ElastiCache do
   @spec test_migration(map(), test_migration_message(), list()) ::
           {:ok, test_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_migration_errors()}
   def test_migration(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -1100,6 +1100,7 @@ defmodule AWS.Keyspaces do
   @spec create_keyspace(map(), create_keyspace_request(), list()) ::
           {:ok, create_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_keyspace_errors()}
   def create_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1126,6 +1127,7 @@ defmodule AWS.Keyspaces do
   @spec create_table(map(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1148,6 +1150,7 @@ defmodule AWS.Keyspaces do
   @spec create_type(map(), create_type_request(), list()) ::
           {:ok, create_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_type_errors()}
   def create_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1161,6 +1164,7 @@ defmodule AWS.Keyspaces do
   @spec delete_keyspace(map(), delete_keyspace_request(), list()) ::
           {:ok, delete_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_keyspace_errors()}
   def delete_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1184,6 +1188,7 @@ defmodule AWS.Keyspaces do
   @spec delete_table(map(), delete_table_request(), list()) ::
           {:ok, delete_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1204,6 +1209,7 @@ defmodule AWS.Keyspaces do
   @spec delete_type(map(), delete_type_request(), list()) ::
           {:ok, delete_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_type_errors()}
   def delete_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1220,6 +1226,7 @@ defmodule AWS.Keyspaces do
   @spec get_keyspace(map(), get_keyspace_request(), list()) ::
           {:ok, get_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_keyspace_errors()}
   def get_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1239,6 +1246,7 @@ defmodule AWS.Keyspaces do
   @spec get_table(map(), get_table_request(), list()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1278,6 +1286,7 @@ defmodule AWS.Keyspaces do
   @spec get_table_auto_scaling_settings(map(), get_table_auto_scaling_settings_request(), list()) ::
           {:ok, get_table_auto_scaling_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_auto_scaling_settings_errors()}
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1301,6 +1310,7 @@ defmodule AWS.Keyspaces do
   @spec get_type(map(), get_type_request(), list()) ::
           {:ok, get_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_type_errors()}
   def get_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1314,6 +1324,7 @@ defmodule AWS.Keyspaces do
   @spec list_keyspaces(map(), list_keyspaces_request(), list()) ::
           {:ok, list_keyspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keyspaces_errors()}
   def list_keyspaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1331,6 +1342,7 @@ defmodule AWS.Keyspaces do
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1349,6 +1361,7 @@ defmodule AWS.Keyspaces do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1369,6 +1382,7 @@ defmodule AWS.Keyspaces do
   @spec list_types(map(), list_types_request(), list()) ::
           {:ok, list_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1440,6 +1454,7 @@ defmodule AWS.Keyspaces do
   @spec restore_table(map(), restore_table_request(), list()) ::
           {:ok, restore_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_errors()}
   def restore_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1465,6 +1480,7 @@ defmodule AWS.Keyspaces do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1478,6 +1494,7 @@ defmodule AWS.Keyspaces do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1586,6 +1603,7 @@ defmodule AWS.Keyspaces do
   @spec update_keyspace(map(), update_keyspace_request(), list()) ::
           {:ok, update_keyspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_keyspace_errors()}
   def update_keyspace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1604,6 +1622,7 @@ defmodule AWS.Keyspaces do
   @spec update_table(map(), update_table_request(), list()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()

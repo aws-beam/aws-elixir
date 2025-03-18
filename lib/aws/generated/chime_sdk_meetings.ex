@@ -905,6 +905,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec batch_create_attendee(map(), String.t(), batch_create_attendee_request(), list()) ::
           {:ok, batch_create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_attendee_errors()}
   def batch_create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees?operation=batch-create"
@@ -978,6 +979,7 @@ defmodule AWS.ChimeSDKMeetings do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_attendee_capabilities_except_errors()}
   def batch_update_attendee_capabilities_except(
         %Client{} = client,
@@ -1019,6 +1021,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec create_attendee(map(), String.t(), create_attendee_request(), list()) ::
           {:ok, create_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_attendee_errors()}
   def create_attendee(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/attendees"
@@ -1056,6 +1059,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec create_meeting(map(), create_meeting_request(), list()) ::
           {:ok, create_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_meeting_errors()}
   def create_meeting(%Client{} = client, input, options \\ []) do
     url_path = "/meetings"
@@ -1093,6 +1097,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec create_meeting_with_attendees(map(), create_meeting_with_attendees_request(), list()) ::
           {:ok, create_meeting_with_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_meeting_with_attendees_errors()}
   def create_meeting_with_attendees(%Client{} = client, input, options \\ []) do
     url_path = "/meetings?operation=create-attendees"
@@ -1128,6 +1133,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec delete_attendee(map(), String.t(), String.t(), delete_attendee_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attendee_errors()}
   def delete_attendee(%Client{} = client, attendee_id, meeting_id, input, options \\ []) do
     url_path =
@@ -1164,6 +1170,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec delete_meeting(map(), String.t(), delete_meeting_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_meeting_errors()}
   def delete_meeting(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -1198,6 +1205,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec get_attendee(map(), String.t(), String.t(), list()) ::
           {:ok, get_attendee_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_attendee_errors()}
   def get_attendee(%Client{} = client, attendee_id, meeting_id, options \\ []) do
     url_path =
@@ -1221,6 +1229,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec get_meeting(map(), String.t(), list()) ::
           {:ok, get_meeting_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_meeting_errors()}
   def get_meeting(%Client{} = client, meeting_id, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}"
@@ -1243,6 +1252,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec list_attendees(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_attendees_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attendees_errors()}
   def list_attendees(
         %Client{} = client,
@@ -1280,6 +1290,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -1336,6 +1347,7 @@ defmodule AWS.ChimeSDKMeetings do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_meeting_transcription_errors()}
   def start_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=start"
@@ -1388,6 +1400,7 @@ defmodule AWS.ChimeSDKMeetings do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_meeting_transcription_errors()}
   def stop_meeting_transcription(%Client{} = client, meeting_id, input, options \\ []) do
     url_path = "/meetings/#{AWS.Util.encode_uri(meeting_id)}/transcription?operation=stop"
@@ -1416,6 +1429,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -1471,6 +1485,7 @@ defmodule AWS.ChimeSDKMeetings do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -1544,6 +1559,7 @@ defmodule AWS.ChimeSDKMeetings do
         ) ::
           {:ok, update_attendee_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_attendee_capabilities_errors()}
   def update_attendee_capabilities(
         %Client{} = client,

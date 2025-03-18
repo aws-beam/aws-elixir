@@ -1461,6 +1461,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_application_component_details(map(), String.t(), list()) ::
           {:ok, get_application_component_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_component_details_errors()}
   def get_application_component_details(
         %Client{} = client,
@@ -1486,6 +1487,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_application_component_strategies(map(), String.t(), list()) ::
           {:ok, get_application_component_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_component_strategies_errors()}
   def get_application_component_strategies(
         %Client{} = client,
@@ -1509,6 +1511,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_assessment(map(), String.t(), list()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assessment_errors()}
   def get_assessment(%Client{} = client, id, options \\ []) do
     url_path = "/get-assessment/#{AWS.Util.encode_uri(id)}"
@@ -1526,6 +1529,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_import_file_task(map(), String.t(), list()) ::
           {:ok, get_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_file_task_errors()}
   def get_import_file_task(%Client{} = client, id, options \\ []) do
     url_path = "/get-import-file-task/#{AWS.Util.encode_uri(id)}"
@@ -1543,6 +1547,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_latest_assessment_id(map(), list()) ::
           {:ok, get_latest_assessment_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_latest_assessment_id_errors()}
   def get_latest_assessment_id(%Client{} = client, options \\ []) do
     url_path = "/get-latest-assessment-id"
@@ -1560,6 +1565,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_portfolio_preferences(map(), list()) ::
           {:ok, get_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_portfolio_preferences_errors()}
   def get_portfolio_preferences(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-preferences"
@@ -1579,6 +1585,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_portfolio_summary(map(), list()) ::
           {:ok, get_portfolio_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_portfolio_summary_errors()}
   def get_portfolio_summary(%Client{} = client, options \\ []) do
     url_path = "/get-portfolio-summary"
@@ -1596,6 +1603,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_recommendation_report_details(map(), String.t(), list()) ::
           {:ok, get_recommendation_report_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendation_report_details_errors()}
   def get_recommendation_report_details(%Client{} = client, id, options \\ []) do
     url_path = "/get-recommendation-report-details/#{AWS.Util.encode_uri(id)}"
@@ -1613,6 +1621,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_server_details(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_server_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_server_details_errors()}
   def get_server_details(
         %Client{} = client,
@@ -1650,6 +1659,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec get_server_strategies(map(), String.t(), list()) ::
           {:ok, get_server_strategies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_server_strategies_errors()}
   def get_server_strategies(%Client{} = client, server_id, options \\ []) do
     url_path = "/get-server-strategies/#{AWS.Util.encode_uri(server_id)}"
@@ -1668,6 +1678,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec list_analyzable_servers(map(), list_analyzable_servers_request(), list()) ::
           {:ok, list_analyzable_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analyzable_servers_errors()}
   def list_analyzable_servers(%Client{} = client, input, options \\ []) do
     url_path = "/list-analyzable-servers"
@@ -1696,6 +1707,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec list_application_components(map(), list_application_components_request(), list()) ::
           {:ok, list_application_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_components_errors()}
   def list_application_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-applicationcomponents"
@@ -1724,6 +1736,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec list_collectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_collectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collectors_errors()}
   def list_collectors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/list-collectors"
@@ -1755,6 +1768,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec list_import_file_task(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_file_task_errors()}
   def list_import_file_task(
         %Client{} = client,
@@ -1791,6 +1805,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec list_servers(map(), list_servers_request(), list()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_servers_errors()}
   def list_servers(%Client{} = client, input, options \\ []) do
     url_path = "/list-servers"
@@ -1819,6 +1834,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec put_portfolio_preferences(map(), put_portfolio_preferences_request(), list()) ::
           {:ok, put_portfolio_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_portfolio_preferences_errors()}
   def put_portfolio_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/put-portfolio-preferences"
@@ -1847,6 +1863,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec start_assessment(map(), start_assessment_request(), list()) ::
           {:ok, start_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_assessment_errors()}
   def start_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/start-assessment"
@@ -1875,6 +1892,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec start_import_file_task(map(), start_import_file_task_request(), list()) ::
           {:ok, start_import_file_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_file_task_errors()}
   def start_import_file_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-import-file-task"
@@ -1907,6 +1925,7 @@ defmodule AWS.MigrationHubStrategy do
         ) ::
           {:ok, start_recommendation_report_generation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_recommendation_report_generation_errors()}
   def start_recommendation_report_generation(%Client{} = client, input, options \\ []) do
     url_path = "/start-recommendation-report-generation"
@@ -1935,6 +1954,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec stop_assessment(map(), stop_assessment_request(), list()) ::
           {:ok, stop_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_assessment_errors()}
   def stop_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/stop-assessment"
@@ -1967,6 +1987,7 @@ defmodule AWS.MigrationHubStrategy do
         ) ::
           {:ok, update_application_component_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_component_config_errors()}
   def update_application_component_config(%Client{} = client, input, options \\ []) do
     url_path = "/update-applicationcomponent-config/"
@@ -1995,6 +2016,7 @@ defmodule AWS.MigrationHubStrategy do
   @spec update_server_config(map(), update_server_config_request(), list()) ::
           {:ok, update_server_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_server_config_errors()}
   def update_server_config(%Client{} = client, input, options \\ []) do
     url_path = "/update-server-config/"

@@ -1266,6 +1266,7 @@ defmodule AWS.ECRPUBLIC do
   @spec batch_check_layer_availability(map(), batch_check_layer_availability_request(), list()) ::
           {:ok, batch_check_layer_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1292,6 +1293,7 @@ defmodule AWS.ECRPUBLIC do
   @spec batch_delete_image(map(), batch_delete_image_request(), list()) ::
           {:ok, batch_delete_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1318,6 +1320,7 @@ defmodule AWS.ECRPUBLIC do
   @spec complete_layer_upload(map(), complete_layer_upload_request(), list()) ::
           {:ok, complete_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1334,6 +1337,7 @@ defmodule AWS.ECRPUBLIC do
   @spec create_repository(map(), create_repository_request(), list()) ::
           {:ok, create_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1351,6 +1355,7 @@ defmodule AWS.ECRPUBLIC do
   @spec delete_repository(map(), delete_repository_request(), list()) ::
           {:ok, delete_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1364,6 +1369,7 @@ defmodule AWS.ECRPUBLIC do
   @spec delete_repository_policy(map(), delete_repository_policy_request(), list()) ::
           {:ok, delete_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1377,6 +1383,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_image_tags(map(), describe_image_tags_request(), list()) ::
           {:ok, describe_image_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_image_tags_errors()}
   def describe_image_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1398,6 +1405,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1411,6 +1419,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_registries(map(), describe_registries_request(), list()) ::
           {:ok, describe_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registries_errors()}
   def describe_registries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1424,6 +1433,7 @@ defmodule AWS.ECRPUBLIC do
   @spec describe_repositories(map(), describe_repositories_request(), list()) ::
           {:ok, describe_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1445,6 +1455,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_authorization_token(map(), get_authorization_token_request(), list()) ::
           {:ok, get_authorization_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1458,6 +1469,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_registry_catalog_data(map(), get_registry_catalog_data_request(), list()) ::
           {:ok, get_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_registry_catalog_data_errors()}
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1474,6 +1486,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_repository_catalog_data(map(), get_repository_catalog_data_request(), list()) ::
           {:ok, get_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_catalog_data_errors()}
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1487,6 +1500,7 @@ defmodule AWS.ECRPUBLIC do
   @spec get_repository_policy(map(), get_repository_policy_request(), list()) ::
           {:ok, get_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1510,6 +1524,7 @@ defmodule AWS.ECRPUBLIC do
   @spec initiate_layer_upload(map(), initiate_layer_upload_request(), list()) ::
           {:ok, initiate_layer_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1523,6 +1538,7 @@ defmodule AWS.ECRPUBLIC do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1547,6 +1563,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_image(map(), put_image_request(), list()) ::
           {:ok, put_image_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1560,6 +1577,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_registry_catalog_data(map(), put_registry_catalog_data_request(), list()) ::
           {:ok, put_registry_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_registry_catalog_data_errors()}
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1573,6 +1591,7 @@ defmodule AWS.ECRPUBLIC do
   @spec put_repository_catalog_data(map(), put_repository_catalog_data_request(), list()) ::
           {:ok, put_repository_catalog_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_repository_catalog_data_errors()}
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1590,6 +1609,7 @@ defmodule AWS.ECRPUBLIC do
   @spec set_repository_policy(map(), set_repository_policy_request(), list()) ::
           {:ok, set_repository_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1609,6 +1629,7 @@ defmodule AWS.ECRPUBLIC do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1622,6 +1643,7 @@ defmodule AWS.ECRPUBLIC do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1645,6 +1667,7 @@ defmodule AWS.ECRPUBLIC do
   @spec upload_layer_part(map(), upload_layer_part_request(), list()) ::
           {:ok, upload_layer_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
     meta = metadata()

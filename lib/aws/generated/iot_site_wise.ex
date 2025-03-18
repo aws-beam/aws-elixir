@@ -4805,6 +4805,7 @@ defmodule AWS.IoTSiteWise do
   @spec associate_assets(map(), String.t(), associate_assets_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_assets_errors()}
   def associate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/associate"
@@ -4837,6 +4838,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_time_series_to_asset_property_errors()}
   def associate_time_series_to_asset_property(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/associate"
@@ -4877,6 +4879,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, batch_associate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_project_assets_errors()}
   def batch_associate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/associate"
@@ -4910,6 +4913,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, batch_disassociate_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_project_assets_errors()}
   def batch_disassociate_project_assets(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}/assets/disassociate"
@@ -4948,6 +4952,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, batch_get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_asset_property_aggregates_errors()}
   def batch_get_asset_property_aggregates(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/aggregates"
@@ -4980,6 +4985,7 @@ defmodule AWS.IoTSiteWise do
   @spec batch_get_asset_property_value(map(), batch_get_asset_property_value_request(), list()) ::
           {:ok, batch_get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_asset_property_value_errors()}
   def batch_get_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/latest"
@@ -5016,6 +5022,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, batch_get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_asset_property_value_history_errors()}
   def batch_get_asset_property_value_history(%Client{} = client, input, options \\ []) do
     url_path = "/properties/batch/history"
@@ -5078,6 +5085,7 @@ defmodule AWS.IoTSiteWise do
   @spec batch_put_asset_property_value(map(), batch_put_asset_property_value_request(), list()) ::
           {:ok, batch_put_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_asset_property_value_errors()}
   def batch_put_asset_property_value(%Client{} = client, input, options \\ []) do
     url_path = "/properties"
@@ -5109,6 +5117,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_access_policy(map(), create_access_policy_request(), list()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_policy_errors()}
   def create_access_policy(%Client{} = client, input, options \\ []) do
     url_path = "/access-policies"
@@ -5141,6 +5150,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_asset(map(), create_asset_request(), list()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_errors()}
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
@@ -5193,6 +5203,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_asset_model(map(), create_asset_model_request(), list()) ::
           {:ok, create_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_model_errors()}
   def create_asset_model(%Client{} = client, input, options \\ []) do
     url_path = "/asset-models"
@@ -5255,6 +5266,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, create_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_model_composite_model_errors()}
   def create_asset_model_composite_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/composite-models"
@@ -5304,6 +5316,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_bulk_import_job(map(), create_bulk_import_job_request(), list()) ::
           {:ok, create_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bulk_import_job_errors()}
   def create_bulk_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -5332,6 +5345,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_dashboard(map(), create_dashboard_request(), list()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dashboard_errors()}
   def create_dashboard(%Client{} = client, input, options \\ []) do
     url_path = "/dashboards"
@@ -5360,6 +5374,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
@@ -5394,6 +5409,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_gateway(map(), create_gateway_request(), list()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_gateway_errors()}
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/20200301/gateways"
@@ -5430,6 +5446,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_portal(map(), create_portal_request(), list()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_portal_errors()}
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
@@ -5461,6 +5478,7 @@ defmodule AWS.IoTSiteWise do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -5494,6 +5512,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_access_policy(map(), String.t(), delete_access_policy_request(), list()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_policy_errors()}
   def delete_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -5534,6 +5553,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_errors()}
   def delete_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -5577,6 +5597,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_asset_model(map(), String.t(), delete_asset_model_request(), list()) ::
           {:ok, delete_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_model_errors()}
   def delete_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
@@ -5633,6 +5654,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, delete_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_model_composite_model_errors()}
   def delete_asset_model_composite_model(
         %Client{} = client,
@@ -5681,6 +5703,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_dashboard(map(), String.t(), delete_dashboard_request(), list()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dashboard_errors()}
   def delete_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -5716,6 +5739,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
@@ -5752,6 +5776,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, gateway_id, input, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
@@ -5780,6 +5805,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_portal(map(), String.t(), delete_portal_request(), list()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_portal_errors()}
   def delete_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
@@ -5813,6 +5839,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
@@ -5867,6 +5894,7 @@ defmodule AWS.IoTSiteWise do
   @spec delete_time_series(map(), delete_time_series_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_time_series_errors()}
   def delete_time_series(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/delete"
@@ -5904,6 +5932,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_access_policy(map(), String.t(), list()) ::
           {:ok, describe_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_access_policy_errors()}
   def describe_access_policy(%Client{} = client, access_policy_id, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -5921,6 +5950,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_action(map(), String.t(), list()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, action_id, options \\ []) do
     url_path = "/actions/#{AWS.Util.encode_uri(action_id)}"
@@ -5938,6 +5968,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_asset(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_errors()}
   def describe_asset(%Client{} = client, asset_id, exclude_properties \\ nil, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -5969,6 +6000,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_asset_composite_model(map(), String.t(), String.t(), list()) ::
           {:ok, describe_asset_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_composite_model_errors()}
   def describe_asset_composite_model(
         %Client{} = client,
@@ -5993,6 +6025,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_asset_model(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_model_errors()}
   def describe_asset_model(
         %Client{} = client,
@@ -6048,6 +6081,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_model_composite_model_errors()}
   def describe_asset_model_composite_model(
         %Client{} = client,
@@ -6091,6 +6125,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_asset_property(map(), String.t(), String.t(), list()) ::
           {:ok, describe_asset_property_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_property_errors()}
   def describe_asset_property(%Client{} = client, asset_id, property_id, options \\ []) do
     url_path =
@@ -6114,6 +6149,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_bulk_import_job(map(), String.t(), list()) ::
           {:ok, describe_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bulk_import_job_errors()}
   def describe_bulk_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -6131,6 +6167,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_dashboard(map(), String.t(), list()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_errors()}
   def describe_dashboard(%Client{} = client, dashboard_id, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -6148,6 +6185,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_dataset(map(), String.t(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, dataset_id, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
@@ -6171,6 +6209,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_default_encryption_configuration(map(), list()) ::
           {:ok, describe_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_default_encryption_configuration_errors()}
   def describe_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -6188,6 +6227,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_gateway(map(), String.t(), list()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_errors()}
   def describe_gateway(%Client{} = client, gateway_id, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
@@ -6214,6 +6254,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_gateway_capability_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, describe_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_capability_configuration_errors()}
   def describe_gateway_capability_configuration(
         %Client{} = client,
@@ -6238,6 +6279,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_logging_options(map(), list()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_logging_options_errors()}
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
@@ -6255,6 +6297,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_portal(map(), String.t(), list()) ::
           {:ok, describe_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_portal_errors()}
   def describe_portal(%Client{} = client, portal_id, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
@@ -6272,6 +6315,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_project(map(), String.t(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, project_id, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"
@@ -6289,6 +6333,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_storage_configuration(map(), list()) ::
           {:ok, describe_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_storage_configuration_errors()}
   def describe_storage_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/storage"
@@ -6322,6 +6367,7 @@ defmodule AWS.IoTSiteWise do
   @spec describe_time_series(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_time_series_errors()}
   def describe_time_series(
         %Client{} = client,
@@ -6368,6 +6414,7 @@ defmodule AWS.IoTSiteWise do
   @spec disassociate_assets(map(), String.t(), disassociate_assets_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_assets_errors()}
   def disassociate_assets(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}/disassociate"
@@ -6400,6 +6447,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_time_series_from_asset_property_errors()}
   def disassociate_time_series_from_asset_property(%Client{} = client, input, options \\ []) do
     url_path = "/timeseries/disassociate"
@@ -6435,6 +6483,7 @@ defmodule AWS.IoTSiteWise do
   @spec execute_action(map(), execute_action_request(), list()) ::
           {:ok, execute_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_action_errors()}
   def execute_action(%Client{} = client, input, options \\ []) do
     url_path = "/actions"
@@ -6465,6 +6514,7 @@ defmodule AWS.IoTSiteWise do
   @spec execute_query(map(), execute_query_request(), list()) ::
           {:ok, execute_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_query_errors()}
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries/execution"
@@ -6521,6 +6571,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, get_asset_property_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_property_aggregates_errors()}
   def get_asset_property_aggregates(
         %Client{} = client,
@@ -6650,6 +6701,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, get_asset_property_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_property_value_errors()}
   def get_asset_property_value(
         %Client{} = client,
@@ -6721,6 +6773,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, get_asset_property_value_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_property_value_history_errors()}
   def get_asset_property_value_history(
         %Client{} = client,
@@ -6849,6 +6902,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, get_interpolated_asset_property_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_interpolated_asset_property_values_errors()}
   def get_interpolated_asset_property_values(
         %Client{} = client,
@@ -6973,6 +7027,7 @@ defmodule AWS.IoTSiteWise do
   @spec invoke_assistant(map(), invoke_assistant_request(), list()) ::
           {:ok, invoke_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_assistant_errors()}
   def invoke_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistant/invocation"
@@ -7021,6 +7076,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(
         %Client{} = client,
@@ -7097,6 +7153,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_actions(map(), String.t() | nil, String.t() | nil, String.t(), String.t(), list()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_actions_errors()}
   def list_actions(
         %Client{} = client,
@@ -7156,6 +7213,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_asset_model_composite_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_model_composite_models_errors()}
   def list_asset_model_composite_models(
         %Client{} = client,
@@ -7213,6 +7271,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_asset_model_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_model_properties_errors()}
   def list_asset_model_properties(
         %Client{} = client,
@@ -7273,6 +7332,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_asset_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_models_errors()}
   def list_asset_models(
         %Client{} = client,
@@ -7336,6 +7396,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_asset_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_properties_errors()}
   def list_asset_properties(
         %Client{} = client,
@@ -7393,6 +7454,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_asset_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_relationships_errors()}
   def list_asset_relationships(
         %Client{} = client,
@@ -7460,6 +7522,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assets_errors()}
   def list_assets(
         %Client{} = client,
@@ -7530,6 +7593,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_associated_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_assets_errors()}
   def list_associated_assets(
         %Client{} = client,
@@ -7587,6 +7651,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_bulk_import_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bulk_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bulk_import_jobs_errors()}
   def list_bulk_import_jobs(
         %Client{} = client,
@@ -7639,6 +7704,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_composition_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_composition_relationships_errors()}
   def list_composition_relationships(
         %Client{} = client,
@@ -7676,6 +7742,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_dashboards(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(
         %Client{} = client,
@@ -7720,6 +7787,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_datasets(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(
         %Client{} = client,
@@ -7764,6 +7832,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/20200301/gateways"
@@ -7795,6 +7864,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_portals_errors()}
   def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/portals"
@@ -7827,6 +7897,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_project_assets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_project_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_project_assets_errors()}
   def list_project_assets(
         %Client{} = client,
@@ -7864,6 +7935,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_projects(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(
         %Client{} = client,
@@ -7908,6 +7980,7 @@ defmodule AWS.IoTSiteWise do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -7940,6 +8013,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, list_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_time_series_errors()}
   def list_time_series(
         %Client{} = client,
@@ -8009,6 +8083,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, put_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_default_encryption_configuration_errors()}
   def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -8037,6 +8112,7 @@ defmodule AWS.IoTSiteWise do
   @spec put_logging_options(map(), put_logging_options_request(), list()) ::
           {:ok, put_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_logging_options_errors()}
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
@@ -8065,6 +8141,7 @@ defmodule AWS.IoTSiteWise do
   @spec put_storage_configuration(map(), put_storage_configuration_request(), list()) ::
           {:ok, put_storage_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_storage_configuration_errors()}
   def put_storage_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/storage"
@@ -8096,6 +8173,7 @@ defmodule AWS.IoTSiteWise do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -8129,6 +8207,7 @@ defmodule AWS.IoTSiteWise do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -8165,6 +8244,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_access_policy(map(), String.t(), update_access_policy_request(), list()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_policy_errors()}
   def update_access_policy(%Client{} = client, access_policy_id, input, options \\ []) do
     url_path = "/access-policies/#{AWS.Util.encode_uri(access_policy_id)}"
@@ -8197,6 +8277,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_asset(map(), String.t(), update_asset_request(), list()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_errors()}
   def update_asset(%Client{} = client, asset_id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(asset_id)}"
@@ -8248,6 +8329,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_asset_model(map(), String.t(), update_asset_model_request(), list()) ::
           {:ok, update_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_model_errors()}
   def update_asset_model(%Client{} = client, asset_model_id, input, options \\ []) do
     url_path = "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}"
@@ -8316,6 +8398,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, update_asset_model_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_model_composite_model_errors()}
   def update_asset_model_composite_model(
         %Client{} = client,
@@ -8372,6 +8455,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_property_errors()}
   def update_asset_property(%Client{} = client, asset_id, property_id, input, options \\ []) do
     url_path =
@@ -8402,6 +8486,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_dashboard(map(), String.t(), update_dashboard_request(), list()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_errors()}
   def update_dashboard(%Client{} = client, dashboard_id, input, options \\ []) do
     url_path = "/dashboards/#{AWS.Util.encode_uri(dashboard_id)}"
@@ -8430,6 +8515,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, dataset_id, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}"
@@ -8458,6 +8544,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_gateway(map(), String.t(), update_gateway_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_errors()}
   def update_gateway(%Client{} = client, gateway_id, input, options \\ []) do
     url_path = "/20200301/gateways/#{AWS.Util.encode_uri(gateway_id)}"
@@ -8501,6 +8588,7 @@ defmodule AWS.IoTSiteWise do
         ) ::
           {:ok, update_gateway_capability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_capability_configuration_errors()}
   def update_gateway_capability_configuration(
         %Client{} = client,
@@ -8534,6 +8622,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_portal(map(), String.t(), update_portal_request(), list()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_portal_errors()}
   def update_portal(%Client{} = client, portal_id, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_uri(portal_id)}"
@@ -8562,6 +8651,7 @@ defmodule AWS.IoTSiteWise do
   @spec update_project(map(), String.t(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, project_id, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(project_id)}"

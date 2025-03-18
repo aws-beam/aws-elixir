@@ -777,6 +777,7 @@ defmodule AWS.RolesAnywhere do
   @spec create_profile(map(), create_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profiles"
@@ -814,6 +815,7 @@ defmodule AWS.RolesAnywhere do
   @spec create_trust_anchor(map(), create_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trust_anchor_errors()}
   def create_trust_anchor(%Client{} = client, input, options \\ []) do
     url_path = "/trustanchors"
@@ -842,6 +844,7 @@ defmodule AWS.RolesAnywhere do
   @spec delete_attribute_mapping(map(), String.t(), delete_attribute_mapping_request(), list()) ::
           {:ok, delete_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attribute_mapping_errors()}
   def delete_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
@@ -879,6 +882,7 @@ defmodule AWS.RolesAnywhere do
   @spec delete_crl(map(), String.t(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_crl_errors()}
   def delete_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -910,6 +914,7 @@ defmodule AWS.RolesAnywhere do
   @spec delete_profile(map(), String.t(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -941,6 +946,7 @@ defmodule AWS.RolesAnywhere do
   @spec delete_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trust_anchor_errors()}
   def delete_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
@@ -972,6 +978,7 @@ defmodule AWS.RolesAnywhere do
   @spec disable_crl(map(), String.t(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_crl_errors()}
   def disable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/disable"
@@ -1005,6 +1012,7 @@ defmodule AWS.RolesAnywhere do
   @spec disable_profile(map(), String.t(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_profile_errors()}
   def disable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/disable"
@@ -1039,6 +1047,7 @@ defmodule AWS.RolesAnywhere do
   @spec disable_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_trust_anchor_errors()}
   def disable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/disable"
@@ -1073,6 +1082,7 @@ defmodule AWS.RolesAnywhere do
   @spec enable_crl(map(), String.t(), scalar_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_crl_errors()}
   def enable_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}/enable"
@@ -1104,6 +1114,7 @@ defmodule AWS.RolesAnywhere do
   @spec enable_profile(map(), String.t(), scalar_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_profile_errors()}
   def enable_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}/enable"
@@ -1138,6 +1149,7 @@ defmodule AWS.RolesAnywhere do
   @spec enable_trust_anchor(map(), String.t(), scalar_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_trust_anchor_errors()}
   def enable_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}/enable"
@@ -1169,6 +1181,7 @@ defmodule AWS.RolesAnywhere do
   @spec get_crl(map(), String.t(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_crl_errors()}
   def get_crl(%Client{} = client, crl_id, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -1189,6 +1202,7 @@ defmodule AWS.RolesAnywhere do
   @spec get_profile(map(), String.t(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -1215,6 +1229,7 @@ defmodule AWS.RolesAnywhere do
   @spec get_subject(map(), String.t(), list()) ::
           {:ok, subject_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subject_errors()}
   def get_subject(%Client{} = client, subject_id, options \\ []) do
     url_path = "/subject/#{AWS.Util.encode_uri(subject_id)}"
@@ -1235,6 +1250,7 @@ defmodule AWS.RolesAnywhere do
   @spec get_trust_anchor(map(), String.t(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trust_anchor_errors()}
   def get_trust_anchor(%Client{} = client, trust_anchor_id, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"
@@ -1261,6 +1277,7 @@ defmodule AWS.RolesAnywhere do
   @spec import_crl(map(), import_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_crl_errors()}
   def import_crl(%Client{} = client, input, options \\ []) do
     url_path = "/crls"
@@ -1293,6 +1310,7 @@ defmodule AWS.RolesAnywhere do
   @spec list_crls(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_crls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_crls_errors()}
   def list_crls(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/crls"
@@ -1327,6 +1345,7 @@ defmodule AWS.RolesAnywhere do
   @spec list_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/profiles"
@@ -1361,6 +1380,7 @@ defmodule AWS.RolesAnywhere do
   @spec list_subjects(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_subjects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subjects_errors()}
   def list_subjects(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/subjects"
@@ -1395,6 +1415,7 @@ defmodule AWS.RolesAnywhere do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -1423,6 +1444,7 @@ defmodule AWS.RolesAnywhere do
   @spec list_trust_anchors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_trust_anchors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trust_anchors_errors()}
   def list_trust_anchors(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/trustanchors"
@@ -1458,6 +1480,7 @@ defmodule AWS.RolesAnywhere do
   @spec put_attribute_mapping(map(), String.t(), put_attribute_mapping_request(), list()) ::
           {:ok, put_attribute_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_attribute_mapping_errors()}
   def put_attribute_mapping(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_id)}/mappings"
@@ -1493,6 +1516,7 @@ defmodule AWS.RolesAnywhere do
   @spec put_notification_settings(map(), put_notification_settings_request(), list()) ::
           {:ok, put_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_notification_settings_errors()}
   def put_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/put-notifications-settings"
@@ -1524,6 +1548,7 @@ defmodule AWS.RolesAnywhere do
   @spec reset_notification_settings(map(), reset_notification_settings_request(), list()) ::
           {:ok, reset_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_notification_settings_errors()}
   def reset_notification_settings(%Client{} = client, input, options \\ []) do
     url_path = "/reset-notifications-settings"
@@ -1555,6 +1580,7 @@ defmodule AWS.RolesAnywhere do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -1586,6 +1612,7 @@ defmodule AWS.RolesAnywhere do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
@@ -1621,6 +1648,7 @@ defmodule AWS.RolesAnywhere do
   @spec update_crl(map(), String.t(), update_crl_request(), list()) ::
           {:ok, crl_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_crl_errors()}
   def update_crl(%Client{} = client, crl_id, input, options \\ []) do
     url_path = "/crl/#{AWS.Util.encode_uri(crl_id)}"
@@ -1656,6 +1684,7 @@ defmodule AWS.RolesAnywhere do
   @spec update_profile(map(), String.t(), update_profile_request(), list()) ::
           {:ok, profile_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -1698,6 +1727,7 @@ defmodule AWS.RolesAnywhere do
   @spec update_trust_anchor(map(), String.t(), update_trust_anchor_request(), list()) ::
           {:ok, trust_anchor_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trust_anchor_errors()}
   def update_trust_anchor(%Client{} = client, trust_anchor_id, input, options \\ []) do
     url_path = "/trustanchor/#{AWS.Util.encode_uri(trust_anchor_id)}"

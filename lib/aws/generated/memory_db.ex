@@ -2661,6 +2661,7 @@ defmodule AWS.MemoryDB do
   @spec batch_update_cluster(map(), batch_update_cluster_request(), list()) ::
           {:ok, batch_update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_cluster_errors()}
   def batch_update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2674,6 +2675,7 @@ defmodule AWS.MemoryDB do
   @spec copy_snapshot(map(), copy_snapshot_request(), list()) ::
           {:ok, copy_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2689,6 +2691,7 @@ defmodule AWS.MemoryDB do
   @spec create_acl(map(), create_acl_request(), list()) ::
           {:ok, create_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_acl_errors()}
   def create_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2704,6 +2707,7 @@ defmodule AWS.MemoryDB do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2717,6 +2721,7 @@ defmodule AWS.MemoryDB do
   @spec create_multi_region_cluster(map(), create_multi_region_cluster_request(), list()) ::
           {:ok, create_multi_region_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multi_region_cluster_errors()}
   def create_multi_region_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2734,6 +2739,7 @@ defmodule AWS.MemoryDB do
   @spec create_parameter_group(map(), create_parameter_group_request(), list()) ::
           {:ok, create_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2747,6 +2753,7 @@ defmodule AWS.MemoryDB do
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2769,6 +2776,7 @@ defmodule AWS.MemoryDB do
   @spec create_subnet_group(map(), create_subnet_group_request(), list()) ::
           {:ok, create_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2784,6 +2792,7 @@ defmodule AWS.MemoryDB do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2800,6 +2809,7 @@ defmodule AWS.MemoryDB do
   @spec delete_acl(map(), delete_acl_request(), list()) ::
           {:ok, delete_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_acl_errors()}
   def delete_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2819,6 +2829,7 @@ defmodule AWS.MemoryDB do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2832,6 +2843,7 @@ defmodule AWS.MemoryDB do
   @spec delete_multi_region_cluster(map(), delete_multi_region_cluster_request(), list()) ::
           {:ok, delete_multi_region_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multi_region_cluster_errors()}
   def delete_multi_region_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2848,6 +2860,7 @@ defmodule AWS.MemoryDB do
   @spec delete_parameter_group(map(), delete_parameter_group_request(), list()) ::
           {:ok, delete_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2864,6 +2877,7 @@ defmodule AWS.MemoryDB do
   @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2880,6 +2894,7 @@ defmodule AWS.MemoryDB do
   @spec delete_subnet_group(map(), delete_subnet_group_request(), list()) ::
           {:ok, delete_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2895,6 +2910,7 @@ defmodule AWS.MemoryDB do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2908,6 +2924,7 @@ defmodule AWS.MemoryDB do
   @spec describe_acls(map(), describe_acls_request(), list()) ::
           {:ok, describe_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_acls_errors()}
   def describe_acls(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2922,6 +2939,7 @@ defmodule AWS.MemoryDB do
   @spec describe_clusters(map(), describe_clusters_request(), list()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2935,6 +2953,7 @@ defmodule AWS.MemoryDB do
   @spec describe_engine_versions(map(), describe_engine_versions_request(), list()) ::
           {:ok, describe_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_engine_versions_errors()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2954,6 +2973,7 @@ defmodule AWS.MemoryDB do
   @spec describe_events(map(), describe_events_request(), list()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2967,6 +2987,7 @@ defmodule AWS.MemoryDB do
   @spec describe_multi_region_clusters(map(), describe_multi_region_clusters_request(), list()) ::
           {:ok, describe_multi_region_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_multi_region_clusters_errors()}
   def describe_multi_region_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2983,6 +3004,7 @@ defmodule AWS.MemoryDB do
   @spec describe_parameter_groups(map(), describe_parameter_groups_request(), list()) ::
           {:ok, describe_parameter_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2996,6 +3018,7 @@ defmodule AWS.MemoryDB do
   @spec describe_parameters(map(), describe_parameters_request(), list()) ::
           {:ok, describe_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3010,6 +3033,7 @@ defmodule AWS.MemoryDB do
   @spec describe_reserved_nodes(map(), describe_reserved_nodes_request(), list()) ::
           {:ok, describe_reserved_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3027,6 +3051,7 @@ defmodule AWS.MemoryDB do
         ) ::
           {:ok, describe_reserved_nodes_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_nodes_offerings_errors()}
   def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3040,6 +3065,7 @@ defmodule AWS.MemoryDB do
   @spec describe_service_updates(map(), describe_service_updates_request(), list()) ::
           {:ok, describe_service_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3057,6 +3083,7 @@ defmodule AWS.MemoryDB do
   @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
           {:ok, describe_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3073,6 +3100,7 @@ defmodule AWS.MemoryDB do
   @spec describe_subnet_groups(map(), describe_subnet_groups_request(), list()) ::
           {:ok, describe_subnet_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3086,6 +3114,7 @@ defmodule AWS.MemoryDB do
   @spec describe_users(map(), describe_users_request(), list()) ::
           {:ok, describe_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3106,6 +3135,7 @@ defmodule AWS.MemoryDB do
   @spec failover_shard(map(), failover_shard_request(), list()) ::
           {:ok, failover_shard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_shard_errors()}
   def failover_shard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3123,6 +3153,7 @@ defmodule AWS.MemoryDB do
         ) ::
           {:ok, list_allowed_multi_region_cluster_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_allowed_multi_region_cluster_updates_errors()}
   def list_allowed_multi_region_cluster_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3140,6 +3171,7 @@ defmodule AWS.MemoryDB do
   @spec list_allowed_node_type_updates(map(), list_allowed_node_type_updates_request(), list()) ::
           {:ok, list_allowed_node_type_updates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_allowed_node_type_updates_errors()}
   def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3157,6 +3189,7 @@ defmodule AWS.MemoryDB do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3176,6 +3209,7 @@ defmodule AWS.MemoryDB do
         ) ::
           {:ok, purchase_reserved_nodes_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_nodes_offering_errors()}
   def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3194,6 +3228,7 @@ defmodule AWS.MemoryDB do
   @spec reset_parameter_group(map(), reset_parameter_group_request(), list()) ::
           {:ok, reset_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_parameter_group_errors()}
   def reset_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3223,6 +3258,7 @@ defmodule AWS.MemoryDB do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3236,6 +3272,7 @@ defmodule AWS.MemoryDB do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3249,6 +3286,7 @@ defmodule AWS.MemoryDB do
   @spec update_acl(map(), update_acl_request(), list()) ::
           {:ok, update_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_acl_errors()}
   def update_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3265,6 +3303,7 @@ defmodule AWS.MemoryDB do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3278,6 +3317,7 @@ defmodule AWS.MemoryDB do
   @spec update_multi_region_cluster(map(), update_multi_region_cluster_request(), list()) ::
           {:ok, update_multi_region_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_multi_region_cluster_errors()}
   def update_multi_region_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3294,6 +3334,7 @@ defmodule AWS.MemoryDB do
   @spec update_parameter_group(map(), update_parameter_group_request(), list()) ::
           {:ok, update_parameter_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3309,6 +3350,7 @@ defmodule AWS.MemoryDB do
   @spec update_subnet_group(map(), update_subnet_group_request(), list()) ::
           {:ok, update_subnet_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3322,6 +3364,7 @@ defmodule AWS.MemoryDB do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()

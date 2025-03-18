@@ -1035,6 +1035,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec add_notification_channels(map(), String.t(), add_notification_channels_request(), list()) ::
           {:ok, add_notification_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_notification_channels_errors()}
   def add_notification_channels(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path =
@@ -1072,6 +1073,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, batch_get_frame_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_frame_metric_data_errors()}
   def batch_get_frame_metric_data(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/frames/-/metrics"
@@ -1114,6 +1116,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec configure_agent(map(), String.t(), configure_agent_request(), list()) ::
           {:ok, configure_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, configure_agent_errors()}
   def configure_agent(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/configureAgent"
@@ -1142,6 +1145,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec create_profiling_group(map(), create_profiling_group_request(), list()) ::
           {:ok, create_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profiling_group_errors()}
   def create_profiling_group(%Client{} = client, input, options \\ []) do
     url_path = "/profilingGroups"
@@ -1175,6 +1179,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec delete_profiling_group(map(), String.t(), delete_profiling_group_request(), list()) ::
           {:ok, delete_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profiling_group_errors()}
   def delete_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
@@ -1208,6 +1213,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec describe_profiling_group(map(), String.t(), list()) ::
           {:ok, describe_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_profiling_group_errors()}
   def describe_profiling_group(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"
@@ -1238,6 +1244,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, get_findings_report_account_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_report_account_summary_errors()}
   def get_findings_report_account_summary(
         %Client{} = client,
@@ -1282,6 +1289,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec get_notification_configuration(map(), String.t(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notification_configuration_errors()}
   def get_notification_configuration(%Client{} = client, profiling_group_name, options \\ []) do
     url_path =
@@ -1302,6 +1310,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec get_policy(map(), String.t(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, profiling_group_name, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/policy"
@@ -1394,6 +1403,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(
         %Client{} = client,
@@ -1478,6 +1488,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec get_recommendations(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendations_errors()}
   def get_recommendations(
         %Client{} = client,
@@ -1534,6 +1545,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, list_findings_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_reports_errors()}
   def list_findings_reports(
         %Client{} = client,
@@ -1608,6 +1620,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, list_profile_times_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_times_errors()}
   def list_profile_times(
         %Client{} = client,
@@ -1685,6 +1698,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec list_profiling_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_profiling_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiling_groups_errors()}
   def list_profiling_groups(
         %Client{} = client,
@@ -1730,6 +1744,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1754,6 +1769,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec post_agent_profile(map(), String.t(), post_agent_profile_request(), list()) ::
           {:ok, post_agent_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_agent_profile_errors()}
   def post_agent_profile(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}/agentProfile"
@@ -1820,6 +1836,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec put_permission(map(), String.t(), String.t(), put_permission_request(), list()) ::
           {:ok, put_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_permission_errors()}
   def put_permission(%Client{} = client, action_group, profiling_group_name, input, options \\ []) do
     url_path =
@@ -1856,6 +1873,7 @@ defmodule AWS.CodeGuruProfiler do
         ) ::
           {:ok, remove_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_notification_channel_errors()}
   def remove_notification_channel(
         %Client{} = client,
@@ -1906,6 +1924,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec remove_permission(map(), String.t(), String.t(), remove_permission_request(), list()) ::
           {:ok, remove_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(
         %Client{} = client,
@@ -1949,6 +1968,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec submit_feedback(map(), String.t(), String.t(), submit_feedback_request(), list()) ::
           {:ok, submit_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_feedback_errors()}
   def submit_feedback(
         %Client{} = client,
@@ -1986,6 +2006,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2015,6 +2036,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2048,6 +2070,7 @@ defmodule AWS.CodeGuruProfiler do
   @spec update_profiling_group(map(), String.t(), update_profiling_group_request(), list()) ::
           {:ok, update_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profiling_group_errors()}
   def update_profiling_group(%Client{} = client, profiling_group_name, input, options \\ []) do
     url_path = "/profilingGroups/#{AWS.Util.encode_uri(profiling_group_name)}"

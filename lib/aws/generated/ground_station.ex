@@ -1543,6 +1543,7 @@ defmodule AWS.GroundStation do
   @spec cancel_contact(map(), String.t(), cancel_contact_request(), list()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_contact_errors()}
   def cancel_contact(%Client{} = client, contact_id, input, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
@@ -1573,6 +1574,7 @@ defmodule AWS.GroundStation do
   @spec create_config(map(), create_config_request(), list()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_config_errors()}
   def create_config(%Client{} = client, input, options \\ []) do
     url_path = "/config"
@@ -1609,6 +1611,7 @@ defmodule AWS.GroundStation do
   @spec create_dataflow_endpoint_group(map(), create_dataflow_endpoint_group_request(), list()) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataflow_endpoint_group_errors()}
   def create_dataflow_endpoint_group(%Client{} = client, input, options \\ []) do
     url_path = "/dataflowEndpointGroup"
@@ -1637,6 +1640,7 @@ defmodule AWS.GroundStation do
   @spec create_ephemeris(map(), create_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ephemeris_errors()}
   def create_ephemeris(%Client{} = client, input, options \\ []) do
     url_path = "/ephemeris"
@@ -1668,6 +1672,7 @@ defmodule AWS.GroundStation do
   @spec create_mission_profile(map(), create_mission_profile_request(), list()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mission_profile_errors()}
   def create_mission_profile(%Client{} = client, input, options \\ []) do
     url_path = "/missionprofile"
@@ -1696,6 +1701,7 @@ defmodule AWS.GroundStation do
   @spec delete_config(map(), String.t(), String.t(), delete_config_request(), list()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_config_errors()}
   def delete_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
@@ -1729,6 +1735,7 @@ defmodule AWS.GroundStation do
         ) ::
           {:ok, dataflow_endpoint_group_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataflow_endpoint_group_errors()}
   def delete_dataflow_endpoint_group(
         %Client{} = client,
@@ -1762,6 +1769,7 @@ defmodule AWS.GroundStation do
   @spec delete_ephemeris(map(), String.t(), delete_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ephemeris_errors()}
   def delete_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
@@ -1790,6 +1798,7 @@ defmodule AWS.GroundStation do
   @spec delete_mission_profile(map(), String.t(), delete_mission_profile_request(), list()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mission_profile_errors()}
   def delete_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
@@ -1818,6 +1827,7 @@ defmodule AWS.GroundStation do
   @spec describe_contact(map(), String.t(), list()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contact_errors()}
   def describe_contact(%Client{} = client, contact_id, options \\ []) do
     url_path = "/contact/#{AWS.Util.encode_uri(contact_id)}"
@@ -1835,6 +1845,7 @@ defmodule AWS.GroundStation do
   @spec describe_ephemeris(map(), String.t(), list()) ::
           {:ok, describe_ephemeris_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ephemeris_errors()}
   def describe_ephemeris(%Client{} = client, ephemeris_id, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
@@ -1855,6 +1866,7 @@ defmodule AWS.GroundStation do
   @spec get_agent_configuration(map(), String.t(), list()) ::
           {:ok, get_agent_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_agent_configuration_errors()}
   def get_agent_configuration(%Client{} = client, agent_id, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}/configuration"
@@ -1874,6 +1886,7 @@ defmodule AWS.GroundStation do
   @spec get_config(map(), String.t(), String.t(), list()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_config_errors()}
   def get_config(%Client{} = client, config_id, config_type, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
@@ -1891,6 +1904,7 @@ defmodule AWS.GroundStation do
   @spec get_dataflow_endpoint_group(map(), String.t(), list()) ::
           {:ok, get_dataflow_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dataflow_endpoint_group_errors()}
   def get_dataflow_endpoint_group(%Client{} = client, dataflow_endpoint_group_id, options \\ []) do
     url_path = "/dataflowEndpointGroup/#{AWS.Util.encode_uri(dataflow_endpoint_group_id)}"
@@ -1908,6 +1922,7 @@ defmodule AWS.GroundStation do
   @spec get_minute_usage(map(), get_minute_usage_request(), list()) ::
           {:ok, get_minute_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_minute_usage_errors()}
   def get_minute_usage(%Client{} = client, input, options \\ []) do
     url_path = "/minute-usage"
@@ -1936,6 +1951,7 @@ defmodule AWS.GroundStation do
   @spec get_mission_profile(map(), String.t(), list()) ::
           {:ok, get_mission_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mission_profile_errors()}
   def get_mission_profile(%Client{} = client, mission_profile_id, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"
@@ -1953,6 +1969,7 @@ defmodule AWS.GroundStation do
   @spec get_satellite(map(), String.t(), list()) ::
           {:ok, get_satellite_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_satellite_errors()}
   def get_satellite(%Client{} = client, satellite_id, options \\ []) do
     url_path = "/satellite/#{AWS.Util.encode_uri(satellite_id)}"
@@ -1970,6 +1987,7 @@ defmodule AWS.GroundStation do
   @spec list_configs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configs_errors()}
   def list_configs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/config"
@@ -2004,6 +2022,7 @@ defmodule AWS.GroundStation do
   @spec list_contacts(map(), list_contacts_request(), list()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contacts_errors()}
   def list_contacts(%Client{} = client, input, options \\ []) do
     url_path = "/contacts"
@@ -2032,6 +2051,7 @@ defmodule AWS.GroundStation do
   @spec list_dataflow_endpoint_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataflow_endpoint_groups_errors()}
   def list_dataflow_endpoint_groups(
         %Client{} = client,
@@ -2068,6 +2088,7 @@ defmodule AWS.GroundStation do
   @spec list_ephemerides(map(), list_ephemerides_request(), list()) ::
           {:ok, list_ephemerides_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ephemerides_errors()}
   def list_ephemerides(%Client{} = client, input, options \\ []) do
     url_path = "/ephemerides"
@@ -2102,6 +2123,7 @@ defmodule AWS.GroundStation do
   @spec list_ground_stations(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ground_stations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ground_stations_errors()}
   def list_ground_stations(
         %Client{} = client,
@@ -2146,6 +2168,7 @@ defmodule AWS.GroundStation do
   @spec list_mission_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_mission_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mission_profiles_errors()}
   def list_mission_profiles(
         %Client{} = client,
@@ -2182,6 +2205,7 @@ defmodule AWS.GroundStation do
   @spec list_satellites(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_satellites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_satellites_errors()}
   def list_satellites(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/satellite"
@@ -2213,6 +2237,7 @@ defmodule AWS.GroundStation do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2233,6 +2258,7 @@ defmodule AWS.GroundStation do
   @spec register_agent(map(), register_agent_request(), list()) ::
           {:ok, register_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_agent_errors()}
   def register_agent(%Client{} = client, input, options \\ []) do
     url_path = "/agent"
@@ -2261,6 +2287,7 @@ defmodule AWS.GroundStation do
   @spec reserve_contact(map(), reserve_contact_request(), list()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reserve_contact_errors()}
   def reserve_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact"
@@ -2289,6 +2316,7 @@ defmodule AWS.GroundStation do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2317,6 +2345,7 @@ defmodule AWS.GroundStation do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2353,6 +2382,7 @@ defmodule AWS.GroundStation do
   @spec update_agent_status(map(), String.t(), update_agent_status_request(), list()) ::
           {:ok, update_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_status_errors()}
   def update_agent_status(%Client{} = client, agent_id, input, options \\ []) do
     url_path = "/agent/#{AWS.Util.encode_uri(agent_id)}"
@@ -2384,6 +2414,7 @@ defmodule AWS.GroundStation do
   @spec update_config(map(), String.t(), String.t(), update_config_request(), list()) ::
           {:ok, config_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_config_errors()}
   def update_config(%Client{} = client, config_id, config_type, input, options \\ []) do
     url_path = "/config/#{AWS.Util.encode_uri(config_type)}/#{AWS.Util.encode_uri(config_id)}"
@@ -2412,6 +2443,7 @@ defmodule AWS.GroundStation do
   @spec update_ephemeris(map(), String.t(), update_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ephemeris_errors()}
   def update_ephemeris(%Client{} = client, ephemeris_id, input, options \\ []) do
     url_path = "/ephemeris/#{AWS.Util.encode_uri(ephemeris_id)}"
@@ -2443,6 +2475,7 @@ defmodule AWS.GroundStation do
   @spec update_mission_profile(map(), String.t(), update_mission_profile_request(), list()) ::
           {:ok, mission_profile_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mission_profile_errors()}
   def update_mission_profile(%Client{} = client, mission_profile_id, input, options \\ []) do
     url_path = "/missionprofile/#{AWS.Util.encode_uri(mission_profile_id)}"

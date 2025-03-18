@@ -3754,6 +3754,7 @@ defmodule AWS.DynamoDB do
   @spec batch_execute_statement(map(), batch_execute_statement_input(), list()) ::
           {:ok, batch_execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3836,6 +3837,7 @@ defmodule AWS.DynamoDB do
   @spec batch_get_item(map(), batch_get_item_input(), list()) ::
           {:ok, batch_get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_item_errors()}
   def batch_get_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3958,6 +3960,7 @@ defmodule AWS.DynamoDB do
   @spec batch_write_item(map(), batch_write_item_input(), list()) ::
           {:ok, batch_write_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_write_item_errors()}
   def batch_write_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4010,6 +4013,7 @@ defmodule AWS.DynamoDB do
   @spec create_backup(map(), create_backup_input(), list()) ::
           {:ok, create_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4088,6 +4092,7 @@ defmodule AWS.DynamoDB do
   @spec create_global_table(map(), create_global_table_input(), list()) ::
           {:ok, create_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_global_table_errors()}
   def create_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4119,6 +4124,7 @@ defmodule AWS.DynamoDB do
   @spec create_table(map(), create_table_input(), list()) ::
           {:ok, create_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4135,6 +4141,7 @@ defmodule AWS.DynamoDB do
   @spec delete_backup(map(), delete_backup_input(), list()) ::
           {:ok, delete_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4166,6 +4173,7 @@ defmodule AWS.DynamoDB do
   @spec delete_item(map(), delete_item_input(), list()) ::
           {:ok, delete_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_item_errors()}
   def delete_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4200,6 +4208,7 @@ defmodule AWS.DynamoDB do
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4240,6 +4249,7 @@ defmodule AWS.DynamoDB do
   @spec delete_table(map(), delete_table_input(), list()) ::
           {:ok, delete_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4256,6 +4266,7 @@ defmodule AWS.DynamoDB do
   @spec describe_backup(map(), describe_backup_input(), list()) ::
           {:ok, describe_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backup_errors()}
   def describe_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4287,6 +4298,7 @@ defmodule AWS.DynamoDB do
   @spec describe_continuous_backups(map(), describe_continuous_backups_input(), list()) ::
           {:ok, describe_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_continuous_backups_errors()}
   def describe_continuous_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4302,6 +4314,7 @@ defmodule AWS.DynamoDB do
   @spec describe_contributor_insights(map(), describe_contributor_insights_input(), list()) ::
           {:ok, describe_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contributor_insights_errors()}
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4318,6 +4331,7 @@ defmodule AWS.DynamoDB do
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4330,6 +4344,7 @@ defmodule AWS.DynamoDB do
   @spec describe_export(map(), describe_export_input(), list()) ::
           {:ok, describe_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_errors()}
   def describe_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4354,6 +4369,7 @@ defmodule AWS.DynamoDB do
   @spec describe_global_table(map(), describe_global_table_input(), list()) ::
           {:ok, describe_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_table_errors()}
   def describe_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4378,6 +4394,7 @@ defmodule AWS.DynamoDB do
   @spec describe_global_table_settings(map(), describe_global_table_settings_input(), list()) ::
           {:ok, describe_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_table_settings_errors()}
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4391,6 +4408,7 @@ defmodule AWS.DynamoDB do
   @spec describe_import(map(), describe_import_input(), list()) ::
           {:ok, describe_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_import_errors()}
   def describe_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4408,6 +4426,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, describe_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_kinesis_streaming_destination_errors()}
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4502,6 +4521,7 @@ defmodule AWS.DynamoDB do
   @spec describe_limits(map(), describe_limits_input(), list()) ::
           {:ok, describe_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4528,6 +4548,7 @@ defmodule AWS.DynamoDB do
   @spec describe_table(map(), describe_table_input(), list()) ::
           {:ok, describe_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4548,6 +4569,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, describe_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_table_replica_auto_scaling_errors()}
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4561,6 +4583,7 @@ defmodule AWS.DynamoDB do
   @spec describe_time_to_live(map(), describe_time_to_live_input(), list()) ::
           {:ok, describe_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_time_to_live_errors()}
   def describe_time_to_live(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4581,6 +4604,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_kinesis_streaming_destination_errors()}
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4601,6 +4625,7 @@ defmodule AWS.DynamoDB do
   @spec enable_kinesis_streaming_destination(map(), kinesis_streaming_destination_input(), list()) ::
           {:ok, kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_kinesis_streaming_destination_errors()}
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4631,6 +4656,7 @@ defmodule AWS.DynamoDB do
   @spec execute_statement(map(), execute_statement_input(), list()) ::
           {:ok, execute_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4655,6 +4681,7 @@ defmodule AWS.DynamoDB do
   @spec execute_transaction(map(), execute_transaction_input(), list()) ::
           {:ok, execute_transaction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_transaction_errors()}
   def execute_transaction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4672,6 +4699,7 @@ defmodule AWS.DynamoDB do
   @spec export_table_to_point_in_time(map(), export_table_to_point_in_time_input(), list()) ::
           {:ok, export_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_table_to_point_in_time_errors()}
   def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4694,6 +4722,7 @@ defmodule AWS.DynamoDB do
   @spec get_item(map(), get_item_input(), list()) ::
           {:ok, get_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_item_errors()}
   def get_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4745,6 +4774,7 @@ defmodule AWS.DynamoDB do
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4758,6 +4788,7 @@ defmodule AWS.DynamoDB do
   @spec import_table(map(), import_table_input(), list()) ::
           {:ok, import_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_table_errors()}
   def import_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4790,6 +4821,7 @@ defmodule AWS.DynamoDB do
   @spec list_backups(map(), list_backups_input(), list()) ::
           {:ok, list_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backups_errors()}
   def list_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4805,6 +4837,7 @@ defmodule AWS.DynamoDB do
   @spec list_contributor_insights(map(), list_contributor_insights_input(), list()) ::
           {:ok, list_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contributor_insights_errors()}
   def list_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4818,6 +4851,7 @@ defmodule AWS.DynamoDB do
   @spec list_exports(map(), list_exports_input(), list()) ::
           {:ok, list_exports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4842,6 +4876,7 @@ defmodule AWS.DynamoDB do
   @spec list_global_tables(map(), list_global_tables_input(), list()) ::
           {:ok, list_global_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_global_tables_errors()}
   def list_global_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4855,6 +4890,7 @@ defmodule AWS.DynamoDB do
   @spec list_imports(map(), list_imports_input(), list()) ::
           {:ok, list_imports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4873,6 +4909,7 @@ defmodule AWS.DynamoDB do
   @spec list_tables(map(), list_tables_input(), list()) ::
           {:ok, list_tables_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4892,6 +4929,7 @@ defmodule AWS.DynamoDB do
   @spec list_tags_of_resource(map(), list_tags_of_resource_input(), list()) ::
           {:ok, list_tags_of_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_of_resource_errors()}
   def list_tags_of_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4937,6 +4975,7 @@ defmodule AWS.DynamoDB do
   @spec put_item(map(), put_item_input(), list()) ::
           {:ok, put_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_item_errors()}
   def put_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4974,6 +5013,7 @@ defmodule AWS.DynamoDB do
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5051,6 +5091,7 @@ defmodule AWS.DynamoDB do
   @spec query(map(), query_input(), list()) ::
           {:ok, query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5090,6 +5131,7 @@ defmodule AWS.DynamoDB do
   @spec restore_table_from_backup(map(), restore_table_from_backup_input(), list()) ::
           {:ok, restore_table_from_backup_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_from_backup_errors()}
   def restore_table_from_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5156,6 +5198,7 @@ defmodule AWS.DynamoDB do
   @spec restore_table_to_point_in_time(map(), restore_table_to_point_in_time_input(), list()) ::
           {:ok, restore_table_to_point_in_time_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_to_point_in_time_errors()}
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5218,6 +5261,7 @@ defmodule AWS.DynamoDB do
   @spec scan(map(), scan_input(), list()) ::
           {:ok, scan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, scan_errors()}
   def scan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5255,6 +5299,7 @@ defmodule AWS.DynamoDB do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5297,6 +5342,7 @@ defmodule AWS.DynamoDB do
   @spec transact_get_items(map(), transact_get_items_input(), list()) ::
           {:ok, transact_get_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transact_get_items_errors()}
   def transact_get_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5385,6 +5431,7 @@ defmodule AWS.DynamoDB do
   @spec transact_write_items(map(), transact_write_items_input(), list()) ::
           {:ok, transact_write_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transact_write_items_errors()}
   def transact_write_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5418,6 +5465,7 @@ defmodule AWS.DynamoDB do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5447,6 +5495,7 @@ defmodule AWS.DynamoDB do
   @spec update_continuous_backups(map(), update_continuous_backups_input(), list()) ::
           {:ok, update_continuous_backups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_continuous_backups_errors()}
   def update_continuous_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5473,6 +5522,7 @@ defmodule AWS.DynamoDB do
   @spec update_contributor_insights(map(), update_contributor_insights_input(), list()) ::
           {:ok, update_contributor_insights_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contributor_insights_errors()}
   def update_contributor_insights(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5530,6 +5580,7 @@ defmodule AWS.DynamoDB do
   @spec update_global_table(map(), update_global_table_input(), list()) ::
           {:ok, update_global_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_table_errors()}
   def update_global_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5554,6 +5605,7 @@ defmodule AWS.DynamoDB do
   @spec update_global_table_settings(map(), update_global_table_settings_input(), list()) ::
           {:ok, update_global_table_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_table_settings_errors()}
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5578,6 +5630,7 @@ defmodule AWS.DynamoDB do
   @spec update_item(map(), update_item_input(), list()) ::
           {:ok, update_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_item_errors()}
   def update_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5595,6 +5648,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, update_kinesis_streaming_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kinesis_streaming_destination_errors()}
   def update_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5632,6 +5686,7 @@ defmodule AWS.DynamoDB do
   @spec update_table(map(), update_table_input(), list()) ::
           {:ok, update_table_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5652,6 +5707,7 @@ defmodule AWS.DynamoDB do
         ) ::
           {:ok, update_table_replica_auto_scaling_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_replica_auto_scaling_errors()}
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5698,6 +5754,7 @@ defmodule AWS.DynamoDB do
   @spec update_time_to_live(map(), update_time_to_live_input(), list()) ::
           {:ok, update_time_to_live_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_time_to_live_errors()}
   def update_time_to_live(%Client{} = client, input, options \\ []) do
     meta = metadata()

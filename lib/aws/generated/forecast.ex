@@ -2732,6 +2732,7 @@ defmodule AWS.Forecast do
   @spec create_auto_predictor(map(), create_auto_predictor_request(), list()) ::
           {:ok, create_auto_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_auto_predictor_errors()}
   def create_auto_predictor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2797,6 +2798,7 @@ defmodule AWS.Forecast do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2828,6 +2830,7 @@ defmodule AWS.Forecast do
   @spec create_dataset_group(map(), create_dataset_group_request(), list()) ::
           {:ok, create_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2876,6 +2879,7 @@ defmodule AWS.Forecast do
   @spec create_dataset_import_job(map(), create_dataset_import_job_request(), list()) ::
           {:ok, create_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3008,6 +3012,7 @@ defmodule AWS.Forecast do
   @spec create_explainability(map(), create_explainability_request(), list()) ::
           {:ok, create_explainability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_explainability_errors()}
   def create_explainability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3034,6 +3039,7 @@ defmodule AWS.Forecast do
   @spec create_explainability_export(map(), create_explainability_export_request(), list()) ::
           {:ok, create_explainability_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_explainability_export_errors()}
   def create_explainability_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3077,6 +3083,7 @@ defmodule AWS.Forecast do
   @spec create_forecast(map(), create_forecast_request(), list()) ::
           {:ok, create_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_forecast_errors()}
   def create_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3113,6 +3120,7 @@ defmodule AWS.Forecast do
   @spec create_forecast_export_job(map(), create_forecast_export_job_request(), list()) ::
           {:ok, create_forecast_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_forecast_export_job_errors()}
   def create_forecast_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3130,6 +3138,7 @@ defmodule AWS.Forecast do
   @spec create_monitor(map(), create_monitor_request(), list()) ::
           {:ok, create_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3217,6 +3226,7 @@ defmodule AWS.Forecast do
   @spec create_predictor(map(), create_predictor_request(), list()) ::
           {:ok, create_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_predictor_errors()}
   def create_predictor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3255,6 +3265,7 @@ defmodule AWS.Forecast do
         ) ::
           {:ok, create_predictor_backtest_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_predictor_backtest_export_job_errors()}
   def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3299,6 +3310,7 @@ defmodule AWS.Forecast do
   @spec create_what_if_analysis(map(), create_what_if_analysis_request(), list()) ::
           {:ok, create_what_if_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_what_if_analysis_errors()}
   def create_what_if_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3317,6 +3329,7 @@ defmodule AWS.Forecast do
   @spec create_what_if_forecast(map(), create_what_if_forecast_request(), list()) ::
           {:ok, create_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_what_if_forecast_errors()}
   def create_what_if_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3354,6 +3367,7 @@ defmodule AWS.Forecast do
   @spec create_what_if_forecast_export(map(), create_what_if_forecast_export_request(), list()) ::
           {:ok, create_what_if_forecast_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_what_if_forecast_export_errors()}
   def create_what_if_forecast_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3381,6 +3395,7 @@ defmodule AWS.Forecast do
   @spec delete_dataset(map(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3402,6 +3417,7 @@ defmodule AWS.Forecast do
   @spec delete_dataset_group(map(), delete_dataset_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3421,6 +3437,7 @@ defmodule AWS.Forecast do
   @spec delete_dataset_import_job(map(), delete_dataset_import_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_import_job_errors()}
   def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3437,6 +3454,7 @@ defmodule AWS.Forecast do
   @spec delete_explainability(map(), delete_explainability_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_explainability_errors()}
   def delete_explainability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3450,6 +3468,7 @@ defmodule AWS.Forecast do
   @spec delete_explainability_export(map(), delete_explainability_export_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_explainability_export_errors()}
   def delete_explainability_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3471,6 +3490,7 @@ defmodule AWS.Forecast do
   @spec delete_forecast(map(), delete_forecast_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_forecast_errors()}
   def delete_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3489,6 +3509,7 @@ defmodule AWS.Forecast do
   @spec delete_forecast_export_job(map(), delete_forecast_export_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_forecast_export_job_errors()}
   def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3505,6 +3526,7 @@ defmodule AWS.Forecast do
   @spec delete_monitor(map(), delete_monitor_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3523,6 +3545,7 @@ defmodule AWS.Forecast do
   @spec delete_predictor(map(), delete_predictor_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_predictor_errors()}
   def delete_predictor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3540,6 +3563,7 @@ defmodule AWS.Forecast do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_predictor_backtest_export_job_errors()}
   def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3586,6 +3610,7 @@ defmodule AWS.Forecast do
   @spec delete_resource_tree(map(), delete_resource_tree_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_tree_errors()}
   def delete_resource_tree(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3606,6 +3631,7 @@ defmodule AWS.Forecast do
   @spec delete_what_if_analysis(map(), delete_what_if_analysis_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_what_if_analysis_errors()}
   def delete_what_if_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3626,6 +3652,7 @@ defmodule AWS.Forecast do
   @spec delete_what_if_forecast(map(), delete_what_if_forecast_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_what_if_forecast_errors()}
   def delete_what_if_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3644,6 +3671,7 @@ defmodule AWS.Forecast do
   @spec delete_what_if_forecast_export(map(), delete_what_if_forecast_export_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_what_if_forecast_export_errors()}
   def delete_what_if_forecast_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3657,6 +3685,7 @@ defmodule AWS.Forecast do
   @spec describe_auto_predictor(map(), describe_auto_predictor_request(), list()) ::
           {:ok, describe_auto_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_predictor_errors()}
   def describe_auto_predictor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3687,6 +3716,7 @@ defmodule AWS.Forecast do
   @spec describe_dataset(map(), describe_dataset_request(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3721,6 +3751,7 @@ defmodule AWS.Forecast do
   @spec describe_dataset_group(map(), describe_dataset_group_request(), list()) ::
           {:ok, describe_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3763,6 +3794,7 @@ defmodule AWS.Forecast do
   @spec describe_dataset_import_job(map(), describe_dataset_import_job_request(), list()) ::
           {:ok, describe_dataset_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3777,6 +3809,7 @@ defmodule AWS.Forecast do
   @spec describe_explainability(map(), describe_explainability_request(), list()) ::
           {:ok, describe_explainability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_explainability_errors()}
   def describe_explainability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3791,6 +3824,7 @@ defmodule AWS.Forecast do
   @spec describe_explainability_export(map(), describe_explainability_export_request(), list()) ::
           {:ok, describe_explainability_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_explainability_export_errors()}
   def describe_explainability_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3828,6 +3862,7 @@ defmodule AWS.Forecast do
   @spec describe_forecast(map(), describe_forecast_request(), list()) ::
           {:ok, describe_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_forecast_errors()}
   def describe_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3862,6 +3897,7 @@ defmodule AWS.Forecast do
   @spec describe_forecast_export_job(map(), describe_forecast_export_job_request(), list()) ::
           {:ok, describe_forecast_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_forecast_export_job_errors()}
   def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3906,6 +3942,7 @@ defmodule AWS.Forecast do
   @spec describe_monitor(map(), describe_monitor_request(), list()) ::
           {:ok, describe_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_monitor_errors()}
   def describe_monitor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3955,6 +3992,7 @@ defmodule AWS.Forecast do
   @spec describe_predictor(map(), describe_predictor_request(), list()) ::
           {:ok, describe_predictor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_predictor_errors()}
   def describe_predictor(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3993,6 +4031,7 @@ defmodule AWS.Forecast do
         ) ::
           {:ok, describe_predictor_backtest_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_predictor_backtest_export_job_errors()}
   def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4026,6 +4065,7 @@ defmodule AWS.Forecast do
   @spec describe_what_if_analysis(map(), describe_what_if_analysis_request(), list()) ::
           {:ok, describe_what_if_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_what_if_analysis_errors()}
   def describe_what_if_analysis(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4059,6 +4099,7 @@ defmodule AWS.Forecast do
   @spec describe_what_if_forecast(map(), describe_what_if_forecast_request(), list()) ::
           {:ok, describe_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_what_if_forecast_errors()}
   def describe_what_if_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4097,6 +4138,7 @@ defmodule AWS.Forecast do
         ) ::
           {:ok, describe_what_if_forecast_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_what_if_forecast_export_errors()}
   def describe_what_if_forecast_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4133,6 +4175,7 @@ defmodule AWS.Forecast do
   @spec get_accuracy_metrics(map(), get_accuracy_metrics_request(), list()) ::
           {:ok, get_accuracy_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_accuracy_metrics_errors()}
   def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4155,6 +4198,7 @@ defmodule AWS.Forecast do
   @spec list_dataset_groups(map(), list_dataset_groups_request(), list()) ::
           {:ok, list_dataset_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4179,6 +4223,7 @@ defmodule AWS.Forecast do
   @spec list_dataset_import_jobs(map(), list_dataset_import_jobs_request(), list()) ::
           {:ok, list_dataset_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4200,6 +4245,7 @@ defmodule AWS.Forecast do
   @spec list_datasets(map(), list_datasets_request(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4222,6 +4268,7 @@ defmodule AWS.Forecast do
   @spec list_explainabilities(map(), list_explainabilities_request(), list()) ::
           {:ok, list_explainabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_explainabilities_errors()}
   def list_explainabilities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4244,6 +4291,7 @@ defmodule AWS.Forecast do
   @spec list_explainability_exports(map(), list_explainability_exports_request(), list()) ::
           {:ok, list_explainability_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_explainability_exports_errors()}
   def list_explainability_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4264,6 +4312,7 @@ defmodule AWS.Forecast do
   @spec list_forecast_export_jobs(map(), list_forecast_export_jobs_request(), list()) ::
           {:ok, list_forecast_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_forecast_export_jobs_errors()}
   def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4284,6 +4333,7 @@ defmodule AWS.Forecast do
   @spec list_forecasts(map(), list_forecasts_request(), list()) ::
           {:ok, list_forecasts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_forecasts_errors()}
   def list_forecasts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4302,6 +4352,7 @@ defmodule AWS.Forecast do
   @spec list_monitor_evaluations(map(), list_monitor_evaluations_request(), list()) ::
           {:ok, list_monitor_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitor_evaluations_errors()}
   def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4321,6 +4372,7 @@ defmodule AWS.Forecast do
   @spec list_monitors(map(), list_monitors_request(), list()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4347,6 +4399,7 @@ defmodule AWS.Forecast do
         ) ::
           {:ok, list_predictor_backtest_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_predictor_backtest_export_jobs_errors()}
   def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4368,6 +4421,7 @@ defmodule AWS.Forecast do
   @spec list_predictors(map(), list_predictors_request(), list()) ::
           {:ok, list_predictors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_predictors_errors()}
   def list_predictors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4381,6 +4435,7 @@ defmodule AWS.Forecast do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4400,6 +4455,7 @@ defmodule AWS.Forecast do
   @spec list_what_if_analyses(map(), list_what_if_analyses_request(), list()) ::
           {:ok, list_what_if_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_what_if_analyses_errors()}
   def list_what_if_analyses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4419,6 +4475,7 @@ defmodule AWS.Forecast do
   @spec list_what_if_forecast_exports(map(), list_what_if_forecast_exports_request(), list()) ::
           {:ok, list_what_if_forecast_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_what_if_forecast_exports_errors()}
   def list_what_if_forecast_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4438,6 +4495,7 @@ defmodule AWS.Forecast do
   @spec list_what_if_forecasts(map(), list_what_if_forecasts_request(), list()) ::
           {:ok, list_what_if_forecasts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_what_if_forecasts_errors()}
   def list_what_if_forecasts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4451,6 +4509,7 @@ defmodule AWS.Forecast do
   @spec resume_resource(map(), resume_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_resource_errors()}
   def resume_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4493,6 +4552,7 @@ defmodule AWS.Forecast do
   @spec stop_resource(map(), stop_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_resource_errors()}
   def stop_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4512,6 +4572,7 @@ defmodule AWS.Forecast do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4525,6 +4586,7 @@ defmodule AWS.Forecast do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4543,6 +4605,7 @@ defmodule AWS.Forecast do
   @spec update_dataset_group(map(), update_dataset_group_request(), list()) ::
           {:ok, update_dataset_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_group_errors()}
   def update_dataset_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

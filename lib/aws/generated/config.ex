@@ -4830,6 +4830,7 @@ defmodule AWS.Config do
   @spec associate_resource_types(map(), associate_resource_types_request(), list()) ::
           {:ok, associate_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_types_errors()}
   def associate_resource_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4859,6 +4860,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, batch_get_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_aggregate_resource_config_errors()}
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4887,6 +4889,7 @@ defmodule AWS.Config do
   @spec batch_get_resource_config(map(), batch_get_resource_config_request(), list()) ::
           {:ok, batch_get_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_resource_config_errors()}
   def batch_get_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4905,6 +4908,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_aggregation_authorization_errors()}
   def delete_aggregation_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4951,6 +4955,7 @@ defmodule AWS.Config do
   @spec delete_config_rule(map(), delete_config_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_config_rule_errors()}
   def delete_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4965,6 +4970,7 @@ defmodule AWS.Config do
   @spec delete_configuration_aggregator(map(), delete_configuration_aggregator_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_aggregator_errors()}
   def delete_configuration_aggregator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4986,6 +4992,7 @@ defmodule AWS.Config do
   @spec delete_configuration_recorder(map(), delete_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_recorder_errors()}
   def delete_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5005,6 +5012,7 @@ defmodule AWS.Config do
   @spec delete_conformance_pack(map(), delete_conformance_pack_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_conformance_pack_errors()}
   def delete_conformance_pack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5022,6 +5030,7 @@ defmodule AWS.Config do
   @spec delete_delivery_channel(map(), delete_delivery_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_channel_errors()}
   def delete_delivery_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5041,6 +5050,7 @@ defmodule AWS.Config do
   @spec delete_evaluation_results(map(), delete_evaluation_results_request(), list()) ::
           {:ok, delete_evaluation_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_evaluation_results_errors()}
   def delete_evaluation_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5065,6 +5075,7 @@ defmodule AWS.Config do
   @spec delete_organization_config_rule(map(), delete_organization_config_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_organization_config_rule_errors()}
   def delete_organization_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5094,6 +5105,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_organization_conformance_pack_errors()}
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5112,6 +5124,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pending_aggregation_request_errors()}
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5129,6 +5142,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, delete_remediation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_remediation_configuration_errors()}
   def delete_remediation_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5146,6 +5160,7 @@ defmodule AWS.Config do
   @spec delete_remediation_exceptions(map(), delete_remediation_exceptions_request(), list()) ::
           {:ok, delete_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_remediation_exceptions_errors()}
   def delete_remediation_exceptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5163,6 +5178,7 @@ defmodule AWS.Config do
   @spec delete_resource_config(map(), delete_resource_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_config_errors()}
   def delete_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5176,6 +5192,7 @@ defmodule AWS.Config do
   @spec delete_retention_configuration(map(), delete_retention_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_retention_configuration_errors()}
   def delete_retention_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5209,6 +5226,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, delete_service_linked_configuration_recorder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_linked_configuration_recorder_errors()}
   def delete_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5223,6 +5241,7 @@ defmodule AWS.Config do
   @spec delete_stored_query(map(), delete_stored_query_request(), list()) ::
           {:ok, delete_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_stored_query_errors()}
   def delete_stored_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5252,6 +5271,7 @@ defmodule AWS.Config do
   @spec deliver_config_snapshot(map(), deliver_config_snapshot_request(), list()) ::
           {:ok, deliver_config_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deliver_config_snapshot_errors()}
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5276,6 +5296,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_aggregate_compliance_by_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_aggregate_compliance_by_config_rules_errors()}
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5302,6 +5323,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_aggregate_compliance_by_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_aggregate_compliance_by_conformance_packs_errors()}
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5326,6 +5348,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_aggregation_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_aggregation_authorizations_errors()}
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5377,6 +5400,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_compliance_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compliance_by_config_rule_errors()}
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5425,6 +5449,7 @@ defmodule AWS.Config do
   @spec describe_compliance_by_resource(map(), describe_compliance_by_resource_request(), list()) ::
           {:ok, describe_compliance_by_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compliance_by_resource_errors()}
   def describe_compliance_by_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5446,6 +5471,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_config_rule_evaluation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_config_rule_evaluation_status_errors()}
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5459,6 +5485,7 @@ defmodule AWS.Config do
   @spec describe_config_rules(map(), describe_config_rules_request(), list()) ::
           {:ok, describe_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_config_rules_errors()}
   def describe_config_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5480,6 +5507,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_configuration_aggregator_sources_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_aggregator_sources_status_errors()}
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5507,6 +5535,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_configuration_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_aggregators_errors()}
   def describe_configuration_aggregators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5536,6 +5565,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_configuration_recorder_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_recorder_status_errors()}
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5560,6 +5590,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_configuration_recorders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_recorders_errors()}
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5579,6 +5610,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_conformance_pack_compliance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_conformance_pack_compliance_errors()}
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5598,6 +5630,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_conformance_pack_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_conformance_pack_status_errors()}
   def describe_conformance_pack_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5611,6 +5644,7 @@ defmodule AWS.Config do
   @spec describe_conformance_packs(map(), describe_conformance_packs_request(), list()) ::
           {:ok, describe_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_conformance_packs_errors()}
   def describe_conformance_packs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5635,6 +5669,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_delivery_channel_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_delivery_channel_status_errors()}
   def describe_delivery_channel_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5655,6 +5690,7 @@ defmodule AWS.Config do
   @spec describe_delivery_channels(map(), describe_delivery_channels_request(), list()) ::
           {:ok, describe_delivery_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_delivery_channels_errors()}
   def describe_delivery_channels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5681,6 +5717,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_organization_config_rule_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_config_rule_statuses_errors()}
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5723,6 +5760,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_organization_config_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_config_rules_errors()}
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5750,6 +5788,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_organization_conformance_pack_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_conformance_pack_statuses_errors()}
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5798,6 +5837,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_organization_conformance_packs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_conformance_packs_errors()}
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5815,6 +5855,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_pending_aggregation_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pending_aggregation_requests_errors()}
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5832,6 +5873,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_remediation_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_remediation_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -5857,6 +5899,7 @@ defmodule AWS.Config do
   @spec describe_remediation_exceptions(map(), describe_remediation_exceptions_request(), list()) ::
           {:ok, describe_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_remediation_exceptions_errors()}
   def describe_remediation_exceptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5878,6 +5921,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_remediation_execution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_remediation_execution_status_errors()}
   def describe_remediation_execution_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5903,6 +5947,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, describe_retention_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_retention_configurations_errors()}
   def describe_retention_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5921,6 +5966,7 @@ defmodule AWS.Config do
   @spec disassociate_resource_types(map(), disassociate_resource_types_request(), list()) ::
           {:ok, disassociate_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_types_errors()}
   def disassociate_resource_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5947,6 +5993,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_aggregate_compliance_details_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aggregate_compliance_details_by_config_rule_errors()}
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5975,6 +6022,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_aggregate_config_rule_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aggregate_config_rule_compliance_summary_errors()}
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5999,6 +6047,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_aggregate_conformance_pack_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aggregate_conformance_pack_compliance_summary_errors()}
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6031,6 +6080,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_aggregate_discovered_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aggregate_discovered_resource_counts_errors()}
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6047,6 +6097,7 @@ defmodule AWS.Config do
   @spec get_aggregate_resource_config(map(), get_aggregate_resource_config_request(), list()) ::
           {:ok, get_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aggregate_resource_config_errors()}
   def get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6069,6 +6120,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_compliance_details_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compliance_details_by_config_rule_errors()}
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6090,6 +6142,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_compliance_details_by_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compliance_details_by_resource_errors()}
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6104,6 +6157,7 @@ defmodule AWS.Config do
   @spec get_compliance_summary_by_config_rule(map(), %{}, list()) ::
           {:ok, get_compliance_summary_by_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6125,6 +6179,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_compliance_summary_by_resource_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compliance_summary_by_resource_type_errors()}
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6143,6 +6198,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_conformance_pack_compliance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_conformance_pack_compliance_details_errors()}
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6161,6 +6217,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_conformance_pack_compliance_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_conformance_pack_compliance_summary_errors()}
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6175,6 +6232,7 @@ defmodule AWS.Config do
   @spec get_custom_rule_policy(map(), get_custom_rule_policy_request(), list()) ::
           {:ok, get_custom_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_rule_policy_errors()}
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6238,6 +6296,7 @@ defmodule AWS.Config do
   @spec get_discovered_resource_counts(map(), get_discovered_resource_counts_request(), list()) ::
           {:ok, get_discovered_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_discovered_resource_counts_errors()}
   def get_discovered_resource_counts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6256,6 +6315,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_organization_config_rule_detailed_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_config_rule_detailed_status_errors()}
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6274,6 +6334,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_organization_conformance_pack_detailed_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_conformance_pack_detailed_status_errors()}
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6298,6 +6359,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, get_organization_custom_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_custom_rule_policy_errors()}
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6336,6 +6398,7 @@ defmodule AWS.Config do
   @spec get_resource_config_history(map(), get_resource_config_history_request(), list()) ::
           {:ok, get_resource_config_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_config_history_errors()}
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6362,6 +6425,7 @@ defmodule AWS.Config do
   @spec get_resource_evaluation_summary(map(), get_resource_evaluation_summary_request(), list()) ::
           {:ok, get_resource_evaluation_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_evaluation_summary_errors()}
   def get_resource_evaluation_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6375,6 +6439,7 @@ defmodule AWS.Config do
   @spec get_stored_query(map(), get_stored_query_request(), list()) ::
           {:ok, get_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_stored_query_errors()}
   def get_stored_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6402,6 +6467,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, list_aggregate_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aggregate_discovered_resources_errors()}
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6415,6 +6481,7 @@ defmodule AWS.Config do
   @spec list_configuration_recorders(map(), list_configuration_recorders_request(), list()) ::
           {:ok, list_configuration_recorders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_recorders_errors()}
   def list_configuration_recorders(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6442,6 +6509,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, list_conformance_pack_compliance_scores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_conformance_pack_compliance_scores_errors()}
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6473,6 +6541,7 @@ defmodule AWS.Config do
   @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
           {:ok, list_discovered_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6486,6 +6555,7 @@ defmodule AWS.Config do
   @spec list_resource_evaluations(map(), list_resource_evaluations_request(), list()) ::
           {:ok, list_resource_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_evaluations_errors()}
   def list_resource_evaluations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6502,6 +6572,7 @@ defmodule AWS.Config do
   @spec list_stored_queries(map(), list_stored_queries_request(), list()) ::
           {:ok, list_stored_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_stored_queries_errors()}
   def list_stored_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6515,6 +6586,7 @@ defmodule AWS.Config do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6543,6 +6615,7 @@ defmodule AWS.Config do
   @spec put_aggregation_authorization(map(), put_aggregation_authorization_request(), list()) ::
           {:ok, put_aggregation_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_aggregation_authorization_errors()}
   def put_aggregation_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6622,6 +6695,7 @@ defmodule AWS.Config do
   @spec put_config_rule(map(), put_config_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_config_rule_errors()}
   def put_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6673,6 +6747,7 @@ defmodule AWS.Config do
   @spec put_configuration_aggregator(map(), put_configuration_aggregator_request(), list()) ::
           {:ok, put_configuration_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_aggregator_errors()}
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6727,6 +6802,7 @@ defmodule AWS.Config do
   @spec put_configuration_recorder(map(), put_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_recorder_errors()}
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6756,6 +6832,7 @@ defmodule AWS.Config do
   @spec put_conformance_pack(map(), put_conformance_pack_request(), list()) ::
           {:ok, put_conformance_pack_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_conformance_pack_errors()}
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6784,6 +6861,7 @@ defmodule AWS.Config do
   @spec put_delivery_channel(map(), put_delivery_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_delivery_channel_errors()}
   def put_delivery_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6801,6 +6879,7 @@ defmodule AWS.Config do
   @spec put_evaluations(map(), put_evaluations_request(), list()) ::
           {:ok, put_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_evaluations_errors()}
   def put_evaluations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6817,6 +6896,7 @@ defmodule AWS.Config do
   @spec put_external_evaluation(map(), put_external_evaluation_request(), list()) ::
           {:ok, put_external_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_external_evaluation_errors()}
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6894,6 +6974,7 @@ defmodule AWS.Config do
   @spec put_organization_config_rule(map(), put_organization_config_rule_request(), list()) ::
           {:ok, put_organization_config_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_organization_config_rule_errors()}
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6948,6 +7029,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, put_organization_conformance_pack_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_organization_conformance_pack_errors()}
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7004,6 +7086,7 @@ defmodule AWS.Config do
   @spec put_remediation_configurations(map(), put_remediation_configurations_request(), list()) ::
           {:ok, put_remediation_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_remediation_configurations_errors()}
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7071,6 +7154,7 @@ defmodule AWS.Config do
   @spec put_remediation_exceptions(map(), put_remediation_exceptions_request(), list()) ::
           {:ok, put_remediation_exceptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_remediation_exceptions_errors()}
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7099,6 +7183,7 @@ defmodule AWS.Config do
   @spec put_resource_config(map(), put_resource_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_config_errors()}
   def put_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7123,6 +7208,7 @@ defmodule AWS.Config do
   @spec put_retention_configuration(map(), put_retention_configuration_request(), list()) ::
           {:ok, put_retention_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_retention_configuration_errors()}
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7168,6 +7254,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, put_service_linked_configuration_recorder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_service_linked_configuration_recorder_errors()}
   def put_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7195,6 +7282,7 @@ defmodule AWS.Config do
   @spec put_stored_query(map(), put_stored_query_request(), list()) ::
           {:ok, put_stored_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_stored_query_errors()}
   def put_stored_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7233,6 +7321,7 @@ defmodule AWS.Config do
         ) ::
           {:ok, select_aggregate_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, select_aggregate_resource_config_errors()}
   def select_aggregate_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7254,6 +7343,7 @@ defmodule AWS.Config do
   @spec select_resource_config(map(), select_resource_config_request(), list()) ::
           {:ok, select_resource_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, select_resource_config_errors()}
   def select_resource_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7313,6 +7403,7 @@ defmodule AWS.Config do
   @spec start_config_rules_evaluation(map(), start_config_rules_evaluation_request(), list()) ::
           {:ok, start_config_rules_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_config_rules_evaluation_errors()}
   def start_config_rules_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7334,6 +7425,7 @@ defmodule AWS.Config do
   @spec start_configuration_recorder(map(), start_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_configuration_recorder_errors()}
   def start_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7355,6 +7447,7 @@ defmodule AWS.Config do
   @spec start_remediation_execution(map(), start_remediation_execution_request(), list()) ::
           {:ok, start_remediation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_remediation_execution_errors()}
   def start_remediation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7388,6 +7481,7 @@ defmodule AWS.Config do
   @spec start_resource_evaluation(map(), start_resource_evaluation_request(), list()) ::
           {:ok, start_resource_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_resource_evaluation_errors()}
   def start_resource_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7404,6 +7498,7 @@ defmodule AWS.Config do
   @spec stop_configuration_recorder(map(), stop_configuration_recorder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_configuration_recorder_errors()}
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7423,6 +7518,7 @@ defmodule AWS.Config do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7436,6 +7532,7 @@ defmodule AWS.Config do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

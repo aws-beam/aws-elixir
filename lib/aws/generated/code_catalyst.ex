@@ -1632,6 +1632,7 @@ defmodule AWS.CodeCatalyst do
   @spec create_access_token(map(), create_access_token_request(), list()) ::
           {:ok, create_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_access_token(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
@@ -1672,6 +1673,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, create_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_dev_environment(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments"
@@ -1701,6 +1703,7 @@ defmodule AWS.CodeCatalyst do
   @spec create_project(map(), String.t(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_project(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
@@ -1738,6 +1741,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, create_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_source_repository(
         %Client{} = client,
         name,
@@ -1785,6 +1789,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, create_source_repository_branch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_source_repository_branch(
         %Client{} = client,
         name,
@@ -1824,6 +1829,7 @@ defmodule AWS.CodeCatalyst do
   @spec delete_access_token(map(), String.t(), delete_access_token_request(), list()) ::
           {:ok, delete_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_access_token(%Client{} = client, id, input, options \\ []) do
     url_path = "/v1/accessTokens/#{AWS.Util.encode_uri(id)}"
     headers = []
@@ -1858,6 +1864,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, delete_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_dev_environment(
         %Client{} = client,
         id,
@@ -1894,6 +1901,7 @@ defmodule AWS.CodeCatalyst do
   @spec delete_project(map(), String.t(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_project(%Client{} = client, name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -1933,6 +1941,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, delete_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_source_repository(
         %Client{} = client,
         name,
@@ -1972,6 +1981,7 @@ defmodule AWS.CodeCatalyst do
   @spec delete_space(map(), String.t(), delete_space_request(), list()) ::
           {:ok, delete_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -2002,6 +2012,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_dev_environment(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_dev_environment(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}"
@@ -2020,6 +2031,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_project(map(), String.t(), String.t(), list()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_project(%Client{} = client, name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -2038,6 +2050,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_source_repository(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_source_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_source_repository(%Client{} = client, name, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories/#{AWS.Util.encode_uri(name)}"
@@ -2058,6 +2071,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_source_repository_clone_urls(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_source_repository_clone_urls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_source_repository_clone_urls(
         %Client{} = client,
         project_name,
@@ -2082,6 +2096,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_space(map(), String.t(), list()) ::
           {:ok, get_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_space(%Client{} = client, name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -2100,6 +2115,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_subscription(map(), String.t(), list()) ::
           {:ok, get_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_subscription(%Client{} = client, space_name, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/subscription"
     headers = []
@@ -2116,6 +2132,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_user_details(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_user_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_user_details(%Client{} = client, id \\ nil, user_name \\ nil, options \\ []) do
     url_path = "/userDetails"
     headers = []
@@ -2146,6 +2163,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_workflow(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_workflow(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows/#{AWS.Util.encode_uri(id)}"
@@ -2164,6 +2182,7 @@ defmodule AWS.CodeCatalyst do
   @spec get_workflow_run(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_workflow_run(%Client{} = client, id, project_name, space_name, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns/#{AWS.Util.encode_uri(id)}"
@@ -2185,6 +2204,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_access_tokens(map(), list_access_tokens_request(), list()) ::
           {:ok, list_access_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_access_tokens(%Client{} = client, input, options \\ []) do
     url_path = "/v1/accessTokens"
     headers = []
@@ -2219,6 +2239,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, list_dev_environment_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_dev_environment_sessions(
         %Client{} = client,
         dev_environment_id,
@@ -2255,6 +2276,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_dev_environments(map(), String.t(), list_dev_environments_request(), list()) ::
           {:ok, list_dev_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_dev_environments(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/devEnvironments"
     headers = []
@@ -2298,6 +2320,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_event_logs(map(), String.t(), list_event_logs_request(), list()) ::
           {:ok, list_event_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_event_logs(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/eventLogs"
     headers = []
@@ -2325,6 +2348,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_projects(map(), String.t(), list_projects_request(), list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_projects(%Client{} = client, space_name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects"
     headers = []
@@ -2358,6 +2382,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, list_source_repositories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_source_repositories(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/sourceRepositories"
@@ -2394,6 +2419,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, list_source_repository_branches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_source_repository_branches(
         %Client{} = client,
         project_name,
@@ -2430,6 +2456,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_spaces(map(), list_spaces_request(), list()) ::
           {:ok, list_spaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_spaces(%Client{} = client, input, options \\ []) do
     url_path = "/v1/spaces"
     headers = []
@@ -2457,6 +2484,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_workflow_runs(map(), String.t(), String.t(), list_workflow_runs_request(), list()) ::
           {:ok, list_workflow_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_workflow_runs(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
@@ -2493,6 +2521,7 @@ defmodule AWS.CodeCatalyst do
   @spec list_workflows(map(), String.t(), String.t(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_workflows(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflows"
@@ -2535,6 +2564,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, start_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def start_dev_environment(
         %Client{} = client,
         id,
@@ -2578,6 +2608,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, start_dev_environment_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def start_dev_environment_session(
         %Client{} = client,
         id,
@@ -2614,6 +2645,7 @@ defmodule AWS.CodeCatalyst do
   @spec start_workflow_run(map(), String.t(), String.t(), start_workflow_run_request(), list()) ::
           {:ok, start_workflow_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def start_workflow_run(%Client{} = client, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/workflowRuns"
@@ -2657,6 +2689,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, stop_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_dev_environment(%Client{} = client, id, project_name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(project_name)}/devEnvironments/#{AWS.Util.encode_uri(id)}/stop"
@@ -2694,6 +2727,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, stop_dev_environment_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_dev_environment_session(
         %Client{} = client,
         id,
@@ -2740,6 +2774,7 @@ defmodule AWS.CodeCatalyst do
         ) ::
           {:ok, update_dev_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_dev_environment(
         %Client{} = client,
         id,
@@ -2776,6 +2811,7 @@ defmodule AWS.CodeCatalyst do
   @spec update_project(map(), String.t(), String.t(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_project(%Client{} = client, name, space_name, input, options \\ []) do
     url_path =
       "/v1/spaces/#{AWS.Util.encode_uri(space_name)}/projects/#{AWS.Util.encode_uri(name)}"
@@ -2805,6 +2841,7 @@ defmodule AWS.CodeCatalyst do
   @spec update_space(map(), String.t(), update_space_request(), list()) ::
           {:ok, update_space_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_space(%Client{} = client, name, input, options \\ []) do
     url_path = "/v1/spaces/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -2835,6 +2872,7 @@ defmodule AWS.CodeCatalyst do
   @spec verify_session(map(), list()) ::
           {:ok, verify_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def verify_session(%Client{} = client, options \\ []) do
     url_path = "/session"
     headers = []

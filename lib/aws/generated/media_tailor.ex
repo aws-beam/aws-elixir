@@ -1868,6 +1868,7 @@ defmodule AWS.MediaTailor do
   @spec configure_logs_for_channel(map(), configure_logs_for_channel_request(), list()) ::
           {:ok, configure_logs_for_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def configure_logs_for_channel(%Client{} = client, input, options \\ []) do
     url_path = "/configureLogs/channel"
     headers = []
@@ -1900,6 +1901,7 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, configure_logs_for_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def configure_logs_for_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configureLogs/playbackConfiguration"
     headers = []
@@ -1930,6 +1932,7 @@ defmodule AWS.MediaTailor do
   @spec create_channel(map(), String.t(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
@@ -1957,6 +1960,7 @@ defmodule AWS.MediaTailor do
   @spec create_live_source(map(), String.t(), String.t(), create_live_source_request(), list()) ::
           {:ok, create_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_live_source(
         %Client{} = client,
         live_source_name,
@@ -2003,6 +2007,7 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, create_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_prefetch_schedule(
         %Client{} = client,
         name,
@@ -2041,6 +2046,7 @@ defmodule AWS.MediaTailor do
   @spec create_program(map(), String.t(), String.t(), create_program_request(), list()) ::
           {:ok, create_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2074,6 +2080,7 @@ defmodule AWS.MediaTailor do
   @spec create_source_location(map(), String.t(), create_source_location_request(), list()) ::
           {:ok, create_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
@@ -2101,6 +2108,7 @@ defmodule AWS.MediaTailor do
   @spec create_vod_source(map(), String.t(), String.t(), create_vod_source_request(), list()) ::
           {:ok, create_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_vod_source(
         %Client{} = client,
         source_location_name,
@@ -2139,6 +2147,7 @@ defmodule AWS.MediaTailor do
   @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
@@ -2166,6 +2175,7 @@ defmodule AWS.MediaTailor do
   @spec delete_channel_policy(map(), String.t(), delete_channel_policy_request(), list()) ::
           {:ok, delete_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
@@ -2193,6 +2203,7 @@ defmodule AWS.MediaTailor do
   @spec delete_live_source(map(), String.t(), String.t(), delete_live_source_request(), list()) ::
           {:ok, delete_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_live_source(
         %Client{} = client,
         live_source_name,
@@ -2236,6 +2247,7 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, delete_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_playback_configuration(%Client{} = client, name, input, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -2274,6 +2286,7 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, delete_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_prefetch_schedule(
         %Client{} = client,
         name,
@@ -2312,6 +2325,7 @@ defmodule AWS.MediaTailor do
   @spec delete_program(map(), String.t(), String.t(), delete_program_request(), list()) ::
           {:ok, delete_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2345,6 +2359,7 @@ defmodule AWS.MediaTailor do
   @spec delete_source_location(map(), String.t(), delete_source_location_request(), list()) ::
           {:ok, delete_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
@@ -2372,6 +2387,7 @@ defmodule AWS.MediaTailor do
   @spec delete_vod_source(map(), String.t(), String.t(), delete_vod_source_request(), list()) ::
           {:ok, delete_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_vod_source(
         %Client{} = client,
         source_location_name,
@@ -2410,6 +2426,7 @@ defmodule AWS.MediaTailor do
   @spec describe_channel(map(), String.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_channel(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
@@ -2426,6 +2443,7 @@ defmodule AWS.MediaTailor do
   @spec describe_live_source(map(), String.t(), String.t(), list()) ::
           {:ok, describe_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_live_source(
         %Client{} = client,
         live_source_name,
@@ -2452,6 +2470,7 @@ defmodule AWS.MediaTailor do
   @spec describe_program(map(), String.t(), String.t(), list()) ::
           {:ok, describe_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_program(%Client{} = client, channel_name, program_name, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -2474,6 +2493,7 @@ defmodule AWS.MediaTailor do
   @spec describe_source_location(map(), String.t(), list()) ::
           {:ok, describe_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_source_location(%Client{} = client, source_location_name, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
@@ -2491,6 +2511,7 @@ defmodule AWS.MediaTailor do
   @spec describe_vod_source(map(), String.t(), String.t(), list()) ::
           {:ok, describe_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_vod_source(
         %Client{} = client,
         source_location_name,
@@ -2516,6 +2537,7 @@ defmodule AWS.MediaTailor do
   @spec get_channel_policy(map(), String.t(), list()) ::
           {:ok, get_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_channel_policy(%Client{} = client, channel_name, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
@@ -2540,6 +2562,7 @@ defmodule AWS.MediaTailor do
         ) ::
           {:ok, get_channel_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_channel_schedule(
         %Client{} = client,
         channel_name,
@@ -2595,6 +2618,7 @@ defmodule AWS.MediaTailor do
   @spec get_playback_configuration(map(), String.t(), list()) ::
           {:ok, get_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_playback_configuration(%Client{} = client, name, options \\ []) do
     url_path = "/playbackConfiguration/#{AWS.Util.encode_uri(name)}"
     headers = []
@@ -2616,6 +2640,7 @@ defmodule AWS.MediaTailor do
   @spec get_prefetch_schedule(map(), String.t(), String.t(), list()) ::
           {:ok, get_prefetch_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_prefetch_schedule(%Client{} = client, name, playback_configuration_name, options \\ []) do
     url_path =
       "/prefetchSchedule/#{AWS.Util.encode_uri(playback_configuration_name)}/#{AWS.Util.encode_uri(name)}"
@@ -2635,6 +2660,7 @@ defmodule AWS.MediaTailor do
   @spec list_alerts(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_alerts(
         %Client{} = client,
         max_results \\ nil,
@@ -2679,6 +2705,7 @@ defmodule AWS.MediaTailor do
   @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/channels"
     headers = []
@@ -2711,6 +2738,7 @@ defmodule AWS.MediaTailor do
   @spec list_live_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_live_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_live_sources(
         %Client{} = client,
         source_location_name,
@@ -2750,6 +2778,7 @@ defmodule AWS.MediaTailor do
   @spec list_playback_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_playback_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_playback_configurations(
         %Client{} = client,
         max_results \\ nil,
@@ -2785,6 +2814,7 @@ defmodule AWS.MediaTailor do
   @spec list_prefetch_schedules(map(), String.t(), list_prefetch_schedules_request(), list()) ::
           {:ok, list_prefetch_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_prefetch_schedules(
         %Client{} = client,
         playback_configuration_name,
@@ -2819,6 +2849,7 @@ defmodule AWS.MediaTailor do
   @spec list_source_locations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_source_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_source_locations(
         %Client{} = client,
         max_results \\ nil,
@@ -2858,6 +2889,7 @@ defmodule AWS.MediaTailor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2877,6 +2909,7 @@ defmodule AWS.MediaTailor do
   @spec list_vod_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_vod_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_vod_sources(
         %Client{} = client,
         source_location_name,
@@ -2915,6 +2948,7 @@ defmodule AWS.MediaTailor do
   @spec put_channel_policy(map(), String.t(), put_channel_policy_request(), list()) ::
           {:ok, put_channel_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_channel_policy(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/policy"
     headers = []
@@ -2945,6 +2979,7 @@ defmodule AWS.MediaTailor do
   @spec put_playback_configuration(map(), put_playback_configuration_request(), list()) ::
           {:ok, put_playback_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_playback_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/playbackConfiguration"
     headers = []
@@ -2975,6 +3010,7 @@ defmodule AWS.MediaTailor do
   @spec start_channel(map(), String.t(), start_channel_request(), list()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def start_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/start"
     headers = []
@@ -3005,6 +3041,7 @@ defmodule AWS.MediaTailor do
   @spec stop_channel(map(), String.t(), stop_channel_request(), list()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def stop_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}/stop"
     headers = []
@@ -3036,6 +3073,7 @@ defmodule AWS.MediaTailor do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3064,6 +3102,7 @@ defmodule AWS.MediaTailor do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3100,6 +3139,7 @@ defmodule AWS.MediaTailor do
   @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channel/#{AWS.Util.encode_uri(channel_name)}"
     headers = []
@@ -3127,6 +3167,7 @@ defmodule AWS.MediaTailor do
   @spec update_live_source(map(), String.t(), String.t(), update_live_source_request(), list()) ::
           {:ok, update_live_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_live_source(
         %Client{} = client,
         live_source_name,
@@ -3162,6 +3203,7 @@ defmodule AWS.MediaTailor do
   @spec update_program(map(), String.t(), String.t(), update_program_request(), list()) ::
           {:ok, update_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_program(%Client{} = client, channel_name, program_name, input, options \\ []) do
     url_path =
       "/channel/#{AWS.Util.encode_uri(channel_name)}/program/#{AWS.Util.encode_uri(program_name)}"
@@ -3195,6 +3237,7 @@ defmodule AWS.MediaTailor do
   @spec update_source_location(map(), String.t(), update_source_location_request(), list()) ::
           {:ok, update_source_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_source_location(%Client{} = client, source_location_name, input, options \\ []) do
     url_path = "/sourceLocation/#{AWS.Util.encode_uri(source_location_name)}"
     headers = []
@@ -3222,6 +3265,7 @@ defmodule AWS.MediaTailor do
   @spec update_vod_source(map(), String.t(), String.t(), update_vod_source_request(), list()) ::
           {:ok, update_vod_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_vod_source(
         %Client{} = client,
         source_location_name,

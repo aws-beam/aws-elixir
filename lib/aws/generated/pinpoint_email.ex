@@ -1765,6 +1765,7 @@ defmodule AWS.PinpointEmail do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/configuration-sets"
@@ -1809,6 +1810,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(
         %Client{} = client,
@@ -1851,6 +1853,7 @@ defmodule AWS.PinpointEmail do
   @spec create_dedicated_ip_pool(map(), create_dedicated_ip_pool_request(), list()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dedicated_ip_pool_errors()}
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools"
@@ -1895,6 +1898,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deliverability_test_report_errors()}
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test"
@@ -1946,6 +1950,7 @@ defmodule AWS.PinpointEmail do
   @spec create_email_identity(map(), create_email_identity_request(), list()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_identity_errors()}
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/identities"
@@ -1982,6 +1987,7 @@ defmodule AWS.PinpointEmail do
   @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -2024,6 +2030,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
@@ -2060,6 +2067,7 @@ defmodule AWS.PinpointEmail do
   @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dedicated_ip_pool_errors()}
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
     url_path = "/v1/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
@@ -2092,6 +2100,7 @@ defmodule AWS.PinpointEmail do
   @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_identity_errors()}
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -2122,6 +2131,7 @@ defmodule AWS.PinpointEmail do
   @spec get_account(map(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v1/email/account"
@@ -2139,6 +2149,7 @@ defmodule AWS.PinpointEmail do
   @spec get_blacklist_reports(map(), String.t(), list()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_blacklist_reports_errors()}
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/blacklist-report"
@@ -2174,6 +2185,7 @@ defmodule AWS.PinpointEmail do
   @spec get_configuration_set(map(), String.t(), list()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_set_errors()}
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v1/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -2200,6 +2212,7 @@ defmodule AWS.PinpointEmail do
   @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_set_event_destinations_errors()}
   def get_configuration_set_event_destinations(
         %Client{} = client,
@@ -2227,6 +2240,7 @@ defmodule AWS.PinpointEmail do
   @spec get_dedicated_ip(map(), String.t(), list()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dedicated_ip_errors()}
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
@@ -2245,6 +2259,7 @@ defmodule AWS.PinpointEmail do
   @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dedicated_ips_errors()}
   def get_dedicated_ips(
         %Client{} = client,
@@ -2302,6 +2317,7 @@ defmodule AWS.PinpointEmail do
   @spec get_deliverability_dashboard_options(map(), list()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deliverability_dashboard_options_errors()}
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
@@ -2319,6 +2335,7 @@ defmodule AWS.PinpointEmail do
   @spec get_deliverability_test_report(map(), String.t(), list()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deliverability_test_report_errors()}
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
@@ -2341,6 +2358,7 @@ defmodule AWS.PinpointEmail do
   @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_deliverability_campaign_errors()}
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
@@ -2360,6 +2378,7 @@ defmodule AWS.PinpointEmail do
   @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_statistics_report_errors()}
   def get_domain_statistics_report(
         %Client{} = client,
@@ -2403,6 +2422,7 @@ defmodule AWS.PinpointEmail do
   @spec get_email_identity(map(), String.t(), list()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_identity_errors()}
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -2430,6 +2450,7 @@ defmodule AWS.PinpointEmail do
   @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
@@ -2468,6 +2489,7 @@ defmodule AWS.PinpointEmail do
   @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dedicated_ip_pools_errors()}
   def list_dedicated_ip_pools(
         %Client{} = client,
@@ -2510,6 +2532,7 @@ defmodule AWS.PinpointEmail do
   @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deliverability_test_reports_errors()}
   def list_deliverability_test_reports(
         %Client{} = client,
@@ -2561,6 +2584,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_deliverability_campaigns_errors()}
   def list_domain_deliverability_campaigns(
         %Client{} = client,
@@ -2621,6 +2645,7 @@ defmodule AWS.PinpointEmail do
   @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_email_identities_errors()}
   def list_email_identities(
         %Client{} = client,
@@ -2666,6 +2691,7 @@ defmodule AWS.PinpointEmail do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/email/tags"
@@ -2694,6 +2720,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_dedicated_ip_warmup_attributes_errors()}
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/account/dedicated-ips/warmup"
@@ -2722,6 +2749,7 @@ defmodule AWS.PinpointEmail do
   @spec put_account_sending_attributes(map(), put_account_sending_attributes_request(), list()) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_sending_attributes_errors()}
   def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/account/sending"
@@ -2758,6 +2786,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_delivery_options_errors()}
   def put_configuration_set_delivery_options(
         %Client{} = client,
@@ -2800,6 +2829,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_reputation_options_errors()}
   def put_configuration_set_reputation_options(
         %Client{} = client,
@@ -2842,6 +2872,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_sending_options_errors()}
   def put_configuration_set_sending_options(
         %Client{} = client,
@@ -2884,6 +2915,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_tracking_options_errors()}
   def put_configuration_set_tracking_options(
         %Client{} = client,
@@ -2926,6 +2958,7 @@ defmodule AWS.PinpointEmail do
   @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dedicated_ip_in_pool_errors()}
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
@@ -2956,6 +2989,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dedicated_ip_warmup_attributes_errors()}
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v1/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
@@ -3001,6 +3035,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_deliverability_dashboard_option_errors()}
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/deliverability-dashboard"
@@ -3034,6 +3069,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_dkim_attributes_errors()}
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v1/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
@@ -3088,6 +3124,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_feedback_attributes_errors()}
   def put_email_identity_feedback_attributes(
         %Client{} = client,
@@ -3127,6 +3164,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_mail_from_attributes_errors()}
   def put_email_identity_mail_from_attributes(
         %Client{} = client,
@@ -3177,6 +3215,7 @@ defmodule AWS.PinpointEmail do
   @spec send_email(map(), send_email_request(), list()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_email_errors()}
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/outbound-emails"
@@ -3219,6 +3258,7 @@ defmodule AWS.PinpointEmail do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/tags"
@@ -3247,6 +3287,7 @@ defmodule AWS.PinpointEmail do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/email/tags"
@@ -3295,6 +3336,7 @@ defmodule AWS.PinpointEmail do
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,

@@ -806,6 +806,7 @@ defmodule AWS.CognitoSync do
   @spec bulk_publish(map(), String.t(), bulk_publish_request(), list()) ::
           {:ok, bulk_publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, bulk_publish_errors()}
   def bulk_publish(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/bulkpublish"
@@ -850,6 +851,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(
         %Client{} = client,
@@ -896,6 +898,7 @@ defmodule AWS.CognitoSync do
   @spec describe_dataset(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(
         %Client{} = client,
@@ -975,6 +978,7 @@ defmodule AWS.CognitoSync do
   @spec describe_identity_pool_usage(map(), String.t(), list()) ::
           {:ok, describe_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_identity_pool_usage_errors()}
   def describe_identity_pool_usage(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}"
@@ -1049,6 +1053,7 @@ defmodule AWS.CognitoSync do
   @spec describe_identity_usage(map(), String.t(), String.t(), list()) ::
           {:ok, describe_identity_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_identity_usage_errors()}
   def describe_identity_usage(%Client{} = client, identity_id, identity_pool_id, options \\ []) do
     url_path =
@@ -1071,6 +1076,7 @@ defmodule AWS.CognitoSync do
   @spec get_bulk_publish_details(map(), String.t(), get_bulk_publish_details_request(), list()) ::
           {:ok, get_bulk_publish_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bulk_publish_details_errors()}
   def get_bulk_publish_details(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/getBulkPublishDetails"
@@ -1103,6 +1109,7 @@ defmodule AWS.CognitoSync do
   @spec get_cognito_events(map(), String.t(), list()) ::
           {:ok, get_cognito_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cognito_events_errors()}
   def get_cognito_events(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
@@ -1175,6 +1182,7 @@ defmodule AWS.CognitoSync do
   @spec get_identity_pool_configuration(map(), String.t(), list()) ::
           {:ok, get_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_identity_pool_configuration_errors()}
   def get_identity_pool_configuration(%Client{} = client, identity_pool_id, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
@@ -1261,6 +1269,7 @@ defmodule AWS.CognitoSync do
   @spec list_datasets(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(
         %Client{} = client,
@@ -1366,6 +1375,7 @@ defmodule AWS.CognitoSync do
   @spec list_identity_pool_usage(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_identity_pool_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_pool_usage_errors()}
   def list_identity_pool_usage(
         %Client{} = client,
@@ -1477,6 +1487,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, list_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_records_errors()}
   def list_records(
         %Client{} = client,
@@ -1586,6 +1597,7 @@ defmodule AWS.CognitoSync do
   @spec register_device(map(), String.t(), String.t(), register_device_request(), list()) ::
           {:ok, register_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_device_errors()}
   def register_device(%Client{} = client, identity_id, identity_pool_id, input, options \\ []) do
     url_path =
@@ -1623,6 +1635,7 @@ defmodule AWS.CognitoSync do
   @spec set_cognito_events(map(), String.t(), set_cognito_events_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_cognito_events_errors()}
   def set_cognito_events(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/events"
@@ -1714,6 +1727,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, set_identity_pool_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_identity_pool_configuration_errors()}
   def set_identity_pool_configuration(%Client{} = client, identity_pool_id, input, options \\ []) do
     url_path = "/identitypools/#{AWS.Util.encode_uri(identity_pool_id)}/configuration"
@@ -1802,6 +1816,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, subscribe_to_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, subscribe_to_dataset_errors()}
   def subscribe_to_dataset(
         %Client{} = client,
@@ -1901,6 +1916,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, unsubscribe_from_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unsubscribe_from_dataset_errors()}
   def unsubscribe_from_dataset(
         %Client{} = client,
@@ -1961,6 +1977,7 @@ defmodule AWS.CognitoSync do
         ) ::
           {:ok, update_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_records_errors()}
   def update_records(
         %Client{} = client,

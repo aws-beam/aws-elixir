@@ -3410,6 +3410,7 @@ defmodule AWS.WAFRegional do
   @spec associate_web_acl(map(), associate_web_acl_request(), list()) ::
           {:ok, associate_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_web_acl_errors()}
   def associate_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3468,6 +3469,7 @@ defmodule AWS.WAFRegional do
   @spec create_byte_match_set(map(), create_byte_match_set_request(), list()) ::
           {:ok, create_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_byte_match_set_errors()}
   def create_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3522,6 +3524,7 @@ defmodule AWS.WAFRegional do
   @spec create_geo_match_set(map(), create_geo_match_set_request(), list()) ::
           {:ok, create_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_geo_match_set_errors()}
   def create_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3579,6 +3582,7 @@ defmodule AWS.WAFRegional do
   @spec create_ip_set(map(), create_ip_set_request(), list()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3690,6 +3694,7 @@ defmodule AWS.WAFRegional do
   @spec create_rate_based_rule(map(), create_rate_based_rule_request(), list()) ::
           {:ok, create_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rate_based_rule_errors()}
   def create_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3748,6 +3753,7 @@ defmodule AWS.WAFRegional do
   @spec create_regex_match_set(map(), create_regex_match_set_request(), list()) ::
           {:ok, create_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_regex_match_set_errors()}
   def create_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3798,6 +3804,7 @@ defmodule AWS.WAFRegional do
   @spec create_regex_pattern_set(map(), create_regex_pattern_set_request(), list()) ::
           {:ok, create_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3874,6 +3881,7 @@ defmodule AWS.WAFRegional do
   @spec create_rule(map(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3917,6 +3925,7 @@ defmodule AWS.WAFRegional do
   @spec create_rule_group(map(), create_rule_group_request(), list()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3974,6 +3983,7 @@ defmodule AWS.WAFRegional do
   @spec create_size_constraint_set(map(), create_size_constraint_set_request(), list()) ::
           {:ok, create_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_size_constraint_set_errors()}
   def create_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4027,6 +4037,7 @@ defmodule AWS.WAFRegional do
   @spec create_sql_injection_match_set(map(), create_sql_injection_match_set_request(), list()) ::
           {:ok, create_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sql_injection_match_set_errors()}
   def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4096,6 +4107,7 @@ defmodule AWS.WAFRegional do
   @spec create_web_acl(map(), create_web_acl_request(), list()) ::
           {:ok, create_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4123,6 +4135,7 @@ defmodule AWS.WAFRegional do
   @spec create_web_acl_migration_stack(map(), create_web_acl_migration_stack_request(), list()) ::
           {:ok, create_web_acl_migration_stack_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_web_acl_migration_stack_errors()}
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4176,6 +4189,7 @@ defmodule AWS.WAFRegional do
   @spec create_xss_match_set(map(), create_xss_match_set_request(), list()) ::
           {:ok, create_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_xss_match_set_errors()}
   def create_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4220,6 +4234,7 @@ defmodule AWS.WAFRegional do
   @spec delete_byte_match_set(map(), delete_byte_match_set_request(), list()) ::
           {:ok, delete_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_byte_match_set_errors()}
   def delete_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4264,6 +4279,7 @@ defmodule AWS.WAFRegional do
   @spec delete_geo_match_set(map(), delete_geo_match_set_request(), list()) ::
           {:ok, delete_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_geo_match_set_errors()}
   def delete_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4308,6 +4324,7 @@ defmodule AWS.WAFRegional do
   @spec delete_ip_set(map(), delete_ip_set_request(), list()) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4335,6 +4352,7 @@ defmodule AWS.WAFRegional do
   @spec delete_logging_configuration(map(), delete_logging_configuration_request(), list()) ::
           {:ok, delete_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4363,6 +4381,7 @@ defmodule AWS.WAFRegional do
   @spec delete_permission_policy(map(), delete_permission_policy_request(), list()) ::
           {:ok, delete_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4408,6 +4427,7 @@ defmodule AWS.WAFRegional do
   @spec delete_rate_based_rule(map(), delete_rate_based_rule_request(), list()) ::
           {:ok, delete_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rate_based_rule_errors()}
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4452,6 +4472,7 @@ defmodule AWS.WAFRegional do
   @spec delete_regex_match_set(map(), delete_regex_match_set_request(), list()) ::
           {:ok, delete_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_regex_match_set_errors()}
   def delete_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4480,6 +4501,7 @@ defmodule AWS.WAFRegional do
   @spec delete_regex_pattern_set(map(), delete_regex_pattern_set_request(), list()) ::
           {:ok, delete_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4524,6 +4546,7 @@ defmodule AWS.WAFRegional do
   @spec delete_rule(map(), delete_rule_request(), list()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4568,6 +4591,7 @@ defmodule AWS.WAFRegional do
   @spec delete_rule_group(map(), delete_rule_group_request(), list()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4613,6 +4637,7 @@ defmodule AWS.WAFRegional do
   @spec delete_size_constraint_set(map(), delete_size_constraint_set_request(), list()) ::
           {:ok, delete_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_size_constraint_set_errors()}
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4661,6 +4686,7 @@ defmodule AWS.WAFRegional do
   @spec delete_sql_injection_match_set(map(), delete_sql_injection_match_set_request(), list()) ::
           {:ok, delete_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sql_injection_match_set_errors()}
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4702,6 +4728,7 @@ defmodule AWS.WAFRegional do
   @spec delete_web_acl(map(), delete_web_acl_request(), list()) ::
           {:ok, delete_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4746,6 +4773,7 @@ defmodule AWS.WAFRegional do
   @spec delete_xss_match_set(map(), delete_xss_match_set_request(), list()) ::
           {:ok, delete_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_xss_match_set_errors()}
   def delete_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4773,6 +4801,7 @@ defmodule AWS.WAFRegional do
   @spec disassociate_web_acl(map(), disassociate_web_acl_request(), list()) ::
           {:ok, disassociate_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_web_acl_errors()}
   def disassociate_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4799,6 +4828,7 @@ defmodule AWS.WAFRegional do
   @spec get_byte_match_set(map(), get_byte_match_set_request(), list()) ::
           {:ok, get_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_byte_match_set_errors()}
   def get_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4841,6 +4871,7 @@ defmodule AWS.WAFRegional do
   @spec get_change_token(map(), get_change_token_request(), list()) ::
           {:ok, get_change_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_change_token_errors()}
   def get_change_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4884,6 +4915,7 @@ defmodule AWS.WAFRegional do
   @spec get_change_token_status(map(), get_change_token_status_request(), list()) ::
           {:ok, get_change_token_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_change_token_status_errors()}
   def get_change_token_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4910,6 +4942,7 @@ defmodule AWS.WAFRegional do
   @spec get_geo_match_set(map(), get_geo_match_set_request(), list()) ::
           {:ok, get_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_geo_match_set_errors()}
   def get_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4936,6 +4969,7 @@ defmodule AWS.WAFRegional do
   @spec get_ip_set(map(), get_ip_set_request(), list()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4962,6 +4996,7 @@ defmodule AWS.WAFRegional do
   @spec get_logging_configuration(map(), get_logging_configuration_request(), list()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4988,6 +5023,7 @@ defmodule AWS.WAFRegional do
   @spec get_permission_policy(map(), get_permission_policy_request(), list()) ::
           {:ok, get_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5016,6 +5052,7 @@ defmodule AWS.WAFRegional do
   @spec get_rate_based_rule(map(), get_rate_based_rule_request(), list()) ::
           {:ok, get_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rate_based_rule_errors()}
   def get_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5050,6 +5087,7 @@ defmodule AWS.WAFRegional do
         ) ::
           {:ok, get_rate_based_rule_managed_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rate_based_rule_managed_keys_errors()}
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5076,6 +5114,7 @@ defmodule AWS.WAFRegional do
   @spec get_regex_match_set(map(), get_regex_match_set_request(), list()) ::
           {:ok, get_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_regex_match_set_errors()}
   def get_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5102,6 +5141,7 @@ defmodule AWS.WAFRegional do
   @spec get_regex_pattern_set(map(), get_regex_pattern_set_request(), list()) ::
           {:ok, get_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5129,6 +5169,7 @@ defmodule AWS.WAFRegional do
   @spec get_rule(map(), get_rule_request(), list()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5158,6 +5199,7 @@ defmodule AWS.WAFRegional do
   @spec get_rule_group(map(), get_rule_group_request(), list()) ::
           {:ok, get_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5195,6 +5237,7 @@ defmodule AWS.WAFRegional do
   @spec get_sampled_requests(map(), get_sampled_requests_request(), list()) ::
           {:ok, get_sampled_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5221,6 +5264,7 @@ defmodule AWS.WAFRegional do
   @spec get_size_constraint_set(map(), get_size_constraint_set_request(), list()) ::
           {:ok, get_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_size_constraint_set_errors()}
   def get_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5248,6 +5292,7 @@ defmodule AWS.WAFRegional do
   @spec get_sql_injection_match_set(map(), get_sql_injection_match_set_request(), list()) ::
           {:ok, get_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sql_injection_match_set_errors()}
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5274,6 +5319,7 @@ defmodule AWS.WAFRegional do
   @spec get_web_acl(map(), get_web_acl_request(), list()) ::
           {:ok, get_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5301,6 +5347,7 @@ defmodule AWS.WAFRegional do
   @spec get_web_acl_for_resource(map(), get_web_acl_for_resource_request(), list()) ::
           {:ok, get_web_acl_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_web_acl_for_resource_errors()}
   def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5327,6 +5374,7 @@ defmodule AWS.WAFRegional do
   @spec get_xss_match_set(map(), get_xss_match_set_request(), list()) ::
           {:ok, get_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_xss_match_set_errors()}
   def get_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5357,6 +5405,7 @@ defmodule AWS.WAFRegional do
         ) ::
           {:ok, list_activated_rules_in_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_activated_rules_in_rule_group_errors()}
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5383,6 +5432,7 @@ defmodule AWS.WAFRegional do
   @spec list_byte_match_sets(map(), list_byte_match_sets_request(), list()) ::
           {:ok, list_byte_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_byte_match_sets_errors()}
   def list_byte_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5409,6 +5459,7 @@ defmodule AWS.WAFRegional do
   @spec list_geo_match_sets(map(), list_geo_match_sets_request(), list()) ::
           {:ok, list_geo_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_geo_match_sets_errors()}
   def list_geo_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5435,6 +5486,7 @@ defmodule AWS.WAFRegional do
   @spec list_ip_sets(map(), list_ip_sets_request(), list()) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5461,6 +5513,7 @@ defmodule AWS.WAFRegional do
   @spec list_logging_configurations(map(), list_logging_configurations_request(), list()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5487,6 +5540,7 @@ defmodule AWS.WAFRegional do
   @spec list_rate_based_rules(map(), list_rate_based_rules_request(), list()) ::
           {:ok, list_rate_based_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rate_based_rules_errors()}
   def list_rate_based_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5513,6 +5567,7 @@ defmodule AWS.WAFRegional do
   @spec list_regex_match_sets(map(), list_regex_match_sets_request(), list()) ::
           {:ok, list_regex_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_regex_match_sets_errors()}
   def list_regex_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5539,6 +5594,7 @@ defmodule AWS.WAFRegional do
   @spec list_regex_pattern_sets(map(), list_regex_pattern_sets_request(), list()) ::
           {:ok, list_regex_pattern_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5565,6 +5621,7 @@ defmodule AWS.WAFRegional do
   @spec list_resources_for_web_acl(map(), list_resources_for_web_acl_request(), list()) ::
           {:ok, list_resources_for_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_for_web_acl_errors()}
   def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5591,6 +5648,7 @@ defmodule AWS.WAFRegional do
   @spec list_rule_groups(map(), list_rule_groups_request(), list()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5617,6 +5675,7 @@ defmodule AWS.WAFRegional do
   @spec list_rules(map(), list_rules_request(), list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5643,6 +5702,7 @@ defmodule AWS.WAFRegional do
   @spec list_size_constraint_sets(map(), list_size_constraint_sets_request(), list()) ::
           {:ok, list_size_constraint_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_size_constraint_sets_errors()}
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5669,6 +5729,7 @@ defmodule AWS.WAFRegional do
   @spec list_sql_injection_match_sets(map(), list_sql_injection_match_sets_request(), list()) ::
           {:ok, list_sql_injection_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sql_injection_match_sets_errors()}
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5695,6 +5756,7 @@ defmodule AWS.WAFRegional do
   @spec list_subscribed_rule_groups(map(), list_subscribed_rule_groups_request(), list()) ::
           {:ok, list_subscribed_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscribed_rule_groups_errors()}
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5729,6 +5791,7 @@ defmodule AWS.WAFRegional do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5755,6 +5818,7 @@ defmodule AWS.WAFRegional do
   @spec list_web_acls(map(), list_web_acls_request(), list()) ::
           {:ok, list_web_acls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5781,6 +5845,7 @@ defmodule AWS.WAFRegional do
   @spec list_xss_match_sets(map(), list_xss_match_sets_request(), list()) ::
           {:ok, list_xss_match_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_xss_match_sets_errors()}
   def list_xss_match_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5831,6 +5896,7 @@ defmodule AWS.WAFRegional do
   @spec put_logging_configuration(map(), put_logging_configuration_request(), list()) ::
           {:ok, put_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5892,6 +5958,7 @@ defmodule AWS.WAFRegional do
   @spec put_permission_policy(map(), put_permission_policy_request(), list()) ::
           {:ok, put_permission_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5927,6 +5994,7 @@ defmodule AWS.WAFRegional do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5951,6 +6019,7 @@ defmodule AWS.WAFRegional do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6025,6 +6094,7 @@ defmodule AWS.WAFRegional do
   @spec update_byte_match_set(map(), update_byte_match_set_request(), list()) ::
           {:ok, update_byte_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_byte_match_set_errors()}
   def update_byte_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6088,6 +6158,7 @@ defmodule AWS.WAFRegional do
   @spec update_geo_match_set(map(), update_geo_match_set_request(), list()) ::
           {:ok, update_geo_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_geo_match_set_errors()}
   def update_geo_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6183,6 +6254,7 @@ defmodule AWS.WAFRegional do
   @spec update_ip_set(map(), update_ip_set_request(), list()) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6256,6 +6328,7 @@ defmodule AWS.WAFRegional do
   @spec update_rate_based_rule(map(), update_rate_based_rule_request(), list()) ::
           {:ok, update_rate_based_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rate_based_rule_errors()}
   def update_rate_based_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6326,6 +6399,7 @@ defmodule AWS.WAFRegional do
   @spec update_regex_match_set(map(), update_regex_match_set_request(), list()) ::
           {:ok, update_regex_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_regex_match_set_errors()}
   def update_regex_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6394,6 +6468,7 @@ defmodule AWS.WAFRegional do
   @spec update_regex_pattern_set(map(), update_regex_pattern_set_request(), list()) ::
           {:ok, update_regex_pattern_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6466,6 +6541,7 @@ defmodule AWS.WAFRegional do
   @spec update_rule(map(), update_rule_request(), list()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6520,6 +6596,7 @@ defmodule AWS.WAFRegional do
   @spec update_rule_group(map(), update_rule_group_request(), list()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6602,6 +6679,7 @@ defmodule AWS.WAFRegional do
   @spec update_size_constraint_set(map(), update_size_constraint_set_request(), list()) ::
           {:ok, update_size_constraint_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_size_constraint_set_errors()}
   def update_size_constraint_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6677,6 +6755,7 @@ defmodule AWS.WAFRegional do
   @spec update_sql_injection_match_set(map(), update_sql_injection_match_set_request(), list()) ::
           {:ok, update_sql_injection_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sql_injection_match_set_errors()}
   def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6783,6 +6862,7 @@ defmodule AWS.WAFRegional do
   @spec update_web_acl(map(), update_web_acl_request(), list()) ::
           {:ok, update_web_acl_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6858,6 +6938,7 @@ defmodule AWS.WAFRegional do
   @spec update_xss_match_set(map(), update_xss_match_set_request(), list()) ::
           {:ok, update_xss_match_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_xss_match_set_errors()}
   def update_xss_match_set(%Client{} = client, input, options \\ []) do
     meta = metadata()

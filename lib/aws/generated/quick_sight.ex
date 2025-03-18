@@ -19408,6 +19408,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, batch_create_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_topic_reviewed_answer_errors()}
   def batch_create_topic_reviewed_answer(
         %Client{} = client,
@@ -19450,6 +19451,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, batch_delete_topic_reviewed_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_topic_reviewed_answer_errors()}
   def batch_delete_topic_reviewed_answer(
         %Client{} = client,
@@ -19493,6 +19495,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, cancel_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_ingestion_errors()}
   def cancel_ingestion(
         %Client{} = client,
@@ -19573,6 +19576,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_customization_errors()}
   def create_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -19648,6 +19652,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_subscription_errors()}
   def create_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -19678,6 +19683,7 @@ defmodule AWS.QuickSight do
   @spec create_analysis(map(), String.t(), String.t(), create_analysis_request(), list()) ::
           {:ok, create_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_analysis_errors()}
   def create_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -19708,6 +19714,7 @@ defmodule AWS.QuickSight do
   @spec create_brand(map(), String.t(), String.t(), create_brand_request(), list()) ::
           {:ok, create_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_brand_errors()}
   def create_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
     url_path =
@@ -19738,6 +19745,7 @@ defmodule AWS.QuickSight do
   @spec create_custom_permissions(map(), String.t(), create_custom_permissions_request(), list()) ::
           {:ok, create_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_permissions_errors()}
   def create_custom_permissions(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/custom-permissions"
@@ -19786,6 +19794,7 @@ defmodule AWS.QuickSight do
   @spec create_dashboard(map(), String.t(), String.t(), create_dashboard_request(), list()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dashboard_errors()}
   def create_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
@@ -19818,6 +19827,7 @@ defmodule AWS.QuickSight do
   @spec create_data_set(map(), String.t(), create_data_set_request(), list()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_set_errors()}
   def create_data_set(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets"
@@ -19846,6 +19856,7 @@ defmodule AWS.QuickSight do
   @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sources"
@@ -19874,6 +19885,7 @@ defmodule AWS.QuickSight do
   @spec create_folder(map(), String.t(), String.t(), create_folder_request(), list()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_folder_errors()}
   def create_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
     url_path =
@@ -19912,6 +19924,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_folder_membership_errors()}
   def create_folder_membership(
         %Client{} = client,
@@ -19964,6 +19977,7 @@ defmodule AWS.QuickSight do
   @spec create_group(map(), String.t(), String.t(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
@@ -20002,6 +20016,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_membership_errors()}
   def create_group_membership(
         %Client{} = client,
@@ -20054,6 +20069,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_iam_policy_assignment_errors()}
   def create_iam_policy_assignment(
         %Client{} = client,
@@ -20111,6 +20127,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ingestion_errors()}
   def create_ingestion(
         %Client{} = client,
@@ -20162,6 +20179,7 @@ defmodule AWS.QuickSight do
   @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -20198,6 +20216,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_refresh_schedule_errors()}
   def create_refresh_schedule(
         %Client{} = client,
@@ -20243,6 +20262,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_role_membership_errors()}
   def create_role_membership(
         %Client{} = client,
@@ -20296,6 +20316,7 @@ defmodule AWS.QuickSight do
   @spec create_template(map(), String.t(), String.t(), create_template_request(), list()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_errors()}
   def create_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
     url_path =
@@ -20333,6 +20354,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_alias_errors()}
   def create_template_alias(
         %Client{} = client,
@@ -20375,6 +20397,7 @@ defmodule AWS.QuickSight do
   @spec create_theme(map(), String.t(), String.t(), create_theme_request(), list()) ::
           {:ok, create_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_theme_errors()}
   def create_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
@@ -20412,6 +20435,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_theme_alias_errors()}
   def create_theme_alias(
         %Client{} = client,
@@ -20449,6 +20473,7 @@ defmodule AWS.QuickSight do
   @spec create_topic(map(), String.t(), create_topic_request(), list()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_topic_errors()}
   def create_topic(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/topics"
@@ -20483,6 +20508,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, create_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_topic_refresh_schedule_errors()}
   def create_topic_refresh_schedule(
         %Client{} = client,
@@ -20519,6 +20545,7 @@ defmodule AWS.QuickSight do
   @spec create_vpc_connection(map(), String.t(), create_vpc_connection_request(), list()) ::
           {:ok, create_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_connection_errors()}
   def create_vpc_connection(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/vpc-connections"
@@ -20554,6 +20581,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_customization_errors()}
   def delete_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -20599,6 +20627,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_subscription_errors()}
   def delete_account_subscription(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -20647,6 +20676,7 @@ defmodule AWS.QuickSight do
   @spec delete_analysis(map(), String.t(), String.t(), delete_analysis_request(), list()) ::
           {:ok, delete_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_analysis_errors()}
   def delete_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -20683,6 +20713,7 @@ defmodule AWS.QuickSight do
   @spec delete_brand(map(), String.t(), String.t(), delete_brand_request(), list()) ::
           {:ok, delete_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_brand_errors()}
   def delete_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
     url_path =
@@ -20713,6 +20744,7 @@ defmodule AWS.QuickSight do
   @spec delete_brand_assignment(map(), String.t(), delete_brand_assignment_request(), list()) ::
           {:ok, delete_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_brand_assignment_errors()}
   def delete_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
@@ -20747,6 +20779,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_permissions_errors()}
   def delete_custom_permissions(
         %Client{} = client,
@@ -20783,6 +20816,7 @@ defmodule AWS.QuickSight do
   @spec delete_dashboard(map(), String.t(), String.t(), delete_dashboard_request(), list()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dashboard_errors()}
   def delete_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
@@ -20818,6 +20852,7 @@ defmodule AWS.QuickSight do
   @spec delete_data_set(map(), String.t(), String.t(), delete_data_set_request(), list()) ::
           {:ok, delete_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_set_errors()}
   def delete_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
     url_path =
@@ -20854,6 +20889,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_set_refresh_properties_errors()}
   def delete_data_set_refresh_properties(
         %Client{} = client,
@@ -20893,6 +20929,7 @@ defmodule AWS.QuickSight do
   @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
     url_path =
@@ -20928,6 +20965,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_default_q_business_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_default_q_business_application_errors()}
   def delete_default_q_business_application(
         %Client{} = client,
@@ -20966,6 +21004,7 @@ defmodule AWS.QuickSight do
   @spec delete_folder(map(), String.t(), String.t(), delete_folder_request(), list()) ::
           {:ok, delete_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_folder_errors()}
   def delete_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
     url_path =
@@ -21004,6 +21043,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_folder_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_folder_membership_errors()}
   def delete_folder_membership(
         %Client{} = client,
@@ -21042,6 +21082,7 @@ defmodule AWS.QuickSight do
   @spec delete_group(map(), String.t(), String.t(), String.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(
         %Client{} = client,
@@ -21087,6 +21128,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(
         %Client{} = client,
@@ -21132,6 +21174,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_iam_policy_assignment_errors()}
   def delete_iam_policy_assignment(
         %Client{} = client,
@@ -21179,6 +21222,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_propagation_config_errors()}
   def delete_identity_propagation_config(
         %Client{} = client,
@@ -21221,6 +21265,7 @@ defmodule AWS.QuickSight do
   @spec delete_namespace(map(), String.t(), String.t(), delete_namespace_request(), list()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
@@ -21258,6 +21303,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_refresh_schedule_errors()}
   def delete_refresh_schedule(
         %Client{} = client,
@@ -21302,6 +21348,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_custom_permission_errors()}
   def delete_role_custom_permission(
         %Client{} = client,
@@ -21347,6 +21394,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_role_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_membership_errors()}
   def delete_role_membership(
         %Client{} = client,
@@ -21385,6 +21433,7 @@ defmodule AWS.QuickSight do
   @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_errors()}
   def delete_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
     url_path =
@@ -21430,6 +21479,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_alias_errors()}
   def delete_template_alias(
         %Client{} = client,
@@ -21467,6 +21517,7 @@ defmodule AWS.QuickSight do
   @spec delete_theme(map(), String.t(), String.t(), delete_theme_request(), list()) ::
           {:ok, delete_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_theme_errors()}
   def delete_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
@@ -21512,6 +21563,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_theme_alias_errors()}
   def delete_theme_alias(
         %Client{} = client,
@@ -21549,6 +21601,7 @@ defmodule AWS.QuickSight do
   @spec delete_topic(map(), String.t(), String.t(), delete_topic_request(), list()) ::
           {:ok, delete_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_topic_errors()}
   def delete_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
     url_path =
@@ -21586,6 +21639,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_topic_refresh_schedule_errors()}
   def delete_topic_refresh_schedule(
         %Client{} = client,
@@ -21627,6 +21681,7 @@ defmodule AWS.QuickSight do
   @spec delete_user(map(), String.t(), String.t(), String.t(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
@@ -21664,6 +21719,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_user_by_principal_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_by_principal_id_errors()}
   def delete_user_by_principal_id(
         %Client{} = client,
@@ -21708,6 +21764,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_user_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_custom_permission_errors()}
   def delete_user_custom_permission(
         %Client{} = client,
@@ -21751,6 +21808,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, delete_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_connection_errors()}
   def delete_vpc_connection(
         %Client{} = client,
@@ -21863,6 +21921,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_customization_errors()}
   def describe_account_customization(
         %Client{} = client,
@@ -21902,6 +21961,7 @@ defmodule AWS.QuickSight do
   @spec describe_account_settings(map(), String.t(), list()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_settings_errors()}
   def describe_account_settings(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
@@ -21924,6 +21984,7 @@ defmodule AWS.QuickSight do
   @spec describe_account_subscription(map(), String.t(), list()) ::
           {:ok, describe_account_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_subscription_errors()}
   def describe_account_subscription(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/account/#{AWS.Util.encode_uri(aws_account_id)}"
@@ -21941,6 +22002,7 @@ defmodule AWS.QuickSight do
   @spec describe_analysis(map(), String.t(), String.t(), list()) ::
           {:ok, describe_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_analysis_errors()}
   def describe_analysis(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
@@ -21969,6 +22031,7 @@ defmodule AWS.QuickSight do
   @spec describe_analysis_definition(map(), String.t(), String.t(), list()) ::
           {:ok, describe_analysis_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_analysis_definition_errors()}
   def describe_analysis_definition(%Client{} = client, analysis_id, aws_account_id, options \\ []) do
     url_path =
@@ -21988,6 +22051,7 @@ defmodule AWS.QuickSight do
   @spec describe_analysis_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_analysis_permissions_errors()}
   def describe_analysis_permissions(
         %Client{} = client,
@@ -22019,6 +22083,7 @@ defmodule AWS.QuickSight do
   @spec describe_asset_bundle_export_job(map(), String.t(), String.t(), list()) ::
           {:ok, describe_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_bundle_export_job_errors()}
   def describe_asset_bundle_export_job(
         %Client{} = client,
@@ -22046,6 +22111,7 @@ defmodule AWS.QuickSight do
   @spec describe_asset_bundle_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, describe_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_bundle_import_job_errors()}
   def describe_asset_bundle_import_job(
         %Client{} = client,
@@ -22070,6 +22136,7 @@ defmodule AWS.QuickSight do
   @spec describe_brand(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_brand_errors()}
   def describe_brand(
         %Client{} = client,
@@ -22102,6 +22169,7 @@ defmodule AWS.QuickSight do
   @spec describe_brand_assignment(map(), String.t(), list()) ::
           {:ok, describe_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_brand_assignment_errors()}
   def describe_brand_assignment(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
@@ -22119,6 +22187,7 @@ defmodule AWS.QuickSight do
   @spec describe_brand_published_version(map(), String.t(), String.t(), list()) ::
           {:ok, describe_brand_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_brand_published_version_errors()}
   def describe_brand_published_version(
         %Client{} = client,
@@ -22143,6 +22212,7 @@ defmodule AWS.QuickSight do
   @spec describe_custom_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_permissions_errors()}
   def describe_custom_permissions(
         %Client{} = client,
@@ -22174,6 +22244,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_errors()}
   def describe_dashboard(
         %Client{} = client,
@@ -22230,6 +22301,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_dashboard_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_definition_errors()}
   def describe_dashboard_definition(
         %Client{} = client,
@@ -22270,6 +22342,7 @@ defmodule AWS.QuickSight do
   @spec describe_dashboard_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_permissions_errors()}
   def describe_dashboard_permissions(
         %Client{} = client,
@@ -22297,6 +22370,7 @@ defmodule AWS.QuickSight do
   @spec describe_dashboard_snapshot_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_snapshot_job_errors()}
   def describe_dashboard_snapshot_job(
         %Client{} = client,
@@ -22328,6 +22402,7 @@ defmodule AWS.QuickSight do
   @spec describe_dashboard_snapshot_job_result(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_dashboard_snapshot_job_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboard_snapshot_job_result_errors()}
   def describe_dashboard_snapshot_job_result(
         %Client{} = client,
@@ -22353,6 +22428,7 @@ defmodule AWS.QuickSight do
   @spec describe_dashboards_q_a_configuration(map(), String.t(), list()) ::
           {:ok, describe_dashboards_q_a_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dashboards_q_a_configuration_errors()}
   def describe_dashboards_q_a_configuration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/dashboards-qa-configuration"
@@ -22372,6 +22448,7 @@ defmodule AWS.QuickSight do
   @spec describe_data_set(map(), String.t(), String.t(), list()) ::
           {:ok, describe_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_set_errors()}
   def describe_data_set(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
@@ -22394,6 +22471,7 @@ defmodule AWS.QuickSight do
   @spec describe_data_set_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_set_permissions_errors()}
   def describe_data_set_permissions(
         %Client{} = client,
@@ -22418,6 +22496,7 @@ defmodule AWS.QuickSight do
   @spec describe_data_set_refresh_properties(map(), String.t(), String.t(), list()) ::
           {:ok, describe_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_set_refresh_properties_errors()}
   def describe_data_set_refresh_properties(
         %Client{} = client,
@@ -22442,6 +22521,7 @@ defmodule AWS.QuickSight do
   @spec describe_data_source(map(), String.t(), String.t(), list()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, aws_account_id, data_source_id, options \\ []) do
     url_path =
@@ -22461,6 +22541,7 @@ defmodule AWS.QuickSight do
   @spec describe_data_source_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_source_permissions_errors()}
   def describe_data_source_permissions(
         %Client{} = client,
@@ -22486,6 +22567,7 @@ defmodule AWS.QuickSight do
   @spec describe_default_q_business_application(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_default_q_business_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_default_q_business_application_errors()}
   def describe_default_q_business_application(
         %Client{} = client,
@@ -22515,6 +22597,7 @@ defmodule AWS.QuickSight do
   @spec describe_folder(map(), String.t(), String.t(), list()) ::
           {:ok, describe_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_folder_errors()}
   def describe_folder(%Client{} = client, aws_account_id, folder_id, options \\ []) do
     url_path =
@@ -22542,6 +22625,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_folder_permissions_errors()}
   def describe_folder_permissions(
         %Client{} = client,
@@ -22601,6 +22685,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_folder_resolved_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_folder_resolved_permissions_errors()}
   def describe_folder_resolved_permissions(
         %Client{} = client,
@@ -22649,6 +22734,7 @@ defmodule AWS.QuickSight do
   @spec describe_group(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, aws_account_id, group_name, namespace, options \\ []) do
     url_path =
@@ -22672,6 +22758,7 @@ defmodule AWS.QuickSight do
   @spec describe_group_membership(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_group_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(
         %Client{} = client,
@@ -22699,6 +22786,7 @@ defmodule AWS.QuickSight do
   @spec describe_iam_policy_assignment(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_iam_policy_assignment_errors()}
   def describe_iam_policy_assignment(
         %Client{} = client,
@@ -22724,6 +22812,7 @@ defmodule AWS.QuickSight do
   @spec describe_ingestion(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ingestion_errors()}
   def describe_ingestion(
         %Client{} = client,
@@ -22749,6 +22838,7 @@ defmodule AWS.QuickSight do
   @spec describe_ip_restriction(map(), String.t(), list()) ::
           {:ok, describe_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ip_restriction_errors()}
   def describe_ip_restriction(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
@@ -22766,6 +22856,7 @@ defmodule AWS.QuickSight do
   @spec describe_key_registration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_key_registration_errors()}
   def describe_key_registration(
         %Client{} = client,
@@ -22795,6 +22886,7 @@ defmodule AWS.QuickSight do
   @spec describe_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_namespace_errors()}
   def describe_namespace(%Client{} = client, aws_account_id, namespace, options \\ []) do
     url_path =
@@ -22814,6 +22906,7 @@ defmodule AWS.QuickSight do
   @spec describe_q_personalization_configuration(map(), String.t(), list()) ::
           {:ok, describe_q_personalization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_q_personalization_configuration_errors()}
   def describe_q_personalization_configuration(%Client{} = client, aws_account_id, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/q-personalization-configuration"
@@ -22831,6 +22924,7 @@ defmodule AWS.QuickSight do
   @spec describe_quick_sight_q_search_configuration(map(), String.t(), list()) ::
           {:ok, describe_quick_sight_q_search_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_quick_sight_q_search_configuration_errors()}
   def describe_quick_sight_q_search_configuration(
         %Client{} = client,
@@ -22854,6 +22948,7 @@ defmodule AWS.QuickSight do
   @spec describe_refresh_schedule(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_refresh_schedule_errors()}
   def describe_refresh_schedule(
         %Client{} = client,
@@ -22879,6 +22974,7 @@ defmodule AWS.QuickSight do
   @spec describe_role_custom_permission(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_role_custom_permission_errors()}
   def describe_role_custom_permission(
         %Client{} = client,
@@ -22911,6 +23007,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_template_errors()}
   def describe_template(
         %Client{} = client,
@@ -22951,6 +23048,7 @@ defmodule AWS.QuickSight do
   @spec describe_template_alias(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_template_alias_errors()}
   def describe_template_alias(
         %Client{} = client,
@@ -22992,6 +23090,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, describe_template_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_template_definition_errors()}
   def describe_template_definition(
         %Client{} = client,
@@ -23032,6 +23131,7 @@ defmodule AWS.QuickSight do
   @spec describe_template_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_template_permissions_errors()}
   def describe_template_permissions(
         %Client{} = client,
@@ -23056,6 +23156,7 @@ defmodule AWS.QuickSight do
   @spec describe_theme(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_theme_errors()}
   def describe_theme(
         %Client{} = client,
@@ -23096,6 +23197,7 @@ defmodule AWS.QuickSight do
   @spec describe_theme_alias(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_theme_alias_errors()}
   def describe_theme_alias(
         %Client{} = client,
@@ -23121,6 +23223,7 @@ defmodule AWS.QuickSight do
   @spec describe_theme_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_theme_permissions_errors()}
   def describe_theme_permissions(%Client{} = client, aws_account_id, theme_id, options \\ []) do
     url_path =
@@ -23140,6 +23243,7 @@ defmodule AWS.QuickSight do
   @spec describe_topic(map(), String.t(), String.t(), list()) ::
           {:ok, describe_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_topic_errors()}
   def describe_topic(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
@@ -23159,6 +23263,7 @@ defmodule AWS.QuickSight do
   @spec describe_topic_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_topic_permissions_errors()}
   def describe_topic_permissions(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
@@ -23178,6 +23283,7 @@ defmodule AWS.QuickSight do
   @spec describe_topic_refresh(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_topic_refresh_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_topic_refresh_errors()}
   def describe_topic_refresh(
         %Client{} = client,
@@ -23203,6 +23309,7 @@ defmodule AWS.QuickSight do
   @spec describe_topic_refresh_schedule(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_topic_refresh_schedule_errors()}
   def describe_topic_refresh_schedule(
         %Client{} = client,
@@ -23228,6 +23335,7 @@ defmodule AWS.QuickSight do
   @spec describe_user(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, aws_account_id, namespace, user_name, options \\ []) do
     url_path =
@@ -23247,6 +23355,7 @@ defmodule AWS.QuickSight do
   @spec describe_vpc_connection(map(), String.t(), String.t(), list()) ::
           {:ok, describe_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_connection_errors()}
   def describe_vpc_connection(
         %Client{} = client,
@@ -23310,6 +23419,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, generate_embed_url_for_anonymous_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_embed_url_for_anonymous_user_errors()}
   def generate_embed_url_for_anonymous_user(
         %Client{} = client,
@@ -23386,6 +23496,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, generate_embed_url_for_registered_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_embed_url_for_registered_user_errors()}
   def generate_embed_url_for_registered_user(
         %Client{} = client,
@@ -23438,6 +23549,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, generate_embed_url_for_registered_user_with_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_embed_url_for_registered_user_with_identity_errors()}
   def generate_embed_url_for_registered_user_with_identity(
         %Client{} = client,
@@ -23520,6 +23632,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, get_dashboard_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dashboard_embed_url_errors()}
   def get_dashboard_embed_url(
         %Client{} = client,
@@ -23651,6 +23764,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, get_session_embed_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_embed_url_errors()}
   def get_session_embed_url(
         %Client{} = client,
@@ -23697,6 +23811,7 @@ defmodule AWS.QuickSight do
   @spec list_analyses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analyses_errors()}
   def list_analyses(
         %Client{} = client,
@@ -23745,6 +23860,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_asset_bundle_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_bundle_export_jobs_errors()}
   def list_asset_bundle_export_jobs(
         %Client{} = client,
@@ -23792,6 +23908,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_asset_bundle_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_bundle_import_jobs_errors()}
   def list_asset_bundle_import_jobs(
         %Client{} = client,
@@ -23829,6 +23946,7 @@ defmodule AWS.QuickSight do
   @spec list_brands(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_brands_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_brands_errors()}
   def list_brands(
         %Client{} = client,
@@ -23866,6 +23984,7 @@ defmodule AWS.QuickSight do
   @spec list_custom_permissions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_permissions_errors()}
   def list_custom_permissions(
         %Client{} = client,
@@ -23910,6 +24029,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_dashboard_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dashboard_versions_errors()}
   def list_dashboard_versions(
         %Client{} = client,
@@ -23950,6 +24070,7 @@ defmodule AWS.QuickSight do
   @spec list_dashboards(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(
         %Client{} = client,
@@ -23991,6 +24112,7 @@ defmodule AWS.QuickSight do
   @spec list_data_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sets_errors()}
   def list_data_sets(
         %Client{} = client,
@@ -24029,6 +24151,7 @@ defmodule AWS.QuickSight do
   @spec list_data_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(
         %Client{} = client,
@@ -24073,6 +24196,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_folder_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_folder_members_errors()}
   def list_folder_members(
         %Client{} = client,
@@ -24113,6 +24237,7 @@ defmodule AWS.QuickSight do
   @spec list_folders(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_folders_errors()}
   def list_folders(
         %Client{} = client,
@@ -24157,6 +24282,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_folders_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_folders_for_resource_errors()}
   def list_folders_for_resource(
         %Client{} = client,
@@ -24205,6 +24331,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_group_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(
         %Client{} = client,
@@ -24246,6 +24373,7 @@ defmodule AWS.QuickSight do
   @spec list_groups(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(
         %Client{} = client,
@@ -24296,6 +24424,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_iam_policy_assignments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_iam_policy_assignments_errors()}
   def list_iam_policy_assignments(
         %Client{} = client,
@@ -24358,6 +24487,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_iam_policy_assignments_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_iam_policy_assignments_for_user_errors()}
   def list_iam_policy_assignments_for_user(
         %Client{} = client,
@@ -24409,6 +24539,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_identity_propagation_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_propagation_configs_errors()}
   def list_identity_propagation_configs(
         %Client{} = client,
@@ -24446,6 +24577,7 @@ defmodule AWS.QuickSight do
   @spec list_ingestions(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ingestions_errors()}
   def list_ingestions(
         %Client{} = client,
@@ -24488,6 +24620,7 @@ defmodule AWS.QuickSight do
   @spec list_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(
         %Client{} = client,
@@ -24527,6 +24660,7 @@ defmodule AWS.QuickSight do
   @spec list_refresh_schedules(map(), String.t(), String.t(), list()) ::
           {:ok, list_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_refresh_schedules_errors()}
   def list_refresh_schedules(%Client{} = client, aws_account_id, data_set_id, options \\ []) do
     url_path =
@@ -24554,6 +24688,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_role_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_role_memberships_errors()}
   def list_role_memberships(
         %Client{} = client,
@@ -24595,6 +24730,7 @@ defmodule AWS.QuickSight do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
@@ -24619,6 +24755,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_template_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_aliases_errors()}
   def list_template_aliases(
         %Client{} = client,
@@ -24667,6 +24804,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_template_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_versions_errors()}
   def list_template_versions(
         %Client{} = client,
@@ -24707,6 +24845,7 @@ defmodule AWS.QuickSight do
   @spec list_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_templates_errors()}
   def list_templates(
         %Client{} = client,
@@ -24751,6 +24890,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_theme_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_theme_aliases_errors()}
   def list_theme_aliases(
         %Client{} = client,
@@ -24798,6 +24938,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_theme_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_theme_versions_errors()}
   def list_theme_versions(
         %Client{} = client,
@@ -24845,6 +24986,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_themes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_themes_errors()}
   def list_themes(
         %Client{} = client,
@@ -24890,6 +25032,7 @@ defmodule AWS.QuickSight do
   @spec list_topic_refresh_schedules(map(), String.t(), String.t(), list()) ::
           {:ok, list_topic_refresh_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topic_refresh_schedules_errors()}
   def list_topic_refresh_schedules(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
@@ -24909,6 +25052,7 @@ defmodule AWS.QuickSight do
   @spec list_topic_reviewed_answers(map(), String.t(), String.t(), list()) ::
           {:ok, list_topic_reviewed_answers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topic_reviewed_answers_errors()}
   def list_topic_reviewed_answers(%Client{} = client, aws_account_id, topic_id, options \\ []) do
     url_path =
@@ -24928,6 +25072,7 @@ defmodule AWS.QuickSight do
   @spec list_topics(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topics_errors()}
   def list_topics(
         %Client{} = client,
@@ -24974,6 +25119,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, list_user_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_groups_errors()}
   def list_user_groups(
         %Client{} = client,
@@ -25015,6 +25161,7 @@ defmodule AWS.QuickSight do
   @spec list_users(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(
         %Client{} = client,
@@ -25057,6 +25204,7 @@ defmodule AWS.QuickSight do
   @spec list_vpc_connections(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_vpc_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_connections_errors()}
   def list_vpc_connections(
         %Client{} = client,
@@ -25094,6 +25242,7 @@ defmodule AWS.QuickSight do
   @spec predict_q_a_results(map(), String.t(), predict_q_a_results_request(), list()) ::
           {:ok, predict_q_a_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, predict_q_a_results_errors()}
   def predict_q_a_results(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/qa/predict"
@@ -25128,6 +25277,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, put_data_set_refresh_properties_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_data_set_refresh_properties_errors()}
   def put_data_set_refresh_properties(
         %Client{} = client,
@@ -25173,6 +25323,7 @@ defmodule AWS.QuickSight do
   @spec register_user(map(), String.t(), String.t(), register_user_request(), list()) ::
           {:ok, register_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_user_errors()}
   def register_user(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
@@ -25203,6 +25354,7 @@ defmodule AWS.QuickSight do
   @spec restore_analysis(map(), String.t(), String.t(), restore_analysis_request(), list()) ::
           {:ok, restore_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_analysis_errors()}
   def restore_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -25241,6 +25393,7 @@ defmodule AWS.QuickSight do
   @spec search_analyses(map(), String.t(), search_analyses_request(), list()) ::
           {:ok, search_analyses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_analyses_errors()}
   def search_analyses(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/analyses"
@@ -25272,6 +25425,7 @@ defmodule AWS.QuickSight do
   @spec search_dashboards(map(), String.t(), search_dashboards_request(), list()) ::
           {:ok, search_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_dashboards_errors()}
   def search_dashboards(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/dashboards"
@@ -25301,6 +25455,7 @@ defmodule AWS.QuickSight do
   @spec search_data_sets(map(), String.t(), search_data_sets_request(), list()) ::
           {:ok, search_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_data_sets_errors()}
   def search_data_sets(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sets"
@@ -25330,6 +25485,7 @@ defmodule AWS.QuickSight do
   @spec search_data_sources(map(), String.t(), search_data_sources_request(), list()) ::
           {:ok, search_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_data_sources_errors()}
   def search_data_sources(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/data-sources"
@@ -25358,6 +25514,7 @@ defmodule AWS.QuickSight do
   @spec search_folders(map(), String.t(), search_folders_request(), list()) ::
           {:ok, search_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_folders_errors()}
   def search_folders(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/folders"
@@ -25387,6 +25544,7 @@ defmodule AWS.QuickSight do
   @spec search_groups(map(), String.t(), String.t(), search_groups_request(), list()) ::
           {:ok, search_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_groups_errors()}
   def search_groups(%Client{} = client, aws_account_id, namespace, input, options \\ []) do
     url_path =
@@ -25423,6 +25581,7 @@ defmodule AWS.QuickSight do
   @spec search_topics(map(), String.t(), search_topics_request(), list()) ::
           {:ok, search_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_topics_errors()}
   def search_topics(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/search/topics"
@@ -25467,6 +25626,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, start_asset_bundle_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_asset_bundle_export_job_errors()}
   def start_asset_bundle_export_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-export-jobs/export"
@@ -25511,6 +25671,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, start_asset_bundle_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_asset_bundle_import_job_errors()}
   def start_asset_bundle_import_job(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/asset-bundle-import-jobs/import"
@@ -25636,6 +25797,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, start_dashboard_snapshot_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_dashboard_snapshot_job_errors()}
   def start_dashboard_snapshot_job(
         %Client{} = client,
@@ -25687,6 +25849,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, start_dashboard_snapshot_job_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_dashboard_snapshot_job_schedule_errors()}
   def start_dashboard_snapshot_job_schedule(
         %Client{} = client,
@@ -25753,6 +25916,7 @@ defmodule AWS.QuickSight do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
@@ -25781,6 +25945,7 @@ defmodule AWS.QuickSight do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(resource_arn)}/tags"
@@ -25830,6 +25995,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_account_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_customization_errors()}
   def update_account_customization(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/customizations"
@@ -25863,6 +26029,7 @@ defmodule AWS.QuickSight do
   @spec update_account_settings(map(), String.t(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/settings"
@@ -25891,6 +26058,7 @@ defmodule AWS.QuickSight do
   @spec update_analysis(map(), String.t(), String.t(), update_analysis_request(), list()) ::
           {:ok, update_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_analysis_errors()}
   def update_analysis(%Client{} = client, analysis_id, aws_account_id, input, options \\ []) do
     url_path =
@@ -25927,6 +26095,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_analysis_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_analysis_permissions_errors()}
   def update_analysis_permissions(
         %Client{} = client,
@@ -25971,6 +26140,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_application_with_token_exchange_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_with_token_exchange_grant_errors()}
   def update_application_with_token_exchange_grant(
         %Client{} = client,
@@ -26011,6 +26181,7 @@ defmodule AWS.QuickSight do
   @spec update_brand(map(), String.t(), String.t(), update_brand_request(), list()) ::
           {:ok, update_brand_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_brand_errors()}
   def update_brand(%Client{} = client, aws_account_id, brand_id, input, options \\ []) do
     url_path =
@@ -26041,6 +26212,7 @@ defmodule AWS.QuickSight do
   @spec update_brand_assignment(map(), String.t(), update_brand_assignment_request(), list()) ::
           {:ok, update_brand_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_brand_assignment_errors()}
   def update_brand_assignment(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/brandassignments"
@@ -26075,6 +26247,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_brand_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_brand_published_version_errors()}
   def update_brand_published_version(
         %Client{} = client,
@@ -26117,6 +26290,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_custom_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_permissions_errors()}
   def update_custom_permissions(
         %Client{} = client,
@@ -26166,6 +26340,7 @@ defmodule AWS.QuickSight do
   @spec update_dashboard(map(), String.t(), String.t(), update_dashboard_request(), list()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_errors()}
   def update_dashboard(%Client{} = client, aws_account_id, dashboard_id, input, options \\ []) do
     url_path =
@@ -26202,6 +26377,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_dashboard_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_links_errors()}
   def update_dashboard_links(
         %Client{} = client,
@@ -26244,6 +26420,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_dashboard_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_permissions_errors()}
   def update_dashboard_permissions(
         %Client{} = client,
@@ -26287,6 +26464,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_dashboard_published_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_published_version_errors()}
   def update_dashboard_published_version(
         %Client{} = client,
@@ -26329,6 +26507,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_dashboards_q_a_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboards_q_a_configuration_errors()}
   def update_dashboards_q_a_configuration(
         %Client{} = client,
@@ -26365,6 +26544,7 @@ defmodule AWS.QuickSight do
   @spec update_data_set(map(), String.t(), String.t(), update_data_set_request(), list()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_set_errors()}
   def update_data_set(%Client{} = client, aws_account_id, data_set_id, input, options \\ []) do
     url_path =
@@ -26404,6 +26584,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_data_set_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_set_permissions_errors()}
   def update_data_set_permissions(
         %Client{} = client,
@@ -26440,6 +26621,7 @@ defmodule AWS.QuickSight do
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, aws_account_id, data_source_id, input, options \\ []) do
     url_path =
@@ -26476,6 +26658,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_data_source_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_permissions_errors()}
   def update_data_source_permissions(
         %Client{} = client,
@@ -26518,6 +26701,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_default_q_business_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_default_q_business_application_errors()}
   def update_default_q_business_application(
         %Client{} = client,
@@ -26556,6 +26740,7 @@ defmodule AWS.QuickSight do
   @spec update_folder(map(), String.t(), String.t(), update_folder_request(), list()) ::
           {:ok, update_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_folder_errors()}
   def update_folder(%Client{} = client, aws_account_id, folder_id, input, options \\ []) do
     url_path =
@@ -26592,6 +26777,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_folder_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_folder_permissions_errors()}
   def update_folder_permissions(
         %Client{} = client,
@@ -26628,6 +26814,7 @@ defmodule AWS.QuickSight do
   @spec update_group(map(), String.t(), String.t(), String.t(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(
         %Client{} = client,
@@ -26677,6 +26864,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_iam_policy_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_iam_policy_assignment_errors()}
   def update_iam_policy_assignment(
         %Client{} = client,
@@ -26724,6 +26912,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_identity_propagation_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_identity_propagation_config_errors()}
   def update_identity_propagation_config(
         %Client{} = client,
@@ -26765,6 +26954,7 @@ defmodule AWS.QuickSight do
   @spec update_ip_restriction(map(), String.t(), update_ip_restriction_request(), list()) ::
           {:ok, update_ip_restriction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ip_restriction_errors()}
   def update_ip_restriction(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/ip-restriction"
@@ -26793,6 +26983,7 @@ defmodule AWS.QuickSight do
   @spec update_key_registration(map(), String.t(), update_key_registration_request(), list()) ::
           {:ok, update_key_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_key_registration_errors()}
   def update_key_registration(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/key-registration"
@@ -26840,6 +27031,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_public_sharing_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_public_sharing_settings_errors()}
   def update_public_sharing_settings(%Client{} = client, aws_account_id, input, options \\ []) do
     url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/public-sharing-settings"
@@ -26873,6 +27065,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_q_personalization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_q_personalization_configuration_errors()}
   def update_q_personalization_configuration(
         %Client{} = client,
@@ -26911,6 +27104,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_quick_sight_q_search_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_quick_sight_q_search_configuration_errors()}
   def update_quick_sight_q_search_configuration(
         %Client{} = client,
@@ -26952,6 +27146,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_refresh_schedule_errors()}
   def update_refresh_schedule(
         %Client{} = client,
@@ -26995,6 +27190,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_role_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_role_custom_permission_errors()}
   def update_role_custom_permission(
         %Client{} = client,
@@ -27037,6 +27233,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_s_p_i_c_e_capacity_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_s_p_i_c_e_capacity_configuration_errors()}
   def update_s_p_i_c_e_capacity_configuration(
         %Client{} = client,
@@ -27071,6 +27268,7 @@ defmodule AWS.QuickSight do
   @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_errors()}
   def update_template(%Client{} = client, aws_account_id, template_id, input, options \\ []) do
     url_path =
@@ -27108,6 +27306,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_template_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_alias_errors()}
   def update_template_alias(
         %Client{} = client,
@@ -27151,6 +27350,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_template_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_permissions_errors()}
   def update_template_permissions(
         %Client{} = client,
@@ -27187,6 +27387,7 @@ defmodule AWS.QuickSight do
   @spec update_theme(map(), String.t(), String.t(), update_theme_request(), list()) ::
           {:ok, update_theme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_theme_errors()}
   def update_theme(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
@@ -27224,6 +27425,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_theme_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_theme_alias_errors()}
   def update_theme_alias(
         %Client{} = client,
@@ -27343,6 +27545,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_theme_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_theme_permissions_errors()}
   def update_theme_permissions(%Client{} = client, aws_account_id, theme_id, input, options \\ []) do
     url_path =
@@ -27373,6 +27576,7 @@ defmodule AWS.QuickSight do
   @spec update_topic(map(), String.t(), String.t(), update_topic_request(), list()) ::
           {:ok, update_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_topic_errors()}
   def update_topic(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
     url_path =
@@ -27409,6 +27613,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_topic_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_topic_permissions_errors()}
   def update_topic_permissions(%Client{} = client, aws_account_id, topic_id, input, options \\ []) do
     url_path =
@@ -27446,6 +27651,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_topic_refresh_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_topic_refresh_schedule_errors()}
   def update_topic_refresh_schedule(
         %Client{} = client,
@@ -27483,6 +27689,7 @@ defmodule AWS.QuickSight do
   @spec update_user(map(), String.t(), String.t(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, aws_account_id, namespace, user_name, input, options \\ []) do
     url_path =
@@ -27520,6 +27727,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_user_custom_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_custom_permission_errors()}
   def update_user_custom_permission(
         %Client{} = client,
@@ -27563,6 +27771,7 @@ defmodule AWS.QuickSight do
         ) ::
           {:ok, update_vpc_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_connection_errors()}
   def update_vpc_connection(
         %Client{} = client,

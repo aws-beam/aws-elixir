@@ -988,6 +988,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, associate_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_service_quota_template_errors()}
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1007,6 +1008,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, delete_service_quota_increase_request_from_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_quota_increase_request_from_template_errors()}
   def delete_service_quota_increase_request_from_template(
         %Client{} = client,
@@ -1039,6 +1041,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, disassociate_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_service_quota_template_errors()}
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1056,6 +1059,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, get_association_for_service_quota_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_association_for_service_quota_template_errors()}
   def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1072,6 +1076,7 @@ defmodule AWS.ServiceQuotas do
   @spec get_aws_default_service_quota(map(), get_aws_default_service_quota_request(), list()) ::
           {:ok, get_aws_default_service_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_aws_default_service_quota_errors()}
   def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1089,6 +1094,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, get_requested_service_quota_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_requested_service_quota_change_errors()}
   def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1107,6 +1113,7 @@ defmodule AWS.ServiceQuotas do
   @spec get_service_quota(map(), get_service_quota_request(), list()) ::
           {:ok, get_service_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_quota_errors()}
   def get_service_quota(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1126,6 +1133,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, get_service_quota_increase_request_from_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_quota_increase_request_from_template_errors()}
   def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1148,6 +1156,7 @@ defmodule AWS.ServiceQuotas do
   @spec list_aws_default_service_quotas(map(), list_aws_default_service_quotas_request(), list()) ::
           {:ok, list_aws_default_service_quotas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aws_default_service_quotas_errors()}
   def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1165,6 +1174,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, list_requested_service_quota_change_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_requested_service_quota_change_history_errors()}
   def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1182,6 +1192,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, list_requested_service_quota_change_history_by_quota_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_requested_service_quota_change_history_by_quota_errors()}
   def list_requested_service_quota_change_history_by_quota(
         %Client{} = client,
@@ -1209,6 +1220,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, list_service_quota_increase_requests_in_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_quota_increase_requests_in_template_errors()}
   def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1233,6 +1245,7 @@ defmodule AWS.ServiceQuotas do
   @spec list_service_quotas(map(), list_service_quotas_request(), list()) ::
           {:ok, list_service_quotas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_quotas_errors()}
   def list_service_quotas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1247,6 +1260,7 @@ defmodule AWS.ServiceQuotas do
   @spec list_services(map(), list_services_request(), list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1260,6 +1274,7 @@ defmodule AWS.ServiceQuotas do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1277,6 +1292,7 @@ defmodule AWS.ServiceQuotas do
         ) ::
           {:ok, put_service_quota_increase_request_into_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_service_quota_increase_request_into_template_errors()}
   def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1296,6 +1312,7 @@ defmodule AWS.ServiceQuotas do
   @spec request_service_quota_increase(map(), request_service_quota_increase_request(), list()) ::
           {:ok, request_service_quota_increase_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_service_quota_increase_errors()}
   def request_service_quota_increase(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1312,6 +1329,7 @@ defmodule AWS.ServiceQuotas do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1328,6 +1346,7 @@ defmodule AWS.ServiceQuotas do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

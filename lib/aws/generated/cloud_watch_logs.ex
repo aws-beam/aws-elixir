@@ -3942,6 +3942,7 @@ defmodule AWS.CloudWatchLogs do
   @spec associate_kms_key(map(), associate_kms_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_kms_key_errors()}
   def associate_kms_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3957,6 +3958,7 @@ defmodule AWS.CloudWatchLogs do
   @spec cancel_export_task(map(), cancel_export_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4017,6 +4019,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_delivery(map(), create_delivery_request(), list()) ::
           {:ok, create_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_delivery_errors()}
   def create_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4067,6 +4070,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_export_task(map(), create_export_task_request(), list()) ::
           {:ok, create_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_export_task_errors()}
   def create_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4118,6 +4122,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_anomaly_detector(map(), create_log_anomaly_detector_request(), list()) ::
           {:ok, create_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_log_anomaly_detector_errors()}
   def create_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4169,6 +4174,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_group(map(), create_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_log_group_errors()}
   def create_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4203,6 +4209,7 @@ defmodule AWS.CloudWatchLogs do
   @spec create_log_stream(map(), create_log_stream_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_log_stream_errors()}
   def create_log_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4248,6 +4255,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_account_policy(map(), delete_account_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_policy_errors()}
   def delete_account_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4264,6 +4272,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_data_protection_policy(map(), delete_data_protection_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_protection_policy_errors()}
   def delete_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4282,6 +4291,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery(map(), delete_delivery_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_errors()}
   def delete_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4304,6 +4314,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery_destination(map(), delete_delivery_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_destination_errors()}
   def delete_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4325,6 +4336,7 @@ defmodule AWS.CloudWatchLogs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_destination_policy_errors()}
   def delete_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4347,6 +4359,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_delivery_source(map(), delete_delivery_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_source_errors()}
   def delete_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4364,6 +4377,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_destination(map(), delete_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_destination_errors()}
   def delete_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4391,6 +4405,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_index_policy(map(), delete_index_policy_request(), list()) ::
           {:ok, delete_index_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_index_policy_errors()}
   def delete_index_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4412,6 +4427,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_integration(map(), delete_integration_request(), list()) ::
           {:ok, delete_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4425,6 +4441,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_anomaly_detector(map(), delete_log_anomaly_detector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_log_anomaly_detector_errors()}
   def delete_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4439,6 +4456,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_group(map(), delete_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_log_group_errors()}
   def delete_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4454,6 +4472,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_log_stream(map(), delete_log_stream_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_log_stream_errors()}
   def delete_log_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4467,6 +4486,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_metric_filter(map(), delete_metric_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_metric_filter_errors()}
   def delete_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4488,6 +4508,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_query_definition(map(), delete_query_definition_request(), list()) ::
           {:ok, delete_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_query_definition_errors()}
   def delete_query_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4504,6 +4525,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4520,6 +4542,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_retention_policy(map(), delete_retention_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4533,6 +4556,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_subscription_filter(map(), delete_subscription_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_filter_errors()}
   def delete_subscription_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4557,6 +4581,7 @@ defmodule AWS.CloudWatchLogs do
   @spec delete_transformer(map(), delete_transformer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_transformer_errors()}
   def delete_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4591,6 +4616,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_account_policies(map(), describe_account_policies_request(), list()) ::
           {:ok, describe_account_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_policies_errors()}
   def describe_account_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4612,6 +4638,7 @@ defmodule AWS.CloudWatchLogs do
         ) ::
           {:ok, describe_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_templates_errors()}
   def describe_configuration_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4641,6 +4668,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_deliveries(map(), describe_deliveries_request(), list()) ::
           {:ok, describe_deliveries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_deliveries_errors()}
   def describe_deliveries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4655,6 +4683,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_delivery_destinations(map(), describe_delivery_destinations_request(), list()) ::
           {:ok, describe_delivery_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_delivery_destinations_errors()}
   def describe_delivery_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4668,6 +4697,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_delivery_sources(map(), describe_delivery_sources_request(), list()) ::
           {:ok, describe_delivery_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_delivery_sources_errors()}
   def describe_delivery_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4683,6 +4713,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_destinations(map(), describe_destinations_request(), list()) ::
           {:ok, describe_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_destinations_errors()}
   def describe_destinations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4699,6 +4730,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_export_tasks(map(), describe_export_tasks_request(), list()) ::
           {:ok, describe_export_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4716,6 +4748,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_field_indexes(map(), describe_field_indexes_request(), list()) ::
           {:ok, describe_field_indexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_field_indexes_errors()}
   def describe_field_indexes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4743,6 +4776,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_index_policies(map(), describe_index_policies_request(), list()) ::
           {:ok, describe_index_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_index_policies_errors()}
   def describe_index_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4784,6 +4818,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_log_groups(map(), describe_log_groups_request(), list()) ::
           {:ok, describe_log_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_log_groups_errors()}
   def describe_log_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4812,6 +4847,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_log_streams(map(), describe_log_streams_request(), list()) ::
           {:ok, describe_log_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_log_streams_errors()}
   def describe_log_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4830,6 +4866,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_metric_filters(map(), describe_metric_filters_request(), list()) ::
           {:ok, describe_metric_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metric_filters_errors()}
   def describe_metric_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4848,6 +4885,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_queries(map(), describe_queries_request(), list()) ::
           {:ok, describe_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_queries_errors()}
   def describe_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4870,6 +4908,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_query_definitions(map(), describe_query_definitions_request(), list()) ::
           {:ok, describe_query_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_query_definitions_errors()}
   def describe_query_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4883,6 +4922,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_resource_policies(map(), describe_resource_policies_request(), list()) ::
           {:ok, describe_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policies_errors()}
   def describe_resource_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4899,6 +4939,7 @@ defmodule AWS.CloudWatchLogs do
   @spec describe_subscription_filters(map(), describe_subscription_filters_request(), list()) ::
           {:ok, describe_subscription_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_subscription_filters_errors()}
   def describe_subscription_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4944,6 +4985,7 @@ defmodule AWS.CloudWatchLogs do
   @spec disassociate_kms_key(map(), disassociate_kms_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_kms_key_errors()}
   def disassociate_kms_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5012,6 +5054,7 @@ defmodule AWS.CloudWatchLogs do
   @spec filter_log_events(map(), filter_log_events_request(), list()) ::
           {:ok, filter_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, filter_log_events_errors()}
   def filter_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5025,6 +5068,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_data_protection_policy(map(), get_data_protection_policy_request(), list()) ::
           {:ok, get_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5059,6 +5103,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery(map(), get_delivery_request(), list()) ::
           {:ok, get_delivery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delivery_errors()}
   def get_delivery(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5072,6 +5117,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_destination(map(), get_delivery_destination_request(), list()) ::
           {:ok, get_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delivery_destination_errors()}
   def get_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5089,6 +5135,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_destination_policy(map(), get_delivery_destination_policy_request(), list()) ::
           {:ok, get_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delivery_destination_policy_errors()}
   def get_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5102,6 +5149,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_delivery_source(map(), get_delivery_source_request(), list()) ::
           {:ok, get_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delivery_source_errors()}
   def get_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5116,6 +5164,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_integration(map(), get_integration_request(), list()) ::
           {:ok, get_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integration_errors()}
   def get_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5131,6 +5180,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_anomaly_detector(map(), get_log_anomaly_detector_request(), list()) ::
           {:ok, get_log_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_anomaly_detector_errors()}
   def get_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5184,6 +5234,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_events(map(), get_log_events_request(), list()) ::
           {:ok, get_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_events_errors()}
   def get_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5220,6 +5271,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_group_fields(map(), get_log_group_fields_request(), list()) ::
           {:ok, get_log_group_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_group_fields_errors()}
   def get_log_group_fields(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5239,6 +5291,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_log_record(map(), get_log_record_request(), list()) ::
           {:ok, get_log_record_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_record_errors()}
   def get_log_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5273,6 +5326,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_query_results(map(), get_query_results_request(), list()) ::
           {:ok, get_query_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5292,6 +5346,7 @@ defmodule AWS.CloudWatchLogs do
   @spec get_transformer(map(), get_transformer_request(), list()) ::
           {:ok, get_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transformer_errors()}
   def get_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5308,6 +5363,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_anomalies(map(), list_anomalies_request(), list()) ::
           {:ok, list_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomalies_errors()}
   def list_anomalies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5326,6 +5382,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_integrations(map(), list_integrations_request(), list()) ::
           {:ok, list_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_integrations_errors()}
   def list_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5339,6 +5396,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_log_anomaly_detectors(map(), list_log_anomaly_detectors_request(), list()) ::
           {:ok, list_log_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_anomaly_detectors_errors()}
   def list_log_anomaly_detectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5361,6 +5419,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_log_groups_for_query(map(), list_log_groups_for_query_request(), list()) ::
           {:ok, list_log_groups_for_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_log_groups_for_query_errors()}
   def list_log_groups_for_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5377,6 +5436,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5397,6 +5457,7 @@ defmodule AWS.CloudWatchLogs do
   @spec list_tags_log_group(map(), list_tags_log_group_request(), list()) ::
           {:ok, list_tags_log_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_log_group_errors()}
   def list_tags_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5629,6 +5690,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_account_policy(map(), put_account_policy_request(), list()) ::
           {:ok, put_account_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_policy_errors()}
   def put_account_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5679,6 +5741,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_data_protection_policy(map(), put_data_protection_policy_request(), list()) ::
           {:ok, put_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5742,6 +5805,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_destination(map(), put_delivery_destination_request(), list()) ::
           {:ok, put_delivery_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_delivery_destination_errors()}
   def put_delivery_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5796,6 +5860,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_destination_policy(map(), put_delivery_destination_policy_request(), list()) ::
           {:ok, put_delivery_destination_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_delivery_destination_policy_errors()}
   def put_delivery_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5858,6 +5923,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_delivery_source(map(), put_delivery_source_request(), list()) ::
           {:ok, put_delivery_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_delivery_source_errors()}
   def put_delivery_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5892,6 +5958,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_destination(map(), put_destination_request(), list()) ::
           {:ok, put_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_destination_errors()}
   def put_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5911,6 +5978,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_destination_policy(map(), put_destination_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_destination_policy_errors()}
   def put_destination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5976,6 +6044,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_index_policy(map(), put_index_policy_request(), list()) ::
           {:ok, put_index_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_index_policy_errors()}
   def put_index_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6002,6 +6071,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_integration(map(), put_integration_request(), list()) ::
           {:ok, put_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_integration_errors()}
   def put_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6067,6 +6137,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_log_events(map(), put_log_events_request(), list()) ::
           {:ok, put_log_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_log_events_errors()}
   def put_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6120,6 +6191,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_metric_filter(map(), put_metric_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metric_filter_errors()}
   def put_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6150,6 +6222,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_query_definition(map(), put_query_definition_request(), list()) ::
           {:ok, put_query_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_query_definition_errors()}
   def put_query_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6168,6 +6241,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6214,6 +6288,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_retention_policy(map(), put_retention_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6275,6 +6350,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_subscription_filter(map(), put_subscription_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_subscription_filter_errors()}
   def put_subscription_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6330,6 +6406,7 @@ defmodule AWS.CloudWatchLogs do
   @spec put_transformer(map(), put_transformer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_transformer_errors()}
   def put_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6397,6 +6474,7 @@ defmodule AWS.CloudWatchLogs do
   @spec start_live_tail(map(), start_live_tail_request(), list()) ::
           {:ok, start_live_tail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_live_tail_errors()}
   def start_live_tail(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
@@ -6464,6 +6542,7 @@ defmodule AWS.CloudWatchLogs do
   @spec start_query(map(), start_query_request(), list()) ::
           {:ok, start_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_query_errors()}
   def start_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6480,6 +6559,7 @@ defmodule AWS.CloudWatchLogs do
   @spec stop_query(map(), stop_query_request(), list()) ::
           {:ok, stop_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_query_errors()}
   def stop_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6519,6 +6599,7 @@ defmodule AWS.CloudWatchLogs do
   @spec tag_log_group(map(), tag_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_log_group_errors()}
   def tag_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6553,6 +6634,7 @@ defmodule AWS.CloudWatchLogs do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6570,6 +6652,7 @@ defmodule AWS.CloudWatchLogs do
   @spec test_metric_filter(map(), test_metric_filter_request(), list()) ::
           {:ok, test_metric_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_metric_filter_errors()}
   def test_metric_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6588,6 +6671,7 @@ defmodule AWS.CloudWatchLogs do
   @spec test_transformer(map(), test_transformer_request(), list()) ::
           {:ok, test_transformer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_transformer_errors()}
   def test_transformer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6623,6 +6707,7 @@ defmodule AWS.CloudWatchLogs do
   @spec untag_log_group(map(), untag_log_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_log_group_errors()}
   def untag_log_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6636,6 +6721,7 @@ defmodule AWS.CloudWatchLogs do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6668,6 +6754,7 @@ defmodule AWS.CloudWatchLogs do
   @spec update_anomaly(map(), update_anomaly_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_anomaly_errors()}
   def update_anomaly(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6687,6 +6774,7 @@ defmodule AWS.CloudWatchLogs do
   @spec update_delivery_configuration(map(), update_delivery_configuration_request(), list()) ::
           {:ok, update_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_delivery_configuration_errors()}
   def update_delivery_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6700,6 +6788,7 @@ defmodule AWS.CloudWatchLogs do
   @spec update_log_anomaly_detector(map(), update_log_anomaly_detector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_log_anomaly_detector_errors()}
   def update_log_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()

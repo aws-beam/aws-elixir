@@ -705,6 +705,7 @@ defmodule AWS.DLM do
   @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     url_path = "/policies"
@@ -737,6 +738,7 @@ defmodule AWS.DLM do
   @spec delete_lifecycle_policy(map(), String.t(), delete_lifecycle_policy_request(), list()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
@@ -777,6 +779,7 @@ defmodule AWS.DLM do
         ) ::
           {:ok, get_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lifecycle_policies_errors()}
   def get_lifecycle_policies(
         %Client{} = client,
@@ -845,6 +848,7 @@ defmodule AWS.DLM do
   @spec get_lifecycle_policy(map(), String.t(), list()) ::
           {:ok, get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, policy_id, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"
@@ -862,6 +866,7 @@ defmodule AWS.DLM do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -879,6 +884,7 @@ defmodule AWS.DLM do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -907,6 +913,7 @@ defmodule AWS.DLM do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -942,6 +949,7 @@ defmodule AWS.DLM do
   @spec update_lifecycle_policy(map(), String.t(), update_lifecycle_policy_request(), list()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, policy_id, input, options \\ []) do
     url_path = "/policies/#{AWS.Util.encode_uri(policy_id)}"

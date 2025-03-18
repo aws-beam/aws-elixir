@@ -432,6 +432,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets"
@@ -465,6 +466,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(
         %Client{} = client,
@@ -500,6 +502,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v1/sms-voice/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -534,6 +537,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
@@ -572,6 +576,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_set_event_destinations_errors()}
   def get_configuration_set_event_destinations(
         %Client{} = client,
@@ -596,6 +601,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
@@ -632,6 +638,7 @@ defmodule AWS.PinpointSMSVoice do
   @spec send_voice_message(map(), send_voice_message_request(), list()) ::
           {:ok, send_voice_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_voice_message_errors()}
   def send_voice_message(%Client{} = client, input, options \\ []) do
     url_path = "/v1/sms-voice/voice/message"
@@ -670,6 +677,7 @@ defmodule AWS.PinpointSMSVoice do
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,

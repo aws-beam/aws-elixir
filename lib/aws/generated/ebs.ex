@@ -429,6 +429,7 @@ defmodule AWS.EBS do
   @spec complete_snapshot(map(), String.t(), complete_snapshot_request(), list()) ::
           {:ok, complete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_snapshot_errors()}
   def complete_snapshot(%Client{} = client, snapshot_id, input, options \\ []) do
     url_path = "/snapshots/completion/#{AWS.Util.encode_uri(snapshot_id)}"
@@ -472,6 +473,7 @@ defmodule AWS.EBS do
   @spec get_snapshot_block(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_snapshot_block_errors()}
   def get_snapshot_block(%Client{} = client, block_index, snapshot_id, block_token, options \\ []) do
     url_path =
@@ -524,6 +526,7 @@ defmodule AWS.EBS do
         ) ::
           {:ok, list_changed_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_changed_blocks_errors()}
   def list_changed_blocks(
         %Client{} = client,
@@ -590,6 +593,7 @@ defmodule AWS.EBS do
         ) ::
           {:ok, list_snapshot_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_snapshot_blocks_errors()}
   def list_snapshot_blocks(
         %Client{} = client,
@@ -647,6 +651,7 @@ defmodule AWS.EBS do
   @spec put_snapshot_block(map(), String.t(), String.t(), put_snapshot_block_request(), list()) ::
           {:ok, put_snapshot_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_snapshot_block_errors()}
   def put_snapshot_block(%Client{} = client, block_index, snapshot_id, input, options \\ []) do
     url_path =
@@ -709,6 +714,7 @@ defmodule AWS.EBS do
   @spec start_snapshot(map(), start_snapshot_request(), list()) ::
           {:ok, start_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_snapshot_errors()}
   def start_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"

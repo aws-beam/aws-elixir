@@ -1677,6 +1677,7 @@ defmodule AWS.VerifiedPermissions do
   @spec batch_get_policy(map(), batch_get_policy_input(), list()) ::
           {:ok, batch_get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1715,6 +1716,7 @@ defmodule AWS.VerifiedPermissions do
   @spec batch_is_authorized(map(), batch_is_authorized_input(), list()) ::
           {:ok, batch_is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_is_authorized_errors()}
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1753,6 +1755,7 @@ defmodule AWS.VerifiedPermissions do
   @spec batch_is_authorized_with_token(map(), batch_is_authorized_with_token_input(), list()) ::
           {:ok, batch_is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_is_authorized_with_token_errors()}
   def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1815,6 +1818,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_identity_source(map(), create_identity_source_input(), list()) ::
           {:ok, create_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_identity_source_errors()}
   def create_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1856,6 +1860,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy(map(), create_policy_input(), list()) ::
           {:ok, create_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1881,6 +1886,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy_store(map(), create_policy_store_input(), list()) ::
           {:ok, create_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_store_errors()}
   def create_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1912,6 +1918,7 @@ defmodule AWS.VerifiedPermissions do
   @spec create_policy_template(map(), create_policy_template_input(), list()) ::
           {:ok, create_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_template_errors()}
   def create_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1933,6 +1940,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_identity_source(map(), delete_identity_source_input(), list()) ::
           {:ok, delete_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_source_errors()}
   def delete_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1949,6 +1957,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_policy(map(), delete_policy_input(), list()) ::
           {:ok, delete_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1966,6 +1975,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_policy_store(map(), delete_policy_store_input(), list()) ::
           {:ok, delete_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1983,6 +1993,7 @@ defmodule AWS.VerifiedPermissions do
   @spec delete_policy_template(map(), delete_policy_template_input(), list()) ::
           {:ok, delete_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_template_errors()}
   def delete_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1996,6 +2007,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_identity_source(map(), get_identity_source_input(), list()) ::
           {:ok, get_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_identity_source_errors()}
   def get_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2009,6 +2021,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy(map(), get_policy_input(), list()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2022,6 +2035,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy_store(map(), get_policy_store_input(), list()) ::
           {:ok, get_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_store_errors()}
   def get_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2036,6 +2050,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_policy_template(map(), get_policy_template_input(), list()) ::
           {:ok, get_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_template_errors()}
   def get_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2049,6 +2064,7 @@ defmodule AWS.VerifiedPermissions do
   @spec get_schema(map(), get_schema_input(), list()) ::
           {:ok, get_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2071,6 +2087,7 @@ defmodule AWS.VerifiedPermissions do
   @spec is_authorized(map(), is_authorized_input(), list()) ::
           {:ok, is_authorized_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, is_authorized_errors()}
   def is_authorized(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2104,6 +2121,7 @@ defmodule AWS.VerifiedPermissions do
   @spec is_authorized_with_token(map(), is_authorized_with_token_input(), list()) ::
           {:ok, is_authorized_with_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, is_authorized_with_token_errors()}
   def is_authorized_with_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2118,6 +2136,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_identity_sources(map(), list_identity_sources_input(), list()) ::
           {:ok, list_identity_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_sources_errors()}
   def list_identity_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2131,6 +2150,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_policies(map(), list_policies_input(), list()) ::
           {:ok, list_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2145,6 +2165,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_policy_stores(map(), list_policy_stores_input(), list()) ::
           {:ok, list_policy_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_policy_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2157,6 +2178,7 @@ defmodule AWS.VerifiedPermissions do
   @spec list_policy_templates(map(), list_policy_templates_input(), list()) ::
           {:ok, list_policy_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_templates_errors()}
   def list_policy_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2184,6 +2206,7 @@ defmodule AWS.VerifiedPermissions do
   @spec put_schema(map(), put_schema_input(), list()) ::
           {:ok, put_schema_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_schema_errors()}
   def put_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2205,6 +2228,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_identity_source(map(), update_identity_source_input(), list()) ::
           {:ok, update_identity_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_identity_source_errors()}
   def update_identity_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2266,6 +2290,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy(map(), update_policy_input(), list()) ::
           {:ok, update_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2285,6 +2310,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy_store(map(), update_policy_store_input(), list()) ::
           {:ok, update_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_policy_store_errors()}
   def update_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2313,6 +2339,7 @@ defmodule AWS.VerifiedPermissions do
   @spec update_policy_template(map(), update_policy_template_input(), list()) ::
           {:ok, update_policy_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_policy_template_errors()}
   def update_policy_template(%Client{} = client, input, options \\ []) do
     meta = metadata()

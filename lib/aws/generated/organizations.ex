@@ -2585,6 +2585,7 @@ defmodule AWS.Organizations do
   @spec accept_handshake(map(), accept_handshake_request(), list()) ::
           {:ok, accept_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_handshake_errors()}
   def accept_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2634,6 +2635,7 @@ defmodule AWS.Organizations do
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2659,6 +2661,7 @@ defmodule AWS.Organizations do
   @spec cancel_handshake(map(), cancel_handshake_request(), list()) ::
           {:ok, cancel_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_handshake_errors()}
   def cancel_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2726,6 +2729,7 @@ defmodule AWS.Organizations do
   @spec close_account(map(), close_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, close_account_errors()}
   def close_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2825,6 +2829,7 @@ defmodule AWS.Organizations do
   @spec create_account(map(), create_account_request(), list()) ::
           {:ok, create_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_errors()}
   def create_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2992,6 +2997,7 @@ defmodule AWS.Organizations do
   @spec create_gov_cloud_account(map(), create_gov_cloud_account_request(), list()) ::
           {:ok, create_gov_cloud_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_gov_cloud_account_errors()}
   def create_gov_cloud_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3024,6 +3030,7 @@ defmodule AWS.Organizations do
   @spec create_organization(map(), create_organization_request(), list()) ::
           {:ok, create_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_organization_errors()}
   def create_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3055,6 +3062,7 @@ defmodule AWS.Organizations do
   @spec create_organizational_unit(map(), create_organizational_unit_request(), list()) ::
           {:ok, create_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_organizational_unit_errors()}
   def create_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3080,6 +3088,7 @@ defmodule AWS.Organizations do
   @spec create_policy(map(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3106,6 +3115,7 @@ defmodule AWS.Organizations do
   @spec decline_handshake(map(), decline_handshake_request(), list()) ::
           {:ok, decline_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decline_handshake_errors()}
   def decline_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3122,6 +3132,7 @@ defmodule AWS.Organizations do
   @spec delete_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_organization_errors()}
   def delete_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3140,6 +3151,7 @@ defmodule AWS.Organizations do
   @spec delete_organizational_unit(map(), delete_organizational_unit_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_organizational_unit_errors()}
   def delete_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3162,6 +3174,7 @@ defmodule AWS.Organizations do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3177,6 +3190,7 @@ defmodule AWS.Organizations do
   @spec delete_resource_policy(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3226,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_delegated_administrator_errors()}
   def deregister_delegated_administrator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3229,6 +3244,7 @@ defmodule AWS.Organizations do
   @spec describe_account(map(), describe_account_request(), list()) ::
           {:ok, describe_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3246,6 +3262,7 @@ defmodule AWS.Organizations do
   @spec describe_create_account_status(map(), describe_create_account_status_request(), list()) ::
           {:ok, describe_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_create_account_status_errors()}
   def describe_create_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3276,6 +3293,7 @@ defmodule AWS.Organizations do
   @spec describe_effective_policy(map(), describe_effective_policy_request(), list()) ::
           {:ok, describe_effective_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_effective_policy_errors()}
   def describe_effective_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3299,6 +3317,7 @@ defmodule AWS.Organizations do
   @spec describe_handshake(map(), describe_handshake_request(), list()) ::
           {:ok, describe_handshake_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_handshake_errors()}
   def describe_handshake(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3320,6 +3339,7 @@ defmodule AWS.Organizations do
   @spec describe_organization(map(), %{}, list()) ::
           {:ok, describe_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_errors()}
   def describe_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3337,6 +3357,7 @@ defmodule AWS.Organizations do
   @spec describe_organizational_unit(map(), describe_organizational_unit_request(), list()) ::
           {:ok, describe_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organizational_unit_errors()}
   def describe_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3354,6 +3375,7 @@ defmodule AWS.Organizations do
   @spec describe_policy(map(), describe_policy_request(), list()) ::
           {:ok, describe_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_policy_errors()}
   def describe_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3371,6 +3393,7 @@ defmodule AWS.Organizations do
   @spec describe_resource_policy(map(), %{}, list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3410,6 +3433,7 @@ defmodule AWS.Organizations do
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3494,6 +3518,7 @@ defmodule AWS.Organizations do
   @spec disable_aws_service_access(map(), disable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_aws_service_access_errors()}
   def disable_aws_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3530,6 +3555,7 @@ defmodule AWS.Organizations do
   @spec disable_policy_type(map(), disable_policy_type_request(), list()) ::
           {:ok, disable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_policy_type_errors()}
   def disable_policy_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3592,6 +3618,7 @@ defmodule AWS.Organizations do
   @spec enable_all_features(map(), enable_all_features_request(), list()) ::
           {:ok, enable_all_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_all_features_errors()}
   def enable_all_features(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3634,6 +3661,7 @@ defmodule AWS.Organizations do
   @spec enable_aws_service_access(map(), enable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_aws_service_access_errors()}
   def enable_aws_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3668,6 +3696,7 @@ defmodule AWS.Organizations do
   @spec enable_policy_type(map(), enable_policy_type_request(), list()) ::
           {:ok, enable_policy_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_policy_type_errors()}
   def enable_policy_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3710,6 +3739,7 @@ defmodule AWS.Organizations do
   @spec invite_account_to_organization(map(), invite_account_to_organization_request(), list()) ::
           {:ok, invite_account_to_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invite_account_to_organization_errors()}
   def invite_account_to_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3795,6 +3825,7 @@ defmodule AWS.Organizations do
   @spec leave_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, leave_organization_errors()}
   def leave_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3824,6 +3855,7 @@ defmodule AWS.Organizations do
   @spec list_accounts(map(), list_accounts_request(), list()) ::
           {:ok, list_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accounts_errors()}
   def list_accounts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3858,6 +3890,7 @@ defmodule AWS.Organizations do
   @spec list_accounts_for_parent(map(), list_accounts_for_parent_request(), list()) ::
           {:ok, list_accounts_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accounts_for_parent_errors()}
   def list_accounts_for_parent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3891,6 +3924,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_aws_service_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aws_service_access_for_organization_errors()}
   def list_aws_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3921,6 +3955,7 @@ defmodule AWS.Organizations do
   @spec list_children(map(), list_children_request(), list()) ::
           {:ok, list_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_children_errors()}
   def list_children(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3948,6 +3983,7 @@ defmodule AWS.Organizations do
   @spec list_create_account_status(map(), list_create_account_status_request(), list()) ::
           {:ok, list_create_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_create_account_status_errors()}
   def list_create_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3967,6 +4003,7 @@ defmodule AWS.Organizations do
   @spec list_delegated_administrators(map(), list_delegated_administrators_request(), list()) ::
           {:ok, list_delegated_administrators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_delegated_administrators_errors()}
   def list_delegated_administrators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3990,6 +4027,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_delegated_services_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_delegated_services_for_account_errors()}
   def list_delegated_services_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4021,6 +4059,7 @@ defmodule AWS.Organizations do
   @spec list_handshakes_for_account(map(), list_handshakes_for_account_request(), list()) ::
           {:ok, list_handshakes_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_handshakes_for_account_errors()}
   def list_handshakes_for_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4062,6 +4101,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_handshakes_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_handshakes_for_organization_errors()}
   def list_handshakes_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4091,6 +4131,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, list_organizational_units_for_parent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organizational_units_for_parent_errors()}
   def list_organizational_units_for_parent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4123,6 +4164,7 @@ defmodule AWS.Organizations do
   @spec list_parents(map(), list_parents_request(), list()) ::
           {:ok, list_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_parents_errors()}
   def list_parents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4148,6 +4190,7 @@ defmodule AWS.Organizations do
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4177,6 +4220,7 @@ defmodule AWS.Organizations do
   @spec list_policies_for_target(map(), list_policies_for_target_request(), list()) ::
           {:ok, list_policies_for_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_for_target_errors()}
   def list_policies_for_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4210,6 +4254,7 @@ defmodule AWS.Organizations do
   @spec list_roots(map(), list_roots_request(), list()) ::
           {:ok, list_roots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_roots_errors()}
   def list_roots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4241,6 +4286,7 @@ defmodule AWS.Organizations do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4267,6 +4313,7 @@ defmodule AWS.Organizations do
   @spec list_targets_for_policy(map(), list_targets_for_policy_request(), list()) ::
           {:ok, list_targets_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_for_policy_errors()}
   def list_targets_for_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4284,6 +4331,7 @@ defmodule AWS.Organizations do
   @spec move_account(map(), move_account_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, move_account_errors()}
   def move_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4299,6 +4347,7 @@ defmodule AWS.Organizations do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4331,6 +4380,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_delegated_administrator_errors()}
   def register_delegated_administrator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4381,6 +4431,7 @@ defmodule AWS.Organizations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_account_from_organization_errors()}
   def remove_account_from_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4412,6 +4463,7 @@ defmodule AWS.Organizations do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4443,6 +4495,7 @@ defmodule AWS.Organizations do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4462,6 +4515,7 @@ defmodule AWS.Organizations do
   @spec update_organizational_unit(map(), update_organizational_unit_request(), list()) ::
           {:ok, update_organizational_unit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organizational_unit_errors()}
   def update_organizational_unit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4483,6 +4537,7 @@ defmodule AWS.Organizations do
   @spec update_policy(map(), update_policy_request(), list()) ::
           {:ok, update_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

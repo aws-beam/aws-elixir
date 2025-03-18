@@ -4299,6 +4299,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, abort_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, abort_multipart_read_set_upload_errors()}
   def abort_multipart_read_set_upload(
         %Client{} = client,
@@ -4335,6 +4336,7 @@ defmodule AWS.Omics do
   @spec accept_share(map(), String.t(), accept_share_request(), list()) ::
           {:ok, accept_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_share_errors()}
   def accept_share(%Client{} = client, share_id, input, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
@@ -4363,6 +4365,7 @@ defmodule AWS.Omics do
   @spec batch_delete_read_set(map(), String.t(), batch_delete_read_set_request(), list()) ::
           {:ok, batch_delete_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_read_set_errors()}
   def batch_delete_read_set(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readset/batch/delete"
@@ -4396,6 +4399,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, cancel_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_annotation_import_job_errors()}
   def cancel_annotation_import_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
@@ -4424,6 +4428,7 @@ defmodule AWS.Omics do
   @spec cancel_run(map(), String.t(), cancel_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_run_errors()}
   def cancel_run(%Client{} = client, id, input, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/cancel"
@@ -4452,6 +4457,7 @@ defmodule AWS.Omics do
   @spec cancel_variant_import_job(map(), String.t(), cancel_variant_import_request(), list()) ::
           {:ok, cancel_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_variant_import_job_errors()}
   def cancel_variant_import_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
@@ -4486,6 +4492,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, complete_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_multipart_read_set_upload_errors()}
   def complete_multipart_read_set_upload(
         %Client{} = client,
@@ -4522,6 +4529,7 @@ defmodule AWS.Omics do
   @spec create_annotation_store(map(), create_annotation_store_request(), list()) ::
           {:ok, create_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_annotation_store_errors()}
   def create_annotation_store(%Client{} = client, input, options \\ []) do
     url_path = "/annotationStore"
@@ -4556,6 +4564,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, create_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_annotation_store_version_errors()}
   def create_annotation_store_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/version"
@@ -4589,6 +4598,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, create_multipart_read_set_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multipart_read_set_upload_errors()}
   def create_multipart_read_set_upload(
         %Client{} = client,
@@ -4622,6 +4632,7 @@ defmodule AWS.Omics do
   @spec create_reference_store(map(), create_reference_store_request(), list()) ::
           {:ok, create_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_reference_store_errors()}
   def create_reference_store(%Client{} = client, input, options \\ []) do
     url_path = "/referencestore"
@@ -4660,6 +4671,7 @@ defmodule AWS.Omics do
   @spec create_run_cache(map(), create_run_cache_request(), list()) ::
           {:ok, create_run_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_run_cache_errors()}
   def create_run_cache(%Client{} = client, input, options \\ []) do
     url_path = "/runCache"
@@ -4689,6 +4701,7 @@ defmodule AWS.Omics do
   @spec create_run_group(map(), create_run_group_request(), list()) ::
           {:ok, create_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_run_group_errors()}
   def create_run_group(%Client{} = client, input, options \\ []) do
     url_path = "/runGroup"
@@ -4717,6 +4730,7 @@ defmodule AWS.Omics do
   @spec create_sequence_store(map(), create_sequence_store_request(), list()) ::
           {:ok, create_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sequence_store_errors()}
   def create_sequence_store(%Client{} = client, input, options \\ []) do
     url_path = "/sequencestore"
@@ -4760,6 +4774,7 @@ defmodule AWS.Omics do
   @spec create_share(map(), create_share_request(), list()) ::
           {:ok, create_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_share_errors()}
   def create_share(%Client{} = client, input, options \\ []) do
     url_path = "/share"
@@ -4788,6 +4803,7 @@ defmodule AWS.Omics do
   @spec create_variant_store(map(), create_variant_store_request(), list()) ::
           {:ok, create_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_variant_store_errors()}
   def create_variant_store(%Client{} = client, input, options \\ []) do
     url_path = "/variantStore"
@@ -4816,6 +4832,7 @@ defmodule AWS.Omics do
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/workflow"
@@ -4844,6 +4861,7 @@ defmodule AWS.Omics do
   @spec delete_annotation_store(map(), String.t(), delete_annotation_store_request(), list()) ::
           {:ok, delete_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_annotation_store_errors()}
   def delete_annotation_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
@@ -4883,6 +4901,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, delete_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_annotation_store_versions_errors()}
   def delete_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions/delete"
@@ -4916,6 +4935,7 @@ defmodule AWS.Omics do
   @spec delete_reference(map(), String.t(), String.t(), delete_reference_request(), list()) ::
           {:ok, delete_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_reference_errors()}
   def delete_reference(%Client{} = client, id, reference_store_id, input, options \\ []) do
     url_path =
@@ -4946,6 +4966,7 @@ defmodule AWS.Omics do
   @spec delete_reference_store(map(), String.t(), delete_reference_store_request(), list()) ::
           {:ok, delete_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_reference_store_errors()}
   def delete_reference_store(%Client{} = client, id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
@@ -4974,6 +4995,7 @@ defmodule AWS.Omics do
   @spec delete_run(map(), String.t(), delete_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_run_errors()}
   def delete_run(%Client{} = client, id, input, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
@@ -5011,6 +5033,7 @@ defmodule AWS.Omics do
   @spec delete_run_cache(map(), String.t(), delete_run_cache_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_run_cache_errors()}
   def delete_run_cache(%Client{} = client, id, input, options \\ []) do
     url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
@@ -5039,6 +5062,7 @@ defmodule AWS.Omics do
   @spec delete_run_group(map(), String.t(), delete_run_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_run_group_errors()}
   def delete_run_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
@@ -5067,6 +5091,7 @@ defmodule AWS.Omics do
   @spec delete_s3_access_policy(map(), String.t(), delete_s3_access_policy_request(), list()) ::
           {:ok, delete_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_s3_access_policy_errors()}
   def delete_s3_access_policy(%Client{} = client, s3_access_point_arn, input, options \\ []) do
     url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
@@ -5095,6 +5120,7 @@ defmodule AWS.Omics do
   @spec delete_sequence_store(map(), String.t(), delete_sequence_store_request(), list()) ::
           {:ok, delete_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sequence_store_errors()}
   def delete_sequence_store(%Client{} = client, id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
@@ -5127,6 +5153,7 @@ defmodule AWS.Omics do
   @spec delete_share(map(), String.t(), delete_share_request(), list()) ::
           {:ok, delete_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_share_errors()}
   def delete_share(%Client{} = client, share_id, input, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
@@ -5155,6 +5182,7 @@ defmodule AWS.Omics do
   @spec delete_variant_store(map(), String.t(), delete_variant_store_request(), list()) ::
           {:ok, delete_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_variant_store_errors()}
   def delete_variant_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
@@ -5188,6 +5216,7 @@ defmodule AWS.Omics do
   @spec delete_workflow(map(), String.t(), delete_workflow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
@@ -5216,6 +5245,7 @@ defmodule AWS.Omics do
   @spec get_annotation_import_job(map(), String.t(), list()) ::
           {:ok, get_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_annotation_import_job_errors()}
   def get_annotation_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/annotation/#{AWS.Util.encode_uri(job_id)}"
@@ -5233,6 +5263,7 @@ defmodule AWS.Omics do
   @spec get_annotation_store(map(), String.t(), list()) ::
           {:ok, get_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_annotation_store_errors()}
   def get_annotation_store(%Client{} = client, name, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
@@ -5251,6 +5282,7 @@ defmodule AWS.Omics do
   @spec get_annotation_store_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_annotation_store_version_errors()}
   def get_annotation_store_version(%Client{} = client, name, version_name, options \\ []) do
     url_path =
@@ -5270,6 +5302,7 @@ defmodule AWS.Omics do
   @spec get_read_set(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_read_set_errors()}
   def get_read_set(
         %Client{} = client,
@@ -5310,6 +5343,7 @@ defmodule AWS.Omics do
   @spec get_read_set_activation_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_read_set_activation_job_errors()}
   def get_read_set_activation_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
@@ -5329,6 +5363,7 @@ defmodule AWS.Omics do
   @spec get_read_set_export_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_read_set_export_job_errors()}
   def get_read_set_export_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
@@ -5348,6 +5383,7 @@ defmodule AWS.Omics do
   @spec get_read_set_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_read_set_import_job_errors()}
   def get_read_set_import_job(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
@@ -5367,6 +5403,7 @@ defmodule AWS.Omics do
   @spec get_read_set_metadata(map(), String.t(), String.t(), list()) ::
           {:ok, get_read_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_read_set_metadata_errors()}
   def get_read_set_metadata(%Client{} = client, id, sequence_store_id, options \\ []) do
     url_path =
@@ -5394,6 +5431,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, get_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reference_errors()}
   def get_reference(
         %Client{} = client,
@@ -5443,6 +5481,7 @@ defmodule AWS.Omics do
   @spec get_reference_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reference_import_job_errors()}
   def get_reference_import_job(%Client{} = client, id, reference_store_id, options \\ []) do
     url_path =
@@ -5462,6 +5501,7 @@ defmodule AWS.Omics do
   @spec get_reference_metadata(map(), String.t(), String.t(), list()) ::
           {:ok, get_reference_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reference_metadata_errors()}
   def get_reference_metadata(%Client{} = client, id, reference_store_id, options \\ []) do
     url_path =
@@ -5481,6 +5521,7 @@ defmodule AWS.Omics do
   @spec get_reference_store(map(), String.t(), list()) ::
           {:ok, get_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reference_store_errors()}
   def get_reference_store(%Client{} = client, id, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(id)}"
@@ -5507,6 +5548,7 @@ defmodule AWS.Omics do
   @spec get_run(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_run_errors()}
   def get_run(%Client{} = client, id, export \\ nil, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}"
@@ -5534,6 +5576,7 @@ defmodule AWS.Omics do
   @spec get_run_cache(map(), String.t(), list()) ::
           {:ok, get_run_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_run_cache_errors()}
   def get_run_cache(%Client{} = client, id, options \\ []) do
     url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
@@ -5551,6 +5594,7 @@ defmodule AWS.Omics do
   @spec get_run_group(map(), String.t(), list()) ::
           {:ok, get_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_run_group_errors()}
   def get_run_group(%Client{} = client, id, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
@@ -5568,6 +5612,7 @@ defmodule AWS.Omics do
   @spec get_run_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_run_task_errors()}
   def get_run_task(%Client{} = client, id, task_id, options \\ []) do
     url_path = "/run/#{AWS.Util.encode_uri(id)}/task/#{AWS.Util.encode_uri(task_id)}"
@@ -5585,6 +5630,7 @@ defmodule AWS.Omics do
   @spec get_s3_access_policy(map(), String.t(), list()) ::
           {:ok, get_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_s3_access_policy_errors()}
   def get_s3_access_policy(%Client{} = client, s3_access_point_arn, options \\ []) do
     url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
@@ -5602,6 +5648,7 @@ defmodule AWS.Omics do
   @spec get_sequence_store(map(), String.t(), list()) ::
           {:ok, get_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sequence_store_errors()}
   def get_sequence_store(%Client{} = client, id, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
@@ -5619,6 +5666,7 @@ defmodule AWS.Omics do
   @spec get_share(map(), String.t(), list()) ::
           {:ok, get_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_share_errors()}
   def get_share(%Client{} = client, share_id, options \\ []) do
     url_path = "/share/#{AWS.Util.encode_uri(share_id)}"
@@ -5636,6 +5684,7 @@ defmodule AWS.Omics do
   @spec get_variant_import_job(map(), String.t(), list()) ::
           {:ok, get_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_variant_import_job_errors()}
   def get_variant_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/import/variant/#{AWS.Util.encode_uri(job_id)}"
@@ -5653,6 +5702,7 @@ defmodule AWS.Omics do
   @spec get_variant_store(map(), String.t(), list()) ::
           {:ok, get_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_variant_store_errors()}
   def get_variant_store(%Client{} = client, name, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
@@ -5679,6 +5729,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(
         %Client{} = client,
@@ -5724,6 +5775,7 @@ defmodule AWS.Omics do
   @spec list_annotation_import_jobs(map(), list_annotation_import_jobs_request(), list()) ::
           {:ok, list_annotation_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_annotation_import_jobs_errors()}
   def list_annotation_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/import/annotations"
@@ -5764,6 +5816,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_annotation_store_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_annotation_store_versions_errors()}
   def list_annotation_store_versions(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}/versions"
@@ -5798,6 +5851,7 @@ defmodule AWS.Omics do
   @spec list_annotation_stores(map(), list_annotation_stores_request(), list()) ::
           {:ok, list_annotation_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_annotation_stores_errors()}
   def list_annotation_stores(%Client{} = client, input, options \\ []) do
     url_path = "/annotationStores"
@@ -5840,6 +5894,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_multipart_read_set_uploads_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multipart_read_set_uploads_errors()}
   def list_multipart_read_set_uploads(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/uploads"
@@ -5879,6 +5934,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_read_set_activation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_read_set_activation_jobs_errors()}
   def list_read_set_activation_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjobs"
@@ -5913,6 +5969,7 @@ defmodule AWS.Omics do
   @spec list_read_set_export_jobs(map(), String.t(), list_read_set_export_jobs_request(), list()) ::
           {:ok, list_read_set_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_read_set_export_jobs_errors()}
   def list_read_set_export_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjobs"
@@ -5947,6 +6004,7 @@ defmodule AWS.Omics do
   @spec list_read_set_import_jobs(map(), String.t(), list_read_set_import_jobs_request(), list()) ::
           {:ok, list_read_set_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_read_set_import_jobs_errors()}
   def list_read_set_import_jobs(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjobs"
@@ -5988,6 +6046,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_read_set_upload_parts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_read_set_upload_parts_errors()}
   def list_read_set_upload_parts(
         %Client{} = client,
@@ -6030,6 +6089,7 @@ defmodule AWS.Omics do
   @spec list_read_sets(map(), String.t(), list_read_sets_request(), list()) ::
           {:ok, list_read_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_read_sets_errors()}
   def list_read_sets(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/readsets"
@@ -6069,6 +6129,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_reference_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reference_import_jobs_errors()}
   def list_reference_import_jobs(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjobs"
@@ -6103,6 +6164,7 @@ defmodule AWS.Omics do
   @spec list_reference_stores(map(), list_reference_stores_request(), list()) ::
           {:ok, list_reference_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reference_stores_errors()}
   def list_reference_stores(%Client{} = client, input, options \\ []) do
     url_path = "/referencestores"
@@ -6137,6 +6199,7 @@ defmodule AWS.Omics do
   @spec list_references(map(), String.t(), list_references_request(), list()) ::
           {:ok, list_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_references_errors()}
   def list_references(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/references"
@@ -6171,6 +6234,7 @@ defmodule AWS.Omics do
   @spec list_run_caches(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_run_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_run_caches_errors()}
   def list_run_caches(
         %Client{} = client,
@@ -6207,6 +6271,7 @@ defmodule AWS.Omics do
   @spec list_run_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_run_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_run_groups_errors()}
   def list_run_groups(
         %Client{} = client,
@@ -6258,6 +6323,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_run_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_run_tasks_errors()}
   def list_run_tasks(
         %Client{} = client,
@@ -6319,6 +6385,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_runs_errors()}
   def list_runs(
         %Client{} = client,
@@ -6379,6 +6446,7 @@ defmodule AWS.Omics do
   @spec list_sequence_stores(map(), list_sequence_stores_request(), list()) ::
           {:ok, list_sequence_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sequence_stores_errors()}
   def list_sequence_stores(%Client{} = client, input, options \\ []) do
     url_path = "/sequencestores"
@@ -6416,6 +6484,7 @@ defmodule AWS.Omics do
   @spec list_shares(map(), list_shares_request(), list()) ::
           {:ok, list_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_shares_errors()}
   def list_shares(%Client{} = client, input, options \\ []) do
     url_path = "/shares"
@@ -6450,6 +6519,7 @@ defmodule AWS.Omics do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6467,6 +6537,7 @@ defmodule AWS.Omics do
   @spec list_variant_import_jobs(map(), list_variant_import_jobs_request(), list()) ::
           {:ok, list_variant_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_variant_import_jobs_errors()}
   def list_variant_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/import/variants"
@@ -6501,6 +6572,7 @@ defmodule AWS.Omics do
   @spec list_variant_stores(map(), list_variant_stores_request(), list()) ::
           {:ok, list_variant_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_variant_stores_errors()}
   def list_variant_stores(%Client{} = client, input, options \\ []) do
     url_path = "/variantStores"
@@ -6542,6 +6614,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(
         %Client{} = client,
@@ -6594,6 +6667,7 @@ defmodule AWS.Omics do
   @spec put_s3_access_policy(map(), String.t(), put_s3_access_policy_request(), list()) ::
           {:ok, put_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_s3_access_policy_errors()}
   def put_s3_access_policy(%Client{} = client, s3_access_point_arn, input, options \\ []) do
     url_path = "/s3accesspolicy/#{AWS.Util.encode_uri(s3_access_point_arn)}"
@@ -6622,6 +6696,7 @@ defmodule AWS.Omics do
   @spec start_annotation_import_job(map(), start_annotation_import_request(), list()) ::
           {:ok, start_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_annotation_import_job_errors()}
   def start_annotation_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/import/annotation"
@@ -6658,6 +6733,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, start_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_read_set_activation_job_errors()}
   def start_read_set_activation_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/activationjob"
@@ -6686,6 +6762,7 @@ defmodule AWS.Omics do
   @spec start_read_set_export_job(map(), String.t(), start_read_set_export_job_request(), list()) ::
           {:ok, start_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_read_set_export_job_errors()}
   def start_read_set_export_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/exportjob"
@@ -6714,6 +6791,7 @@ defmodule AWS.Omics do
   @spec start_read_set_import_job(map(), String.t(), start_read_set_import_job_request(), list()) ::
           {:ok, start_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_read_set_import_job_errors()}
   def start_read_set_import_job(%Client{} = client, sequence_store_id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(sequence_store_id)}/importjob"
@@ -6747,6 +6825,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, start_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_reference_import_job_errors()}
   def start_reference_import_job(%Client{} = client, reference_store_id, input, options \\ []) do
     url_path = "/referencestore/#{AWS.Util.encode_uri(reference_store_id)}/importjob"
@@ -6795,6 +6874,7 @@ defmodule AWS.Omics do
   @spec start_run(map(), start_run_request(), list()) ::
           {:ok, start_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_run_errors()}
   def start_run(%Client{} = client, input, options \\ []) do
     url_path = "/run"
@@ -6823,6 +6903,7 @@ defmodule AWS.Omics do
   @spec start_variant_import_job(map(), start_variant_import_request(), list()) ::
           {:ok, start_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_variant_import_job_errors()}
   def start_variant_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/import/variant"
@@ -6851,6 +6932,7 @@ defmodule AWS.Omics do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6879,6 +6961,7 @@ defmodule AWS.Omics do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6912,6 +6995,7 @@ defmodule AWS.Omics do
   @spec update_annotation_store(map(), String.t(), update_annotation_store_request(), list()) ::
           {:ok, update_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_annotation_store_errors()}
   def update_annotation_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/annotationStore/#{AWS.Util.encode_uri(name)}"
@@ -6947,6 +7031,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, update_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_annotation_store_version_errors()}
   def update_annotation_store_version(
         %Client{} = client,
@@ -6983,6 +7068,7 @@ defmodule AWS.Omics do
   @spec update_run_cache(map(), String.t(), update_run_cache_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_run_cache_errors()}
   def update_run_cache(%Client{} = client, id, input, options \\ []) do
     url_path = "/runCache/#{AWS.Util.encode_uri(id)}"
@@ -7011,6 +7097,7 @@ defmodule AWS.Omics do
   @spec update_run_group(map(), String.t(), update_run_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_run_group_errors()}
   def update_run_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/runGroup/#{AWS.Util.encode_uri(id)}"
@@ -7039,6 +7126,7 @@ defmodule AWS.Omics do
   @spec update_sequence_store(map(), String.t(), update_sequence_store_request(), list()) ::
           {:ok, update_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sequence_store_errors()}
   def update_sequence_store(%Client{} = client, id, input, options \\ []) do
     url_path = "/sequencestore/#{AWS.Util.encode_uri(id)}"
@@ -7067,6 +7155,7 @@ defmodule AWS.Omics do
   @spec update_variant_store(map(), String.t(), update_variant_store_request(), list()) ::
           {:ok, update_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_variant_store_errors()}
   def update_variant_store(%Client{} = client, name, input, options \\ []) do
     url_path = "/variantStore/#{AWS.Util.encode_uri(name)}"
@@ -7095,6 +7184,7 @@ defmodule AWS.Omics do
   @spec update_workflow(map(), String.t(), update_workflow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflow/#{AWS.Util.encode_uri(id)}"
@@ -7132,6 +7222,7 @@ defmodule AWS.Omics do
         ) ::
           {:ok, upload_read_set_part_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_read_set_part_errors()}
   def upload_read_set_part(%Client{} = client, sequence_store_id, upload_id, input, options \\ []) do
     url_path =

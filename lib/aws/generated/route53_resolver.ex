@@ -2839,6 +2839,7 @@ defmodule AWS.Route53Resolver do
   @spec associate_firewall_rule_group(map(), associate_firewall_rule_group_request(), list()) ::
           {:ok, associate_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_firewall_rule_group_errors()}
   def associate_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2862,6 +2863,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, associate_resolver_endpoint_ip_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resolver_endpoint_ip_address_errors()}
   def associate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2891,6 +2893,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, associate_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resolver_query_log_config_errors()}
   def associate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2911,6 +2914,7 @@ defmodule AWS.Route53Resolver do
   @spec associate_resolver_rule(map(), associate_resolver_rule_request(), list()) ::
           {:ok, associate_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resolver_rule_errors()}
   def associate_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2927,6 +2931,7 @@ defmodule AWS.Route53Resolver do
   @spec create_firewall_domain_list(map(), create_firewall_domain_list_request(), list()) ::
           {:ok, create_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_firewall_domain_list_errors()}
   def create_firewall_domain_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2941,6 +2946,7 @@ defmodule AWS.Route53Resolver do
   @spec create_firewall_rule(map(), create_firewall_rule_request(), list()) ::
           {:ok, create_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_firewall_rule_errors()}
   def create_firewall_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2958,6 +2964,7 @@ defmodule AWS.Route53Resolver do
   @spec create_firewall_rule_group(map(), create_firewall_rule_group_request(), list()) ::
           {:ok, create_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_firewall_rule_group_errors()}
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2971,6 +2978,7 @@ defmodule AWS.Route53Resolver do
   @spec create_outpost_resolver(map(), create_outpost_resolver_request(), list()) ::
           {:ok, create_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_outpost_resolver_errors()}
   def create_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2995,6 +3003,7 @@ defmodule AWS.Route53Resolver do
   @spec create_resolver_endpoint(map(), create_resolver_endpoint_request(), list()) ::
           {:ok, create_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resolver_endpoint_errors()}
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3026,6 +3035,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, create_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resolver_query_log_config_errors()}
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3042,6 +3052,7 @@ defmodule AWS.Route53Resolver do
   @spec create_resolver_rule(map(), create_resolver_rule_request(), list()) ::
           {:ok, create_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resolver_rule_errors()}
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3055,6 +3066,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_firewall_domain_list(map(), delete_firewall_domain_list_request(), list()) ::
           {:ok, delete_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_firewall_domain_list_errors()}
   def delete_firewall_domain_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3068,6 +3080,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_firewall_rule(map(), delete_firewall_rule_request(), list()) ::
           {:ok, delete_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_firewall_rule_errors()}
   def delete_firewall_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3081,6 +3094,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_firewall_rule_group(map(), delete_firewall_rule_group_request(), list()) ::
           {:ok, delete_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_firewall_rule_group_errors()}
   def delete_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3094,6 +3108,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_outpost_resolver(map(), delete_outpost_resolver_request(), list()) ::
           {:ok, delete_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_outpost_resolver_errors()}
   def delete_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3120,6 +3135,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_resolver_endpoint(map(), delete_resolver_endpoint_request(), list()) ::
           {:ok, delete_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resolver_endpoint_errors()}
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3155,6 +3171,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, delete_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resolver_query_log_config_errors()}
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3173,6 +3190,7 @@ defmodule AWS.Route53Resolver do
   @spec delete_resolver_rule(map(), delete_resolver_rule_request(), list()) ::
           {:ok, delete_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resolver_rule_errors()}
   def delete_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3191,6 +3209,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, disassociate_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_firewall_rule_group_errors()}
   def disassociate_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3214,6 +3233,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, disassociate_resolver_endpoint_ip_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resolver_endpoint_ip_address_errors()}
   def disassociate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3245,6 +3265,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, disassociate_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resolver_query_log_config_errors()}
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3262,6 +3283,7 @@ defmodule AWS.Route53Resolver do
   @spec disassociate_resolver_rule(map(), disassociate_resolver_rule_request(), list()) ::
           {:ok, disassociate_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resolver_rule_errors()}
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3277,6 +3299,7 @@ defmodule AWS.Route53Resolver do
   @spec get_firewall_config(map(), get_firewall_config_request(), list()) ::
           {:ok, get_firewall_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_firewall_config_errors()}
   def get_firewall_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3290,6 +3313,7 @@ defmodule AWS.Route53Resolver do
   @spec get_firewall_domain_list(map(), get_firewall_domain_list_request(), list()) ::
           {:ok, get_firewall_domain_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_firewall_domain_list_errors()}
   def get_firewall_domain_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3303,6 +3327,7 @@ defmodule AWS.Route53Resolver do
   @spec get_firewall_rule_group(map(), get_firewall_rule_group_request(), list()) ::
           {:ok, get_firewall_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_firewall_rule_group_errors()}
   def get_firewall_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3324,6 +3349,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, get_firewall_rule_group_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_firewall_rule_group_association_errors()}
   def get_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3342,6 +3368,7 @@ defmodule AWS.Route53Resolver do
   @spec get_firewall_rule_group_policy(map(), get_firewall_rule_group_policy_request(), list()) ::
           {:ok, get_firewall_rule_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_firewall_rule_group_policy_errors()}
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3357,6 +3384,7 @@ defmodule AWS.Route53Resolver do
   @spec get_outpost_resolver(map(), get_outpost_resolver_request(), list()) ::
           {:ok, get_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_outpost_resolver_errors()}
   def get_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3372,6 +3400,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_config(map(), get_resolver_config_request(), list()) ::
           {:ok, get_resolver_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_config_errors()}
   def get_resolver_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3385,6 +3414,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_dnssec_config(map(), get_resolver_dnssec_config_request(), list()) ::
           {:ok, get_resolver_dnssec_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_dnssec_config_errors()}
   def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3400,6 +3430,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_endpoint(map(), get_resolver_endpoint_request(), list()) ::
           {:ok, get_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_endpoint_errors()}
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3415,6 +3446,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_query_log_config(map(), get_resolver_query_log_config_request(), list()) ::
           {:ok, get_resolver_query_log_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_query_log_config_errors()}
   def get_resolver_query_log_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3437,6 +3469,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, get_resolver_query_log_config_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_query_log_config_association_errors()}
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3458,6 +3491,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, get_resolver_query_log_config_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_query_log_config_policy_errors()}
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3473,6 +3507,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_rule(map(), get_resolver_rule_request(), list()) ::
           {:ok, get_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_rule_errors()}
   def get_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3490,6 +3525,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_rule_association(map(), get_resolver_rule_association_request(), list()) ::
           {:ok, get_resolver_rule_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_rule_association_errors()}
   def get_resolver_rule_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3507,6 +3543,7 @@ defmodule AWS.Route53Resolver do
   @spec get_resolver_rule_policy(map(), get_resolver_rule_policy_request(), list()) ::
           {:ok, get_resolver_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_rule_policy_errors()}
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3535,6 +3572,7 @@ defmodule AWS.Route53Resolver do
   @spec import_firewall_domains(map(), import_firewall_domains_request(), list()) ::
           {:ok, import_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_firewall_domains_errors()}
   def import_firewall_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3553,6 +3591,7 @@ defmodule AWS.Route53Resolver do
   @spec list_firewall_configs(map(), list_firewall_configs_request(), list()) ::
           {:ok, list_firewall_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_configs_errors()}
   def list_firewall_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3572,6 +3611,7 @@ defmodule AWS.Route53Resolver do
   @spec list_firewall_domain_lists(map(), list_firewall_domain_lists_request(), list()) ::
           {:ok, list_firewall_domain_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_domain_lists_errors()}
   def list_firewall_domain_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3589,6 +3629,7 @@ defmodule AWS.Route53Resolver do
   @spec list_firewall_domains(map(), list_firewall_domains_request(), list()) ::
           {:ok, list_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_domains_errors()}
   def list_firewall_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3611,6 +3652,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, list_firewall_rule_group_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_rule_group_associations_errors()}
   def list_firewall_rule_group_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3628,6 +3670,7 @@ defmodule AWS.Route53Resolver do
   @spec list_firewall_rule_groups(map(), list_firewall_rule_groups_request(), list()) ::
           {:ok, list_firewall_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_rule_groups_errors()}
   def list_firewall_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3648,6 +3691,7 @@ defmodule AWS.Route53Resolver do
   @spec list_firewall_rules(map(), list_firewall_rules_request(), list()) ::
           {:ok, list_firewall_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_rules_errors()}
   def list_firewall_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3662,6 +3706,7 @@ defmodule AWS.Route53Resolver do
   @spec list_outpost_resolvers(map(), list_outpost_resolvers_request(), list()) ::
           {:ok, list_outpost_resolvers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_outpost_resolvers_errors()}
   def list_outpost_resolvers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3678,6 +3723,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_configs(map(), list_resolver_configs_request(), list()) ::
           {:ok, list_resolver_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_configs_errors()}
   def list_resolver_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3692,6 +3738,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_dnssec_configs(map(), list_resolver_dnssec_configs_request(), list()) ::
           {:ok, list_resolver_dnssec_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_dnssec_configs_errors()}
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3709,6 +3756,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, list_resolver_endpoint_ip_addresses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_endpoint_ip_addresses_errors()}
   def list_resolver_endpoint_ip_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3723,6 +3771,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_endpoints(map(), list_resolver_endpoints_request(), list()) ::
           {:ok, list_resolver_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_endpoints_errors()}
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3741,6 +3790,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, list_resolver_query_log_config_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_query_log_config_associations_errors()}
   def list_resolver_query_log_config_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3757,6 +3807,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_query_log_configs(map(), list_resolver_query_log_configs_request(), list()) ::
           {:ok, list_resolver_query_log_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_query_log_configs_errors()}
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3771,6 +3822,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_rule_associations(map(), list_resolver_rule_associations_request(), list()) ::
           {:ok, list_resolver_rule_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_rule_associations_errors()}
   def list_resolver_rule_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3785,6 +3837,7 @@ defmodule AWS.Route53Resolver do
   @spec list_resolver_rules(map(), list_resolver_rules_request(), list()) ::
           {:ok, list_resolver_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolver_rules_errors()}
   def list_resolver_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3798,6 +3851,7 @@ defmodule AWS.Route53Resolver do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3816,6 +3870,7 @@ defmodule AWS.Route53Resolver do
   @spec put_firewall_rule_group_policy(map(), put_firewall_rule_group_policy_request(), list()) ::
           {:ok, put_firewall_rule_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_firewall_rule_group_policy_errors()}
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3836,6 +3891,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, put_resolver_query_log_config_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resolver_query_log_config_policy_errors()}
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3851,6 +3907,7 @@ defmodule AWS.Route53Resolver do
   @spec put_resolver_rule_policy(map(), put_resolver_rule_policy_request(), list()) ::
           {:ok, put_resolver_rule_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resolver_rule_policy_errors()}
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3864,6 +3921,7 @@ defmodule AWS.Route53Resolver do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3877,6 +3935,7 @@ defmodule AWS.Route53Resolver do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3892,6 +3951,7 @@ defmodule AWS.Route53Resolver do
   @spec update_firewall_config(map(), update_firewall_config_request(), list()) ::
           {:ok, update_firewall_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_config_errors()}
   def update_firewall_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3905,6 +3965,7 @@ defmodule AWS.Route53Resolver do
   @spec update_firewall_domains(map(), update_firewall_domains_request(), list()) ::
           {:ok, update_firewall_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_domains_errors()}
   def update_firewall_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3918,6 +3979,7 @@ defmodule AWS.Route53Resolver do
   @spec update_firewall_rule(map(), update_firewall_rule_request(), list()) ::
           {:ok, update_firewall_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_rule_errors()}
   def update_firewall_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3937,6 +3999,7 @@ defmodule AWS.Route53Resolver do
         ) ::
           {:ok, update_firewall_rule_group_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_rule_group_association_errors()}
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3951,6 +4014,7 @@ defmodule AWS.Route53Resolver do
   @spec update_outpost_resolver(map(), update_outpost_resolver_request(), list()) ::
           {:ok, update_outpost_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_outpost_resolver_errors()}
   def update_outpost_resolver(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3966,6 +4030,7 @@ defmodule AWS.Route53Resolver do
   @spec update_resolver_config(map(), update_resolver_config_request(), list()) ::
           {:ok, update_resolver_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resolver_config_errors()}
   def update_resolver_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3981,6 +4046,7 @@ defmodule AWS.Route53Resolver do
   @spec update_resolver_dnssec_config(map(), update_resolver_dnssec_config_request(), list()) ::
           {:ok, update_resolver_dnssec_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resolver_dnssec_config_errors()}
   def update_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3998,6 +4064,7 @@ defmodule AWS.Route53Resolver do
   @spec update_resolver_endpoint(map(), update_resolver_endpoint_request(), list()) ::
           {:ok, update_resolver_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resolver_endpoint_errors()}
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4014,6 +4081,7 @@ defmodule AWS.Route53Resolver do
   @spec update_resolver_rule(map(), update_resolver_rule_request(), list()) ::
           {:ok, update_resolver_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resolver_rule_errors()}
   def update_resolver_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()

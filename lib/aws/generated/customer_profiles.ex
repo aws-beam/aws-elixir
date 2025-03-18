@@ -3798,6 +3798,7 @@ defmodule AWS.CustomerProfiles do
   @spec add_profile_key(map(), String.t(), add_profile_key_request(), list()) ::
           {:ok, add_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_profile_key_errors()}
   def add_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys"
@@ -3832,6 +3833,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, batch_get_calculated_attribute_for_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_calculated_attribute_for_profile_errors()}
   def batch_get_calculated_attribute_for_profile(
         %Client{} = client,
@@ -3868,6 +3870,7 @@ defmodule AWS.CustomerProfiles do
   @spec batch_get_profile(map(), String.t(), batch_get_profile_request(), list()) ::
           {:ok, batch_get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_profile_errors()}
   def batch_get_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/batch-get-profiles"
@@ -3913,6 +3916,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, create_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_calculated_attribute_definition_errors()}
   def create_calculated_attribute_definition(
         %Client{} = client,
@@ -3978,6 +3982,7 @@ defmodule AWS.CustomerProfiles do
   @spec create_domain(map(), String.t(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -4012,6 +4017,7 @@ defmodule AWS.CustomerProfiles do
   @spec create_event_stream(map(), String.t(), String.t(), create_event_stream_request(), list()) ::
           {:ok, create_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_stream_errors()}
   def create_event_stream(
         %Client{} = client,
@@ -4060,6 +4066,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, create_event_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_trigger_errors()}
   def create_event_trigger(
         %Client{} = client,
@@ -4105,6 +4112,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, create_integration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_workflow_errors()}
   def create_integration_workflow(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows/integrations"
@@ -4137,6 +4145,7 @@ defmodule AWS.CustomerProfiles do
   @spec create_profile(map(), String.t(), create_profile_request(), list()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"
@@ -4171,6 +4180,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, create_segment_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_segment_definition_errors()}
   def create_segment_definition(
         %Client{} = client,
@@ -4207,6 +4217,7 @@ defmodule AWS.CustomerProfiles do
   @spec create_segment_estimate(map(), String.t(), create_segment_estimate_request(), list()) ::
           {:ok, create_segment_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_segment_estimate_errors()}
   def create_segment_estimate(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/segment-estimates"
@@ -4241,6 +4252,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, create_segment_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_segment_snapshot_errors()}
   def create_segment_snapshot(
         %Client{} = client,
@@ -4289,6 +4301,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, delete_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_calculated_attribute_definition_errors()}
   def delete_calculated_attribute_definition(
         %Client{} = client,
@@ -4326,6 +4339,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -4354,6 +4368,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_event_stream(map(), String.t(), String.t(), delete_event_stream_request(), list()) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_stream_errors()}
   def delete_event_stream(
         %Client{} = client,
@@ -4398,6 +4413,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, delete_event_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_trigger_errors()}
   def delete_event_trigger(
         %Client{} = client,
@@ -4434,6 +4450,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_integration(map(), String.t(), delete_integration_request(), list()) ::
           {:ok, delete_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations/delete"
@@ -4462,6 +4479,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_profile(map(), String.t(), delete_profile_request(), list()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/delete"
@@ -4490,6 +4508,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_profile_key(map(), String.t(), delete_profile_key_request(), list()) ::
           {:ok, delete_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_key_errors()}
   def delete_profile_key(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/keys/delete"
@@ -4518,6 +4537,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_profile_object(map(), String.t(), delete_profile_object_request(), list()) ::
           {:ok, delete_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_object_errors()}
   def delete_profile_object(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/delete"
@@ -4558,6 +4578,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, delete_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_object_type_errors()}
   def delete_profile_object_type(
         %Client{} = client,
@@ -4600,6 +4621,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, delete_segment_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_segment_definition_errors()}
   def delete_segment_definition(
         %Client{} = client,
@@ -4639,6 +4661,7 @@ defmodule AWS.CustomerProfiles do
   @spec delete_workflow(map(), String.t(), String.t(), delete_workflow_request(), list()) ::
           {:ok, delete_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, domain_name, workflow_id, input, options \\ []) do
     url_path =
@@ -4674,6 +4697,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, detect_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_profile_object_type_errors()}
   def detect_profile_object_type(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/detect/object-types"
@@ -4721,6 +4745,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_auto_merging_preview(map(), String.t(), get_auto_merging_preview_request(), list()) ::
           {:ok, get_auto_merging_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_auto_merging_preview_errors()}
   def get_auto_merging_preview(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -4752,6 +4777,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_calculated_attribute_definition(map(), String.t(), String.t(), list()) ::
           {:ok, get_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calculated_attribute_definition_errors()}
   def get_calculated_attribute_definition(
         %Client{} = client,
@@ -4776,6 +4802,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_calculated_attribute_for_profile(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_calculated_attribute_for_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calculated_attribute_for_profile_errors()}
   def get_calculated_attribute_for_profile(
         %Client{} = client,
@@ -4801,6 +4828,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_domain(map(), String.t(), list()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -4818,6 +4846,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_event_stream(map(), String.t(), String.t(), list()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_stream_errors()}
   def get_event_stream(%Client{} = client, domain_name, event_stream_name, options \\ []) do
     url_path =
@@ -4837,6 +4866,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_event_trigger(map(), String.t(), String.t(), list()) ::
           {:ok, get_event_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_trigger_errors()}
   def get_event_trigger(%Client{} = client, domain_name, event_trigger_name, options \\ []) do
     url_path =
@@ -4860,6 +4890,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_identity_resolution_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_identity_resolution_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_identity_resolution_job_errors()}
   def get_identity_resolution_job(%Client{} = client, domain_name, job_id, options \\ []) do
     url_path =
@@ -4879,6 +4910,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_integration(map(), String.t(), get_integration_request(), list()) ::
           {:ok, get_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_integration_errors()}
   def get_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
@@ -4961,6 +4993,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_matches(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_matches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_matches_errors()}
   def get_matches(
         %Client{} = client,
@@ -4998,6 +5031,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_profile_object_type(map(), String.t(), String.t(), list()) ::
           {:ok, get_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_object_type_errors()}
   def get_profile_object_type(%Client{} = client, domain_name, object_type_name, options \\ []) do
     url_path =
@@ -5024,6 +5058,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_profile_object_type_template(map(), String.t(), list()) ::
           {:ok, get_profile_object_type_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_object_type_template_errors()}
   def get_profile_object_type_template(%Client{} = client, template_id, options \\ []) do
     url_path = "/templates/#{AWS.Util.encode_uri(template_id)}"
@@ -5041,6 +5076,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_segment_definition(map(), String.t(), String.t(), list()) ::
           {:ok, get_segment_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_definition_errors()}
   def get_segment_definition(
         %Client{} = client,
@@ -5065,6 +5101,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_segment_estimate(map(), String.t(), String.t(), list()) ::
           {:ok, get_segment_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_estimate_errors()}
   def get_segment_estimate(%Client{} = client, domain_name, estimate_id, options \\ []) do
     url_path =
@@ -5090,6 +5127,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, get_segment_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_membership_errors()}
   def get_segment_membership(
         %Client{} = client,
@@ -5126,6 +5164,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_segment_snapshot(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_segment_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_segment_snapshot_errors()}
   def get_segment_snapshot(
         %Client{} = client,
@@ -5156,6 +5195,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_similar_profiles(map(), String.t(), get_similar_profiles_request(), list()) ::
           {:ok, get_similar_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_similar_profiles_errors()}
   def get_similar_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/matches"
@@ -5190,6 +5230,7 @@ defmodule AWS.CustomerProfiles do
   @spec get_workflow(map(), String.t(), String.t(), list()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, domain_name, workflow_id, options \\ []) do
     url_path =
@@ -5216,6 +5257,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, get_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_steps_errors()}
   def get_workflow_steps(
         %Client{} = client,
@@ -5256,6 +5298,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_account_integrations(map(), list_account_integrations_request(), list()) ::
           {:ok, list_account_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_integrations_errors()}
   def list_account_integrations(%Client{} = client, input, options \\ []) do
     url_path = "/integrations"
@@ -5297,6 +5340,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, list_calculated_attribute_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_calculated_attribute_definitions_errors()}
   def list_calculated_attribute_definitions(
         %Client{} = client,
@@ -5341,6 +5385,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, list_calculated_attributes_for_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_calculated_attributes_for_profile_errors()}
   def list_calculated_attributes_for_profile(
         %Client{} = client,
@@ -5381,6 +5426,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_domains(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/domains"
@@ -5412,6 +5458,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_event_streams(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_event_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_streams_errors()}
   def list_event_streams(
         %Client{} = client,
@@ -5449,6 +5496,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_event_triggers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_event_triggers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_triggers_errors()}
   def list_event_triggers(
         %Client{} = client,
@@ -5495,6 +5543,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, list_identity_resolution_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_resolution_jobs_errors()}
   def list_identity_resolution_jobs(
         %Client{} = client,
@@ -5539,6 +5588,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, list_integrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_integrations_errors()}
   def list_integrations(
         %Client{} = client,
@@ -5591,6 +5641,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, list_object_type_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_type_attributes_errors()}
   def list_object_type_attributes(
         %Client{} = client,
@@ -5631,6 +5682,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_profile_attribute_values(map(), String.t(), String.t(), list()) ::
           {:ok, profile_attribute_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_attribute_values_errors()}
   def list_profile_attribute_values(
         %Client{} = client,
@@ -5655,6 +5707,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_profile_object_type_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_profile_object_type_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_object_type_templates_errors()}
   def list_profile_object_type_templates(
         %Client{} = client,
@@ -5691,6 +5744,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_profile_object_types(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_profile_object_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_object_types_errors()}
   def list_profile_object_types(
         %Client{} = client,
@@ -5729,6 +5783,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_profile_objects(map(), String.t(), list_profile_objects_request(), list()) ::
           {:ok, list_profile_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_objects_errors()}
   def list_profile_objects(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
@@ -5763,6 +5818,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_rule_based_matches(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rule_based_matches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_based_matches_errors()}
   def list_rule_based_matches(
         %Client{} = client,
@@ -5800,6 +5856,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_segment_definitions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_segment_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_segment_definitions_errors()}
   def list_segment_definitions(
         %Client{} = client,
@@ -5841,6 +5898,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5858,6 +5916,7 @@ defmodule AWS.CustomerProfiles do
   @spec list_workflows(map(), String.t(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/workflows"
@@ -5933,6 +5992,7 @@ defmodule AWS.CustomerProfiles do
   @spec merge_profiles(map(), String.t(), merge_profiles_request(), list()) ::
           {:ok, merge_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, merge_profiles_errors()}
   def merge_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects/merge"
@@ -5970,6 +6030,7 @@ defmodule AWS.CustomerProfiles do
   @spec put_integration(map(), String.t(), put_integration_request(), list()) ::
           {:ok, put_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_integration_errors()}
   def put_integration(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/integrations"
@@ -6014,6 +6075,7 @@ defmodule AWS.CustomerProfiles do
   @spec put_profile_object(map(), String.t(), put_profile_object_request(), list()) ::
           {:ok, put_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_profile_object_errors()}
   def put_profile_object(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/objects"
@@ -6051,6 +6113,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, put_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_profile_object_type_errors()}
   def put_profile_object_type(
         %Client{} = client,
@@ -6098,6 +6161,7 @@ defmodule AWS.CustomerProfiles do
   @spec search_profiles(map(), String.t(), search_profiles_request(), list()) ::
           {:ok, search_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_profiles_errors()}
   def search_profiles(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles/search"
@@ -6155,6 +6219,7 @@ defmodule AWS.CustomerProfiles do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6188,6 +6253,7 @@ defmodule AWS.CustomerProfiles do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6232,6 +6298,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, update_calculated_attribute_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_calculated_attribute_definition_errors()}
   def update_calculated_attribute_definition(
         %Client{} = client,
@@ -6286,6 +6353,7 @@ defmodule AWS.CustomerProfiles do
   @spec update_domain(map(), String.t(), update_domain_request(), list()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -6320,6 +6388,7 @@ defmodule AWS.CustomerProfiles do
         ) ::
           {:ok, update_event_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_trigger_errors()}
   def update_event_trigger(
         %Client{} = client,
@@ -6365,6 +6434,7 @@ defmodule AWS.CustomerProfiles do
   @spec update_profile(map(), String.t(), update_profile_request(), list()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/profiles"

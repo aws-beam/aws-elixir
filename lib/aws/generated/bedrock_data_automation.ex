@@ -1015,6 +1015,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec create_blueprint(map(), create_blueprint_request(), list()) ::
           {:ok, create_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
     url_path = "/blueprints/"
@@ -1043,6 +1044,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec create_blueprint_version(map(), String.t(), create_blueprint_version_request(), list()) ::
           {:ok, create_blueprint_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_blueprint_version_errors()}
   def create_blueprint_version(%Client{} = client, blueprint_arn, input, options \\ []) do
     url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/versions/"
@@ -1071,6 +1073,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec create_data_automation_project(map(), create_data_automation_project_request(), list()) ::
           {:ok, create_data_automation_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_automation_project_errors()}
   def create_data_automation_project(%Client{} = client, input, options \\ []) do
     url_path = "/data-automation-projects/"
@@ -1099,6 +1102,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec delete_blueprint(map(), String.t(), delete_blueprint_request(), list()) ::
           {:ok, delete_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, blueprint_arn, input, options \\ []) do
     url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/"
@@ -1137,6 +1141,7 @@ defmodule AWS.BedrockDataAutomation do
         ) ::
           {:ok, delete_data_automation_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_automation_project_errors()}
   def delete_data_automation_project(%Client{} = client, project_arn, input, options \\ []) do
     url_path = "/data-automation-projects/#{AWS.Util.encode_uri(project_arn)}/"
@@ -1165,6 +1170,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec get_blueprint(map(), String.t(), get_blueprint_request(), list()) ::
           {:ok, get_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, blueprint_arn, input, options \\ []) do
     url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/"
@@ -1198,6 +1204,7 @@ defmodule AWS.BedrockDataAutomation do
         ) ::
           {:ok, get_data_automation_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_automation_project_errors()}
   def get_data_automation_project(%Client{} = client, project_arn, input, options \\ []) do
     url_path = "/data-automation-projects/#{AWS.Util.encode_uri(project_arn)}/"
@@ -1226,6 +1233,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec list_blueprints(map(), list_blueprints_request(), list()) ::
           {:ok, list_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/blueprints/"
@@ -1254,6 +1262,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec list_data_automation_projects(map(), list_data_automation_projects_request(), list()) ::
           {:ok, list_data_automation_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_automation_projects_errors()}
   def list_data_automation_projects(%Client{} = client, input, options \\ []) do
     url_path = "/data-automation-projects/"
@@ -1282,6 +1291,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
@@ -1310,6 +1320,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
@@ -1338,6 +1349,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagResource"
@@ -1366,6 +1378,7 @@ defmodule AWS.BedrockDataAutomation do
   @spec update_blueprint(map(), String.t(), update_blueprint_request(), list()) ::
           {:ok, update_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, blueprint_arn, input, options \\ []) do
     url_path = "/blueprints/#{AWS.Util.encode_uri(blueprint_arn)}/"
@@ -1399,6 +1412,7 @@ defmodule AWS.BedrockDataAutomation do
         ) ::
           {:ok, update_data_automation_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_automation_project_errors()}
   def update_data_automation_project(%Client{} = client, project_arn, input, options \\ []) do
     url_path = "/data-automation-projects/#{AWS.Util.encode_uri(project_arn)}/"

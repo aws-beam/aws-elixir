@@ -1567,6 +1567,7 @@ defmodule AWS.Amplify do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps"
@@ -1608,6 +1609,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, create_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backend_environment_errors()}
   def create_backend_environment(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/backendenvironments"
@@ -1636,6 +1638,7 @@ defmodule AWS.Amplify do
   @spec create_branch(map(), String.t(), create_branch_request(), list()) ::
           {:ok, create_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_branch_errors()}
   def create_branch(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches"
@@ -1672,6 +1675,7 @@ defmodule AWS.Amplify do
   @spec create_deployment(map(), String.t(), String.t(), create_deployment_request(), list()) ::
           {:ok, create_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -1705,6 +1709,7 @@ defmodule AWS.Amplify do
   @spec create_domain_association(map(), String.t(), create_domain_association_request(), list()) ::
           {:ok, create_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_association_errors()}
   def create_domain_association(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains"
@@ -1733,6 +1738,7 @@ defmodule AWS.Amplify do
   @spec create_webhook(map(), String.t(), create_webhook_request(), list()) ::
           {:ok, create_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/webhooks"
@@ -1761,6 +1767,7 @@ defmodule AWS.Amplify do
   @spec delete_app(map(), String.t(), delete_app_request(), list()) ::
           {:ok, delete_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
@@ -1803,6 +1810,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, delete_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backend_environment_errors()}
   def delete_backend_environment(
         %Client{} = client,
@@ -1839,6 +1847,7 @@ defmodule AWS.Amplify do
   @spec delete_branch(map(), String.t(), String.t(), delete_branch_request(), list()) ::
           {:ok, delete_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_branch_errors()}
   def delete_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
@@ -1873,6 +1882,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, delete_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_association_errors()}
   def delete_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -1901,6 +1911,7 @@ defmodule AWS.Amplify do
   @spec delete_job(map(), String.t(), String.t(), String.t(), delete_job_request(), list()) ::
           {:ok, delete_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
     url_path =
@@ -1931,6 +1942,7 @@ defmodule AWS.Amplify do
   @spec delete_webhook(map(), String.t(), delete_webhook_request(), list()) ::
           {:ok, delete_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, webhook_id, input, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
@@ -1959,6 +1971,7 @@ defmodule AWS.Amplify do
   @spec generate_access_logs(map(), String.t(), generate_access_logs_request(), list()) ::
           {:ok, generate_access_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_access_logs_errors()}
   def generate_access_logs(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/accesslogs"
@@ -1987,6 +2000,7 @@ defmodule AWS.Amplify do
   @spec get_app(map(), String.t(), list()) ::
           {:ok, get_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, app_id, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
@@ -2004,6 +2018,7 @@ defmodule AWS.Amplify do
   @spec get_artifact_url(map(), String.t(), list()) ::
           {:ok, get_artifact_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_artifact_url_errors()}
   def get_artifact_url(%Client{} = client, artifact_id, options \\ []) do
     url_path = "/artifacts/#{AWS.Util.encode_uri(artifact_id)}"
@@ -2029,6 +2044,7 @@ defmodule AWS.Amplify do
   @spec get_backend_environment(map(), String.t(), String.t(), list()) ::
           {:ok, get_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_backend_environment_errors()}
   def get_backend_environment(%Client{} = client, app_id, environment_name, options \\ []) do
     url_path =
@@ -2048,6 +2064,7 @@ defmodule AWS.Amplify do
   @spec get_branch(map(), String.t(), String.t(), list()) ::
           {:ok, get_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_branch_errors()}
   def get_branch(%Client{} = client, app_id, branch_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
@@ -2065,6 +2082,7 @@ defmodule AWS.Amplify do
   @spec get_domain_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_association_errors()}
   def get_domain_association(%Client{} = client, app_id, domain_name, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -2082,6 +2100,7 @@ defmodule AWS.Amplify do
   @spec get_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, app_id, branch_name, job_id, options \\ []) do
     url_path =
@@ -2101,6 +2120,7 @@ defmodule AWS.Amplify do
   @spec get_webhook(map(), String.t(), list()) ::
           {:ok, get_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_webhook_errors()}
   def get_webhook(%Client{} = client, webhook_id, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"
@@ -2118,6 +2138,7 @@ defmodule AWS.Amplify do
   @spec list_apps(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_apps_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/apps"
@@ -2157,6 +2178,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, list_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(
         %Client{} = client,
@@ -2213,6 +2235,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, list_backend_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_backend_environments_errors()}
   def list_backend_environments(
         %Client{} = client,
@@ -2258,6 +2281,7 @@ defmodule AWS.Amplify do
   @spec list_branches(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_branches_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_branches_errors()}
   def list_branches(
         %Client{} = client,
@@ -2295,6 +2319,7 @@ defmodule AWS.Amplify do
   @spec list_domain_associations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domain_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_associations_errors()}
   def list_domain_associations(
         %Client{} = client,
@@ -2332,6 +2357,7 @@ defmodule AWS.Amplify do
   @spec list_jobs(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -2372,6 +2398,7 @@ defmodule AWS.Amplify do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2389,6 +2416,7 @@ defmodule AWS.Amplify do
   @spec list_webhooks(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_webhooks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_webhooks_errors()}
   def list_webhooks(
         %Client{} = client,
@@ -2434,6 +2462,7 @@ defmodule AWS.Amplify do
   @spec start_deployment(map(), String.t(), String.t(), start_deployment_request(), list()) ::
           {:ok, start_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_deployment_errors()}
   def start_deployment(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -2464,6 +2493,7 @@ defmodule AWS.Amplify do
   @spec start_job(map(), String.t(), String.t(), start_job_request(), list()) ::
           {:ok, start_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_job_errors()}
   def start_job(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path =
@@ -2494,6 +2524,7 @@ defmodule AWS.Amplify do
   @spec stop_job(map(), String.t(), String.t(), String.t(), stop_job_request(), list()) ::
           {:ok, stop_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_job_errors()}
   def stop_job(%Client{} = client, app_id, branch_name, job_id, input, options \\ []) do
     url_path =
@@ -2524,6 +2555,7 @@ defmodule AWS.Amplify do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2552,6 +2584,7 @@ defmodule AWS.Amplify do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2585,6 +2618,7 @@ defmodule AWS.Amplify do
   @spec update_app(map(), String.t(), update_app_request(), list()) ::
           {:ok, update_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, app_id, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}"
@@ -2613,6 +2647,7 @@ defmodule AWS.Amplify do
   @spec update_branch(map(), String.t(), String.t(), update_branch_request(), list()) ::
           {:ok, update_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_branch_errors()}
   def update_branch(%Client{} = client, app_id, branch_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/branches/#{AWS.Util.encode_uri(branch_name)}"
@@ -2647,6 +2682,7 @@ defmodule AWS.Amplify do
         ) ::
           {:ok, update_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_association_errors()}
   def update_domain_association(%Client{} = client, app_id, domain_name, input, options \\ []) do
     url_path = "/apps/#{AWS.Util.encode_uri(app_id)}/domains/#{AWS.Util.encode_uri(domain_name)}"
@@ -2675,6 +2711,7 @@ defmodule AWS.Amplify do
   @spec update_webhook(map(), String.t(), update_webhook_request(), list()) ::
           {:ok, update_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, webhook_id, input, options \\ []) do
     url_path = "/webhooks/#{AWS.Util.encode_uri(webhook_id)}"

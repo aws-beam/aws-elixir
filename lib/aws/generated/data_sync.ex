@@ -2699,6 +2699,7 @@ defmodule AWS.DataSync do
   @spec add_storage_system(map(), add_storage_system_request(), list()) ::
           {:ok, add_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_storage_system_errors()}
   def add_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -2725,6 +2726,7 @@ defmodule AWS.DataSync do
   @spec cancel_task_execution(map(), cancel_task_execution_request(), list()) ::
           {:ok, cancel_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_task_execution_errors()}
   def cancel_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2743,6 +2745,7 @@ defmodule AWS.DataSync do
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agent_errors()}
   def create_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2767,6 +2770,7 @@ defmodule AWS.DataSync do
   @spec create_location_azure_blob(map(), create_location_azure_blob_request(), list()) ::
           {:ok, create_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_azure_blob_errors()}
   def create_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2787,6 +2791,7 @@ defmodule AWS.DataSync do
   @spec create_location_efs(map(), create_location_efs_request(), list()) ::
           {:ok, create_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_efs_errors()}
   def create_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2806,6 +2811,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_lustre(map(), create_location_fsx_lustre_request(), list()) ::
           {:ok, create_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_fsx_lustre_errors()}
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2826,6 +2832,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_ontap(map(), create_location_fsx_ontap_request(), list()) ::
           {:ok, create_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_fsx_ontap_errors()}
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2848,6 +2855,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_open_zfs(map(), create_location_fsx_open_zfs_request(), list()) ::
           {:ok, create_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_fsx_open_zfs_errors()}
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2869,6 +2877,7 @@ defmodule AWS.DataSync do
   @spec create_location_fsx_windows(map(), create_location_fsx_windows_request(), list()) ::
           {:ok, create_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_fsx_windows_errors()}
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2890,6 +2899,7 @@ defmodule AWS.DataSync do
   @spec create_location_hdfs(map(), create_location_hdfs_request(), list()) ::
           {:ok, create_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_hdfs_errors()}
   def create_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2911,6 +2921,7 @@ defmodule AWS.DataSync do
   @spec create_location_nfs(map(), create_location_nfs_request(), list()) ::
           {:ok, create_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_nfs_errors()}
   def create_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2931,6 +2942,7 @@ defmodule AWS.DataSync do
   @spec create_location_object_storage(map(), create_location_object_storage_request(), list()) ::
           {:ok, create_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_object_storage_errors()}
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2960,6 +2972,7 @@ defmodule AWS.DataSync do
   @spec create_location_s3(map(), create_location_s3_request(), list()) ::
           {:ok, create_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_s3_errors()}
   def create_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2980,6 +2993,7 @@ defmodule AWS.DataSync do
   @spec create_location_smb(map(), create_location_smb_request(), list()) ::
           {:ok, create_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_location_smb_errors()}
   def create_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3003,6 +3017,7 @@ defmodule AWS.DataSync do
   @spec create_task(map(), create_task_request(), list()) ::
           {:ok, create_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_task_errors()}
   def create_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3023,6 +3038,7 @@ defmodule AWS.DataSync do
   @spec delete_agent(map(), delete_agent_request(), list()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agent_errors()}
   def delete_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3036,6 +3052,7 @@ defmodule AWS.DataSync do
   @spec delete_location(map(), delete_location_request(), list()) ::
           {:ok, delete_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3049,6 +3066,7 @@ defmodule AWS.DataSync do
   @spec delete_task(map(), delete_task_request(), list()) ::
           {:ok, delete_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_task_errors()}
   def delete_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3063,6 +3081,7 @@ defmodule AWS.DataSync do
   @spec describe_agent(map(), describe_agent_request(), list()) ::
           {:ok, describe_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agent_errors()}
   def describe_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3076,6 +3095,7 @@ defmodule AWS.DataSync do
   @spec describe_discovery_job(map(), describe_discovery_job_request(), list()) ::
           {:ok, describe_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_discovery_job_errors()}
   def describe_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3090,6 +3110,7 @@ defmodule AWS.DataSync do
   @spec describe_location_azure_blob(map(), describe_location_azure_blob_request(), list()) ::
           {:ok, describe_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_azure_blob_errors()}
   def describe_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3104,6 +3125,7 @@ defmodule AWS.DataSync do
   @spec describe_location_efs(map(), describe_location_efs_request(), list()) ::
           {:ok, describe_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_efs_errors()}
   def describe_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,6 +3140,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_lustre(map(), describe_location_fsx_lustre_request(), list()) ::
           {:ok, describe_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_fsx_lustre_errors()}
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3135,6 +3158,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_ontap(map(), describe_location_fsx_ontap_request(), list()) ::
           {:ok, describe_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_fsx_ontap_errors()}
   def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3152,6 +3176,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_open_zfs(map(), describe_location_fsx_open_zfs_request(), list()) ::
           {:ok, describe_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_fsx_open_zfs_errors()}
   def describe_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3166,6 +3191,7 @@ defmodule AWS.DataSync do
   @spec describe_location_fsx_windows(map(), describe_location_fsx_windows_request(), list()) ::
           {:ok, describe_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_fsx_windows_errors()}
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3180,6 +3206,7 @@ defmodule AWS.DataSync do
   @spec describe_location_hdfs(map(), describe_location_hdfs_request(), list()) ::
           {:ok, describe_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_hdfs_errors()}
   def describe_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3194,6 +3221,7 @@ defmodule AWS.DataSync do
   @spec describe_location_nfs(map(), describe_location_nfs_request(), list()) ::
           {:ok, describe_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_nfs_errors()}
   def describe_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3240,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_object_storage_errors()}
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3226,6 +3255,7 @@ defmodule AWS.DataSync do
   @spec describe_location_s3(map(), describe_location_s3_request(), list()) ::
           {:ok, describe_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_s3_errors()}
   def describe_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3240,6 +3270,7 @@ defmodule AWS.DataSync do
   @spec describe_location_smb(map(), describe_location_smb_request(), list()) ::
           {:ok, describe_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_location_smb_errors()}
   def describe_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3254,6 +3285,7 @@ defmodule AWS.DataSync do
   @spec describe_storage_system(map(), describe_storage_system_request(), list()) ::
           {:ok, describe_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_storage_system_errors()}
   def describe_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3273,6 +3305,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_storage_system_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_storage_system_resource_metrics_errors()}
   def describe_storage_system_resource_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3292,6 +3325,7 @@ defmodule AWS.DataSync do
         ) ::
           {:ok, describe_storage_system_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_storage_system_resources_errors()}
   def describe_storage_system_resources(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3306,6 +3340,7 @@ defmodule AWS.DataSync do
   @spec describe_task(map(), describe_task_request(), list()) ::
           {:ok, describe_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_task_errors()}
   def describe_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3329,6 +3364,7 @@ defmodule AWS.DataSync do
   @spec describe_task_execution(map(), describe_task_execution_request(), list()) ::
           {:ok, describe_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_task_execution_errors()}
   def describe_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3353,6 +3389,7 @@ defmodule AWS.DataSync do
   @spec generate_recommendations(map(), generate_recommendations_request(), list()) ::
           {:ok, generate_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_recommendations_errors()}
   def generate_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3385,6 +3422,7 @@ defmodule AWS.DataSync do
   @spec list_agents(map(), list_agents_request(), list()) ::
           {:ok, list_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agents_errors()}
   def list_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3400,6 +3438,7 @@ defmodule AWS.DataSync do
   @spec list_discovery_jobs(map(), list_discovery_jobs_request(), list()) ::
           {:ok, list_discovery_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_discovery_jobs_errors()}
   def list_discovery_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3419,6 +3458,7 @@ defmodule AWS.DataSync do
   @spec list_locations(map(), list_locations_request(), list()) ::
           {:ok, list_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3432,6 +3472,7 @@ defmodule AWS.DataSync do
   @spec list_storage_systems(map(), list_storage_systems_request(), list()) ::
           {:ok, list_storage_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_storage_systems_errors()}
   def list_storage_systems(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3445,6 +3486,7 @@ defmodule AWS.DataSync do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3458,6 +3500,7 @@ defmodule AWS.DataSync do
   @spec list_task_executions(map(), list_task_executions_request(), list()) ::
           {:ok, list_task_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_task_executions_errors()}
   def list_task_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3471,6 +3514,7 @@ defmodule AWS.DataSync do
   @spec list_tasks(map(), list_tasks_request(), list()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3486,6 +3530,7 @@ defmodule AWS.DataSync do
   @spec remove_storage_system(map(), remove_storage_system_request(), list()) ::
           {:ok, remove_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_storage_system_errors()}
   def remove_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3504,6 +3549,7 @@ defmodule AWS.DataSync do
   @spec start_discovery_job(map(), start_discovery_job_request(), list()) ::
           {:ok, start_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_discovery_job_errors()}
   def start_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3529,6 +3575,7 @@ defmodule AWS.DataSync do
   @spec start_task_execution(map(), start_task_execution_request(), list()) ::
           {:ok, start_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_task_execution_errors()}
   def start_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3550,6 +3597,7 @@ defmodule AWS.DataSync do
   @spec stop_discovery_job(map(), stop_discovery_job_request(), list()) ::
           {:ok, stop_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_discovery_job_errors()}
   def stop_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3569,6 +3617,7 @@ defmodule AWS.DataSync do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3582,6 +3631,7 @@ defmodule AWS.DataSync do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3595,6 +3645,7 @@ defmodule AWS.DataSync do
   @spec update_agent(map(), update_agent_request(), list()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_errors()}
   def update_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3608,6 +3659,7 @@ defmodule AWS.DataSync do
   @spec update_discovery_job(map(), update_discovery_job_request(), list()) ::
           {:ok, update_discovery_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_discovery_job_errors()}
   def update_discovery_job(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3624,6 +3676,7 @@ defmodule AWS.DataSync do
   @spec update_location_azure_blob(map(), update_location_azure_blob_request(), list()) ::
           {:ok, update_location_azure_blob_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_azure_blob_errors()}
   def update_location_azure_blob(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3640,6 +3693,7 @@ defmodule AWS.DataSync do
   @spec update_location_efs(map(), update_location_efs_request(), list()) ::
           {:ok, update_location_efs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_efs_errors()}
   def update_location_efs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3656,6 +3710,7 @@ defmodule AWS.DataSync do
   @spec update_location_fsx_lustre(map(), update_location_fsx_lustre_request(), list()) ::
           {:ok, update_location_fsx_lustre_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_fsx_lustre_errors()}
   def update_location_fsx_lustre(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3672,6 +3727,7 @@ defmodule AWS.DataSync do
   @spec update_location_fsx_ontap(map(), update_location_fsx_ontap_request(), list()) ::
           {:ok, update_location_fsx_ontap_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_fsx_ontap_errors()}
   def update_location_fsx_ontap(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3691,6 +3747,7 @@ defmodule AWS.DataSync do
   @spec update_location_fsx_open_zfs(map(), update_location_fsx_open_zfs_request(), list()) ::
           {:ok, update_location_fsx_open_zfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_fsx_open_zfs_errors()}
   def update_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3708,6 +3765,7 @@ defmodule AWS.DataSync do
   @spec update_location_fsx_windows(map(), update_location_fsx_windows_request(), list()) ::
           {:ok, update_location_fsx_windows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_fsx_windows_errors()}
   def update_location_fsx_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3724,6 +3782,7 @@ defmodule AWS.DataSync do
   @spec update_location_hdfs(map(), update_location_hdfs_request(), list()) ::
           {:ok, update_location_hdfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_hdfs_errors()}
   def update_location_hdfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3741,6 +3800,7 @@ defmodule AWS.DataSync do
   @spec update_location_nfs(map(), update_location_nfs_request(), list()) ::
           {:ok, update_location_nfs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_nfs_errors()}
   def update_location_nfs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3757,6 +3817,7 @@ defmodule AWS.DataSync do
   @spec update_location_object_storage(map(), update_location_object_storage_request(), list()) ::
           {:ok, update_location_object_storage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_object_storage_errors()}
   def update_location_object_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3782,6 +3843,7 @@ defmodule AWS.DataSync do
   @spec update_location_s3(map(), update_location_s3_request(), list()) ::
           {:ok, update_location_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_s3_errors()}
   def update_location_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3798,6 +3860,7 @@ defmodule AWS.DataSync do
   @spec update_location_smb(map(), update_location_smb_request(), list()) ::
           {:ok, update_location_smb_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_location_smb_errors()}
   def update_location_smb(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3813,6 +3876,7 @@ defmodule AWS.DataSync do
   @spec update_storage_system(map(), update_storage_system_request(), list()) ::
           {:ok, update_storage_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_storage_system_errors()}
   def update_storage_system(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
@@ -3827,6 +3891,7 @@ defmodule AWS.DataSync do
   @spec update_task(map(), update_task_request(), list()) ::
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_errors()}
   def update_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3852,6 +3917,7 @@ defmodule AWS.DataSync do
   @spec update_task_execution(map(), update_task_execution_request(), list()) ::
           {:ok, update_task_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_execution_errors()}
   def update_task_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()

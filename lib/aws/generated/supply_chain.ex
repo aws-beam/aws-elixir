@@ -974,6 +974,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, create_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bill_of_materials_import_job_errors()}
   def create_bill_of_materials_import_job(%Client{} = client, instance_id, input, options \\ []) do
     url_path =
@@ -1013,6 +1014,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, create_data_integration_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_integration_flow_errors()}
   def create_data_integration_flow(%Client{} = client, instance_id, name, input, options \\ []) do
     url_path =
@@ -1054,6 +1056,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, create_data_lake_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_lake_dataset_errors()}
   def create_data_lake_dataset(
         %Client{} = client,
@@ -1101,6 +1104,7 @@ defmodule AWS.SupplyChain do
   @spec create_instance(map(), create_instance_request(), list()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/api/instance"
@@ -1136,6 +1140,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, delete_data_integration_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_integration_flow_errors()}
   def delete_data_integration_flow(%Client{} = client, instance_id, name, input, options \\ []) do
     url_path =
@@ -1177,6 +1182,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, delete_data_lake_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_lake_dataset_errors()}
   def delete_data_lake_dataset(
         %Client{} = client,
@@ -1222,6 +1228,7 @@ defmodule AWS.SupplyChain do
   @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
           {:ok, delete_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -1250,6 +1257,7 @@ defmodule AWS.SupplyChain do
   @spec get_bill_of_materials_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bill_of_materials_import_job_errors()}
   def get_bill_of_materials_import_job(%Client{} = client, instance_id, job_id, options \\ []) do
     url_path =
@@ -1270,6 +1278,7 @@ defmodule AWS.SupplyChain do
   @spec get_data_integration_flow(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_integration_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_integration_flow_errors()}
   def get_data_integration_flow(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
@@ -1293,6 +1302,7 @@ defmodule AWS.SupplyChain do
   @spec get_data_lake_dataset(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_data_lake_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_dataset_errors()}
   def get_data_lake_dataset(%Client{} = client, instance_id, name, namespace, options \\ []) do
     url_path =
@@ -1313,6 +1323,7 @@ defmodule AWS.SupplyChain do
   @spec get_instance(map(), String.t(), list()) ::
           {:ok, get_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -1331,6 +1342,7 @@ defmodule AWS.SupplyChain do
   @spec list_data_integration_flows(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_integration_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_integration_flows_errors()}
   def list_data_integration_flows(
         %Client{} = client,
@@ -1381,6 +1393,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, list_data_lake_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_lake_datasets_errors()}
   def list_data_lake_datasets(
         %Client{} = client,
@@ -1432,6 +1445,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(
         %Client{} = client,
@@ -1488,6 +1502,7 @@ defmodule AWS.SupplyChain do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/api/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1516,6 +1531,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, send_data_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_data_integration_event_errors()}
   def send_data_integration_event(%Client{} = client, instance_id, input, options \\ []) do
     url_path =
@@ -1552,6 +1568,7 @@ defmodule AWS.SupplyChain do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/api/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1585,6 +1602,7 @@ defmodule AWS.SupplyChain do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/api/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1627,6 +1645,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, update_data_integration_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_integration_flow_errors()}
   def update_data_integration_flow(%Client{} = client, instance_id, name, input, options \\ []) do
     url_path =
@@ -1668,6 +1687,7 @@ defmodule AWS.SupplyChain do
         ) ::
           {:ok, update_data_lake_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_lake_dataset_errors()}
   def update_data_lake_dataset(
         %Client{} = client,
@@ -1707,6 +1727,7 @@ defmodule AWS.SupplyChain do
   @spec update_instance(map(), String.t(), update_instance_request(), list()) ::
           {:ok, update_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"

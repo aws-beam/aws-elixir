@@ -442,6 +442,7 @@ defmodule AWS.Artifact do
   @spec get_account_settings(map(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, options \\ []) do
     url_path = "/v1/account-settings/get"
@@ -459,6 +460,7 @@ defmodule AWS.Artifact do
   @spec get_report(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_report_errors()}
   def get_report(%Client{} = client, report_id, report_version \\ nil, term_token, options \\ []) do
     url_path = "/v1/report/get"
@@ -497,6 +499,7 @@ defmodule AWS.Artifact do
   @spec get_report_metadata(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_report_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_report_metadata_errors()}
   def get_report_metadata(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
     url_path = "/v1/report/getMetadata"
@@ -528,6 +531,7 @@ defmodule AWS.Artifact do
   @spec get_term_for_report(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_term_for_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_term_for_report_errors()}
   def get_term_for_report(%Client{} = client, report_id, report_version \\ nil, options \\ []) do
     url_path = "/v1/report/getTermForReport"
@@ -559,6 +563,7 @@ defmodule AWS.Artifact do
   @spec list_customer_agreements(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_customer_agreements_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_customer_agreements_errors()}
   def list_customer_agreements(
         %Client{} = client,
@@ -595,6 +600,7 @@ defmodule AWS.Artifact do
   @spec list_reports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/report/list"
@@ -626,6 +632,7 @@ defmodule AWS.Artifact do
   @spec put_account_settings(map(), put_account_settings_request(), list()) ::
           {:ok, put_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_settings_errors()}
   def put_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/v1/account-settings/put"

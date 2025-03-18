@@ -536,6 +536,7 @@ defmodule AWS.Rbin do
   @spec create_rule(map(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
     url_path = "/rules"
@@ -569,6 +570,7 @@ defmodule AWS.Rbin do
   @spec delete_rule(map(), String.t(), delete_rule_request(), list()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
@@ -597,6 +599,7 @@ defmodule AWS.Rbin do
   @spec get_rule(map(), String.t(), list()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, identifier, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"
@@ -614,6 +617,7 @@ defmodule AWS.Rbin do
   @spec list_rules(map(), list_rules_request(), list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
     url_path = "/list-rules"
@@ -642,6 +646,7 @@ defmodule AWS.Rbin do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -665,6 +670,7 @@ defmodule AWS.Rbin do
   @spec lock_rule(map(), String.t(), lock_rule_request(), list()) ::
           {:ok, lock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, lock_rule_errors()}
   def lock_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/lock"
@@ -693,6 +699,7 @@ defmodule AWS.Rbin do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -724,6 +731,7 @@ defmodule AWS.Rbin do
   @spec unlock_rule(map(), String.t(), unlock_rule_request(), list()) ::
           {:ok, unlock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unlock_rule_errors()}
   def unlock_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}/unlock"
@@ -752,6 +760,7 @@ defmodule AWS.Rbin do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -793,6 +802,7 @@ defmodule AWS.Rbin do
   @spec update_rule(map(), String.t(), update_rule_request(), list()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(identifier)}"

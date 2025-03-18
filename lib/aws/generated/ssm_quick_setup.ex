@@ -596,6 +596,7 @@ defmodule AWS.SSMQuickSetup do
   @spec create_configuration_manager(map(), create_configuration_manager_input(), list()) ::
           {:ok, create_configuration_manager_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_manager_errors()}
   def create_configuration_manager(%Client{} = client, input, options \\ []) do
     url_path = "/configurationManager"
@@ -629,6 +630,7 @@ defmodule AWS.SSMQuickSetup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_manager_errors()}
   def delete_configuration_manager(%Client{} = client, manager_arn, input, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
@@ -657,6 +659,7 @@ defmodule AWS.SSMQuickSetup do
   @spec get_configuration(map(), String.t(), list()) ::
           {:ok, get_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_errors()}
   def get_configuration(%Client{} = client, configuration_id, options \\ []) do
     url_path = "/getConfiguration/#{AWS.Util.encode_uri(configuration_id)}"
@@ -674,6 +677,7 @@ defmodule AWS.SSMQuickSetup do
   @spec get_configuration_manager(map(), String.t(), list()) ::
           {:ok, get_configuration_manager_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_manager_errors()}
   def get_configuration_manager(%Client{} = client, manager_arn, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
@@ -692,6 +696,7 @@ defmodule AWS.SSMQuickSetup do
   @spec get_service_settings(map(), list()) ::
           {:ok, get_service_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, options \\ []) do
     url_path = "/serviceSettings"
@@ -709,6 +714,7 @@ defmodule AWS.SSMQuickSetup do
   @spec list_configuration_managers(map(), list_configuration_managers_input(), list()) ::
           {:ok, list_configuration_managers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_managers_errors()}
   def list_configuration_managers(%Client{} = client, input, options \\ []) do
     url_path = "/listConfigurationManagers"
@@ -738,6 +744,7 @@ defmodule AWS.SSMQuickSetup do
   @spec list_configurations(map(), list_configurations_input(), list()) ::
           {:ok, list_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/listConfigurations"
@@ -766,6 +773,7 @@ defmodule AWS.SSMQuickSetup do
   @spec list_quick_setup_types(map(), list()) ::
           {:ok, list_quick_setup_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_quick_setup_types_errors()}
   def list_quick_setup_types(%Client{} = client, options \\ []) do
     url_path = "/listQuickSetupTypes"
@@ -783,6 +791,7 @@ defmodule AWS.SSMQuickSetup do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -800,6 +809,7 @@ defmodule AWS.SSMQuickSetup do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -828,6 +838,7 @@ defmodule AWS.SSMQuickSetup do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -867,6 +878,7 @@ defmodule AWS.SSMQuickSetup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_definition_errors()}
   def update_configuration_definition(%Client{} = client, id, manager_arn, input, options \\ []) do
     url_path =
@@ -902,6 +914,7 @@ defmodule AWS.SSMQuickSetup do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_manager_errors()}
   def update_configuration_manager(%Client{} = client, manager_arn, input, options \\ []) do
     url_path = "/configurationManager/#{AWS.Util.encode_uri(manager_arn)}"
@@ -930,6 +943,7 @@ defmodule AWS.SSMQuickSetup do
   @spec update_service_settings(map(), update_service_settings_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
     url_path = "/serviceSettings"

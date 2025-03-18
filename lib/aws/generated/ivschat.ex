@@ -891,6 +891,7 @@ defmodule AWS.Ivschat do
   @spec create_chat_token(map(), create_chat_token_request(), list()) ::
           {:ok, create_chat_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_chat_token_errors()}
   def create_chat_token(%Client{} = client, input, options \\ []) do
     url_path = "/CreateChatToken"
@@ -920,6 +921,7 @@ defmodule AWS.Ivschat do
   @spec create_logging_configuration(map(), create_logging_configuration_request(), list()) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_logging_configuration_errors()}
   def create_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLoggingConfiguration"
@@ -948,6 +950,7 @@ defmodule AWS.Ivschat do
   @spec create_room(map(), create_room_request(), list()) ::
           {:ok, create_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_room_errors()}
   def create_room(%Client{} = client, input, options \\ []) do
     url_path = "/CreateRoom"
@@ -976,6 +979,7 @@ defmodule AWS.Ivschat do
   @spec delete_logging_configuration(map(), delete_logging_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLoggingConfiguration"
@@ -1011,6 +1015,7 @@ defmodule AWS.Ivschat do
   @spec delete_message(map(), delete_message_request(), list()) ::
           {:ok, delete_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_message_errors()}
   def delete_message(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteMessage"
@@ -1039,6 +1044,7 @@ defmodule AWS.Ivschat do
   @spec delete_room(map(), delete_room_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_room_errors()}
   def delete_room(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteRoom"
@@ -1072,6 +1078,7 @@ defmodule AWS.Ivschat do
   @spec disconnect_user(map(), disconnect_user_request(), list()) ::
           {:ok, disconnect_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_user_errors()}
   def disconnect_user(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectUser"
@@ -1100,6 +1107,7 @@ defmodule AWS.Ivschat do
   @spec get_logging_configuration(map(), get_logging_configuration_request(), list()) ::
           {:ok, get_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLoggingConfiguration"
@@ -1128,6 +1136,7 @@ defmodule AWS.Ivschat do
   @spec get_room(map(), get_room_request(), list()) ::
           {:ok, get_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_room_errors()}
   def get_room(%Client{} = client, input, options \\ []) do
     url_path = "/GetRoom"
@@ -1158,6 +1167,7 @@ defmodule AWS.Ivschat do
   @spec list_logging_configurations(map(), list_logging_configurations_request(), list()) ::
           {:ok, list_logging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/ListLoggingConfigurations"
@@ -1190,6 +1200,7 @@ defmodule AWS.Ivschat do
   @spec list_rooms(map(), list_rooms_request(), list()) ::
           {:ok, list_rooms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rooms_errors()}
   def list_rooms(%Client{} = client, input, options \\ []) do
     url_path = "/ListRooms"
@@ -1218,6 +1229,7 @@ defmodule AWS.Ivschat do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1240,6 +1252,7 @@ defmodule AWS.Ivschat do
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/SendEvent"
@@ -1268,6 +1281,7 @@ defmodule AWS.Ivschat do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1296,6 +1310,7 @@ defmodule AWS.Ivschat do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1329,6 +1344,7 @@ defmodule AWS.Ivschat do
   @spec update_logging_configuration(map(), update_logging_configuration_request(), list()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLoggingConfiguration"
@@ -1357,6 +1373,7 @@ defmodule AWS.Ivschat do
   @spec update_room(map(), update_room_request(), list()) ::
           {:ok, update_room_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_room_errors()}
   def update_room(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateRoom"

@@ -4273,6 +4273,7 @@ defmodule AWS.OpenSearch do
   @spec accept_inbound_connection(map(), String.t(), accept_inbound_connection_request(), list()) ::
           {:ok, accept_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_inbound_connection_errors()}
   def accept_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -4306,6 +4307,7 @@ defmodule AWS.OpenSearch do
   @spec add_data_source(map(), String.t(), add_data_source_request(), list()) ::
           {:ok, add_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_data_source_errors()}
   def add_data_source(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
@@ -4336,6 +4338,7 @@ defmodule AWS.OpenSearch do
   @spec add_direct_query_data_source(map(), add_direct_query_data_source_request(), list()) ::
           {:ok, add_direct_query_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_direct_query_data_source_errors()}
   def add_direct_query_data_source(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/directQueryDataSource"
@@ -4370,6 +4373,7 @@ defmodule AWS.OpenSearch do
   @spec add_tags(map(), add_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags"
@@ -4402,6 +4406,7 @@ defmodule AWS.OpenSearch do
   @spec associate_package(map(), String.t(), String.t(), associate_package_request(), list()) ::
           {:ok, associate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_package_errors()}
   def associate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -4433,6 +4438,7 @@ defmodule AWS.OpenSearch do
   @spec associate_packages(map(), associate_packages_request(), list()) ::
           {:ok, associate_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_packages_errors()}
   def associate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/associateMultiple"
@@ -4468,6 +4474,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, authorize_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_vpc_endpoint_access_errors()}
   def authorize_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -4503,6 +4510,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, cancel_domain_config_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_domain_config_change_errors()}
   def cancel_domain_config_change(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config/cancel"
@@ -4538,6 +4546,7 @@ defmodule AWS.OpenSearch do
   @spec cancel_service_software_update(map(), cancel_service_software_update_request(), list()) ::
           {:ok, cancel_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_service_software_update_errors()}
   def cancel_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
@@ -4566,6 +4575,7 @@ defmodule AWS.OpenSearch do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application"
@@ -4596,6 +4606,7 @@ defmodule AWS.OpenSearch do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain"
@@ -4629,6 +4640,7 @@ defmodule AWS.OpenSearch do
   @spec create_outbound_connection(map(), create_outbound_connection_request(), list()) ::
           {:ok, create_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_outbound_connection_errors()}
   def create_outbound_connection(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection"
@@ -4660,6 +4672,7 @@ defmodule AWS.OpenSearch do
   @spec create_package(map(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_errors()}
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages"
@@ -4688,6 +4701,7 @@ defmodule AWS.OpenSearch do
   @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
@@ -4716,6 +4730,7 @@ defmodule AWS.OpenSearch do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
@@ -4747,6 +4762,7 @@ defmodule AWS.OpenSearch do
   @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
     url_path =
@@ -4784,6 +4800,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_direct_query_data_source_errors()}
   def delete_direct_query_data_source(%Client{} = client, data_source_name, input, options \\ []) do
     url_path =
@@ -4817,6 +4834,7 @@ defmodule AWS.OpenSearch do
   @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -4850,6 +4868,7 @@ defmodule AWS.OpenSearch do
   @spec delete_inbound_connection(map(), String.t(), delete_inbound_connection_request(), list()) ::
           {:ok, delete_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inbound_connection_errors()}
   def delete_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/#{AWS.Util.encode_uri(connection_id)}"
@@ -4888,6 +4907,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, delete_outbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_outbound_connection_errors()}
   def delete_outbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -4921,6 +4941,7 @@ defmodule AWS.OpenSearch do
   @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/2021-01-01/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -4949,6 +4970,7 @@ defmodule AWS.OpenSearch do
   @spec delete_vpc_endpoint(map(), String.t(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, vpc_endpoint_id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/#{AWS.Util.encode_uri(vpc_endpoint_id)}"
@@ -4979,6 +5001,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain(map(), String.t(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}"
@@ -5000,6 +5023,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain_auto_tunes(map(), String.t(), list()) ::
           {:ok, describe_domain_auto_tunes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_auto_tunes_errors()}
   def describe_domain_auto_tunes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/autoTunes"
@@ -5021,6 +5045,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain_change_progress(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_domain_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_change_progress_errors()}
   def describe_domain_change_progress(
         %Client{} = client,
@@ -5050,6 +5075,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain_config(map(), String.t(), list()) ::
           {:ok, describe_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_config_errors()}
   def describe_domain_config(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -5068,6 +5094,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain_health(map(), String.t(), list()) ::
           {:ok, describe_domain_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_health_errors()}
   def describe_domain_health(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/health"
@@ -5088,6 +5115,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domain_nodes(map(), String.t(), list()) ::
           {:ok, describe_domain_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_nodes_errors()}
   def describe_domain_nodes(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/nodes"
@@ -5107,6 +5135,7 @@ defmodule AWS.OpenSearch do
   @spec describe_domains(map(), describe_domains_request(), list()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domains_errors()}
   def describe_domains(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain-info"
@@ -5138,6 +5167,7 @@ defmodule AWS.OpenSearch do
   @spec describe_dry_run_progress(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_dry_run_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dry_run_progress_errors()}
   def describe_dry_run_progress(
         %Client{} = client,
@@ -5180,6 +5210,7 @@ defmodule AWS.OpenSearch do
   @spec describe_inbound_connections(map(), describe_inbound_connections_request(), list()) ::
           {:ok, describe_inbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inbound_connections_errors()}
   def describe_inbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/inboundConnection/search"
@@ -5210,6 +5241,7 @@ defmodule AWS.OpenSearch do
   @spec describe_instance_type_limits(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_instance_type_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_type_limits_errors()}
   def describe_instance_type_limits(
         %Client{} = client,
@@ -5247,6 +5279,7 @@ defmodule AWS.OpenSearch do
   @spec describe_outbound_connections(map(), describe_outbound_connections_request(), list()) ::
           {:ok, describe_outbound_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_outbound_connections_errors()}
   def describe_outbound_connections(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/cc/outboundConnection/search"
@@ -5278,6 +5311,7 @@ defmodule AWS.OpenSearch do
   @spec describe_packages(map(), describe_packages_request(), list()) ::
           {:ok, describe_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_packages_errors()}
   def describe_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/describe"
@@ -5316,6 +5350,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, describe_reserved_instance_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_instance_offerings_errors()}
   def describe_reserved_instance_offerings(
         %Client{} = client,
@@ -5369,6 +5404,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, describe_reserved_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_instances_errors()}
   def describe_reserved_instances(
         %Client{} = client,
@@ -5413,6 +5449,7 @@ defmodule AWS.OpenSearch do
   @spec describe_vpc_endpoints(map(), describe_vpc_endpoints_request(), list()) ::
           {:ok, describe_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_endpoints_errors()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/describe"
@@ -5447,6 +5484,7 @@ defmodule AWS.OpenSearch do
   @spec dissociate_package(map(), String.t(), String.t(), dissociate_package_request(), list()) ::
           {:ok, dissociate_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dissociate_package_errors()}
   def dissociate_package(%Client{} = client, domain_name, package_id, input, options \\ []) do
     url_path =
@@ -5477,6 +5515,7 @@ defmodule AWS.OpenSearch do
   @spec dissociate_packages(map(), dissociate_packages_request(), list()) ::
           {:ok, dissociate_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dissociate_packages_errors()}
   def dissociate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/dissociateMultiple"
@@ -5505,6 +5544,7 @@ defmodule AWS.OpenSearch do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, id, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
@@ -5524,6 +5564,7 @@ defmodule AWS.OpenSearch do
   @spec get_compatible_versions(map(), String.t() | nil, list()) ::
           {:ok, get_compatible_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compatible_versions_errors()}
   def get_compatible_versions(%Client{} = client, domain_name \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/compatibleVersions"
@@ -5548,6 +5589,7 @@ defmodule AWS.OpenSearch do
   @spec get_data_source(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, domain_name, name, options \\ []) do
     url_path =
@@ -5569,6 +5611,7 @@ defmodule AWS.OpenSearch do
   @spec get_direct_query_data_source(map(), String.t(), list()) ::
           {:ok, get_direct_query_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_direct_query_data_source_errors()}
   def get_direct_query_data_source(%Client{} = client, data_source_name, options \\ []) do
     url_path =
@@ -5588,6 +5631,7 @@ defmodule AWS.OpenSearch do
   @spec get_domain_maintenance_status(map(), String.t(), String.t(), list()) ::
           {:ok, get_domain_maintenance_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_maintenance_status_errors()}
   def get_domain_maintenance_status(
         %Client{} = client,
@@ -5624,6 +5668,7 @@ defmodule AWS.OpenSearch do
   @spec get_package_version_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_package_version_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_package_version_history_errors()}
   def get_package_version_history(
         %Client{} = client,
@@ -5663,6 +5708,7 @@ defmodule AWS.OpenSearch do
   @spec get_upgrade_history(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_upgrade_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upgrade_history_errors()}
   def get_upgrade_history(
         %Client{} = client,
@@ -5702,6 +5748,7 @@ defmodule AWS.OpenSearch do
   @spec get_upgrade_status(map(), String.t(), list()) ::
           {:ok, get_upgrade_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upgrade_status_errors()}
   def get_upgrade_status(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain/#{AWS.Util.encode_uri(domain_name)}/status"
@@ -5719,6 +5766,7 @@ defmodule AWS.OpenSearch do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
@@ -5767,6 +5815,7 @@ defmodule AWS.OpenSearch do
   @spec list_data_sources(map(), String.t(), list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, domain_name, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/dataSource"
@@ -5786,6 +5835,7 @@ defmodule AWS.OpenSearch do
   @spec list_direct_query_data_sources(map(), String.t() | nil, list()) ::
           {:ok, list_direct_query_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_direct_query_data_sources_errors()}
   def list_direct_query_data_sources(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/directQueryDataSource"
@@ -5818,6 +5868,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, list_domain_maintenances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_maintenances_errors()}
   def list_domain_maintenances(
         %Client{} = client,
@@ -5875,6 +5926,7 @@ defmodule AWS.OpenSearch do
   @spec list_domain_names(map(), String.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, engine_type \\ nil, options \\ []) do
     url_path = "/2021-01-01/domain"
@@ -5903,6 +5955,7 @@ defmodule AWS.OpenSearch do
   @spec list_domains_for_package(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domains_for_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_for_package_errors()}
   def list_domains_for_package(
         %Client{} = client,
@@ -5951,6 +6004,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, list_instance_type_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_type_details_errors()}
   def list_instance_type_details(
         %Client{} = client,
@@ -6016,6 +6070,7 @@ defmodule AWS.OpenSearch do
   @spec list_packages_for_domain(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packages_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packages_for_domain_errors()}
   def list_packages_for_domain(
         %Client{} = client,
@@ -6058,6 +6113,7 @@ defmodule AWS.OpenSearch do
   @spec list_scheduled_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scheduled_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scheduled_actions_errors()}
   def list_scheduled_actions(
         %Client{} = client,
@@ -6102,6 +6158,7 @@ defmodule AWS.OpenSearch do
   @spec list_tags(map(), String.t(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/2021-01-01/tags"
@@ -6128,6 +6185,7 @@ defmodule AWS.OpenSearch do
   @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_versions_errors()}
   def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/versions"
@@ -6162,6 +6220,7 @@ defmodule AWS.OpenSearch do
   @spec list_vpc_endpoint_access(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoint_access_errors()}
   def list_vpc_endpoint_access(%Client{} = client, domain_name, next_token \\ nil, options \\ []) do
     url_path =
@@ -6189,6 +6248,7 @@ defmodule AWS.OpenSearch do
   @spec list_vpc_endpoints(map(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints"
@@ -6215,6 +6275,7 @@ defmodule AWS.OpenSearch do
   @spec list_vpc_endpoints_for_domain(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_vpc_endpoints_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoints_for_domain_errors()}
   def list_vpc_endpoints_for_domain(
         %Client{} = client,
@@ -6248,6 +6309,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, purchase_reserved_instance_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_instance_offering_errors()}
   def purchase_reserved_instance_offering(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/purchaseReservedInstanceOffering"
@@ -6278,6 +6340,7 @@ defmodule AWS.OpenSearch do
   @spec reject_inbound_connection(map(), String.t(), reject_inbound_connection_request(), list()) ::
           {:ok, reject_inbound_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_inbound_connection_errors()}
   def reject_inbound_connection(%Client{} = client, connection_id, input, options \\ []) do
     url_path =
@@ -6312,6 +6375,7 @@ defmodule AWS.OpenSearch do
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/tags-removal"
@@ -6347,6 +6411,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, revoke_vpc_endpoint_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_vpc_endpoint_access_errors()}
   def revoke_vpc_endpoint_access(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -6381,6 +6446,7 @@ defmodule AWS.OpenSearch do
   @spec start_domain_maintenance(map(), String.t(), start_domain_maintenance_request(), list()) ::
           {:ok, start_domain_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_domain_maintenance_errors()}
   def start_domain_maintenance(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -6415,6 +6481,7 @@ defmodule AWS.OpenSearch do
   @spec start_service_software_update(map(), start_service_software_update_request(), list()) ::
           {:ok, start_service_software_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_service_software_update_errors()}
   def start_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
@@ -6443,6 +6510,7 @@ defmodule AWS.OpenSearch do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, id, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/application/#{AWS.Util.encode_uri(id)}"
@@ -6474,6 +6542,7 @@ defmodule AWS.OpenSearch do
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, domain_name, name, input, options \\ []) do
     url_path =
@@ -6511,6 +6580,7 @@ defmodule AWS.OpenSearch do
         ) ::
           {:ok, update_direct_query_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_direct_query_data_source_errors()}
   def update_direct_query_data_source(%Client{} = client, data_source_name, input, options \\ []) do
     url_path =
@@ -6542,6 +6612,7 @@ defmodule AWS.OpenSearch do
   @spec update_domain_config(map(), String.t(), update_domain_config_request(), list()) ::
           {:ok, update_domain_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_config_errors()}
   def update_domain_config(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/config"
@@ -6573,6 +6644,7 @@ defmodule AWS.OpenSearch do
   @spec update_package(map(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_errors()}
   def update_package(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/update"
@@ -6603,6 +6675,7 @@ defmodule AWS.OpenSearch do
   @spec update_package_scope(map(), update_package_scope_request(), list()) ::
           {:ok, update_package_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_package_scope_errors()}
   def update_package_scope(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/updateScope"
@@ -6636,6 +6709,7 @@ defmodule AWS.OpenSearch do
   @spec update_scheduled_action(map(), String.t(), update_scheduled_action_request(), list()) ::
           {:ok, update_scheduled_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scheduled_action_errors()}
   def update_scheduled_action(%Client{} = client, domain_name, input, options \\ []) do
     url_path =
@@ -6666,6 +6740,7 @@ defmodule AWS.OpenSearch do
   @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/vpcEndpoints/update"
@@ -6696,6 +6771,7 @@ defmodule AWS.OpenSearch do
   @spec upgrade_domain(map(), upgrade_domain_request(), list()) ::
           {:ok, upgrade_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_domain_errors()}
   def upgrade_domain(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/upgradeDomain"

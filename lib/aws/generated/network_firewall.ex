@@ -2398,6 +2398,7 @@ defmodule AWS.NetworkFirewall do
   @spec associate_firewall_policy(map(), associate_firewall_policy_request(), list()) ::
           {:ok, associate_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_firewall_policy_errors()}
   def associate_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2422,6 +2423,7 @@ defmodule AWS.NetworkFirewall do
   @spec associate_subnets(map(), associate_subnets_request(), list()) ::
           {:ok, associate_subnets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_subnets_errors()}
   def associate_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2458,6 +2460,7 @@ defmodule AWS.NetworkFirewall do
   @spec create_firewall(map(), create_firewall_request(), list()) ::
           {:ok, create_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_firewall_errors()}
   def create_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2477,6 +2480,7 @@ defmodule AWS.NetworkFirewall do
   @spec create_firewall_policy(map(), create_firewall_policy_request(), list()) ::
           {:ok, create_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_firewall_policy_errors()}
   def create_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2495,6 +2499,7 @@ defmodule AWS.NetworkFirewall do
   @spec create_rule_group(map(), create_rule_group_request(), list()) ::
           {:ok, create_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2537,6 +2542,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, create_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_t_l_s_inspection_configuration_errors()}
   def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2567,6 +2573,7 @@ defmodule AWS.NetworkFirewall do
   @spec delete_firewall(map(), delete_firewall_request(), list()) ::
           {:ok, delete_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_firewall_errors()}
   def delete_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2580,6 +2587,7 @@ defmodule AWS.NetworkFirewall do
   @spec delete_firewall_policy(map(), delete_firewall_policy_request(), list()) ::
           {:ok, delete_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_firewall_policy_errors()}
   def delete_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2593,6 +2601,7 @@ defmodule AWS.NetworkFirewall do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2606,6 +2615,7 @@ defmodule AWS.NetworkFirewall do
   @spec delete_rule_group(map(), delete_rule_group_request(), list()) ::
           {:ok, delete_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2623,6 +2633,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, delete_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_t_l_s_inspection_configuration_errors()}
   def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2636,6 +2647,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_firewall(map(), describe_firewall_request(), list()) ::
           {:ok, describe_firewall_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_firewall_errors()}
   def describe_firewall(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2649,6 +2661,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_firewall_policy(map(), describe_firewall_policy_request(), list()) ::
           {:ok, describe_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_firewall_policy_errors()}
   def describe_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2662,6 +2675,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_logging_configuration(map(), describe_logging_configuration_request(), list()) ::
           {:ok, describe_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2675,6 +2689,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
           {:ok, describe_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2688,6 +2703,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_rule_group(map(), describe_rule_group_request(), list()) ::
           {:ok, describe_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rule_group_errors()}
   def describe_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2706,6 +2722,7 @@ defmodule AWS.NetworkFirewall do
   @spec describe_rule_group_metadata(map(), describe_rule_group_metadata_request(), list()) ::
           {:ok, describe_rule_group_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rule_group_metadata_errors()}
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2723,6 +2740,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, describe_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_t_l_s_inspection_configuration_errors()}
   def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2741,6 +2759,7 @@ defmodule AWS.NetworkFirewall do
   @spec disassociate_subnets(map(), disassociate_subnets_request(), list()) ::
           {:ok, disassociate_subnets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_subnets_errors()}
   def disassociate_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2757,6 +2776,7 @@ defmodule AWS.NetworkFirewall do
   @spec get_analysis_report_results(map(), get_analysis_report_results_request(), list()) ::
           {:ok, get_analysis_report_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_analysis_report_results_errors()}
   def get_analysis_report_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2771,6 +2791,7 @@ defmodule AWS.NetworkFirewall do
   @spec list_analysis_reports(map(), list_analysis_reports_request(), list()) ::
           {:ok, list_analysis_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analysis_reports_errors()}
   def list_analysis_reports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2789,6 +2810,7 @@ defmodule AWS.NetworkFirewall do
   @spec list_firewall_policies(map(), list_firewall_policies_request(), list()) ::
           {:ok, list_firewall_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewall_policies_errors()}
   def list_firewall_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2809,6 +2831,7 @@ defmodule AWS.NetworkFirewall do
   @spec list_firewalls(map(), list_firewalls_request(), list()) ::
           {:ok, list_firewalls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_firewalls_errors()}
   def list_firewalls(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2827,6 +2850,7 @@ defmodule AWS.NetworkFirewall do
   @spec list_rule_groups(map(), list_rule_groups_request(), list()) ::
           {:ok, list_rule_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2848,6 +2872,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, list_t_l_s_inspection_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_t_l_s_inspection_configurations_errors()}
   def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2874,6 +2899,7 @@ defmodule AWS.NetworkFirewall do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2913,6 +2939,7 @@ defmodule AWS.NetworkFirewall do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2930,6 +2957,7 @@ defmodule AWS.NetworkFirewall do
   @spec start_analysis_report(map(), start_analysis_report_request(), list()) ::
           {:ok, start_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_analysis_report_errors()}
   def start_analysis_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2955,6 +2983,7 @@ defmodule AWS.NetworkFirewall do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2981,6 +3010,7 @@ defmodule AWS.NetworkFirewall do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2998,6 +3028,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, update_firewall_analysis_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_analysis_settings_errors()}
   def update_firewall_analysis_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3021,6 +3052,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, update_firewall_delete_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_delete_protection_errors()}
   def update_firewall_delete_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3037,6 +3069,7 @@ defmodule AWS.NetworkFirewall do
   @spec update_firewall_description(map(), update_firewall_description_request(), list()) ::
           {:ok, update_firewall_description_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_description_errors()}
   def update_firewall_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3054,6 +3087,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, update_firewall_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_encryption_configuration_errors()}
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3067,6 +3101,7 @@ defmodule AWS.NetworkFirewall do
   @spec update_firewall_policy(map(), update_firewall_policy_request(), list()) ::
           {:ok, update_firewall_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_policy_errors()}
   def update_firewall_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3089,6 +3124,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, update_firewall_policy_change_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_firewall_policy_change_protection_errors()}
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3131,6 +3167,7 @@ defmodule AWS.NetworkFirewall do
   @spec update_logging_configuration(map(), update_logging_configuration_request(), list()) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3153,6 +3190,7 @@ defmodule AWS.NetworkFirewall do
   @spec update_rule_group(map(), update_rule_group_request(), list()) ::
           {:ok, update_rule_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3163,6 +3201,7 @@ defmodule AWS.NetworkFirewall do
   @spec update_subnet_change_protection(map(), update_subnet_change_protection_request(), list()) ::
           {:ok, update_subnet_change_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subnet_change_protection_errors()}
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3192,6 +3231,7 @@ defmodule AWS.NetworkFirewall do
         ) ::
           {:ok, update_t_l_s_inspection_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_t_l_s_inspection_configuration_errors()}
   def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

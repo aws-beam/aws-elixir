@@ -3595,6 +3595,7 @@ defmodule AWS.CodeDeploy do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_on_premises_instances_errors()}
   def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3611,6 +3612,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_application_revisions(map(), batch_get_application_revisions_input(), list()) ::
           {:ok, batch_get_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_application_revisions_errors()}
   def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3627,6 +3629,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_applications(map(), batch_get_applications_input(), list()) ::
           {:ok, batch_get_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_applications_errors()}
   def batch_get_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3640,6 +3643,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_deployment_groups(map(), batch_get_deployment_groups_input(), list()) ::
           {:ok, batch_get_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_deployment_groups_errors()}
   def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3663,6 +3667,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_deployment_instances(map(), batch_get_deployment_instances_input(), list()) ::
           {:ok, batch_get_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_deployment_instances_errors()}
   def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3703,6 +3708,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_deployment_targets(map(), batch_get_deployment_targets_input(), list()) ::
           {:ok, batch_get_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_deployment_targets_errors()}
   def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3719,6 +3725,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_deployments(map(), batch_get_deployments_input(), list()) ::
           {:ok, batch_get_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_deployments_errors()}
   def batch_get_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3735,6 +3742,7 @@ defmodule AWS.CodeDeploy do
   @spec batch_get_on_premises_instances(map(), batch_get_on_premises_instances_input(), list()) ::
           {:ok, batch_get_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_on_premises_instances_errors()}
   def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3757,6 +3765,7 @@ defmodule AWS.CodeDeploy do
   @spec continue_deployment(map(), continue_deployment_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, continue_deployment_errors()}
   def continue_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3770,6 +3779,7 @@ defmodule AWS.CodeDeploy do
   @spec create_application(map(), create_application_input(), list()) ::
           {:ok, create_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3783,6 +3793,7 @@ defmodule AWS.CodeDeploy do
   @spec create_deployment(map(), create_deployment_input(), list()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3796,6 +3807,7 @@ defmodule AWS.CodeDeploy do
   @spec create_deployment_config(map(), create_deployment_config_input(), list()) ::
           {:ok, create_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_config_errors()}
   def create_deployment_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3809,6 +3821,7 @@ defmodule AWS.CodeDeploy do
   @spec create_deployment_group(map(), create_deployment_group_input(), list()) ::
           {:ok, create_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_group_errors()}
   def create_deployment_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3822,6 +3835,7 @@ defmodule AWS.CodeDeploy do
   @spec delete_application(map(), delete_application_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3839,6 +3853,7 @@ defmodule AWS.CodeDeploy do
   @spec delete_deployment_config(map(), delete_deployment_config_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_config_errors()}
   def delete_deployment_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3852,6 +3867,7 @@ defmodule AWS.CodeDeploy do
   @spec delete_deployment_group(map(), delete_deployment_group_input(), list()) ::
           {:ok, delete_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_group_errors()}
   def delete_deployment_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3865,6 +3881,7 @@ defmodule AWS.CodeDeploy do
   @spec delete_git_hub_account_token(map(), delete_git_hub_account_token_input(), list()) ::
           {:ok, delete_git_hub_account_token_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_git_hub_account_token_errors()}
   def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3887,6 +3904,7 @@ defmodule AWS.CodeDeploy do
   @spec delete_resources_by_external_id(map(), delete_resources_by_external_id_input(), list()) ::
           {:ok, delete_resources_by_external_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3899,6 +3917,7 @@ defmodule AWS.CodeDeploy do
   @spec deregister_on_premises_instance(map(), deregister_on_premises_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_on_premises_instance_errors()}
   def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3912,6 +3931,7 @@ defmodule AWS.CodeDeploy do
   @spec get_application(map(), get_application_input(), list()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3925,6 +3945,7 @@ defmodule AWS.CodeDeploy do
   @spec get_application_revision(map(), get_application_revision_input(), list()) ::
           {:ok, get_application_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_revision_errors()}
   def get_application_revision(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3943,6 +3964,7 @@ defmodule AWS.CodeDeploy do
   @spec get_deployment(map(), get_deployment_input(), list()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3956,6 +3978,7 @@ defmodule AWS.CodeDeploy do
   @spec get_deployment_config(map(), get_deployment_config_input(), list()) ::
           {:ok, get_deployment_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_config_errors()}
   def get_deployment_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3969,6 +3992,7 @@ defmodule AWS.CodeDeploy do
   @spec get_deployment_group(map(), get_deployment_group_input(), list()) ::
           {:ok, get_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_group_errors()}
   def get_deployment_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3982,6 +4006,7 @@ defmodule AWS.CodeDeploy do
   @spec get_deployment_instance(map(), get_deployment_instance_input(), list()) ::
           {:ok, get_deployment_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_instance_errors()}
   def get_deployment_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3995,6 +4020,7 @@ defmodule AWS.CodeDeploy do
   @spec get_deployment_target(map(), get_deployment_target_input(), list()) ::
           {:ok, get_deployment_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_target_errors()}
   def get_deployment_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4008,6 +4034,7 @@ defmodule AWS.CodeDeploy do
   @spec get_on_premises_instance(map(), get_on_premises_instance_input(), list()) ::
           {:ok, get_on_premises_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_on_premises_instance_errors()}
   def get_on_premises_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4021,6 +4048,7 @@ defmodule AWS.CodeDeploy do
   @spec list_application_revisions(map(), list_application_revisions_input(), list()) ::
           {:ok, list_application_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_revisions_errors()}
   def list_application_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4034,6 +4062,7 @@ defmodule AWS.CodeDeploy do
   @spec list_applications(map(), list_applications_input(), list()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4048,6 +4077,7 @@ defmodule AWS.CodeDeploy do
   @spec list_deployment_configs(map(), list_deployment_configs_input(), list()) ::
           {:ok, list_deployment_configs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_configs_errors()}
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4063,6 +4093,7 @@ defmodule AWS.CodeDeploy do
   @spec list_deployment_groups(map(), list_deployment_groups_input(), list()) ::
           {:ok, list_deployment_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_groups_errors()}
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4085,6 +4116,7 @@ defmodule AWS.CodeDeploy do
   @spec list_deployment_instances(map(), list_deployment_instances_input(), list()) ::
           {:ok, list_deployment_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_instances_errors()}
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4098,6 +4130,7 @@ defmodule AWS.CodeDeploy do
   @spec list_deployment_targets(map(), list_deployment_targets_input(), list()) ::
           {:ok, list_deployment_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_targets_errors()}
   def list_deployment_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4113,6 +4146,7 @@ defmodule AWS.CodeDeploy do
   @spec list_deployments(map(), list_deployments_input(), list()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4126,6 +4160,7 @@ defmodule AWS.CodeDeploy do
   @spec list_git_hub_account_token_names(map(), list_git_hub_account_token_names_input(), list()) ::
           {:ok, list_git_hub_account_token_names_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_git_hub_account_token_names_errors()}
   def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4145,6 +4180,7 @@ defmodule AWS.CodeDeploy do
   @spec list_on_premises_instances(map(), list_on_premises_instances_input(), list()) ::
           {:ok, list_on_premises_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_on_premises_instances_errors()}
   def list_on_premises_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4162,6 +4198,7 @@ defmodule AWS.CodeDeploy do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4192,6 +4229,7 @@ defmodule AWS.CodeDeploy do
         ) ::
           {:ok, put_lifecycle_event_hook_execution_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
   def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4205,6 +4243,7 @@ defmodule AWS.CodeDeploy do
   @spec register_application_revision(map(), register_application_revision_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_application_revision_errors()}
   def register_application_revision(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4221,6 +4260,7 @@ defmodule AWS.CodeDeploy do
   @spec register_on_premises_instance(map(), register_on_premises_instance_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_on_premises_instance_errors()}
   def register_on_premises_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4238,6 +4278,7 @@ defmodule AWS.CodeDeploy do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_on_premises_instances_errors()}
   def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4257,6 +4298,7 @@ defmodule AWS.CodeDeploy do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, skip_wait_time_for_instance_termination_errors()}
   def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4270,6 +4312,7 @@ defmodule AWS.CodeDeploy do
   @spec stop_deployment(map(), stop_deployment_input(), list()) ::
           {:ok, stop_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_deployment_errors()}
   def stop_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4284,6 +4327,7 @@ defmodule AWS.CodeDeploy do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4301,6 +4345,7 @@ defmodule AWS.CodeDeploy do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4314,6 +4359,7 @@ defmodule AWS.CodeDeploy do
   @spec update_application(map(), update_application_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4327,6 +4373,7 @@ defmodule AWS.CodeDeploy do
   @spec update_deployment_group(map(), update_deployment_group_input(), list()) ::
           {:ok, update_deployment_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_deployment_group_errors()}
   def update_deployment_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

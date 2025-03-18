@@ -1715,6 +1715,7 @@ defmodule AWS.Panorama do
   @spec create_application_instance(map(), create_application_instance_request(), list()) ::
           {:ok, create_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_instance_errors()}
   def create_application_instance(%Client{} = client, input, options \\ []) do
     url_path = "/application-instances"
@@ -1745,6 +1746,7 @@ defmodule AWS.Panorama do
   @spec create_job_for_devices(map(), create_job_for_devices_request(), list()) ::
           {:ok, create_job_for_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_for_devices_errors()}
   def create_job_for_devices(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -1773,6 +1775,7 @@ defmodule AWS.Panorama do
   @spec create_node_from_template_job(map(), create_node_from_template_job_request(), list()) ::
           {:ok, create_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_node_from_template_job_errors()}
   def create_node_from_template_job(%Client{} = client, input, options \\ []) do
     url_path = "/packages/template-job"
@@ -1801,6 +1804,7 @@ defmodule AWS.Panorama do
   @spec create_package(map(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_errors()}
   def create_package(%Client{} = client, input, options \\ []) do
     url_path = "/packages"
@@ -1829,6 +1833,7 @@ defmodule AWS.Panorama do
   @spec create_package_import_job(map(), create_package_import_job_request(), list()) ::
           {:ok, create_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_package_import_job_errors()}
   def create_package_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/packages/import-jobs"
@@ -1857,6 +1862,7 @@ defmodule AWS.Panorama do
   @spec delete_device(map(), String.t(), delete_device_request(), list()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_errors()}
   def delete_device(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
@@ -1889,6 +1895,7 @@ defmodule AWS.Panorama do
   @spec delete_package(map(), String.t(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_package_errors()}
   def delete_package(%Client{} = client, package_id, input, options \\ []) do
     url_path = "/packages/#{AWS.Util.encode_uri(package_id)}"
@@ -1929,6 +1936,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, deregister_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_package_version_errors()}
   def deregister_package_version(
         %Client{} = client,
@@ -1972,6 +1980,7 @@ defmodule AWS.Panorama do
   @spec describe_application_instance(map(), String.t(), list()) ::
           {:ok, describe_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_instance_errors()}
   def describe_application_instance(%Client{} = client, application_instance_id, options \\ []) do
     url_path = "/application-instances/#{AWS.Util.encode_uri(application_instance_id)}"
@@ -1989,6 +1998,7 @@ defmodule AWS.Panorama do
   @spec describe_application_instance_details(map(), String.t(), list()) ::
           {:ok, describe_application_instance_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_instance_details_errors()}
   def describe_application_instance_details(
         %Client{} = client,
@@ -2010,6 +2020,7 @@ defmodule AWS.Panorama do
   @spec describe_device(map(), String.t(), list()) ::
           {:ok, describe_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, device_id, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"
@@ -2027,6 +2038,7 @@ defmodule AWS.Panorama do
   @spec describe_device_job(map(), String.t(), list()) ::
           {:ok, describe_device_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_job_errors()}
   def describe_device_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2044,6 +2056,7 @@ defmodule AWS.Panorama do
   @spec describe_node(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_node_errors()}
   def describe_node(%Client{} = client, node_id, owner_account \\ nil, options \\ []) do
     url_path = "/nodes/#{AWS.Util.encode_uri(node_id)}"
@@ -2068,6 +2081,7 @@ defmodule AWS.Panorama do
   @spec describe_node_from_template_job(map(), String.t(), list()) ::
           {:ok, describe_node_from_template_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_node_from_template_job_errors()}
   def describe_node_from_template_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/template-job/#{AWS.Util.encode_uri(job_id)}"
@@ -2085,6 +2099,7 @@ defmodule AWS.Panorama do
   @spec describe_package(map(), String.t(), list()) ::
           {:ok, describe_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_errors()}
   def describe_package(%Client{} = client, package_id, options \\ []) do
     url_path = "/packages/metadata/#{AWS.Util.encode_uri(package_id)}"
@@ -2102,6 +2117,7 @@ defmodule AWS.Panorama do
   @spec describe_package_import_job(map(), String.t(), list()) ::
           {:ok, describe_package_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_import_job_errors()}
   def describe_package_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/packages/import-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2126,6 +2142,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, describe_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_package_version_errors()}
   def describe_package_version(
         %Client{} = client,
@@ -2172,6 +2189,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, list_application_instance_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_instance_dependencies_errors()}
   def list_application_instance_dependencies(
         %Client{} = client,
@@ -2217,6 +2235,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, list_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_instance_node_instances_errors()}
   def list_application_instance_node_instances(
         %Client{} = client,
@@ -2263,6 +2282,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, list_application_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_instances_errors()}
   def list_application_instances(
         %Client{} = client,
@@ -2324,6 +2344,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(
         %Client{} = client,
@@ -2392,6 +2413,7 @@ defmodule AWS.Panorama do
   @spec list_devices_jobs(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_devices_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_jobs_errors()}
   def list_devices_jobs(
         %Client{} = client,
@@ -2436,6 +2458,7 @@ defmodule AWS.Panorama do
   @spec list_node_from_template_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_node_from_template_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_node_from_template_jobs_errors()}
   def list_node_from_template_jobs(
         %Client{} = client,
@@ -2482,6 +2505,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(
         %Client{} = client,
@@ -2558,6 +2582,7 @@ defmodule AWS.Panorama do
   @spec list_package_import_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_package_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_package_import_jobs_errors()}
   def list_package_import_jobs(
         %Client{} = client,
@@ -2594,6 +2619,7 @@ defmodule AWS.Panorama do
   @spec list_packages(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packages_errors()}
   def list_packages(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/packages"
@@ -2625,6 +2651,7 @@ defmodule AWS.Panorama do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2649,6 +2676,7 @@ defmodule AWS.Panorama do
   @spec provision_device(map(), provision_device_request(), list()) ::
           {:ok, provision_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, provision_device_errors()}
   def provision_device(%Client{} = client, input, options \\ []) do
     url_path = "/devices"
@@ -2684,6 +2712,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, register_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_package_version_errors()}
   def register_package_version(
         %Client{} = client,
@@ -2726,6 +2755,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, remove_application_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_application_instance_errors()}
   def remove_application_instance(
         %Client{} = client,
@@ -2764,6 +2794,7 @@ defmodule AWS.Panorama do
         ) ::
           {:ok, signal_application_instance_node_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, signal_application_instance_node_instances_errors()}
   def signal_application_instance_node_instances(
         %Client{} = client,
@@ -2799,6 +2830,7 @@ defmodule AWS.Panorama do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2827,6 +2859,7 @@ defmodule AWS.Panorama do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2860,6 +2893,7 @@ defmodule AWS.Panorama do
   @spec update_device_metadata(map(), String.t(), update_device_metadata_request(), list()) ::
           {:ok, update_device_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_metadata_errors()}
   def update_device_metadata(%Client{} = client, device_id, input, options \\ []) do
     url_path = "/devices/#{AWS.Util.encode_uri(device_id)}"

@@ -450,6 +450,7 @@ defmodule AWS.ControlCatalog do
   @spec get_control(map(), get_control_request(), list()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_control_errors()}
   def get_control(%Client{} = client, input, options \\ []) do
     url_path = "/get-control"
@@ -483,6 +484,7 @@ defmodule AWS.ControlCatalog do
   @spec list_common_controls(map(), list_common_controls_request(), list()) ::
           {:ok, list_common_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_common_controls_errors()}
   def list_common_controls(%Client{} = client, input, options \\ []) do
     url_path = "/common-controls"
@@ -522,6 +524,7 @@ defmodule AWS.ControlCatalog do
   @spec list_controls(map(), list_controls_request(), list()) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_controls_errors()}
   def list_controls(%Client{} = client, input, options \\ []) do
     url_path = "/list-controls"
@@ -557,6 +560,7 @@ defmodule AWS.ControlCatalog do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
@@ -596,6 +600,7 @@ defmodule AWS.ControlCatalog do
   @spec list_objectives(map(), list_objectives_request(), list()) ::
           {:ok, list_objectives_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_objectives_errors()}
   def list_objectives(%Client{} = client, input, options \\ []) do
     url_path = "/objectives"

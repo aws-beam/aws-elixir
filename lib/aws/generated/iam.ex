@@ -4994,6 +4994,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_client_id_to_open_id_connect_provider_errors()}
   def add_client_id_to_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5037,6 +5038,7 @@ defmodule AWS.IAM do
   @spec add_role_to_instance_profile(map(), add_role_to_instance_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_role_to_instance_profile_errors()}
   def add_role_to_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5050,6 +5052,7 @@ defmodule AWS.IAM do
   @spec add_user_to_group(map(), add_user_to_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_user_to_group_errors()}
   def add_user_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5075,6 +5078,7 @@ defmodule AWS.IAM do
   @spec attach_group_policy(map(), attach_group_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_group_policy_errors()}
   def attach_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5115,6 +5119,7 @@ defmodule AWS.IAM do
   @spec attach_role_policy(map(), attach_role_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_role_policy_errors()}
   def attach_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5140,6 +5145,7 @@ defmodule AWS.IAM do
   @spec attach_user_policy(map(), attach_user_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_user_policy_errors()}
   def attach_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5165,6 +5171,7 @@ defmodule AWS.IAM do
   @spec change_password(map(), change_password_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5202,6 +5209,7 @@ defmodule AWS.IAM do
   @spec create_access_key(map(), create_access_key_request(), list()) ::
           {:ok, create_access_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_key_errors()}
   def create_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5221,6 +5229,7 @@ defmodule AWS.IAM do
   @spec create_account_alias(map(), create_account_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_account_alias_errors()}
   def create_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5237,6 +5246,7 @@ defmodule AWS.IAM do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5260,6 +5270,7 @@ defmodule AWS.IAM do
   @spec create_instance_profile(map(), create_instance_profile_request(), list()) ::
           {:ok, create_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5286,6 +5297,7 @@ defmodule AWS.IAM do
   @spec create_login_profile(map(), create_login_profile_request(), list()) ::
           {:ok, create_login_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_login_profile_errors()}
   def create_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5350,6 +5362,7 @@ defmodule AWS.IAM do
   @spec create_open_id_connect_provider(map(), create_open_id_connect_provider_request(), list()) ::
           {:ok, create_open_id_connect_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_open_id_connect_provider_errors()}
   def create_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5379,6 +5392,7 @@ defmodule AWS.IAM do
   @spec create_policy(map(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5407,6 +5421,7 @@ defmodule AWS.IAM do
   @spec create_policy_version(map(), create_policy_version_request(), list()) ::
           {:ok, create_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_policy_version_errors()}
   def create_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5426,6 +5441,7 @@ defmodule AWS.IAM do
   @spec create_role(map(), create_role_request(), list()) ::
           {:ok, create_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_role_errors()}
   def create_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5466,6 +5482,7 @@ defmodule AWS.IAM do
   @spec create_saml_provider(map(), create_saml_provider_request(), list()) ::
           {:ok, create_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_saml_provider_errors()}
   def create_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5495,6 +5512,7 @@ defmodule AWS.IAM do
   @spec create_service_linked_role(map(), create_service_linked_role_request(), list()) ::
           {:ok, create_service_linked_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_linked_role_errors()}
   def create_service_linked_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5533,6 +5551,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, create_service_specific_credential_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_specific_credential_errors()}
   def create_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5550,6 +5569,7 @@ defmodule AWS.IAM do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5582,6 +5602,7 @@ defmodule AWS.IAM do
   @spec create_virtual_mfa_device(map(), create_virtual_mfa_device_request(), list()) ::
           {:ok, create_virtual_mfa_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_mfa_device_errors()}
   def create_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5603,6 +5624,7 @@ defmodule AWS.IAM do
   @spec deactivate_mfa_device(map(), deactivate_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_mfa_device_errors()}
   def deactivate_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5625,6 +5647,7 @@ defmodule AWS.IAM do
   @spec delete_access_key(map(), delete_access_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_key_errors()}
   def delete_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5644,6 +5667,7 @@ defmodule AWS.IAM do
   @spec delete_account_alias(map(), delete_account_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_alias_errors()}
   def delete_account_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5659,6 +5683,7 @@ defmodule AWS.IAM do
   @spec delete_account_password_policy(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_password_policy_errors()}
   def delete_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5675,6 +5700,7 @@ defmodule AWS.IAM do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5695,6 +5721,7 @@ defmodule AWS.IAM do
   @spec delete_group_policy(map(), delete_group_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_policy_errors()}
   def delete_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5721,6 +5748,7 @@ defmodule AWS.IAM do
   @spec delete_instance_profile(map(), delete_instance_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5749,6 +5777,7 @@ defmodule AWS.IAM do
   @spec delete_login_profile(map(), delete_login_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_login_profile_errors()}
   def delete_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5772,6 +5801,7 @@ defmodule AWS.IAM do
   @spec delete_open_id_connect_provider(map(), delete_open_id_connect_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_open_id_connect_provider_errors()}
   def delete_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5814,6 +5844,7 @@ defmodule AWS.IAM do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5835,6 +5866,7 @@ defmodule AWS.IAM do
   @spec delete_policy_version(map(), delete_policy_version_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_version_errors()}
   def delete_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5873,6 +5905,7 @@ defmodule AWS.IAM do
   @spec delete_role(map(), delete_role_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_errors()}
   def delete_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5896,6 +5929,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_permissions_boundary_errors()}
   def delete_role_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5916,6 +5950,7 @@ defmodule AWS.IAM do
   @spec delete_role_policy(map(), delete_role_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_role_policy_errors()}
   def delete_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5937,6 +5972,7 @@ defmodule AWS.IAM do
   @spec delete_saml_provider(map(), delete_saml_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_saml_provider_errors()}
   def delete_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5971,6 +6007,7 @@ defmodule AWS.IAM do
   @spec delete_server_certificate(map(), delete_server_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_server_certificate_errors()}
   def delete_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6013,6 +6050,7 @@ defmodule AWS.IAM do
   @spec delete_service_linked_role(map(), delete_service_linked_role_request(), list()) ::
           {:ok, delete_service_linked_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_linked_role_errors()}
   def delete_service_linked_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6030,6 +6068,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_specific_credential_errors()}
   def delete_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6052,6 +6091,7 @@ defmodule AWS.IAM do
   @spec delete_signing_certificate(map(), delete_signing_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_signing_certificate_errors()}
   def delete_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6072,6 +6112,7 @@ defmodule AWS.IAM do
   @spec delete_ssh_public_key(map(), delete_ssh_public_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ssh_public_key_errors()}
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6119,6 +6160,7 @@ defmodule AWS.IAM do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6140,6 +6182,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_permissions_boundary_errors()}
   def delete_user_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6160,6 +6203,7 @@ defmodule AWS.IAM do
   @spec delete_user_policy(map(), delete_user_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_policy_errors()}
   def delete_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6176,6 +6220,7 @@ defmodule AWS.IAM do
   @spec delete_virtual_mfa_device(map(), delete_virtual_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_mfa_device_errors()}
   def delete_virtual_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6196,6 +6241,7 @@ defmodule AWS.IAM do
   @spec detach_group_policy(map(), detach_group_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_group_policy_errors()}
   def detach_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6216,6 +6262,7 @@ defmodule AWS.IAM do
   @spec detach_role_policy(map(), detach_role_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_role_policy_errors()}
   def detach_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6236,6 +6283,7 @@ defmodule AWS.IAM do
   @spec detach_user_policy(map(), detach_user_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_user_policy_errors()}
   def detach_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6260,6 +6308,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, disable_organizations_root_credentials_management_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organizations_root_credentials_management_errors()}
   def disable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6289,6 +6338,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, disable_organizations_root_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organizations_root_sessions_errors()}
   def disable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6306,6 +6356,7 @@ defmodule AWS.IAM do
   @spec enable_mfa_device(map(), enable_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_mfa_device_errors()}
   def enable_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6347,6 +6398,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, enable_organizations_root_credentials_management_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organizations_root_credentials_management_errors()}
   def enable_organizations_root_credentials_management(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6392,6 +6444,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, enable_organizations_root_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organizations_root_sessions_errors()}
   def enable_organizations_root_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6410,6 +6463,7 @@ defmodule AWS.IAM do
   @spec generate_credential_report(map(), %{}, list()) ::
           {:ok, generate_credential_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_credential_report_errors()}
   def generate_credential_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6601,6 +6655,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, generate_organizations_access_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_organizations_access_report_errors()}
   def generate_organizations_access_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6693,6 +6748,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, generate_service_last_accessed_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_service_last_accessed_details_errors()}
   def generate_service_last_accessed_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6711,6 +6767,7 @@ defmodule AWS.IAM do
   @spec get_access_key_last_used(map(), get_access_key_last_used_request(), list()) ::
           {:ok, get_access_key_last_used_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_access_key_last_used(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -6745,6 +6802,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_account_authorization_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_authorization_details_errors()}
   def get_account_authorization_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6764,6 +6822,7 @@ defmodule AWS.IAM do
   @spec get_account_password_policy(map(), %{}, list()) ::
           {:ok, get_account_password_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_password_policy_errors()}
   def get_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6783,6 +6842,7 @@ defmodule AWS.IAM do
   @spec get_account_summary(map(), %{}, list()) ::
           {:ok, get_account_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_summary_errors()}
   def get_account_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6817,6 +6877,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_context_keys_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_context_keys_for_custom_policy_errors()}
   def get_context_keys_for_custom_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6859,6 +6920,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_context_keys_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_context_keys_for_principal_policy_errors()}
   def get_context_keys_for_principal_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6877,6 +6939,7 @@ defmodule AWS.IAM do
   @spec get_credential_report(map(), %{}, list()) ::
           {:ok, get_credential_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_credential_report_errors()}
   def get_credential_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6893,6 +6956,7 @@ defmodule AWS.IAM do
   @spec get_group(map(), get_group_request(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6924,6 +6988,7 @@ defmodule AWS.IAM do
   @spec get_group_policy(map(), get_group_policy_request(), list()) ::
           {:ok, get_group_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_policy_errors()}
   def get_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6944,6 +7009,7 @@ defmodule AWS.IAM do
   @spec get_instance_profile(map(), get_instance_profile_request(), list()) ::
           {:ok, get_instance_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6975,6 +7041,7 @@ defmodule AWS.IAM do
   @spec get_login_profile(map(), get_login_profile_request(), list()) ::
           {:ok, get_login_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_login_profile_errors()}
   def get_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6988,6 +7055,7 @@ defmodule AWS.IAM do
   @spec get_mfa_device(map(), get_mfa_device_request(), list()) ::
           {:ok, get_mfa_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_mfa_device_errors()}
   def get_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7003,6 +7071,7 @@ defmodule AWS.IAM do
   @spec get_open_id_connect_provider(map(), get_open_id_connect_provider_request(), list()) ::
           {:ok, get_open_id_connect_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_open_id_connect_provider_errors()}
   def get_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7054,6 +7123,7 @@ defmodule AWS.IAM do
   @spec get_organizations_access_report(map(), get_organizations_access_report_request(), list()) ::
           {:ok, get_organizations_access_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organizations_access_report_errors()}
   def get_organizations_access_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7084,6 +7154,7 @@ defmodule AWS.IAM do
   @spec get_policy(map(), get_policy_request(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7120,6 +7191,7 @@ defmodule AWS.IAM do
   @spec get_policy_version(map(), get_policy_version_request(), list()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_version_errors()}
   def get_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7146,6 +7218,7 @@ defmodule AWS.IAM do
   @spec get_role(map(), get_role_request(), list()) ::
           {:ok, get_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_role_errors()}
   def get_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7179,6 +7252,7 @@ defmodule AWS.IAM do
   @spec get_role_policy(map(), get_role_policy_request(), list()) ::
           {:ok, get_role_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_role_policy_errors()}
   def get_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7196,6 +7270,7 @@ defmodule AWS.IAM do
   @spec get_saml_provider(map(), get_saml_provider_request(), list()) ::
           {:ok, get_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_saml_provider_errors()}
   def get_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7216,6 +7291,7 @@ defmodule AWS.IAM do
   @spec get_server_certificate(map(), get_server_certificate_request(), list()) ::
           {:ok, get_server_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_server_certificate_errors()}
   def get_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7299,6 +7375,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_service_last_accessed_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_last_accessed_details_errors()}
   def get_service_last_accessed_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7347,6 +7424,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_service_last_accessed_details_with_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_last_accessed_details_with_entities_errors()}
   def get_service_last_accessed_details_with_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7377,6 +7455,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, get_service_linked_role_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_linked_role_deletion_status_errors()}
   def get_service_linked_role_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7397,6 +7476,7 @@ defmodule AWS.IAM do
   @spec get_ssh_public_key(map(), get_ssh_public_key_request(), list()) ::
           {:ok, get_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ssh_public_key_errors()}
   def get_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7417,6 +7497,7 @@ defmodule AWS.IAM do
   @spec get_user(map(), get_user_request(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7447,6 +7528,7 @@ defmodule AWS.IAM do
   @spec get_user_policy(map(), get_user_policy_request(), list()) ::
           {:ok, get_user_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_policy_errors()}
   def get_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7483,6 +7565,7 @@ defmodule AWS.IAM do
   @spec list_access_keys(map(), list_access_keys_request(), list()) ::
           {:ok, list_access_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_keys_errors()}
   def list_access_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7503,6 +7586,7 @@ defmodule AWS.IAM do
   @spec list_account_aliases(map(), list_account_aliases_request(), list()) ::
           {:ok, list_account_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_aliases_errors()}
   def list_account_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7529,6 +7613,7 @@ defmodule AWS.IAM do
   @spec list_attached_group_policies(map(), list_attached_group_policies_request(), list()) ::
           {:ok, list_attached_group_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_group_policies_errors()}
   def list_attached_group_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7555,6 +7640,7 @@ defmodule AWS.IAM do
   @spec list_attached_role_policies(map(), list_attached_role_policies_request(), list()) ::
           {:ok, list_attached_role_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_role_policies_errors()}
   def list_attached_role_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7581,6 +7667,7 @@ defmodule AWS.IAM do
   @spec list_attached_user_policies(map(), list_attached_user_policies_request(), list()) ::
           {:ok, list_attached_user_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_user_policies_errors()}
   def list_attached_user_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7605,6 +7692,7 @@ defmodule AWS.IAM do
   @spec list_entities_for_policy(map(), list_entities_for_policy_request(), list()) ::
           {:ok, list_entities_for_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entities_for_policy_errors()}
   def list_entities_for_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7629,6 +7717,7 @@ defmodule AWS.IAM do
   @spec list_group_policies(map(), list_group_policies_request(), list()) ::
           {:ok, list_group_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_policies_errors()}
   def list_group_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7645,6 +7734,7 @@ defmodule AWS.IAM do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7661,6 +7751,7 @@ defmodule AWS.IAM do
   @spec list_groups_for_user(map(), list_groups_for_user_request(), list()) ::
           {:ok, list_groups_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_for_user_errors()}
   def list_groups_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7678,6 +7769,7 @@ defmodule AWS.IAM do
   @spec list_instance_profile_tags(map(), list_instance_profile_tags_request(), list()) ::
           {:ok, list_instance_profile_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_profile_tags_errors()}
   def list_instance_profile_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7706,6 +7798,7 @@ defmodule AWS.IAM do
   @spec list_instance_profiles(map(), list_instance_profiles_request(), list()) ::
           {:ok, list_instance_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7729,6 +7822,7 @@ defmodule AWS.IAM do
   @spec list_instance_profiles_for_role(map(), list_instance_profiles_for_role_request(), list()) ::
           {:ok, list_instance_profiles_for_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_profiles_for_role_errors()}
   def list_instance_profiles_for_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7747,6 +7841,7 @@ defmodule AWS.IAM do
   @spec list_mfa_device_tags(map(), list_mfa_device_tags_request(), list()) ::
           {:ok, list_mfa_device_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mfa_device_tags_errors()}
   def list_mfa_device_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7770,6 +7865,7 @@ defmodule AWS.IAM do
   @spec list_mfa_devices(map(), list_mfa_devices_request(), list()) ::
           {:ok, list_mfa_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_mfa_devices_errors()}
   def list_mfa_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7795,6 +7891,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, list_open_id_connect_provider_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_open_id_connect_provider_tags_errors()}
   def list_open_id_connect_provider_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7814,6 +7911,7 @@ defmodule AWS.IAM do
   @spec list_open_id_connect_providers(map(), list_open_id_connect_providers_request(), list()) ::
           {:ok, list_open_id_connect_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_open_id_connect_providers_errors()}
   def list_open_id_connect_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7830,6 +7928,7 @@ defmodule AWS.IAM do
   @spec list_organizations_features(map(), list_organizations_features_request(), list()) ::
           {:ok, list_organizations_features_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organizations_features_errors()}
   def list_organizations_features(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7865,6 +7964,7 @@ defmodule AWS.IAM do
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7933,6 +8033,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, list_policies_granting_service_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policies_granting_service_access_errors()}
   def list_policies_granting_service_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7950,6 +8051,7 @@ defmodule AWS.IAM do
   @spec list_policy_tags(map(), list_policy_tags_request(), list()) ::
           {:ok, list_policy_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_tags_errors()}
   def list_policy_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7968,6 +8070,7 @@ defmodule AWS.IAM do
   @spec list_policy_versions(map(), list_policy_versions_request(), list()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_versions_errors()}
   def list_policy_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7992,6 +8095,7 @@ defmodule AWS.IAM do
   @spec list_role_policies(map(), list_role_policies_request(), list()) ::
           {:ok, list_role_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_role_policies_errors()}
   def list_role_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8009,6 +8113,7 @@ defmodule AWS.IAM do
   @spec list_role_tags(map(), list_role_tags_request(), list()) ::
           {:ok, list_role_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_role_tags_errors()}
   def list_role_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8044,6 +8149,7 @@ defmodule AWS.IAM do
   @spec list_roles(map(), list_roles_request(), list()) ::
           {:ok, list_roles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_roles_errors()}
   def list_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8065,6 +8171,7 @@ defmodule AWS.IAM do
   @spec list_saml_provider_tags(map(), list_saml_provider_tags_request(), list()) ::
           {:ok, list_saml_provider_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_saml_provider_tags_errors()}
   def list_saml_provider_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8085,6 +8192,7 @@ defmodule AWS.IAM do
   @spec list_saml_providers(map(), list_saml_providers_request(), list()) ::
           {:ok, list_saml_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_saml_providers_errors()}
   def list_saml_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8111,6 +8219,7 @@ defmodule AWS.IAM do
   @spec list_server_certificate_tags(map(), list_server_certificate_tags_request(), list()) ::
           {:ok, list_server_certificate_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_server_certificate_tags_errors()}
   def list_server_certificate_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8142,6 +8251,7 @@ defmodule AWS.IAM do
   @spec list_server_certificates(map(), list_server_certificates_request(), list()) ::
           {:ok, list_server_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_server_certificates_errors()}
   def list_server_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8169,6 +8279,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, list_service_specific_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_specific_credentials_errors()}
   def list_service_specific_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8200,6 +8311,7 @@ defmodule AWS.IAM do
   @spec list_signing_certificates(map(), list_signing_certificates_request(), list()) ::
           {:ok, list_signing_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signing_certificates_errors()}
   def list_signing_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8228,6 +8340,7 @@ defmodule AWS.IAM do
   @spec list_ssh_public_keys(map(), list_ssh_public_keys_request(), list()) ::
           {:ok, list_ssh_public_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ssh_public_keys_errors()}
   def list_ssh_public_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8251,6 +8364,7 @@ defmodule AWS.IAM do
   @spec list_user_policies(map(), list_user_policies_request(), list()) ::
           {:ok, list_user_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_policies_errors()}
   def list_user_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8268,6 +8382,7 @@ defmodule AWS.IAM do
   @spec list_user_tags(map(), list_user_tags_request(), list()) ::
           {:ok, list_user_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_tags_errors()}
   def list_user_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8301,6 +8416,7 @@ defmodule AWS.IAM do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8329,6 +8445,7 @@ defmodule AWS.IAM do
   @spec list_virtual_mfa_devices(map(), list_virtual_mfa_devices_request(), list()) ::
           {:ok, list_virtual_mfa_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_virtual_mfa_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8367,6 +8484,7 @@ defmodule AWS.IAM do
   @spec put_group_policy(map(), put_group_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_group_policy_errors()}
   def put_group_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8399,6 +8517,7 @@ defmodule AWS.IAM do
   @spec put_role_permissions_boundary(map(), put_role_permissions_boundary_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_role_permissions_boundary_errors()}
   def put_role_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8452,6 +8571,7 @@ defmodule AWS.IAM do
   @spec put_role_policy(map(), put_role_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_role_policy_errors()}
   def put_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8480,6 +8600,7 @@ defmodule AWS.IAM do
   @spec put_user_permissions_boundary(map(), put_user_permissions_boundary_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_user_permissions_boundary_errors()}
   def put_user_permissions_boundary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8518,6 +8639,7 @@ defmodule AWS.IAM do
   @spec put_user_policy(map(), put_user_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_user_policy_errors()}
   def put_user_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8542,6 +8664,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_client_id_from_open_id_connect_provider_errors()}
   def remove_client_id_from_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8573,6 +8696,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_role_from_instance_profile_errors()}
   def remove_role_from_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8586,6 +8710,7 @@ defmodule AWS.IAM do
   @spec remove_user_from_group(map(), remove_user_from_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_user_from_group_errors()}
   def remove_user_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8609,6 +8734,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, reset_service_specific_credential_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_service_specific_credential_errors()}
   def reset_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8628,6 +8754,7 @@ defmodule AWS.IAM do
   @spec resync_mfa_device(map(), resync_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resync_mfa_device_errors()}
   def resync_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8651,6 +8778,7 @@ defmodule AWS.IAM do
   @spec set_default_policy_version(map(), set_default_policy_version_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_policy_version_errors()}
   def set_default_policy_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8702,6 +8830,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_security_token_service_preferences_errors()}
   def set_security_token_service_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8753,6 +8882,7 @@ defmodule AWS.IAM do
   @spec simulate_custom_policy(map(), simulate_custom_policy_request(), list()) ::
           {:ok, simulate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, simulate_custom_policy_errors()}
   def simulate_custom_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8818,6 +8948,7 @@ defmodule AWS.IAM do
   @spec simulate_principal_policy(map(), simulate_principal_policy_request(), list()) ::
           {:ok, simulate_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, simulate_principal_policy_errors()}
   def simulate_principal_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8870,6 +9001,7 @@ defmodule AWS.IAM do
   @spec tag_instance_profile(map(), tag_instance_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_instance_profile_errors()}
   def tag_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8924,6 +9056,7 @@ defmodule AWS.IAM do
   @spec tag_mfa_device(map(), tag_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_mfa_device_errors()}
   def tag_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8979,6 +9112,7 @@ defmodule AWS.IAM do
   @spec tag_open_id_connect_provider(map(), tag_open_id_connect_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_open_id_connect_provider_errors()}
   def tag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9030,6 +9164,7 @@ defmodule AWS.IAM do
   @spec tag_policy(map(), tag_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_policy_errors()}
   def tag_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9094,6 +9229,7 @@ defmodule AWS.IAM do
   @spec tag_role(map(), tag_role_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_role_errors()}
   def tag_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9149,6 +9285,7 @@ defmodule AWS.IAM do
   @spec tag_saml_provider(map(), tag_saml_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_saml_provider_errors()}
   def tag_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9213,6 +9350,7 @@ defmodule AWS.IAM do
   @spec tag_server_certificate(map(), tag_server_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_server_certificate_errors()}
   def tag_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9274,6 +9412,7 @@ defmodule AWS.IAM do
   @spec tag_user(map(), tag_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_user_errors()}
   def tag_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9290,6 +9429,7 @@ defmodule AWS.IAM do
   @spec untag_instance_profile(map(), untag_instance_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_instance_profile_errors()}
   def untag_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9308,6 +9448,7 @@ defmodule AWS.IAM do
   @spec untag_mfa_device(map(), untag_mfa_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_mfa_device_errors()}
   def untag_mfa_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9327,6 +9468,7 @@ defmodule AWS.IAM do
   @spec untag_open_id_connect_provider(map(), untag_open_id_connect_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_open_id_connect_provider_errors()}
   def untag_open_id_connect_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9343,6 +9485,7 @@ defmodule AWS.IAM do
   @spec untag_policy(map(), untag_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_policy_errors()}
   def untag_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9359,6 +9502,7 @@ defmodule AWS.IAM do
   @spec untag_role(map(), untag_role_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_role_errors()}
   def untag_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9378,6 +9522,7 @@ defmodule AWS.IAM do
   @spec untag_saml_provider(map(), untag_saml_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_saml_provider_errors()}
   def untag_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9402,6 +9547,7 @@ defmodule AWS.IAM do
   @spec untag_server_certificate(map(), untag_server_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_server_certificate_errors()}
   def untag_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9418,6 +9564,7 @@ defmodule AWS.IAM do
   @spec untag_user(map(), untag_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_user_errors()}
   def untag_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9447,6 +9594,7 @@ defmodule AWS.IAM do
   @spec update_access_key(map(), update_access_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_key_errors()}
   def update_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9473,6 +9621,7 @@ defmodule AWS.IAM do
   @spec update_account_password_policy(map(), update_account_password_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_password_policy_errors()}
   def update_account_password_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9492,6 +9641,7 @@ defmodule AWS.IAM do
   @spec update_assume_role_policy(map(), update_assume_role_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assume_role_policy_errors()}
   def update_assume_role_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9518,6 +9668,7 @@ defmodule AWS.IAM do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9541,6 +9692,7 @@ defmodule AWS.IAM do
   @spec update_login_profile(map(), update_login_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_login_profile_errors()}
   def update_login_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9585,6 +9737,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_open_id_connect_provider_thumbprint_errors()}
   def update_open_id_connect_provider_thumbprint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9598,6 +9751,7 @@ defmodule AWS.IAM do
   @spec update_role(map(), update_role_request(), list()) ::
           {:ok, update_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_role_errors()}
   def update_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9615,6 +9769,7 @@ defmodule AWS.IAM do
   @spec update_role_description(map(), update_role_description_request(), list()) ::
           {:ok, update_role_description_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_role_description_errors()}
   def update_role_description(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9632,6 +9787,7 @@ defmodule AWS.IAM do
   @spec update_saml_provider(map(), update_saml_provider_request(), list()) ::
           {:ok, update_saml_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_saml_provider_errors()}
   def update_saml_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9671,6 +9827,7 @@ defmodule AWS.IAM do
   @spec update_server_certificate(map(), update_server_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_server_certificate_errors()}
   def update_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9694,6 +9851,7 @@ defmodule AWS.IAM do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_specific_credential_errors()}
   def update_service_specific_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9721,6 +9879,7 @@ defmodule AWS.IAM do
   @spec update_signing_certificate(map(), update_signing_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_signing_certificate_errors()}
   def update_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9747,6 +9906,7 @@ defmodule AWS.IAM do
   @spec update_ssh_public_key(map(), update_ssh_public_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ssh_public_key_errors()}
   def update_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9772,6 +9932,7 @@ defmodule AWS.IAM do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9820,6 +9981,7 @@ defmodule AWS.IAM do
   @spec upload_server_certificate(map(), upload_server_certificate_request(), list()) ::
           {:ok, upload_server_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_server_certificate_errors()}
   def upload_server_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9864,6 +10026,7 @@ defmodule AWS.IAM do
   @spec upload_signing_certificate(map(), upload_signing_certificate_request(), list()) ::
           {:ok, upload_signing_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_signing_certificate_errors()}
   def upload_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9885,6 +10048,7 @@ defmodule AWS.IAM do
   @spec upload_ssh_public_key(map(), upload_ssh_public_key_request(), list()) ::
           {:ok, upload_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_ssh_public_key_errors()}
   def upload_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()

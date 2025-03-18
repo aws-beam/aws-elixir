@@ -1849,6 +1849,7 @@ defmodule AWS.ConnectCases do
   @spec batch_get_case_rule(map(), String.t(), batch_get_case_rule_request(), list()) ::
           {:ok, batch_get_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_case_rule_errors()}
   def batch_get_case_rule(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/rules-batch"
@@ -1877,6 +1878,7 @@ defmodule AWS.ConnectCases do
   @spec batch_get_field(map(), String.t(), batch_get_field_request(), list()) ::
           {:ok, batch_get_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_field_errors()}
   def batch_get_field(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-batch"
@@ -1912,6 +1914,7 @@ defmodule AWS.ConnectCases do
         ) ::
           {:ok, batch_put_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_field_options_errors()}
   def batch_put_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
     url_path =
@@ -1965,6 +1968,7 @@ defmodule AWS.ConnectCases do
   @spec create_case(map(), String.t(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases"
@@ -1998,6 +2002,7 @@ defmodule AWS.ConnectCases do
   @spec create_case_rule(map(), String.t(), create_case_rule_request(), list()) ::
           {:ok, create_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_case_rule_errors()}
   def create_case_rule(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-rules"
@@ -2039,6 +2044,7 @@ defmodule AWS.ConnectCases do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/domains"
@@ -2070,6 +2076,7 @@ defmodule AWS.ConnectCases do
   @spec create_field(map(), String.t(), create_field_request(), list()) ::
           {:ok, create_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_field_errors()}
   def create_field(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields"
@@ -2110,6 +2117,7 @@ defmodule AWS.ConnectCases do
   @spec create_layout(map(), String.t(), create_layout_request(), list()) ::
           {:ok, create_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_layout_errors()}
   def create_layout(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts"
@@ -2155,6 +2163,7 @@ defmodule AWS.ConnectCases do
   @spec create_related_item(map(), String.t(), String.t(), create_related_item_request(), list()) ::
           {:ok, create_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_related_item_errors()}
   def create_related_item(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path =
@@ -2214,6 +2223,7 @@ defmodule AWS.ConnectCases do
   @spec create_template(map(), String.t(), create_template_request(), list()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_errors()}
   def create_template(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates"
@@ -2247,6 +2257,7 @@ defmodule AWS.ConnectCases do
   @spec delete_case_rule(map(), String.t(), String.t(), delete_case_rule_request(), list()) ::
           {:ok, delete_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_case_rule_errors()}
   def delete_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
     url_path =
@@ -2283,6 +2294,7 @@ defmodule AWS.ConnectCases do
   @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
@@ -2364,6 +2376,7 @@ defmodule AWS.ConnectCases do
   @spec delete_field(map(), String.t(), String.t(), delete_field_request(), list()) ::
           {:ok, delete_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_field_errors()}
   def delete_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
     url_path =
@@ -2409,6 +2422,7 @@ defmodule AWS.ConnectCases do
   @spec delete_layout(map(), String.t(), String.t(), delete_layout_request(), list()) ::
           {:ok, delete_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_layout_errors()}
   def delete_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
     url_path =
@@ -2455,6 +2469,7 @@ defmodule AWS.ConnectCases do
   @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_errors()}
   def delete_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
     url_path =
@@ -2485,6 +2500,7 @@ defmodule AWS.ConnectCases do
   @spec get_case(map(), String.t(), String.t(), get_case_request(), list()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_case_errors()}
   def get_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
@@ -2519,6 +2535,7 @@ defmodule AWS.ConnectCases do
         ) ::
           {:ok, get_case_audit_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_case_audit_events_errors()}
   def get_case_audit_events(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path =
@@ -2554,6 +2571,7 @@ defmodule AWS.ConnectCases do
         ) ::
           {:ok, get_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_case_event_configuration_errors()}
   def get_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
@@ -2582,6 +2600,7 @@ defmodule AWS.ConnectCases do
   @spec get_domain(map(), String.t(), get_domain_request(), list()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}"
@@ -2610,6 +2629,7 @@ defmodule AWS.ConnectCases do
   @spec get_layout(map(), String.t(), String.t(), get_layout_request(), list()) ::
           {:ok, get_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_layout_errors()}
   def get_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
     url_path =
@@ -2658,6 +2678,7 @@ defmodule AWS.ConnectCases do
   @spec get_template(map(), String.t(), String.t(), get_template_request(), list()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
     url_path =
@@ -2693,6 +2714,7 @@ defmodule AWS.ConnectCases do
   @spec list_case_rules(map(), String.t(), list_case_rules_request(), list()) ::
           {:ok, list_case_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_case_rules_errors()}
   def list_case_rules(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/rules-list/"
@@ -2727,6 +2749,7 @@ defmodule AWS.ConnectCases do
   @spec list_cases_for_contact(map(), String.t(), list_cases_for_contact_request(), list()) ::
           {:ok, list_cases_for_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cases_for_contact_errors()}
   def list_cases_for_contact(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/list-cases-for-contact"
@@ -2758,6 +2781,7 @@ defmodule AWS.ConnectCases do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     url_path = "/domains-list"
@@ -2792,6 +2816,7 @@ defmodule AWS.ConnectCases do
   @spec list_field_options(map(), String.t(), String.t(), list_field_options_request(), list()) ::
           {:ok, list_field_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_field_options_errors()}
   def list_field_options(%Client{} = client, domain_id, field_id, input, options \\ []) do
     url_path =
@@ -2829,6 +2854,7 @@ defmodule AWS.ConnectCases do
   @spec list_fields(map(), String.t(), list_fields_request(), list()) ::
           {:ok, list_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fields_errors()}
   def list_fields(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/fields-list"
@@ -2866,6 +2892,7 @@ defmodule AWS.ConnectCases do
   @spec list_layouts(map(), String.t(), list_layouts_request(), list()) ::
           {:ok, list_layouts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_layouts_errors()}
   def list_layouts(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts-list"
@@ -2900,6 +2927,7 @@ defmodule AWS.ConnectCases do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -2938,6 +2966,7 @@ defmodule AWS.ConnectCases do
   @spec list_templates(map(), String.t(), list_templates_request(), list()) ::
           {:ok, list_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_templates_errors()}
   def list_templates(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/templates-list"
@@ -2983,6 +3012,7 @@ defmodule AWS.ConnectCases do
         ) ::
           {:ok, put_case_event_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_case_event_configuration_errors()}
   def put_case_event_configuration(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/case-event-configuration"
@@ -3024,6 +3054,7 @@ defmodule AWS.ConnectCases do
   @spec search_cases(map(), String.t(), search_cases_request(), list()) ::
           {:ok, search_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_cases_errors()}
   def search_cases(%Client{} = client, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases-search"
@@ -3061,6 +3092,7 @@ defmodule AWS.ConnectCases do
         ) ::
           {:ok, search_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_related_items_errors()}
   def search_related_items(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path =
@@ -3091,6 +3123,7 @@ defmodule AWS.ConnectCases do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -3119,6 +3152,7 @@ defmodule AWS.ConnectCases do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -3164,6 +3198,7 @@ defmodule AWS.ConnectCases do
   @spec update_case(map(), String.t(), String.t(), update_case_request(), list()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_case_errors()}
   def update_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
@@ -3197,6 +3232,7 @@ defmodule AWS.ConnectCases do
   @spec update_case_rule(map(), String.t(), String.t(), update_case_rule_request(), list()) ::
           {:ok, update_case_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_case_rule_errors()}
   def update_case_rule(%Client{} = client, case_rule_id, domain_id, input, options \\ []) do
     url_path =
@@ -3227,6 +3263,7 @@ defmodule AWS.ConnectCases do
   @spec update_field(map(), String.t(), String.t(), update_field_request(), list()) ::
           {:ok, update_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_field_errors()}
   def update_field(%Client{} = client, domain_id, field_id, input, options \\ []) do
     url_path =
@@ -3267,6 +3304,7 @@ defmodule AWS.ConnectCases do
   @spec update_layout(map(), String.t(), String.t(), update_layout_request(), list()) ::
           {:ok, update_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_layout_errors()}
   def update_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
     url_path =
@@ -3322,6 +3360,7 @@ defmodule AWS.ConnectCases do
   @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_errors()}
   def update_template(%Client{} = client, domain_id, template_id, input, options \\ []) do
     url_path =

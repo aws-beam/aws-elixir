@@ -272,6 +272,7 @@ defmodule AWS.MigrationHubConfig do
   @spec create_home_region_control(map(), create_home_region_control_request(), list()) ::
           {:ok, create_home_region_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_home_region_control_errors()}
   def create_home_region_control(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -288,6 +289,7 @@ defmodule AWS.MigrationHubConfig do
   @spec delete_home_region_control(map(), delete_home_region_control_request(), list()) ::
           {:ok, delete_home_region_control_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_home_region_control_errors()}
   def delete_home_region_control(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -302,6 +304,7 @@ defmodule AWS.MigrationHubConfig do
   @spec describe_home_region_controls(map(), describe_home_region_controls_request(), list()) ::
           {:ok, describe_home_region_controls_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_home_region_controls_errors()}
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -323,6 +326,7 @@ defmodule AWS.MigrationHubConfig do
   @spec get_home_region(map(), get_home_region_request(), list()) ::
           {:ok, get_home_region_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_home_region_errors()}
   def get_home_region(%Client{} = client, input, options \\ []) do
     meta = metadata()

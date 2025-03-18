@@ -971,6 +971,7 @@ defmodule AWS.S3Tables do
   @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_namespace_errors()}
   def create_namespace(%Client{} = client, table_bucket_arn, input, options \\ []) do
     url_path = "/namespaces/#{AWS.Util.encode_uri(table_bucket_arn)}"
@@ -1011,6 +1012,7 @@ defmodule AWS.S3Tables do
   @spec create_table(map(), String.t(), String.t(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, namespace, table_bucket_arn, input, options \\ []) do
     url_path =
@@ -1050,6 +1052,7 @@ defmodule AWS.S3Tables do
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_table_bucket_errors()}
   def create_table_bucket(%Client{} = client, input, options \\ []) do
     url_path = "/buckets"
@@ -1087,6 +1090,7 @@ defmodule AWS.S3Tables do
   @spec delete_namespace(map(), String.t(), String.t(), delete_namespace_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, namespace, table_bucket_arn, input, options \\ []) do
     url_path =
@@ -1126,6 +1130,7 @@ defmodule AWS.S3Tables do
   @spec delete_table(map(), String.t(), String.t(), String.t(), delete_table_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, name, namespace, table_bucket_arn, input, options \\ []) do
     url_path =
@@ -1170,6 +1175,7 @@ defmodule AWS.S3Tables do
   @spec delete_table_bucket(map(), String.t(), delete_table_bucket_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_bucket_errors()}
   def delete_table_bucket(%Client{} = client, table_bucket_arn, input, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}"
@@ -1213,6 +1219,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_bucket_policy_errors()}
   def delete_table_bucket_policy(%Client{} = client, table_bucket_arn, input, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/policy"
@@ -1257,6 +1264,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_policy_errors()}
   def delete_table_policy(
         %Client{} = client,
@@ -1303,6 +1311,7 @@ defmodule AWS.S3Tables do
   @spec get_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, namespace, table_bucket_arn, options \\ []) do
     url_path =
@@ -1331,6 +1340,7 @@ defmodule AWS.S3Tables do
   @spec get_table(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, name, namespace, table_bucket_arn, options \\ []) do
     url_path =
@@ -1359,6 +1369,7 @@ defmodule AWS.S3Tables do
   @spec get_table_bucket(map(), String.t(), list()) ::
           {:ok, get_table_bucket_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_bucket_errors()}
   def get_table_bucket(%Client{} = client, table_bucket_arn, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}"
@@ -1386,6 +1397,7 @@ defmodule AWS.S3Tables do
   @spec get_table_bucket_maintenance_configuration(map(), String.t(), list()) ::
           {:ok, get_table_bucket_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_bucket_maintenance_configuration_errors()}
   def get_table_bucket_maintenance_configuration(
         %Client{} = client,
@@ -1417,6 +1429,7 @@ defmodule AWS.S3Tables do
   @spec get_table_bucket_policy(map(), String.t(), list()) ::
           {:ok, get_table_bucket_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_bucket_policy_errors()}
   def get_table_bucket_policy(%Client{} = client, table_bucket_arn, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/policy"
@@ -1444,6 +1457,7 @@ defmodule AWS.S3Tables do
   @spec get_table_maintenance_configuration(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_maintenance_configuration_errors()}
   def get_table_maintenance_configuration(
         %Client{} = client,
@@ -1479,6 +1493,7 @@ defmodule AWS.S3Tables do
   @spec get_table_maintenance_job_status(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_maintenance_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_maintenance_job_status_errors()}
   def get_table_maintenance_job_status(
         %Client{} = client,
@@ -1511,6 +1526,7 @@ defmodule AWS.S3Tables do
   @spec get_table_metadata_location(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_metadata_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_metadata_location_errors()}
   def get_table_metadata_location(
         %Client{} = client,
@@ -1545,6 +1561,7 @@ defmodule AWS.S3Tables do
   @spec get_table_policy(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_policy_errors()}
   def get_table_policy(%Client{} = client, name, namespace, table_bucket_arn, options \\ []) do
     url_path =
@@ -1580,6 +1597,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(
         %Client{} = client,
@@ -1634,6 +1652,7 @@ defmodule AWS.S3Tables do
   @spec list_table_buckets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_table_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_table_buckets_errors()}
   def list_table_buckets(
         %Client{} = client,
@@ -1695,6 +1714,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(
         %Client{} = client,
@@ -1766,6 +1786,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_table_bucket_maintenance_configuration_errors()}
   def put_table_bucket_maintenance_configuration(
         %Client{} = client,
@@ -1814,6 +1835,7 @@ defmodule AWS.S3Tables do
   @spec put_table_bucket_policy(map(), String.t(), put_table_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_table_bucket_policy_errors()}
   def put_table_bucket_policy(%Client{} = client, table_bucket_arn, input, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/policy"
@@ -1862,6 +1884,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_table_maintenance_configuration_errors()}
   def put_table_maintenance_configuration(
         %Client{} = client,
@@ -1917,6 +1940,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_table_policy_errors()}
   def put_table_policy(
         %Client{} = client,
@@ -1963,6 +1987,7 @@ defmodule AWS.S3Tables do
   @spec rename_table(map(), String.t(), String.t(), String.t(), rename_table_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rename_table_errors()}
   def rename_table(%Client{} = client, name, namespace, table_bucket_arn, input, options \\ []) do
     url_path =
@@ -2012,6 +2037,7 @@ defmodule AWS.S3Tables do
         ) ::
           {:ok, update_table_metadata_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_metadata_location_errors()}
   def update_table_metadata_location(
         %Client{} = client,

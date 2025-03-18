@@ -1191,6 +1191,7 @@ defmodule AWS.EMRcontainers do
   @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_run_errors()}
   def cancel_job_run(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
     url_path =
@@ -1228,6 +1229,7 @@ defmodule AWS.EMRcontainers do
   @spec create_job_template(map(), create_job_template_request(), list()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_template_errors()}
   def create_job_template(%Client{} = client, input, options \\ []) do
     url_path = "/jobtemplates"
@@ -1260,6 +1262,7 @@ defmodule AWS.EMRcontainers do
   @spec create_managed_endpoint(map(), String.t(), create_managed_endpoint_request(), list()) ::
           {:ok, create_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_managed_endpoint_errors()}
   def create_managed_endpoint(%Client{} = client, virtual_cluster_id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/endpoints"
@@ -1295,6 +1298,7 @@ defmodule AWS.EMRcontainers do
   @spec create_security_configuration(map(), create_security_configuration_request(), list()) ::
           {:ok, create_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/securityconfigurations"
@@ -1331,6 +1335,7 @@ defmodule AWS.EMRcontainers do
   @spec create_virtual_cluster(map(), create_virtual_cluster_request(), list()) ::
           {:ok, create_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_cluster_errors()}
   def create_virtual_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/virtualclusters"
@@ -1366,6 +1371,7 @@ defmodule AWS.EMRcontainers do
   @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_template_errors()}
   def delete_job_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
@@ -1404,6 +1410,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, delete_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_managed_endpoint_errors()}
   def delete_managed_endpoint(%Client{} = client, id, virtual_cluster_id, input, options \\ []) do
     url_path =
@@ -1442,6 +1449,7 @@ defmodule AWS.EMRcontainers do
   @spec delete_virtual_cluster(map(), String.t(), delete_virtual_cluster_request(), list()) ::
           {:ok, delete_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_cluster_errors()}
   def delete_virtual_cluster(%Client{} = client, id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
@@ -1474,6 +1482,7 @@ defmodule AWS.EMRcontainers do
   @spec describe_job_run(map(), String.t(), String.t(), list()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_run_errors()}
   def describe_job_run(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
@@ -1500,6 +1509,7 @@ defmodule AWS.EMRcontainers do
   @spec describe_job_template(map(), String.t(), list()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_template_errors()}
   def describe_job_template(%Client{} = client, id, options \\ []) do
     url_path = "/jobtemplates/#{AWS.Util.encode_uri(id)}"
@@ -1521,6 +1531,7 @@ defmodule AWS.EMRcontainers do
   @spec describe_managed_endpoint(map(), String.t(), String.t(), list()) ::
           {:ok, describe_managed_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_managed_endpoint_errors()}
   def describe_managed_endpoint(%Client{} = client, id, virtual_cluster_id, options \\ []) do
     url_path =
@@ -1549,6 +1560,7 @@ defmodule AWS.EMRcontainers do
   @spec describe_security_configuration(map(), String.t(), list()) ::
           {:ok, describe_security_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_security_configuration_errors()}
   def describe_security_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/securityconfigurations/#{AWS.Util.encode_uri(id)}"
@@ -1576,6 +1588,7 @@ defmodule AWS.EMRcontainers do
   @spec describe_virtual_cluster(map(), String.t(), list()) ::
           {:ok, describe_virtual_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_cluster_errors()}
   def describe_virtual_cluster(%Client{} = client, id, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(id)}"
@@ -1599,6 +1612,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, get_managed_endpoint_session_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_endpoint_session_credentials_errors()}
   def get_managed_endpoint_session_credentials(
         %Client{} = client,
@@ -1649,6 +1663,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_runs_errors()}
   def list_job_runs(
         %Client{} = client,
@@ -1732,6 +1747,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_templates_errors()}
   def list_job_templates(
         %Client{} = client,
@@ -1798,6 +1814,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, list_managed_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_endpoints_errors()}
   def list_managed_endpoints(
         %Client{} = client,
@@ -1882,6 +1899,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, list_security_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_configurations_errors()}
   def list_security_configurations(
         %Client{} = client,
@@ -1934,6 +1952,7 @@ defmodule AWS.EMRcontainers do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1971,6 +1990,7 @@ defmodule AWS.EMRcontainers do
         ) ::
           {:ok, list_virtual_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_clusters_errors()}
   def list_virtual_clusters(
         %Client{} = client,
@@ -2058,6 +2078,7 @@ defmodule AWS.EMRcontainers do
   @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, virtual_cluster_id, input, options \\ []) do
     url_path = "/virtualclusters/#{AWS.Util.encode_uri(virtual_cluster_id)}/jobruns"
@@ -2102,6 +2123,7 @@ defmodule AWS.EMRcontainers do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2130,6 +2152,7 @@ defmodule AWS.EMRcontainers do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

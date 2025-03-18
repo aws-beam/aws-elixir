@@ -755,6 +755,7 @@ defmodule AWS.PI do
         ) ::
           {:ok, create_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_performance_analysis_report_errors()}
   def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -772,6 +773,7 @@ defmodule AWS.PI do
         ) ::
           {:ok, delete_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_performance_analysis_report_errors()}
   def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -789,6 +791,7 @@ defmodule AWS.PI do
   @spec describe_dimension_keys(map(), describe_dimension_keys_request(), list()) ::
           {:ok, describe_dimension_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dimension_keys_errors()}
   def describe_dimension_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -810,6 +813,7 @@ defmodule AWS.PI do
   @spec get_dimension_key_details(map(), get_dimension_key_details_request(), list()) ::
           {:ok, get_dimension_key_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dimension_key_details_errors()}
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -829,6 +833,7 @@ defmodule AWS.PI do
   @spec get_performance_analysis_report(map(), get_performance_analysis_report_request(), list()) ::
           {:ok, get_performance_analysis_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_performance_analysis_report_errors()}
   def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -845,6 +850,7 @@ defmodule AWS.PI do
   @spec get_resource_metadata(map(), get_resource_metadata_request(), list()) ::
           {:ok, get_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_metadata_errors()}
   def get_resource_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -868,6 +874,7 @@ defmodule AWS.PI do
   @spec get_resource_metrics(map(), get_resource_metrics_request(), list()) ::
           {:ok, get_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_metrics_errors()}
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -886,6 +893,7 @@ defmodule AWS.PI do
         ) ::
           {:ok, list_available_resource_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_available_resource_dimensions_errors()}
   def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -900,6 +908,7 @@ defmodule AWS.PI do
   @spec list_available_resource_metrics(map(), list_available_resource_metrics_request(), list()) ::
           {:ok, list_available_resource_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_available_resource_metrics_errors()}
   def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -919,6 +928,7 @@ defmodule AWS.PI do
         ) ::
           {:ok, list_performance_analysis_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_performance_analysis_reports_errors()}
   def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -933,6 +943,7 @@ defmodule AWS.PI do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -946,6 +957,7 @@ defmodule AWS.PI do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -959,6 +971,7 @@ defmodule AWS.PI do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

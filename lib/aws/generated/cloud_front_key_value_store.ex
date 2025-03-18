@@ -325,6 +325,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec delete_key(map(), String.t(), String.t(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
     url_path =
@@ -367,6 +368,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec describe_key_value_store(map(), String.t(), list()) ::
           {:ok, describe_key_value_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_key_value_store_errors()}
   def describe_key_value_store(%Client{} = client, kvs_arn, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}"
@@ -391,6 +393,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec get_key(map(), String.t(), String.t(), list()) ::
           {:ok, get_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_errors()}
   def get_key(%Client{} = client, key, kvs_arn, options \\ []) do
     url_path =
@@ -410,6 +413,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec list_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, kvs_arn, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"
@@ -441,6 +445,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec put_key(map(), String.t(), String.t(), put_key_request(), list()) ::
           {:ok, put_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_key_errors()}
   def put_key(%Client{} = client, key, kvs_arn, input, options \\ []) do
     url_path =
@@ -483,6 +488,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @spec update_keys(map(), String.t(), update_keys_request(), list()) ::
           {:ok, update_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_keys_errors()}
   def update_keys(%Client{} = client, kvs_arn, input, options \\ []) do
     url_path = "/key-value-stores/#{AWS.Util.encode_uri(kvs_arn)}/keys"

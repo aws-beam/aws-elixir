@@ -8819,6 +8819,7 @@ defmodule AWS.SSM do
   @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
           {:ok, add_tags_to_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8837,6 +8838,7 @@ defmodule AWS.SSM do
   @spec associate_ops_item_related_item(map(), associate_ops_item_related_item_request(), list()) ::
           {:ok, associate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_ops_item_related_item_errors()}
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8853,6 +8855,7 @@ defmodule AWS.SSM do
   @spec cancel_command(map(), cancel_command_request(), list()) ::
           {:ok, cancel_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_command_errors()}
   def cancel_command(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8875,6 +8878,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, cancel_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_maintenance_window_execution_errors()}
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8905,6 +8909,7 @@ defmodule AWS.SSM do
   @spec create_activation(map(), create_activation_request(), list()) ::
           {:ok, create_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_activation_errors()}
   def create_activation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8938,6 +8943,7 @@ defmodule AWS.SSM do
   @spec create_association(map(), create_association_request(), list()) ::
           {:ok, create_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_association_errors()}
   def create_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8963,6 +8969,7 @@ defmodule AWS.SSM do
   @spec create_association_batch(map(), create_association_batch_request(), list()) ::
           {:ok, create_association_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_association_batch_errors()}
   def create_association_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8984,6 +8991,7 @@ defmodule AWS.SSM do
   @spec create_document(map(), create_document_request(), list()) ::
           {:ok, create_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_document_errors()}
   def create_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9008,6 +9016,7 @@ defmodule AWS.SSM do
   @spec create_maintenance_window(map(), create_maintenance_window_request(), list()) ::
           {:ok, create_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_maintenance_window_errors()}
   def create_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9034,6 +9043,7 @@ defmodule AWS.SSM do
   @spec create_ops_item(map(), create_ops_item_request(), list()) ::
           {:ok, create_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ops_item_errors()}
   def create_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9049,6 +9059,7 @@ defmodule AWS.SSM do
   @spec create_ops_metadata(map(), create_ops_metadata_request(), list()) ::
           {:ok, create_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ops_metadata_errors()}
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9065,6 +9076,7 @@ defmodule AWS.SSM do
   @spec create_patch_baseline(map(), create_patch_baseline_request(), list()) ::
           {:ok, create_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_patch_baseline_errors()}
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9115,6 +9127,7 @@ defmodule AWS.SSM do
   @spec create_resource_data_sync(map(), create_resource_data_sync_request(), list()) ::
           {:ok, create_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_data_sync_errors()}
   def create_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9133,6 +9146,7 @@ defmodule AWS.SSM do
   @spec delete_activation(map(), delete_activation_request(), list()) ::
           {:ok, delete_activation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_activation_errors()}
   def delete_activation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9159,6 +9173,7 @@ defmodule AWS.SSM do
   @spec delete_association(map(), delete_association_request(), list()) ::
           {:ok, delete_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9177,6 +9192,7 @@ defmodule AWS.SSM do
   @spec delete_document(map(), delete_document_request(), list()) ::
           {:ok, delete_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9195,6 +9211,7 @@ defmodule AWS.SSM do
   @spec delete_inventory(map(), delete_inventory_request(), list()) ::
           {:ok, delete_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inventory_errors()}
   def delete_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9208,6 +9225,7 @@ defmodule AWS.SSM do
   @spec delete_maintenance_window(map(), delete_maintenance_window_request(), list()) ::
           {:ok, delete_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_maintenance_window_errors()}
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9253,6 +9271,7 @@ defmodule AWS.SSM do
   @spec delete_ops_item(map(), delete_ops_item_request(), list()) ::
           {:ok, delete_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ops_item_errors()}
   def delete_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9266,6 +9285,7 @@ defmodule AWS.SSM do
   @spec delete_ops_metadata(map(), delete_ops_metadata_request(), list()) ::
           {:ok, delete_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ops_metadata_errors()}
   def delete_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9282,6 +9302,7 @@ defmodule AWS.SSM do
   @spec delete_parameter(map(), delete_parameter_request(), list()) ::
           {:ok, delete_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_parameter_errors()}
   def delete_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9298,6 +9319,7 @@ defmodule AWS.SSM do
   @spec delete_parameters(map(), delete_parameters_request(), list()) ::
           {:ok, delete_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_parameters_errors()}
   def delete_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9311,6 +9333,7 @@ defmodule AWS.SSM do
   @spec delete_patch_baseline(map(), delete_patch_baseline_request(), list()) ::
           {:ok, delete_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_patch_baseline_errors()}
   def delete_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9329,6 +9352,7 @@ defmodule AWS.SSM do
   @spec delete_resource_data_sync(map(), delete_resource_data_sync_request(), list()) ::
           {:ok, delete_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_data_sync_errors()}
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9360,6 +9384,7 @@ defmodule AWS.SSM do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9385,6 +9410,7 @@ defmodule AWS.SSM do
   @spec deregister_managed_instance(map(), deregister_managed_instance_request(), list()) ::
           {:ok, deregister_managed_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_managed_instance_errors()}
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9402,6 +9428,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_patch_baseline_for_patch_group_errors()}
   def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9419,6 +9446,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_target_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_target_from_maintenance_window_errors()}
   def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9436,6 +9464,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, deregister_task_from_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_task_from_maintenance_window_errors()}
   def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9455,6 +9484,7 @@ defmodule AWS.SSM do
   @spec describe_activations(map(), describe_activations_request(), list()) ::
           {:ok, describe_activations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_activations_errors()}
   def describe_activations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9473,6 +9503,7 @@ defmodule AWS.SSM do
   @spec describe_association(map(), describe_association_request(), list()) ::
           {:ok, describe_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_association_errors()}
   def describe_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9490,6 +9521,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_association_execution_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_association_execution_targets_errors()}
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9503,6 +9535,7 @@ defmodule AWS.SSM do
   @spec describe_association_executions(map(), describe_association_executions_request(), list()) ::
           {:ok, describe_association_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_association_executions_errors()}
   def describe_association_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9516,6 +9549,7 @@ defmodule AWS.SSM do
   @spec describe_automation_executions(map(), describe_automation_executions_request(), list()) ::
           {:ok, describe_automation_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_automation_executions_errors()}
   def describe_automation_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9534,6 +9568,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_automation_step_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_automation_step_executions_errors()}
   def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9550,6 +9585,7 @@ defmodule AWS.SSM do
   @spec describe_available_patches(map(), describe_available_patches_request(), list()) ::
           {:ok, describe_available_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_available_patches_errors()}
   def describe_available_patches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9564,6 +9600,7 @@ defmodule AWS.SSM do
   @spec describe_document(map(), describe_document_request(), list()) ::
           {:ok, describe_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_document_errors()}
   def describe_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9583,6 +9620,7 @@ defmodule AWS.SSM do
   @spec describe_document_permission(map(), describe_document_permission_request(), list()) ::
           {:ok, describe_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_document_permission_errors()}
   def describe_document_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9600,6 +9638,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_effective_instance_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_effective_instance_associations_errors()}
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9621,6 +9660,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_effective_patches_for_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_effective_patches_for_patch_baseline_errors()}
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9638,6 +9678,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_instance_associations_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_associations_status_errors()}
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9668,6 +9709,7 @@ defmodule AWS.SSM do
   @spec describe_instance_information(map(), describe_instance_information_request(), list()) ::
           {:ok, describe_instance_information_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_information_errors()}
   def describe_instance_information(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9681,6 +9723,7 @@ defmodule AWS.SSM do
   @spec describe_instance_patch_states(map(), describe_instance_patch_states_request(), list()) ::
           {:ok, describe_instance_patch_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_patch_states_errors()}
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9700,6 +9743,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_instance_patch_states_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_patch_states_for_patch_group_errors()}
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9715,6 +9759,7 @@ defmodule AWS.SSM do
   @spec describe_instance_patches(map(), describe_instance_patches_request(), list()) ::
           {:ok, describe_instance_patches_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_patches_errors()}
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9730,6 +9775,7 @@ defmodule AWS.SSM do
   @spec describe_instance_properties(map(), describe_instance_properties_request(), list()) ::
           {:ok, describe_instance_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_properties_errors()}
   def describe_instance_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9743,6 +9789,7 @@ defmodule AWS.SSM do
   @spec describe_inventory_deletions(map(), describe_inventory_deletions_request(), list()) ::
           {:ok, describe_inventory_deletions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inventory_deletions_errors()}
   def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9762,6 +9809,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_execution_task_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_execution_task_invocations_errors()}
   def describe_maintenance_window_execution_task_invocations(
         %Client{} = client,
@@ -9789,6 +9837,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_execution_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_execution_tasks_errors()}
   def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9811,6 +9860,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_executions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_executions_errors()}
   def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9828,6 +9878,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_schedule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_schedule_errors()}
   def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9845,6 +9896,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_targets_errors()}
   def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9868,6 +9920,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_window_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_window_tasks_errors()}
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9881,6 +9934,7 @@ defmodule AWS.SSM do
   @spec describe_maintenance_windows(map(), describe_maintenance_windows_request(), list()) ::
           {:ok, describe_maintenance_windows_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_windows_errors()}
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9900,6 +9954,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, describe_maintenance_windows_for_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_maintenance_windows_for_target_errors()}
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9926,6 +9981,7 @@ defmodule AWS.SSM do
   @spec describe_ops_items(map(), describe_ops_items_request(), list()) ::
           {:ok, describe_ops_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ops_items_errors()}
   def describe_ops_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9959,6 +10015,7 @@ defmodule AWS.SSM do
   @spec describe_parameters(map(), describe_parameters_request(), list()) ::
           {:ok, describe_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9972,6 +10029,7 @@ defmodule AWS.SSM do
   @spec describe_patch_baselines(map(), describe_patch_baselines_request(), list()) ::
           {:ok, describe_patch_baselines_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_patch_baselines_errors()}
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9986,6 +10044,7 @@ defmodule AWS.SSM do
   @spec describe_patch_group_state(map(), describe_patch_group_state_request(), list()) ::
           {:ok, describe_patch_group_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_patch_group_state_errors()}
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9999,6 +10058,7 @@ defmodule AWS.SSM do
   @spec describe_patch_groups(map(), describe_patch_groups_request(), list()) ::
           {:ok, describe_patch_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_patch_groups_errors()}
   def describe_patch_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10076,6 +10136,7 @@ defmodule AWS.SSM do
   @spec describe_patch_properties(map(), describe_patch_properties_request(), list()) ::
           {:ok, describe_patch_properties_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_patch_properties_errors()}
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10091,6 +10152,7 @@ defmodule AWS.SSM do
   @spec describe_sessions(map(), describe_sessions_request(), list()) ::
           {:ok, describe_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10113,6 +10175,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, disassociate_ops_item_related_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_ops_item_related_item_errors()}
   def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10126,6 +10189,7 @@ defmodule AWS.SSM do
   @spec get_automation_execution(map(), get_automation_execution_request(), list()) ::
           {:ok, get_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_automation_execution_errors()}
   def get_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10157,6 +10221,7 @@ defmodule AWS.SSM do
   @spec get_calendar_state(map(), get_calendar_state_request(), list()) ::
           {:ok, get_calendar_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calendar_state_errors()}
   def get_calendar_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10189,6 +10254,7 @@ defmodule AWS.SSM do
   @spec get_command_invocation(map(), get_command_invocation_request(), list()) ::
           {:ok, get_command_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_command_invocation_errors()}
   def get_command_invocation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10204,6 +10270,7 @@ defmodule AWS.SSM do
   @spec get_connection_status(map(), get_connection_status_request(), list()) ::
           {:ok, get_connection_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connection_status_errors()}
   def get_connection_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10225,6 +10292,7 @@ defmodule AWS.SSM do
   @spec get_default_patch_baseline(map(), get_default_patch_baseline_request(), list()) ::
           {:ok, get_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_default_patch_baseline_errors()}
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10256,6 +10324,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_deployable_patch_snapshot_for_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployable_patch_snapshot_for_instance_errors()}
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10270,6 +10339,7 @@ defmodule AWS.SSM do
   @spec get_document(map(), get_document_request(), list()) ::
           {:ok, get_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_errors()}
   def get_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10285,6 +10355,7 @@ defmodule AWS.SSM do
   @spec get_execution_preview(map(), get_execution_preview_request(), list()) ::
           {:ok, get_execution_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_execution_preview_errors()}
   def get_execution_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10301,6 +10372,7 @@ defmodule AWS.SSM do
   @spec get_inventory(map(), get_inventory_request(), list()) ::
           {:ok, get_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_inventory_errors()}
   def get_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10316,6 +10388,7 @@ defmodule AWS.SSM do
   @spec get_inventory_schema(map(), get_inventory_schema_request(), list()) ::
           {:ok, get_inventory_schema_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_inventory_schema_errors()}
   def get_inventory_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10329,6 +10402,7 @@ defmodule AWS.SSM do
   @spec get_maintenance_window(map(), get_maintenance_window_request(), list()) ::
           {:ok, get_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_maintenance_window_errors()}
   def get_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10346,6 +10420,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_maintenance_window_execution_errors()}
   def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10364,6 +10439,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_maintenance_window_execution_task_errors()}
   def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10381,6 +10457,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_maintenance_window_execution_task_invocation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_maintenance_window_execution_task_invocation_errors()}
   def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10409,6 +10486,7 @@ defmodule AWS.SSM do
   @spec get_maintenance_window_task(map(), get_maintenance_window_task_request(), list()) ::
           {:ok, get_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_maintenance_window_task_errors()}
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10436,6 +10514,7 @@ defmodule AWS.SSM do
   @spec get_ops_item(map(), get_ops_item_request(), list()) ::
           {:ok, get_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ops_item_errors()}
   def get_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10449,6 +10528,7 @@ defmodule AWS.SSM do
   @spec get_ops_metadata(map(), get_ops_metadata_request(), list()) ::
           {:ok, get_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ops_metadata_errors()}
   def get_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10469,6 +10549,7 @@ defmodule AWS.SSM do
   @spec get_ops_summary(map(), get_ops_summary_request(), list()) ::
           {:ok, get_ops_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ops_summary_errors()}
   def get_ops_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10485,6 +10566,7 @@ defmodule AWS.SSM do
   @spec get_parameter(map(), get_parameter_request(), list()) ::
           {:ok, get_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameter_errors()}
   def get_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10504,6 +10586,7 @@ defmodule AWS.SSM do
   @spec get_parameter_history(map(), get_parameter_history_request(), list()) ::
           {:ok, get_parameter_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameter_history_errors()}
   def get_parameter_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10521,6 +10604,7 @@ defmodule AWS.SSM do
   @spec get_parameters(map(), get_parameters_request(), list()) ::
           {:ok, get_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameters_errors()}
   def get_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10545,6 +10629,7 @@ defmodule AWS.SSM do
   @spec get_parameters_by_path(map(), get_parameters_by_path_request(), list()) ::
           {:ok, get_parameters_by_path_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameters_by_path_errors()}
   def get_parameters_by_path(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10558,6 +10643,7 @@ defmodule AWS.SSM do
   @spec get_patch_baseline(map(), get_patch_baseline_request(), list()) ::
           {:ok, get_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_patch_baseline_errors()}
   def get_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10575,6 +10661,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, get_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_patch_baseline_for_patch_group_errors()}
   def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10588,6 +10675,7 @@ defmodule AWS.SSM do
   @spec get_resource_policies(map(), get_resource_policies_request(), list()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10624,6 +10712,7 @@ defmodule AWS.SSM do
   @spec get_service_setting(map(), get_service_setting_request(), list()) ::
           {:ok, get_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_setting_errors()}
   def get_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10683,6 +10772,7 @@ defmodule AWS.SSM do
   @spec label_parameter_version(map(), label_parameter_version_request(), list()) ::
           {:ok, label_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, label_parameter_version_errors()}
   def label_parameter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10696,6 +10786,7 @@ defmodule AWS.SSM do
   @spec list_association_versions(map(), list_association_versions_request(), list()) ::
           {:ok, list_association_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_association_versions_errors()}
   def list_association_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10716,6 +10807,7 @@ defmodule AWS.SSM do
   @spec list_associations(map(), list_associations_request(), list()) ::
           {:ok, list_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10738,6 +10830,7 @@ defmodule AWS.SSM do
   @spec list_command_invocations(map(), list_command_invocations_request(), list()) ::
           {:ok, list_command_invocations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_command_invocations_errors()}
   def list_command_invocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10751,6 +10844,7 @@ defmodule AWS.SSM do
   @spec list_commands(map(), list_commands_request(), list()) ::
           {:ok, list_commands_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_commands_errors()}
   def list_commands(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10769,6 +10863,7 @@ defmodule AWS.SSM do
   @spec list_compliance_items(map(), list_compliance_items_request(), list()) ::
           {:ok, list_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compliance_items_errors()}
   def list_compliance_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10788,6 +10883,7 @@ defmodule AWS.SSM do
   @spec list_compliance_summaries(map(), list_compliance_summaries_request(), list()) ::
           {:ok, list_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compliance_summaries_errors()}
   def list_compliance_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10802,6 +10898,7 @@ defmodule AWS.SSM do
   @spec list_document_metadata_history(map(), list_document_metadata_history_request(), list()) ::
           {:ok, list_document_metadata_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_document_metadata_history_errors()}
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10815,6 +10912,7 @@ defmodule AWS.SSM do
   @spec list_document_versions(map(), list_document_versions_request(), list()) ::
           {:ok, list_document_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_document_versions_errors()}
   def list_document_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10832,6 +10930,7 @@ defmodule AWS.SSM do
   @spec list_documents(map(), list_documents_request(), list()) ::
           {:ok, list_documents_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_documents_errors()}
   def list_documents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10845,6 +10944,7 @@ defmodule AWS.SSM do
   @spec list_inventory_entries(map(), list_inventory_entries_request(), list()) ::
           {:ok, list_inventory_entries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inventory_entries_errors()}
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10859,6 +10959,7 @@ defmodule AWS.SSM do
   @spec list_nodes(map(), list_nodes_request(), list()) ::
           {:ok, list_nodes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10876,6 +10977,7 @@ defmodule AWS.SSM do
   @spec list_nodes_summary(map(), list_nodes_summary_request(), list()) ::
           {:ok, list_nodes_summary_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_summary_errors()}
   def list_nodes_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10894,6 +10996,7 @@ defmodule AWS.SSM do
   @spec list_ops_item_events(map(), list_ops_item_events_request(), list()) ::
           {:ok, list_ops_item_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ops_item_events_errors()}
   def list_ops_item_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10911,6 +11014,7 @@ defmodule AWS.SSM do
   @spec list_ops_item_related_items(map(), list_ops_item_related_items_request(), list()) ::
           {:ok, list_ops_item_related_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ops_item_related_items_errors()}
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10926,6 +11030,7 @@ defmodule AWS.SSM do
   @spec list_ops_metadata(map(), list_ops_metadata_request(), list()) ::
           {:ok, list_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ops_metadata_errors()}
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10948,6 +11053,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, list_resource_compliance_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_compliance_summaries_errors()}
   def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10977,6 +11083,7 @@ defmodule AWS.SSM do
   @spec list_resource_data_sync(map(), list_resource_data_sync_request(), list()) ::
           {:ok, list_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_data_sync_errors()}
   def list_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10993,6 +11100,7 @@ defmodule AWS.SSM do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11013,6 +11121,7 @@ defmodule AWS.SSM do
   @spec modify_document_permission(map(), modify_document_permission_request(), list()) ::
           {:ok, modify_document_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_document_permission_errors()}
   def modify_document_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11089,6 +11198,7 @@ defmodule AWS.SSM do
   @spec put_compliance_items(map(), put_compliance_items_request(), list()) ::
           {:ok, put_compliance_items_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_compliance_items_errors()}
   def put_compliance_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11107,6 +11217,7 @@ defmodule AWS.SSM do
   @spec put_inventory(map(), put_inventory_request(), list()) ::
           {:ok, put_inventory_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_inventory_errors()}
   def put_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11120,6 +11231,7 @@ defmodule AWS.SSM do
   @spec put_parameter(map(), put_parameter_request(), list()) ::
           {:ok, put_parameter_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_parameter_errors()}
   def put_parameter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11177,6 +11289,7 @@ defmodule AWS.SSM do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11198,6 +11311,7 @@ defmodule AWS.SSM do
   @spec register_default_patch_baseline(map(), register_default_patch_baseline_request(), list()) ::
           {:ok, register_default_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_default_patch_baseline_errors()}
   def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11215,6 +11329,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_patch_baseline_for_patch_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_patch_baseline_for_patch_group_errors()}
   def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11232,6 +11347,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_target_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_target_with_maintenance_window_errors()}
   def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11249,6 +11365,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, register_task_with_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_task_with_maintenance_window_errors()}
   def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11262,6 +11379,7 @@ defmodule AWS.SSM do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
           {:ok, remove_tags_from_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11302,6 +11420,7 @@ defmodule AWS.SSM do
   @spec reset_service_setting(map(), reset_service_setting_request(), list()) ::
           {:ok, reset_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_service_setting_errors()}
   def reset_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11322,6 +11441,7 @@ defmodule AWS.SSM do
   @spec resume_session(map(), resume_session_request(), list()) ::
           {:ok, resume_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_session_errors()}
   def resume_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11337,6 +11457,7 @@ defmodule AWS.SSM do
   @spec send_automation_signal(map(), send_automation_signal_request(), list()) ::
           {:ok, send_automation_signal_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_automation_signal_errors()}
   def send_automation_signal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11350,6 +11471,7 @@ defmodule AWS.SSM do
   @spec send_command(map(), send_command_request(), list()) ::
           {:ok, send_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11366,6 +11488,7 @@ defmodule AWS.SSM do
   @spec start_associations_once(map(), start_associations_once_request(), list()) ::
           {:ok, start_associations_once_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_associations_once_errors()}
   def start_associations_once(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11379,6 +11502,7 @@ defmodule AWS.SSM do
   @spec start_automation_execution(map(), start_automation_execution_request(), list()) ::
           {:ok, start_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_automation_execution_errors()}
   def start_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11397,6 +11521,7 @@ defmodule AWS.SSM do
   @spec start_change_request_execution(map(), start_change_request_execution_request(), list()) ::
           {:ok, start_change_request_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_change_request_execution_errors()}
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11412,6 +11537,7 @@ defmodule AWS.SSM do
   @spec start_execution_preview(map(), start_execution_preview_request(), list()) ::
           {:ok, start_execution_preview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_execution_preview_errors()}
   def start_execution_preview(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11441,6 +11567,7 @@ defmodule AWS.SSM do
   @spec start_session(map(), start_session_request(), list()) ::
           {:ok, start_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11454,6 +11581,7 @@ defmodule AWS.SSM do
   @spec stop_automation_execution(map(), stop_automation_execution_request(), list()) ::
           {:ok, stop_automation_execution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_automation_execution_errors()}
   def stop_automation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11471,6 +11599,7 @@ defmodule AWS.SSM do
   @spec terminate_session(map(), terminate_session_request(), list()) ::
           {:ok, terminate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11484,6 +11613,7 @@ defmodule AWS.SSM do
   @spec unlabel_parameter_version(map(), unlabel_parameter_version_request(), list()) ::
           {:ok, unlabel_parameter_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unlabel_parameter_version_errors()}
   def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11530,6 +11660,7 @@ defmodule AWS.SSM do
   @spec update_association(map(), update_association_request(), list()) ::
           {:ok, update_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_association_errors()}
   def update_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11551,6 +11682,7 @@ defmodule AWS.SSM do
   @spec update_association_status(map(), update_association_status_request(), list()) ::
           {:ok, update_association_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_association_status_errors()}
   def update_association_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11564,6 +11696,7 @@ defmodule AWS.SSM do
   @spec update_document(map(), update_document_request(), list()) ::
           {:ok, update_document_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_document_errors()}
   def update_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11582,6 +11715,7 @@ defmodule AWS.SSM do
   @spec update_document_default_version(map(), update_document_default_version_request(), list()) ::
           {:ok, update_document_default_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_document_default_version_errors()}
   def update_document_default_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11597,6 +11731,7 @@ defmodule AWS.SSM do
   @spec update_document_metadata(map(), update_document_metadata_request(), list()) ::
           {:ok, update_document_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_document_metadata_errors()}
   def update_document_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11623,6 +11758,7 @@ defmodule AWS.SSM do
   @spec update_maintenance_window(map(), update_maintenance_window_request(), list()) ::
           {:ok, update_maintenance_window_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_maintenance_window_errors()}
   def update_maintenance_window(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11665,6 +11801,7 @@ defmodule AWS.SSM do
         ) ::
           {:ok, update_maintenance_window_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_maintenance_window_target_errors()}
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11733,6 +11870,7 @@ defmodule AWS.SSM do
   @spec update_maintenance_window_task(map(), update_maintenance_window_task_request(), list()) ::
           {:ok, update_maintenance_window_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_maintenance_window_task_errors()}
   def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11751,6 +11889,7 @@ defmodule AWS.SSM do
   @spec update_managed_instance_role(map(), update_managed_instance_role_request(), list()) ::
           {:ok, update_managed_instance_role_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_managed_instance_role_errors()}
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11777,6 +11916,7 @@ defmodule AWS.SSM do
   @spec update_ops_item(map(), update_ops_item_request(), list()) ::
           {:ok, update_ops_item_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ops_item_errors()}
   def update_ops_item(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11791,6 +11931,7 @@ defmodule AWS.SSM do
   @spec update_ops_metadata(map(), update_ops_metadata_request(), list()) ::
           {:ok, update_ops_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ops_metadata_errors()}
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11810,6 +11951,7 @@ defmodule AWS.SSM do
   @spec update_patch_baseline(map(), update_patch_baseline_request(), list()) ::
           {:ok, update_patch_baseline_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_patch_baseline_errors()}
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11841,6 +11983,7 @@ defmodule AWS.SSM do
   @spec update_resource_data_sync(map(), update_resource_data_sync_request(), list()) ::
           {:ok, update_resource_data_sync_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_data_sync_errors()}
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -11878,6 +12021,7 @@ defmodule AWS.SSM do
   @spec update_service_setting(map(), update_service_setting_request(), list()) ::
           {:ok, update_service_setting_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_setting_errors()}
   def update_service_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()

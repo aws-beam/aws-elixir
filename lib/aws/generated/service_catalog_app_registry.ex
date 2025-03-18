@@ -959,6 +959,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, associate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_attribute_group_errors()}
   def associate_attribute_group(
         %Client{} = client,
@@ -1042,6 +1043,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, associate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_errors()}
   def associate_resource(
         %Client{} = client,
@@ -1080,6 +1082,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1115,6 +1118,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec create_attribute_group(map(), create_attribute_group_request(), list()) ::
           {:ok, create_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_attribute_group_errors()}
   def create_attribute_group(%Client{} = client, input, options \\ []) do
     url_path = "/attribute-groups"
@@ -1147,6 +1151,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
@@ -1176,6 +1181,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec delete_attribute_group(map(), String.t(), delete_attribute_group_request(), list()) ::
           {:ok, delete_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attribute_group_errors()}
   def delete_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
@@ -1213,6 +1219,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, disassociate_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_attribute_group_errors()}
   def disassociate_attribute_group(
         %Client{} = client,
@@ -1297,6 +1304,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, disassociate_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_errors()}
   def disassociate_resource(
         %Client{} = client,
@@ -1353,6 +1361,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
@@ -1379,6 +1388,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, get_associated_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_associated_resource_errors()}
   def get_associated_resource(
         %Client{} = client,
@@ -1433,6 +1443,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec get_attribute_group(map(), String.t(), list()) ::
           {:ok, get_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_attribute_group_errors()}
   def get_attribute_group(%Client{} = client, attribute_group, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"
@@ -1452,6 +1463,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec get_configuration(map(), list()) ::
           {:ok, get_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_errors()}
   def get_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration"
@@ -1471,6 +1483,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -1510,6 +1523,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, list_associated_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_attribute_groups_errors()}
   def list_associated_attribute_groups(
         %Client{} = client,
@@ -1564,6 +1578,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec list_associated_resources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_associated_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_resources_errors()}
   def list_associated_resources(
         %Client{} = client,
@@ -1603,6 +1618,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec list_attribute_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_attribute_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attribute_groups_errors()}
   def list_attribute_groups(
         %Client{} = client,
@@ -1648,6 +1664,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         ) ::
           {:ok, list_attribute_groups_for_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attribute_groups_for_application_errors()}
   def list_attribute_groups_for_application(
         %Client{} = client,
@@ -1685,6 +1702,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1704,6 +1722,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec put_configuration(map(), put_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_errors()}
   def put_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
@@ -1737,6 +1756,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec sync_resource(map(), String.t(), String.t(), sync_resource_request(), list()) ::
           {:ok, sync_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sync_resource_errors()}
   def sync_resource(%Client{} = client, resource, resource_type, input, options \\ []) do
     url_path = "/sync/#{AWS.Util.encode_uri(resource_type)}/#{AWS.Util.encode_uri(resource)}"
@@ -1770,6 +1790,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1800,6 +1821,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1833,6 +1855,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application)}"
@@ -1861,6 +1884,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   @spec update_attribute_group(map(), String.t(), update_attribute_group_request(), list()) ::
           {:ok, update_attribute_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_attribute_group_errors()}
   def update_attribute_group(%Client{} = client, attribute_group, input, options \\ []) do
     url_path = "/attribute-groups/#{AWS.Util.encode_uri(attribute_group)}"

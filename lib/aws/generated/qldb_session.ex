@@ -388,6 +388,7 @@ defmodule AWS.QLDBSession do
   @spec send_command(map(), send_command_request(), list()) ::
           {:ok, send_command_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
     meta = metadata()

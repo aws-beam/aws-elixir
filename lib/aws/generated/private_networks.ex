@@ -1043,6 +1043,7 @@ defmodule AWS.PrivateNetworks do
   @spec acknowledge_order_receipt(map(), acknowledge_order_receipt_request(), list()) ::
           {:ok, acknowledge_order_receipt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, acknowledge_order_receipt_errors()}
   def acknowledge_order_receipt(%Client{} = client, input, options \\ []) do
     url_path = "/v1/orders/acknowledge"
@@ -1071,6 +1072,7 @@ defmodule AWS.PrivateNetworks do
   @spec activate_device_identifier(map(), activate_device_identifier_request(), list()) ::
           {:ok, activate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_device_identifier_errors()}
   def activate_device_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/activate"
@@ -1099,6 +1101,7 @@ defmodule AWS.PrivateNetworks do
   @spec activate_network_site(map(), activate_network_site_request(), list()) ::
           {:ok, activate_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_network_site_errors()}
   def activate_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/activate"
@@ -1135,6 +1138,7 @@ defmodule AWS.PrivateNetworks do
   @spec configure_access_point(map(), configure_access_point_request(), list()) ::
           {:ok, configure_access_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, configure_access_point_errors()}
   def configure_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/configure"
@@ -1163,6 +1167,7 @@ defmodule AWS.PrivateNetworks do
   @spec create_network(map(), create_network_request(), list()) ::
           {:ok, create_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_errors()}
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/v1/networks"
@@ -1191,6 +1196,7 @@ defmodule AWS.PrivateNetworks do
   @spec create_network_site(map(), create_network_site_request(), list()) ::
           {:ok, create_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_site_errors()}
   def create_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites"
@@ -1219,6 +1225,7 @@ defmodule AWS.PrivateNetworks do
   @spec deactivate_device_identifier(map(), deactivate_device_identifier_request(), list()) ::
           {:ok, deactivate_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_device_identifier_errors()}
   def deactivate_device_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/deactivate"
@@ -1253,6 +1260,7 @@ defmodule AWS.PrivateNetworks do
   @spec delete_network(map(), String.t(), delete_network_request(), list()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_errors()}
   def delete_network(%Client{} = client, network_arn, input, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
@@ -1292,6 +1300,7 @@ defmodule AWS.PrivateNetworks do
   @spec delete_network_site(map(), String.t(), delete_network_site_request(), list()) ::
           {:ok, delete_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_site_errors()}
   def delete_network_site(%Client{} = client, network_site_arn, input, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
@@ -1325,6 +1334,7 @@ defmodule AWS.PrivateNetworks do
   @spec get_device_identifier(map(), String.t(), list()) ::
           {:ok, get_device_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_identifier_errors()}
   def get_device_identifier(%Client{} = client, device_identifier_arn, options \\ []) do
     url_path = "/v1/device-identifiers/#{AWS.Util.encode_uri(device_identifier_arn)}"
@@ -1342,6 +1352,7 @@ defmodule AWS.PrivateNetworks do
   @spec get_network(map(), String.t(), list()) ::
           {:ok, get_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_errors()}
   def get_network(%Client{} = client, network_arn, options \\ []) do
     url_path = "/v1/networks/#{AWS.Util.encode_uri(network_arn)}"
@@ -1359,6 +1370,7 @@ defmodule AWS.PrivateNetworks do
   @spec get_network_resource(map(), String.t(), list()) ::
           {:ok, get_network_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_resource_errors()}
   def get_network_resource(%Client{} = client, network_resource_arn, options \\ []) do
     url_path = "/v1/network-resources/#{AWS.Util.encode_uri(network_resource_arn)}"
@@ -1376,6 +1388,7 @@ defmodule AWS.PrivateNetworks do
   @spec get_network_site(map(), String.t(), list()) ::
           {:ok, get_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_site_errors()}
   def get_network_site(%Client{} = client, network_site_arn, options \\ []) do
     url_path = "/v1/network-sites/#{AWS.Util.encode_uri(network_site_arn)}"
@@ -1393,6 +1406,7 @@ defmodule AWS.PrivateNetworks do
   @spec get_order(map(), String.t(), list()) ::
           {:ok, get_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_order_errors()}
   def get_order(%Client{} = client, order_arn, options \\ []) do
     url_path = "/v1/orders/#{AWS.Util.encode_uri(order_arn)}"
@@ -1418,6 +1432,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_device_identifiers(map(), list_device_identifiers_request(), list()) ::
           {:ok, list_device_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_identifiers_errors()}
   def list_device_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/v1/device-identifiers/list"
@@ -1454,6 +1469,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_network_resources(map(), list_network_resources_request(), list()) ::
           {:ok, list_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_network_resources_errors()}
   def list_network_resources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources"
@@ -1485,6 +1501,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_network_sites(map(), list_network_sites_request(), list()) ::
           {:ok, list_network_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_network_sites_errors()}
   def list_network_sites(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/list"
@@ -1516,6 +1533,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_networks(map(), list_networks_request(), list()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_networks_errors()}
   def list_networks(%Client{} = client, input, options \\ []) do
     url_path = "/v1/networks/list"
@@ -1552,6 +1570,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_orders(map(), list_orders_request(), list()) ::
           {:ok, list_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_orders_errors()}
   def list_orders(%Client{} = client, input, options \\ []) do
     url_path = "/v1/orders/list"
@@ -1580,6 +1599,7 @@ defmodule AWS.PrivateNetworks do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1597,6 +1617,7 @@ defmodule AWS.PrivateNetworks do
   @spec ping(map(), list()) ::
           {:ok, ping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, ping_errors()}
   def ping(%Client{} = client, options \\ []) do
     url_path = "/ping"
@@ -1633,6 +1654,7 @@ defmodule AWS.PrivateNetworks do
   @spec start_network_resource_update(map(), start_network_resource_update_request(), list()) ::
           {:ok, start_network_resource_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_network_resource_update_errors()}
   def start_network_resource_update(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-resources/update"
@@ -1661,6 +1683,7 @@ defmodule AWS.PrivateNetworks do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1689,6 +1712,7 @@ defmodule AWS.PrivateNetworks do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1722,6 +1746,7 @@ defmodule AWS.PrivateNetworks do
   @spec update_network_site(map(), update_network_site_request(), list()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_site_errors()}
   def update_network_site(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/site"
@@ -1750,6 +1775,7 @@ defmodule AWS.PrivateNetworks do
   @spec update_network_site_plan(map(), update_network_site_plan_request(), list()) ::
           {:ok, update_network_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_site_plan_errors()}
   def update_network_site_plan(%Client{} = client, input, options \\ []) do
     url_path = "/v1/network-sites/plan"

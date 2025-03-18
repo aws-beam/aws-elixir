@@ -203,6 +203,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec get_telemetry_evaluation_status(map(), %{}, list()) ::
           {:ok, get_telemetry_evaluation_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_telemetry_evaluation_status_errors()}
   def get_telemetry_evaluation_status(%Client{} = client, input, options \\ []) do
     url_path = "/GetTelemetryEvaluationStatus"
@@ -236,6 +237,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec get_telemetry_evaluation_status_for_organization(map(), %{}, list()) ::
           {:ok, get_telemetry_evaluation_status_for_organization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_telemetry_evaluation_status_for_organization_errors()}
   def get_telemetry_evaluation_status_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/GetTelemetryEvaluationStatusForOrganization"
@@ -268,6 +270,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec list_resource_telemetry(map(), list_resource_telemetry_input(), list()) ::
           {:ok, list_resource_telemetry_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_telemetry_errors()}
   def list_resource_telemetry(%Client{} = client, input, options \\ []) do
     url_path = "/ListResourceTelemetry"
@@ -302,6 +305,7 @@ defmodule AWS.ObservabilityAdmin do
         ) ::
           {:ok, list_resource_telemetry_for_organization_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_telemetry_for_organization_errors()}
   def list_resource_telemetry_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/ListResourceTelemetryForOrganization"
@@ -332,6 +336,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec start_telemetry_evaluation(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_telemetry_evaluation_errors()}
   def start_telemetry_evaluation(%Client{} = client, input, options \\ []) do
     url_path = "/StartTelemetryEvaluation"
@@ -362,6 +367,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec start_telemetry_evaluation_for_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_telemetry_evaluation_for_organization_errors()}
   def start_telemetry_evaluation_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/StartTelemetryEvaluationForOrganization"
@@ -392,6 +398,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec stop_telemetry_evaluation(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_telemetry_evaluation_errors()}
   def stop_telemetry_evaluation(%Client{} = client, input, options \\ []) do
     url_path = "/StopTelemetryEvaluation"
@@ -422,6 +429,7 @@ defmodule AWS.ObservabilityAdmin do
   @spec stop_telemetry_evaluation_for_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_telemetry_evaluation_for_organization_errors()}
   def stop_telemetry_evaluation_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/StopTelemetryEvaluationForOrganization"

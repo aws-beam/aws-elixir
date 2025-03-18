@@ -1691,6 +1691,7 @@ defmodule AWS.Notifications do
   @spec associate_channel(map(), String.t(), associate_channel_request(), list()) ::
           {:ok, associate_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_channel_errors()}
   def associate_channel(%Client{} = client, arn, input, options \\ []) do
     url_path = "/channels/associate/#{AWS.Util.encode_uri(arn)}"
@@ -1725,6 +1726,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, associate_managed_notification_account_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_managed_notification_account_contact_errors()}
   def associate_managed_notification_account_contact(
         %Client{} = client,
@@ -1769,6 +1771,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, associate_managed_notification_additional_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_managed_notification_additional_channel_errors()}
   def associate_managed_notification_additional_channel(
         %Client{} = client,
@@ -1805,6 +1808,7 @@ defmodule AWS.Notifications do
   @spec create_event_rule(map(), create_event_rule_request(), list()) ::
           {:ok, create_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_rule_errors()}
   def create_event_rule(%Client{} = client, input, options \\ []) do
     url_path = "/event-rules"
@@ -1837,6 +1841,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, create_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notification_configuration_errors()}
   def create_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/notification-configurations"
@@ -1865,6 +1870,7 @@ defmodule AWS.Notifications do
   @spec delete_event_rule(map(), String.t(), delete_event_rule_request(), list()) ::
           {:ok, delete_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_rule_errors()}
   def delete_event_rule(%Client{} = client, arn, input, options \\ []) do
     url_path = "/event-rules/#{AWS.Util.encode_uri(arn)}"
@@ -1898,6 +1904,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, delete_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(arn)}"
@@ -1938,6 +1945,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, deregister_notification_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_notification_hub_errors()}
   def deregister_notification_hub(
         %Client{} = client,
@@ -1976,6 +1984,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, disable_notifications_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_notifications_access_for_organization_errors()}
   def disable_notifications_access_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/organization/access"
@@ -2007,6 +2016,7 @@ defmodule AWS.Notifications do
   @spec disassociate_channel(map(), String.t(), disassociate_channel_request(), list()) ::
           {:ok, disassociate_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_channel_errors()}
   def disassociate_channel(%Client{} = client, arn, input, options \\ []) do
     url_path = "/channels/disassociate/#{AWS.Util.encode_uri(arn)}"
@@ -2041,6 +2051,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, disassociate_managed_notification_account_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_managed_notification_account_contact_errors()}
   def disassociate_managed_notification_account_contact(
         %Client{} = client,
@@ -2085,6 +2096,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, disassociate_managed_notification_additional_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_managed_notification_additional_channel_errors()}
   def disassociate_managed_notification_additional_channel(
         %Client{} = client,
@@ -2123,6 +2135,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, enable_notifications_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_notifications_access_for_organization_errors()}
   def enable_notifications_access_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/organization/access"
@@ -2151,6 +2164,7 @@ defmodule AWS.Notifications do
   @spec get_event_rule(map(), String.t(), list()) ::
           {:ok, get_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_rule_errors()}
   def get_event_rule(%Client{} = client, arn, options \\ []) do
     url_path = "/event-rules/#{AWS.Util.encode_uri(arn)}"
@@ -2168,6 +2182,7 @@ defmodule AWS.Notifications do
   @spec get_managed_notification_child_event(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_managed_notification_child_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_notification_child_event_errors()}
   def get_managed_notification_child_event(%Client{} = client, arn, locale \\ nil, options \\ []) do
     url_path = "/managed-notification-child-events/#{AWS.Util.encode_uri(arn)}"
@@ -2192,6 +2207,7 @@ defmodule AWS.Notifications do
   @spec get_managed_notification_configuration(map(), String.t(), list()) ::
           {:ok, get_managed_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_notification_configuration_errors()}
   def get_managed_notification_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/managed-notification-configurations/#{AWS.Util.encode_uri(arn)}"
@@ -2209,6 +2225,7 @@ defmodule AWS.Notifications do
   @spec get_managed_notification_event(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_managed_notification_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_notification_event_errors()}
   def get_managed_notification_event(%Client{} = client, arn, locale \\ nil, options \\ []) do
     url_path = "/managed-notification-events/#{AWS.Util.encode_uri(arn)}"
@@ -2233,6 +2250,7 @@ defmodule AWS.Notifications do
   @spec get_notification_configuration(map(), String.t(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notification_configuration_errors()}
   def get_notification_configuration(%Client{} = client, arn, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(arn)}"
@@ -2260,6 +2278,7 @@ defmodule AWS.Notifications do
   @spec get_notification_event(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_notification_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notification_event_errors()}
   def get_notification_event(%Client{} = client, arn, locale \\ nil, options \\ []) do
     url_path = "/notification-events/#{AWS.Util.encode_uri(arn)}"
@@ -2285,6 +2304,7 @@ defmodule AWS.Notifications do
   @spec get_notifications_access_for_organization(map(), list()) ::
           {:ok, get_notifications_access_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notifications_access_for_organization_errors()}
   def get_notifications_access_for_organization(%Client{} = client, options \\ []) do
     url_path = "/organization/access"
@@ -2302,6 +2322,7 @@ defmodule AWS.Notifications do
   @spec list_channels(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(
         %Client{} = client,
@@ -2347,6 +2368,7 @@ defmodule AWS.Notifications do
   @spec list_event_rules(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_event_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_rules_errors()}
   def list_event_rules(
         %Client{} = client,
@@ -2398,6 +2420,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_managed_notification_channel_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_notification_channel_associations_errors()}
   def list_managed_notification_channel_associations(
         %Client{} = client,
@@ -2458,6 +2481,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_managed_notification_child_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_notification_child_events_errors()}
   def list_managed_notification_child_events(
         %Client{} = client,
@@ -2544,6 +2568,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_managed_notification_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_notification_configurations_errors()}
   def list_managed_notification_configurations(
         %Client{} = client,
@@ -2600,6 +2625,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_managed_notification_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_notification_events_errors()}
   def list_managed_notification_events(
         %Client{} = client,
@@ -2693,6 +2719,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_notification_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_configurations_errors()}
   def list_notification_configurations(
         %Client{} = client,
@@ -2775,6 +2802,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, list_notification_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_events_errors()}
   def list_notification_events(
         %Client{} = client,
@@ -2859,6 +2887,7 @@ defmodule AWS.Notifications do
   @spec list_notification_hubs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_notification_hubs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_hubs_errors()}
   def list_notification_hubs(
         %Client{} = client,
@@ -2900,6 +2929,7 @@ defmodule AWS.Notifications do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -2920,6 +2950,7 @@ defmodule AWS.Notifications do
   @spec register_notification_hub(map(), register_notification_hub_request(), list()) ::
           {:ok, register_notification_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_notification_hub_errors()}
   def register_notification_hub(%Client{} = client, input, options \\ []) do
     url_path = "/notification-hubs"
@@ -2953,6 +2984,7 @@ defmodule AWS.Notifications do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -2984,6 +3016,7 @@ defmodule AWS.Notifications do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(arn)}"
@@ -3017,6 +3050,7 @@ defmodule AWS.Notifications do
   @spec update_event_rule(map(), String.t(), update_event_rule_request(), list()) ::
           {:ok, update_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_rule_errors()}
   def update_event_rule(%Client{} = client, arn, input, options \\ []) do
     url_path = "/event-rules/#{AWS.Util.encode_uri(arn)}"
@@ -3050,6 +3084,7 @@ defmodule AWS.Notifications do
         ) ::
           {:ok, update_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_configuration_errors()}
   def update_notification_configuration(%Client{} = client, arn, input, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(arn)}"

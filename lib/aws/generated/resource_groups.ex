@@ -1160,6 +1160,7 @@ defmodule AWS.ResourceGroups do
   @spec cancel_tag_sync_task(map(), cancel_tag_sync_task_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_tag_sync_task_errors()}
   def cancel_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/cancel-tag-sync-task"
@@ -1205,6 +1206,7 @@ defmodule AWS.ResourceGroups do
   @spec create_group(map(), create_group_input(), list()) ::
           {:ok, create_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/groups"
@@ -1244,6 +1246,7 @@ defmodule AWS.ResourceGroups do
   @spec delete_group(map(), delete_group_input(), list()) ::
           {:ok, delete_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-group"
@@ -1272,6 +1275,7 @@ defmodule AWS.ResourceGroups do
   @spec get_account_settings(map(), %{}, list()) ::
           {:ok, get_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/get-account-settings"
@@ -1308,6 +1312,7 @@ defmodule AWS.ResourceGroups do
   @spec get_group(map(), get_group_input(), list()) ::
           {:ok, get_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/get-group"
@@ -1349,6 +1354,7 @@ defmodule AWS.ResourceGroups do
   @spec get_group_configuration(map(), get_group_configuration_input(), list()) ::
           {:ok, get_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_configuration_errors()}
   def get_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-configuration"
@@ -1389,6 +1395,7 @@ defmodule AWS.ResourceGroups do
   @spec get_group_query(map(), get_group_query_input(), list()) ::
           {:ok, get_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_query_errors()}
   def get_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/get-group-query"
@@ -1425,6 +1432,7 @@ defmodule AWS.ResourceGroups do
   @spec get_tag_sync_task(map(), get_tag_sync_task_input(), list()) ::
           {:ok, get_tag_sync_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tag_sync_task_errors()}
   def get_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/get-tag-sync-task"
@@ -1463,6 +1471,7 @@ defmodule AWS.ResourceGroups do
   @spec get_tags(map(), String.t(), list()) ::
           {:ok, get_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, arn, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -1506,6 +1515,7 @@ defmodule AWS.ResourceGroups do
   @spec group_resources(map(), group_resources_input(), list()) ::
           {:ok, group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, group_resources_errors()}
   def group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/group-resources"
@@ -1556,6 +1566,7 @@ defmodule AWS.ResourceGroups do
   @spec list_group_resources(map(), list_group_resources_input(), list()) ::
           {:ok, list_group_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_resources_errors()}
   def list_group_resources(%Client{} = client, input, options \\ []) do
     url_path = "/list-group-resources"
@@ -1585,6 +1596,7 @@ defmodule AWS.ResourceGroups do
   @spec list_grouping_statuses(map(), list_grouping_statuses_input(), list()) ::
           {:ok, list_grouping_statuses_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_grouping_statuses_errors()}
   def list_grouping_statuses(%Client{} = client, input, options \\ []) do
     url_path = "/list-grouping-statuses"
@@ -1621,6 +1633,7 @@ defmodule AWS.ResourceGroups do
   @spec list_groups(map(), list_groups_input(), list()) ::
           {:ok, list_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/groups-list"
@@ -1665,6 +1678,7 @@ defmodule AWS.ResourceGroups do
   @spec list_tag_sync_tasks(map(), list_tag_sync_tasks_input(), list()) ::
           {:ok, list_tag_sync_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tag_sync_tasks_errors()}
   def list_tag_sync_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/list-tag-sync-tasks"
@@ -1705,6 +1719,7 @@ defmodule AWS.ResourceGroups do
   @spec put_group_configuration(map(), put_group_configuration_input(), list()) ::
           {:ok, put_group_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_group_configuration_errors()}
   def put_group_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/put-group-configuration"
@@ -1758,6 +1773,7 @@ defmodule AWS.ResourceGroups do
   @spec search_resources(map(), search_resources_input(), list()) ::
           {:ok, search_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_resources_errors()}
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/resources/search"
@@ -1804,6 +1820,7 @@ defmodule AWS.ResourceGroups do
   @spec start_tag_sync_task(map(), start_tag_sync_task_input(), list()) ::
           {:ok, start_tag_sync_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_tag_sync_task_errors()}
   def start_tag_sync_task(%Client{} = client, input, options \\ []) do
     url_path = "/start-tag-sync-task"
@@ -1849,6 +1866,7 @@ defmodule AWS.ResourceGroups do
   @spec tag(map(), String.t(), tag_input(), list()) ::
           {:ok, tag_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_errors()}
   def tag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -1891,6 +1909,7 @@ defmodule AWS.ResourceGroups do
   @spec ungroup_resources(map(), ungroup_resources_input(), list()) ::
           {:ok, ungroup_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, ungroup_resources_errors()}
   def ungroup_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ungroup-resources"
@@ -1927,6 +1946,7 @@ defmodule AWS.ResourceGroups do
   @spec untag(map(), String.t(), untag_input(), list()) ::
           {:ok, untag_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_errors()}
   def untag(%Client{} = client, arn, input, options \\ []) do
     url_path = "/resources/#{AWS.Util.encode_uri(arn)}/tags"
@@ -1961,6 +1981,7 @@ defmodule AWS.ResourceGroups do
   @spec update_account_settings(map(), update_account_settings_input(), list()) ::
           {:ok, update_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-account-settings"
@@ -2000,6 +2021,7 @@ defmodule AWS.ResourceGroups do
   @spec update_group(map(), update_group_input(), list()) ::
           {:ok, update_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-group"
@@ -2039,6 +2061,7 @@ defmodule AWS.ResourceGroups do
   @spec update_group_query(map(), update_group_query_input(), list()) ::
           {:ok, update_group_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_query_errors()}
   def update_group_query(%Client{} = client, input, options \\ []) do
     url_path = "/update-group-query"

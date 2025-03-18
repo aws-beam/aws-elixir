@@ -1136,6 +1136,7 @@ defmodule AWS.TimestreamQuery do
   @spec cancel_query(map(), cancel_query_request(), list()) ::
           {:ok, cancel_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1155,6 +1156,7 @@ defmodule AWS.TimestreamQuery do
   @spec create_scheduled_query(map(), create_scheduled_query_request(), list()) ::
           {:ok, create_scheduled_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scheduled_query_errors()}
   def create_scheduled_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1170,6 +1172,7 @@ defmodule AWS.TimestreamQuery do
   @spec delete_scheduled_query(map(), delete_scheduled_query_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_query_errors()}
   def delete_scheduled_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1186,6 +1189,7 @@ defmodule AWS.TimestreamQuery do
   @spec describe_account_settings(map(), describe_account_settings_request(), list()) ::
           {:ok, describe_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_settings_errors()}
   def describe_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1222,6 +1226,7 @@ defmodule AWS.TimestreamQuery do
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1235,6 +1240,7 @@ defmodule AWS.TimestreamQuery do
   @spec describe_scheduled_query(map(), describe_scheduled_query_request(), list()) ::
           {:ok, describe_scheduled_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduled_query_errors()}
   def describe_scheduled_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1254,6 +1260,7 @@ defmodule AWS.TimestreamQuery do
   @spec execute_scheduled_query(map(), execute_scheduled_query_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_scheduled_query_errors()}
   def execute_scheduled_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1269,6 +1276,7 @@ defmodule AWS.TimestreamQuery do
   @spec list_scheduled_queries(map(), list_scheduled_queries_request(), list()) ::
           {:ok, list_scheduled_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scheduled_queries_errors()}
   def list_scheduled_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1282,6 +1290,7 @@ defmodule AWS.TimestreamQuery do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1300,6 +1309,7 @@ defmodule AWS.TimestreamQuery do
   @spec prepare_query(map(), prepare_query_request(), list()) ::
           {:ok, prepare_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, prepare_query_errors()}
   def prepare_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1361,6 +1371,7 @@ defmodule AWS.TimestreamQuery do
   @spec query(map(), query_request(), list()) ::
           {:ok, query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1379,6 +1390,7 @@ defmodule AWS.TimestreamQuery do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1392,6 +1404,7 @@ defmodule AWS.TimestreamQuery do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1412,6 +1425,7 @@ defmodule AWS.TimestreamQuery do
   @spec update_account_settings(map(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1425,6 +1439,7 @@ defmodule AWS.TimestreamQuery do
   @spec update_scheduled_query(map(), update_scheduled_query_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scheduled_query_errors()}
   def update_scheduled_query(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -389,6 +389,7 @@ defmodule AWS.Pricing do
   @spec describe_services(map(), describe_services_request(), list()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -407,6 +408,7 @@ defmodule AWS.Pricing do
   @spec get_attribute_values(map(), get_attribute_values_request(), list()) ::
           {:ok, get_attribute_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_attribute_values_errors()}
   def get_attribute_values(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -432,6 +434,7 @@ defmodule AWS.Pricing do
   @spec get_price_list_file_url(map(), get_price_list_file_url_request(), list()) ::
           {:ok, get_price_list_file_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_price_list_file_url_errors()}
   def get_price_list_file_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -445,6 +448,7 @@ defmodule AWS.Pricing do
   @spec get_products(map(), get_products_request(), list()) ::
           {:ok, get_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_products_errors()}
   def get_products(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -475,6 +479,7 @@ defmodule AWS.Pricing do
   @spec list_price_lists(map(), list_price_lists_request(), list()) ::
           {:ok, list_price_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_price_lists_errors()}
   def list_price_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()

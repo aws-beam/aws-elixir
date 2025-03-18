@@ -1188,6 +1188,7 @@ defmodule AWS.LookoutVision do
   @spec create_dataset(map(), String.t(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/datasets"
@@ -1245,6 +1246,7 @@ defmodule AWS.LookoutVision do
   @spec create_model(map(), String.t(), create_model_request(), list()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/models"
@@ -1285,6 +1287,7 @@ defmodule AWS.LookoutVision do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/2020-11-20/projects"
@@ -1337,6 +1340,7 @@ defmodule AWS.LookoutVision do
   @spec delete_dataset(map(), String.t(), String.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =
@@ -1383,6 +1387,7 @@ defmodule AWS.LookoutVision do
   @spec delete_model(map(), String.t(), String.t(), delete_model_request(), list()) ::
           {:ok, delete_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
@@ -1430,6 +1435,7 @@ defmodule AWS.LookoutVision do
   @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
@@ -1467,6 +1473,7 @@ defmodule AWS.LookoutVision do
   @spec describe_dataset(map(), String.t(), String.t(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, dataset_type, project_name, options \\ []) do
     url_path =
@@ -1489,6 +1496,7 @@ defmodule AWS.LookoutVision do
   @spec describe_model(map(), String.t(), String.t(), list()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_errors()}
   def describe_model(%Client{} = client, model_version, project_name, options \\ []) do
     url_path =
@@ -1515,6 +1523,7 @@ defmodule AWS.LookoutVision do
   @spec describe_model_packaging_job(map(), String.t(), String.t(), list()) ::
           {:ok, describe_model_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_model_packaging_job_errors()}
   def describe_model_packaging_job(%Client{} = client, job_name, project_name, options \\ []) do
     url_path =
@@ -1537,6 +1546,7 @@ defmodule AWS.LookoutVision do
   @spec describe_project(map(), String.t(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, project_name, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}"
@@ -1574,6 +1584,7 @@ defmodule AWS.LookoutVision do
   @spec detect_anomalies(map(), String.t(), String.t(), detect_anomalies_request(), list()) ::
           {:ok, detect_anomalies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_anomalies_errors()}
   def detect_anomalies(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
@@ -1628,6 +1639,7 @@ defmodule AWS.LookoutVision do
         ) ::
           {:ok, list_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_entries_errors()}
   def list_dataset_entries(
         %Client{} = client,
@@ -1716,6 +1728,7 @@ defmodule AWS.LookoutVision do
   @spec list_model_packaging_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_model_packaging_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_packaging_jobs_errors()}
   def list_model_packaging_jobs(
         %Client{} = client,
@@ -1760,6 +1773,7 @@ defmodule AWS.LookoutVision do
   @spec list_models(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_models_errors()}
   def list_models(
         %Client{} = client,
@@ -1806,6 +1820,7 @@ defmodule AWS.LookoutVision do
   @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2020-11-20/projects"
@@ -1841,6 +1856,7 @@ defmodule AWS.LookoutVision do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1873,6 +1889,7 @@ defmodule AWS.LookoutVision do
   @spec start_model(map(), String.t(), String.t(), start_model_request(), list()) ::
           {:ok, start_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_model_errors()}
   def start_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
@@ -1957,6 +1974,7 @@ defmodule AWS.LookoutVision do
   @spec start_model_packaging_job(map(), String.t(), start_model_packaging_job_request(), list()) ::
           {:ok, start_model_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_model_packaging_job_errors()}
   def start_model_packaging_job(%Client{} = client, project_name, input, options \\ []) do
     url_path = "/2020-11-20/projects/#{AWS.Util.encode_uri(project_name)}/modelpackagingjobs"
@@ -1999,6 +2017,7 @@ defmodule AWS.LookoutVision do
   @spec stop_model(map(), String.t(), String.t(), stop_model_request(), list()) ::
           {:ok, stop_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_model_errors()}
   def stop_model(%Client{} = client, model_version, project_name, input, options \\ []) do
     url_path =
@@ -2040,6 +2059,7 @@ defmodule AWS.LookoutVision do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2074,6 +2094,7 @@ defmodule AWS.LookoutVision do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2020-11-20/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2135,6 +2156,7 @@ defmodule AWS.LookoutVision do
         ) ::
           {:ok, update_dataset_entries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_entries_errors()}
   def update_dataset_entries(%Client{} = client, dataset_type, project_name, input, options \\ []) do
     url_path =

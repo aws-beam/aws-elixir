@@ -901,6 +901,7 @@ defmodule AWS.MediaPackageVod do
   @spec configure_logs(map(), String.t(), configure_logs_request(), list()) ::
           {:ok, configure_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, configure_logs_errors()}
   def configure_logs(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}/configure_logs"
@@ -929,6 +930,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_asset(map(), create_asset_request(), list()) ::
           {:ok, create_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_errors()}
   def create_asset(%Client{} = client, input, options \\ []) do
     url_path = "/assets"
@@ -957,6 +959,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_packaging_configuration(map(), create_packaging_configuration_request(), list()) ::
           {:ok, create_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_packaging_configuration_errors()}
   def create_packaging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_configurations"
@@ -985,6 +988,7 @@ defmodule AWS.MediaPackageVod do
   @spec create_packaging_group(map(), create_packaging_group_request(), list()) ::
           {:ok, create_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_packaging_group_errors()}
   def create_packaging_group(%Client{} = client, input, options \\ []) do
     url_path = "/packaging_groups"
@@ -1013,6 +1017,7 @@ defmodule AWS.MediaPackageVod do
   @spec delete_asset(map(), String.t(), delete_asset_request(), list()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_errors()}
   def delete_asset(%Client{} = client, id, input, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
@@ -1046,6 +1051,7 @@ defmodule AWS.MediaPackageVod do
         ) ::
           {:ok, delete_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_packaging_configuration_errors()}
   def delete_packaging_configuration(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
@@ -1074,6 +1080,7 @@ defmodule AWS.MediaPackageVod do
   @spec delete_packaging_group(map(), String.t(), delete_packaging_group_request(), list()) ::
           {:ok, delete_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_packaging_group_errors()}
   def delete_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
@@ -1102,6 +1109,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_asset(map(), String.t(), list()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_asset_errors()}
   def describe_asset(%Client{} = client, id, options \\ []) do
     url_path = "/assets/#{AWS.Util.encode_uri(id)}"
@@ -1119,6 +1127,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_packaging_configuration(map(), String.t(), list()) ::
           {:ok, describe_packaging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_packaging_configuration_errors()}
   def describe_packaging_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_configurations/#{AWS.Util.encode_uri(id)}"
@@ -1136,6 +1145,7 @@ defmodule AWS.MediaPackageVod do
   @spec describe_packaging_group(map(), String.t(), list()) ::
           {:ok, describe_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_packaging_group_errors()}
   def describe_packaging_group(%Client{} = client, id, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"
@@ -1153,6 +1163,7 @@ defmodule AWS.MediaPackageVod do
   @spec list_assets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assets_errors()}
   def list_assets(
         %Client{} = client,
@@ -1203,6 +1214,7 @@ defmodule AWS.MediaPackageVod do
         ) ::
           {:ok, list_packaging_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packaging_configurations_errors()}
   def list_packaging_configurations(
         %Client{} = client,
@@ -1247,6 +1259,7 @@ defmodule AWS.MediaPackageVod do
   @spec list_packaging_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_packaging_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_packaging_groups_errors()}
   def list_packaging_groups(
         %Client{} = client,
@@ -1283,6 +1296,7 @@ defmodule AWS.MediaPackageVod do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1301,6 +1315,7 @@ defmodule AWS.MediaPackageVod do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1330,6 +1345,7 @@ defmodule AWS.MediaPackageVod do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -1364,6 +1380,7 @@ defmodule AWS.MediaPackageVod do
   @spec update_packaging_group(map(), String.t(), update_packaging_group_request(), list()) ::
           {:ok, update_packaging_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_packaging_group_errors()}
   def update_packaging_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/packaging_groups/#{AWS.Util.encode_uri(id)}"

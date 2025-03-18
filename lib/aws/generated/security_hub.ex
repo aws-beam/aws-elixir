@@ -12782,6 +12782,7 @@ defmodule AWS.SecurityHub do
   @spec accept_administrator_invitation(map(), accept_administrator_invitation_request(), list()) ::
           {:ok, accept_administrator_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_administrator_invitation_errors()}
   def accept_administrator_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/administrator"
@@ -12830,6 +12831,7 @@ defmodule AWS.SecurityHub do
   @spec accept_invitation(map(), accept_invitation_request(), list()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/master"
@@ -12859,6 +12861,7 @@ defmodule AWS.SecurityHub do
   @spec batch_delete_automation_rules(map(), batch_delete_automation_rules_request(), list()) ::
           {:ok, batch_delete_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_automation_rules_errors()}
   def batch_delete_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/delete"
@@ -12892,6 +12895,7 @@ defmodule AWS.SecurityHub do
   @spec batch_disable_standards(map(), batch_disable_standards_request(), list()) ::
           {:ok, batch_disable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disable_standards_errors()}
   def batch_disable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/deregister"
@@ -12927,6 +12931,7 @@ defmodule AWS.SecurityHub do
   @spec batch_enable_standards(map(), batch_enable_standards_request(), list()) ::
           {:ok, batch_enable_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_enable_standards_errors()}
   def batch_enable_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/register"
@@ -12958,6 +12963,7 @@ defmodule AWS.SecurityHub do
   @spec batch_get_automation_rules(map(), batch_get_automation_rules_request(), list()) ::
           {:ok, batch_get_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_automation_rules_errors()}
   def batch_get_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/get"
@@ -12996,6 +13002,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, batch_get_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_configuration_policy_associations_errors()}
   def batch_get_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/batchget"
@@ -13026,6 +13033,7 @@ defmodule AWS.SecurityHub do
   @spec batch_get_security_controls(map(), batch_get_security_controls_request(), list()) ::
           {:ok, batch_get_security_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_security_controls_errors()}
   def batch_get_security_controls(%Client{} = client, input, options \\ []) do
     url_path = "/securityControls/batchGet"
@@ -13064,6 +13072,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, batch_get_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_standards_control_associations_errors()}
   def batch_get_standards_control_associations(%Client{} = client, input, options \\ []) do
     url_path = "/associations/batchGet"
@@ -13165,6 +13174,7 @@ defmodule AWS.SecurityHub do
   @spec batch_import_findings(map(), batch_import_findings_request(), list()) ::
           {:ok, batch_import_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_import_findings_errors()}
   def batch_import_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/import"
@@ -13195,6 +13205,7 @@ defmodule AWS.SecurityHub do
   @spec batch_update_automation_rules(map(), batch_update_automation_rules_request(), list()) ::
           {:ok, batch_update_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_automation_rules_errors()}
   def batch_update_automation_rules(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/update"
@@ -13280,6 +13291,7 @@ defmodule AWS.SecurityHub do
   @spec batch_update_findings(map(), batch_update_findings_request(), list()) ::
           {:ok, batch_update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_findings_errors()}
   def batch_update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/batchupdate"
@@ -13314,6 +13326,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, batch_update_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_standards_control_associations_errors()}
   def batch_update_standards_control_associations(%Client{} = client, input, options \\ []) do
     url_path = "/associations"
@@ -13346,6 +13359,7 @@ defmodule AWS.SecurityHub do
   @spec create_action_target(map(), create_action_target_request(), list()) ::
           {:ok, create_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_action_target_errors()}
   def create_action_target(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets"
@@ -13375,6 +13389,7 @@ defmodule AWS.SecurityHub do
   @spec create_automation_rule(map(), create_automation_rule_request(), list()) ::
           {:ok, create_automation_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_automation_rule_errors()}
   def create_automation_rule(%Client{} = client, input, options \\ []) do
     url_path = "/automationrules/create"
@@ -13407,6 +13422,7 @@ defmodule AWS.SecurityHub do
   @spec create_configuration_policy(map(), create_configuration_policy_request(), list()) ::
           {:ok, create_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_policy_errors()}
   def create_configuration_policy(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicy/create"
@@ -13443,6 +13459,7 @@ defmodule AWS.SecurityHub do
   @spec create_finding_aggregator(map(), create_finding_aggregator_request(), list()) ::
           {:ok, create_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_finding_aggregator_errors()}
   def create_finding_aggregator(%Client{} = client, input, options \\ []) do
     url_path = "/findingAggregator/create"
@@ -13477,6 +13494,7 @@ defmodule AWS.SecurityHub do
   @spec create_insight(map(), create_insight_request(), list()) ::
           {:ok, create_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_insight_errors()}
   def create_insight(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
@@ -13556,6 +13574,7 @@ defmodule AWS.SecurityHub do
   @spec create_members(map(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_members_errors()}
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/members"
@@ -13599,6 +13618,7 @@ defmodule AWS.SecurityHub do
   @spec decline_invitations(map(), decline_invitations_request(), list()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decline_invitations_errors()}
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
@@ -13631,6 +13651,7 @@ defmodule AWS.SecurityHub do
   @spec delete_action_target(map(), String.t(), delete_action_target_request(), list()) ::
           {:ok, delete_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_action_target_errors()}
   def delete_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
@@ -13671,6 +13692,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, delete_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_policy_errors()}
   def delete_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -13709,6 +13731,7 @@ defmodule AWS.SecurityHub do
   @spec delete_finding_aggregator(map(), String.t(), delete_finding_aggregator_request(), list()) ::
           {:ok, delete_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_finding_aggregator_errors()}
   def delete_finding_aggregator(%Client{} = client, finding_aggregator_arn, input, options \\ []) do
     url_path =
@@ -13739,6 +13762,7 @@ defmodule AWS.SecurityHub do
   @spec delete_insight(map(), String.t(), delete_insight_request(), list()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_insight_errors()}
   def delete_insight(%Client{} = client, insight_arn, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
@@ -13782,6 +13806,7 @@ defmodule AWS.SecurityHub do
   @spec delete_invitations(map(), delete_invitations_request(), list()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_invitations_errors()}
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"
@@ -13814,6 +13839,7 @@ defmodule AWS.SecurityHub do
   @spec delete_members(map(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_members_errors()}
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/delete"
@@ -13842,6 +13868,7 @@ defmodule AWS.SecurityHub do
   @spec describe_action_targets(map(), describe_action_targets_request(), list()) ::
           {:ok, describe_action_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_action_targets_errors()}
   def describe_action_targets(%Client{} = client, input, options \\ []) do
     url_path = "/actionTargets/get"
@@ -13871,6 +13898,7 @@ defmodule AWS.SecurityHub do
   @spec describe_hub(map(), String.t() | nil, list()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, hub_arn \\ nil, options \\ []) do
     url_path = "/accounts"
@@ -13899,6 +13927,7 @@ defmodule AWS.SecurityHub do
   @spec describe_organization_configuration(map(), list()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/organization/configuration"
@@ -13924,6 +13953,7 @@ defmodule AWS.SecurityHub do
   @spec describe_products(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_products_errors()}
   def describe_products(
         %Client{} = client,
@@ -13971,6 +14001,7 @@ defmodule AWS.SecurityHub do
   @spec describe_standards(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_standards_errors()}
   def describe_standards(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/standards"
@@ -14009,6 +14040,7 @@ defmodule AWS.SecurityHub do
   @spec describe_standards_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_standards_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_standards_controls_errors()}
   def describe_standards_controls(
         %Client{} = client,
@@ -14056,6 +14088,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, disable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_import_findings_for_product_errors()}
   def disable_import_findings_for_product(
         %Client{} = client,
@@ -14098,6 +14131,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/disable"
@@ -14145,6 +14179,7 @@ defmodule AWS.SecurityHub do
   @spec disable_security_hub(map(), disable_security_hub_request(), list()) ::
           {:ok, disable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_security_hub_errors()}
   def disable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -14184,6 +14219,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_administrator_account_errors()}
   def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
     url_path = "/administrator/disassociate"
@@ -14235,6 +14271,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_master_account_errors()}
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
@@ -14268,6 +14305,7 @@ defmodule AWS.SecurityHub do
   @spec disassociate_members(map(), disassociate_members_request(), list()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_members_errors()}
   def disassociate_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/disassociate"
@@ -14307,6 +14345,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, enable_import_findings_for_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_import_findings_for_product_errors()}
   def enable_import_findings_for_product(%Client{} = client, input, options \\ []) do
     url_path = "/productSubscriptions"
@@ -14342,6 +14381,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/organization/admin/enable"
@@ -14398,6 +14438,7 @@ defmodule AWS.SecurityHub do
   @spec enable_security_hub(map(), enable_security_hub_request(), list()) ::
           {:ok, enable_security_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_security_hub_errors()}
   def enable_security_hub(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -14431,6 +14472,7 @@ defmodule AWS.SecurityHub do
   @spec get_administrator_account(map(), list()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
@@ -14452,6 +14494,7 @@ defmodule AWS.SecurityHub do
   @spec get_configuration_policy(map(), String.t(), list()) ::
           {:ok, get_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_policy_errors()}
   def get_configuration_policy(%Client{} = client, identifier, options \\ []) do
     url_path = "/configurationPolicy/get/#{AWS.Util.encode_uri(identifier)}"
@@ -14480,6 +14523,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, get_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_policy_association_errors()}
   def get_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/get"
@@ -14508,6 +14552,7 @@ defmodule AWS.SecurityHub do
   @spec get_enabled_standards(map(), get_enabled_standards_request(), list()) ::
           {:ok, get_enabled_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_enabled_standards_errors()}
   def get_enabled_standards(%Client{} = client, input, options \\ []) do
     url_path = "/standards/get"
@@ -14541,6 +14586,7 @@ defmodule AWS.SecurityHub do
   @spec get_finding_aggregator(map(), String.t(), list()) ::
           {:ok, get_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_aggregator_errors()}
   def get_finding_aggregator(%Client{} = client, finding_aggregator_arn, options \\ []) do
     url_path =
@@ -14564,6 +14610,7 @@ defmodule AWS.SecurityHub do
   @spec get_finding_history(map(), get_finding_history_request(), list()) ::
           {:ok, get_finding_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_history_errors()}
   def get_finding_history(%Client{} = client, input, options \\ []) do
     url_path = "/findingHistory/get"
@@ -14596,6 +14643,7 @@ defmodule AWS.SecurityHub do
   @spec get_findings(map(), get_findings_request(), list()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_errors()}
   def get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
@@ -14624,6 +14672,7 @@ defmodule AWS.SecurityHub do
   @spec get_insight_results(map(), String.t(), list()) ::
           {:ok, get_insight_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_results_errors()}
   def get_insight_results(%Client{} = client, insight_arn, options \\ []) do
     url_path = "/insights/results/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
@@ -14641,6 +14690,7 @@ defmodule AWS.SecurityHub do
   @spec get_insights(map(), get_insights_request(), list()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insights_errors()}
   def get_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights/get"
@@ -14679,6 +14729,7 @@ defmodule AWS.SecurityHub do
   @spec get_invitations_count(map(), list()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
@@ -14712,6 +14763,7 @@ defmodule AWS.SecurityHub do
   @spec get_master_account(map(), list()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
@@ -14738,6 +14790,7 @@ defmodule AWS.SecurityHub do
   @spec get_members(map(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_members_errors()}
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/get"
@@ -14770,6 +14823,7 @@ defmodule AWS.SecurityHub do
   @spec get_security_control_definition(map(), String.t(), list()) ::
           {:ok, get_security_control_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_security_control_definition_errors()}
   def get_security_control_definition(%Client{} = client, security_control_id, options \\ []) do
     url_path = "/securityControl/definition"
@@ -14816,6 +14870,7 @@ defmodule AWS.SecurityHub do
   @spec invite_members(map(), invite_members_request(), list()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invite_members_errors()}
   def invite_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/invite"
@@ -14845,6 +14900,7 @@ defmodule AWS.SecurityHub do
   @spec list_automation_rules(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_automation_rules_errors()}
   def list_automation_rules(
         %Client{} = client,
@@ -14886,6 +14942,7 @@ defmodule AWS.SecurityHub do
   @spec list_configuration_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_policies_errors()}
   def list_configuration_policies(
         %Client{} = client,
@@ -14932,6 +14989,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, list_configuration_policy_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_policy_associations_errors()}
   def list_configuration_policy_associations(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/list"
@@ -14962,6 +15020,7 @@ defmodule AWS.SecurityHub do
   @spec list_enabled_products_for_import(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_enabled_products_for_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_enabled_products_for_import_errors()}
   def list_enabled_products_for_import(
         %Client{} = client,
@@ -15002,6 +15061,7 @@ defmodule AWS.SecurityHub do
   @spec list_finding_aggregators(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_finding_aggregators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_finding_aggregators_errors()}
   def list_finding_aggregators(
         %Client{} = client,
@@ -15051,6 +15111,7 @@ defmodule AWS.SecurityHub do
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -15088,6 +15149,7 @@ defmodule AWS.SecurityHub do
   @spec list_members(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
@@ -15135,6 +15197,7 @@ defmodule AWS.SecurityHub do
   @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -15178,6 +15241,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, list_security_control_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_control_definitions_errors()}
   def list_security_control_definitions(
         %Client{} = client,
@@ -15233,6 +15297,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, list_standards_control_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_standards_control_associations_errors()}
   def list_standards_control_associations(
         %Client{} = client,
@@ -15277,6 +15342,7 @@ defmodule AWS.SecurityHub do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -15305,6 +15371,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, start_configuration_policy_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_configuration_policy_association_errors()}
   def start_configuration_policy_association(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/associate"
@@ -15348,6 +15415,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, start_configuration_policy_disassociation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_configuration_policy_disassociation_errors()}
   def start_configuration_policy_disassociation(%Client{} = client, input, options \\ []) do
     url_path = "/configurationPolicyAssociation/disassociate"
@@ -15376,6 +15444,7 @@ defmodule AWS.SecurityHub do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -15404,6 +15473,7 @@ defmodule AWS.SecurityHub do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -15437,6 +15507,7 @@ defmodule AWS.SecurityHub do
   @spec update_action_target(map(), String.t(), update_action_target_request(), list()) ::
           {:ok, update_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_action_target_errors()}
   def update_action_target(%Client{} = client, action_target_arn, input, options \\ []) do
     url_path = "/actionTargets/#{AWS.Util.encode_multi_segment_uri(action_target_arn)}"
@@ -15474,6 +15545,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, update_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_policy_errors()}
   def update_configuration_policy(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/configurationPolicy/#{AWS.Util.encode_uri(identifier)}"
@@ -15510,6 +15582,7 @@ defmodule AWS.SecurityHub do
   @spec update_finding_aggregator(map(), update_finding_aggregator_request(), list()) ::
           {:ok, update_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_finding_aggregator_errors()}
   def update_finding_aggregator(%Client{} = client, input, options \\ []) do
     url_path = "/findingAggregator/update"
@@ -15554,6 +15627,7 @@ defmodule AWS.SecurityHub do
   @spec update_findings(map(), update_findings_request(), list()) ::
           {:ok, update_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_findings_errors()}
   def update_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
@@ -15582,6 +15656,7 @@ defmodule AWS.SecurityHub do
   @spec update_insight(map(), String.t(), update_insight_request(), list()) ::
           {:ok, update_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_insight_errors()}
   def update_insight(%Client{} = client, insight_arn, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_multi_segment_uri(insight_arn)}"
@@ -15617,6 +15692,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/organization/configuration"
@@ -15646,6 +15722,7 @@ defmodule AWS.SecurityHub do
   @spec update_security_control(map(), update_security_control_request(), list()) ::
           {:ok, update_security_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_control_errors()}
   def update_security_control(%Client{} = client, input, options \\ []) do
     url_path = "/securityControl/update"
@@ -15678,6 +15755,7 @@ defmodule AWS.SecurityHub do
         ) ::
           {:ok, update_security_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_hub_configuration_errors()}
   def update_security_hub_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/accounts"
@@ -15711,6 +15789,7 @@ defmodule AWS.SecurityHub do
   @spec update_standards_control(map(), String.t(), update_standards_control_request(), list()) ::
           {:ok, update_standards_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_standards_control_errors()}
   def update_standards_control(%Client{} = client, standards_control_arn, input, options \\ []) do
     url_path = "/standards/control/#{AWS.Util.encode_multi_segment_uri(standards_control_arn)}"

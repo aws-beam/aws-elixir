@@ -2176,6 +2176,7 @@ defmodule AWS.Firehose do
   @spec create_delivery_stream(map(), create_delivery_stream_input(), list()) ::
           {:ok, create_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_delivery_stream_errors()}
   def create_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2212,6 +2213,7 @@ defmodule AWS.Firehose do
   @spec delete_delivery_stream(map(), delete_delivery_stream_input(), list()) ::
           {:ok, delete_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_delivery_stream_errors()}
   def delete_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2236,6 +2238,7 @@ defmodule AWS.Firehose do
   @spec describe_delivery_stream(map(), describe_delivery_stream_input(), list()) ::
           {:ok, describe_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_delivery_stream_errors()}
   def describe_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2259,6 +2262,7 @@ defmodule AWS.Firehose do
   @spec list_delivery_streams(map(), list_delivery_streams_input(), list()) ::
           {:ok, list_delivery_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_delivery_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2274,6 +2278,7 @@ defmodule AWS.Firehose do
   @spec list_tags_for_delivery_stream(map(), list_tags_for_delivery_stream_input(), list()) ::
           {:ok, list_tags_for_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_delivery_stream_errors()}
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2356,6 +2361,7 @@ defmodule AWS.Firehose do
   @spec put_record(map(), put_record_input(), list()) ::
           {:ok, put_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2463,6 +2469,7 @@ defmodule AWS.Firehose do
   @spec put_record_batch(map(), put_record_batch_input(), list()) ::
           {:ok, put_record_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_record_batch_errors()}
   def put_record_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2530,6 +2537,7 @@ defmodule AWS.Firehose do
   @spec start_delivery_stream_encryption(map(), start_delivery_stream_encryption_input(), list()) ::
           {:ok, start_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_delivery_stream_encryption_errors()}
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2569,6 +2577,7 @@ defmodule AWS.Firehose do
   @spec stop_delivery_stream_encryption(map(), stop_delivery_stream_encryption_input(), list()) ::
           {:ok, stop_delivery_stream_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_delivery_stream_encryption_errors()}
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2599,6 +2608,7 @@ defmodule AWS.Firehose do
   @spec tag_delivery_stream(map(), tag_delivery_stream_input(), list()) ::
           {:ok, tag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_delivery_stream_errors()}
   def tag_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2619,6 +2629,7 @@ defmodule AWS.Firehose do
   @spec untag_delivery_stream(map(), untag_delivery_stream_input(), list()) ::
           {:ok, untag_delivery_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_delivery_stream_errors()}
   def untag_delivery_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2673,6 +2684,7 @@ defmodule AWS.Firehose do
   @spec update_destination(map(), update_destination_input(), list()) ::
           {:ok, update_destination_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()

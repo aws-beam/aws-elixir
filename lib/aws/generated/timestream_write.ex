@@ -1149,6 +1149,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_batch_load_task(map(), create_batch_load_task_request(), list()) ::
           {:ok, create_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_load_task_errors()}
   def create_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1169,6 +1170,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_database(map(), create_database_request(), list()) ::
           {:ok, create_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1193,6 +1195,7 @@ defmodule AWS.TimestreamWrite do
   @spec create_table(map(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1222,6 +1225,7 @@ defmodule AWS.TimestreamWrite do
   @spec delete_database(map(), delete_database_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1246,6 +1250,7 @@ defmodule AWS.TimestreamWrite do
   @spec delete_table(map(), delete_table_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1266,6 +1271,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_batch_load_task(map(), describe_batch_load_task_request(), list()) ::
           {:ok, describe_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_batch_load_task_errors()}
   def describe_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1286,6 +1292,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_database(map(), describe_database_request(), list()) ::
           {:ok, describe_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_database_errors()}
   def describe_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1321,6 +1328,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1341,6 +1349,7 @@ defmodule AWS.TimestreamWrite do
   @spec describe_table(map(), describe_table_request(), list()) ::
           {:ok, describe_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1359,6 +1368,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_batch_load_tasks(map(), list_batch_load_tasks_request(), list()) ::
           {:ok, list_batch_load_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_load_tasks_errors()}
   def list_batch_load_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1378,6 +1388,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_databases(map(), list_databases_request(), list()) ::
           {:ok, list_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1396,6 +1407,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1409,6 +1421,7 @@ defmodule AWS.TimestreamWrite do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1419,6 +1432,7 @@ defmodule AWS.TimestreamWrite do
   @spec resume_batch_load_task(map(), resume_batch_load_task_request(), list()) ::
           {:ok, resume_batch_load_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_batch_load_task_errors()}
   def resume_batch_load_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1437,6 +1451,7 @@ defmodule AWS.TimestreamWrite do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1450,6 +1465,7 @@ defmodule AWS.TimestreamWrite do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1471,6 +1487,7 @@ defmodule AWS.TimestreamWrite do
   @spec update_database(map(), update_database_request(), list()) ::
           {:ok, update_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1497,6 +1514,7 @@ defmodule AWS.TimestreamWrite do
   @spec update_table(map(), update_table_request(), list()) ::
           {:ok, update_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1559,6 +1577,7 @@ defmodule AWS.TimestreamWrite do
   @spec write_records(map(), write_records_request(), list()) ::
           {:ok, write_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, write_records_errors()}
   def write_records(%Client{} = client, input, options \\ []) do
     meta = metadata()

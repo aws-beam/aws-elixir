@@ -1205,6 +1205,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_cell(map(), create_cell_request(), list()) ::
           {:ok, create_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cell_errors()}
   def create_cell(%Client{} = client, input, options \\ []) do
     url_path = "/cells"
@@ -1241,6 +1242,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, create_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cross_account_authorization_errors()}
   def create_cross_account_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/crossaccountauthorizations"
@@ -1274,6 +1276,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_readiness_check(map(), create_readiness_check_request(), list()) ::
           {:ok, create_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_readiness_check_errors()}
   def create_readiness_check(%Client{} = client, input, options \\ []) do
     url_path = "/readinesschecks"
@@ -1305,6 +1308,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_recovery_group(map(), create_recovery_group_request(), list()) ::
           {:ok, create_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recovery_group_errors()}
   def create_recovery_group(%Client{} = client, input, options \\ []) do
     url_path = "/recoverygroups"
@@ -1337,6 +1341,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec create_resource_set(map(), create_resource_set_request(), list()) ::
           {:ok, create_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_set_errors()}
   def create_resource_set(%Client{} = client, input, options \\ []) do
     url_path = "/resourcesets"
@@ -1367,6 +1372,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_cell(map(), String.t(), delete_cell_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cell_errors()}
   def delete_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -1400,6 +1406,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, delete_cross_account_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cross_account_authorization_errors()}
   def delete_cross_account_authorization(
         %Client{} = client,
@@ -1433,6 +1440,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_readiness_check(map(), String.t(), delete_readiness_check_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_readiness_check_errors()}
   def delete_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -1461,6 +1469,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_recovery_group(map(), String.t(), delete_recovery_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recovery_group_errors()}
   def delete_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -1489,6 +1498,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec delete_resource_set(map(), String.t(), delete_resource_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
@@ -1524,6 +1534,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_architecture_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_architecture_recommendations_errors()}
   def get_architecture_recommendations(
         %Client{} = client,
@@ -1565,6 +1576,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_cell(map(), String.t(), list()) ::
           {:ok, get_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cell_errors()}
   def get_cell(%Client{} = client, cell_name, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -1585,6 +1597,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_cell_readiness_summary(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_cell_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cell_readiness_summary_errors()}
   def get_cell_readiness_summary(
         %Client{} = client,
@@ -1622,6 +1635,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_readiness_check(map(), String.t(), list()) ::
           {:ok, get_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_readiness_check_errors()}
   def get_readiness_check(%Client{} = client, readiness_check_name, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -1650,6 +1664,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_readiness_check_resource_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_readiness_check_resource_status_errors()}
   def get_readiness_check_resource_status(
         %Client{} = client,
@@ -1694,6 +1709,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_readiness_check_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_readiness_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_readiness_check_status_errors()}
   def get_readiness_check_status(
         %Client{} = client,
@@ -1732,6 +1748,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_recovery_group(map(), String.t(), list()) ::
           {:ok, get_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recovery_group_errors()}
   def get_recovery_group(%Client{} = client, recovery_group_name, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -1758,6 +1775,7 @@ defmodule AWS.Route53RecoveryReadiness do
         ) ::
           {:ok, get_recovery_group_readiness_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recovery_group_readiness_summary_errors()}
   def get_recovery_group_readiness_summary(
         %Client{} = client,
@@ -1796,6 +1814,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec get_resource_set(map(), String.t(), list()) ::
           {:ok, get_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, resource_set_name, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"
@@ -1813,6 +1832,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_cells(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cells_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cells_errors()}
   def list_cells(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cells"
@@ -1845,6 +1865,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_cross_account_authorizations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cross_account_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cross_account_authorizations_errors()}
   def list_cross_account_authorizations(
         %Client{} = client,
@@ -1881,6 +1902,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_readiness_checks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_readiness_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_readiness_checks_errors()}
   def list_readiness_checks(
         %Client{} = client,
@@ -1917,6 +1939,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_recovery_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_recovery_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recovery_groups_errors()}
   def list_recovery_groups(
         %Client{} = client,
@@ -1953,6 +1976,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_resource_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_resource_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/resourcesets"
@@ -1985,6 +2009,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(
         %Client{} = client,
@@ -2029,6 +2054,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec list_tags_for_resources(map(), String.t(), list()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resources_errors()}
   def list_tags_for_resources(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2046,6 +2072,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2074,6 +2101,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2108,6 +2136,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_cell(map(), String.t(), update_cell_request(), list()) ::
           {:ok, update_cell_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cell_errors()}
   def update_cell(%Client{} = client, cell_name, input, options \\ []) do
     url_path = "/cells/#{AWS.Util.encode_uri(cell_name)}"
@@ -2136,6 +2165,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_readiness_check(map(), String.t(), update_readiness_check_request(), list()) ::
           {:ok, update_readiness_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_readiness_check_errors()}
   def update_readiness_check(%Client{} = client, readiness_check_name, input, options \\ []) do
     url_path = "/readinesschecks/#{AWS.Util.encode_uri(readiness_check_name)}"
@@ -2164,6 +2194,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_recovery_group(map(), String.t(), update_recovery_group_request(), list()) ::
           {:ok, update_recovery_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recovery_group_errors()}
   def update_recovery_group(%Client{} = client, recovery_group_name, input, options \\ []) do
     url_path = "/recoverygroups/#{AWS.Util.encode_uri(recovery_group_name)}"
@@ -2192,6 +2223,7 @@ defmodule AWS.Route53RecoveryReadiness do
   @spec update_resource_set(map(), String.t(), update_resource_set_request(), list()) ::
           {:ok, update_resource_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_set_errors()}
   def update_resource_set(%Client{} = client, resource_set_name, input, options \\ []) do
     url_path = "/resourcesets/#{AWS.Util.encode_uri(resource_set_name)}"

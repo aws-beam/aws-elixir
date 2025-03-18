@@ -1768,6 +1768,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, cancel_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_batch_job_execution_errors()}
   def cancel_batch_job_execution(
         %Client{} = client,
@@ -1807,6 +1808,7 @@ defmodule AWS.M2 do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1840,6 +1842,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, create_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_set_import_task_errors()}
   def create_data_set_import_task(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-import-task"
@@ -1869,6 +1872,7 @@ defmodule AWS.M2 do
   @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/deployments"
@@ -1897,6 +1901,7 @@ defmodule AWS.M2 do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environments"
@@ -1927,6 +1932,7 @@ defmodule AWS.M2 do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -1969,6 +1975,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, delete_application_from_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_from_environment_errors()}
   def delete_application_from_environment(
         %Client{} = client,
@@ -2010,6 +2017,7 @@ defmodule AWS.M2 do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -2038,6 +2046,7 @@ defmodule AWS.M2 do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -2055,6 +2064,7 @@ defmodule AWS.M2 do
   @spec get_application_version(map(), String.t(), String.t(), list()) ::
           {:ok, get_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_version_errors()}
   def get_application_version(
         %Client{} = client,
@@ -2079,6 +2089,7 @@ defmodule AWS.M2 do
   @spec get_batch_job_execution(map(), String.t(), String.t(), list()) ::
           {:ok, get_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_batch_job_execution_errors()}
   def get_batch_job_execution(%Client{} = client, application_id, execution_id, options \\ []) do
     url_path =
@@ -2098,6 +2109,7 @@ defmodule AWS.M2 do
   @spec get_data_set_details(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_set_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_set_details_errors()}
   def get_data_set_details(%Client{} = client, application_id, data_set_name, options \\ []) do
     url_path =
@@ -2118,6 +2130,7 @@ defmodule AWS.M2 do
   @spec get_data_set_import_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_set_import_task_errors()}
   def get_data_set_import_task(%Client{} = client, application_id, task_id, options \\ []) do
     url_path =
@@ -2137,6 +2150,7 @@ defmodule AWS.M2 do
   @spec get_deployment(map(), String.t(), String.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, application_id, deployment_id, options \\ []) do
     url_path =
@@ -2156,6 +2170,7 @@ defmodule AWS.M2 do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -2173,6 +2188,7 @@ defmodule AWS.M2 do
   @spec get_signed_bluinsights_url(map(), list()) ::
           {:ok, get_signed_bluinsights_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signed_bluinsights_url_errors()}
   def get_signed_bluinsights_url(%Client{} = client, options \\ []) do
     url_path = "/signed-bi-url"
@@ -2190,6 +2206,7 @@ defmodule AWS.M2 do
   @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_versions_errors()}
   def list_application_versions(
         %Client{} = client,
@@ -2239,6 +2256,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
@@ -2303,6 +2321,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_batch_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_job_definitions_errors()}
   def list_batch_job_definitions(
         %Client{} = client,
@@ -2360,6 +2379,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_batch_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_job_executions_errors()}
   def list_batch_job_executions(
         %Client{} = client,
@@ -2439,6 +2459,7 @@ defmodule AWS.M2 do
   @spec list_batch_job_restart_points(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_batch_job_restart_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_batch_job_restart_points_errors()}
   def list_batch_job_restart_points(
         %Client{} = client,
@@ -2477,6 +2498,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_data_set_import_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_set_import_history_errors()}
   def list_data_set_import_history(
         %Client{} = client,
@@ -2529,6 +2551,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sets_errors()}
   def list_data_sets(
         %Client{} = client,
@@ -2587,6 +2610,7 @@ defmodule AWS.M2 do
   @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
@@ -2624,6 +2648,7 @@ defmodule AWS.M2 do
   @spec list_engine_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engine_versions_errors()}
   def list_engine_versions(
         %Client{} = client,
@@ -2675,6 +2700,7 @@ defmodule AWS.M2 do
         ) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(
         %Client{} = client,
@@ -2727,6 +2753,7 @@ defmodule AWS.M2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2744,6 +2771,7 @@ defmodule AWS.M2 do
   @spec start_application(map(), String.t(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
@@ -2775,6 +2803,7 @@ defmodule AWS.M2 do
   @spec start_batch_job(map(), String.t(), start_batch_job_request(), list()) ::
           {:ok, start_batch_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_batch_job_errors()}
   def start_batch_job(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/batch-job"
@@ -2803,6 +2832,7 @@ defmodule AWS.M2 do
   @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
@@ -2831,6 +2861,7 @@ defmodule AWS.M2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2859,6 +2890,7 @@ defmodule AWS.M2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2892,6 +2924,7 @@ defmodule AWS.M2 do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -2920,6 +2953,7 @@ defmodule AWS.M2 do
   @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environments/#{AWS.Util.encode_uri(environment_id)}"

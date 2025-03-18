@@ -885,6 +885,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec associate_user(map(), associate_user_request(), list()) ::
           {:ok, associate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_user_errors()}
   def associate_user(%Client{} = client, input, options \\ []) do
     url_path = "/user/AssociateUser"
@@ -913,6 +914,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec create_license_server_endpoint(map(), create_license_server_endpoint_request(), list()) ::
           {:ok, create_license_server_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_server_endpoint_errors()}
   def create_license_server_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/CreateLicenseServerEndpoint"
@@ -941,6 +943,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec delete_license_server_endpoint(map(), delete_license_server_endpoint_request(), list()) ::
           {:ok, delete_license_server_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_license_server_endpoint_errors()}
   def delete_license_server_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/DeleteLicenseServerEndpoint"
@@ -970,6 +973,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec deregister_identity_provider(map(), deregister_identity_provider_request(), list()) ::
           {:ok, deregister_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_identity_provider_errors()}
   def deregister_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/DeregisterIdentityProvider"
@@ -998,6 +1002,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec disassociate_user(map(), disassociate_user_request(), list()) ::
           {:ok, disassociate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_user_errors()}
   def disassociate_user(%Client{} = client, input, options \\ []) do
     url_path = "/user/DisassociateUser"
@@ -1026,6 +1031,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_identity_providers(map(), list_identity_providers_request(), list()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_providers_errors()}
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/ListIdentityProviders"
@@ -1054,6 +1060,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_instances(map(), list_instances_request(), list()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
     url_path = "/instance/ListInstances"
@@ -1082,6 +1089,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_license_server_endpoints(map(), list_license_server_endpoints_request(), list()) ::
           {:ok, list_license_server_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_server_endpoints_errors()}
   def list_license_server_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/license-server/ListLicenseServerEndpoints"
@@ -1110,6 +1118,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_product_subscriptions(map(), list_product_subscriptions_request(), list()) ::
           {:ok, list_product_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_product_subscriptions_errors()}
   def list_product_subscriptions(%Client{} = client, input, options \\ []) do
     url_path = "/user/ListProductSubscriptions"
@@ -1138,6 +1147,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1155,6 +1165,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec list_user_associations(map(), list_user_associations_request(), list()) ::
           {:ok, list_user_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_associations_errors()}
   def list_user_associations(%Client{} = client, input, options \\ []) do
     url_path = "/user/ListUserAssociations"
@@ -1183,6 +1194,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec register_identity_provider(map(), register_identity_provider_request(), list()) ::
           {:ok, register_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_identity_provider_errors()}
   def register_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/RegisterIdentityProvider"
@@ -1219,6 +1231,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec start_product_subscription(map(), start_product_subscription_request(), list()) ::
           {:ok, start_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_product_subscription_errors()}
   def start_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StartProductSubscription"
@@ -1247,6 +1260,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec stop_product_subscription(map(), stop_product_subscription_request(), list()) ::
           {:ok, stop_product_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_product_subscription_errors()}
   def stop_product_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/user/StopProductSubscription"
@@ -1275,6 +1289,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1303,6 +1318,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1341,6 +1357,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
         ) ::
           {:ok, update_identity_provider_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_identity_provider_settings_errors()}
   def update_identity_provider_settings(%Client{} = client, input, options \\ []) do
     url_path = "/identity-provider/UpdateIdentityProviderSettings"

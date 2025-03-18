@@ -1120,6 +1120,7 @@ defmodule AWS.SecretsManager do
   @spec batch_get_secret_value(map(), batch_get_secret_value_request(), list()) ::
           {:ok, batch_get_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_secret_value_errors()}
   def batch_get_secret_value(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1161,6 +1162,7 @@ defmodule AWS.SecretsManager do
   @spec cancel_rotate_secret(map(), cancel_rotate_secret_request(), list()) ::
           {:ok, cancel_rotate_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_rotate_secret_errors()}
   def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1243,6 +1245,7 @@ defmodule AWS.SecretsManager do
   @spec create_secret(map(), create_secret_request(), list()) ::
           {:ok, create_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_secret_errors()}
   def create_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1271,6 +1274,7 @@ defmodule AWS.SecretsManager do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1338,6 +1342,7 @@ defmodule AWS.SecretsManager do
   @spec delete_secret(map(), delete_secret_request(), list()) ::
           {:ok, delete_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_secret_errors()}
   def delete_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1366,6 +1371,7 @@ defmodule AWS.SecretsManager do
   @spec describe_secret(map(), describe_secret_request(), list()) ::
           {:ok, describe_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_secret_errors()}
   def describe_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1395,6 +1401,7 @@ defmodule AWS.SecretsManager do
   @spec get_random_password(map(), get_random_password_request(), list()) ::
           {:ok, get_random_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_random_password_errors()}
   def get_random_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1425,6 +1432,7 @@ defmodule AWS.SecretsManager do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1465,6 +1473,7 @@ defmodule AWS.SecretsManager do
   @spec get_secret_value(map(), get_secret_value_request(), list()) ::
           {:ok, get_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_secret_value_errors()}
   def get_secret_value(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1497,6 +1506,7 @@ defmodule AWS.SecretsManager do
   @spec list_secret_version_ids(map(), list_secret_version_ids_request(), list()) ::
           {:ok, list_secret_version_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_secret_version_ids_errors()}
   def list_secret_version_ids(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1538,6 +1548,7 @@ defmodule AWS.SecretsManager do
   @spec list_secrets(map(), list_secrets_request(), list()) ::
           {:ok, list_secrets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_secrets_errors()}
   def list_secrets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1570,6 +1581,7 @@ defmodule AWS.SecretsManager do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1637,6 +1649,7 @@ defmodule AWS.SecretsManager do
   @spec put_secret_value(map(), put_secret_value_request(), list()) ::
           {:ok, put_secret_value_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_secret_value_errors()}
   def put_secret_value(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1663,6 +1676,7 @@ defmodule AWS.SecretsManager do
   @spec remove_regions_from_replication(map(), remove_regions_from_replication_request(), list()) ::
           {:ok, remove_regions_from_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_regions_from_replication_errors()}
   def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1694,6 +1708,7 @@ defmodule AWS.SecretsManager do
   @spec replicate_secret_to_regions(map(), replicate_secret_to_regions_request(), list()) ::
           {:ok, replicate_secret_to_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, replicate_secret_to_regions_errors()}
   def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1722,6 +1737,7 @@ defmodule AWS.SecretsManager do
   @spec restore_secret(map(), restore_secret_request(), list()) ::
           {:ok, restore_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_secret_errors()}
   def restore_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1769,6 +1785,7 @@ defmodule AWS.SecretsManager do
   @spec rotate_secret(map(), rotate_secret_request(), list()) ::
           {:ok, rotate_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rotate_secret_errors()}
   def rotate_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1798,6 +1815,7 @@ defmodule AWS.SecretsManager do
   @spec stop_replication_to_replica(map(), stop_replication_to_replica_request(), list()) ::
           {:ok, stop_replication_to_replica_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_replication_to_replica_errors()}
   def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1839,6 +1857,7 @@ defmodule AWS.SecretsManager do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1876,6 +1895,7 @@ defmodule AWS.SecretsManager do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1947,6 +1967,7 @@ defmodule AWS.SecretsManager do
   @spec update_secret(map(), update_secret_request(), list()) ::
           {:ok, update_secret_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_secret_errors()}
   def update_secret(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1997,6 +2018,7 @@ defmodule AWS.SecretsManager do
   @spec update_secret_version_stage(map(), update_secret_version_stage_request(), list()) ::
           {:ok, update_secret_version_stage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_secret_version_stage_errors()}
   def update_secret_version_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2041,6 +2063,7 @@ defmodule AWS.SecretsManager do
   @spec validate_resource_policy(map(), validate_resource_policy_request(), list()) ::
           {:ok, validate_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_resource_policy_errors()}
   def validate_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

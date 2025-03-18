@@ -8906,6 +8906,7 @@ defmodule AWS.DataZone do
   @spec accept_predictions(map(), String.t(), String.t(), accept_predictions_input(), list()) ::
           {:ok, accept_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_predictions_errors()}
   def accept_predictions(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -8947,6 +8948,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, accept_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_subscription_request_errors()}
   def accept_subscription_request(
         %Client{} = client,
@@ -8990,6 +8992,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, add_entity_owner_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_entity_owner_errors()}
   def add_entity_owner(
         %Client{} = client,
@@ -9036,6 +9039,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, add_policy_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_policy_grant_errors()}
   def add_policy_grant(
         %Client{} = client,
@@ -9080,6 +9084,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, associate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_environment_role_errors()}
   def associate_environment_role(
         %Client{} = client,
@@ -9123,6 +9128,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, cancel_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_metadata_generation_run_errors()}
   def cancel_metadata_generation_run(
         %Client{} = client,
@@ -9159,6 +9165,7 @@ defmodule AWS.DataZone do
   @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_input(), list()) ::
           {:ok, cancel_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_subscription_errors()}
   def cancel_subscription(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -9189,6 +9196,7 @@ defmodule AWS.DataZone do
   @spec create_asset(map(), String.t(), create_asset_input(), list()) ::
           {:ok, create_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_errors()}
   def create_asset(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets"
@@ -9217,6 +9225,7 @@ defmodule AWS.DataZone do
   @spec create_asset_filter(map(), String.t(), String.t(), create_asset_filter_input(), list()) ::
           {:ok, create_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_filter_errors()}
   def create_asset_filter(
         %Client{} = client,
@@ -9259,6 +9268,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_asset_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_revision_errors()}
   def create_asset_revision(
         %Client{} = client,
@@ -9295,6 +9305,7 @@ defmodule AWS.DataZone do
   @spec create_asset_type(map(), String.t(), create_asset_type_input(), list()) ::
           {:ok, create_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_asset_type_errors()}
   def create_asset_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/asset-types"
@@ -9327,6 +9338,7 @@ defmodule AWS.DataZone do
   @spec create_connection(map(), String.t(), create_connection_input(), list()) ::
           {:ok, create_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/connections"
@@ -9355,6 +9367,7 @@ defmodule AWS.DataZone do
   @spec create_data_product(map(), String.t(), create_data_product_input(), list()) ::
           {:ok, create_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_product_errors()}
   def create_data_product(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-products"
@@ -9389,6 +9402,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_data_product_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_product_revision_errors()}
   def create_data_product_revision(
         %Client{} = client,
@@ -9425,6 +9439,7 @@ defmodule AWS.DataZone do
   @spec create_data_source(map(), String.t(), create_data_source_input(), list()) ::
           {:ok, create_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/data-sources"
@@ -9453,6 +9468,7 @@ defmodule AWS.DataZone do
   @spec create_domain(map(), create_domain_input(), list()) ::
           {:ok, create_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     url_path = "/v2/domains"
@@ -9481,6 +9497,7 @@ defmodule AWS.DataZone do
   @spec create_domain_unit(map(), String.t(), create_domain_unit_input(), list()) ::
           {:ok, create_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_unit_errors()}
   def create_domain_unit(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/domain-units"
@@ -9509,6 +9526,7 @@ defmodule AWS.DataZone do
   @spec create_environment(map(), String.t(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environments"
@@ -9545,6 +9563,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_action_errors()}
   def create_environment_action(
         %Client{} = client,
@@ -9581,6 +9600,7 @@ defmodule AWS.DataZone do
   @spec create_environment_profile(map(), String.t(), create_environment_profile_input(), list()) ::
           {:ok, create_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_profile_errors()}
   def create_environment_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/environment-profiles"
@@ -9609,6 +9629,7 @@ defmodule AWS.DataZone do
   @spec create_form_type(map(), String.t(), create_form_type_input(), list()) ::
           {:ok, create_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_form_type_errors()}
   def create_form_type(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/form-types"
@@ -9637,6 +9658,7 @@ defmodule AWS.DataZone do
   @spec create_glossary(map(), String.t(), create_glossary_input(), list()) ::
           {:ok, create_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_glossary_errors()}
   def create_glossary(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossaries"
@@ -9665,6 +9687,7 @@ defmodule AWS.DataZone do
   @spec create_glossary_term(map(), String.t(), create_glossary_term_input(), list()) ::
           {:ok, create_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_glossary_term_errors()}
   def create_glossary_term(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/glossary-terms"
@@ -9693,6 +9716,7 @@ defmodule AWS.DataZone do
   @spec create_group_profile(map(), String.t(), create_group_profile_input(), list()) ::
           {:ok, create_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_profile_errors()}
   def create_group_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/group-profiles"
@@ -9723,6 +9747,7 @@ defmodule AWS.DataZone do
   @spec create_listing_change_set(map(), String.t(), create_listing_change_set_input(), list()) ::
           {:ok, create_listing_change_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_listing_change_set_errors()}
   def create_listing_change_set(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/change-set"
@@ -9751,6 +9776,7 @@ defmodule AWS.DataZone do
   @spec create_project(map(), String.t(), create_project_input(), list()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/projects"
@@ -9785,6 +9811,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_membership_errors()}
   def create_project_membership(
         %Client{} = client,
@@ -9821,6 +9848,7 @@ defmodule AWS.DataZone do
   @spec create_project_profile(map(), String.t(), create_project_profile_input(), list()) ::
           {:ok, create_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_profile_errors()}
   def create_project_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/project-profiles"
@@ -9862,6 +9890,7 @@ defmodule AWS.DataZone do
   @spec create_rule(map(), String.t(), create_rule_input(), list()) ::
           {:ok, create_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/rules"
@@ -9890,6 +9919,7 @@ defmodule AWS.DataZone do
   @spec create_subscription_grant(map(), String.t(), create_subscription_grant_input(), list()) ::
           {:ok, create_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_grant_errors()}
   def create_subscription_grant(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-grants"
@@ -9923,6 +9953,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_request_errors()}
   def create_subscription_request(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/subscription-requests"
@@ -9957,6 +9988,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, create_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_target_errors()}
   def create_subscription_target(
         %Client{} = client,
@@ -9993,6 +10025,7 @@ defmodule AWS.DataZone do
   @spec create_user_profile(map(), String.t(), create_user_profile_input(), list()) ::
           {:ok, create_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/user-profiles"
@@ -10021,6 +10054,7 @@ defmodule AWS.DataZone do
   @spec delete_asset(map(), String.t(), String.t(), delete_asset_input(), list()) ::
           {:ok, delete_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_errors()}
   def delete_asset(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10058,6 +10092,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_filter_errors()}
   def delete_asset_filter(
         %Client{} = client,
@@ -10095,6 +10130,7 @@ defmodule AWS.DataZone do
   @spec delete_asset_type(map(), String.t(), String.t(), delete_asset_type_input(), list()) ::
           {:ok, delete_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_type_errors()}
   def delete_asset_type(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10129,6 +10165,7 @@ defmodule AWS.DataZone do
   @spec delete_connection(map(), String.t(), String.t(), delete_connection_input(), list()) ::
           {:ok, delete_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10159,6 +10196,7 @@ defmodule AWS.DataZone do
   @spec delete_data_product(map(), String.t(), String.t(), delete_data_product_input(), list()) ::
           {:ok, delete_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_product_errors()}
   def delete_data_product(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10189,6 +10227,7 @@ defmodule AWS.DataZone do
   @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_input(), list()) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10225,6 +10264,7 @@ defmodule AWS.DataZone do
   @spec delete_domain(map(), String.t(), delete_domain_input(), list()) ::
           {:ok, delete_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
@@ -10259,6 +10299,7 @@ defmodule AWS.DataZone do
   @spec delete_domain_unit(map(), String.t(), String.t(), delete_domain_unit_input(), list()) ::
           {:ok, delete_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_unit_errors()}
   def delete_domain_unit(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10289,6 +10330,7 @@ defmodule AWS.DataZone do
   @spec delete_environment(map(), String.t(), String.t(), delete_environment_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10328,6 +10370,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_action_errors()}
   def delete_environment_action(
         %Client{} = client,
@@ -10371,6 +10414,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, delete_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_blueprint_configuration_errors()}
   def delete_environment_blueprint_configuration(
         %Client{} = client,
@@ -10413,6 +10457,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_profile_errors()}
   def delete_environment_profile(
         %Client{} = client,
@@ -10449,6 +10494,7 @@ defmodule AWS.DataZone do
   @spec delete_form_type(map(), String.t(), String.t(), delete_form_type_input(), list()) ::
           {:ok, delete_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_form_type_errors()}
   def delete_form_type(
         %Client{} = client,
@@ -10485,6 +10531,7 @@ defmodule AWS.DataZone do
   @spec delete_glossary(map(), String.t(), String.t(), delete_glossary_input(), list()) ::
           {:ok, delete_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_glossary_errors()}
   def delete_glossary(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10515,6 +10562,7 @@ defmodule AWS.DataZone do
   @spec delete_glossary_term(map(), String.t(), String.t(), delete_glossary_term_input(), list()) ::
           {:ok, delete_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_glossary_term_errors()}
   def delete_glossary_term(
         %Client{} = client,
@@ -10551,6 +10599,7 @@ defmodule AWS.DataZone do
   @spec delete_listing(map(), String.t(), String.t(), delete_listing_input(), list()) ::
           {:ok, delete_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_listing_errors()}
   def delete_listing(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10581,6 +10630,7 @@ defmodule AWS.DataZone do
   @spec delete_project(map(), String.t(), String.t(), delete_project_input(), list()) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10622,6 +10672,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, delete_project_membership_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_membership_errors()}
   def delete_project_membership(
         %Client{} = client,
@@ -10664,6 +10715,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, delete_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_profile_errors()}
   def delete_project_profile(
         %Client{} = client,
@@ -10713,6 +10765,7 @@ defmodule AWS.DataZone do
   @spec delete_rule(map(), String.t(), String.t(), delete_rule_input(), list()) ::
           {:ok, delete_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -10749,6 +10802,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, delete_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_grant_errors()}
   def delete_subscription_grant(
         %Client{} = client,
@@ -10791,6 +10845,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_request_errors()}
   def delete_subscription_request(
         %Client{} = client,
@@ -10834,6 +10889,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_subscription_target_errors()}
   def delete_subscription_target(
         %Client{} = client,
@@ -10878,6 +10934,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, delete_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_time_series_data_points_errors()}
   def delete_time_series_data_points(
         %Client{} = client,
@@ -10928,6 +10985,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, disassociate_environment_role_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_environment_role_errors()}
   def disassociate_environment_role(
         %Client{} = client,
@@ -10965,6 +11023,7 @@ defmodule AWS.DataZone do
   @spec get_asset(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_asset_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_errors()}
   def get_asset(%Client{} = client, domain_identifier, identifier, revision \\ nil, options \\ []) do
     url_path =
@@ -10991,6 +11050,7 @@ defmodule AWS.DataZone do
   @spec get_asset_filter(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_filter_errors()}
   def get_asset_filter(
         %Client{} = client,
@@ -11016,6 +11076,7 @@ defmodule AWS.DataZone do
   @spec get_asset_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_asset_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_type_errors()}
   def get_asset_type(
         %Client{} = client,
@@ -11052,6 +11113,7 @@ defmodule AWS.DataZone do
   @spec get_connection(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(
         %Client{} = client,
@@ -11084,6 +11146,7 @@ defmodule AWS.DataZone do
   @spec get_data_product(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_data_product_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_product_errors()}
   def get_data_product(
         %Client{} = client,
@@ -11116,6 +11179,7 @@ defmodule AWS.DataZone do
   @spec get_data_source(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11135,6 +11199,7 @@ defmodule AWS.DataZone do
   @spec get_data_source_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_run_errors()}
   def get_data_source_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11154,6 +11219,7 @@ defmodule AWS.DataZone do
   @spec get_domain(map(), String.t(), list()) ::
           {:ok, get_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, identifier, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
@@ -11171,6 +11237,7 @@ defmodule AWS.DataZone do
   @spec get_domain_unit(map(), String.t(), String.t(), list()) ::
           {:ok, get_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_unit_errors()}
   def get_domain_unit(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11190,6 +11257,7 @@ defmodule AWS.DataZone do
   @spec get_environment(map(), String.t(), String.t(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11209,6 +11277,7 @@ defmodule AWS.DataZone do
   @spec get_environment_action(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_action_errors()}
   def get_environment_action(
         %Client{} = client,
@@ -11234,6 +11303,7 @@ defmodule AWS.DataZone do
   @spec get_environment_blueprint(map(), String.t(), String.t(), list()) ::
           {:ok, get_environment_blueprint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_blueprint_errors()}
   def get_environment_blueprint(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11253,6 +11323,7 @@ defmodule AWS.DataZone do
   @spec get_environment_blueprint_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_blueprint_configuration_errors()}
   def get_environment_blueprint_configuration(
         %Client{} = client,
@@ -11277,6 +11348,7 @@ defmodule AWS.DataZone do
   @spec get_environment_credentials(map(), String.t(), String.t(), list()) ::
           {:ok, get_environment_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_credentials_errors()}
   def get_environment_credentials(
         %Client{} = client,
@@ -11301,6 +11373,7 @@ defmodule AWS.DataZone do
   @spec get_environment_profile(map(), String.t(), String.t(), list()) ::
           {:ok, get_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_profile_errors()}
   def get_environment_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11320,6 +11393,7 @@ defmodule AWS.DataZone do
   @spec get_form_type(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_form_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_form_type_errors()}
   def get_form_type(
         %Client{} = client,
@@ -11352,6 +11426,7 @@ defmodule AWS.DataZone do
   @spec get_glossary(map(), String.t(), String.t(), list()) ::
           {:ok, get_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_glossary_errors()}
   def get_glossary(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11371,6 +11446,7 @@ defmodule AWS.DataZone do
   @spec get_glossary_term(map(), String.t(), String.t(), list()) ::
           {:ok, get_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_glossary_term_errors()}
   def get_glossary_term(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11390,6 +11466,7 @@ defmodule AWS.DataZone do
   @spec get_group_profile(map(), String.t(), String.t(), list()) ::
           {:ok, get_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_profile_errors()}
   def get_group_profile(%Client{} = client, domain_identifier, group_identifier, options \\ []) do
     url_path =
@@ -11409,6 +11486,7 @@ defmodule AWS.DataZone do
   @spec get_iam_portal_login_url(map(), String.t(), get_iam_portal_login_url_input(), list()) ::
           {:ok, get_iam_portal_login_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_iam_portal_login_url_errors()}
   def get_iam_portal_login_url(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/get-portal-login-url"
@@ -11437,6 +11515,7 @@ defmodule AWS.DataZone do
   @spec get_job_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_job_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11456,6 +11535,7 @@ defmodule AWS.DataZone do
   @spec get_lineage_event(map(), String.t(), String.t(), list()) ::
           {:ok, get_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lineage_event_errors()}
   def get_lineage_event(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11489,6 +11569,7 @@ defmodule AWS.DataZone do
   @spec get_lineage_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_lineage_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lineage_node_errors()}
   def get_lineage_node(
         %Client{} = client,
@@ -11524,6 +11605,7 @@ defmodule AWS.DataZone do
   @spec get_listing(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_listing_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_listing_errors()}
   def get_listing(
         %Client{} = client,
@@ -11556,6 +11638,7 @@ defmodule AWS.DataZone do
   @spec get_metadata_generation_run(map(), String.t(), String.t(), list()) ::
           {:ok, get_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metadata_generation_run_errors()}
   def get_metadata_generation_run(
         %Client{} = client,
@@ -11580,6 +11663,7 @@ defmodule AWS.DataZone do
   @spec get_project(map(), String.t(), String.t(), list()) ::
           {:ok, get_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11599,6 +11683,7 @@ defmodule AWS.DataZone do
   @spec get_project_profile(map(), String.t(), String.t(), list()) ::
           {:ok, get_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_project_profile_errors()}
   def get_project_profile(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11631,6 +11716,7 @@ defmodule AWS.DataZone do
   @spec get_rule(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, domain_identifier, identifier, revision \\ nil, options \\ []) do
     url_path =
@@ -11657,6 +11743,7 @@ defmodule AWS.DataZone do
   @spec get_subscription(map(), String.t(), String.t(), list()) ::
           {:ok, get_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_errors()}
   def get_subscription(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11676,6 +11763,7 @@ defmodule AWS.DataZone do
   @spec get_subscription_grant(map(), String.t(), String.t(), list()) ::
           {:ok, get_subscription_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_grant_errors()}
   def get_subscription_grant(%Client{} = client, domain_identifier, identifier, options \\ []) do
     url_path =
@@ -11695,6 +11783,7 @@ defmodule AWS.DataZone do
   @spec get_subscription_request_details(map(), String.t(), String.t(), list()) ::
           {:ok, get_subscription_request_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_request_details_errors()}
   def get_subscription_request_details(
         %Client{} = client,
@@ -11719,6 +11808,7 @@ defmodule AWS.DataZone do
   @spec get_subscription_target(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_target_errors()}
   def get_subscription_target(
         %Client{} = client,
@@ -11752,6 +11842,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, get_time_series_data_point_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_time_series_data_point_errors()}
   def get_time_series_data_point(
         %Client{} = client,
@@ -11786,6 +11877,7 @@ defmodule AWS.DataZone do
   @spec get_user_profile(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_profile_errors()}
   def get_user_profile(
         %Client{} = client,
@@ -11826,6 +11918,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_asset_filters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_filters_errors()}
   def list_asset_filters(
         %Client{} = client,
@@ -11881,6 +11974,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_asset_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_asset_revisions_errors()}
   def list_asset_revisions(
         %Client{} = client,
@@ -11937,6 +12031,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(
         %Client{} = client,
@@ -12029,6 +12124,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_data_product_revisions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_product_revisions_errors()}
   def list_data_product_revisions(
         %Client{} = client,
@@ -12077,6 +12173,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_data_source_run_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_source_run_activities_errors()}
   def list_data_source_run_activities(
         %Client{} = client,
@@ -12133,6 +12230,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_data_source_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_source_runs_errors()}
   def list_data_source_runs(
         %Client{} = client,
@@ -12193,6 +12291,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(
         %Client{} = client,
@@ -12285,6 +12384,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_domain_units_for_parent_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_units_for_parent_errors()}
   def list_domain_units_for_parent(
         %Client{} = client,
@@ -12330,6 +12430,7 @@ defmodule AWS.DataZone do
   @spec list_domains(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domains_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(
         %Client{} = client,
@@ -12382,6 +12483,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_entity_owners_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entity_owners_errors()}
   def list_entity_owners(
         %Client{} = client,
@@ -12430,6 +12532,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_environment_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_actions_errors()}
   def list_environment_actions(
         %Client{} = client,
@@ -12476,6 +12579,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_environment_blueprint_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_blueprint_configurations_errors()}
   def list_environment_blueprint_configurations(
         %Client{} = client,
@@ -12523,6 +12627,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_environment_blueprints_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_blueprints_errors()}
   def list_environment_blueprints(
         %Client{} = client,
@@ -12587,6 +12692,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_environment_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_profiles_errors()}
   def list_environment_profiles(
         %Client{} = client,
@@ -12678,6 +12784,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(
         %Client{} = client,
@@ -12788,6 +12895,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_job_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_runs_errors()}
   def list_job_runs(
         %Client{} = client,
@@ -12854,6 +12962,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_lineage_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lineage_events_errors()}
   def list_lineage_events(
         %Client{} = client,
@@ -12934,6 +13043,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_lineage_node_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lineage_node_history_errors()}
   def list_lineage_node_history(
         %Client{} = client,
@@ -13014,6 +13124,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_metadata_generation_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metadata_generation_runs_errors()}
   def list_metadata_generation_runs(
         %Client{} = client,
@@ -13078,6 +13189,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notifications_errors()}
   def list_notifications(
         %Client{} = client,
@@ -13164,6 +13276,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_policy_grants_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_grants_errors()}
   def list_policy_grants(
         %Client{} = client,
@@ -13222,6 +13335,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_project_memberships_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_project_memberships_errors()}
   def list_project_memberships(
         %Client{} = client,
@@ -13287,6 +13401,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_project_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_project_profiles_errors()}
   def list_project_profiles(
         %Client{} = client,
@@ -13357,6 +13472,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(
         %Client{} = client,
@@ -13445,6 +13561,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(
         %Client{} = client,
@@ -13547,6 +13664,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_subscription_grants_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscription_grants_errors()}
   def list_subscription_grants(
         %Client{} = client,
@@ -13652,6 +13770,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_subscription_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscription_requests_errors()}
   def list_subscription_requests(
         %Client{} = client,
@@ -13746,6 +13865,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_subscription_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscription_targets_errors()}
   def list_subscription_targets(
         %Client{} = client,
@@ -13815,6 +13935,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_subscriptions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscriptions_errors()}
   def list_subscriptions(
         %Client{} = client,
@@ -13908,6 +14029,7 @@ defmodule AWS.DataZone do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -13936,6 +14058,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, list_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_time_series_data_points_errors()}
   def list_time_series_data_points(
         %Client{} = client,
@@ -14001,6 +14124,7 @@ defmodule AWS.DataZone do
   @spec post_lineage_event(map(), String.t(), post_lineage_event_input(), list()) ::
           {:ok, post_lineage_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_lineage_event_errors()}
   def post_lineage_event(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events"
@@ -14042,6 +14166,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, post_time_series_data_points_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_time_series_data_points_errors()}
   def post_time_series_data_points(
         %Client{} = client,
@@ -14086,6 +14211,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, put_environment_blueprint_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_environment_blueprint_configuration_errors()}
   def put_environment_blueprint_configuration(
         %Client{} = client,
@@ -14124,6 +14250,7 @@ defmodule AWS.DataZone do
   @spec reject_predictions(map(), String.t(), String.t(), reject_predictions_input(), list()) ::
           {:ok, reject_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_predictions_errors()}
   def reject_predictions(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14165,6 +14292,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, reject_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_subscription_request_errors()}
   def reject_subscription_request(
         %Client{} = client,
@@ -14208,6 +14336,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, remove_entity_owner_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_entity_owner_errors()}
   def remove_entity_owner(
         %Client{} = client,
@@ -14252,6 +14381,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, remove_policy_grant_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_policy_grant_errors()}
   def remove_policy_grant(
         %Client{} = client,
@@ -14289,6 +14419,7 @@ defmodule AWS.DataZone do
   @spec revoke_subscription(map(), String.t(), String.t(), revoke_subscription_input(), list()) ::
           {:ok, revoke_subscription_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_subscription_errors()}
   def revoke_subscription(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14319,6 +14450,7 @@ defmodule AWS.DataZone do
   @spec search(map(), String.t(), search_input(), list()) ::
           {:ok, search_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_errors()}
   def search(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search"
@@ -14347,6 +14479,7 @@ defmodule AWS.DataZone do
   @spec search_group_profiles(map(), String.t(), search_group_profiles_input(), list()) ::
           {:ok, search_group_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_group_profiles_errors()}
   def search_group_profiles(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-group-profiles"
@@ -14375,6 +14508,7 @@ defmodule AWS.DataZone do
   @spec search_listings(map(), String.t(), search_listings_input(), list()) ::
           {:ok, search_listings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_listings_errors()}
   def search_listings(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/listings/search"
@@ -14403,6 +14537,7 @@ defmodule AWS.DataZone do
   @spec search_types(map(), String.t(), search_types_input(), list()) ::
           {:ok, search_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_types_errors()}
   def search_types(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/types-search"
@@ -14431,6 +14566,7 @@ defmodule AWS.DataZone do
   @spec search_user_profiles(map(), String.t(), search_user_profiles_input(), list()) ::
           {:ok, search_user_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_user_profiles_errors()}
   def search_user_profiles(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/search-user-profiles"
@@ -14465,6 +14601,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, start_data_source_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_source_run_errors()}
   def start_data_source_run(
         %Client{} = client,
@@ -14506,6 +14643,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, start_metadata_generation_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metadata_generation_run_errors()}
   def start_metadata_generation_run(%Client{} = client, domain_identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/metadata-generation-runs"
@@ -14534,6 +14672,7 @@ defmodule AWS.DataZone do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -14562,6 +14701,7 @@ defmodule AWS.DataZone do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -14602,6 +14742,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_asset_filter_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_filter_errors()}
   def update_asset_filter(
         %Client{} = client,
@@ -14643,6 +14784,7 @@ defmodule AWS.DataZone do
   @spec update_connection(map(), String.t(), String.t(), update_connection_input(), list()) ::
           {:ok, update_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14673,6 +14815,7 @@ defmodule AWS.DataZone do
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_input(), list()) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14703,6 +14846,7 @@ defmodule AWS.DataZone do
   @spec update_domain(map(), String.t(), update_domain_input(), list()) ::
           {:ok, update_domain_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/v2/domains/#{AWS.Util.encode_uri(identifier)}"
@@ -14736,6 +14880,7 @@ defmodule AWS.DataZone do
   @spec update_domain_unit(map(), String.t(), String.t(), update_domain_unit_input(), list()) ::
           {:ok, update_domain_unit_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_unit_errors()}
   def update_domain_unit(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14766,6 +14911,7 @@ defmodule AWS.DataZone do
   @spec update_environment(map(), String.t(), String.t(), update_environment_input(), list()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14803,6 +14949,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_environment_action_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_action_errors()}
   def update_environment_action(
         %Client{} = client,
@@ -14846,6 +14993,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_environment_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_profile_errors()}
   def update_environment_profile(
         %Client{} = client,
@@ -14882,6 +15030,7 @@ defmodule AWS.DataZone do
   @spec update_glossary(map(), String.t(), String.t(), update_glossary_input(), list()) ::
           {:ok, update_glossary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_glossary_errors()}
   def update_glossary(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -14912,6 +15061,7 @@ defmodule AWS.DataZone do
   @spec update_glossary_term(map(), String.t(), String.t(), update_glossary_term_input(), list()) ::
           {:ok, update_glossary_term_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_glossary_term_errors()}
   def update_glossary_term(
         %Client{} = client,
@@ -14948,6 +15098,7 @@ defmodule AWS.DataZone do
   @spec update_group_profile(map(), String.t(), String.t(), update_group_profile_input(), list()) ::
           {:ok, update_group_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_profile_errors()}
   def update_group_profile(
         %Client{} = client,
@@ -14984,6 +15135,7 @@ defmodule AWS.DataZone do
   @spec update_project(map(), String.t(), String.t(), update_project_input(), list()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -15020,6 +15172,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_project_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_profile_errors()}
   def update_project_profile(
         %Client{} = client,
@@ -15069,6 +15222,7 @@ defmodule AWS.DataZone do
   @spec update_rule(map(), String.t(), String.t(), update_rule_input(), list()) ::
           {:ok, update_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
     url_path =
@@ -15107,6 +15261,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_subscription_grant_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_grant_status_errors()}
   def update_subscription_grant_status(
         %Client{} = client,
@@ -15150,6 +15305,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_subscription_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_request_errors()}
   def update_subscription_request(
         %Client{} = client,
@@ -15193,6 +15349,7 @@ defmodule AWS.DataZone do
         ) ::
           {:ok, update_subscription_target_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_target_errors()}
   def update_subscription_target(
         %Client{} = client,
@@ -15230,6 +15387,7 @@ defmodule AWS.DataZone do
   @spec update_user_profile(map(), String.t(), String.t(), update_user_profile_input(), list()) ::
           {:ok, update_user_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(
         %Client{} = client,

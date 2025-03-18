@@ -145,6 +145,7 @@ defmodule AWS.MarketplaceEntitlement do
   @spec get_entitlements(map(), get_entitlements_request(), list()) ::
           {:ok, get_entitlements_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_entitlements_errors()}
   def get_entitlements(%Client{} = client, input, options \\ []) do
     meta = metadata()

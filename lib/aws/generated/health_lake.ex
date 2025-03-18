@@ -673,6 +673,7 @@ defmodule AWS.HealthLake do
   @spec create_fhir_datastore(map(), create_fhir_datastore_request(), list()) ::
           {:ok, create_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fhir_datastore_errors()}
   def create_fhir_datastore(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -686,6 +687,7 @@ defmodule AWS.HealthLake do
   @spec delete_fhir_datastore(map(), delete_fhir_datastore_request(), list()) ::
           {:ok, delete_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fhir_datastore_errors()}
   def delete_fhir_datastore(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -702,6 +704,7 @@ defmodule AWS.HealthLake do
   @spec describe_fhir_datastore(map(), describe_fhir_datastore_request(), list()) ::
           {:ok, describe_fhir_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fhir_datastore_errors()}
   def describe_fhir_datastore(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -716,6 +719,7 @@ defmodule AWS.HealthLake do
   @spec describe_fhir_export_job(map(), describe_fhir_export_job_request(), list()) ::
           {:ok, describe_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fhir_export_job_errors()}
   def describe_fhir_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -730,6 +734,7 @@ defmodule AWS.HealthLake do
   @spec describe_fhir_import_job(map(), describe_fhir_import_job_request(), list()) ::
           {:ok, describe_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fhir_import_job_errors()}
   def describe_fhir_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -744,6 +749,7 @@ defmodule AWS.HealthLake do
   @spec list_fhir_datastores(map(), list_fhir_datastores_request(), list()) ::
           {:ok, list_fhir_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fhir_datastores_errors()}
   def list_fhir_datastores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -758,6 +764,7 @@ defmodule AWS.HealthLake do
   @spec list_fhir_export_jobs(map(), list_fhir_export_jobs_request(), list()) ::
           {:ok, list_fhir_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fhir_export_jobs_errors()}
   def list_fhir_export_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -772,6 +779,7 @@ defmodule AWS.HealthLake do
   @spec list_fhir_import_jobs(map(), list_fhir_import_jobs_request(), list()) ::
           {:ok, list_fhir_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fhir_import_jobs_errors()}
   def list_fhir_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -786,6 +794,7 @@ defmodule AWS.HealthLake do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -799,6 +808,7 @@ defmodule AWS.HealthLake do
   @spec start_fhir_export_job(map(), start_fhir_export_job_request(), list()) ::
           {:ok, start_fhir_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fhir_export_job_errors()}
   def start_fhir_export_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -812,6 +822,7 @@ defmodule AWS.HealthLake do
   @spec start_fhir_import_job(map(), start_fhir_import_job_request(), list()) ::
           {:ok, start_fhir_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fhir_import_job_errors()}
   def start_fhir_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -826,6 +837,7 @@ defmodule AWS.HealthLake do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -840,6 +852,7 @@ defmodule AWS.HealthLake do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

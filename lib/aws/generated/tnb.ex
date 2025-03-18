@@ -1572,6 +1572,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_sol_network_operation_errors()}
   def cancel_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}/cancel"
@@ -1615,6 +1616,7 @@ defmodule AWS.Tnb do
   @spec create_sol_function_package(map(), create_sol_function_package_input(), list()) ::
           {:ok, create_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sol_function_package_errors()}
   def create_sol_function_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages"
@@ -1656,6 +1658,7 @@ defmodule AWS.Tnb do
   @spec create_sol_network_instance(map(), create_sol_network_instance_input(), list()) ::
           {:ok, create_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sol_network_instance_errors()}
   def create_sol_network_instance(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances"
@@ -1703,6 +1706,7 @@ defmodule AWS.Tnb do
   @spec create_sol_network_package(map(), create_sol_network_package_input(), list()) ::
           {:ok, create_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sol_network_package_errors()}
   def create_sol_network_package(%Client{} = client, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors"
@@ -1746,6 +1750,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sol_function_package_errors()}
   def delete_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
@@ -1788,6 +1793,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sol_network_instance_errors()}
   def delete_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
@@ -1825,6 +1831,7 @@ defmodule AWS.Tnb do
   @spec delete_sol_network_package(map(), String.t(), delete_sol_network_package_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sol_network_package_errors()}
   def delete_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
@@ -1857,6 +1864,7 @@ defmodule AWS.Tnb do
   @spec get_sol_function_instance(map(), String.t(), list()) ::
           {:ok, get_sol_function_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_function_instance_errors()}
   def get_sol_function_instance(%Client{} = client, vnf_instance_id, options \\ []) do
     url_path = "/sol/vnflcm/v1/vnf_instances/#{AWS.Util.encode_uri(vnf_instance_id)}"
@@ -1881,6 +1889,7 @@ defmodule AWS.Tnb do
   @spec get_sol_function_package(map(), String.t(), list()) ::
           {:ok, get_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_function_package_errors()}
   def get_sol_function_package(%Client{} = client, vnf_pkg_id, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
@@ -1903,6 +1912,7 @@ defmodule AWS.Tnb do
   @spec get_sol_function_package_content(map(), String.t(), String.t(), list()) ::
           {:ok, get_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_function_package_content_errors()}
   def get_sol_function_package_content(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
@@ -1944,6 +1954,7 @@ defmodule AWS.Tnb do
   @spec get_sol_function_package_descriptor(map(), String.t(), String.t(), list()) ::
           {:ok, get_sol_function_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_function_package_descriptor_errors()}
   def get_sol_function_package_descriptor(%Client{} = client, vnf_pkg_id, accept, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/vnfd"
@@ -1980,6 +1991,7 @@ defmodule AWS.Tnb do
   @spec get_sol_network_instance(map(), String.t(), list()) ::
           {:ok, get_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_network_instance_errors()}
   def get_sol_network_instance(%Client{} = client, ns_instance_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}"
@@ -2002,6 +2014,7 @@ defmodule AWS.Tnb do
   @spec get_sol_network_operation(map(), String.t(), list()) ::
           {:ok, get_sol_network_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_network_operation_errors()}
   def get_sol_network_operation(%Client{} = client, ns_lcm_op_occ_id, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_lcm_op_occs/#{AWS.Util.encode_uri(ns_lcm_op_occ_id)}"
@@ -2023,6 +2036,7 @@ defmodule AWS.Tnb do
   @spec get_sol_network_package(map(), String.t(), list()) ::
           {:ok, get_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_network_package_errors()}
   def get_sol_network_package(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
@@ -2044,6 +2058,7 @@ defmodule AWS.Tnb do
   @spec get_sol_network_package_content(map(), String.t(), String.t(), list()) ::
           {:ok, get_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_network_package_content_errors()}
   def get_sol_network_package_content(%Client{} = client, nsd_info_id, accept, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
@@ -2080,6 +2095,7 @@ defmodule AWS.Tnb do
   @spec get_sol_network_package_descriptor(map(), String.t(), list()) ::
           {:ok, get_sol_network_package_descriptor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sol_network_package_descriptor_errors()}
   def get_sol_network_package_descriptor(%Client{} = client, nsd_info_id, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd"
@@ -2118,6 +2134,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, instantiate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, instantiate_sol_network_instance_errors()}
   def instantiate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/instantiate"
@@ -2153,6 +2170,7 @@ defmodule AWS.Tnb do
   @spec list_sol_function_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sol_function_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sol_function_instances_errors()}
   def list_sol_function_instances(
         %Client{} = client,
@@ -2194,6 +2212,7 @@ defmodule AWS.Tnb do
   @spec list_sol_function_packages(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sol_function_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sol_function_packages_errors()}
   def list_sol_function_packages(
         %Client{} = client,
@@ -2234,6 +2253,7 @@ defmodule AWS.Tnb do
   @spec list_sol_network_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sol_network_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sol_network_instances_errors()}
   def list_sol_network_instances(
         %Client{} = client,
@@ -2281,6 +2301,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, list_sol_network_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sol_network_operations_errors()}
   def list_sol_network_operations(
         %Client{} = client,
@@ -2329,6 +2350,7 @@ defmodule AWS.Tnb do
   @spec list_sol_network_packages(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sol_network_packages_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sol_network_packages_errors()}
   def list_sol_network_packages(
         %Client{} = client,
@@ -2365,6 +2387,7 @@ defmodule AWS.Tnb do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2392,6 +2415,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, put_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_sol_function_package_content_errors()}
   def put_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}/package_content"
@@ -2435,6 +2459,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, put_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_sol_network_package_content_errors()}
   def put_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}/nsd_content"
@@ -2473,6 +2498,7 @@ defmodule AWS.Tnb do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2512,6 +2538,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, terminate_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_sol_network_instance_errors()}
   def terminate_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/terminate"
@@ -2544,6 +2571,7 @@ defmodule AWS.Tnb do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2587,6 +2615,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, update_sol_function_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sol_function_package_errors()}
   def update_sol_function_package(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path = "/sol/vnfpkgm/v1/vnf_packages/#{AWS.Util.encode_uri(vnf_pkg_id)}"
@@ -2627,6 +2656,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, update_sol_network_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sol_network_instance_errors()}
   def update_sol_network_instance(%Client{} = client, ns_instance_id, input, options \\ []) do
     url_path = "/sol/nslcm/v1/ns_instances/#{AWS.Util.encode_uri(ns_instance_id)}/update"
@@ -2663,6 +2693,7 @@ defmodule AWS.Tnb do
   @spec update_sol_network_package(map(), String.t(), update_sol_network_package_input(), list()) ::
           {:ok, update_sol_network_package_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sol_network_package_errors()}
   def update_sol_network_package(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path = "/sol/nsd/v1/ns_descriptors/#{AWS.Util.encode_uri(nsd_info_id)}"
@@ -2705,6 +2736,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, validate_sol_function_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_sol_function_package_content_errors()}
   def validate_sol_function_package_content(%Client{} = client, vnf_pkg_id, input, options \\ []) do
     url_path =
@@ -2753,6 +2785,7 @@ defmodule AWS.Tnb do
         ) ::
           {:ok, validate_sol_network_package_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_sol_network_package_content_errors()}
   def validate_sol_network_package_content(%Client{} = client, nsd_info_id, input, options \\ []) do
     url_path =

@@ -236,6 +236,7 @@ defmodule AWS.MediaStoreData do
   @spec delete_object(map(), String.t(), delete_object_request(), list()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_object_errors()}
   def delete_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
@@ -264,6 +265,7 @@ defmodule AWS.MediaStoreData do
   @spec describe_object(map(), String.t(), describe_object_request(), list()) ::
           {:ok, describe_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_object_errors()}
   def describe_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
@@ -308,6 +310,7 @@ defmodule AWS.MediaStoreData do
   @spec get_object(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_errors()}
   def get_object(%Client{} = client, path, range \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"
@@ -355,6 +358,7 @@ defmodule AWS.MediaStoreData do
   @spec list_items(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_items_errors()}
   def list_items(
         %Client{} = client,
@@ -402,6 +406,7 @@ defmodule AWS.MediaStoreData do
   @spec put_object(map(), String.t(), put_object_request(), list()) ::
           {:ok, put_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_object_errors()}
   def put_object(%Client{} = client, path, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_multi_segment_uri(path)}"

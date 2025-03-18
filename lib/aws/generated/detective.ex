@@ -1297,6 +1297,7 @@ defmodule AWS.Detective do
   @spec accept_invitation(map(), accept_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation"
@@ -1329,6 +1330,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, batch_get_graph_member_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_graph_member_datasources_errors()}
   def batch_get_graph_member_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/get"
@@ -1361,6 +1363,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, batch_get_membership_datasources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_membership_datasources_errors()}
   def batch_get_membership_datasources(%Client{} = client, input, options \\ []) do
     url_path = "/membership/datasources/get"
@@ -1405,6 +1408,7 @@ defmodule AWS.Detective do
   @spec create_graph(map(), create_graph_request(), list()) ::
           {:ok, create_graph_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_graph_errors()}
   def create_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph"
@@ -1474,6 +1478,7 @@ defmodule AWS.Detective do
   @spec create_members(map(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_members_errors()}
   def create_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members"
@@ -1508,6 +1513,7 @@ defmodule AWS.Detective do
   @spec delete_graph(map(), delete_graph_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_graph_errors()}
   def delete_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graph/removal"
@@ -1558,6 +1564,7 @@ defmodule AWS.Detective do
   @spec delete_members(map(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_members_errors()}
   def delete_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/removal"
@@ -1596,6 +1603,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/describeOrganizationConfiguration"
@@ -1637,6 +1645,7 @@ defmodule AWS.Detective do
   @spec disable_organization_admin_account(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/disableAdminAccount"
@@ -1674,6 +1683,7 @@ defmodule AWS.Detective do
   @spec disassociate_membership(map(), disassociate_membership_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_membership_errors()}
   def disassociate_membership(%Client{} = client, input, options \\ []) do
     url_path = "/membership/removal"
@@ -1724,6 +1734,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/enableAdminAccount"
@@ -1758,6 +1769,7 @@ defmodule AWS.Detective do
   @spec get_investigation(map(), get_investigation_request(), list()) ::
           {:ok, get_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_investigation_errors()}
   def get_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/getInvestigation"
@@ -1787,6 +1799,7 @@ defmodule AWS.Detective do
   @spec get_members(map(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_members_errors()}
   def get_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/get"
@@ -1815,6 +1828,7 @@ defmodule AWS.Detective do
   @spec list_datasource_packages(map(), list_datasource_packages_request(), list()) ::
           {:ok, list_datasource_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasource_packages_errors()}
   def list_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/list"
@@ -1851,6 +1865,7 @@ defmodule AWS.Detective do
   @spec list_graphs(map(), list_graphs_request(), list()) ::
           {:ok, list_graphs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_graphs_errors()}
   def list_graphs(%Client{} = client, input, options \\ []) do
     url_path = "/graphs/list"
@@ -1883,6 +1898,7 @@ defmodule AWS.Detective do
   @spec list_indicators(map(), list_indicators_request(), list()) ::
           {:ok, list_indicators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indicators_errors()}
   def list_indicators(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listIndicators"
@@ -1919,6 +1935,7 @@ defmodule AWS.Detective do
   @spec list_investigations(map(), list_investigations_request(), list()) ::
           {:ok, list_investigations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_investigations_errors()}
   def list_investigations(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/listInvestigations"
@@ -1959,6 +1976,7 @@ defmodule AWS.Detective do
   @spec list_invitations(map(), list_invitations_request(), list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/list"
@@ -1996,6 +2014,7 @@ defmodule AWS.Detective do
   @spec list_members(map(), list_members_request(), list()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/graph/members/list"
@@ -2031,6 +2050,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/adminAccountslist"
@@ -2059,6 +2079,7 @@ defmodule AWS.Detective do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2085,6 +2106,7 @@ defmodule AWS.Detective do
   @spec reject_invitation(map(), reject_invitation_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_invitation_errors()}
   def reject_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitation/removal"
@@ -2119,6 +2141,7 @@ defmodule AWS.Detective do
   @spec start_investigation(map(), start_investigation_request(), list()) ::
           {:ok, start_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_investigation_errors()}
   def start_investigation(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/startInvestigation"
@@ -2158,6 +2181,7 @@ defmodule AWS.Detective do
   @spec start_monitoring_member(map(), start_monitoring_member_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_monitoring_member_errors()}
   def start_monitoring_member(%Client{} = client, input, options \\ []) do
     url_path = "/graph/member/monitoringstate"
@@ -2186,6 +2210,7 @@ defmodule AWS.Detective do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2214,6 +2239,7 @@ defmodule AWS.Detective do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2247,6 +2273,7 @@ defmodule AWS.Detective do
   @spec update_datasource_packages(map(), update_datasource_packages_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_datasource_packages_errors()}
   def update_datasource_packages(%Client{} = client, input, options \\ []) do
     url_path = "/graph/datasources/update"
@@ -2275,6 +2302,7 @@ defmodule AWS.Detective do
   @spec update_investigation_state(map(), update_investigation_state_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_investigation_state_errors()}
   def update_investigation_state(%Client{} = client, input, options \\ []) do
     url_path = "/investigations/updateInvestigationState"
@@ -2311,6 +2339,7 @@ defmodule AWS.Detective do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/orgs/updateOrganizationConfiguration"

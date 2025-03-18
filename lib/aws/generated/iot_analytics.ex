@@ -2047,6 +2047,7 @@ defmodule AWS.IoTAnalytics do
   @spec batch_put_message(map(), batch_put_message_request(), list()) ::
           {:ok, batch_put_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_message_errors()}
   def batch_put_message(%Client{} = client, input, options \\ []) do
     url_path = "/messages/batch"
@@ -2081,6 +2082,7 @@ defmodule AWS.IoTAnalytics do
         ) ::
           {:ok, cancel_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_pipeline_reprocessing_errors()}
   def cancel_pipeline_reprocessing(
         %Client{} = client,
@@ -2120,6 +2122,7 @@ defmodule AWS.IoTAnalytics do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -2156,6 +2159,7 @@ defmodule AWS.IoTAnalytics do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
@@ -2185,6 +2189,7 @@ defmodule AWS.IoTAnalytics do
   @spec create_dataset_content(map(), String.t(), create_dataset_content_request(), list()) ::
           {:ok, create_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_content_errors()}
   def create_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
@@ -2213,6 +2218,7 @@ defmodule AWS.IoTAnalytics do
   @spec create_datastore(map(), create_datastore_request(), list()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_datastore_errors()}
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastores"
@@ -2248,6 +2254,7 @@ defmodule AWS.IoTAnalytics do
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/pipelines"
@@ -2276,6 +2283,7 @@ defmodule AWS.IoTAnalytics do
   @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
@@ -2307,6 +2315,7 @@ defmodule AWS.IoTAnalytics do
   @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
@@ -2335,6 +2344,7 @@ defmodule AWS.IoTAnalytics do
   @spec delete_dataset_content(map(), String.t(), delete_dataset_content_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_content_errors()}
   def delete_dataset_content(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
@@ -2368,6 +2378,7 @@ defmodule AWS.IoTAnalytics do
   @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_datastore_errors()}
   def delete_datastore(%Client{} = client, datastore_name, input, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
@@ -2396,6 +2407,7 @@ defmodule AWS.IoTAnalytics do
   @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -2424,6 +2436,7 @@ defmodule AWS.IoTAnalytics do
   @spec describe_channel(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_name, include_statistics \\ nil, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
@@ -2448,6 +2461,7 @@ defmodule AWS.IoTAnalytics do
   @spec describe_dataset(map(), String.t(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, dataset_name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
@@ -2465,6 +2479,7 @@ defmodule AWS.IoTAnalytics do
   @spec describe_datastore(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_datastore_errors()}
   def describe_datastore(
         %Client{} = client,
@@ -2494,6 +2509,7 @@ defmodule AWS.IoTAnalytics do
   @spec describe_logging_options(map(), list()) ::
           {:ok, describe_logging_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_logging_options_errors()}
   def describe_logging_options(%Client{} = client, options \\ []) do
     url_path = "/logging"
@@ -2511,6 +2527,7 @@ defmodule AWS.IoTAnalytics do
   @spec describe_pipeline(map(), String.t(), list()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -2528,6 +2545,7 @@ defmodule AWS.IoTAnalytics do
   @spec get_dataset_content(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dataset_content_errors()}
   def get_dataset_content(%Client{} = client, dataset_name, version_id \\ nil, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}/content"
@@ -2552,6 +2570,7 @@ defmodule AWS.IoTAnalytics do
   @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/channels"
@@ -2591,6 +2610,7 @@ defmodule AWS.IoTAnalytics do
         ) ::
           {:ok, list_dataset_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dataset_contents_errors()}
   def list_dataset_contents(
         %Client{} = client,
@@ -2644,6 +2664,7 @@ defmodule AWS.IoTAnalytics do
   @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasets"
@@ -2675,6 +2696,7 @@ defmodule AWS.IoTAnalytics do
   @spec list_datastores(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datastores_errors()}
   def list_datastores(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datastores"
@@ -2706,6 +2728,7 @@ defmodule AWS.IoTAnalytics do
   @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/pipelines"
@@ -2737,6 +2760,7 @@ defmodule AWS.IoTAnalytics do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -2767,6 +2791,7 @@ defmodule AWS.IoTAnalytics do
   @spec put_logging_options(map(), put_logging_options_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_logging_options_errors()}
   def put_logging_options(%Client{} = client, input, options \\ []) do
     url_path = "/logging"
@@ -2795,6 +2820,7 @@ defmodule AWS.IoTAnalytics do
   @spec run_pipeline_activity(map(), run_pipeline_activity_request(), list()) ::
           {:ok, run_pipeline_activity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, run_pipeline_activity_errors()}
   def run_pipeline_activity(%Client{} = client, input, options \\ []) do
     url_path = "/pipelineactivities/run"
@@ -2834,6 +2860,7 @@ defmodule AWS.IoTAnalytics do
         ) ::
           {:ok, sample_channel_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sample_channel_data_errors()}
   def sample_channel_data(
         %Client{} = client,
@@ -2884,6 +2911,7 @@ defmodule AWS.IoTAnalytics do
         ) ::
           {:ok, start_pipeline_reprocessing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pipeline_reprocessing_errors()}
   def start_pipeline_reprocessing(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}/reprocessing"
@@ -2915,6 +2943,7 @@ defmodule AWS.IoTAnalytics do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -2948,6 +2977,7 @@ defmodule AWS.IoTAnalytics do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags"
@@ -2982,6 +3012,7 @@ defmodule AWS.IoTAnalytics do
   @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_name, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_name)}"
@@ -3010,6 +3041,7 @@ defmodule AWS.IoTAnalytics do
   @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, dataset_name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(dataset_name)}"
@@ -3038,6 +3070,7 @@ defmodule AWS.IoTAnalytics do
   @spec update_datastore(map(), String.t(), update_datastore_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_datastore_errors()}
   def update_datastore(%Client{} = client, datastore_name, input, options \\ []) do
     url_path = "/datastores/#{AWS.Util.encode_uri(datastore_name)}"
@@ -3070,6 +3103,7 @@ defmodule AWS.IoTAnalytics do
   @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/pipelines/#{AWS.Util.encode_uri(pipeline_name)}"

@@ -1176,6 +1176,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, create_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alert_manager_definition_errors()}
   def create_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -1213,6 +1214,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, create_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_logging_configuration_errors()}
   def create_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
@@ -1254,6 +1256,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, create_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_groups_namespace_errors()}
   def create_rule_groups_namespace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/rulegroupsnamespaces"
@@ -1307,6 +1310,7 @@ defmodule AWS.Amp do
   @spec create_scraper(map(), create_scraper_request(), list()) ::
           {:ok, create_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scraper_errors()}
   def create_scraper(%Client{} = client, input, options \\ []) do
     url_path = "/scrapers"
@@ -1340,6 +1344,7 @@ defmodule AWS.Amp do
   @spec create_workspace(map(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_errors()}
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
@@ -1373,6 +1378,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alert_manager_definition_errors()}
   def delete_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -1411,6 +1417,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
@@ -1450,6 +1457,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_groups_namespace_errors()}
   def delete_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
     url_path =
@@ -1486,6 +1494,7 @@ defmodule AWS.Amp do
   @spec delete_scraper(map(), String.t(), delete_scraper_request(), list()) ::
           {:ok, delete_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scraper_errors()}
   def delete_scraper(%Client{} = client, scraper_id, input, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
@@ -1522,6 +1531,7 @@ defmodule AWS.Amp do
   @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_errors()}
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -1556,6 +1566,7 @@ defmodule AWS.Amp do
   @spec describe_alert_manager_definition(map(), String.t(), list()) ::
           {:ok, describe_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alert_manager_definition_errors()}
   def describe_alert_manager_definition(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -1574,6 +1585,7 @@ defmodule AWS.Amp do
   @spec describe_logging_configuration(map(), String.t(), list()) ::
           {:ok, describe_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
@@ -1594,6 +1606,7 @@ defmodule AWS.Amp do
   @spec describe_rule_groups_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, describe_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rule_groups_namespace_errors()}
   def describe_rule_groups_namespace(%Client{} = client, name, workspace_id, options \\ []) do
     url_path =
@@ -1614,6 +1627,7 @@ defmodule AWS.Amp do
   @spec describe_scraper(map(), String.t(), list()) ::
           {:ok, describe_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scraper_errors()}
   def describe_scraper(%Client{} = client, scraper_id, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
@@ -1631,6 +1645,7 @@ defmodule AWS.Amp do
   @spec describe_workspace(map(), String.t(), list()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workspace_errors()}
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -1649,6 +1664,7 @@ defmodule AWS.Amp do
   @spec get_default_scraper_configuration(map(), list()) ::
           {:ok, get_default_scraper_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_default_scraper_configuration_errors()}
   def get_default_scraper_configuration(%Client{} = client, options \\ []) do
     url_path = "/scraperconfiguration"
@@ -1673,6 +1689,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, list_rule_groups_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_groups_namespaces_errors()}
   def list_rule_groups_namespaces(
         %Client{} = client,
@@ -1722,6 +1739,7 @@ defmodule AWS.Amp do
   @spec list_scrapers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scrapers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scrapers_errors()}
   def list_scrapers(
         %Client{} = client,
@@ -1770,6 +1788,7 @@ defmodule AWS.Amp do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1791,6 +1810,7 @@ defmodule AWS.Amp do
   @spec list_workspaces(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workspaces_errors()}
   def list_workspaces(
         %Client{} = client,
@@ -1844,6 +1864,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, put_alert_manager_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_alert_manager_definition_errors()}
   def put_alert_manager_definition(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alertmanager/definition"
@@ -1890,6 +1911,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, put_rule_groups_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_rule_groups_namespace_errors()}
   def put_rule_groups_namespace(%Client{} = client, name, workspace_id, input, options \\ []) do
     url_path =
@@ -1933,6 +1955,7 @@ defmodule AWS.Amp do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1965,6 +1988,7 @@ defmodule AWS.Amp do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2004,6 +2028,7 @@ defmodule AWS.Amp do
         ) ::
           {:ok, update_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
@@ -2036,6 +2061,7 @@ defmodule AWS.Amp do
   @spec update_scraper(map(), String.t(), update_scraper_request(), list()) ::
           {:ok, update_scraper_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scraper_errors()}
   def update_scraper(%Client{} = client, scraper_id, input, options \\ []) do
     url_path = "/scrapers/#{AWS.Util.encode_uri(scraper_id)}"
@@ -2064,6 +2090,7 @@ defmodule AWS.Amp do
   @spec update_workspace_alias(map(), String.t(), update_workspace_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workspace_alias_errors()}
   def update_workspace_alias(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/alias"

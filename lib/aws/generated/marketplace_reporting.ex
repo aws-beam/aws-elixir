@@ -192,6 +192,7 @@ defmodule AWS.MarketplaceReporting do
   @spec get_buyer_dashboard(map(), get_buyer_dashboard_input(), list()) ::
           {:ok, get_buyer_dashboard_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_buyer_dashboard_errors()}
   def get_buyer_dashboard(%Client{} = client, input, options \\ []) do
     url_path = "/getBuyerDashboard"

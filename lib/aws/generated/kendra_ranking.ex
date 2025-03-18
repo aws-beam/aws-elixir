@@ -456,6 +456,7 @@ defmodule AWS.KendraRanking do
   @spec create_rescore_execution_plan(map(), create_rescore_execution_plan_request(), list()) ::
           {:ok, create_rescore_execution_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rescore_execution_plan_errors()}
   def create_rescore_execution_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -473,6 +474,7 @@ defmodule AWS.KendraRanking do
   @spec delete_rescore_execution_plan(map(), delete_rescore_execution_plan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rescore_execution_plan_errors()}
   def delete_rescore_execution_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -490,6 +492,7 @@ defmodule AWS.KendraRanking do
   @spec describe_rescore_execution_plan(map(), describe_rescore_execution_plan_request(), list()) ::
           {:ok, describe_rescore_execution_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rescore_execution_plan_errors()}
   def describe_rescore_execution_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -507,6 +510,7 @@ defmodule AWS.KendraRanking do
   @spec list_rescore_execution_plans(map(), list_rescore_execution_plans_request(), list()) ::
           {:ok, list_rescore_execution_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rescore_execution_plans_errors()}
   def list_rescore_execution_plans(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -523,6 +527,7 @@ defmodule AWS.KendraRanking do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -541,6 +546,7 @@ defmodule AWS.KendraRanking do
   @spec rescore(map(), rescore_request(), list()) ::
           {:ok, rescore_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rescore_errors()}
   def rescore(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -560,6 +566,7 @@ defmodule AWS.KendraRanking do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -578,6 +585,7 @@ defmodule AWS.KendraRanking do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -598,6 +606,7 @@ defmodule AWS.KendraRanking do
   @spec update_rescore_execution_plan(map(), update_rescore_execution_plan_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rescore_execution_plan_errors()}
   def update_rescore_execution_plan(%Client{} = client, input, options \\ []) do
     meta = metadata()

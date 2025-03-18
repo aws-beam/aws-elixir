@@ -174,6 +174,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   @spec join_storage_session(map(), join_storage_session_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, join_storage_session_errors()}
   def join_storage_session(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSession"
@@ -223,6 +224,7 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   @spec join_storage_session_as_viewer(map(), join_storage_session_as_viewer_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, join_storage_session_as_viewer_errors()}
   def join_storage_session_as_viewer(%Client{} = client, input, options \\ []) do
     url_path = "/joinStorageSessionAsViewer"

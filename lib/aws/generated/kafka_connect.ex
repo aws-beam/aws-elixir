@@ -1442,6 +1442,7 @@ defmodule AWS.KafkaConnect do
   @spec create_connector(map(), create_connector_request(), list()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/v1/connectors"
@@ -1470,6 +1471,7 @@ defmodule AWS.KafkaConnect do
   @spec create_custom_plugin(map(), create_custom_plugin_request(), list()) ::
           {:ok, create_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_plugin_errors()}
   def create_custom_plugin(%Client{} = client, input, options \\ []) do
     url_path = "/v1/custom-plugins"
@@ -1498,6 +1500,7 @@ defmodule AWS.KafkaConnect do
   @spec create_worker_configuration(map(), create_worker_configuration_request(), list()) ::
           {:ok, create_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_worker_configuration_errors()}
   def create_worker_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/v1/worker-configurations"
@@ -1526,6 +1529,7 @@ defmodule AWS.KafkaConnect do
   @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
           {:ok, delete_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
@@ -1559,6 +1563,7 @@ defmodule AWS.KafkaConnect do
   @spec delete_custom_plugin(map(), String.t(), delete_custom_plugin_request(), list()) ::
           {:ok, delete_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_plugin_errors()}
   def delete_custom_plugin(%Client{} = client, custom_plugin_arn, input, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
@@ -1592,6 +1597,7 @@ defmodule AWS.KafkaConnect do
         ) ::
           {:ok, delete_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_worker_configuration_errors()}
   def delete_worker_configuration(
         %Client{} = client,
@@ -1625,6 +1631,7 @@ defmodule AWS.KafkaConnect do
   @spec describe_connector(map(), String.t(), list()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_errors()}
   def describe_connector(%Client{} = client, connector_arn, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"
@@ -1642,6 +1649,7 @@ defmodule AWS.KafkaConnect do
   @spec describe_connector_operation(map(), String.t(), list()) ::
           {:ok, describe_connector_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_operation_errors()}
   def describe_connector_operation(%Client{} = client, connector_operation_arn, options \\ []) do
     url_path = "/v1/connectorOperations/#{AWS.Util.encode_uri(connector_operation_arn)}"
@@ -1659,6 +1667,7 @@ defmodule AWS.KafkaConnect do
   @spec describe_custom_plugin(map(), String.t(), list()) ::
           {:ok, describe_custom_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_plugin_errors()}
   def describe_custom_plugin(%Client{} = client, custom_plugin_arn, options \\ []) do
     url_path = "/v1/custom-plugins/#{AWS.Util.encode_uri(custom_plugin_arn)}"
@@ -1676,6 +1685,7 @@ defmodule AWS.KafkaConnect do
   @spec describe_worker_configuration(map(), String.t(), list()) ::
           {:ok, describe_worker_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_worker_configuration_errors()}
   def describe_worker_configuration(%Client{} = client, worker_configuration_arn, options \\ []) do
     url_path = "/v1/worker-configurations/#{AWS.Util.encode_uri(worker_configuration_arn)}"
@@ -1693,6 +1703,7 @@ defmodule AWS.KafkaConnect do
   @spec list_connector_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_connector_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connector_operations_errors()}
   def list_connector_operations(
         %Client{} = client,
@@ -1735,6 +1746,7 @@ defmodule AWS.KafkaConnect do
   @spec list_connectors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(
         %Client{} = client,
@@ -1779,6 +1791,7 @@ defmodule AWS.KafkaConnect do
   @spec list_custom_plugins(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_custom_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_plugins_errors()}
   def list_custom_plugins(
         %Client{} = client,
@@ -1823,6 +1836,7 @@ defmodule AWS.KafkaConnect do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1846,6 +1860,7 @@ defmodule AWS.KafkaConnect do
         ) ::
           {:ok, list_worker_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_worker_configurations_errors()}
   def list_worker_configurations(
         %Client{} = client,
@@ -1890,6 +1905,7 @@ defmodule AWS.KafkaConnect do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1918,6 +1934,7 @@ defmodule AWS.KafkaConnect do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1951,6 +1968,7 @@ defmodule AWS.KafkaConnect do
   @spec update_connector(map(), String.t(), update_connector_request(), list()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_errors()}
   def update_connector(%Client{} = client, connector_arn, input, options \\ []) do
     url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}"

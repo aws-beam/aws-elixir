@@ -4543,6 +4543,7 @@ defmodule AWS.Macie2 do
   @spec accept_invitation(map(), accept_invitation_request(), list()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_invitation_errors()}
   def accept_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/accept"
@@ -4575,6 +4576,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, batch_get_custom_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_custom_data_identifiers_errors()}
   def batch_get_custom_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/get"
@@ -4608,6 +4610,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, batch_update_automated_discovery_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_automated_discovery_accounts_errors()}
   def batch_update_automated_discovery_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/automated-discovery/accounts"
@@ -4636,6 +4639,7 @@ defmodule AWS.Macie2 do
   @spec create_allow_list(map(), create_allow_list_request(), list()) ::
           {:ok, create_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_allow_list_errors()}
   def create_allow_list(%Client{} = client, input, options \\ []) do
     url_path = "/allow-lists"
@@ -4664,6 +4668,7 @@ defmodule AWS.Macie2 do
   @spec create_classification_job(map(), create_classification_job_request(), list()) ::
           {:ok, create_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_classification_job_errors()}
   def create_classification_job(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -4693,6 +4698,7 @@ defmodule AWS.Macie2 do
   @spec create_custom_data_identifier(map(), create_custom_data_identifier_request(), list()) ::
           {:ok, create_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_data_identifier_errors()}
   def create_custom_data_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers"
@@ -4721,6 +4727,7 @@ defmodule AWS.Macie2 do
   @spec create_findings_filter(map(), create_findings_filter_request(), list()) ::
           {:ok, create_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_findings_filter_errors()}
   def create_findings_filter(%Client{} = client, input, options \\ []) do
     url_path = "/findingsfilters"
@@ -4749,6 +4756,7 @@ defmodule AWS.Macie2 do
   @spec create_invitations(map(), create_invitations_request(), list()) ::
           {:ok, create_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_invitations_errors()}
   def create_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations"
@@ -4777,6 +4785,7 @@ defmodule AWS.Macie2 do
   @spec create_member(map(), create_member_request(), list()) ::
           {:ok, create_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_member_errors()}
   def create_member(%Client{} = client, input, options \\ []) do
     url_path = "/members"
@@ -4805,6 +4814,7 @@ defmodule AWS.Macie2 do
   @spec create_sample_findings(map(), create_sample_findings_request(), list()) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sample_findings_errors()}
   def create_sample_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/sample"
@@ -4834,6 +4844,7 @@ defmodule AWS.Macie2 do
   @spec decline_invitations(map(), decline_invitations_request(), list()) ::
           {:ok, decline_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, decline_invitations_errors()}
   def decline_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/decline"
@@ -4862,6 +4873,7 @@ defmodule AWS.Macie2 do
   @spec delete_allow_list(map(), String.t(), delete_allow_list_request(), list()) ::
           {:ok, delete_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_allow_list_errors()}
   def delete_allow_list(%Client{} = client, id, input, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
@@ -4900,6 +4912,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, delete_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_data_identifier_errors()}
   def delete_custom_data_identifier(%Client{} = client, id, input, options \\ []) do
     url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
@@ -4928,6 +4941,7 @@ defmodule AWS.Macie2 do
   @spec delete_findings_filter(map(), String.t(), delete_findings_filter_request(), list()) ::
           {:ok, delete_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_findings_filter_errors()}
   def delete_findings_filter(%Client{} = client, id, input, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
@@ -4957,6 +4971,7 @@ defmodule AWS.Macie2 do
   @spec delete_invitations(map(), delete_invitations_request(), list()) ::
           {:ok, delete_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_invitations_errors()}
   def delete_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/invitations/delete"
@@ -4986,6 +5001,7 @@ defmodule AWS.Macie2 do
   @spec delete_member(map(), String.t(), delete_member_request(), list()) ::
           {:ok, delete_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_member_errors()}
   def delete_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/#{AWS.Util.encode_uri(id)}"
@@ -5015,6 +5031,7 @@ defmodule AWS.Macie2 do
   @spec describe_buckets(map(), describe_buckets_request(), list()) ::
           {:ok, describe_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_buckets_errors()}
   def describe_buckets(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3"
@@ -5043,6 +5060,7 @@ defmodule AWS.Macie2 do
   @spec describe_classification_job(map(), String.t(), list()) ::
           {:ok, describe_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_classification_job_errors()}
   def describe_classification_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -5061,6 +5079,7 @@ defmodule AWS.Macie2 do
   @spec describe_organization_configuration(map(), list()) ::
           {:ok, describe_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_configuration_errors()}
   def describe_organization_configuration(%Client{} = client, options \\ []) do
     url_path = "/admin/configuration"
@@ -5079,6 +5098,7 @@ defmodule AWS.Macie2 do
   @spec disable_macie(map(), disable_macie_request(), list()) ::
           {:ok, disable_macie_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_macie_errors()}
   def disable_macie(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
@@ -5112,6 +5132,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, disable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_organization_admin_account_errors()}
   def disable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -5149,6 +5170,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, disassociate_from_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_administrator_account_errors()}
   def disassociate_from_administrator_account(%Client{} = client, input, options \\ []) do
     url_path = "/administrator/disassociate"
@@ -5185,6 +5207,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, disassociate_from_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_from_master_account_errors()}
   def disassociate_from_master_account(%Client{} = client, input, options \\ []) do
     url_path = "/master/disassociate"
@@ -5213,6 +5236,7 @@ defmodule AWS.Macie2 do
   @spec disassociate_member(map(), String.t(), disassociate_member_request(), list()) ::
           {:ok, disassociate_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_errors()}
   def disassociate_member(%Client{} = client, id, input, options \\ []) do
     url_path = "/members/disassociate/#{AWS.Util.encode_uri(id)}"
@@ -5242,6 +5266,7 @@ defmodule AWS.Macie2 do
   @spec enable_macie(map(), enable_macie_request(), list()) ::
           {:ok, enable_macie_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_macie_errors()}
   def enable_macie(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
@@ -5275,6 +5300,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, enable_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_organization_admin_account_errors()}
   def enable_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/admin"
@@ -5304,6 +5330,7 @@ defmodule AWS.Macie2 do
   @spec get_administrator_account(map(), list()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_administrator_account_errors()}
   def get_administrator_account(%Client{} = client, options \\ []) do
     url_path = "/administrator"
@@ -5321,6 +5348,7 @@ defmodule AWS.Macie2 do
   @spec get_allow_list(map(), String.t(), list()) ::
           {:ok, get_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_allow_list_errors()}
   def get_allow_list(%Client{} = client, id, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
@@ -5339,6 +5367,7 @@ defmodule AWS.Macie2 do
   @spec get_automated_discovery_configuration(map(), list()) ::
           {:ok, get_automated_discovery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_automated_discovery_configuration_errors()}
   def get_automated_discovery_configuration(%Client{} = client, options \\ []) do
     url_path = "/automated-discovery/configuration"
@@ -5357,6 +5386,7 @@ defmodule AWS.Macie2 do
   @spec get_bucket_statistics(map(), get_bucket_statistics_request(), list()) ::
           {:ok, get_bucket_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bucket_statistics_errors()}
   def get_bucket_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/s3/statistics"
@@ -5385,6 +5415,7 @@ defmodule AWS.Macie2 do
   @spec get_classification_export_configuration(map(), list()) ::
           {:ok, get_classification_export_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_classification_export_configuration_errors()}
   def get_classification_export_configuration(%Client{} = client, options \\ []) do
     url_path = "/classification-export-configuration"
@@ -5402,6 +5433,7 @@ defmodule AWS.Macie2 do
   @spec get_classification_scope(map(), String.t(), list()) ::
           {:ok, get_classification_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_classification_scope_errors()}
   def get_classification_scope(%Client{} = client, id, options \\ []) do
     url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
@@ -5419,6 +5451,7 @@ defmodule AWS.Macie2 do
   @spec get_custom_data_identifier(map(), String.t(), list()) ::
           {:ok, get_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_data_identifier_errors()}
   def get_custom_data_identifier(%Client{} = client, id, options \\ []) do
     url_path = "/custom-data-identifiers/#{AWS.Util.encode_uri(id)}"
@@ -5436,6 +5469,7 @@ defmodule AWS.Macie2 do
   @spec get_finding_statistics(map(), get_finding_statistics_request(), list()) ::
           {:ok, get_finding_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_finding_statistics_errors()}
   def get_finding_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/findings/statistics"
@@ -5464,6 +5498,7 @@ defmodule AWS.Macie2 do
   @spec get_findings(map(), get_findings_request(), list()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_errors()}
   def get_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings/describe"
@@ -5492,6 +5527,7 @@ defmodule AWS.Macie2 do
   @spec get_findings_filter(map(), String.t(), list()) ::
           {:ok, get_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_filter_errors()}
   def get_findings_filter(%Client{} = client, id, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
@@ -5509,6 +5545,7 @@ defmodule AWS.Macie2 do
   @spec get_findings_publication_configuration(map(), list()) ::
           {:ok, get_findings_publication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_findings_publication_configuration_errors()}
   def get_findings_publication_configuration(%Client{} = client, options \\ []) do
     url_path = "/findings-publication-configuration"
@@ -5527,6 +5564,7 @@ defmodule AWS.Macie2 do
   @spec get_invitations_count(map(), list()) ::
           {:ok, get_invitations_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_invitations_count_errors()}
   def get_invitations_count(%Client{} = client, options \\ []) do
     url_path = "/invitations/count"
@@ -5544,6 +5582,7 @@ defmodule AWS.Macie2 do
   @spec get_macie_session(map(), list()) ::
           {:ok, get_macie_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_macie_session_errors()}
   def get_macie_session(%Client{} = client, options \\ []) do
     url_path = "/macie"
@@ -5564,6 +5603,7 @@ defmodule AWS.Macie2 do
   @spec get_master_account(map(), list()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_master_account_errors()}
   def get_master_account(%Client{} = client, options \\ []) do
     url_path = "/master"
@@ -5582,6 +5622,7 @@ defmodule AWS.Macie2 do
   @spec get_member(map(), String.t(), list()) ::
           {:ok, get_member_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_member_errors()}
   def get_member(%Client{} = client, id, options \\ []) do
     url_path = "/members/#{AWS.Util.encode_uri(id)}"
@@ -5600,6 +5641,7 @@ defmodule AWS.Macie2 do
   @spec get_resource_profile(map(), String.t(), list()) ::
           {:ok, get_resource_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_profile_errors()}
   def get_resource_profile(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-profiles"
@@ -5625,6 +5667,7 @@ defmodule AWS.Macie2 do
   @spec get_reveal_configuration(map(), list()) ::
           {:ok, get_reveal_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reveal_configuration_errors()}
   def get_reveal_configuration(%Client{} = client, options \\ []) do
     url_path = "/reveal-configuration"
@@ -5642,6 +5685,7 @@ defmodule AWS.Macie2 do
   @spec get_sensitive_data_occurrences(map(), String.t(), list()) ::
           {:ok, get_sensitive_data_occurrences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sensitive_data_occurrences_errors()}
   def get_sensitive_data_occurrences(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal"
@@ -5659,6 +5703,7 @@ defmodule AWS.Macie2 do
   @spec get_sensitive_data_occurrences_availability(map(), String.t(), list()) ::
           {:ok, get_sensitive_data_occurrences_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sensitive_data_occurrences_availability_errors()}
   def get_sensitive_data_occurrences_availability(%Client{} = client, finding_id, options \\ []) do
     url_path = "/findings/#{AWS.Util.encode_uri(finding_id)}/reveal/availability"
@@ -5676,6 +5721,7 @@ defmodule AWS.Macie2 do
   @spec get_sensitivity_inspection_template(map(), String.t(), list()) ::
           {:ok, get_sensitivity_inspection_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sensitivity_inspection_template_errors()}
   def get_sensitivity_inspection_template(%Client{} = client, id, options \\ []) do
     url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"
@@ -5693,6 +5739,7 @@ defmodule AWS.Macie2 do
   @spec get_usage_statistics(map(), get_usage_statistics_request(), list()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_usage_statistics_errors()}
   def get_usage_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/usage/statistics"
@@ -5721,6 +5768,7 @@ defmodule AWS.Macie2 do
   @spec get_usage_totals(map(), String.t() | nil, list()) ::
           {:ok, get_usage_totals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_usage_totals_errors()}
   def get_usage_totals(%Client{} = client, time_range \\ nil, options \\ []) do
     url_path = "/usage"
@@ -5745,6 +5793,7 @@ defmodule AWS.Macie2 do
   @spec list_allow_lists(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_allow_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_allow_lists_errors()}
   def list_allow_lists(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/allow-lists"
@@ -5783,6 +5832,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, list_automated_discovery_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_automated_discovery_accounts_errors()}
   def list_automated_discovery_accounts(
         %Client{} = client,
@@ -5827,6 +5877,7 @@ defmodule AWS.Macie2 do
   @spec list_classification_jobs(map(), list_classification_jobs_request(), list()) ::
           {:ok, list_classification_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_classification_jobs_errors()}
   def list_classification_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/jobs/list"
@@ -5855,6 +5906,7 @@ defmodule AWS.Macie2 do
   @spec list_classification_scopes(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_classification_scopes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_classification_scopes_errors()}
   def list_classification_scopes(
         %Client{} = client,
@@ -5892,6 +5944,7 @@ defmodule AWS.Macie2 do
   @spec list_custom_data_identifiers(map(), list_custom_data_identifiers_request(), list()) ::
           {:ok, list_custom_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_data_identifiers_errors()}
   def list_custom_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/list"
@@ -5920,6 +5973,7 @@ defmodule AWS.Macie2 do
   @spec list_findings(map(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
     url_path = "/findings"
@@ -5948,6 +6002,7 @@ defmodule AWS.Macie2 do
   @spec list_findings_filters(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_findings_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_findings_filters_errors()}
   def list_findings_filters(
         %Client{} = client,
@@ -5985,6 +6040,7 @@ defmodule AWS.Macie2 do
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -6017,6 +6073,7 @@ defmodule AWS.Macie2 do
   @spec list_managed_data_identifiers(map(), list_managed_data_identifiers_request(), list()) ::
           {:ok, list_managed_data_identifiers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_managed_data_identifiers(%Client{} = client, input, options \\ []) do
     url_path = "/managed-data-identifiers/list"
     headers = []
@@ -6045,6 +6102,7 @@ defmodule AWS.Macie2 do
   @spec list_members(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
@@ -6090,6 +6148,7 @@ defmodule AWS.Macie2 do
   @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_admin_accounts_errors()}
   def list_organization_admin_accounts(
         %Client{} = client,
@@ -6127,6 +6186,7 @@ defmodule AWS.Macie2 do
   @spec list_resource_profile_artifacts(map(), String.t() | nil, String.t(), list()) ::
           {:ok, list_resource_profile_artifacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_profile_artifacts_errors()}
   def list_resource_profile_artifacts(
         %Client{} = client,
@@ -6170,6 +6230,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, list_resource_profile_detections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_profile_detections_errors()}
   def list_resource_profile_detections(
         %Client{} = client,
@@ -6215,6 +6276,7 @@ defmodule AWS.Macie2 do
   @spec list_sensitivity_inspection_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sensitivity_inspection_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sensitivity_inspection_templates_errors()}
   def list_sensitivity_inspection_templates(
         %Client{} = client,
@@ -6252,6 +6314,7 @@ defmodule AWS.Macie2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -6273,6 +6336,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, put_classification_export_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_classification_export_configuration_errors()}
   def put_classification_export_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/classification-export-configuration"
@@ -6305,6 +6369,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, put_findings_publication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_findings_publication_configuration_errors()}
   def put_findings_publication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/findings-publication-configuration"
@@ -6334,6 +6399,7 @@ defmodule AWS.Macie2 do
   @spec search_resources(map(), search_resources_request(), list()) ::
           {:ok, search_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_resources_errors()}
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/datasources/search-resources"
@@ -6363,6 +6429,7 @@ defmodule AWS.Macie2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -6390,6 +6457,7 @@ defmodule AWS.Macie2 do
   @spec test_custom_data_identifier(map(), test_custom_data_identifier_request(), list()) ::
           {:ok, test_custom_data_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_custom_data_identifier_errors()}
   def test_custom_data_identifier(%Client{} = client, input, options \\ []) do
     url_path = "/custom-data-identifiers/test"
@@ -6418,6 +6486,7 @@ defmodule AWS.Macie2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -6450,6 +6519,7 @@ defmodule AWS.Macie2 do
   @spec update_allow_list(map(), String.t(), update_allow_list_request(), list()) ::
           {:ok, update_allow_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_allow_list_errors()}
   def update_allow_list(%Client{} = client, id, input, options \\ []) do
     url_path = "/allow-lists/#{AWS.Util.encode_uri(id)}"
@@ -6483,6 +6553,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, update_automated_discovery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_automated_discovery_configuration_errors()}
   def update_automated_discovery_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/automated-discovery/configuration"
@@ -6511,6 +6582,7 @@ defmodule AWS.Macie2 do
   @spec update_classification_job(map(), String.t(), update_classification_job_request(), list()) ::
           {:ok, update_classification_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_classification_job_errors()}
   def update_classification_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -6544,6 +6616,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, update_classification_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_classification_scope_errors()}
   def update_classification_scope(%Client{} = client, id, input, options \\ []) do
     url_path = "/classification-scopes/#{AWS.Util.encode_uri(id)}"
@@ -6572,6 +6645,7 @@ defmodule AWS.Macie2 do
   @spec update_findings_filter(map(), String.t(), update_findings_filter_request(), list()) ::
           {:ok, update_findings_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_findings_filter_errors()}
   def update_findings_filter(%Client{} = client, id, input, options \\ []) do
     url_path = "/findingsfilters/#{AWS.Util.encode_uri(id)}"
@@ -6601,6 +6675,7 @@ defmodule AWS.Macie2 do
   @spec update_macie_session(map(), update_macie_session_request(), list()) ::
           {:ok, update_macie_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_macie_session_errors()}
   def update_macie_session(%Client{} = client, input, options \\ []) do
     url_path = "/macie"
@@ -6630,6 +6705,7 @@ defmodule AWS.Macie2 do
   @spec update_member_session(map(), String.t(), update_member_session_request(), list()) ::
           {:ok, update_member_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_member_session_errors()}
   def update_member_session(%Client{} = client, id, input, options \\ []) do
     url_path = "/macie/members/#{AWS.Util.encode_uri(id)}"
@@ -6663,6 +6739,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, update_organization_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organization_configuration_errors()}
   def update_organization_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/admin/configuration"
@@ -6691,6 +6768,7 @@ defmodule AWS.Macie2 do
   @spec update_resource_profile(map(), update_resource_profile_request(), list()) ::
           {:ok, update_resource_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_profile_errors()}
   def update_resource_profile(%Client{} = client, input, options \\ []) do
     url_path = "/resource-profiles"
@@ -6728,6 +6806,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, update_resource_profile_detections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_profile_detections_errors()}
   def update_resource_profile_detections(%Client{} = client, input, options \\ []) do
     url_path = "/resource-profiles/detections"
@@ -6762,6 +6841,7 @@ defmodule AWS.Macie2 do
   @spec update_reveal_configuration(map(), update_reveal_configuration_request(), list()) ::
           {:ok, update_reveal_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_reveal_configuration_errors()}
   def update_reveal_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/reveal-configuration"
@@ -6795,6 +6875,7 @@ defmodule AWS.Macie2 do
         ) ::
           {:ok, update_sensitivity_inspection_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sensitivity_inspection_template_errors()}
   def update_sensitivity_inspection_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/templates/sensitivity-inspections/#{AWS.Util.encode_uri(id)}"

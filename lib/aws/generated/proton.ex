@@ -3993,6 +3993,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, accept_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_environment_account_connection_errors()}
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4012,6 +4013,7 @@ defmodule AWS.Proton do
   @spec cancel_component_deployment(map(), cancel_component_deployment_input(), list()) ::
           {:ok, cancel_component_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_component_deployment_errors()}
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4045,6 +4047,7 @@ defmodule AWS.Proton do
   @spec cancel_environment_deployment(map(), cancel_environment_deployment_input(), list()) ::
           {:ok, cancel_environment_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_environment_deployment_errors()}
   def cancel_environment_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4082,6 +4085,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, cancel_service_instance_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_service_instance_deployment_errors()}
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4119,6 +4123,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, cancel_service_pipeline_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_service_pipeline_deployment_errors()}
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4139,6 +4144,7 @@ defmodule AWS.Proton do
   @spec create_component(map(), create_component_input(), list()) ::
           {:ok, create_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4173,6 +4179,7 @@ defmodule AWS.Proton do
   @spec create_environment(map(), create_environment_input(), list()) ::
           {:ok, create_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4199,6 +4206,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, create_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_account_connection_errors()}
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4233,6 +4241,7 @@ defmodule AWS.Proton do
   @spec create_environment_template(map(), create_environment_template_input(), list()) ::
           {:ok, create_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_template_errors()}
   def create_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4255,6 +4264,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, create_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_template_version_errors()}
   def create_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4283,6 +4293,7 @@ defmodule AWS.Proton do
   @spec create_repository(map(), create_repository_input(), list()) ::
           {:ok, create_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4303,6 +4314,7 @@ defmodule AWS.Proton do
   @spec create_service(map(), create_service_input(), list()) ::
           {:ok, create_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4316,6 +4328,7 @@ defmodule AWS.Proton do
   @spec create_service_instance(map(), create_service_instance_input(), list()) ::
           {:ok, create_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_instance_errors()}
   def create_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4329,6 +4342,7 @@ defmodule AWS.Proton do
   @spec create_service_sync_config(map(), create_service_sync_config_input(), list()) ::
           {:ok, create_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_sync_config_errors()}
   def create_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4354,6 +4368,7 @@ defmodule AWS.Proton do
   @spec create_service_template(map(), create_service_template_input(), list()) ::
           {:ok, create_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_template_errors()}
   def create_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4372,6 +4387,7 @@ defmodule AWS.Proton do
   @spec create_service_template_version(map(), create_service_template_version_input(), list()) ::
           {:ok, create_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_template_version_errors()}
   def create_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4396,6 +4412,7 @@ defmodule AWS.Proton do
   @spec create_template_sync_config(map(), create_template_sync_config_input(), list()) ::
           {:ok, create_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_sync_config_errors()}
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4414,6 +4431,7 @@ defmodule AWS.Proton do
   @spec delete_component(map(), delete_component_input(), list()) ::
           {:ok, delete_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4427,6 +4445,7 @@ defmodule AWS.Proton do
   @spec delete_deployment(map(), delete_deployment_input(), list()) ::
           {:ok, delete_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4440,6 +4459,7 @@ defmodule AWS.Proton do
   @spec delete_environment(map(), delete_environment_input(), list()) ::
           {:ok, delete_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4467,6 +4487,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, delete_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_account_connection_errors()}
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4481,6 +4502,7 @@ defmodule AWS.Proton do
   @spec delete_environment_template(map(), delete_environment_template_input(), list()) ::
           {:ok, delete_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_template_errors()}
   def delete_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4511,6 +4533,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, delete_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_template_version_errors()}
   def delete_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4524,6 +4547,7 @@ defmodule AWS.Proton do
   @spec delete_repository(map(), delete_repository_input(), list()) ::
           {:ok, delete_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4546,6 +4570,7 @@ defmodule AWS.Proton do
   @spec delete_service(map(), delete_service_input(), list()) ::
           {:ok, delete_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4559,6 +4584,7 @@ defmodule AWS.Proton do
   @spec delete_service_sync_config(map(), delete_service_sync_config_input(), list()) ::
           {:ok, delete_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_sync_config_errors()}
   def delete_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4574,6 +4600,7 @@ defmodule AWS.Proton do
   @spec delete_service_template(map(), delete_service_template_input(), list()) ::
           {:ok, delete_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_template_errors()}
   def delete_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4603,6 +4630,7 @@ defmodule AWS.Proton do
   @spec delete_service_template_version(map(), delete_service_template_version_input(), list()) ::
           {:ok, delete_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_template_version_errors()}
   def delete_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4616,6 +4644,7 @@ defmodule AWS.Proton do
   @spec delete_template_sync_config(map(), delete_template_sync_config_input(), list()) ::
           {:ok, delete_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_sync_config_errors()}
   def delete_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4629,6 +4658,7 @@ defmodule AWS.Proton do
   @spec get_account_settings(map(), get_account_settings_input(), list()) ::
           {:ok, get_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4647,6 +4677,7 @@ defmodule AWS.Proton do
   @spec get_component(map(), get_component_input(), list()) ::
           {:ok, get_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4660,6 +4691,7 @@ defmodule AWS.Proton do
   @spec get_deployment(map(), get_deployment_input(), list()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4673,6 +4705,7 @@ defmodule AWS.Proton do
   @spec get_environment(map(), get_environment_input(), list()) ::
           {:ok, get_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4694,6 +4727,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, get_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_account_connection_errors()}
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4707,6 +4741,7 @@ defmodule AWS.Proton do
   @spec get_environment_template(map(), get_environment_template_input(), list()) ::
           {:ok, get_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_template_errors()}
   def get_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4720,6 +4755,7 @@ defmodule AWS.Proton do
   @spec get_environment_template_version(map(), get_environment_template_version_input(), list()) ::
           {:ok, get_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_template_version_errors()}
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4733,6 +4769,7 @@ defmodule AWS.Proton do
   @spec get_repository(map(), get_repository_input(), list()) ::
           {:ok, get_repository_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4759,6 +4796,7 @@ defmodule AWS.Proton do
   @spec get_repository_sync_status(map(), get_repository_sync_status_input(), list()) ::
           {:ok, get_repository_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4792,6 +4830,7 @@ defmodule AWS.Proton do
   @spec get_resources_summary(map(), get_resources_summary_input(), list()) ::
           {:ok, get_resources_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resources_summary_errors()}
   def get_resources_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4805,6 +4844,7 @@ defmodule AWS.Proton do
   @spec get_service(map(), get_service_input(), list()) ::
           {:ok, get_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4821,6 +4861,7 @@ defmodule AWS.Proton do
   @spec get_service_instance(map(), get_service_instance_input(), list()) ::
           {:ok, get_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_instance_errors()}
   def get_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4834,6 +4875,7 @@ defmodule AWS.Proton do
   @spec get_service_instance_sync_status(map(), get_service_instance_sync_status_input(), list()) ::
           {:ok, get_service_instance_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_instance_sync_status_errors()}
   def get_service_instance_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4847,6 +4889,7 @@ defmodule AWS.Proton do
   @spec get_service_sync_blocker_summary(map(), get_service_sync_blocker_summary_input(), list()) ::
           {:ok, get_service_sync_blocker_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_sync_blocker_summary_errors()}
   def get_service_sync_blocker_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4860,6 +4903,7 @@ defmodule AWS.Proton do
   @spec get_service_sync_config(map(), get_service_sync_config_input(), list()) ::
           {:ok, get_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_sync_config_errors()}
   def get_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4873,6 +4917,7 @@ defmodule AWS.Proton do
   @spec get_service_template(map(), get_service_template_input(), list()) ::
           {:ok, get_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_template_errors()}
   def get_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4886,6 +4931,7 @@ defmodule AWS.Proton do
   @spec get_service_template_version(map(), get_service_template_version_input(), list()) ::
           {:ok, get_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_template_version_errors()}
   def get_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4899,6 +4945,7 @@ defmodule AWS.Proton do
   @spec get_template_sync_config(map(), get_template_sync_config_input(), list()) ::
           {:ok, get_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_sync_config_errors()}
   def get_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4912,6 +4959,7 @@ defmodule AWS.Proton do
   @spec get_template_sync_status(map(), get_template_sync_status_input(), list()) ::
           {:ok, get_template_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_sync_status_errors()}
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4930,6 +4978,7 @@ defmodule AWS.Proton do
   @spec list_component_outputs(map(), list_component_outputs_input(), list()) ::
           {:ok, list_component_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_component_outputs_errors()}
   def list_component_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4952,6 +5001,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_component_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_component_provisioned_resources_errors()}
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4973,6 +5023,7 @@ defmodule AWS.Proton do
   @spec list_components(map(), list_components_input(), list()) ::
           {:ok, list_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4989,6 +5040,7 @@ defmodule AWS.Proton do
   @spec list_deployments(map(), list_deployments_input(), list()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5009,6 +5061,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_environment_account_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_account_connections_errors()}
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5022,6 +5075,7 @@ defmodule AWS.Proton do
   @spec list_environment_outputs(map(), list_environment_outputs_input(), list()) ::
           {:ok, list_environment_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_outputs_errors()}
   def list_environment_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5039,6 +5093,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_environment_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_provisioned_resources_errors()}
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5056,6 +5111,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_environment_template_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_template_versions_errors()}
   def list_environment_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5069,6 +5125,7 @@ defmodule AWS.Proton do
   @spec list_environment_templates(map(), list_environment_templates_input(), list()) ::
           {:ok, list_environment_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environment_templates_errors()}
   def list_environment_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5082,6 +5139,7 @@ defmodule AWS.Proton do
   @spec list_environments(map(), list_environments_input(), list()) ::
           {:ok, list_environments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5095,6 +5153,7 @@ defmodule AWS.Proton do
   @spec list_repositories(map(), list_repositories_input(), list()) ::
           {:ok, list_repositories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5108,6 +5167,7 @@ defmodule AWS.Proton do
   @spec list_repository_sync_definitions(map(), list_repository_sync_definitions_input(), list()) ::
           {:ok, list_repository_sync_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5121,6 +5181,7 @@ defmodule AWS.Proton do
   @spec list_service_instance_outputs(map(), list_service_instance_outputs_input(), list()) ::
           {:ok, list_service_instance_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_instance_outputs_errors()}
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5138,6 +5199,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_service_instance_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_instance_provisioned_resources_errors()}
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5154,6 +5216,7 @@ defmodule AWS.Proton do
   @spec list_service_instances(map(), list_service_instances_input(), list()) ::
           {:ok, list_service_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_instances_errors()}
   def list_service_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5167,6 +5230,7 @@ defmodule AWS.Proton do
   @spec list_service_pipeline_outputs(map(), list_service_pipeline_outputs_input(), list()) ::
           {:ok, list_service_pipeline_outputs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_pipeline_outputs_errors()}
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5184,6 +5248,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, list_service_pipeline_provisioned_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_pipeline_provisioned_resources_errors()}
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5197,6 +5262,7 @@ defmodule AWS.Proton do
   @spec list_service_template_versions(map(), list_service_template_versions_input(), list()) ::
           {:ok, list_service_template_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_template_versions_errors()}
   def list_service_template_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5210,6 +5276,7 @@ defmodule AWS.Proton do
   @spec list_service_templates(map(), list_service_templates_input(), list()) ::
           {:ok, list_service_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_templates_errors()}
   def list_service_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5223,6 +5290,7 @@ defmodule AWS.Proton do
   @spec list_services(map(), list_services_input(), list()) ::
           {:ok, list_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5240,6 +5308,7 @@ defmodule AWS.Proton do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5261,6 +5330,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, notify_resource_deployment_status_change_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_resource_deployment_status_change_errors()}
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5289,6 +5359,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, reject_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_environment_account_connection_errors()}
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5308,6 +5379,7 @@ defmodule AWS.Proton do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5326,6 +5398,7 @@ defmodule AWS.Proton do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5340,6 +5413,7 @@ defmodule AWS.Proton do
   @spec update_account_settings(map(), update_account_settings_input(), list()) ::
           {:ok, update_account_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5365,6 +5439,7 @@ defmodule AWS.Proton do
   @spec update_component(map(), update_component_input(), list()) ::
           {:ok, update_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5450,6 +5525,7 @@ defmodule AWS.Proton do
   @spec update_environment(map(), update_environment_input(), list()) ::
           {:ok, update_environment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5471,6 +5547,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, update_environment_account_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_account_connection_errors()}
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5484,6 +5561,7 @@ defmodule AWS.Proton do
   @spec update_environment_template(map(), update_environment_template_input(), list()) ::
           {:ok, update_environment_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_template_errors()}
   def update_environment_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5501,6 +5579,7 @@ defmodule AWS.Proton do
         ) ::
           {:ok, update_environment_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_template_version_errors()}
   def update_environment_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5530,6 +5609,7 @@ defmodule AWS.Proton do
   @spec update_service(map(), update_service_input(), list()) ::
           {:ok, update_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5555,6 +5635,7 @@ defmodule AWS.Proton do
   @spec update_service_instance(map(), update_service_instance_input(), list()) ::
           {:ok, update_service_instance_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_instance_errors()}
   def update_service_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5609,6 +5690,7 @@ defmodule AWS.Proton do
   @spec update_service_pipeline(map(), update_service_pipeline_input(), list()) ::
           {:ok, update_service_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_pipeline_errors()}
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5622,6 +5704,7 @@ defmodule AWS.Proton do
   @spec update_service_sync_blocker(map(), update_service_sync_blocker_input(), list()) ::
           {:ok, update_service_sync_blocker_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_sync_blocker_errors()}
   def update_service_sync_blocker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5635,6 +5718,7 @@ defmodule AWS.Proton do
   @spec update_service_sync_config(map(), update_service_sync_config_input(), list()) ::
           {:ok, update_service_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_sync_config_errors()}
   def update_service_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5648,6 +5732,7 @@ defmodule AWS.Proton do
   @spec update_service_template(map(), update_service_template_input(), list()) ::
           {:ok, update_service_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_template_errors()}
   def update_service_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5661,6 +5746,7 @@ defmodule AWS.Proton do
   @spec update_service_template_version(map(), update_service_template_version_input(), list()) ::
           {:ok, update_service_template_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_template_version_errors()}
   def update_service_template_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5680,6 +5766,7 @@ defmodule AWS.Proton do
   @spec update_template_sync_config(map(), update_template_sync_config_input(), list()) ::
           {:ok, update_template_sync_config_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_sync_config_errors()}
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -238,6 +238,7 @@ defmodule AWS.PersonalizeEvents do
   @spec put_action_interactions(map(), put_action_interactions_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_action_interactions_errors()}
   def put_action_interactions(%Client{} = client, input, options \\ []) do
     url_path = "/action-interactions"
@@ -269,6 +270,7 @@ defmodule AWS.PersonalizeEvents do
   @spec put_actions(map(), put_actions_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_actions_errors()}
   def put_actions(%Client{} = client, input, options \\ []) do
     url_path = "/actions"
@@ -300,6 +302,7 @@ defmodule AWS.PersonalizeEvents do
   @spec put_events(map(), put_events_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_events_errors()}
   def put_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
@@ -331,6 +334,7 @@ defmodule AWS.PersonalizeEvents do
   @spec put_items(map(), put_items_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_items_errors()}
   def put_items(%Client{} = client, input, options \\ []) do
     url_path = "/items"
@@ -362,6 +366,7 @@ defmodule AWS.PersonalizeEvents do
   @spec put_users(map(), put_users_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_users_errors()}
   def put_users(%Client{} = client, input, options \\ []) do
     url_path = "/users"

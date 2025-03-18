@@ -320,6 +320,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec delete_report_definition(map(), String.t(), delete_report_definition_request(), list()) ::
           {:ok, delete_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
@@ -349,6 +350,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec get_report_definition(map(), String.t(), list()) ::
           {:ok, get_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_report_definition_errors()}
   def get_report_definition(%Client{} = client, report_id, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"
@@ -372,6 +374,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec import_application_usage(map(), import_application_usage_request(), list()) ::
           {:ok, import_application_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_application_usage_errors()}
   def import_application_usage(%Client{} = client, input, options \\ []) do
     url_path = "/importApplicationUsage"
@@ -402,6 +405,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec list_report_definitions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_report_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_report_definitions_errors()}
   def list_report_definitions(
         %Client{} = client,
@@ -438,6 +442,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec put_report_definition(map(), put_report_definition_request(), list()) ::
           {:ok, put_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
     url_path = "/reportDefinition"
@@ -466,6 +471,7 @@ defmodule AWS.ApplicationCostProfiler do
   @spec update_report_definition(map(), String.t(), update_report_definition_request(), list()) ::
           {:ok, update_report_definition_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_report_definition_errors()}
   def update_report_definition(%Client{} = client, report_id, input, options \\ []) do
     url_path = "/reportDefinition/#{AWS.Util.encode_uri(report_id)}"

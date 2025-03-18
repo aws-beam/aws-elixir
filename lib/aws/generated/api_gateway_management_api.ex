@@ -141,6 +141,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
@@ -169,6 +170,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec get_connection(map(), String.t(), String.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, stage, connection_id, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"
@@ -186,6 +188,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec post_to_connection(map(), String.t(), String.t(), post_to_connection_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_to_connection_errors()}
   def post_to_connection(%Client{} = client, connection_id, stage, input, options \\ []) do
     url_path = "/#{stage}/@connections/#{AWS.Util.encode_uri(connection_id)}"

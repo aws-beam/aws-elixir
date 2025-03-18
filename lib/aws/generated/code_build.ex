@@ -2528,6 +2528,7 @@ defmodule AWS.CodeBuild do
   @spec batch_delete_builds(map(), batch_delete_builds_input(), list()) ::
           {:ok, batch_delete_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_builds_errors()}
   def batch_delete_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2541,6 +2542,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_build_batches(map(), batch_get_build_batches_input(), list()) ::
           {:ok, batch_get_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_build_batches_errors()}
   def batch_get_build_batches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2554,6 +2556,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_builds(map(), batch_get_builds_input(), list()) ::
           {:ok, batch_get_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_builds_errors()}
   def batch_get_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2567,6 +2570,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_fleets(map(), batch_get_fleets_input(), list()) ::
           {:ok, batch_get_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_fleets_errors()}
   def batch_get_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2580,6 +2584,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_projects(map(), batch_get_projects_input(), list()) ::
           {:ok, batch_get_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_projects_errors()}
   def batch_get_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2594,6 +2599,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_report_groups(map(), batch_get_report_groups_input(), list()) ::
           {:ok, batch_get_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_report_groups_errors()}
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2608,6 +2614,7 @@ defmodule AWS.CodeBuild do
   @spec batch_get_reports(map(), batch_get_reports_input(), list()) ::
           {:ok, batch_get_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_reports_errors()}
   def batch_get_reports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2621,6 +2628,7 @@ defmodule AWS.CodeBuild do
   @spec create_fleet(map(), create_fleet_input(), list()) ::
           {:ok, create_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2634,6 +2642,7 @@ defmodule AWS.CodeBuild do
   @spec create_project(map(), create_project_input(), list()) ::
           {:ok, create_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2650,6 +2659,7 @@ defmodule AWS.CodeBuild do
   @spec create_report_group(map(), create_report_group_input(), list()) ::
           {:ok, create_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_report_group_errors()}
   def create_report_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2679,6 +2689,7 @@ defmodule AWS.CodeBuild do
   @spec create_webhook(map(), create_webhook_input(), list()) ::
           {:ok, create_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2692,6 +2703,7 @@ defmodule AWS.CodeBuild do
   @spec delete_build_batch(map(), delete_build_batch_input(), list()) ::
           {:ok, delete_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_build_batch_errors()}
   def delete_build_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2707,6 +2719,7 @@ defmodule AWS.CodeBuild do
   @spec delete_fleet(map(), delete_fleet_input(), list()) ::
           {:ok, delete_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2722,6 +2735,7 @@ defmodule AWS.CodeBuild do
   @spec delete_project(map(), delete_project_input(), list()) ::
           {:ok, delete_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2736,6 +2750,7 @@ defmodule AWS.CodeBuild do
   @spec delete_report(map(), delete_report_input(), list()) ::
           {:ok, delete_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_report_errors()}
   def delete_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2751,6 +2766,7 @@ defmodule AWS.CodeBuild do
   @spec delete_report_group(map(), delete_report_group_input(), list()) ::
           {:ok, delete_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_report_group_errors()}
   def delete_report_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2764,6 +2780,7 @@ defmodule AWS.CodeBuild do
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2777,6 +2794,7 @@ defmodule AWS.CodeBuild do
   @spec delete_source_credentials(map(), delete_source_credentials_input(), list()) ::
           {:ok, delete_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_source_credentials_errors()}
   def delete_source_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2794,6 +2812,7 @@ defmodule AWS.CodeBuild do
   @spec delete_webhook(map(), delete_webhook_input(), list()) ::
           {:ok, delete_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2807,6 +2826,7 @@ defmodule AWS.CodeBuild do
   @spec describe_code_coverages(map(), describe_code_coverages_input(), list()) ::
           {:ok, describe_code_coverages_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_code_coverages_errors()}
   def describe_code_coverages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2821,6 +2841,7 @@ defmodule AWS.CodeBuild do
   @spec describe_test_cases(map(), describe_test_cases_input(), list()) ::
           {:ok, describe_test_cases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_test_cases_errors()}
   def describe_test_cases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2834,6 +2855,7 @@ defmodule AWS.CodeBuild do
   @spec get_report_group_trend(map(), get_report_group_trend_input(), list()) ::
           {:ok, get_report_group_trend_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_report_group_trend_errors()}
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2847,6 +2869,7 @@ defmodule AWS.CodeBuild do
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2862,6 +2885,7 @@ defmodule AWS.CodeBuild do
   @spec import_source_credentials(map(), import_source_credentials_input(), list()) ::
           {:ok, import_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_source_credentials_errors()}
   def import_source_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2875,6 +2899,7 @@ defmodule AWS.CodeBuild do
   @spec invalidate_project_cache(map(), invalidate_project_cache_input(), list()) ::
           {:ok, invalidate_project_cache_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invalidate_project_cache_errors()}
   def invalidate_project_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2888,6 +2913,7 @@ defmodule AWS.CodeBuild do
   @spec list_build_batches(map(), list_build_batches_input(), list()) ::
           {:ok, list_build_batches_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_build_batches_errors()}
   def list_build_batches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2901,6 +2927,7 @@ defmodule AWS.CodeBuild do
   @spec list_build_batches_for_project(map(), list_build_batches_for_project_input(), list()) ::
           {:ok, list_build_batches_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_build_batches_for_project_errors()}
   def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2914,6 +2941,7 @@ defmodule AWS.CodeBuild do
   @spec list_builds(map(), list_builds_input(), list()) ::
           {:ok, list_builds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2929,6 +2957,7 @@ defmodule AWS.CodeBuild do
   @spec list_builds_for_project(map(), list_builds_for_project_input(), list()) ::
           {:ok, list_builds_for_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_builds_for_project_errors()}
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2942,6 +2971,7 @@ defmodule AWS.CodeBuild do
   @spec list_curated_environment_images(map(), list_curated_environment_images_input(), list()) ::
           {:ok, list_curated_environment_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2955,6 +2985,7 @@ defmodule AWS.CodeBuild do
   @spec list_fleets(map(), list_fleets_input(), list()) ::
           {:ok, list_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2970,6 +3001,7 @@ defmodule AWS.CodeBuild do
   @spec list_projects(map(), list_projects_input(), list()) ::
           {:ok, list_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2985,6 +3017,7 @@ defmodule AWS.CodeBuild do
   @spec list_report_groups(map(), list_report_groups_input(), list()) ::
           {:ok, list_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_report_groups_errors()}
   def list_report_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3000,6 +3033,7 @@ defmodule AWS.CodeBuild do
   @spec list_reports(map(), list_reports_input(), list()) ::
           {:ok, list_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3014,6 +3048,7 @@ defmodule AWS.CodeBuild do
   @spec list_reports_for_report_group(map(), list_reports_for_report_group_input(), list()) ::
           {:ok, list_reports_for_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reports_for_report_group_errors()}
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3028,6 +3063,7 @@ defmodule AWS.CodeBuild do
   @spec list_shared_projects(map(), list_shared_projects_input(), list()) ::
           {:ok, list_shared_projects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_shared_projects_errors()}
   def list_shared_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3042,6 +3078,7 @@ defmodule AWS.CodeBuild do
   @spec list_shared_report_groups(map(), list_shared_report_groups_input(), list()) ::
           {:ok, list_shared_report_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_shared_report_groups_errors()}
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3055,6 +3092,7 @@ defmodule AWS.CodeBuild do
   @spec list_source_credentials(map(), list_source_credentials_input(), list()) ::
           {:ok, list_source_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_source_credentials_errors()}
   def list_source_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3069,6 +3107,7 @@ defmodule AWS.CodeBuild do
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3082,6 +3121,7 @@ defmodule AWS.CodeBuild do
   @spec retry_build(map(), retry_build_input(), list()) ::
           {:ok, retry_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_build_errors()}
   def retry_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3097,6 +3137,7 @@ defmodule AWS.CodeBuild do
   @spec retry_build_batch(map(), retry_build_batch_input(), list()) ::
           {:ok, retry_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_build_batch_errors()}
   def retry_build_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,6 +3159,7 @@ defmodule AWS.CodeBuild do
   @spec start_build(map(), start_build_input(), list()) ::
           {:ok, start_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_build_errors()}
   def start_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3131,6 +3173,7 @@ defmodule AWS.CodeBuild do
   @spec start_build_batch(map(), start_build_batch_input(), list()) ::
           {:ok, start_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_build_batch_errors()}
   def start_build_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3144,6 +3187,7 @@ defmodule AWS.CodeBuild do
   @spec stop_build(map(), stop_build_input(), list()) ::
           {:ok, stop_build_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_build_errors()}
   def stop_build(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3157,6 +3201,7 @@ defmodule AWS.CodeBuild do
   @spec stop_build_batch(map(), stop_build_batch_input(), list()) ::
           {:ok, stop_build_batch_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_build_batch_errors()}
   def stop_build_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3170,6 +3215,7 @@ defmodule AWS.CodeBuild do
   @spec update_fleet(map(), update_fleet_input(), list()) ::
           {:ok, update_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3183,6 +3229,7 @@ defmodule AWS.CodeBuild do
   @spec update_project(map(), update_project_input(), list()) ::
           {:ok, update_project_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3240,6 +3287,7 @@ defmodule AWS.CodeBuild do
   @spec update_project_visibility(map(), update_project_visibility_input(), list()) ::
           {:ok, update_project_visibility_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_visibility_errors()}
   def update_project_visibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3254,6 +3302,7 @@ defmodule AWS.CodeBuild do
   @spec update_report_group(map(), update_report_group_input(), list()) ::
           {:ok, update_report_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_report_group_errors()}
   def update_report_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3269,6 +3318,7 @@ defmodule AWS.CodeBuild do
   @spec update_webhook(map(), update_webhook_input(), list()) ::
           {:ok, update_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()

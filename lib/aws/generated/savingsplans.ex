@@ -566,6 +566,7 @@ defmodule AWS.Savingsplans do
   @spec create_savings_plan(map(), create_savings_plan_request(), list()) ::
           {:ok, create_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_savings_plan_errors()}
   def create_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSavingsPlan"
@@ -594,6 +595,7 @@ defmodule AWS.Savingsplans do
   @spec delete_queued_savings_plan(map(), delete_queued_savings_plan_request(), list()) ::
           {:ok, delete_queued_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queued_savings_plan_errors()}
   def delete_queued_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteQueuedSavingsPlan"
@@ -622,6 +624,7 @@ defmodule AWS.Savingsplans do
   @spec describe_savings_plan_rates(map(), describe_savings_plan_rates_request(), list()) ::
           {:ok, describe_savings_plan_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_savings_plan_rates_errors()}
   def describe_savings_plan_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlanRates"
@@ -650,6 +653,7 @@ defmodule AWS.Savingsplans do
   @spec describe_savings_plans(map(), describe_savings_plans_request(), list()) ::
           {:ok, describe_savings_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_savings_plans_errors()}
   def describe_savings_plans(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlans"
@@ -682,6 +686,7 @@ defmodule AWS.Savingsplans do
         ) ::
           {:ok, describe_savings_plans_offering_rates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_savings_plans_offering_rates_errors()}
   def describe_savings_plans_offering_rates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferingRates"
@@ -714,6 +719,7 @@ defmodule AWS.Savingsplans do
         ) ::
           {:ok, describe_savings_plans_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_savings_plans_offerings_errors()}
   def describe_savings_plans_offerings(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSavingsPlansOfferings"
@@ -742,6 +748,7 @@ defmodule AWS.Savingsplans do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -770,6 +777,7 @@ defmodule AWS.Savingsplans do
   @spec return_savings_plan(map(), return_savings_plan_request(), list()) ::
           {:ok, return_savings_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, return_savings_plan_errors()}
   def return_savings_plan(%Client{} = client, input, options \\ []) do
     url_path = "/ReturnSavingsPlan"
@@ -798,6 +806,7 @@ defmodule AWS.Savingsplans do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -826,6 +835,7 @@ defmodule AWS.Savingsplans do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"

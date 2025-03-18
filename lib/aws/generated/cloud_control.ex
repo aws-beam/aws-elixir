@@ -643,6 +643,7 @@ defmodule AWS.CloudControl do
   @spec cancel_resource_request(map(), cancel_resource_request_input(), list()) ::
           {:ok, cancel_resource_request_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_resource_request_errors()}
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -666,6 +667,7 @@ defmodule AWS.CloudControl do
   @spec create_resource(map(), create_resource_input(), list()) ::
           {:ok, create_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -689,6 +691,7 @@ defmodule AWS.CloudControl do
   @spec delete_resource(map(), delete_resource_input(), list()) ::
           {:ok, delete_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -710,6 +713,7 @@ defmodule AWS.CloudControl do
   @spec get_resource(map(), get_resource_input(), list()) ::
           {:ok, get_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_errors()}
   def get_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -728,6 +732,7 @@ defmodule AWS.CloudControl do
   @spec get_resource_request_status(map(), get_resource_request_status_input(), list()) ::
           {:ok, get_resource_request_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_request_status_errors()}
   def get_resource_request_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -748,6 +753,7 @@ defmodule AWS.CloudControl do
   @spec list_resource_requests(map(), list_resource_requests_input(), list()) ::
           {:ok, list_resource_requests_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_resource_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -768,6 +774,7 @@ defmodule AWS.CloudControl do
   @spec list_resources(map(), list_resources_input(), list()) ::
           {:ok, list_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -804,6 +811,7 @@ defmodule AWS.CloudControl do
   @spec update_resource(map(), update_resource_input(), list()) ::
           {:ok, update_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

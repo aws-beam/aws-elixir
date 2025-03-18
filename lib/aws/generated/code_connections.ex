@@ -1342,6 +1342,7 @@ defmodule AWS.CodeConnections do
   @spec create_connection(map(), create_connection_input(), list()) ::
           {:ok, create_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1367,6 +1368,7 @@ defmodule AWS.CodeConnections do
   @spec create_host(map(), create_host_input(), list()) ::
           {:ok, create_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_host_errors()}
   def create_host(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1383,6 +1385,7 @@ defmodule AWS.CodeConnections do
   @spec create_repository_link(map(), create_repository_link_input(), list()) ::
           {:ok, create_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_repository_link_errors()}
   def create_repository_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1401,6 +1404,7 @@ defmodule AWS.CodeConnections do
   @spec create_sync_configuration(map(), create_sync_configuration_input(), list()) ::
           {:ok, create_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sync_configuration_errors()}
   def create_sync_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1414,6 +1418,7 @@ defmodule AWS.CodeConnections do
   @spec delete_connection(map(), delete_connection_input(), list()) ::
           {:ok, delete_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1433,6 +1438,7 @@ defmodule AWS.CodeConnections do
   @spec delete_host(map(), delete_host_input(), list()) ::
           {:ok, delete_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_host_errors()}
   def delete_host(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1447,6 +1453,7 @@ defmodule AWS.CodeConnections do
   @spec delete_repository_link(map(), delete_repository_link_input(), list()) ::
           {:ok, delete_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_repository_link_errors()}
   def delete_repository_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1460,6 +1467,7 @@ defmodule AWS.CodeConnections do
   @spec delete_sync_configuration(map(), delete_sync_configuration_input(), list()) ::
           {:ok, delete_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sync_configuration_errors()}
   def delete_sync_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1473,6 +1481,7 @@ defmodule AWS.CodeConnections do
   @spec get_connection(map(), get_connection_input(), list()) ::
           {:ok, get_connection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1488,6 +1497,7 @@ defmodule AWS.CodeConnections do
   @spec get_host(map(), get_host_input(), list()) ::
           {:ok, get_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_host_errors()}
   def get_host(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1504,6 +1514,7 @@ defmodule AWS.CodeConnections do
   @spec get_repository_link(map(), get_repository_link_input(), list()) ::
           {:ok, get_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_link_errors()}
   def get_repository_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1520,6 +1531,7 @@ defmodule AWS.CodeConnections do
   @spec get_repository_sync_status(map(), get_repository_sync_status_input(), list()) ::
           {:ok, get_repository_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1535,6 +1547,7 @@ defmodule AWS.CodeConnections do
   @spec get_resource_sync_status(map(), get_resource_sync_status_input(), list()) ::
           {:ok, get_resource_sync_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_sync_status_errors()}
   def get_resource_sync_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1548,6 +1561,7 @@ defmodule AWS.CodeConnections do
   @spec get_sync_blocker_summary(map(), get_sync_blocker_summary_input(), list()) ::
           {:ok, get_sync_blocker_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sync_blocker_summary_errors()}
   def get_sync_blocker_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1565,6 +1579,7 @@ defmodule AWS.CodeConnections do
   @spec get_sync_configuration(map(), get_sync_configuration_input(), list()) ::
           {:ok, get_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sync_configuration_errors()}
   def get_sync_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1578,6 +1593,7 @@ defmodule AWS.CodeConnections do
   @spec list_connections(map(), list_connections_input(), list()) ::
           {:ok, list_connections_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1591,6 +1607,7 @@ defmodule AWS.CodeConnections do
   @spec list_hosts(map(), list_hosts_input(), list()) ::
           {:ok, list_hosts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_hosts(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1603,6 +1620,7 @@ defmodule AWS.CodeConnections do
   @spec list_repository_links(map(), list_repository_links_input(), list()) ::
           {:ok, list_repository_links_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repository_links_errors()}
   def list_repository_links(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1616,6 +1634,7 @@ defmodule AWS.CodeConnections do
   @spec list_repository_sync_definitions(map(), list_repository_sync_definitions_input(), list()) ::
           {:ok, list_repository_sync_definitions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1629,6 +1648,7 @@ defmodule AWS.CodeConnections do
   @spec list_sync_configurations(map(), list_sync_configurations_input(), list()) ::
           {:ok, list_sync_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sync_configurations_errors()}
   def list_sync_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1642,6 +1662,7 @@ defmodule AWS.CodeConnections do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1658,6 +1679,7 @@ defmodule AWS.CodeConnections do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1671,6 +1693,7 @@ defmodule AWS.CodeConnections do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1684,6 +1707,7 @@ defmodule AWS.CodeConnections do
   @spec update_host(map(), update_host_input(), list()) ::
           {:ok, update_host_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_host_errors()}
   def update_host(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1702,6 +1726,7 @@ defmodule AWS.CodeConnections do
   @spec update_repository_link(map(), update_repository_link_input(), list()) ::
           {:ok, update_repository_link_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_repository_link_errors()}
   def update_repository_link(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1716,6 +1741,7 @@ defmodule AWS.CodeConnections do
   @spec update_sync_blocker(map(), update_sync_blocker_input(), list()) ::
           {:ok, update_sync_blocker_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sync_blocker_errors()}
   def update_sync_blocker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1730,6 +1756,7 @@ defmodule AWS.CodeConnections do
   @spec update_sync_configuration(map(), update_sync_configuration_input(), list()) ::
           {:ok, update_sync_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sync_configuration_errors()}
   def update_sync_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -155,6 +155,7 @@ defmodule AWS.FreeTier do
   @spec get_free_tier_usage(map(), get_free_tier_usage_request(), list()) ::
           {:ok, get_free_tier_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()

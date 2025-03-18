@@ -502,6 +502,7 @@ defmodule AWS.MarketplaceMetering do
   @spec batch_meter_usage(map(), batch_meter_usage_request(), list()) ::
           {:ok, batch_meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_meter_usage_errors()}
   def batch_meter_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -530,6 +531,7 @@ defmodule AWS.MarketplaceMetering do
   @spec meter_usage(map(), meter_usage_request(), list()) ::
           {:ok, meter_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, meter_usage_errors()}
   def meter_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -584,6 +586,7 @@ defmodule AWS.MarketplaceMetering do
   @spec register_usage(map(), register_usage_request(), list()) ::
           {:ok, register_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_usage_errors()}
   def register_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -614,6 +617,7 @@ defmodule AWS.MarketplaceMetering do
   @spec resolve_customer(map(), resolve_customer_request(), list()) ::
           {:ok, resolve_customer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resolve_customer_errors()}
   def resolve_customer(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -2974,6 +2974,7 @@ defmodule AWS.Appflow do
   @spec cancel_flow_executions(map(), cancel_flow_executions_request(), list()) ::
           {:ok, cancel_flow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_flow_executions_errors()}
   def cancel_flow_executions(%Client{} = client, input, options \\ []) do
     url_path = "/cancel-flow-executions"
@@ -3012,6 +3013,7 @@ defmodule AWS.Appflow do
   @spec create_connector_profile(map(), create_connector_profile_request(), list()) ::
           {:ok, create_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_profile_errors()}
   def create_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/create-connector-profile"
@@ -3049,6 +3051,7 @@ defmodule AWS.Appflow do
   @spec create_flow(map(), create_flow_request(), list()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_errors()}
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/create-flow"
@@ -3077,6 +3080,7 @@ defmodule AWS.Appflow do
   @spec delete_connector_profile(map(), delete_connector_profile_request(), list()) ::
           {:ok, delete_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_profile_errors()}
   def delete_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/delete-connector-profile"
@@ -3109,6 +3113,7 @@ defmodule AWS.Appflow do
   @spec delete_flow(map(), delete_flow_request(), list()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_errors()}
   def delete_flow(%Client{} = client, input, options \\ []) do
     url_path = "/delete-flow"
@@ -3143,6 +3148,7 @@ defmodule AWS.Appflow do
   @spec describe_connector(map(), describe_connector_request(), list()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_errors()}
   def describe_connector(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector"
@@ -3173,6 +3179,7 @@ defmodule AWS.Appflow do
   @spec describe_connector_entity(map(), describe_connector_entity_request(), list()) ::
           {:ok, describe_connector_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_entity_errors()}
   def describe_connector_entity(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector-entity"
@@ -3208,6 +3215,7 @@ defmodule AWS.Appflow do
   @spec describe_connector_profiles(map(), describe_connector_profiles_request(), list()) ::
           {:ok, describe_connector_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_profiles_errors()}
   def describe_connector_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connector-profiles"
@@ -3243,6 +3251,7 @@ defmodule AWS.Appflow do
   @spec describe_connectors(map(), describe_connectors_request(), list()) ::
           {:ok, describe_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connectors_errors()}
   def describe_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/describe-connectors"
@@ -3271,6 +3280,7 @@ defmodule AWS.Appflow do
   @spec describe_flow(map(), describe_flow_request(), list()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_errors()}
   def describe_flow(%Client{} = client, input, options \\ []) do
     url_path = "/describe-flow"
@@ -3299,6 +3309,7 @@ defmodule AWS.Appflow do
   @spec describe_flow_execution_records(map(), describe_flow_execution_records_request(), list()) ::
           {:ok, describe_flow_execution_records_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_execution_records_errors()}
   def describe_flow_execution_records(%Client{} = client, input, options \\ []) do
     url_path = "/describe-flow-execution-records"
@@ -3332,6 +3343,7 @@ defmodule AWS.Appflow do
   @spec list_connector_entities(map(), list_connector_entities_request(), list()) ::
           {:ok, list_connector_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connector_entities_errors()}
   def list_connector_entities(%Client{} = client, input, options \\ []) do
     url_path = "/list-connector-entities"
@@ -3365,6 +3377,7 @@ defmodule AWS.Appflow do
   @spec list_connectors(map(), list_connectors_request(), list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/list-connectors"
@@ -3393,6 +3406,7 @@ defmodule AWS.Appflow do
   @spec list_flows(map(), list_flows_request(), list()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flows_errors()}
   def list_flows(%Client{} = client, input, options \\ []) do
     url_path = "/list-flows"
@@ -3421,6 +3435,7 @@ defmodule AWS.Appflow do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3443,6 +3458,7 @@ defmodule AWS.Appflow do
   @spec register_connector(map(), register_connector_request(), list()) ::
           {:ok, register_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_connector_errors()}
   def register_connector(%Client{} = client, input, options \\ []) do
     url_path = "/register-connector"
@@ -3483,6 +3499,7 @@ defmodule AWS.Appflow do
   @spec reset_connector_metadata_cache(map(), reset_connector_metadata_cache_request(), list()) ::
           {:ok, reset_connector_metadata_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_connector_metadata_cache_errors()}
   def reset_connector_metadata_cache(%Client{} = client, input, options \\ []) do
     url_path = "/reset-connector-metadata-cache"
@@ -3515,6 +3532,7 @@ defmodule AWS.Appflow do
   @spec start_flow(map(), start_flow_request(), list()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_flow_errors()}
   def start_flow(%Client{} = client, input, options \\ []) do
     url_path = "/start-flow"
@@ -3547,6 +3565,7 @@ defmodule AWS.Appflow do
   @spec stop_flow(map(), stop_flow_request(), list()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_flow_errors()}
   def stop_flow(%Client{} = client, input, options \\ []) do
     url_path = "/stop-flow"
@@ -3575,6 +3594,7 @@ defmodule AWS.Appflow do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3605,6 +3625,7 @@ defmodule AWS.Appflow do
   @spec unregister_connector(map(), unregister_connector_request(), list()) ::
           {:ok, unregister_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unregister_connector_errors()}
   def unregister_connector(%Client{} = client, input, options \\ []) do
     url_path = "/unregister-connector"
@@ -3633,6 +3654,7 @@ defmodule AWS.Appflow do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3666,6 +3688,7 @@ defmodule AWS.Appflow do
   @spec update_connector_profile(map(), update_connector_profile_request(), list()) ::
           {:ok, update_connector_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_profile_errors()}
   def update_connector_profile(%Client{} = client, input, options \\ []) do
     url_path = "/update-connector-profile"
@@ -3703,6 +3726,7 @@ defmodule AWS.Appflow do
   @spec update_connector_registration(map(), update_connector_registration_request(), list()) ::
           {:ok, update_connector_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_registration_errors()}
   def update_connector_registration(%Client{} = client, input, options \\ []) do
     url_path = "/update-connector-registration"
@@ -3731,6 +3755,7 @@ defmodule AWS.Appflow do
   @spec update_flow(map(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_errors()}
   def update_flow(%Client{} = client, input, options \\ []) do
     url_path = "/update-flow"

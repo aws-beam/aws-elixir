@@ -348,6 +348,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec close_tunnel(map(), close_tunnel_request(), list()) ::
           {:ok, close_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, close_tunnel_errors()}
   def close_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -365,6 +366,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec describe_tunnel(map(), describe_tunnel_request(), list()) ::
           {:ok, describe_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tunnel_errors()}
   def describe_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -378,6 +380,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -398,6 +401,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec list_tunnels(map(), list_tunnels_request(), list()) ::
           {:ok, list_tunnels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tunnels(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -415,6 +419,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec open_tunnel(map(), open_tunnel_request(), list()) ::
           {:ok, open_tunnel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, open_tunnel_errors()}
   def open_tunnel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -439,6 +444,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec rotate_tunnel_access_token(map(), rotate_tunnel_access_token_request(), list()) ::
           {:ok, rotate_tunnel_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rotate_tunnel_access_token_errors()}
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -452,6 +458,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -465,6 +472,7 @@ defmodule AWS.IoTSecureTunneling do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

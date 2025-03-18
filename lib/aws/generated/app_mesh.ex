@@ -2956,6 +2956,7 @@ defmodule AWS.AppMesh do
   @spec create_gateway_route(map(), String.t(), String.t(), create_gateway_route_input(), list()) ::
           {:ok, create_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_gateway_route_errors()}
   def create_gateway_route(
         %Client{} = client,
@@ -3007,6 +3008,7 @@ defmodule AWS.AppMesh do
   @spec create_mesh(map(), create_mesh_input(), list()) ::
           {:ok, create_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mesh_errors()}
   def create_mesh(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/meshes"
@@ -3041,6 +3043,7 @@ defmodule AWS.AppMesh do
   @spec create_route(map(), String.t(), String.t(), create_route_input(), list()) ::
           {:ok, create_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_route_errors()}
   def create_route(%Client{} = client, mesh_name, virtual_router_name, input, options \\ []) do
     url_path =
@@ -3087,6 +3090,7 @@ defmodule AWS.AppMesh do
   @spec create_virtual_gateway(map(), String.t(), create_virtual_gateway_input(), list()) ::
           {:ok, create_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_gateway_errors()}
   def create_virtual_gateway(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualGateways"
@@ -3152,6 +3156,7 @@ defmodule AWS.AppMesh do
   @spec create_virtual_node(map(), String.t(), create_virtual_node_input(), list()) ::
           {:ok, create_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_node_errors()}
   def create_virtual_node(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualNodes"
@@ -3196,6 +3201,7 @@ defmodule AWS.AppMesh do
   @spec create_virtual_router(map(), String.t(), create_virtual_router_input(), list()) ::
           {:ok, create_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_router_errors()}
   def create_virtual_router(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualRouters"
@@ -3239,6 +3245,7 @@ defmodule AWS.AppMesh do
   @spec create_virtual_service(map(), String.t(), create_virtual_service_input(), list()) ::
           {:ok, create_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_virtual_service_errors()}
   def create_virtual_service(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}/virtualServices"
@@ -3279,6 +3286,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, delete_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gateway_route_errors()}
   def delete_gateway_route(
         %Client{} = client,
@@ -3325,6 +3333,7 @@ defmodule AWS.AppMesh do
   @spec delete_mesh(map(), String.t(), delete_mesh_input(), list()) ::
           {:ok, delete_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mesh_errors()}
   def delete_mesh(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
@@ -3353,6 +3362,7 @@ defmodule AWS.AppMesh do
   @spec delete_route(map(), String.t(), String.t(), String.t(), delete_route_input(), list()) ::
           {:ok, delete_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_route_errors()}
   def delete_route(
         %Client{} = client,
@@ -3404,6 +3414,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, delete_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_gateway_errors()}
   def delete_virtual_gateway(
         %Client{} = client,
@@ -3449,6 +3460,7 @@ defmodule AWS.AppMesh do
   @spec delete_virtual_node(map(), String.t(), String.t(), delete_virtual_node_input(), list()) ::
           {:ok, delete_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_node_errors()}
   def delete_virtual_node(%Client{} = client, mesh_name, virtual_node_name, input, options \\ []) do
     url_path =
@@ -3494,6 +3506,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, delete_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_router_errors()}
   def delete_virtual_router(
         %Client{} = client,
@@ -3541,6 +3554,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, delete_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_service_errors()}
   def delete_virtual_service(
         %Client{} = client,
@@ -3589,6 +3603,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, describe_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_route_errors()}
   def describe_gateway_route(
         %Client{} = client,
@@ -3622,6 +3637,7 @@ defmodule AWS.AppMesh do
   @spec describe_mesh(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mesh_errors()}
   def describe_mesh(%Client{} = client, mesh_name, mesh_owner \\ nil, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
@@ -3646,6 +3662,7 @@ defmodule AWS.AppMesh do
   @spec describe_route(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_route_errors()}
   def describe_route(
         %Client{} = client,
@@ -3679,6 +3696,7 @@ defmodule AWS.AppMesh do
   @spec describe_virtual_gateway(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_gateway_errors()}
   def describe_virtual_gateway(
         %Client{} = client,
@@ -3711,6 +3729,7 @@ defmodule AWS.AppMesh do
   @spec describe_virtual_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_node_errors()}
   def describe_virtual_node(
         %Client{} = client,
@@ -3743,6 +3762,7 @@ defmodule AWS.AppMesh do
   @spec describe_virtual_router(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_router_errors()}
   def describe_virtual_router(
         %Client{} = client,
@@ -3775,6 +3795,7 @@ defmodule AWS.AppMesh do
   @spec describe_virtual_service(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_service_errors()}
   def describe_virtual_service(
         %Client{} = client,
@@ -3816,6 +3837,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_gateway_routes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gateway_routes_errors()}
   def list_gateway_routes(
         %Client{} = client,
@@ -3864,6 +3886,7 @@ defmodule AWS.AppMesh do
   @spec list_meshes(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_meshes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_meshes_errors()}
   def list_meshes(%Client{} = client, limit \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v20190125/meshes"
@@ -3903,6 +3926,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_routes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routes_errors()}
   def list_routes(
         %Client{} = client,
@@ -3951,6 +3975,7 @@ defmodule AWS.AppMesh do
   @spec list_tags_for_resource(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(
         %Client{} = client,
@@ -4002,6 +4027,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_virtual_gateways_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_gateways_errors()}
   def list_virtual_gateways(
         %Client{} = client,
@@ -4054,6 +4080,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_virtual_nodes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_nodes_errors()}
   def list_virtual_nodes(
         %Client{} = client,
@@ -4106,6 +4133,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_virtual_routers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_routers_errors()}
   def list_virtual_routers(
         %Client{} = client,
@@ -4158,6 +4186,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, list_virtual_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_services_errors()}
   def list_virtual_services(
         %Client{} = client,
@@ -4209,6 +4238,7 @@ defmodule AWS.AppMesh do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/tag"
@@ -4242,6 +4272,7 @@ defmodule AWS.AppMesh do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v20190125/untag"
@@ -4284,6 +4315,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, update_gateway_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_route_errors()}
   def update_gateway_route(
         %Client{} = client,
@@ -4326,6 +4358,7 @@ defmodule AWS.AppMesh do
   @spec update_mesh(map(), String.t(), update_mesh_input(), list()) ::
           {:ok, update_mesh_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_mesh_errors()}
   def update_mesh(%Client{} = client, mesh_name, input, options \\ []) do
     url_path = "/v20190125/meshes/#{AWS.Util.encode_uri(mesh_name)}"
@@ -4354,6 +4387,7 @@ defmodule AWS.AppMesh do
   @spec update_route(map(), String.t(), String.t(), String.t(), update_route_input(), list()) ::
           {:ok, update_route_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_route_errors()}
   def update_route(
         %Client{} = client,
@@ -4402,6 +4436,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, update_virtual_gateway_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_virtual_gateway_errors()}
   def update_virtual_gateway(
         %Client{} = client,
@@ -4443,6 +4478,7 @@ defmodule AWS.AppMesh do
   @spec update_virtual_node(map(), String.t(), String.t(), update_virtual_node_input(), list()) ::
           {:ok, update_virtual_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_virtual_node_errors()}
   def update_virtual_node(%Client{} = client, mesh_name, virtual_node_name, input, options \\ []) do
     url_path =
@@ -4484,6 +4520,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, update_virtual_router_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_virtual_router_errors()}
   def update_virtual_router(
         %Client{} = client,
@@ -4531,6 +4568,7 @@ defmodule AWS.AppMesh do
         ) ::
           {:ok, update_virtual_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_virtual_service_errors()}
   def update_virtual_service(
         %Client{} = client,

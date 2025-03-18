@@ -3633,6 +3633,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_phone_numbers_with_voice_connector_errors()}
   def associate_phone_numbers_with_voice_connector(
         %Client{} = client,
@@ -3674,6 +3675,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, associate_phone_numbers_with_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_phone_numbers_with_voice_connector_group_errors()}
   def associate_phone_numbers_with_voice_connector_group(
         %Client{} = client,
@@ -3717,6 +3719,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec batch_delete_phone_number(map(), batch_delete_phone_number_request(), list()) ::
           {:ok, batch_delete_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_phone_number_errors()}
   def batch_delete_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-delete"
@@ -3751,6 +3754,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec batch_update_phone_number(map(), batch_update_phone_number_request(), list()) ::
           {:ok, batch_update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_phone_number_errors()}
   def batch_update_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-numbers?operation=batch-update"
@@ -3782,6 +3786,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_phone_number_order(map(), create_phone_number_order_request(), list()) ::
           {:ok, create_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_phone_number_order_errors()}
   def create_phone_number_order(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number-orders"
@@ -3811,6 +3816,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_proxy_session(map(), String.t(), create_proxy_session_request(), list()) ::
           {:ok, create_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_proxy_session_errors()}
   def create_proxy_session(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/proxy-sessions"
@@ -3844,6 +3850,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_sip_media_application(map(), create_sip_media_application_request(), list()) ::
           {:ok, create_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sip_media_application_errors()}
   def create_sip_media_application(%Client{} = client, input, options \\ []) do
     url_path = "/sip-media-applications"
@@ -3879,6 +3886,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, create_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sip_media_application_call_errors()}
   def create_sip_media_application_call(
         %Client{} = client,
@@ -3917,6 +3925,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_sip_rule(map(), create_sip_rule_request(), list()) ::
           {:ok, create_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sip_rule_errors()}
   def create_sip_rule(%Client{} = client, input, options \\ []) do
     url_path = "/sip-rules"
@@ -3951,6 +3960,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_voice_connector(map(), create_voice_connector_request(), list()) ::
           {:ok, create_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_voice_connector_errors()}
   def create_voice_connector(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connectors"
@@ -3988,6 +3998,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_voice_connector_group(map(), create_voice_connector_group_request(), list()) ::
           {:ok, create_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_voice_connector_group_errors()}
   def create_voice_connector_group(%Client{} = client, input, options \\ []) do
     url_path = "/voice-connector-groups"
@@ -4027,6 +4038,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_voice_profile(map(), create_voice_profile_request(), list()) ::
           {:ok, create_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_voice_profile_errors()}
   def create_voice_profile(%Client{} = client, input, options \\ []) do
     url_path = "/voice-profiles"
@@ -4066,6 +4078,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec create_voice_profile_domain(map(), create_voice_profile_domain_request(), list()) ::
           {:ok, create_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_voice_profile_domain_errors()}
   def create_voice_profile_domain(%Client{} = client, input, options \\ []) do
     url_path = "/voice-profile-domains"
@@ -4104,6 +4117,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec delete_phone_number(map(), String.t(), delete_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_phone_number_errors()}
   def delete_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -4139,6 +4153,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_proxy_session_errors()}
   def delete_proxy_session(
         %Client{} = client,
@@ -4180,6 +4195,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sip_media_application_errors()}
   def delete_sip_media_application(
         %Client{} = client,
@@ -4213,6 +4229,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec delete_sip_rule(map(), String.t(), delete_sip_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sip_rule_errors()}
   def delete_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -4246,6 +4263,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec delete_voice_connector(map(), String.t(), delete_voice_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_errors()}
   def delete_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -4280,6 +4298,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_emergency_calling_configuration_errors()}
   def delete_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -4320,6 +4339,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_external_systems_configuration_errors()}
   def delete_voice_connector_external_systems_configuration(
         %Client{} = client,
@@ -4364,6 +4384,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_group_errors()}
   def delete_voice_connector_group(
         %Client{} = client,
@@ -4406,6 +4427,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_origination_errors()}
   def delete_voice_connector_origination(
         %Client{} = client,
@@ -4445,6 +4467,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_proxy_errors()}
   def delete_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -4480,6 +4503,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_streaming_configuration_errors()}
   def delete_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -4524,6 +4548,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_termination_errors()}
   def delete_voice_connector_termination(
         %Client{} = client,
@@ -4563,6 +4588,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_connector_termination_credentials_errors()}
   def delete_voice_connector_termination_credentials(
         %Client{} = client,
@@ -4600,6 +4626,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec delete_voice_profile(map(), String.t(), delete_voice_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_profile_errors()}
   def delete_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
@@ -4635,6 +4662,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_profile_domain_errors()}
   def delete_voice_profile_domain(
         %Client{} = client,
@@ -4674,6 +4702,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_phone_numbers_from_voice_connector_errors()}
   def disassociate_phone_numbers_from_voice_connector(
         %Client{} = client,
@@ -4716,6 +4745,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, disassociate_phone_numbers_from_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_phone_numbers_from_voice_connector_group_errors()}
   def disassociate_phone_numbers_from_voice_connector_group(
         %Client{} = client,
@@ -4752,6 +4782,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_global_settings(map(), list()) ::
           {:ok, get_global_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/settings"
@@ -4770,6 +4801,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_phone_number(map(), String.t(), list()) ::
           {:ok, get_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_errors()}
   def get_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -4789,6 +4821,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_phone_number_order(map(), String.t(), list()) ::
           {:ok, get_phone_number_order_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_order_errors()}
   def get_phone_number_order(%Client{} = client, phone_number_order_id, options \\ []) do
     url_path = "/phone-number-orders/#{AWS.Util.encode_uri(phone_number_order_id)}"
@@ -4807,6 +4840,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_phone_number_settings(map(), list()) ::
           {:ok, get_phone_number_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_phone_number_settings_errors()}
   def get_phone_number_settings(%Client{} = client, options \\ []) do
     url_path = "/settings/phone-number"
@@ -4825,6 +4859,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_proxy_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_proxy_session_errors()}
   def get_proxy_session(%Client{} = client, proxy_session_id, voice_connector_id, options \\ []) do
     url_path =
@@ -4845,6 +4880,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_sip_media_application(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sip_media_application_errors()}
   def get_sip_media_application(%Client{} = client, sip_media_application_id, options \\ []) do
     url_path = "/sip-media-applications/#{AWS.Util.encode_uri(sip_media_application_id)}"
@@ -4866,6 +4902,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_sip_media_application_alexa_skill_configuration(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sip_media_application_alexa_skill_configuration_errors()}
   def get_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
@@ -4889,6 +4926,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_sip_media_application_logging_configuration(map(), String.t(), list()) ::
           {:ok, get_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sip_media_application_logging_configuration_errors()}
   def get_sip_media_application_logging_configuration(
         %Client{} = client,
@@ -4913,6 +4951,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_sip_rule(map(), String.t(), list()) ::
           {:ok, get_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sip_rule_errors()}
   def get_sip_rule(%Client{} = client, sip_rule_id, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -4930,6 +4969,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_speaker_search_task_errors()}
   def get_speaker_search_task(
         %Client{} = client,
@@ -4955,6 +4995,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector(map(), String.t(), list()) ::
           {:ok, get_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_errors()}
   def get_voice_connector(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -4973,6 +5014,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_emergency_calling_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_emergency_calling_configuration_errors()}
   def get_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -4997,6 +5039,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_external_systems_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_external_systems_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_external_systems_configuration_errors()}
   def get_voice_connector_external_systems_configuration(
         %Client{} = client,
@@ -5021,6 +5064,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_group(map(), String.t(), list()) ::
           {:ok, get_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_group_errors()}
   def get_voice_connector_group(%Client{} = client, voice_connector_group_id, options \\ []) do
     url_path = "/voice-connector-groups/#{AWS.Util.encode_uri(voice_connector_group_id)}"
@@ -5041,6 +5085,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_logging_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_logging_configuration_errors()}
   def get_voice_connector_logging_configuration(
         %Client{} = client,
@@ -5064,6 +5109,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_origination(map(), String.t(), list()) ::
           {:ok, get_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_origination_errors()}
   def get_voice_connector_origination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/origination"
@@ -5083,6 +5129,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_proxy(map(), String.t(), list()) ::
           {:ok, get_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_proxy_errors()}
   def get_voice_connector_proxy(%Client{} = client, voice_connector_id, options \\ []) do
     url_path =
@@ -5107,6 +5154,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_streaming_configuration(map(), String.t(), list()) ::
           {:ok, get_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_streaming_configuration_errors()}
   def get_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -5130,6 +5178,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_termination(map(), String.t(), list()) ::
           {:ok, get_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_termination_errors()}
   def get_voice_connector_termination(%Client{} = client, voice_connector_id, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/termination"
@@ -5150,6 +5199,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_connector_termination_health(map(), String.t(), list()) ::
           {:ok, get_voice_connector_termination_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_connector_termination_health_errors()}
   def get_voice_connector_termination_health(
         %Client{} = client,
@@ -5171,6 +5221,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_profile(map(), String.t(), list()) ::
           {:ok, get_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_profile_errors()}
   def get_voice_profile(%Client{} = client, voice_profile_id, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
@@ -5188,6 +5239,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_profile_domain(map(), String.t(), list()) ::
           {:ok, get_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_profile_domain_errors()}
   def get_voice_profile_domain(%Client{} = client, voice_profile_domain_id, options \\ []) do
     url_path = "/voice-profile-domains/#{AWS.Util.encode_uri(voice_profile_domain_id)}"
@@ -5205,6 +5257,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_tone_analysis_task_errors()}
   def get_voice_tone_analysis_task(
         %Client{} = client,
@@ -5238,6 +5291,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_available_voice_connector_regions(map(), list()) ::
           {:ok, list_available_voice_connector_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_available_voice_connector_regions_errors()}
   def list_available_voice_connector_regions(%Client{} = client, options \\ []) do
     url_path = "/voice-connector-regions"
@@ -5255,6 +5309,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_phone_number_orders(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_phone_number_orders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_number_orders_errors()}
   def list_phone_number_orders(
         %Client{} = client,
@@ -5303,6 +5358,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_numbers_errors()}
   def list_phone_numbers(
         %Client{} = client,
@@ -5378,6 +5434,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, list_proxy_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_proxy_sessions_errors()}
   def list_proxy_sessions(
         %Client{} = client,
@@ -5423,6 +5480,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_sip_media_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sip_media_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sip_media_applications_errors()}
   def list_sip_media_applications(
         %Client{} = client,
@@ -5459,6 +5517,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_sip_rules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_sip_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sip_rules_errors()}
   def list_sip_rules(
         %Client{} = client,
@@ -5503,6 +5562,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_supported_phone_number_countries(map(), String.t(), list()) ::
           {:ok, list_supported_phone_number_countries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_supported_phone_number_countries_errors()}
   def list_supported_phone_number_countries(%Client{} = client, product_type, options \\ []) do
     url_path = "/phone-number-countries"
@@ -5527,6 +5587,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -5552,6 +5613,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_voice_connector_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_voice_connector_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_voice_connector_groups_errors()}
   def list_voice_connector_groups(
         %Client{} = client,
@@ -5588,6 +5650,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_voice_connector_termination_credentials(map(), String.t(), list()) ::
           {:ok, list_voice_connector_termination_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_voice_connector_termination_credentials_errors()}
   def list_voice_connector_termination_credentials(
         %Client{} = client,
@@ -5612,6 +5675,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_voice_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_voice_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_voice_connectors_errors()}
   def list_voice_connectors(
         %Client{} = client,
@@ -5648,6 +5712,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_voice_profile_domains(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_voice_profile_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_voice_profile_domains_errors()}
   def list_voice_profile_domains(
         %Client{} = client,
@@ -5684,6 +5749,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec list_voice_profiles(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_voice_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_voice_profiles_errors()}
   def list_voice_profiles(
         %Client{} = client,
@@ -5737,6 +5803,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_sip_media_application_alexa_skill_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_sip_media_application_alexa_skill_configuration_errors()}
   def put_sip_media_application_alexa_skill_configuration(
         %Client{} = client,
@@ -5777,6 +5844,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_sip_media_application_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_sip_media_application_logging_configuration_errors()}
   def put_sip_media_application_logging_configuration(
         %Client{} = client,
@@ -5817,6 +5885,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_emergency_calling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_emergency_calling_configuration_errors()}
   def put_voice_connector_emergency_calling_configuration(
         %Client{} = client,
@@ -5857,6 +5926,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_external_systems_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_external_systems_configuration_errors()}
   def put_voice_connector_external_systems_configuration(
         %Client{} = client,
@@ -5897,6 +5967,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_logging_configuration_errors()}
   def put_voice_connector_logging_configuration(
         %Client{} = client,
@@ -5937,6 +6008,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_origination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_origination_errors()}
   def put_voice_connector_origination(
         %Client{} = client,
@@ -5971,6 +6043,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec put_voice_connector_proxy(map(), String.t(), put_voice_connector_proxy_request(), list()) ::
           {:ok, put_voice_connector_proxy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_proxy_errors()}
   def put_voice_connector_proxy(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -6006,6 +6079,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_streaming_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_streaming_configuration_errors()}
   def put_voice_connector_streaming_configuration(
         %Client{} = client,
@@ -6046,6 +6120,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, put_voice_connector_termination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_termination_errors()}
   def put_voice_connector_termination(
         %Client{} = client,
@@ -6084,6 +6159,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_voice_connector_termination_credentials_errors()}
   def put_voice_connector_termination_credentials(
         %Client{} = client,
@@ -6119,6 +6195,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec restore_phone_number(map(), String.t(), restore_phone_number_request(), list()) ::
           {:ok, restore_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_phone_number_errors()}
   def restore_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}?operation=restore"
@@ -6158,6 +6235,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_available_phone_numbers_errors()}
   def search_available_phone_numbers(
         %Client{} = client,
@@ -6248,6 +6326,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_speaker_search_task_errors()}
   def start_speaker_search_task(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}/speaker-search-tasks"
@@ -6291,6 +6370,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_voice_tone_analysis_task_errors()}
   def start_voice_tone_analysis_task(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path =
@@ -6327,6 +6407,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_speaker_search_task_errors()}
   def stop_speaker_search_task(
         %Client{} = client,
@@ -6369,6 +6450,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_voice_tone_analysis_task_errors()}
   def stop_voice_tone_analysis_task(
         %Client{} = client,
@@ -6405,6 +6487,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -6433,6 +6516,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -6462,6 +6546,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_global_settings(map(), update_global_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_settings_errors()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
@@ -6504,6 +6589,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-numbers/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -6537,6 +6623,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_phone_number_settings(map(), update_phone_number_settings_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_settings_errors()}
   def update_phone_number_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings/phone-number"
@@ -6571,6 +6658,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, update_proxy_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_proxy_session_errors()}
   def update_proxy_session(
         %Client{} = client,
@@ -6612,6 +6700,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, update_sip_media_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sip_media_application_errors()}
   def update_sip_media_application(
         %Client{} = client,
@@ -6655,6 +6744,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, update_sip_media_application_call_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sip_media_application_call_errors()}
   def update_sip_media_application_call(
         %Client{} = client,
@@ -6691,6 +6781,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_sip_rule(map(), String.t(), update_sip_rule_request(), list()) ::
           {:ok, update_sip_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sip_rule_errors()}
   def update_sip_rule(%Client{} = client, sip_rule_id, input, options \\ []) do
     url_path = "/sip-rules/#{AWS.Util.encode_uri(sip_rule_id)}"
@@ -6719,6 +6810,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_voice_connector(map(), String.t(), update_voice_connector_request(), list()) ::
           {:ok, update_voice_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_connector_errors()}
   def update_voice_connector(%Client{} = client, voice_connector_id, input, options \\ []) do
     url_path = "/voice-connectors/#{AWS.Util.encode_uri(voice_connector_id)}"
@@ -6752,6 +6844,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, update_voice_connector_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_connector_group_errors()}
   def update_voice_connector_group(
         %Client{} = client,
@@ -6801,6 +6894,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec update_voice_profile(map(), String.t(), update_voice_profile_request(), list()) ::
           {:ok, update_voice_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_profile_errors()}
   def update_voice_profile(%Client{} = client, voice_profile_id, input, options \\ []) do
     url_path = "/voice-profiles/#{AWS.Util.encode_uri(voice_profile_id)}"
@@ -6834,6 +6928,7 @@ defmodule AWS.ChimeSDKVoice do
         ) ::
           {:ok, update_voice_profile_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_voice_profile_domain_errors()}
   def update_voice_profile_domain(
         %Client{} = client,
@@ -6873,6 +6968,7 @@ defmodule AWS.ChimeSDKVoice do
   @spec validate_e911_address(map(), validate_e911_address_request(), list()) ::
           {:ok, validate_e911_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_e911_address_errors()}
   def validate_e911_address(%Client{} = client, input, options \\ []) do
     url_path = "/emergency-calling/address"

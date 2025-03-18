@@ -669,6 +669,7 @@ defmodule AWS.BCMDataExports do
   @spec create_export(map(), create_export_request(), list()) ::
           {:ok, create_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_export_errors()}
   def create_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -682,6 +683,7 @@ defmodule AWS.BCMDataExports do
   @spec delete_export(map(), delete_export_request(), list()) ::
           {:ok, delete_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_export_errors()}
   def delete_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -695,6 +697,7 @@ defmodule AWS.BCMDataExports do
   @spec get_execution(map(), get_execution_request(), list()) ::
           {:ok, get_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_execution_errors()}
   def get_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -708,6 +711,7 @@ defmodule AWS.BCMDataExports do
   @spec get_export(map(), get_export_request(), list()) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_errors()}
   def get_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -724,6 +728,7 @@ defmodule AWS.BCMDataExports do
   @spec get_table(map(), get_table_request(), list()) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -737,6 +742,7 @@ defmodule AWS.BCMDataExports do
   @spec list_executions(map(), list_executions_request(), list()) ::
           {:ok, list_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -750,6 +756,7 @@ defmodule AWS.BCMDataExports do
   @spec list_exports(map(), list_exports_request(), list()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -763,6 +770,7 @@ defmodule AWS.BCMDataExports do
   @spec list_tables(map(), list_tables_request(), list()) ::
           {:ok, list_tables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -776,6 +784,7 @@ defmodule AWS.BCMDataExports do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -789,6 +798,7 @@ defmodule AWS.BCMDataExports do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -802,6 +812,7 @@ defmodule AWS.BCMDataExports do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -818,6 +829,7 @@ defmodule AWS.BCMDataExports do
   @spec update_export(map(), update_export_request(), list()) ::
           {:ok, update_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_export_errors()}
   def update_export(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -3269,6 +3269,7 @@ defmodule AWS.WellArchitected do
   @spec associate_lenses(map(), String.t(), associate_lenses_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_lenses_errors()}
   def associate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateLenses"
@@ -3297,6 +3298,7 @@ defmodule AWS.WellArchitected do
   @spec associate_profiles(map(), String.t(), associate_profiles_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_profiles_errors()}
   def associate_profiles(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/associateProfiles"
@@ -3351,6 +3353,7 @@ defmodule AWS.WellArchitected do
   @spec create_lens_share(map(), String.t(), create_lens_share_input(), list()) ::
           {:ok, create_lens_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lens_share_errors()}
   def create_lens_share(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/shares"
@@ -3388,6 +3391,7 @@ defmodule AWS.WellArchitected do
   @spec create_lens_version(map(), String.t(), create_lens_version_input(), list()) ::
           {:ok, create_lens_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lens_version_errors()}
   def create_lens_version(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/versions"
@@ -3416,6 +3420,7 @@ defmodule AWS.WellArchitected do
   @spec create_milestone(map(), String.t(), create_milestone_input(), list()) ::
           {:ok, create_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_milestone_errors()}
   def create_milestone(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestones"
@@ -3444,6 +3449,7 @@ defmodule AWS.WellArchitected do
   @spec create_profile(map(), create_profile_input(), list()) ::
           {:ok, create_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profiles"
@@ -3472,6 +3478,7 @@ defmodule AWS.WellArchitected do
   @spec create_profile_share(map(), String.t(), create_profile_share_input(), list()) ::
           {:ok, create_profile_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_share_errors()}
   def create_profile_share(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}/shares"
@@ -3511,6 +3518,7 @@ defmodule AWS.WellArchitected do
   @spec create_review_template(map(), create_review_template_input(), list()) ::
           {:ok, create_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_review_template_errors()}
   def create_review_template(%Client{} = client, input, options \\ []) do
     url_path = "/reviewTemplates"
@@ -3557,6 +3565,7 @@ defmodule AWS.WellArchitected do
   @spec create_template_share(map(), String.t(), create_template_share_input(), list()) ::
           {:ok, create_template_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_share_errors()}
   def create_template_share(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/templates/shares/#{AWS.Util.encode_uri(template_arn)}"
@@ -3620,6 +3629,7 @@ defmodule AWS.WellArchitected do
   @spec create_workload(map(), create_workload_input(), list()) ::
           {:ok, create_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workload_errors()}
   def create_workload(%Client{} = client, input, options \\ []) do
     url_path = "/workloads"
@@ -3662,6 +3672,7 @@ defmodule AWS.WellArchitected do
   @spec create_workload_share(map(), String.t(), create_workload_share_input(), list()) ::
           {:ok, create_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workload_share_errors()}
   def create_workload_share(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/shares"
@@ -3705,6 +3716,7 @@ defmodule AWS.WellArchitected do
   @spec delete_lens(map(), String.t(), delete_lens_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lens_errors()}
   def delete_lens(%Client{} = client, lens_alias, input, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
@@ -3755,6 +3767,7 @@ defmodule AWS.WellArchitected do
   @spec delete_lens_share(map(), String.t(), String.t(), delete_lens_share_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lens_share_errors()}
   def delete_lens_share(%Client{} = client, lens_alias, share_id, input, options \\ []) do
     url_path =
@@ -3800,6 +3813,7 @@ defmodule AWS.WellArchitected do
   @spec delete_profile(map(), String.t(), delete_profile_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
@@ -3833,6 +3847,7 @@ defmodule AWS.WellArchitected do
   @spec delete_profile_share(map(), String.t(), String.t(), delete_profile_share_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_share_errors()}
   def delete_profile_share(%Client{} = client, profile_arn, share_id, input, options \\ []) do
     url_path =
@@ -3875,6 +3890,7 @@ defmodule AWS.WellArchitected do
   @spec delete_review_template(map(), String.t(), delete_review_template_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_review_template_errors()}
   def delete_review_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
@@ -3919,6 +3935,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_share_errors()}
   def delete_template_share(%Client{} = client, share_id, template_arn, input, options \\ []) do
     url_path =
@@ -3954,6 +3971,7 @@ defmodule AWS.WellArchitected do
   @spec delete_workload(map(), String.t(), delete_workload_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workload_errors()}
   def delete_workload(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
@@ -3993,6 +4011,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workload_share_errors()}
   def delete_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
     url_path =
@@ -4034,6 +4053,7 @@ defmodule AWS.WellArchitected do
   @spec disassociate_lenses(map(), String.t(), disassociate_lenses_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_lenses_errors()}
   def disassociate_lenses(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateLenses"
@@ -4062,6 +4082,7 @@ defmodule AWS.WellArchitected do
   @spec disassociate_profiles(map(), String.t(), disassociate_profiles_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_profiles_errors()}
   def disassociate_profiles(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/disassociateProfiles"
@@ -4107,6 +4128,7 @@ defmodule AWS.WellArchitected do
   @spec export_lens(map(), String.t(), String.t() | nil, list()) ::
           {:ok, export_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_lens_errors()}
   def export_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}/export"
@@ -4131,6 +4153,7 @@ defmodule AWS.WellArchitected do
   @spec get_answer(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_answer_errors()}
   def get_answer(
         %Client{} = client,
@@ -4173,6 +4196,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, get_consolidated_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_consolidated_report_errors()}
   def get_consolidated_report(
         %Client{} = client,
@@ -4225,6 +4249,7 @@ defmodule AWS.WellArchitected do
   @spec get_global_settings(map(), list()) ::
           {:ok, get_global_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_global_settings_errors()}
   def get_global_settings(%Client{} = client, options \\ []) do
     url_path = "/global-settings"
@@ -4242,6 +4267,7 @@ defmodule AWS.WellArchitected do
   @spec get_lens(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lens_errors()}
   def get_lens(%Client{} = client, lens_alias, lens_version \\ nil, options \\ []) do
     url_path = "/lenses/#{AWS.Util.encode_uri(lens_alias)}"
@@ -4266,6 +4292,7 @@ defmodule AWS.WellArchitected do
   @spec get_lens_review(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lens_review_errors()}
   def get_lens_review(
         %Client{} = client,
@@ -4298,6 +4325,7 @@ defmodule AWS.WellArchitected do
   @spec get_lens_review_report(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_lens_review_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lens_review_report_errors()}
   def get_lens_review_report(
         %Client{} = client,
@@ -4330,6 +4358,7 @@ defmodule AWS.WellArchitected do
   @spec get_lens_version_difference(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_lens_version_difference_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lens_version_difference_errors()}
   def get_lens_version_difference(
         %Client{} = client,
@@ -4367,6 +4396,7 @@ defmodule AWS.WellArchitected do
   @spec get_milestone(map(), String.t(), String.t(), list()) ::
           {:ok, get_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_milestone_errors()}
   def get_milestone(%Client{} = client, milestone_number, workload_id, options \\ []) do
     url_path =
@@ -4386,6 +4416,7 @@ defmodule AWS.WellArchitected do
   @spec get_profile(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, profile_arn, profile_version \\ nil, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
@@ -4410,6 +4441,7 @@ defmodule AWS.WellArchitected do
   @spec get_profile_template(map(), list()) ::
           {:ok, get_profile_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_template_errors()}
   def get_profile_template(%Client{} = client, options \\ []) do
     url_path = "/profileTemplate"
@@ -4427,6 +4459,7 @@ defmodule AWS.WellArchitected do
   @spec get_review_template(map(), String.t(), list()) ::
           {:ok, get_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_review_template_errors()}
   def get_review_template(%Client{} = client, template_arn, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
@@ -4444,6 +4477,7 @@ defmodule AWS.WellArchitected do
   @spec get_review_template_answer(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_review_template_answer_errors()}
   def get_review_template_answer(
         %Client{} = client,
@@ -4469,6 +4503,7 @@ defmodule AWS.WellArchitected do
   @spec get_review_template_lens_review(map(), String.t(), String.t(), list()) ::
           {:ok, get_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_review_template_lens_review_errors()}
   def get_review_template_lens_review(%Client{} = client, lens_alias, template_arn, options \\ []) do
     url_path =
@@ -4488,6 +4523,7 @@ defmodule AWS.WellArchitected do
   @spec get_workload(map(), String.t(), list()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workload_errors()}
   def get_workload(%Client{} = client, workload_id, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
@@ -4528,6 +4564,7 @@ defmodule AWS.WellArchitected do
   @spec import_lens(map(), import_lens_input(), list()) ::
           {:ok, import_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_lens_errors()}
   def import_lens(%Client{} = client, input, options \\ []) do
     url_path = "/importLens"
@@ -4566,6 +4603,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_answers_errors()}
   def list_answers(
         %Client{} = client,
@@ -4630,6 +4668,7 @@ defmodule AWS.WellArchitected do
   @spec list_check_details(map(), String.t(), list_check_details_input(), list()) ::
           {:ok, list_check_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_check_details_errors()}
   def list_check_details(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checks"
@@ -4659,6 +4698,7 @@ defmodule AWS.WellArchitected do
   @spec list_check_summaries(map(), String.t(), list_check_summaries_input(), list()) ::
           {:ok, list_check_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_check_summaries_errors()}
   def list_check_summaries(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/checkSummaries"
@@ -4697,6 +4737,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_lens_review_improvements_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lens_review_improvements_errors()}
   def list_lens_review_improvements(
         %Client{} = client,
@@ -4768,6 +4809,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_lens_reviews_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lens_reviews_errors()}
   def list_lens_reviews(
         %Client{} = client,
@@ -4821,6 +4863,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_lens_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lens_shares_errors()}
   def list_lens_shares(
         %Client{} = client,
@@ -4882,6 +4925,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_lenses_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lenses_errors()}
   def list_lenses(
         %Client{} = client,
@@ -4942,6 +4986,7 @@ defmodule AWS.WellArchitected do
   @spec list_milestones(map(), String.t(), list_milestones_input(), list()) ::
           {:ok, list_milestones_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_milestones_errors()}
   def list_milestones(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/milestonesSummaries"
@@ -4970,6 +5015,7 @@ defmodule AWS.WellArchitected do
   @spec list_notifications(map(), list_notifications_input(), list()) ::
           {:ok, list_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notifications_errors()}
   def list_notifications(%Client{} = client, input, options \\ []) do
     url_path = "/notifications"
@@ -5004,6 +5050,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_profile_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_notifications_errors()}
   def list_profile_notifications(
         %Client{} = client,
@@ -5056,6 +5103,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_profile_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_shares_errors()}
   def list_profile_shares(
         %Client{} = client,
@@ -5116,6 +5164,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_profiles_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(
         %Client{} = client,
@@ -5176,6 +5225,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_review_template_answers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_review_template_answers_errors()}
   def list_review_template_answers(
         %Client{} = client,
@@ -5224,6 +5274,7 @@ defmodule AWS.WellArchitected do
   @spec list_review_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_review_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_review_templates_errors()}
   def list_review_templates(
         %Client{} = client,
@@ -5274,6 +5325,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_share_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_share_invitations_errors()}
   def list_share_invitations(
         %Client{} = client,
@@ -5353,6 +5405,7 @@ defmodule AWS.WellArchitected do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, workload_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -5378,6 +5431,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_template_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_shares_errors()}
   def list_template_shares(
         %Client{} = client,
@@ -5439,6 +5493,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, list_workload_shares_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workload_shares_errors()}
   def list_workload_shares(
         %Client{} = client,
@@ -5492,6 +5547,7 @@ defmodule AWS.WellArchitected do
   @spec list_workloads(map(), list_workloads_input(), list()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/workloadsSummaries"
@@ -5523,6 +5579,7 @@ defmodule AWS.WellArchitected do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -5558,6 +5615,7 @@ defmodule AWS.WellArchitected do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, workload_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(workload_arn)}"
@@ -5591,6 +5649,7 @@ defmodule AWS.WellArchitected do
   @spec update_answer(map(), String.t(), String.t(), String.t(), update_answer_input(), list()) ::
           {:ok, update_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_answer_errors()}
   def update_answer(
         %Client{} = client,
@@ -5629,6 +5688,7 @@ defmodule AWS.WellArchitected do
   @spec update_global_settings(map(), update_global_settings_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_settings_errors()}
   def update_global_settings(%Client{} = client, input, options \\ []) do
     url_path = "/global-settings"
@@ -5657,6 +5717,7 @@ defmodule AWS.WellArchitected do
   @spec update_integration(map(), String.t(), update_integration_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_integration_errors()}
   def update_integration(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}/updateIntegration"
@@ -5685,6 +5746,7 @@ defmodule AWS.WellArchitected do
   @spec update_lens_review(map(), String.t(), String.t(), update_lens_review_input(), list()) ::
           {:ok, update_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lens_review_errors()}
   def update_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =
@@ -5715,6 +5777,7 @@ defmodule AWS.WellArchitected do
   @spec update_profile(map(), String.t(), update_profile_input(), list()) ::
           {:ok, update_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, profile_arn, input, options \\ []) do
     url_path = "/profiles/#{AWS.Util.encode_uri(profile_arn)}"
@@ -5743,6 +5806,7 @@ defmodule AWS.WellArchitected do
   @spec update_review_template(map(), String.t(), update_review_template_input(), list()) ::
           {:ok, update_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_review_template_errors()}
   def update_review_template(%Client{} = client, template_arn, input, options \\ []) do
     url_path = "/reviewTemplates/#{AWS.Util.encode_uri(template_arn)}"
@@ -5778,6 +5842,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, update_review_template_answer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_review_template_answer_errors()}
   def update_review_template_answer(
         %Client{} = client,
@@ -5821,6 +5886,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, update_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_review_template_lens_review_errors()}
   def update_review_template_lens_review(
         %Client{} = client,
@@ -5860,6 +5926,7 @@ defmodule AWS.WellArchitected do
   @spec update_share_invitation(map(), String.t(), update_share_invitation_input(), list()) ::
           {:ok, update_share_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_share_invitation_errors()}
   def update_share_invitation(%Client{} = client, share_invitation_id, input, options \\ []) do
     url_path = "/shareInvitations/#{AWS.Util.encode_uri(share_invitation_id)}"
@@ -5888,6 +5955,7 @@ defmodule AWS.WellArchitected do
   @spec update_workload(map(), String.t(), update_workload_input(), list()) ::
           {:ok, update_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workload_errors()}
   def update_workload(%Client{} = client, workload_id, input, options \\ []) do
     url_path = "/workloads/#{AWS.Util.encode_uri(workload_id)}"
@@ -5922,6 +5990,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, update_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workload_share_errors()}
   def update_workload_share(%Client{} = client, share_id, workload_id, input, options \\ []) do
     url_path =
@@ -5952,6 +6021,7 @@ defmodule AWS.WellArchitected do
   @spec upgrade_lens_review(map(), String.t(), String.t(), upgrade_lens_review_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_lens_review_errors()}
   def upgrade_lens_review(%Client{} = client, lens_alias, workload_id, input, options \\ []) do
     url_path =
@@ -5988,6 +6058,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_profile_version_errors()}
   def upgrade_profile_version(%Client{} = client, profile_arn, workload_id, input, options \\ []) do
     url_path =
@@ -6024,6 +6095,7 @@ defmodule AWS.WellArchitected do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_review_template_lens_review_errors()}
   def upgrade_review_template_lens_review(
         %Client{} = client,

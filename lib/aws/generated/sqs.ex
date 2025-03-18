@@ -1258,6 +1258,7 @@ defmodule AWS.SQS do
   @spec add_permission(map(), add_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1290,6 +1291,7 @@ defmodule AWS.SQS do
   @spec cancel_message_move_task(map(), cancel_message_move_task_request(), list()) ::
           {:ok, cancel_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_message_move_task_errors()}
   def cancel_message_move_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1370,6 +1372,7 @@ defmodule AWS.SQS do
   @spec change_message_visibility(map(), change_message_visibility_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_message_visibility_errors()}
   def change_message_visibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1406,6 +1409,7 @@ defmodule AWS.SQS do
   @spec change_message_visibility_batch(map(), change_message_visibility_batch_request(), list()) ::
           {:ok, change_message_visibility_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_message_visibility_batch_errors()}
   def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1480,6 +1484,7 @@ defmodule AWS.SQS do
   @spec create_queue(map(), create_queue_request(), list()) ::
           {:ok, create_queue_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1520,6 +1525,7 @@ defmodule AWS.SQS do
   @spec delete_message(map(), delete_message_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_message_errors()}
   def delete_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1547,6 +1553,7 @@ defmodule AWS.SQS do
   @spec delete_message_batch(map(), delete_message_batch_request(), list()) ::
           {:ok, delete_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_message_batch_errors()}
   def delete_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1588,6 +1595,7 @@ defmodule AWS.SQS do
   @spec delete_queue(map(), delete_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1605,6 +1613,7 @@ defmodule AWS.SQS do
   @spec get_queue_attributes(map(), get_queue_attributes_request(), list()) ::
           {:ok, get_queue_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_attributes_errors()}
   def get_queue_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1638,6 +1647,7 @@ defmodule AWS.SQS do
   @spec get_queue_url(map(), get_queue_url_request(), list()) ::
           {:ok, get_queue_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_url_errors()}
   def get_queue_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1665,6 +1675,7 @@ defmodule AWS.SQS do
   @spec list_dead_letter_source_queues(map(), list_dead_letter_source_queues_request(), list()) ::
           {:ok, list_dead_letter_source_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dead_letter_source_queues_errors()}
   def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1691,6 +1702,7 @@ defmodule AWS.SQS do
   @spec list_message_move_tasks(map(), list_message_move_tasks_request(), list()) ::
           {:ok, list_message_move_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_message_move_tasks_errors()}
   def list_message_move_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1713,6 +1725,7 @@ defmodule AWS.SQS do
   @spec list_queue_tags(map(), list_queue_tags_request(), list()) ::
           {:ok, list_queue_tags_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_tags_errors()}
   def list_queue_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1744,6 +1757,7 @@ defmodule AWS.SQS do
   @spec list_queues(map(), list_queues_request(), list()) ::
           {:ok, list_queues_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1772,6 +1786,7 @@ defmodule AWS.SQS do
   @spec purge_queue(map(), purge_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purge_queue_errors()}
   def purge_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1841,6 +1856,7 @@ defmodule AWS.SQS do
   @spec receive_message(map(), receive_message_request(), list()) ::
           {:ok, receive_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, receive_message_errors()}
   def receive_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1869,6 +1885,7 @@ defmodule AWS.SQS do
   @spec remove_permission(map(), remove_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1893,6 +1910,7 @@ defmodule AWS.SQS do
   @spec send_message(map(), send_message_request(), list()) ::
           {:ok, send_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1944,6 +1962,7 @@ defmodule AWS.SQS do
   @spec send_message_batch(map(), send_message_batch_request(), list()) ::
           {:ok, send_message_batch_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_message_batch_errors()}
   def send_message_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1983,6 +2002,7 @@ defmodule AWS.SQS do
   @spec set_queue_attributes(map(), set_queue_attributes_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_queue_attributes_errors()}
   def set_queue_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2014,6 +2034,7 @@ defmodule AWS.SQS do
   @spec start_message_move_task(map(), start_message_move_task_request(), list()) ::
           {:ok, start_message_move_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_message_move_task_errors()}
   def start_message_move_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2056,6 +2077,7 @@ defmodule AWS.SQS do
   @spec tag_queue(map(), tag_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_queue_errors()}
   def tag_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2078,6 +2100,7 @@ defmodule AWS.SQS do
   @spec untag_queue(map(), untag_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_queue_errors()}
   def untag_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()

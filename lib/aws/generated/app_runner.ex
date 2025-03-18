@@ -1684,6 +1684,7 @@ defmodule AWS.AppRunner do
   @spec associate_custom_domain(map(), associate_custom_domain_request(), list()) ::
           {:ok, associate_custom_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_custom_domain_errors()}
   def associate_custom_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1721,6 +1722,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, create_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_auto_scaling_configuration_errors()}
   def create_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1745,6 +1747,7 @@ defmodule AWS.AppRunner do
   @spec create_connection(map(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1781,6 +1784,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, create_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_observability_configuration_errors()}
   def create_observability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1801,6 +1805,7 @@ defmodule AWS.AppRunner do
   @spec create_service(map(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1818,6 +1823,7 @@ defmodule AWS.AppRunner do
   @spec create_vpc_connector(map(), create_vpc_connector_request(), list()) ::
           {:ok, create_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_connector_errors()}
   def create_vpc_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1834,6 +1840,7 @@ defmodule AWS.AppRunner do
   @spec create_vpc_ingress_connection(map(), create_vpc_ingress_connection_request(), list()) ::
           {:ok, create_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_ingress_connection_errors()}
   def create_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1857,6 +1864,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, delete_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_auto_scaling_configuration_errors()}
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1874,6 +1882,7 @@ defmodule AWS.AppRunner do
   @spec delete_connection(map(), delete_connection_request(), list()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1895,6 +1904,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, delete_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_observability_configuration_errors()}
   def delete_observability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1915,6 +1925,7 @@ defmodule AWS.AppRunner do
   @spec delete_service(map(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1931,6 +1942,7 @@ defmodule AWS.AppRunner do
   @spec delete_vpc_connector(map(), delete_vpc_connector_request(), list()) ::
           {:ok, delete_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_connector_errors()}
   def delete_vpc_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1963,6 +1975,7 @@ defmodule AWS.AppRunner do
   @spec delete_vpc_ingress_connection(map(), delete_vpc_ingress_connection_request(), list()) ::
           {:ok, delete_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_ingress_connection_errors()}
   def delete_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1981,6 +1994,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, describe_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_auto_scaling_configuration_errors()}
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1995,6 +2009,7 @@ defmodule AWS.AppRunner do
   @spec describe_custom_domains(map(), describe_custom_domains_request(), list()) ::
           {:ok, describe_custom_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_domains_errors()}
   def describe_custom_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2012,6 +2027,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, describe_observability_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_observability_configuration_errors()}
   def describe_observability_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2025,6 +2041,7 @@ defmodule AWS.AppRunner do
   @spec describe_service(map(), describe_service_request(), list()) ::
           {:ok, describe_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_errors()}
   def describe_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2038,6 +2055,7 @@ defmodule AWS.AppRunner do
   @spec describe_vpc_connector(map(), describe_vpc_connector_request(), list()) ::
           {:ok, describe_vpc_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_connector_errors()}
   def describe_vpc_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2051,6 +2069,7 @@ defmodule AWS.AppRunner do
   @spec describe_vpc_ingress_connection(map(), describe_vpc_ingress_connection_request(), list()) ::
           {:ok, describe_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vpc_ingress_connection_errors()}
   def describe_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2070,6 +2089,7 @@ defmodule AWS.AppRunner do
   @spec disassociate_custom_domain(map(), disassociate_custom_domain_request(), list()) ::
           {:ok, disassociate_custom_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_custom_domain_errors()}
   def disassociate_custom_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2097,6 +2117,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, list_auto_scaling_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_auto_scaling_configurations_errors()}
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2111,6 +2132,7 @@ defmodule AWS.AppRunner do
   @spec list_connections(map(), list_connections_request(), list()) ::
           {:ok, list_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2138,6 +2160,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, list_observability_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_observability_configurations_errors()}
   def list_observability_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2155,6 +2178,7 @@ defmodule AWS.AppRunner do
   @spec list_operations(map(), list_operations_request(), list()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2169,6 +2193,7 @@ defmodule AWS.AppRunner do
   @spec list_services(map(), list_services_request(), list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2187,6 +2212,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, list_services_for_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_for_auto_scaling_configuration_errors()}
   def list_services_for_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2202,6 +2228,7 @@ defmodule AWS.AppRunner do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2215,6 +2242,7 @@ defmodule AWS.AppRunner do
   @spec list_vpc_connectors(map(), list_vpc_connectors_request(), list()) ::
           {:ok, list_vpc_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_connectors_errors()}
   def list_vpc_connectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2229,6 +2257,7 @@ defmodule AWS.AppRunner do
   @spec list_vpc_ingress_connections(map(), list_vpc_ingress_connections_request(), list()) ::
           {:ok, list_vpc_ingress_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_ingress_connections_errors()}
   def list_vpc_ingress_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2250,6 +2279,7 @@ defmodule AWS.AppRunner do
   @spec pause_service(map(), pause_service_request(), list()) ::
           {:ok, pause_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, pause_service_errors()}
   def pause_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2269,6 +2299,7 @@ defmodule AWS.AppRunner do
   @spec resume_service(map(), resume_service_request(), list()) ::
           {:ok, resume_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_service_errors()}
   def resume_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2294,6 +2325,7 @@ defmodule AWS.AppRunner do
   @spec start_deployment(map(), start_deployment_request(), list()) ::
           {:ok, start_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_deployment_errors()}
   def start_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2309,6 +2341,7 @@ defmodule AWS.AppRunner do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2322,6 +2355,7 @@ defmodule AWS.AppRunner do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2342,6 +2376,7 @@ defmodule AWS.AppRunner do
         ) ::
           {:ok, update_default_auto_scaling_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_default_auto_scaling_configuration_errors()}
   def update_default_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2368,6 +2403,7 @@ defmodule AWS.AppRunner do
   @spec update_service(map(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2395,6 +2431,7 @@ defmodule AWS.AppRunner do
   @spec update_vpc_ingress_connection(map(), update_vpc_ingress_connection_request(), list()) ::
           {:ok, update_vpc_ingress_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_ingress_connection_errors()}
   def update_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()

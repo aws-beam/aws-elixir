@@ -2107,6 +2107,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_capture_pipeline(map(), create_media_capture_pipeline_request(), list()) ::
           {:ok, create_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_capture_pipeline_errors()}
   def create_media_capture_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines"
@@ -2139,6 +2140,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_concatenation_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_concatenation_pipeline_errors()}
   def create_media_concatenation_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-concatenation-pipelines"
@@ -2167,6 +2169,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_insights_pipeline(map(), create_media_insights_pipeline_request(), list()) ::
           {:ok, create_media_insights_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_insights_pipeline_errors()}
   def create_media_insights_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipelines"
@@ -2200,6 +2203,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_insights_pipeline_configuration_errors()}
   def create_media_insights_pipeline_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/media-insights-pipeline-configurations"
@@ -2232,6 +2236,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_live_connector_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_live_connector_pipeline_errors()}
   def create_media_live_connector_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-live-connector-pipelines"
@@ -2288,6 +2293,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, create_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_pipeline_kinesis_video_stream_pool_errors()}
   def create_media_pipeline_kinesis_video_stream_pool(%Client{} = client, input, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools"
@@ -2316,6 +2322,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec create_media_stream_pipeline(map(), create_media_stream_pipeline_request(), list()) ::
           {:ok, create_media_stream_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_media_stream_pipeline_errors()}
   def create_media_stream_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/sdk-media-stream-pipelines"
@@ -2349,6 +2356,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_media_capture_pipeline_errors()}
   def delete_media_capture_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -2382,6 +2390,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_media_insights_pipeline_configuration_errors()}
   def delete_media_insights_pipeline_configuration(
         %Client{} = client,
@@ -2415,6 +2424,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec delete_media_pipeline(map(), String.t(), delete_media_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_media_pipeline_errors()}
   def delete_media_pipeline(%Client{} = client, media_pipeline_id, input, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -2448,6 +2458,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_media_pipeline_kinesis_video_stream_pool_errors()}
   def delete_media_pipeline_kinesis_video_stream_pool(
         %Client{} = client,
@@ -2481,6 +2492,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_capture_pipeline(map(), String.t(), list()) ::
           {:ok, get_media_capture_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_capture_pipeline_errors()}
   def get_media_capture_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-capture-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -2498,6 +2510,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_insights_pipeline_configuration(map(), String.t(), list()) ::
           {:ok, get_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_insights_pipeline_configuration_errors()}
   def get_media_insights_pipeline_configuration(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-insights-pipeline-configurations/#{AWS.Util.encode_uri(identifier)}"
@@ -2515,6 +2528,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_pipeline(map(), String.t(), list()) ::
           {:ok, get_media_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_pipeline_errors()}
   def get_media_pipeline(%Client{} = client, media_pipeline_id, options \\ []) do
     url_path = "/sdk-media-pipelines/#{AWS.Util.encode_uri(media_pipeline_id)}"
@@ -2532,6 +2546,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_media_pipeline_kinesis_video_stream_pool(map(), String.t(), list()) ::
           {:ok, get_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_pipeline_kinesis_video_stream_pool_errors()}
   def get_media_pipeline_kinesis_video_stream_pool(%Client{} = client, identifier, options \\ []) do
     url_path = "/media-pipeline-kinesis-video-stream-pools/#{AWS.Util.encode_uri(identifier)}"
@@ -2549,6 +2564,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_speaker_search_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_speaker_search_task_errors()}
   def get_speaker_search_task(
         %Client{} = client,
@@ -2573,6 +2589,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec get_voice_tone_analysis_task(map(), String.t(), String.t(), list()) ::
           {:ok, get_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_voice_tone_analysis_task_errors()}
   def get_voice_tone_analysis_task(
         %Client{} = client,
@@ -2597,6 +2614,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_media_capture_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_media_capture_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_media_capture_pipelines_errors()}
   def list_media_capture_pipelines(
         %Client{} = client,
@@ -2638,6 +2656,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, list_media_insights_pipeline_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_media_insights_pipeline_configurations_errors()}
   def list_media_insights_pipeline_configurations(
         %Client{} = client,
@@ -2679,6 +2698,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, list_media_pipeline_kinesis_video_stream_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_media_pipeline_kinesis_video_stream_pools_errors()}
   def list_media_pipeline_kinesis_video_stream_pools(
         %Client{} = client,
@@ -2715,6 +2735,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_media_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_media_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_media_pipelines_errors()}
   def list_media_pipelines(
         %Client{} = client,
@@ -2751,6 +2772,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -2781,6 +2803,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec start_speaker_search_task(map(), String.t(), start_speaker_search_task_request(), list()) ::
           {:ok, start_speaker_search_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_speaker_search_task_errors()}
   def start_speaker_search_task(%Client{} = client, identifier, input, options \\ []) do
     url_path =
@@ -2826,6 +2849,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, start_voice_tone_analysis_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_voice_tone_analysis_task_errors()}
   def start_voice_tone_analysis_task(%Client{} = client, identifier, input, options \\ []) do
     url_path =
@@ -2862,6 +2886,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_speaker_search_task_errors()}
   def stop_speaker_search_task(
         %Client{} = client,
@@ -2904,6 +2929,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_voice_tone_analysis_task_errors()}
   def stop_voice_tone_analysis_task(
         %Client{} = client,
@@ -2942,6 +2968,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -2970,6 +2997,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -3003,6 +3031,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, update_media_insights_pipeline_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_media_insights_pipeline_configuration_errors()}
   def update_media_insights_pipeline_configuration(
         %Client{} = client,
@@ -3041,6 +3070,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_media_insights_pipeline_status_errors()}
   def update_media_insights_pipeline_status(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/media-insights-pipeline-status/#{AWS.Util.encode_uri(identifier)}"
@@ -3074,6 +3104,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         ) ::
           {:ok, update_media_pipeline_kinesis_video_stream_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_media_pipeline_kinesis_video_stream_pool_errors()}
   def update_media_pipeline_kinesis_video_stream_pool(
         %Client{} = client,

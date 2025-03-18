@@ -2654,6 +2654,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, associate_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_browser_settings_errors()}
   def associate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
@@ -2692,6 +2693,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, associate_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_data_protection_settings_errors()}
   def associate_data_protection_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/dataProtectionSettings"
@@ -2730,6 +2732,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, associate_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_ip_access_settings_errors()}
   def associate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
@@ -2768,6 +2771,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, associate_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_network_settings_errors()}
   def associate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
@@ -2801,6 +2805,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec associate_trust_store(map(), String.t(), associate_trust_store_request(), list()) ::
           {:ok, associate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_trust_store_errors()}
   def associate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
@@ -2839,6 +2844,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, associate_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_user_access_logging_settings_errors()}
   def associate_user_access_logging_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path =
@@ -2874,6 +2880,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec associate_user_settings(map(), String.t(), associate_user_settings_request(), list()) ::
           {:ok, associate_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_user_settings_errors()}
   def associate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
@@ -2912,6 +2919,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_browser_settings(map(), create_browser_settings_request(), list()) ::
           {:ok, create_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_browser_settings_errors()}
   def create_browser_settings(%Client{} = client, input, options \\ []) do
     url_path = "/browserSettings"
@@ -2941,6 +2949,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_data_protection_settings(map(), create_data_protection_settings_request(), list()) ::
           {:ok, create_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_protection_settings_errors()}
   def create_data_protection_settings(%Client{} = client, input, options \\ []) do
     url_path = "/dataProtectionSettings"
@@ -2969,6 +2978,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_identity_provider(map(), create_identity_provider_request(), list()) ::
           {:ok, create_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     url_path = "/identityProviders"
@@ -2997,6 +3007,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_ip_access_settings(map(), create_ip_access_settings_request(), list()) ::
           {:ok, create_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ip_access_settings_errors()}
   def create_ip_access_settings(%Client{} = client, input, options \\ []) do
     url_path = "/ipAccessSettings"
@@ -3030,6 +3041,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_network_settings(map(), create_network_settings_request(), list()) ::
           {:ok, create_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_settings_errors()}
   def create_network_settings(%Client{} = client, input, options \\ []) do
     url_path = "/networkSettings"
@@ -3058,6 +3070,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_portal(map(), create_portal_request(), list()) ::
           {:ok, create_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_portal_errors()}
   def create_portal(%Client{} = client, input, options \\ []) do
     url_path = "/portals"
@@ -3095,6 +3108,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_trust_store(map(), create_trust_store_request(), list()) ::
           {:ok, create_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
     url_path = "/trustStores"
@@ -3129,6 +3143,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, create_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_access_logging_settings_errors()}
   def create_user_access_logging_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userAccessLoggingSettings"
@@ -3162,6 +3177,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec create_user_settings(map(), create_user_settings_request(), list()) ::
           {:ok, create_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_settings_errors()}
   def create_user_settings(%Client{} = client, input, options \\ []) do
     url_path = "/userSettings"
@@ -3190,6 +3206,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_browser_settings(map(), String.t(), delete_browser_settings_request(), list()) ::
           {:ok, delete_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_browser_settings_errors()}
   def delete_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
@@ -3223,6 +3240,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, delete_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_protection_settings_errors()}
   def delete_data_protection_settings(
         %Client{} = client,
@@ -3258,6 +3276,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_identity_provider(map(), String.t(), delete_identity_provider_request(), list()) ::
           {:ok, delete_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
@@ -3286,6 +3305,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_ip_access_settings(map(), String.t(), delete_ip_access_settings_request(), list()) ::
           {:ok, delete_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ip_access_settings_errors()}
   def delete_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
@@ -3314,6 +3334,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_network_settings(map(), String.t(), delete_network_settings_request(), list()) ::
           {:ok, delete_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_settings_errors()}
   def delete_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
@@ -3342,6 +3363,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_portal(map(), String.t(), delete_portal_request(), list()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_portal_errors()}
   def delete_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
@@ -3370,6 +3392,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_trust_store(map(), String.t(), delete_trust_store_request(), list()) ::
           {:ok, delete_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
@@ -3403,6 +3426,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, delete_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_access_logging_settings_errors()}
   def delete_user_access_logging_settings(
         %Client{} = client,
@@ -3438,6 +3462,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec delete_user_settings(map(), String.t(), delete_user_settings_request(), list()) ::
           {:ok, delete_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_settings_errors()}
   def delete_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
@@ -3471,6 +3496,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_browser_settings_errors()}
   def disassociate_browser_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/browserSettings"
@@ -3504,6 +3530,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_data_protection_settings_errors()}
   def disassociate_data_protection_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/dataProtectionSettings"
@@ -3537,6 +3564,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_ip_access_settings_errors()}
   def disassociate_ip_access_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/ipAccessSettings"
@@ -3570,6 +3598,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_network_settings_errors()}
   def disassociate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
@@ -3598,6 +3627,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec disassociate_trust_store(map(), String.t(), disassociate_trust_store_request(), list()) ::
           {:ok, disassociate_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_trust_store_errors()}
   def disassociate_trust_store(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/trustStores"
@@ -3631,6 +3661,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_user_access_logging_settings_errors()}
   def disassociate_user_access_logging_settings(
         %Client{} = client,
@@ -3671,6 +3702,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, disassociate_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_user_settings_errors()}
   def disassociate_user_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/userSettings"
@@ -3699,6 +3731,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec expire_session(map(), String.t(), String.t(), expire_session_request(), list()) ::
           {:ok, expire_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, expire_session_errors()}
   def expire_session(%Client{} = client, portal_id, session_id, input, options \\ []) do
     url_path =
@@ -3729,6 +3762,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_browser_settings(map(), String.t(), list()) ::
           {:ok, get_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_browser_settings_errors()}
   def get_browser_settings(%Client{} = client, browser_settings_arn, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
@@ -3746,6 +3780,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_data_protection_settings(map(), String.t(), list()) ::
           {:ok, get_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_protection_settings_errors()}
   def get_data_protection_settings(
         %Client{} = client,
@@ -3769,6 +3804,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_identity_provider(map(), String.t(), list()) ::
           {:ok, get_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_identity_provider_errors()}
   def get_identity_provider(%Client{} = client, identity_provider_arn, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
@@ -3786,6 +3822,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_ip_access_settings(map(), String.t(), list()) ::
           {:ok, get_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ip_access_settings_errors()}
   def get_ip_access_settings(%Client{} = client, ip_access_settings_arn, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
@@ -3803,6 +3840,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_network_settings(map(), String.t(), list()) ::
           {:ok, get_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_settings_errors()}
   def get_network_settings(%Client{} = client, network_settings_arn, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
@@ -3820,6 +3858,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_portal(map(), String.t(), list()) ::
           {:ok, get_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_portal_errors()}
   def get_portal(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
@@ -3837,6 +3876,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_portal_service_provider_metadata(map(), String.t(), list()) ::
           {:ok, get_portal_service_provider_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_portal_service_provider_metadata_errors()}
   def get_portal_service_provider_metadata(%Client{} = client, portal_arn, options \\ []) do
     url_path = "/portalIdp/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
@@ -3854,6 +3894,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, portal_id, session_id, options \\ []) do
     url_path =
@@ -3873,6 +3914,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_trust_store(map(), String.t(), list()) ::
           {:ok, get_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trust_store_errors()}
   def get_trust_store(%Client{} = client, trust_store_arn, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
@@ -3890,6 +3932,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_trust_store_certificate(map(), String.t(), String.t(), list()) ::
           {:ok, get_trust_store_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trust_store_certificate_errors()}
   def get_trust_store_certificate(%Client{} = client, trust_store_arn, thumbprint, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}/certificate"
@@ -3914,6 +3957,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_user_access_logging_settings(map(), String.t(), list()) ::
           {:ok, get_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_access_logging_settings_errors()}
   def get_user_access_logging_settings(
         %Client{} = client,
@@ -3937,6 +3981,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec get_user_settings(map(), String.t(), list()) ::
           {:ok, get_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_settings_errors()}
   def get_user_settings(%Client{} = client, user_settings_arn, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"
@@ -3954,6 +3999,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_browser_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_browser_settings_errors()}
   def list_browser_settings(
         %Client{} = client,
@@ -3990,6 +4036,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_data_protection_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_protection_settings_errors()}
   def list_data_protection_settings(
         %Client{} = client,
@@ -4026,6 +4073,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_identity_providers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_providers_errors()}
   def list_identity_providers(
         %Client{} = client,
@@ -4063,6 +4111,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_ip_access_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ip_access_settings_errors()}
   def list_ip_access_settings(
         %Client{} = client,
@@ -4099,6 +4148,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_network_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_network_settings_errors()}
   def list_network_settings(
         %Client{} = client,
@@ -4135,6 +4185,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_portals_errors()}
   def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/portals"
@@ -4176,6 +4227,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(
         %Client{} = client,
@@ -4245,6 +4297,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -4268,6 +4321,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, list_trust_store_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trust_store_certificates_errors()}
   def list_trust_store_certificates(
         %Client{} = client,
@@ -4305,6 +4359,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_trust_stores(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_trust_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trust_stores_errors()}
   def list_trust_stores(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/trustStores"
@@ -4336,6 +4391,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_user_access_logging_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_access_logging_settings_errors()}
   def list_user_access_logging_settings(
         %Client{} = client,
@@ -4372,6 +4428,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec list_user_settings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_settings_errors()}
   def list_user_settings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/userSettings"
@@ -4403,6 +4460,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -4431,6 +4489,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_multi_segment_uri(resource_arn)}"
@@ -4464,6 +4523,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_browser_settings(map(), String.t(), update_browser_settings_request(), list()) ::
           {:ok, update_browser_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_browser_settings_errors()}
   def update_browser_settings(%Client{} = client, browser_settings_arn, input, options \\ []) do
     url_path = "/browserSettings/#{AWS.Util.encode_multi_segment_uri(browser_settings_arn)}"
@@ -4497,6 +4557,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, update_data_protection_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_protection_settings_errors()}
   def update_data_protection_settings(
         %Client{} = client,
@@ -4532,6 +4593,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_identity_provider(map(), String.t(), update_identity_provider_request(), list()) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, identity_provider_arn, input, options \\ []) do
     url_path = "/identityProviders/#{AWS.Util.encode_multi_segment_uri(identity_provider_arn)}"
@@ -4560,6 +4622,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_ip_access_settings(map(), String.t(), update_ip_access_settings_request(), list()) ::
           {:ok, update_ip_access_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ip_access_settings_errors()}
   def update_ip_access_settings(%Client{} = client, ip_access_settings_arn, input, options \\ []) do
     url_path = "/ipAccessSettings/#{AWS.Util.encode_multi_segment_uri(ip_access_settings_arn)}"
@@ -4588,6 +4651,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_network_settings(map(), String.t(), update_network_settings_request(), list()) ::
           {:ok, update_network_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_settings_errors()}
   def update_network_settings(%Client{} = client, network_settings_arn, input, options \\ []) do
     url_path = "/networkSettings/#{AWS.Util.encode_multi_segment_uri(network_settings_arn)}"
@@ -4616,6 +4680,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_portal(map(), String.t(), update_portal_request(), list()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_portal_errors()}
   def update_portal(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}"
@@ -4644,6 +4709,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_trust_store(map(), String.t(), update_trust_store_request(), list()) ::
           {:ok, update_trust_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trust_store_errors()}
   def update_trust_store(%Client{} = client, trust_store_arn, input, options \\ []) do
     url_path = "/trustStores/#{AWS.Util.encode_multi_segment_uri(trust_store_arn)}"
@@ -4677,6 +4743,7 @@ defmodule AWS.WorkSpacesWeb do
         ) ::
           {:ok, update_user_access_logging_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_access_logging_settings_errors()}
   def update_user_access_logging_settings(
         %Client{} = client,
@@ -4712,6 +4779,7 @@ defmodule AWS.WorkSpacesWeb do
   @spec update_user_settings(map(), String.t(), update_user_settings_request(), list()) ::
           {:ok, update_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_settings_errors()}
   def update_user_settings(%Client{} = client, user_settings_arn, input, options \\ []) do
     url_path = "/userSettings/#{AWS.Util.encode_multi_segment_uri(user_settings_arn)}"

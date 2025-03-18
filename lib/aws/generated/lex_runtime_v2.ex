@@ -761,6 +761,7 @@ defmodule AWS.LexRuntimeV2 do
         ) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(
         %Client{} = client,
@@ -809,6 +810,7 @@ defmodule AWS.LexRuntimeV2 do
   @spec get_session(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, bot_alias_id, bot_id, locale_id, session_id, options \\ []) do
     url_path =
@@ -840,6 +842,7 @@ defmodule AWS.LexRuntimeV2 do
         ) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_session_errors()}
   def put_session(
         %Client{} = client,
@@ -939,6 +942,7 @@ defmodule AWS.LexRuntimeV2 do
         ) ::
           {:ok, recognize_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, recognize_text_errors()}
   def recognize_text(
         %Client{} = client,
@@ -1050,6 +1054,7 @@ defmodule AWS.LexRuntimeV2 do
         ) ::
           {:ok, recognize_utterance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, recognize_utterance_errors()}
   def recognize_utterance(
         %Client{} = client,
@@ -1188,6 +1193,7 @@ defmodule AWS.LexRuntimeV2 do
         ) ::
           {:ok, start_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_conversation_errors()}
   def start_conversation(
         %Client{} = client,

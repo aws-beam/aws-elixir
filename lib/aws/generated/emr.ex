@@ -2933,6 +2933,7 @@ defmodule AWS.EMR do
   @spec add_instance_fleet(map(), add_instance_fleet_input(), list()) ::
           {:ok, add_instance_fleet_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_instance_fleet_errors()}
   def add_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2946,6 +2947,7 @@ defmodule AWS.EMR do
   @spec add_instance_groups(map(), add_instance_groups_input(), list()) ::
           {:ok, add_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_instance_groups_errors()}
   def add_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2989,6 +2991,7 @@ defmodule AWS.EMR do
   @spec add_job_flow_steps(map(), add_job_flow_steps_input(), list()) ::
           {:ok, add_job_flow_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_job_flow_steps_errors()}
   def add_job_flow_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3008,6 +3011,7 @@ defmodule AWS.EMR do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3031,6 +3035,7 @@ defmodule AWS.EMR do
   @spec cancel_steps(map(), cancel_steps_input(), list()) ::
           {:ok, cancel_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_steps_errors()}
   def cancel_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3046,6 +3051,7 @@ defmodule AWS.EMR do
   @spec create_security_configuration(map(), create_security_configuration_input(), list()) ::
           {:ok, create_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3059,6 +3065,7 @@ defmodule AWS.EMR do
   @spec create_studio(map(), create_studio_input(), list()) ::
           {:ok, create_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_studio_errors()}
   def create_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3079,6 +3086,7 @@ defmodule AWS.EMR do
   @spec create_studio_session_mapping(map(), create_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_studio_session_mapping_errors()}
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3092,6 +3100,7 @@ defmodule AWS.EMR do
   @spec delete_security_configuration(map(), delete_security_configuration_input(), list()) ::
           {:ok, delete_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3105,6 +3114,7 @@ defmodule AWS.EMR do
   @spec delete_studio(map(), delete_studio_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_studio_errors()}
   def delete_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,6 +3128,7 @@ defmodule AWS.EMR do
   @spec delete_studio_session_mapping(map(), delete_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_studio_session_mapping_errors()}
   def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3133,6 +3144,7 @@ defmodule AWS.EMR do
   @spec describe_cluster(map(), describe_cluster_input(), list()) ::
           {:ok, describe_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3174,6 +3186,7 @@ defmodule AWS.EMR do
   @spec describe_job_flows(map(), describe_job_flows_input(), list()) ::
           {:ok, describe_job_flows_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_flows_errors()}
   def describe_job_flows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3187,6 +3200,7 @@ defmodule AWS.EMR do
   @spec describe_notebook_execution(map(), describe_notebook_execution_input(), list()) ::
           {:ok, describe_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notebook_execution_errors()}
   def describe_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3205,6 +3219,7 @@ defmodule AWS.EMR do
   @spec describe_release_label(map(), describe_release_label_input(), list()) ::
           {:ok, describe_release_label_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_release_label_errors()}
   def describe_release_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3219,6 +3234,7 @@ defmodule AWS.EMR do
   @spec describe_security_configuration(map(), describe_security_configuration_input(), list()) ::
           {:ok, describe_security_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_security_configuration_errors()}
   def describe_security_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3232,6 +3248,7 @@ defmodule AWS.EMR do
   @spec describe_step(map(), describe_step_input(), list()) ::
           {:ok, describe_step_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_step_errors()}
   def describe_step(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3246,6 +3263,7 @@ defmodule AWS.EMR do
   @spec describe_studio(map(), describe_studio_input(), list()) ::
           {:ok, describe_studio_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_studio_errors()}
   def describe_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3259,6 +3277,7 @@ defmodule AWS.EMR do
   @spec get_auto_termination_policy(map(), get_auto_termination_policy_input(), list()) ::
           {:ok, get_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_auto_termination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3281,6 +3300,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, get_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_block_public_access_configuration_errors()}
   def get_block_public_access_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3300,6 +3320,7 @@ defmodule AWS.EMR do
   @spec get_cluster_session_credentials(map(), get_cluster_session_credentials_input(), list()) ::
           {:ok, get_cluster_session_credentials_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_session_credentials_errors()}
   def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3313,6 +3334,7 @@ defmodule AWS.EMR do
   @spec get_managed_scaling_policy(map(), get_managed_scaling_policy_input(), list()) ::
           {:ok, get_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_managed_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3326,6 +3348,7 @@ defmodule AWS.EMR do
   @spec get_studio_session_mapping(map(), get_studio_session_mapping_input(), list()) ::
           {:ok, get_studio_session_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_studio_session_mapping_errors()}
   def get_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3339,6 +3362,7 @@ defmodule AWS.EMR do
   @spec list_bootstrap_actions(map(), list_bootstrap_actions_input(), list()) ::
           {:ok, list_bootstrap_actions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bootstrap_actions_errors()}
   def list_bootstrap_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3361,6 +3385,7 @@ defmodule AWS.EMR do
   @spec list_clusters(map(), list_clusters_input(), list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3377,6 +3402,7 @@ defmodule AWS.EMR do
   @spec list_instance_fleets(map(), list_instance_fleets_input(), list()) ::
           {:ok, list_instance_fleets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_fleets_errors()}
   def list_instance_fleets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3390,6 +3416,7 @@ defmodule AWS.EMR do
   @spec list_instance_groups(map(), list_instance_groups_input(), list()) ::
           {:ok, list_instance_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_groups_errors()}
   def list_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3409,6 +3436,7 @@ defmodule AWS.EMR do
   @spec list_instances(map(), list_instances_input(), list()) ::
           {:ok, list_instances_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3429,6 +3457,7 @@ defmodule AWS.EMR do
   @spec list_notebook_executions(map(), list_notebook_executions_input(), list()) ::
           {:ok, list_notebook_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notebook_executions_errors()}
   def list_notebook_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3443,6 +3472,7 @@ defmodule AWS.EMR do
   @spec list_release_labels(map(), list_release_labels_input(), list()) ::
           {:ok, list_release_labels_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_release_labels_errors()}
   def list_release_labels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3462,6 +3492,7 @@ defmodule AWS.EMR do
   @spec list_security_configurations(map(), list_security_configurations_input(), list()) ::
           {:ok, list_security_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_configurations_errors()}
   def list_security_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3483,6 +3514,7 @@ defmodule AWS.EMR do
   @spec list_steps(map(), list_steps_input(), list()) ::
           {:ok, list_steps_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_steps_errors()}
   def list_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3497,6 +3529,7 @@ defmodule AWS.EMR do
   @spec list_studio_session_mappings(map(), list_studio_session_mappings_input(), list()) ::
           {:ok, list_studio_session_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_studio_session_mappings_errors()}
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3514,6 +3547,7 @@ defmodule AWS.EMR do
   @spec list_studios(map(), list_studios_input(), list()) ::
           {:ok, list_studios_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_studios_errors()}
   def list_studios(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3530,6 +3564,7 @@ defmodule AWS.EMR do
   @spec list_supported_instance_types(map(), list_supported_instance_types_input(), list()) ::
           {:ok, list_supported_instance_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_supported_instance_types_errors()}
   def list_supported_instance_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3545,6 +3580,7 @@ defmodule AWS.EMR do
   @spec modify_cluster(map(), modify_cluster_input(), list()) ::
           {:ok, modify_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3566,6 +3602,7 @@ defmodule AWS.EMR do
   @spec modify_instance_fleet(map(), modify_instance_fleet_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_instance_fleet_errors()}
   def modify_instance_fleet(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3584,6 +3621,7 @@ defmodule AWS.EMR do
   @spec modify_instance_groups(map(), modify_instance_groups_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_instance_groups_errors()}
   def modify_instance_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3603,6 +3641,7 @@ defmodule AWS.EMR do
   @spec put_auto_scaling_policy(map(), put_auto_scaling_policy_input(), list()) ::
           {:ok, put_auto_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_auto_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3627,6 +3666,7 @@ defmodule AWS.EMR do
   @spec put_auto_termination_policy(map(), put_auto_termination_policy_input(), list()) ::
           {:ok, put_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_auto_termination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3649,6 +3689,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, put_block_public_access_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_block_public_access_configuration_errors()}
   def put_block_public_access_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3669,6 +3710,7 @@ defmodule AWS.EMR do
   @spec put_managed_scaling_policy(map(), put_managed_scaling_policy_input(), list()) ::
           {:ok, put_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_managed_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3682,6 +3724,7 @@ defmodule AWS.EMR do
   @spec remove_auto_scaling_policy(map(), remove_auto_scaling_policy_input(), list()) ::
           {:ok, remove_auto_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def remove_auto_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3694,6 +3737,7 @@ defmodule AWS.EMR do
   @spec remove_auto_termination_policy(map(), remove_auto_termination_policy_input(), list()) ::
           {:ok, remove_auto_termination_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def remove_auto_termination_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3706,6 +3750,7 @@ defmodule AWS.EMR do
   @spec remove_managed_scaling_policy(map(), remove_managed_scaling_policy_input(), list()) ::
           {:ok, remove_managed_scaling_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def remove_managed_scaling_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3726,6 +3771,7 @@ defmodule AWS.EMR do
   @spec remove_tags(map(), remove_tags_input(), list()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3773,6 +3819,7 @@ defmodule AWS.EMR do
   @spec run_job_flow(map(), run_job_flow_input(), list()) ::
           {:ok, run_job_flow_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, run_job_flow_errors()}
   def run_job_flow(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3800,6 +3847,7 @@ defmodule AWS.EMR do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_keep_job_flow_alive_when_no_steps_errors()}
   def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3835,6 +3883,7 @@ defmodule AWS.EMR do
   @spec set_termination_protection(map(), set_termination_protection_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_termination_protection_errors()}
   def set_termination_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3867,6 +3916,7 @@ defmodule AWS.EMR do
   @spec set_unhealthy_node_replacement(map(), set_unhealthy_node_replacement_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_unhealthy_node_replacement_errors()}
   def set_unhealthy_node_replacement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3903,6 +3953,7 @@ defmodule AWS.EMR do
   @spec set_visible_to_all_users(map(), set_visible_to_all_users_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_visible_to_all_users_errors()}
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3916,6 +3967,7 @@ defmodule AWS.EMR do
   @spec start_notebook_execution(map(), start_notebook_execution_input(), list()) ::
           {:ok, start_notebook_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_notebook_execution_errors()}
   def start_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3929,6 +3981,7 @@ defmodule AWS.EMR do
   @spec stop_notebook_execution(map(), stop_notebook_execution_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_notebook_execution_errors()}
   def stop_notebook_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3955,6 +4008,7 @@ defmodule AWS.EMR do
   @spec terminate_job_flows(map(), terminate_job_flows_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_job_flows_errors()}
   def terminate_job_flows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3969,6 +4023,7 @@ defmodule AWS.EMR do
   @spec update_studio(map(), update_studio_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_studio_errors()}
   def update_studio(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3983,6 +4038,7 @@ defmodule AWS.EMR do
   @spec update_studio_session_mapping(map(), update_studio_session_mapping_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_studio_session_mapping_errors()}
   def update_studio_session_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()

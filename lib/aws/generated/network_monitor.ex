@@ -640,6 +640,7 @@ defmodule AWS.NetworkMonitor do
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/monitors"
@@ -675,6 +676,7 @@ defmodule AWS.NetworkMonitor do
   @spec create_probe(map(), String.t(), create_probe_input(), list()) ::
           {:ok, create_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_probe_errors()}
   def create_probe(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/probes"
@@ -706,6 +708,7 @@ defmodule AWS.NetworkMonitor do
   @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
@@ -742,6 +745,7 @@ defmodule AWS.NetworkMonitor do
   @spec delete_probe(map(), String.t(), String.t(), delete_probe_input(), list()) ::
           {:ok, delete_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_probe_errors()}
   def delete_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
     url_path =
@@ -775,6 +779,7 @@ defmodule AWS.NetworkMonitor do
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_name, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
@@ -797,6 +802,7 @@ defmodule AWS.NetworkMonitor do
   @spec get_probe(map(), String.t(), String.t(), list()) ::
           {:ok, get_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_probe_errors()}
   def get_probe(%Client{} = client, monitor_name, probe_id, options \\ []) do
     url_path =
@@ -816,6 +822,7 @@ defmodule AWS.NetworkMonitor do
   @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(
         %Client{} = client,
@@ -860,6 +867,7 @@ defmodule AWS.NetworkMonitor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -877,6 +885,7 @@ defmodule AWS.NetworkMonitor do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -905,6 +914,7 @@ defmodule AWS.NetworkMonitor do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -943,6 +953,7 @@ defmodule AWS.NetworkMonitor do
   @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
@@ -1007,6 +1018,7 @@ defmodule AWS.NetworkMonitor do
   @spec update_probe(map(), String.t(), String.t(), update_probe_input(), list()) ::
           {:ok, update_probe_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_probe_errors()}
   def update_probe(%Client{} = client, monitor_name, probe_id, input, options \\ []) do
     url_path =

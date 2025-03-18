@@ -2499,6 +2499,7 @@ defmodule AWS.MailManager do
   @spec create_addon_instance(map(), create_addon_instance_request(), list()) ::
           {:ok, create_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_addon_instance_errors()}
   def create_addon_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2517,6 +2518,7 @@ defmodule AWS.MailManager do
   @spec create_addon_subscription(map(), create_addon_subscription_request(), list()) ::
           {:ok, create_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_addon_subscription_errors()}
   def create_addon_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2530,6 +2532,7 @@ defmodule AWS.MailManager do
   @spec create_address_list(map(), create_address_list_request(), list()) ::
           {:ok, create_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_address_list_errors()}
   def create_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2543,6 +2546,7 @@ defmodule AWS.MailManager do
   @spec create_address_list_import_job(map(), create_address_list_import_job_request(), list()) ::
           {:ok, create_address_list_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_address_list_import_job_errors()}
   def create_address_list_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2556,6 +2560,7 @@ defmodule AWS.MailManager do
   @spec create_archive(map(), create_archive_request(), list()) ::
           {:ok, create_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2569,6 +2574,7 @@ defmodule AWS.MailManager do
   @spec create_ingress_point(map(), create_ingress_point_request(), list()) ::
           {:ok, create_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ingress_point_errors()}
   def create_ingress_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2583,6 +2589,7 @@ defmodule AWS.MailManager do
   @spec create_relay(map(), create_relay_request(), list()) ::
           {:ok, create_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_relay_errors()}
   def create_relay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2596,6 +2603,7 @@ defmodule AWS.MailManager do
   @spec create_rule_set(map(), create_rule_set_request(), list()) ::
           {:ok, create_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_set_errors()}
   def create_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2609,6 +2617,7 @@ defmodule AWS.MailManager do
   @spec create_traffic_policy(map(), create_traffic_policy_request(), list()) ::
           {:ok, create_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_traffic_policy_errors()}
   def create_traffic_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2622,6 +2631,7 @@ defmodule AWS.MailManager do
   @spec delete_addon_instance(map(), delete_addon_instance_request(), list()) ::
           {:ok, delete_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_addon_instance_errors()}
   def delete_addon_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2635,6 +2645,7 @@ defmodule AWS.MailManager do
   @spec delete_addon_subscription(map(), delete_addon_subscription_request(), list()) ::
           {:ok, delete_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_addon_subscription_errors()}
   def delete_addon_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2648,6 +2659,7 @@ defmodule AWS.MailManager do
   @spec delete_address_list(map(), delete_address_list_request(), list()) ::
           {:ok, delete_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_address_list_errors()}
   def delete_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2670,6 +2682,7 @@ defmodule AWS.MailManager do
   @spec delete_archive(map(), delete_archive_request(), list()) ::
           {:ok, delete_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2683,6 +2696,7 @@ defmodule AWS.MailManager do
   @spec delete_ingress_point(map(), delete_ingress_point_request(), list()) ::
           {:ok, delete_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ingress_point_errors()}
   def delete_ingress_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2696,6 +2710,7 @@ defmodule AWS.MailManager do
   @spec delete_relay(map(), delete_relay_request(), list()) ::
           {:ok, delete_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_relay_errors()}
   def delete_relay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2709,6 +2724,7 @@ defmodule AWS.MailManager do
   @spec delete_rule_set(map(), delete_rule_set_request(), list()) ::
           {:ok, delete_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_set_errors()}
   def delete_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2722,6 +2738,7 @@ defmodule AWS.MailManager do
   @spec delete_traffic_policy(map(), delete_traffic_policy_request(), list()) ::
           {:ok, delete_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_traffic_policy_errors()}
   def delete_traffic_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2739,6 +2756,7 @@ defmodule AWS.MailManager do
         ) ::
           {:ok, deregister_member_from_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_member_from_address_list_errors()}
   def deregister_member_from_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2752,6 +2770,7 @@ defmodule AWS.MailManager do
   @spec get_addon_instance(map(), get_addon_instance_request(), list()) ::
           {:ok, get_addon_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_addon_instance_errors()}
   def get_addon_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2765,6 +2784,7 @@ defmodule AWS.MailManager do
   @spec get_addon_subscription(map(), get_addon_subscription_request(), list()) ::
           {:ok, get_addon_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_addon_subscription_errors()}
   def get_addon_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2778,6 +2798,7 @@ defmodule AWS.MailManager do
   @spec get_address_list(map(), get_address_list_request(), list()) ::
           {:ok, get_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_address_list_errors()}
   def get_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2791,6 +2812,7 @@ defmodule AWS.MailManager do
   @spec get_address_list_import_job(map(), get_address_list_import_job_request(), list()) ::
           {:ok, get_address_list_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_address_list_import_job_errors()}
   def get_address_list_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2804,6 +2826,7 @@ defmodule AWS.MailManager do
   @spec get_archive(map(), get_archive_request(), list()) ::
           {:ok, get_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_errors()}
   def get_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2817,6 +2840,7 @@ defmodule AWS.MailManager do
   @spec get_archive_export(map(), get_archive_export_request(), list()) ::
           {:ok, get_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_export_errors()}
   def get_archive_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2832,6 +2856,7 @@ defmodule AWS.MailManager do
   @spec get_archive_message(map(), get_archive_message_request(), list()) ::
           {:ok, get_archive_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_message_errors()}
   def get_archive_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2848,6 +2873,7 @@ defmodule AWS.MailManager do
   @spec get_archive_message_content(map(), get_archive_message_content_request(), list()) ::
           {:ok, get_archive_message_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_message_content_errors()}
   def get_archive_message_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2861,6 +2887,7 @@ defmodule AWS.MailManager do
   @spec get_archive_search(map(), get_archive_search_request(), list()) ::
           {:ok, get_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_search_errors()}
   def get_archive_search(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2874,6 +2901,7 @@ defmodule AWS.MailManager do
   @spec get_archive_search_results(map(), get_archive_search_results_request(), list()) ::
           {:ok, get_archive_search_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_archive_search_results_errors()}
   def get_archive_search_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2887,6 +2915,7 @@ defmodule AWS.MailManager do
   @spec get_ingress_point(map(), get_ingress_point_request(), list()) ::
           {:ok, get_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ingress_point_errors()}
   def get_ingress_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2900,6 +2929,7 @@ defmodule AWS.MailManager do
   @spec get_member_of_address_list(map(), get_member_of_address_list_request(), list()) ::
           {:ok, get_member_of_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_member_of_address_list_errors()}
   def get_member_of_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2913,6 +2943,7 @@ defmodule AWS.MailManager do
   @spec get_relay(map(), get_relay_request(), list()) ::
           {:ok, get_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relay_errors()}
   def get_relay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2926,6 +2957,7 @@ defmodule AWS.MailManager do
   @spec get_rule_set(map(), get_rule_set_request(), list()) ::
           {:ok, get_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_set_errors()}
   def get_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2939,6 +2971,7 @@ defmodule AWS.MailManager do
   @spec get_traffic_policy(map(), get_traffic_policy_request(), list()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_traffic_policy_errors()}
   def get_traffic_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2952,6 +2985,7 @@ defmodule AWS.MailManager do
   @spec list_addon_instances(map(), list_addon_instances_request(), list()) ::
           {:ok, list_addon_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_addon_instances_errors()}
   def list_addon_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2965,6 +2999,7 @@ defmodule AWS.MailManager do
   @spec list_addon_subscriptions(map(), list_addon_subscriptions_request(), list()) ::
           {:ok, list_addon_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_addon_subscriptions_errors()}
   def list_addon_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2978,6 +3013,7 @@ defmodule AWS.MailManager do
   @spec list_address_list_import_jobs(map(), list_address_list_import_jobs_request(), list()) ::
           {:ok, list_address_list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_address_list_import_jobs_errors()}
   def list_address_list_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2991,6 +3027,7 @@ defmodule AWS.MailManager do
   @spec list_address_lists(map(), list_address_lists_request(), list()) ::
           {:ok, list_address_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_address_lists_errors()}
   def list_address_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3004,6 +3041,7 @@ defmodule AWS.MailManager do
   @spec list_archive_exports(map(), list_archive_exports_request(), list()) ::
           {:ok, list_archive_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_archive_exports_errors()}
   def list_archive_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3017,6 +3055,7 @@ defmodule AWS.MailManager do
   @spec list_archive_searches(map(), list_archive_searches_request(), list()) ::
           {:ok, list_archive_searches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_archive_searches_errors()}
   def list_archive_searches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3030,6 +3069,7 @@ defmodule AWS.MailManager do
   @spec list_archives(map(), list_archives_request(), list()) ::
           {:ok, list_archives_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3043,6 +3083,7 @@ defmodule AWS.MailManager do
   @spec list_ingress_points(map(), list_ingress_points_request(), list()) ::
           {:ok, list_ingress_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ingress_points_errors()}
   def list_ingress_points(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3056,6 +3097,7 @@ defmodule AWS.MailManager do
   @spec list_members_of_address_list(map(), list_members_of_address_list_request(), list()) ::
           {:ok, list_members_of_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_of_address_list_errors()}
   def list_members_of_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3069,6 +3111,7 @@ defmodule AWS.MailManager do
   @spec list_relays(map(), list_relays_request(), list()) ::
           {:ok, list_relays_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_relays_errors()}
   def list_relays(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3082,6 +3125,7 @@ defmodule AWS.MailManager do
   @spec list_rule_sets(map(), list_rule_sets_request(), list()) ::
           {:ok, list_rule_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_sets_errors()}
   def list_rule_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3095,6 +3139,7 @@ defmodule AWS.MailManager do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3108,6 +3153,7 @@ defmodule AWS.MailManager do
   @spec list_traffic_policies(map(), list_traffic_policies_request(), list()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policies_errors()}
   def list_traffic_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3121,6 +3167,7 @@ defmodule AWS.MailManager do
   @spec register_member_to_address_list(map(), register_member_to_address_list_request(), list()) ::
           {:ok, register_member_to_address_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_member_to_address_list_errors()}
   def register_member_to_address_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3134,6 +3181,7 @@ defmodule AWS.MailManager do
   @spec start_address_list_import_job(map(), start_address_list_import_job_request(), list()) ::
           {:ok, start_address_list_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_address_list_import_job_errors()}
   def start_address_list_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3147,6 +3195,7 @@ defmodule AWS.MailManager do
   @spec start_archive_export(map(), start_archive_export_request(), list()) ::
           {:ok, start_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_archive_export_errors()}
   def start_archive_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3160,6 +3209,7 @@ defmodule AWS.MailManager do
   @spec start_archive_search(map(), start_archive_search_request(), list()) ::
           {:ok, start_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_archive_search_errors()}
   def start_archive_search(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3173,6 +3223,7 @@ defmodule AWS.MailManager do
   @spec stop_address_list_import_job(map(), stop_address_list_import_job_request(), list()) ::
           {:ok, stop_address_list_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_address_list_import_job_errors()}
   def stop_address_list_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3186,6 +3237,7 @@ defmodule AWS.MailManager do
   @spec stop_archive_export(map(), stop_archive_export_request(), list()) ::
           {:ok, stop_archive_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_archive_export_errors()}
   def stop_archive_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3199,6 +3251,7 @@ defmodule AWS.MailManager do
   @spec stop_archive_search(map(), stop_archive_search_request(), list()) ::
           {:ok, stop_archive_search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_archive_search_errors()}
   def stop_archive_search(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3265,7 @@ defmodule AWS.MailManager do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3225,6 +3279,7 @@ defmodule AWS.MailManager do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3238,6 +3293,7 @@ defmodule AWS.MailManager do
   @spec update_archive(map(), update_archive_request(), list()) ::
           {:ok, update_archive_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3251,6 +3307,7 @@ defmodule AWS.MailManager do
   @spec update_ingress_point(map(), update_ingress_point_request(), list()) ::
           {:ok, update_ingress_point_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ingress_point_errors()}
   def update_ingress_point(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3264,6 +3321,7 @@ defmodule AWS.MailManager do
   @spec update_relay(map(), update_relay_request(), list()) ::
           {:ok, update_relay_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_relay_errors()}
   def update_relay(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3277,6 +3335,7 @@ defmodule AWS.MailManager do
   @spec update_rule_set(map(), update_rule_set_request(), list()) ::
           {:ok, update_rule_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_set_errors()}
   def update_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3290,6 +3349,7 @@ defmodule AWS.MailManager do
   @spec update_traffic_policy(map(), update_traffic_policy_request(), list()) ::
           {:ok, update_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_traffic_policy_errors()}
   def update_traffic_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()

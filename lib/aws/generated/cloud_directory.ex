@@ -3926,6 +3926,7 @@ defmodule AWS.CloudDirectory do
   @spec add_facet_to_object(map(), add_facet_to_object_request(), list()) ::
           {:ok, add_facet_to_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_facet_to_object_errors()}
   def add_facet_to_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets"
@@ -3962,6 +3963,7 @@ defmodule AWS.CloudDirectory do
   @spec apply_schema(map(), apply_schema_request(), list()) ::
           {:ok, apply_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_schema_errors()}
   def apply_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/apply"
@@ -4005,6 +4007,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_object(map(), attach_object_request(), list()) ::
           {:ok, attach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_object_errors()}
   def attach_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attach"
@@ -4042,6 +4045,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, attach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_policy_errors()}
   def attach_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attach"
@@ -4076,6 +4080,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_to_index(map(), attach_to_index_request(), list()) ::
           {:ok, attach_to_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_to_index_errors()}
   def attach_to_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/attach"
@@ -4112,6 +4117,7 @@ defmodule AWS.CloudDirectory do
   @spec attach_typed_link(map(), attach_typed_link_request(), list()) ::
           {:ok, attach_typed_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_typed_link_errors()}
   def attach_typed_link(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attach"
@@ -4146,6 +4152,7 @@ defmodule AWS.CloudDirectory do
   @spec batch_read(map(), batch_read_request(), list()) ::
           {:ok, batch_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_read_errors()}
   def batch_read(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/batchread"
@@ -4184,6 +4191,7 @@ defmodule AWS.CloudDirectory do
   @spec batch_write(map(), batch_write_request(), list()) ::
           {:ok, batch_write_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_write_errors()}
   def batch_write(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/batchwrite"
@@ -4225,6 +4233,7 @@ defmodule AWS.CloudDirectory do
   @spec create_directory(map(), create_directory_request(), list()) ::
           {:ok, create_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/create"
@@ -4262,6 +4271,7 @@ defmodule AWS.CloudDirectory do
   @spec create_facet(map(), create_facet_request(), list()) ::
           {:ok, create_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_facet_errors()}
   def create_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/create"
@@ -4299,6 +4309,7 @@ defmodule AWS.CloudDirectory do
   @spec create_index(map(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index"
@@ -4339,6 +4350,7 @@ defmodule AWS.CloudDirectory do
   @spec create_object(map(), create_object_request(), list()) ::
           {:ok, create_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_object_errors()}
   def create_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object"
@@ -4394,6 +4406,7 @@ defmodule AWS.CloudDirectory do
   @spec create_schema(map(), create_schema_request(), list()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/create"
@@ -4424,6 +4437,7 @@ defmodule AWS.CloudDirectory do
   @spec create_typed_link_facet(map(), create_typed_link_facet_request(), list()) ::
           {:ok, create_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_typed_link_facet_errors()}
   def create_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
@@ -4463,6 +4477,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_directory(map(), delete_directory_request(), list()) ::
           {:ok, delete_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory"
@@ -4502,6 +4517,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_facet(map(), delete_facet_request(), list()) ::
           {:ok, delete_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_facet_errors()}
   def delete_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/delete"
@@ -4541,6 +4557,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_object(map(), delete_object_request(), list()) ::
           {:ok, delete_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_object_errors()}
   def delete_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/delete"
@@ -4577,6 +4594,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_schema(map(), delete_schema_request(), list()) ::
           {:ok, delete_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema"
@@ -4613,6 +4631,7 @@ defmodule AWS.CloudDirectory do
   @spec delete_typed_link_facet(map(), delete_typed_link_facet_request(), list()) ::
           {:ok, delete_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_typed_link_facet_errors()}
   def delete_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
@@ -4647,6 +4666,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_from_index(map(), detach_from_index_request(), list()) ::
           {:ok, detach_from_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_from_index_errors()}
   def detach_from_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/detach"
@@ -4684,6 +4704,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_object(map(), detach_object_request(), list()) ::
           {:ok, detach_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_object_errors()}
   def detach_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/detach"
@@ -4718,6 +4739,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, detach_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_policy_errors()}
   def detach_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/detach"
@@ -4754,6 +4776,7 @@ defmodule AWS.CloudDirectory do
   @spec detach_typed_link(map(), detach_typed_link_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_typed_link_errors()}
   def detach_typed_link(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/detach"
@@ -4791,6 +4814,7 @@ defmodule AWS.CloudDirectory do
   @spec disable_directory(map(), disable_directory_request(), list()) ::
           {:ok, disable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_directory_errors()}
   def disable_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/disable"
@@ -4828,6 +4852,7 @@ defmodule AWS.CloudDirectory do
   @spec enable_directory(map(), enable_directory_request(), list()) ::
           {:ok, enable_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_directory_errors()}
   def enable_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/enable"
@@ -4862,6 +4887,7 @@ defmodule AWS.CloudDirectory do
   @spec get_applied_schema_version(map(), get_applied_schema_version_request(), list()) ::
           {:ok, get_applied_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_applied_schema_version_errors()}
   def get_applied_schema_version(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
@@ -4890,6 +4916,7 @@ defmodule AWS.CloudDirectory do
   @spec get_directory(map(), get_directory_request(), list()) ::
           {:ok, get_directory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_directory_errors()}
   def get_directory(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/get"
@@ -4928,6 +4955,7 @@ defmodule AWS.CloudDirectory do
   @spec get_facet(map(), get_facet_request(), list()) ::
           {:ok, get_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_facet_errors()}
   def get_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
@@ -4962,6 +4990,7 @@ defmodule AWS.CloudDirectory do
   @spec get_link_attributes(map(), get_link_attributes_request(), list()) ::
           {:ok, get_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_link_attributes_errors()}
   def get_link_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/get"
@@ -4996,6 +5025,7 @@ defmodule AWS.CloudDirectory do
   @spec get_object_attributes(map(), get_object_attributes_request(), list()) ::
           {:ok, get_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_attributes_errors()}
   def get_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes/get"
@@ -5031,6 +5061,7 @@ defmodule AWS.CloudDirectory do
   @spec get_object_information(map(), get_object_information_request(), list()) ::
           {:ok, get_object_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_information_errors()}
   def get_object_information(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/information"
@@ -5069,6 +5100,7 @@ defmodule AWS.CloudDirectory do
   @spec get_schema_as_json(map(), get_schema_as_json_request(), list()) ::
           {:ok, get_schema_as_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_as_json_errors()}
   def get_schema_as_json(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
@@ -5109,6 +5141,7 @@ defmodule AWS.CloudDirectory do
         ) ::
           {:ok, get_typed_link_facet_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_typed_link_facet_information_errors()}
   def get_typed_link_facet_information(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
@@ -5145,6 +5178,7 @@ defmodule AWS.CloudDirectory do
   @spec list_applied_schema_arns(map(), list_applied_schema_arns_request(), list()) ::
           {:ok, list_applied_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applied_schema_arns_errors()}
   def list_applied_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/applied"
@@ -5173,6 +5207,7 @@ defmodule AWS.CloudDirectory do
   @spec list_attached_indices(map(), list_attached_indices_request(), list()) ::
           {:ok, list_attached_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attached_indices_errors()}
   def list_attached_indices(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/indices"
@@ -5209,6 +5244,7 @@ defmodule AWS.CloudDirectory do
   @spec list_development_schema_arns(map(), list_development_schema_arns_request(), list()) ::
           {:ok, list_development_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_development_schema_arns_errors()}
   def list_development_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/development"
@@ -5237,6 +5273,7 @@ defmodule AWS.CloudDirectory do
   @spec list_directories(map(), list_directories_request(), list()) ::
           {:ok, list_directories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_directories_errors()}
   def list_directories(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/directory/list"
@@ -5265,6 +5302,7 @@ defmodule AWS.CloudDirectory do
   @spec list_facet_attributes(map(), list_facet_attributes_request(), list()) ::
           {:ok, list_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_facet_attributes_errors()}
   def list_facet_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/attributes"
@@ -5299,6 +5337,7 @@ defmodule AWS.CloudDirectory do
   @spec list_facet_names(map(), list_facet_names_request(), list()) ::
           {:ok, list_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_facet_names_errors()}
   def list_facet_names(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet/list"
@@ -5337,6 +5376,7 @@ defmodule AWS.CloudDirectory do
   @spec list_incoming_typed_links(map(), list_incoming_typed_links_request(), list()) ::
           {:ok, list_incoming_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_incoming_typed_links_errors()}
   def list_incoming_typed_links(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/incoming"
@@ -5371,6 +5411,7 @@ defmodule AWS.CloudDirectory do
   @spec list_index(map(), list_index_request(), list()) ::
           {:ok, list_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_index_errors()}
   def list_index(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/index/targets"
@@ -5409,6 +5450,7 @@ defmodule AWS.CloudDirectory do
   @spec list_managed_schema_arns(map(), list_managed_schema_arns_request(), list()) ::
           {:ok, list_managed_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_schema_arns_errors()}
   def list_managed_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/managed"
@@ -5437,6 +5479,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_attributes(map(), list_object_attributes_request(), list()) ::
           {:ok, list_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_attributes_errors()}
   def list_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/attributes"
@@ -5473,6 +5516,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_children(map(), list_object_children_request(), list()) ::
           {:ok, list_object_children_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_children_errors()}
   def list_object_children(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/children"
@@ -5524,6 +5568,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_parent_paths(map(), list_object_parent_paths_request(), list()) ::
           {:ok, list_object_parent_paths_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_parent_paths_errors()}
   def list_object_parent_paths(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parentpaths"
@@ -5559,6 +5604,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_parents(map(), list_object_parents_request(), list()) ::
           {:ok, list_object_parents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_parents_errors()}
   def list_object_parents(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/parent"
@@ -5594,6 +5640,7 @@ defmodule AWS.CloudDirectory do
   @spec list_object_policies(map(), list_object_policies_request(), list()) ::
           {:ok, list_object_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_object_policies_errors()}
   def list_object_policies(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/policy"
@@ -5633,6 +5680,7 @@ defmodule AWS.CloudDirectory do
   @spec list_outgoing_typed_links(map(), list_outgoing_typed_links_request(), list()) ::
           {:ok, list_outgoing_typed_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_outgoing_typed_links_errors()}
   def list_outgoing_typed_links(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/outgoing"
@@ -5667,6 +5715,7 @@ defmodule AWS.CloudDirectory do
   @spec list_policy_attachments(map(), list_policy_attachments_request(), list()) ::
           {:ok, list_policy_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_policy_attachments_errors()}
   def list_policy_attachments(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/attachment"
@@ -5705,6 +5754,7 @@ defmodule AWS.CloudDirectory do
   @spec list_published_schema_arns(map(), list_published_schema_arns_request(), list()) ::
           {:ok, list_published_schema_arns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_published_schema_arns_errors()}
   def list_published_schema_arns(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/published"
@@ -5738,6 +5788,7 @@ defmodule AWS.CloudDirectory do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags"
@@ -5773,6 +5824,7 @@ defmodule AWS.CloudDirectory do
         ) ::
           {:ok, list_typed_link_facet_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_typed_link_facet_attributes_errors()}
   def list_typed_link_facet_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
@@ -5809,6 +5861,7 @@ defmodule AWS.CloudDirectory do
   @spec list_typed_link_facet_names(map(), list_typed_link_facet_names_request(), list()) ::
           {:ok, list_typed_link_facet_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_typed_link_facet_names_errors()}
   def list_typed_link_facet_names(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet/list"
@@ -5854,6 +5907,7 @@ defmodule AWS.CloudDirectory do
   @spec lookup_policy(map(), lookup_policy_request(), list()) ::
           {:ok, lookup_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, lookup_policy_errors()}
   def lookup_policy(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/policy/lookup"
@@ -5889,6 +5943,7 @@ defmodule AWS.CloudDirectory do
   @spec publish_schema(map(), publish_schema_request(), list()) ::
           {:ok, publish_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_schema_errors()}
   def publish_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/publish"
@@ -5926,6 +5981,7 @@ defmodule AWS.CloudDirectory do
   @spec put_schema_from_json(map(), put_schema_from_json_request(), list()) ::
           {:ok, put_schema_from_json_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_schema_from_json_errors()}
   def put_schema_from_json(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/json"
@@ -5960,6 +6016,7 @@ defmodule AWS.CloudDirectory do
   @spec remove_facet_from_object(map(), remove_facet_from_object_request(), list()) ::
           {:ok, remove_facet_from_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_facet_from_object_errors()}
   def remove_facet_from_object(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/facets/delete"
@@ -5994,6 +6051,7 @@ defmodule AWS.CloudDirectory do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/add"
@@ -6022,6 +6080,7 @@ defmodule AWS.CloudDirectory do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/tags/remove"
@@ -6060,6 +6119,7 @@ defmodule AWS.CloudDirectory do
   @spec update_facet(map(), update_facet_request(), list()) ::
           {:ok, update_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_facet_errors()}
   def update_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/facet"
@@ -6097,6 +6157,7 @@ defmodule AWS.CloudDirectory do
   @spec update_link_attributes(map(), update_link_attributes_request(), list()) ::
           {:ok, update_link_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_link_attributes_errors()}
   def update_link_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/attributes/update"
@@ -6131,6 +6192,7 @@ defmodule AWS.CloudDirectory do
   @spec update_object_attributes(map(), update_object_attributes_request(), list()) ::
           {:ok, update_object_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_object_attributes_errors()}
   def update_object_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/object/update"
@@ -6168,6 +6230,7 @@ defmodule AWS.CloudDirectory do
   @spec update_schema(map(), update_schema_request(), list()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/update"
@@ -6204,6 +6267,7 @@ defmodule AWS.CloudDirectory do
   @spec update_typed_link_facet(map(), update_typed_link_facet_request(), list()) ::
           {:ok, update_typed_link_facet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_typed_link_facet_errors()}
   def update_typed_link_facet(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/typedlink/facet"
@@ -6244,6 +6308,7 @@ defmodule AWS.CloudDirectory do
   @spec upgrade_applied_schema(map(), upgrade_applied_schema_request(), list()) ::
           {:ok, upgrade_applied_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_applied_schema_errors()}
   def upgrade_applied_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
@@ -6273,6 +6338,7 @@ defmodule AWS.CloudDirectory do
   @spec upgrade_published_schema(map(), upgrade_published_schema_request(), list()) ::
           {:ok, upgrade_published_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upgrade_published_schema_errors()}
   def upgrade_published_schema(%Client{} = client, input, options \\ []) do
     url_path = "/amazonclouddirectory/2017-01-11/schema/upgradepublished"

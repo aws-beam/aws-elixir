@@ -3655,6 +3655,7 @@ defmodule AWS.CloudTrail do
   @spec add_tags(map(), add_tags_request(), list()) ::
           {:ok, add_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3675,6 +3676,7 @@ defmodule AWS.CloudTrail do
   @spec cancel_query(map(), cancel_query_request(), list()) ::
           {:ok, cancel_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3692,6 +3694,7 @@ defmodule AWS.CloudTrail do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3742,6 +3745,7 @@ defmodule AWS.CloudTrail do
   @spec create_dashboard(map(), create_dashboard_request(), list()) ::
           {:ok, create_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dashboard_errors()}
   def create_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3755,6 +3759,7 @@ defmodule AWS.CloudTrail do
   @spec create_event_data_store(map(), create_event_data_store_request(), list()) ::
           {:ok, create_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_data_store_errors()}
   def create_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3769,6 +3774,7 @@ defmodule AWS.CloudTrail do
   @spec create_trail(map(), create_trail_request(), list()) ::
           {:ok, create_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trail_errors()}
   def create_trail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3782,6 +3788,7 @@ defmodule AWS.CloudTrail do
   @spec delete_channel(map(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3798,6 +3805,7 @@ defmodule AWS.CloudTrail do
   @spec delete_dashboard(map(), delete_dashboard_request(), list()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dashboard_errors()}
   def delete_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3824,6 +3832,7 @@ defmodule AWS.CloudTrail do
   @spec delete_event_data_store(map(), delete_event_data_store_request(), list()) ::
           {:ok, delete_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_data_store_errors()}
   def delete_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3839,6 +3848,7 @@ defmodule AWS.CloudTrail do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3856,6 +3866,7 @@ defmodule AWS.CloudTrail do
   @spec delete_trail(map(), delete_trail_request(), list()) ::
           {:ok, delete_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trail_errors()}
   def delete_trail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3874,6 +3885,7 @@ defmodule AWS.CloudTrail do
         ) ::
           {:ok, deregister_organization_delegated_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_organization_delegated_admin_errors()}
   def deregister_organization_delegated_admin(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3898,6 +3910,7 @@ defmodule AWS.CloudTrail do
   @spec describe_query(map(), describe_query_request(), list()) ::
           {:ok, describe_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_query_errors()}
   def describe_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3913,6 +3926,7 @@ defmodule AWS.CloudTrail do
   @spec describe_trails(map(), describe_trails_request(), list()) ::
           {:ok, describe_trails_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trails_errors()}
   def describe_trails(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3935,6 +3949,7 @@ defmodule AWS.CloudTrail do
   @spec disable_federation(map(), disable_federation_request(), list()) ::
           {:ok, disable_federation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_federation_errors()}
   def disable_federation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3969,6 +3984,7 @@ defmodule AWS.CloudTrail do
   @spec enable_federation(map(), enable_federation_request(), list()) ::
           {:ok, enable_federation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_federation_errors()}
   def enable_federation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4003,6 +4019,7 @@ defmodule AWS.CloudTrail do
   @spec generate_query(map(), generate_query_request(), list()) ::
           {:ok, generate_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_query_errors()}
   def generate_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4016,6 +4033,7 @@ defmodule AWS.CloudTrail do
   @spec get_channel(map(), get_channel_request(), list()) ::
           {:ok, get_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_errors()}
   def get_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4030,6 +4048,7 @@ defmodule AWS.CloudTrail do
   @spec get_dashboard(map(), get_dashboard_request(), list()) ::
           {:ok, get_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4045,6 +4064,7 @@ defmodule AWS.CloudTrail do
   @spec get_event_data_store(map(), get_event_data_store_request(), list()) ::
           {:ok, get_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_data_store_errors()}
   def get_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4094,6 +4114,7 @@ defmodule AWS.CloudTrail do
   @spec get_event_selectors(map(), get_event_selectors_request(), list()) ::
           {:ok, get_event_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_selectors_errors()}
   def get_event_selectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4107,6 +4128,7 @@ defmodule AWS.CloudTrail do
   @spec get_import(map(), get_import_request(), list()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_errors()}
   def get_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4137,6 +4159,7 @@ defmodule AWS.CloudTrail do
   @spec get_insight_selectors(map(), get_insight_selectors_request(), list()) ::
           {:ok, get_insight_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_selectors_errors()}
   def get_insight_selectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4153,6 +4176,7 @@ defmodule AWS.CloudTrail do
   @spec get_query_results(map(), get_query_results_request(), list()) ::
           {:ok, get_query_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4168,6 +4192,7 @@ defmodule AWS.CloudTrail do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4181,6 +4206,7 @@ defmodule AWS.CloudTrail do
   @spec get_trail(map(), get_trail_request(), list()) ::
           {:ok, get_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trail_errors()}
   def get_trail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4202,6 +4228,7 @@ defmodule AWS.CloudTrail do
   @spec get_trail_status(map(), get_trail_status_request(), list()) ::
           {:ok, get_trail_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trail_status_errors()}
   def get_trail_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4215,6 +4242,7 @@ defmodule AWS.CloudTrail do
   @spec list_channels(map(), list_channels_request(), list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4229,6 +4257,7 @@ defmodule AWS.CloudTrail do
   @spec list_dashboards(map(), list_dashboards_request(), list()) ::
           {:ok, list_dashboards_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4243,6 +4272,7 @@ defmodule AWS.CloudTrail do
   @spec list_event_data_stores(map(), list_event_data_stores_request(), list()) ::
           {:ok, list_event_data_stores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_data_stores_errors()}
   def list_event_data_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4256,6 +4286,7 @@ defmodule AWS.CloudTrail do
   @spec list_import_failures(map(), list_import_failures_request(), list()) ::
           {:ok, list_import_failures_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_failures_errors()}
   def list_import_failures(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4270,6 +4301,7 @@ defmodule AWS.CloudTrail do
   @spec list_imports(map(), list_imports_request(), list()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4305,6 +4337,7 @@ defmodule AWS.CloudTrail do
   @spec list_insights_metric_data(map(), list_insights_metric_data_request(), list()) ::
           {:ok, list_insights_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_insights_metric_data_errors()}
   def list_insights_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4330,6 +4363,7 @@ defmodule AWS.CloudTrail do
   @spec list_public_keys(map(), list_public_keys_request(), list()) ::
           {:ok, list_public_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_public_keys_errors()}
   def list_public_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4351,6 +4385,7 @@ defmodule AWS.CloudTrail do
   @spec list_queries(map(), list_queries_request(), list()) ::
           {:ok, list_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queries_errors()}
   def list_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4365,6 +4400,7 @@ defmodule AWS.CloudTrail do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4378,6 +4414,7 @@ defmodule AWS.CloudTrail do
   @spec list_trails(map(), list_trails_request(), list()) ::
           {:ok, list_trails_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trails_errors()}
   def list_trails(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4447,6 +4484,7 @@ defmodule AWS.CloudTrail do
   @spec lookup_events(map(), lookup_events_request(), list()) ::
           {:ok, lookup_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, lookup_events_errors()}
   def lookup_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4545,6 +4583,7 @@ defmodule AWS.CloudTrail do
   @spec put_event_selectors(map(), put_event_selectors_request(), list()) ::
           {:ok, put_event_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_event_selectors_errors()}
   def put_event_selectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4591,6 +4630,7 @@ defmodule AWS.CloudTrail do
   @spec put_insight_selectors(map(), put_insight_selectors_request(), list()) ::
           {:ok, put_insight_selectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_insight_selectors_errors()}
   def put_insight_selectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4610,6 +4650,7 @@ defmodule AWS.CloudTrail do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4627,6 +4668,7 @@ defmodule AWS.CloudTrail do
         ) ::
           {:ok, register_organization_delegated_admin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_organization_delegated_admin_errors()}
   def register_organization_delegated_admin(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4641,6 +4683,7 @@ defmodule AWS.CloudTrail do
   @spec remove_tags(map(), remove_tags_request(), list()) ::
           {:ok, remove_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4660,6 +4703,7 @@ defmodule AWS.CloudTrail do
   @spec restore_event_data_store(map(), restore_event_data_store_request(), list()) ::
           {:ok, restore_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_event_data_store_errors()}
   def restore_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4678,6 +4722,7 @@ defmodule AWS.CloudTrail do
   @spec search_sample_queries(map(), search_sample_queries_request(), list()) ::
           {:ok, search_sample_queries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_sample_queries_errors()}
   def search_sample_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4700,6 +4745,7 @@ defmodule AWS.CloudTrail do
   @spec start_dashboard_refresh(map(), start_dashboard_refresh_request(), list()) ::
           {:ok, start_dashboard_refresh_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_dashboard_refresh_errors()}
   def start_dashboard_refresh(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4722,6 +4768,7 @@ defmodule AWS.CloudTrail do
         ) ::
           {:ok, start_event_data_store_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_event_data_store_ingestion_errors()}
   def start_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4760,6 +4807,7 @@ defmodule AWS.CloudTrail do
   @spec start_import(map(), start_import_request(), list()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4780,6 +4828,7 @@ defmodule AWS.CloudTrail do
   @spec start_logging(map(), start_logging_request(), list()) ::
           {:ok, start_logging_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_logging_errors()}
   def start_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4804,6 +4853,7 @@ defmodule AWS.CloudTrail do
   @spec start_query(map(), start_query_request(), list()) ::
           {:ok, start_query_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_query_errors()}
   def start_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4822,6 +4872,7 @@ defmodule AWS.CloudTrail do
   @spec stop_event_data_store_ingestion(map(), stop_event_data_store_ingestion_request(), list()) ::
           {:ok, stop_event_data_store_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_event_data_store_ingestion_errors()}
   def stop_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4835,6 +4886,7 @@ defmodule AWS.CloudTrail do
   @spec stop_import(map(), stop_import_request(), list()) ::
           {:ok, stop_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_import_errors()}
   def stop_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4860,6 +4912,7 @@ defmodule AWS.CloudTrail do
   @spec stop_logging(map(), stop_logging_request(), list()) ::
           {:ok, stop_logging_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_logging_errors()}
   def stop_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4873,6 +4926,7 @@ defmodule AWS.CloudTrail do
   @spec update_channel(map(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4904,6 +4958,7 @@ defmodule AWS.CloudTrail do
   @spec update_dashboard(map(), update_dashboard_request(), list()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dashboard_errors()}
   def update_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4936,6 +4991,7 @@ defmodule AWS.CloudTrail do
   @spec update_event_data_store(map(), update_event_data_store_request(), list()) ::
           {:ok, update_event_data_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_data_store_errors()}
   def update_event_data_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4958,6 +5014,7 @@ defmodule AWS.CloudTrail do
   @spec update_trail(map(), update_trail_request(), list()) ::
           {:ok, update_trail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trail_errors()}
   def update_trail(%Client{} = client, input, options \\ []) do
     meta = metadata()

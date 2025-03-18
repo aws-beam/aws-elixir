@@ -959,6 +959,7 @@ defmodule AWS.SsmSap do
   @spec delete_resource_permission(map(), delete_resource_permission_input(), list()) ::
           {:ok, delete_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_permission_errors()}
   def delete_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/delete-resource-permission"
@@ -990,6 +991,7 @@ defmodule AWS.SsmSap do
   @spec deregister_application(map(), deregister_application_input(), list()) ::
           {:ok, deregister_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_application_errors()}
   def deregister_application(%Client{} = client, input, options \\ []) do
     url_path = "/deregister-application"
@@ -1021,6 +1023,7 @@ defmodule AWS.SsmSap do
   @spec get_application(map(), get_application_input(), list()) ::
           {:ok, get_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
     url_path = "/get-application"
@@ -1050,6 +1053,7 @@ defmodule AWS.SsmSap do
   @spec get_component(map(), get_component_input(), list()) ::
           {:ok, get_component_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, input, options \\ []) do
     url_path = "/get-component"
@@ -1080,6 +1084,7 @@ defmodule AWS.SsmSap do
   @spec get_database(map(), get_database_input(), list()) ::
           {:ok, get_database_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
     url_path = "/get-database"
@@ -1108,6 +1113,7 @@ defmodule AWS.SsmSap do
   @spec get_operation(map(), get_operation_input(), list()) ::
           {:ok, get_operation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
     url_path = "/get-operation"
@@ -1136,6 +1142,7 @@ defmodule AWS.SsmSap do
   @spec get_resource_permission(map(), get_resource_permission_input(), list()) ::
           {:ok, get_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_permission_errors()}
   def get_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/get-resource-permission"
@@ -1164,6 +1171,7 @@ defmodule AWS.SsmSap do
   @spec list_applications(map(), list_applications_input(), list()) ::
           {:ok, list_applications_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/list-applications"
@@ -1192,6 +1200,7 @@ defmodule AWS.SsmSap do
   @spec list_components(map(), list_components_input(), list()) ::
           {:ok, list_components_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
     url_path = "/list-components"
@@ -1222,6 +1231,7 @@ defmodule AWS.SsmSap do
   @spec list_databases(map(), list_databases_input(), list()) ::
           {:ok, list_databases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
     url_path = "/list-databases"
@@ -1253,6 +1263,7 @@ defmodule AWS.SsmSap do
   @spec list_operation_events(map(), list_operation_events_input(), list()) ::
           {:ok, list_operation_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_operation_events_errors()}
   def list_operation_events(%Client{} = client, input, options \\ []) do
     url_path = "/list-operation-events"
@@ -1281,6 +1292,7 @@ defmodule AWS.SsmSap do
   @spec list_operations(map(), list_operations_input(), list()) ::
           {:ok, list_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
     url_path = "/list-operations"
@@ -1311,6 +1323,7 @@ defmodule AWS.SsmSap do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1328,6 +1341,7 @@ defmodule AWS.SsmSap do
   @spec put_resource_permission(map(), put_resource_permission_input(), list()) ::
           {:ok, put_resource_permission_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_permission_errors()}
   def put_resource_permission(%Client{} = client, input, options \\ []) do
     url_path = "/put-resource-permission"
@@ -1371,6 +1385,7 @@ defmodule AWS.SsmSap do
   @spec register_application(map(), register_application_input(), list()) ::
           {:ok, register_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_application_errors()}
   def register_application(%Client{} = client, input, options \\ []) do
     url_path = "/register-application"
@@ -1401,6 +1416,7 @@ defmodule AWS.SsmSap do
   @spec start_application(map(), start_application_input(), list()) ::
           {:ok, start_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
     url_path = "/start-application"
@@ -1429,6 +1445,7 @@ defmodule AWS.SsmSap do
   @spec start_application_refresh(map(), start_application_refresh_input(), list()) ::
           {:ok, start_application_refresh_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_application_refresh_errors()}
   def start_application_refresh(%Client{} = client, input, options \\ []) do
     url_path = "/start-application-refresh"
@@ -1461,6 +1478,7 @@ defmodule AWS.SsmSap do
   @spec stop_application(map(), stop_application_input(), list()) ::
           {:ok, stop_application_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
     url_path = "/stop-application"
@@ -1489,6 +1507,7 @@ defmodule AWS.SsmSap do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1517,6 +1536,7 @@ defmodule AWS.SsmSap do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1551,6 +1571,7 @@ defmodule AWS.SsmSap do
   @spec update_application_settings(map(), update_application_settings_input(), list()) ::
           {:ok, update_application_settings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_settings_errors()}
   def update_application_settings(%Client{} = client, input, options \\ []) do
     url_path = "/update-application-settings"

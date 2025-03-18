@@ -2209,6 +2209,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec associate_channel_flow(map(), String.t(), associate_channel_flow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_channel_flow_errors()}
   def associate_channel_flow(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/channel-flow"
@@ -2248,6 +2249,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, batch_create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_channel_membership_errors()}
   def batch_create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships?operation=batch-create"
@@ -2295,6 +2297,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec channel_flow_callback(map(), String.t(), channel_flow_callback_request(), list()) ::
           {:ok, channel_flow_callback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, channel_flow_callback_errors()}
   def channel_flow_callback(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}?operation=channel-flow-callback"
@@ -2331,6 +2334,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -2379,6 +2383,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec create_channel_ban(map(), String.t(), create_channel_ban_request(), list()) ::
           {:ok, create_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_ban_errors()}
   def create_channel_ban(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/bans"
@@ -2436,6 +2441,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec create_channel_flow(map(), create_channel_flow_request(), list()) ::
           {:ok, create_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_flow_errors()}
   def create_channel_flow(%Client{} = client, input, options \\ []) do
     url_path = "/channel-flows"
@@ -2496,6 +2502,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec create_channel_membership(map(), String.t(), create_channel_membership_request(), list()) ::
           {:ok, create_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_membership_errors()}
   def create_channel_membership(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/memberships"
@@ -2552,6 +2559,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec create_channel_moderator(map(), String.t(), create_channel_moderator_request(), list()) ::
           {:ok, create_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_moderator_errors()}
   def create_channel_moderator(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/moderators"
@@ -2594,6 +2602,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -2633,6 +2642,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec delete_channel_ban(map(), String.t(), String.t(), delete_channel_ban_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_ban_errors()}
   def delete_channel_ban(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
@@ -2675,6 +2685,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec delete_channel_flow(map(), String.t(), delete_channel_flow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_flow_errors()}
   def delete_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
@@ -2713,6 +2724,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_membership_errors()}
   def delete_channel_membership(%Client{} = client, channel_arn, member_arn, input, options \\ []) do
     url_path =
@@ -2768,6 +2780,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_message_errors()}
   def delete_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -2819,6 +2832,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_moderator_errors()}
   def delete_channel_moderator(
         %Client{} = client,
@@ -2869,6 +2883,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_messaging_streaming_configurations_errors()}
   def delete_messaging_streaming_configurations(
         %Client{} = client,
@@ -2908,6 +2923,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec describe_channel(map(), String.t(), String.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_arn, chime_bearer, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -2938,6 +2954,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec describe_channel_ban(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_channel_ban_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_ban_errors()}
   def describe_channel_ban(
         %Client{} = client,
@@ -2973,6 +2990,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec describe_channel_flow(map(), String.t(), list()) ::
           {:ok, describe_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_flow_errors()}
   def describe_channel_flow(%Client{} = client, channel_flow_arn, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
@@ -3002,6 +3020,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, describe_channel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_membership_errors()}
   def describe_channel_membership(
         %Client{} = client,
@@ -3055,6 +3074,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, describe_channel_membership_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_membership_for_app_instance_user_errors()}
   def describe_channel_membership_for_app_instance_user(
         %Client{} = client,
@@ -3105,6 +3125,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, describe_channel_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_moderated_by_app_instance_user_errors()}
   def describe_channel_moderated_by_app_instance_user(
         %Client{} = client,
@@ -3149,6 +3170,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec describe_channel_moderator(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_channel_moderator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_moderator_errors()}
   def describe_channel_moderator(
         %Client{} = client,
@@ -3198,6 +3220,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_channel_flow_errors()}
   def disassociate_channel_flow(
         %Client{} = client,
@@ -3252,6 +3275,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec get_channel_membership_preferences(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_channel_membership_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_membership_preferences_errors()}
   def get_channel_membership_preferences(
         %Client{} = client,
@@ -3290,6 +3314,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec get_channel_message(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_message_errors()}
   def get_channel_message(
         %Client{} = client,
@@ -3376,6 +3401,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, get_channel_message_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_message_status_errors()}
   def get_channel_message_status(
         %Client{} = client,
@@ -3417,6 +3443,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec get_messaging_session_endpoint(map(), list()) ::
           {:ok, get_messaging_session_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_messaging_session_endpoint_errors()}
   def get_messaging_session_endpoint(%Client{} = client, options \\ []) do
     url_path = "/endpoints/messaging-session"
@@ -3438,6 +3465,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec get_messaging_streaming_configurations(map(), String.t(), list()) ::
           {:ok, get_messaging_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_messaging_streaming_configurations_errors()}
   def get_messaging_streaming_configurations(%Client{} = client, app_instance_arn, options \\ []) do
     url_path = "/app-instances/#{AWS.Util.encode_uri(app_instance_arn)}/streaming-configurations"
@@ -3467,6 +3495,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channel_bans_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_bans_errors()}
   def list_channel_bans(
         %Client{} = client,
@@ -3515,6 +3544,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec list_channel_flows(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channel_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_flows_errors()}
   def list_channel_flows(
         %Client{} = client,
@@ -3578,6 +3608,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channel_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_memberships_errors()}
   def list_channel_memberships(
         %Client{} = client,
@@ -3655,6 +3686,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channel_memberships_for_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_memberships_for_app_instance_user_errors()}
   def list_channel_memberships_for_app_instance_user(
         %Client{} = client,
@@ -3734,6 +3766,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channel_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_messages_errors()}
   def list_channel_messages(
         %Client{} = client,
@@ -3824,6 +3857,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channel_moderators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_moderators_errors()}
   def list_channel_moderators(
         %Client{} = client,
@@ -3896,6 +3930,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(
         %Client{} = client,
@@ -3966,6 +4001,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channels_associated_with_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_associated_with_channel_flow_errors()}
   def list_channels_associated_with_channel_flow(
         %Client{} = client,
@@ -4022,6 +4058,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_channels_moderated_by_app_instance_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_moderated_by_app_instance_user_errors()}
   def list_channels_moderated_by_app_instance_user(
         %Client{} = client,
@@ -4085,6 +4122,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, list_sub_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sub_channels_errors()}
   def list_sub_channels(
         %Client{} = client,
@@ -4131,6 +4169,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -4175,6 +4214,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, put_channel_expiration_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_channel_expiration_settings_errors()}
   def put_channel_expiration_settings(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/expiration-settings"
@@ -4229,6 +4269,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, put_channel_membership_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_channel_membership_preferences_errors()}
   def put_channel_membership_preferences(
         %Client{} = client,
@@ -4279,6 +4320,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, put_messaging_streaming_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_messaging_streaming_configurations_errors()}
   def put_messaging_streaming_configurations(
         %Client{} = client,
@@ -4326,6 +4368,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, redact_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, redact_channel_message_errors()}
   def redact_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -4371,6 +4414,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec search_channels(map(), search_channels_request(), list()) ::
           {:ok, search_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_channels_errors()}
   def search_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels?operation=search"
@@ -4423,6 +4467,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec send_channel_message(map(), String.t(), send_channel_message_request(), list()) ::
           {:ok, send_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_channel_message_errors()}
   def send_channel_message(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/messages"
@@ -4457,6 +4502,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=tag-resource"
@@ -4486,6 +4532,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tags?operation=untag-resource"
@@ -4521,6 +4568,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}"
@@ -4557,6 +4605,7 @@ defmodule AWS.ChimeSDKMessaging do
   @spec update_channel_flow(map(), String.t(), update_channel_flow_request(), list()) ::
           {:ok, update_channel_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_flow_errors()}
   def update_channel_flow(%Client{} = client, channel_flow_arn, input, options \\ []) do
     url_path = "/channel-flows/#{AWS.Util.encode_uri(channel_flow_arn)}"
@@ -4596,6 +4645,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, update_channel_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_message_errors()}
   def update_channel_message(%Client{} = client, channel_arn, message_id, input, options \\ []) do
     url_path =
@@ -4641,6 +4691,7 @@ defmodule AWS.ChimeSDKMessaging do
         ) ::
           {:ok, update_channel_read_marker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_read_marker_errors()}
   def update_channel_read_marker(%Client{} = client, channel_arn, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(channel_arn)}/readMarker"

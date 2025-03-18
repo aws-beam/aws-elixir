@@ -798,6 +798,7 @@ defmodule AWS.CloudHSMV2 do
   @spec copy_backup_to_region(map(), copy_backup_to_region_request(), list()) ::
           {:ok, copy_backup_to_region_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_backup_to_region_errors()}
   def copy_backup_to_region(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -815,6 +816,7 @@ defmodule AWS.CloudHSMV2 do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -832,6 +834,7 @@ defmodule AWS.CloudHSMV2 do
   @spec create_hsm(map(), create_hsm_request(), list()) ::
           {:ok, create_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -853,6 +856,7 @@ defmodule AWS.CloudHSMV2 do
   @spec delete_backup(map(), delete_backup_request(), list()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -873,6 +877,7 @@ defmodule AWS.CloudHSMV2 do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -894,6 +899,7 @@ defmodule AWS.CloudHSMV2 do
   @spec delete_hsm(map(), delete_hsm_request(), list()) ::
           {:ok, delete_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -916,6 +922,7 @@ defmodule AWS.CloudHSMV2 do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -944,6 +951,7 @@ defmodule AWS.CloudHSMV2 do
   @spec describe_backups(map(), describe_backups_request(), list()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -969,6 +977,7 @@ defmodule AWS.CloudHSMV2 do
   @spec describe_clusters(map(), describe_clusters_request(), list()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -985,6 +994,7 @@ defmodule AWS.CloudHSMV2 do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1007,6 +1017,7 @@ defmodule AWS.CloudHSMV2 do
   @spec initialize_cluster(map(), initialize_cluster_request(), list()) ::
           {:ok, initialize_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initialize_cluster_errors()}
   def initialize_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1032,6 +1043,7 @@ defmodule AWS.CloudHSMV2 do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1048,6 +1060,7 @@ defmodule AWS.CloudHSMV2 do
   @spec modify_backup_attributes(map(), modify_backup_attributes_request(), list()) ::
           {:ok, modify_backup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_backup_attributes_errors()}
   def modify_backup_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1064,6 +1077,7 @@ defmodule AWS.CloudHSMV2 do
   @spec modify_cluster(map(), modify_cluster_request(), list()) ::
           {:ok, modify_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1105,6 +1119,7 @@ defmodule AWS.CloudHSMV2 do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1125,6 +1140,7 @@ defmodule AWS.CloudHSMV2 do
   @spec restore_backup(map(), restore_backup_request(), list()) ::
           {:ok, restore_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_backup_errors()}
   def restore_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1141,6 +1157,7 @@ defmodule AWS.CloudHSMV2 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1157,6 +1174,7 @@ defmodule AWS.CloudHSMV2 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

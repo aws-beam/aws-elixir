@@ -2061,6 +2061,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, accept_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_direct_connect_gateway_association_proposal_errors()}
   def accept_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2094,6 +2095,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_connection_on_interconnect_errors()}
   def allocate_connection_on_interconnect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2116,6 +2118,7 @@ defmodule AWS.DirectConnect do
   @spec allocate_hosted_connection(map(), allocate_hosted_connection_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_hosted_connection_errors()}
   def allocate_hosted_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2139,6 +2142,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_private_virtual_interface_errors()}
   def allocate_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2169,6 +2173,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_public_virtual_interface_errors()}
   def allocate_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2198,6 +2203,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, allocate_transit_virtual_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_transit_virtual_interface_errors()}
   def allocate_transit_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2236,6 +2242,7 @@ defmodule AWS.DirectConnect do
   @spec associate_connection_with_lag(map(), associate_connection_with_lag_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_connection_with_lag_errors()}
   def associate_connection_with_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2260,6 +2267,7 @@ defmodule AWS.DirectConnect do
   @spec associate_hosted_connection(map(), associate_hosted_connection_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_hosted_connection_errors()}
   def associate_hosted_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2281,6 +2289,7 @@ defmodule AWS.DirectConnect do
   @spec associate_mac_sec_key(map(), associate_mac_sec_key_request(), list()) ::
           {:ok, associate_mac_sec_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_mac_sec_key_errors()}
   def associate_mac_sec_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2313,6 +2322,7 @@ defmodule AWS.DirectConnect do
   @spec associate_virtual_interface(map(), associate_virtual_interface_request(), list()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_virtual_interface_errors()}
   def associate_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2330,6 +2340,7 @@ defmodule AWS.DirectConnect do
   @spec confirm_connection(map(), confirm_connection_request(), list()) ::
           {:ok, confirm_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_connection_errors()}
   def confirm_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2345,6 +2356,7 @@ defmodule AWS.DirectConnect do
   @spec confirm_customer_agreement(map(), confirm_customer_agreement_request(), list()) ::
           {:ok, confirm_customer_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_customer_agreement_errors()}
   def confirm_customer_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2368,6 +2380,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, confirm_private_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_private_virtual_interface_errors()}
   def confirm_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2390,6 +2403,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, confirm_public_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_public_virtual_interface_errors()}
   def confirm_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2411,6 +2425,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, confirm_transit_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_transit_virtual_interface_errors()}
   def confirm_transit_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2451,6 +2466,7 @@ defmodule AWS.DirectConnect do
   @spec create_bgp_peer(map(), create_bgp_peer_request(), list()) ::
           {:ok, create_bgp_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bgp_peer_errors()}
   def create_bgp_peer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2480,6 +2496,7 @@ defmodule AWS.DirectConnect do
   @spec create_connection(map(), create_connection_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2504,6 +2521,7 @@ defmodule AWS.DirectConnect do
   @spec create_direct_connect_gateway(map(), create_direct_connect_gateway_request(), list()) ::
           {:ok, create_direct_connect_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_direct_connect_gateway_errors()}
   def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2526,6 +2544,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, create_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_direct_connect_gateway_association_errors()}
   def create_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2547,6 +2566,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, create_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_direct_connect_gateway_association_proposal_errors()}
   def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2594,6 +2614,7 @@ defmodule AWS.DirectConnect do
   @spec create_interconnect(map(), create_interconnect_request(), list()) ::
           {:ok, interconnect(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_interconnect_errors()}
   def create_interconnect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2641,6 +2662,7 @@ defmodule AWS.DirectConnect do
   @spec create_lag(map(), create_lag_request(), list()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lag_errors()}
   def create_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2678,6 +2700,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_private_virtual_interface_errors()}
   def create_private_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2700,6 +2723,7 @@ defmodule AWS.DirectConnect do
   @spec create_public_virtual_interface(map(), create_public_virtual_interface_request(), list()) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_public_virtual_interface_errors()}
   def create_public_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2740,6 +2764,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, create_transit_virtual_interface_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_transit_virtual_interface_errors()}
   def create_transit_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2756,6 +2781,7 @@ defmodule AWS.DirectConnect do
   @spec delete_bgp_peer(map(), delete_bgp_peer_request(), list()) ::
           {:ok, delete_bgp_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bgp_peer_errors()}
   def delete_bgp_peer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2775,6 +2801,7 @@ defmodule AWS.DirectConnect do
   @spec delete_connection(map(), delete_connection_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2793,6 +2820,7 @@ defmodule AWS.DirectConnect do
   @spec delete_direct_connect_gateway(map(), delete_direct_connect_gateway_request(), list()) ::
           {:ok, delete_direct_connect_gateway_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_direct_connect_gateway_errors()}
   def delete_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2816,6 +2844,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, delete_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_direct_connect_gateway_association_errors()}
   def delete_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2834,6 +2863,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, delete_direct_connect_gateway_association_proposal_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_direct_connect_gateway_association_proposal_errors()}
   def delete_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2856,6 +2886,7 @@ defmodule AWS.DirectConnect do
   @spec delete_interconnect(map(), delete_interconnect_request(), list()) ::
           {:ok, delete_interconnect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_interconnect_errors()}
   def delete_interconnect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2872,6 +2903,7 @@ defmodule AWS.DirectConnect do
   @spec delete_lag(map(), delete_lag_request(), list()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lag_errors()}
   def delete_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2885,6 +2917,7 @@ defmodule AWS.DirectConnect do
   @spec delete_virtual_interface(map(), delete_virtual_interface_request(), list()) ::
           {:ok, delete_virtual_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_virtual_interface_errors()}
   def delete_virtual_interface(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2911,6 +2944,7 @@ defmodule AWS.DirectConnect do
   @spec describe_connection_loa(map(), describe_connection_loa_request(), list()) ::
           {:ok, describe_connection_loa_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connection_loa_errors()}
   def describe_connection_loa(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2924,6 +2958,7 @@ defmodule AWS.DirectConnect do
   @spec describe_connections(map(), describe_connections_request(), list()) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2948,6 +2983,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connections_on_interconnect_errors()}
   def describe_connections_on_interconnect(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2962,6 +2998,7 @@ defmodule AWS.DirectConnect do
   @spec describe_customer_metadata(map(), %{}, list()) ::
           {:ok, describe_customer_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_customer_metadata_errors()}
   def describe_customer_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2980,6 +3017,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, describe_direct_connect_gateway_association_proposals_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_direct_connect_gateway_association_proposals_errors()}
   def describe_direct_connect_gateway_association_proposals(
         %Client{} = client,
@@ -3038,6 +3076,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, describe_direct_connect_gateway_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_direct_connect_gateway_associations_errors()}
   def describe_direct_connect_gateway_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3066,6 +3105,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, describe_direct_connect_gateway_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_direct_connect_gateway_attachments_errors()}
   def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3086,6 +3126,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, describe_direct_connect_gateways_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_direct_connect_gateways_errors()}
   def describe_direct_connect_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3102,6 +3143,7 @@ defmodule AWS.DirectConnect do
   @spec describe_hosted_connections(map(), describe_hosted_connections_request(), list()) ::
           {:ok, connections(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hosted_connections_errors()}
   def describe_hosted_connections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3126,6 +3168,7 @@ defmodule AWS.DirectConnect do
   @spec describe_interconnect_loa(map(), describe_interconnect_loa_request(), list()) ::
           {:ok, describe_interconnect_loa_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_interconnect_loa_errors()}
   def describe_interconnect_loa(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3140,6 +3183,7 @@ defmodule AWS.DirectConnect do
   @spec describe_interconnects(map(), describe_interconnects_request(), list()) ::
           {:ok, interconnects(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_interconnects_errors()}
   def describe_interconnects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3153,6 +3197,7 @@ defmodule AWS.DirectConnect do
   @spec describe_lags(map(), describe_lags_request(), list()) ::
           {:ok, lags(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lags_errors()}
   def describe_lags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3173,6 +3218,7 @@ defmodule AWS.DirectConnect do
   @spec describe_loa(map(), describe_loa_request(), list()) ::
           {:ok, loa(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_loa_errors()}
   def describe_loa(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3189,6 +3235,7 @@ defmodule AWS.DirectConnect do
   @spec describe_locations(map(), %{}, list()) ::
           {:ok, locations(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_locations_errors()}
   def describe_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3203,6 +3250,7 @@ defmodule AWS.DirectConnect do
   @spec describe_router_configuration(map(), describe_router_configuration_request(), list()) ::
           {:ok, describe_router_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_router_configuration_errors()}
   def describe_router_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3216,6 +3264,7 @@ defmodule AWS.DirectConnect do
   @spec describe_tags(map(), describe_tags_request(), list()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3239,6 +3288,7 @@ defmodule AWS.DirectConnect do
   @spec describe_virtual_gateways(map(), %{}, list()) ::
           {:ok, virtual_gateways(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_gateways_errors()}
   def describe_virtual_gateways(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3262,6 +3312,7 @@ defmodule AWS.DirectConnect do
   @spec describe_virtual_interfaces(map(), describe_virtual_interfaces_request(), list()) ::
           {:ok, virtual_interfaces(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_virtual_interfaces_errors()}
   def describe_virtual_interfaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3295,6 +3346,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_connection_from_lag_errors()}
   def disassociate_connection_from_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3309,6 +3361,7 @@ defmodule AWS.DirectConnect do
   @spec disassociate_mac_sec_key(map(), disassociate_mac_sec_key_request(), list()) ::
           {:ok, disassociate_mac_sec_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_mac_sec_key_errors()}
   def disassociate_mac_sec_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3326,6 +3379,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, list_virtual_interface_test_history_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_virtual_interface_test_history_errors()}
   def list_virtual_interface_test_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3351,6 +3405,7 @@ defmodule AWS.DirectConnect do
   @spec start_bgp_failover_test(map(), start_bgp_failover_test_request(), list()) ::
           {:ok, start_bgp_failover_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_bgp_failover_test_errors()}
   def start_bgp_failover_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3364,6 +3419,7 @@ defmodule AWS.DirectConnect do
   @spec stop_bgp_failover_test(map(), stop_bgp_failover_test_request(), list()) ::
           {:ok, stop_bgp_failover_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_bgp_failover_test_errors()}
   def stop_bgp_failover_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3382,6 +3438,7 @@ defmodule AWS.DirectConnect do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3395,6 +3452,7 @@ defmodule AWS.DirectConnect do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3416,6 +3474,7 @@ defmodule AWS.DirectConnect do
   @spec update_connection(map(), update_connection_request(), list()) ::
           {:ok, connection(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3429,6 +3488,7 @@ defmodule AWS.DirectConnect do
   @spec update_direct_connect_gateway(map(), update_direct_connect_gateway_request(), list()) ::
           {:ok, update_direct_connect_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_direct_connect_gateway_errors()}
   def update_direct_connect_gateway(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3448,6 +3508,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, update_direct_connect_gateway_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_direct_connect_gateway_association_errors()}
   def update_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3484,6 +3545,7 @@ defmodule AWS.DirectConnect do
   @spec update_lag(map(), update_lag_request(), list()) ::
           {:ok, lag(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lag_errors()}
   def update_lag(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3512,6 +3574,7 @@ defmodule AWS.DirectConnect do
         ) ::
           {:ok, virtual_interface(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_virtual_interface_attributes_errors()}
   def update_virtual_interface_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()

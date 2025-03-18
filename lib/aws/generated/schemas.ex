@@ -1154,6 +1154,7 @@ defmodule AWS.Schemas do
   @spec create_discoverer(map(), create_discoverer_request(), list()) ::
           {:ok, create_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_discoverer_errors()}
   def create_discoverer(%Client{} = client, input, options \\ []) do
     url_path = "/v1/discoverers"
@@ -1182,6 +1183,7 @@ defmodule AWS.Schemas do
   @spec create_registry(map(), String.t(), create_registry_request(), list()) ::
           {:ok, create_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
@@ -1212,6 +1214,7 @@ defmodule AWS.Schemas do
   @spec create_schema(map(), String.t(), String.t(), create_schema_request(), list()) ::
           {:ok, create_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =
@@ -1242,6 +1245,7 @@ defmodule AWS.Schemas do
   @spec delete_discoverer(map(), String.t(), delete_discoverer_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_discoverer_errors()}
   def delete_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
@@ -1270,6 +1274,7 @@ defmodule AWS.Schemas do
   @spec delete_registry(map(), String.t(), delete_registry_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
@@ -1298,6 +1303,7 @@ defmodule AWS.Schemas do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/policy"
@@ -1331,6 +1337,7 @@ defmodule AWS.Schemas do
   @spec delete_schema(map(), String.t(), String.t(), delete_schema_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =
@@ -1368,6 +1375,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schema_version_errors()}
   def delete_schema_version(
         %Client{} = client,
@@ -1405,6 +1413,7 @@ defmodule AWS.Schemas do
   @spec describe_code_binding(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_code_binding_errors()}
   def describe_code_binding(
         %Client{} = client,
@@ -1438,6 +1447,7 @@ defmodule AWS.Schemas do
   @spec describe_discoverer(map(), String.t(), list()) ::
           {:ok, describe_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_discoverer_errors()}
   def describe_discoverer(%Client{} = client, discoverer_id, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
@@ -1455,6 +1465,7 @@ defmodule AWS.Schemas do
   @spec describe_registry(map(), String.t(), list()) ::
           {:ok, describe_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registry_errors()}
   def describe_registry(%Client{} = client, registry_name, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
@@ -1472,6 +1483,7 @@ defmodule AWS.Schemas do
   @spec describe_schema(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_schema_errors()}
   def describe_schema(
         %Client{} = client,
@@ -1501,6 +1513,7 @@ defmodule AWS.Schemas do
   @spec export_schema(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, export_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_schema_errors()}
   def export_schema(
         %Client{} = client,
@@ -1548,6 +1561,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, get_code_binding_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_code_binding_source_errors()}
   def get_code_binding_source(
         %Client{} = client,
@@ -1581,6 +1595,7 @@ defmodule AWS.Schemas do
   @spec get_discovered_schema(map(), get_discovered_schema_request(), list()) ::
           {:ok, get_discovered_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_discovered_schema_errors()}
   def get_discovered_schema(%Client{} = client, input, options \\ []) do
     url_path = "/v1/discover"
@@ -1609,6 +1624,7 @@ defmodule AWS.Schemas do
   @spec get_resource_policy(map(), String.t() | nil, list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, registry_name \\ nil, options \\ []) do
     url_path = "/v1/policy"
@@ -1640,6 +1656,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, list_discoverers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_discoverers_errors()}
   def list_discoverers(
         %Client{} = client,
@@ -1699,6 +1716,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, list_registries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_registries_errors()}
   def list_registries(
         %Client{} = client,
@@ -1758,6 +1776,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(
         %Client{} = client,
@@ -1805,6 +1824,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, list_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(
         %Client{} = client,
@@ -1850,6 +1870,7 @@ defmodule AWS.Schemas do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1874,6 +1895,7 @@ defmodule AWS.Schemas do
         ) ::
           {:ok, put_code_binding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_code_binding_errors()}
   def put_code_binding(
         %Client{} = client,
@@ -1916,6 +1938,7 @@ defmodule AWS.Schemas do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/policy"
@@ -1949,6 +1972,7 @@ defmodule AWS.Schemas do
   @spec search_schemas(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, search_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_schemas_errors()}
   def search_schemas(
         %Client{} = client,
@@ -1994,6 +2018,7 @@ defmodule AWS.Schemas do
   @spec start_discoverer(map(), String.t(), start_discoverer_request(), list()) ::
           {:ok, start_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_discoverer_errors()}
   def start_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/start"
@@ -2022,6 +2047,7 @@ defmodule AWS.Schemas do
   @spec stop_discoverer(map(), String.t(), stop_discoverer_request(), list()) ::
           {:ok, stop_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_discoverer_errors()}
   def stop_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}/stop"
@@ -2050,6 +2076,7 @@ defmodule AWS.Schemas do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2078,6 +2105,7 @@ defmodule AWS.Schemas do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2111,6 +2139,7 @@ defmodule AWS.Schemas do
   @spec update_discoverer(map(), String.t(), update_discoverer_request(), list()) ::
           {:ok, update_discoverer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_discoverer_errors()}
   def update_discoverer(%Client{} = client, discoverer_id, input, options \\ []) do
     url_path = "/v1/discoverers/id/#{AWS.Util.encode_uri(discoverer_id)}"
@@ -2139,6 +2168,7 @@ defmodule AWS.Schemas do
   @spec update_registry(map(), String.t(), update_registry_request(), list()) ::
           {:ok, update_registry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, registry_name, input, options \\ []) do
     url_path = "/v1/registries/name/#{AWS.Util.encode_uri(registry_name)}"
@@ -2169,6 +2199,7 @@ defmodule AWS.Schemas do
   @spec update_schema(map(), String.t(), String.t(), update_schema_request(), list()) ::
           {:ok, update_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, registry_name, schema_name, input, options \\ []) do
     url_path =

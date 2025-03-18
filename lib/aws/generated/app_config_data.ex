@@ -238,6 +238,7 @@ defmodule AWS.AppConfigData do
   @spec get_latest_configuration(map(), String.t(), list()) ::
           {:ok, get_latest_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_latest_configuration_errors()}
   def get_latest_configuration(%Client{} = client, configuration_token, options \\ []) do
     url_path = "/configuration"
@@ -280,6 +281,7 @@ defmodule AWS.AppConfigData do
   @spec start_configuration_session(map(), start_configuration_session_request(), list()) ::
           {:ok, start_configuration_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_configuration_session_errors()}
   def start_configuration_session(%Client{} = client, input, options \\ []) do
     url_path = "/configurationsessions"

@@ -1076,6 +1076,7 @@ defmodule AWS.CostOptimizationHub do
   @spec get_preferences(map(), get_preferences_request(), list()) ::
           {:ok, get_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1095,6 +1096,7 @@ defmodule AWS.CostOptimizationHub do
   @spec get_recommendation(map(), get_recommendation_request(), list()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1111,6 +1113,7 @@ defmodule AWS.CostOptimizationHub do
   @spec list_enrollment_statuses(map(), list_enrollment_statuses_request(), list()) ::
           {:ok, list_enrollment_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_enrollment_statuses_errors()}
   def list_enrollment_statuses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1130,6 +1133,7 @@ defmodule AWS.CostOptimizationHub do
   @spec list_recommendation_summaries(map(), list_recommendation_summaries_request(), list()) ::
           {:ok, list_recommendation_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendation_summaries_errors()}
   def list_recommendation_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1143,6 +1147,7 @@ defmodule AWS.CostOptimizationHub do
   @spec list_recommendations(map(), list_recommendations_request(), list()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1168,6 +1173,7 @@ defmodule AWS.CostOptimizationHub do
   @spec update_enrollment_status(map(), update_enrollment_status_request(), list()) ::
           {:ok, update_enrollment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1186,6 +1192,7 @@ defmodule AWS.CostOptimizationHub do
   @spec update_preferences(map(), update_preferences_request(), list()) ::
           {:ok, update_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()

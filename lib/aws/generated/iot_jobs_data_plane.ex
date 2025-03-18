@@ -426,6 +426,7 @@ defmodule AWS.IoTJobsDataPlane do
         ) ::
           {:ok, describe_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_execution_errors()}
   def describe_job_execution(
         %Client{} = client,
@@ -468,6 +469,7 @@ defmodule AWS.IoTJobsDataPlane do
   @spec get_pending_job_executions(map(), String.t(), list()) ::
           {:ok, get_pending_job_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pending_job_executions_errors()}
   def get_pending_job_executions(%Client{} = client, thing_name, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs"
@@ -486,6 +488,7 @@ defmodule AWS.IoTJobsDataPlane do
   @spec start_command_execution(map(), start_command_execution_request(), list()) ::
           {:ok, start_command_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_command_execution_errors()}
   def start_command_execution(%Client{} = client, input, options \\ []) do
     url_path = "/command-executions"
@@ -525,6 +528,7 @@ defmodule AWS.IoTJobsDataPlane do
         ) ::
           {:ok, start_next_pending_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_next_pending_job_execution_errors()}
   def start_next_pending_job_execution(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/$next"
@@ -563,6 +567,7 @@ defmodule AWS.IoTJobsDataPlane do
         ) ::
           {:ok, update_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_execution_errors()}
   def update_job_execution(%Client{} = client, job_id, thing_name, input, options \\ []) do
     url_path = "/things/#{AWS.Util.encode_uri(thing_name)}/jobs/#{AWS.Util.encode_uri(job_id)}"

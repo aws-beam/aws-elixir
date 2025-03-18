@@ -1038,6 +1038,7 @@ defmodule AWS.Signer do
   @spec add_profile_permission(map(), String.t(), add_profile_permission_request(), list()) ::
           {:ok, add_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_profile_permission_errors()}
   def add_profile_permission(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
@@ -1071,6 +1072,7 @@ defmodule AWS.Signer do
   @spec cancel_signing_profile(map(), String.t(), cancel_signing_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_signing_profile_errors()}
   def cancel_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
@@ -1103,6 +1105,7 @@ defmodule AWS.Signer do
   @spec describe_signing_job(map(), String.t(), list()) ::
           {:ok, describe_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_signing_job_errors()}
   def describe_signing_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -1130,6 +1133,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, get_revocation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_revocation_status_errors()}
   def get_revocation_status(
         %Client{} = client,
@@ -1190,6 +1194,7 @@ defmodule AWS.Signer do
   @spec get_signing_platform(map(), String.t(), list()) ::
           {:ok, get_signing_platform_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signing_platform_errors()}
   def get_signing_platform(%Client{} = client, platform_id, options \\ []) do
     url_path = "/signing-platforms/#{AWS.Util.encode_uri(platform_id)}"
@@ -1207,6 +1212,7 @@ defmodule AWS.Signer do
   @spec get_signing_profile(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signing_profile_errors()}
   def get_signing_profile(%Client{} = client, profile_name, profile_owner \\ nil, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
@@ -1231,6 +1237,7 @@ defmodule AWS.Signer do
   @spec list_profile_permissions(map(), String.t(), String.t() | nil, list()) ::
           {:ok, list_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_permissions_errors()}
   def list_profile_permissions(%Client{} = client, profile_name, next_token \\ nil, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/permissions"
@@ -1276,6 +1283,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signing_jobs_errors()}
   def list_signing_jobs(
         %Client{} = client,
@@ -1385,6 +1393,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_platforms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signing_platforms_errors()}
   def list_signing_platforms(
         %Client{} = client,
@@ -1462,6 +1471,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, list_signing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signing_profiles_errors()}
   def list_signing_profiles(
         %Client{} = client,
@@ -1522,6 +1532,7 @@ defmodule AWS.Signer do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1542,6 +1553,7 @@ defmodule AWS.Signer do
   @spec put_signing_profile(map(), String.t(), put_signing_profile_request(), list()) ::
           {:ok, put_signing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_signing_profile_errors()}
   def put_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}"
@@ -1576,6 +1588,7 @@ defmodule AWS.Signer do
         ) ::
           {:ok, remove_profile_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_profile_permission_errors()}
   def remove_profile_permission(
         %Client{} = client,
@@ -1620,6 +1633,7 @@ defmodule AWS.Signer do
   @spec revoke_signature(map(), String.t(), revoke_signature_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_signature_errors()}
   def revoke_signature(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/signing-jobs/#{AWS.Util.encode_uri(job_id)}/revoke"
@@ -1652,6 +1666,7 @@ defmodule AWS.Signer do
   @spec revoke_signing_profile(map(), String.t(), revoke_signing_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_signing_profile_errors()}
   def revoke_signing_profile(%Client{} = client, profile_name, input, options \\ []) do
     url_path = "/signing-profiles/#{AWS.Util.encode_uri(profile_name)}/revoke"
@@ -1680,6 +1695,7 @@ defmodule AWS.Signer do
   @spec sign_payload(map(), sign_payload_request(), list()) ::
           {:ok, sign_payload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sign_payload_errors()}
   def sign_payload(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs/with-payload"
@@ -1743,6 +1759,7 @@ defmodule AWS.Signer do
   @spec start_signing_job(map(), start_signing_job_request(), list()) ::
           {:ok, start_signing_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_signing_job_errors()}
   def start_signing_job(%Client{} = client, input, options \\ []) do
     url_path = "/signing-jobs"
@@ -1778,6 +1795,7 @@ defmodule AWS.Signer do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1809,6 +1827,7 @@ defmodule AWS.Signer do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

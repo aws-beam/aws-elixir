@@ -700,6 +700,7 @@ defmodule AWS.CloudHSM do
   @spec add_tags_to_resource(map(), add_tags_to_resource_request(), list()) ::
           {:ok, add_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -727,6 +728,7 @@ defmodule AWS.CloudHSM do
   @spec create_hapg(map(), create_hapg_request(), list()) ::
           {:ok, create_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hapg_errors()}
   def create_hapg(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -763,6 +765,7 @@ defmodule AWS.CloudHSM do
   @spec create_hsm(map(), create_hsm_request(), list()) ::
           {:ok, create_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -788,6 +791,7 @@ defmodule AWS.CloudHSM do
   @spec create_luna_client(map(), create_luna_client_request(), list()) ::
           {:ok, create_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_luna_client_errors()}
   def create_luna_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -813,6 +817,7 @@ defmodule AWS.CloudHSM do
   @spec delete_hapg(map(), delete_hapg_request(), list()) ::
           {:ok, delete_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hapg_errors()}
   def delete_hapg(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -840,6 +845,7 @@ defmodule AWS.CloudHSM do
   @spec delete_hsm(map(), delete_hsm_request(), list()) ::
           {:ok, delete_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -865,6 +871,7 @@ defmodule AWS.CloudHSM do
   @spec delete_luna_client(map(), delete_luna_client_request(), list()) ::
           {:ok, delete_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_luna_client_errors()}
   def delete_luna_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -890,6 +897,7 @@ defmodule AWS.CloudHSM do
   @spec describe_hapg(map(), describe_hapg_request(), list()) ::
           {:ok, describe_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hapg_errors()}
   def describe_hapg(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -917,6 +925,7 @@ defmodule AWS.CloudHSM do
   @spec describe_hsm(map(), describe_hsm_request(), list()) ::
           {:ok, describe_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hsm_errors()}
   def describe_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -942,6 +951,7 @@ defmodule AWS.CloudHSM do
   @spec describe_luna_client(map(), describe_luna_client_request(), list()) ::
           {:ok, describe_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_luna_client_errors()}
   def describe_luna_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -969,6 +979,7 @@ defmodule AWS.CloudHSM do
   @spec get_config(map(), get_config_request(), list()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_config_errors()}
   def get_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -994,6 +1005,7 @@ defmodule AWS.CloudHSM do
   @spec list_available_zones(map(), list_available_zones_request(), list()) ::
           {:ok, list_available_zones_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_available_zones_errors()}
   def list_available_zones(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1024,6 +1036,7 @@ defmodule AWS.CloudHSM do
   @spec list_hapgs(map(), list_hapgs_request(), list()) ::
           {:ok, list_hapgs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hapgs_errors()}
   def list_hapgs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1055,6 +1068,7 @@ defmodule AWS.CloudHSM do
   @spec list_hsms(map(), list_hsms_request(), list()) ::
           {:ok, list_hsms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hsms_errors()}
   def list_hsms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1086,6 +1100,7 @@ defmodule AWS.CloudHSM do
   @spec list_luna_clients(map(), list_luna_clients_request(), list()) ::
           {:ok, list_luna_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_luna_clients_errors()}
   def list_luna_clients(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1111,6 +1126,7 @@ defmodule AWS.CloudHSM do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1136,6 +1152,7 @@ defmodule AWS.CloudHSM do
   @spec modify_hapg(map(), modify_hapg_request(), list()) ::
           {:ok, modify_hapg_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_hapg_errors()}
   def modify_hapg(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1169,6 +1186,7 @@ defmodule AWS.CloudHSM do
   @spec modify_hsm(map(), modify_hsm_request(), list()) ::
           {:ok, modify_hsm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_hsm_errors()}
   def modify_hsm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1198,6 +1216,7 @@ defmodule AWS.CloudHSM do
   @spec modify_luna_client(map(), modify_luna_client_request(), list()) ::
           {:ok, modify_luna_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_luna_client_errors()}
   def modify_luna_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1227,6 +1246,7 @@ defmodule AWS.CloudHSM do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_request(), list()) ::
           {:ok, remove_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

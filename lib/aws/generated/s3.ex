@@ -4540,6 +4540,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, abort_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, abort_multipart_upload_errors()}
   def abort_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
@@ -4788,6 +4789,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, complete_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def complete_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
 
@@ -5084,6 +5086,7 @@ defmodule AWS.S3 do
   @spec copy_object(map(), String.t(), String.t(), copy_object_request(), list()) ::
           {:ok, copy_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_object_errors()}
   def copy_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
@@ -5350,6 +5353,7 @@ defmodule AWS.S3 do
   @spec create_bucket(map(), String.t(), create_bucket_request(), list()) ::
           {:ok, create_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
@@ -5459,6 +5463,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_bucket_metadata_table_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataTable"
 
@@ -5809,6 +5814,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, create_multipart_upload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_multipart_upload(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?uploads"
 
@@ -6085,6 +6091,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, create_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(
         %Client{} = client,
@@ -6224,6 +6231,7 @@ defmodule AWS.S3 do
   @spec delete_bucket(map(), String.t(), delete_bucket_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
 
@@ -6292,6 +6300,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
@@ -6350,6 +6359,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_cors(map(), String.t(), delete_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -6440,6 +6450,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_encryption(map(), String.t(), delete_bucket_encryption_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -6512,6 +6523,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -6582,6 +6594,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
@@ -6700,6 +6713,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_lifecycle(map(), String.t(), delete_bucket_lifecycle_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_lifecycle(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -6766,6 +6780,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_metadata_table_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataTable"
 
@@ -6843,6 +6858,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
@@ -6904,6 +6920,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -7016,6 +7033,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_policy(map(), String.t(), delete_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -7077,6 +7095,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_replication(map(), String.t(), delete_bucket_replication_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -7127,6 +7146,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_tagging(map(), String.t(), delete_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -7194,6 +7214,7 @@ defmodule AWS.S3 do
   @spec delete_bucket_website(map(), String.t(), delete_bucket_website_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -7362,6 +7383,7 @@ defmodule AWS.S3 do
   @spec delete_object(map(), String.t(), String.t(), delete_object_request(), list()) ::
           {:ok, delete_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=DeleteObject"
@@ -7445,6 +7467,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, delete_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -7656,6 +7679,7 @@ defmodule AWS.S3 do
   @spec delete_objects(map(), String.t(), delete_objects_request(), list()) ::
           {:ok, delete_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_objects(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?delete"
 
@@ -7740,6 +7764,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def delete_public_access_block(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -7816,6 +7841,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_bucket_accelerate_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_accelerate_configuration(
         %Client{} = client,
         bucket,
@@ -7891,6 +7917,7 @@ defmodule AWS.S3 do
   @spec get_bucket_acl(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_acl(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
     headers = []
@@ -7955,6 +7982,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_bucket_analytics_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_analytics_configuration(
         %Client{} = client,
         bucket,
@@ -8023,6 +8051,7 @@ defmodule AWS.S3 do
   @spec get_bucket_cors(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_cors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_cors(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
     headers = []
@@ -8107,6 +8136,7 @@ defmodule AWS.S3 do
   @spec get_bucket_encryption(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_encryption_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_encryption(
         %Client{} = client,
         bucket,
@@ -8170,6 +8200,7 @@ defmodule AWS.S3 do
   @spec get_bucket_intelligent_tiering_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, get_bucket_intelligent_tiering_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_intelligent_tiering_configuration(%Client{} = client, bucket, id, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration"
@@ -8231,6 +8262,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_bucket_inventory_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_inventory_configuration(
         %Client{} = client,
         bucket,
@@ -8376,6 +8408,7 @@ defmodule AWS.S3 do
   @spec get_bucket_lifecycle_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_lifecycle_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_lifecycle_configuration(
         %Client{} = client,
         bucket,
@@ -8445,6 +8478,7 @@ defmodule AWS.S3 do
   @spec get_bucket_location(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_location_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_location(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?location"
     headers = []
@@ -8484,6 +8518,7 @@ defmodule AWS.S3 do
   @spec get_bucket_logging(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_logging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
     headers = []
@@ -8535,6 +8570,7 @@ defmodule AWS.S3 do
   @spec get_bucket_metadata_table_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_metadata_table_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_metadata_table_configuration(
         %Client{} = client,
         bucket,
@@ -8600,6 +8636,7 @@ defmodule AWS.S3 do
   @spec get_bucket_metrics_configuration(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_metrics_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_metrics_configuration(
         %Client{} = client,
         bucket,
@@ -8672,6 +8709,7 @@ defmodule AWS.S3 do
   @spec get_bucket_notification_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, notification_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_notification_configuration(
         %Client{} = client,
         bucket,
@@ -8719,6 +8757,7 @@ defmodule AWS.S3 do
   @spec get_bucket_ownership_controls(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_ownership_controls_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_ownership_controls(
         %Client{} = client,
         bucket,
@@ -8834,6 +8873,7 @@ defmodule AWS.S3 do
   @spec get_bucket_policy(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_policy(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
     headers = []
@@ -8887,6 +8927,7 @@ defmodule AWS.S3 do
   @spec get_bucket_policy_status(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_policy_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_policy_status(
         %Client{} = client,
         bucket,
@@ -8951,6 +8992,7 @@ defmodule AWS.S3 do
   @spec get_bucket_replication(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_replication_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_replication(
         %Client{} = client,
         bucket,
@@ -8992,6 +9034,7 @@ defmodule AWS.S3 do
   @spec get_bucket_request_payment(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_request_payment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_request_payment(
         %Client{} = client,
         bucket,
@@ -9046,6 +9089,7 @@ defmodule AWS.S3 do
   @spec get_bucket_tagging(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_tagging(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
     headers = []
@@ -9094,6 +9138,7 @@ defmodule AWS.S3 do
   @spec get_bucket_versioning(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_versioning_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_versioning(
         %Client{} = client,
         bucket,
@@ -9147,6 +9192,7 @@ defmodule AWS.S3 do
   @spec get_bucket_website(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_bucket_website_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_bucket_website(%Client{} = client, bucket, expected_bucket_owner \\ nil, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
     headers = []
@@ -9405,6 +9451,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_errors()}
   def get_object(
         %Client{} = client,
@@ -9681,6 +9728,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_acl_errors()}
   def get_object_acl(
         %Client{} = client,
@@ -9983,6 +10031,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_object_attributes_errors()}
   def get_object_attributes(
         %Client{} = client,
@@ -10111,6 +10160,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_object_legal_hold(
         %Client{} = client,
         bucket,
@@ -10172,6 +10222,7 @@ defmodule AWS.S3 do
   @spec get_object_lock_configuration(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_object_lock_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_object_lock_configuration(
         %Client{} = client,
         bucket,
@@ -10220,6 +10271,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_object_retention(
         %Client{} = client,
         bucket,
@@ -10309,6 +10361,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_object_tagging(
         %Client{} = client,
         bucket,
@@ -10389,6 +10442,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, get_object_torrent_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_object_torrent(
         %Client{} = client,
         bucket,
@@ -10477,6 +10531,7 @@ defmodule AWS.S3 do
   @spec get_public_access_block(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_public_access_block(
         %Client{} = client,
         bucket,
@@ -10597,6 +10652,7 @@ defmodule AWS.S3 do
   @spec head_bucket(map(), String.t(), head_bucket_request(), list()) ::
           {:ok, head_bucket_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, head_bucket_errors()}
   def head_bucket(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}"
@@ -10841,6 +10897,7 @@ defmodule AWS.S3 do
   @spec head_object(map(), String.t(), String.t(), head_object_request(), list()) ::
           {:ok, head_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, head_object_errors()}
   def head_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}"
@@ -10988,6 +11045,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_bucket_analytics_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_bucket_analytics_configurations(
         %Client{} = client,
         bucket,
@@ -11064,6 +11122,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_bucket_intelligent_tiering_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_bucket_intelligent_tiering_configurations(
         %Client{} = client,
         bucket,
@@ -11140,6 +11199,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_bucket_inventory_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_bucket_inventory_configurations(
         %Client{} = client,
         bucket,
@@ -11226,6 +11286,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_bucket_metrics_configurations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_bucket_metrics_configurations(
         %Client{} = client,
         bucket,
@@ -11288,6 +11349,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_buckets(
         %Client{} = client,
         bucket_region \\ nil,
@@ -11383,6 +11445,7 @@ defmodule AWS.S3 do
   @spec list_directory_buckets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_directory_buckets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_directory_buckets(
         %Client{} = client,
         continuation_token \\ nil,
@@ -11577,6 +11640,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_multipart_uploads_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_multipart_uploads(
         %Client{} = client,
         bucket,
@@ -11716,6 +11780,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_object_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_object_versions(
         %Client{} = client,
         bucket,
@@ -11863,6 +11928,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_objects_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_objects_errors()}
   def list_objects(
         %Client{} = client,
@@ -12097,6 +12163,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_objects_v2_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_objects_v2_errors()}
   def list_objects_v2(
         %Client{} = client,
@@ -12329,6 +12396,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, list_parts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_parts(
         %Client{} = client,
         bucket,
@@ -12483,6 +12551,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_accelerate_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?accelerate"
 
@@ -12718,6 +12787,7 @@ defmodule AWS.S3 do
   @spec put_bucket_acl(map(), String.t(), put_bucket_acl_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_acl(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?acl"
 
@@ -12859,6 +12929,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_analytics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?analytics"
 
@@ -12955,6 +13026,7 @@ defmodule AWS.S3 do
   @spec put_bucket_cors(map(), String.t(), put_bucket_cors_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_cors(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?cors"
 
@@ -13146,6 +13218,7 @@ defmodule AWS.S3 do
   @spec put_bucket_encryption(map(), String.t(), put_bucket_encryption_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_encryption(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?encryption"
 
@@ -13252,6 +13325,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_intelligent_tiering_configuration(
         %Client{} = client,
         bucket,
@@ -13390,6 +13464,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_inventory_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?inventory"
 
@@ -13579,6 +13654,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_bucket_lifecycle_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_lifecycle_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?lifecycle"
 
@@ -13709,6 +13785,7 @@ defmodule AWS.S3 do
   @spec put_bucket_logging(map(), String.t(), put_bucket_logging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_logging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?logging"
 
@@ -13797,6 +13874,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_metrics_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?metrics"
 
@@ -13914,6 +13992,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_notification_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?notification"
 
@@ -13970,6 +14049,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_ownership_controls(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?ownershipControls"
 
@@ -14094,6 +14174,7 @@ defmodule AWS.S3 do
   @spec put_bucket_policy(map(), String.t(), put_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_policy(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?policy"
 
@@ -14217,6 +14298,7 @@ defmodule AWS.S3 do
   @spec put_bucket_replication(map(), String.t(), put_bucket_replication_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_replication(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?replication"
 
@@ -14277,6 +14359,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_request_payment(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?requestPayment"
 
@@ -14377,6 +14460,7 @@ defmodule AWS.S3 do
   @spec put_bucket_tagging(map(), String.t(), put_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_tagging(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?tagging"
 
@@ -14476,6 +14560,7 @@ defmodule AWS.S3 do
   @spec put_bucket_versioning(map(), String.t(), put_bucket_versioning_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_versioning(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?versioning"
 
@@ -14630,6 +14715,7 @@ defmodule AWS.S3 do
   @spec put_bucket_website(map(), String.t(), put_bucket_website_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_bucket_website(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?website"
 
@@ -14843,6 +14929,7 @@ defmodule AWS.S3 do
   @spec put_object(map(), String.t(), String.t(), put_object_request(), list()) ::
           {:ok, put_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_object_errors()}
   def put_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
@@ -15143,6 +15230,7 @@ defmodule AWS.S3 do
   @spec put_object_acl(map(), String.t(), String.t(), put_object_acl_request(), list()) ::
           {:ok, put_object_acl_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_object_acl_errors()}
   def put_object_acl(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?acl"
@@ -15211,6 +15299,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_legal_hold_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_object_legal_hold(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?legal-hold"
@@ -15285,6 +15374,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_lock_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_object_lock_configuration(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?object-lock"
 
@@ -15345,6 +15435,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, put_object_retention_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_object_retention(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?retention"
@@ -15451,6 +15542,7 @@ defmodule AWS.S3 do
   @spec put_object_tagging(map(), String.t(), String.t(), put_object_tagging_request(), list()) ::
           {:ok, put_object_tagging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_object_tagging(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?tagging"
 
@@ -15538,6 +15630,7 @@ defmodule AWS.S3 do
   @spec put_public_access_block(map(), String.t(), put_public_access_block_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def put_public_access_block(%Client{} = client, bucket, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}?publicAccessBlock"
 
@@ -15795,6 +15888,7 @@ defmodule AWS.S3 do
   @spec restore_object(map(), String.t(), String.t(), restore_object_request(), list()) ::
           {:ok, restore_object_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_object_errors()}
   def restore_object(%Client{} = client, bucket, key, input, options \\ []) do
     url_path = "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?restore"
@@ -15983,6 +16077,7 @@ defmodule AWS.S3 do
         ) ::
           {:ok, select_object_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def select_object_content(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?select&select-type=2"
@@ -16245,6 +16340,7 @@ defmodule AWS.S3 do
   @spec upload_part(map(), String.t(), String.t(), upload_part_request(), list()) ::
           {:ok, upload_part_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def upload_part(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=UploadPart"
@@ -16568,6 +16664,7 @@ defmodule AWS.S3 do
   @spec upload_part_copy(map(), String.t(), String.t(), upload_part_copy_request(), list()) ::
           {:ok, upload_part_copy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def upload_part_copy(%Client{} = client, bucket, key, input, options \\ []) do
     url_path =
       "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?x-id=UploadPartCopy"
@@ -16701,6 +16798,7 @@ defmodule AWS.S3 do
   @spec write_get_object_response(map(), write_get_object_response_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def write_get_object_response(%Client{} = client, input, options \\ []) do
     url_path = "/WriteGetObjectResponse"
 

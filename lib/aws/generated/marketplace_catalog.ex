@@ -1539,6 +1539,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec batch_describe_entities(map(), batch_describe_entities_request(), list()) ::
           {:ok, batch_describe_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_describe_entities_errors()}
   def batch_describe_entities(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDescribeEntities"
@@ -1572,6 +1573,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec cancel_change_set(map(), cancel_change_set_request(), list()) ::
           {:ok, cancel_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_change_set_errors()}
   def cancel_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/CancelChangeSet"
@@ -1607,6 +1609,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteResourcePolicy"
@@ -1640,6 +1643,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec describe_change_set(map(), String.t(), String.t(), list()) ::
           {:ok, describe_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, catalog, change_set_id, options \\ []) do
     url_path = "/DescribeChangeSet"
@@ -1671,6 +1675,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec describe_entity(map(), String.t(), String.t(), list()) ::
           {:ok, describe_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, catalog, entity_id, options \\ []) do
     url_path = "/DescribeEntity"
@@ -1703,6 +1708,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/GetResourcePolicy"
@@ -1737,6 +1743,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec list_change_sets(map(), list_change_sets_request(), list()) ::
           {:ok, list_change_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_change_sets_errors()}
   def list_change_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListChangeSets"
@@ -1765,6 +1772,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec list_entities(map(), list_entities_request(), list()) ::
           {:ok, list_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entities_errors()}
   def list_entities(%Client{} = client, input, options \\ []) do
     url_path = "/ListEntities"
@@ -1795,6 +1803,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -1826,6 +1835,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
@@ -1876,6 +1886,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec start_change_set(map(), start_change_set_request(), list()) ::
           {:ok, start_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_change_set_errors()}
   def start_change_set(%Client{} = client, input, options \\ []) do
     url_path = "/StartChangeSet"
@@ -1906,6 +1917,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -1936,6 +1948,7 @@ defmodule AWS.MarketplaceCatalog do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"

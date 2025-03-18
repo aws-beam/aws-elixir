@@ -4089,6 +4089,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec associate_origination_identity(map(), associate_origination_identity_request(), list()) ::
           {:ok, associate_origination_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_origination_identity_errors()}
   def associate_origination_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4108,6 +4109,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec associate_protect_configuration(map(), associate_protect_configuration_request(), list()) ::
           {:ok, associate_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_protect_configuration_errors()}
   def associate_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4130,6 +4132,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4158,6 +4161,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_event_destination(map(), create_event_destination_request(), list()) ::
           {:ok, create_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_destination_errors()}
   def create_event_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4186,6 +4190,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_opt_out_list(map(), create_opt_out_list_request(), list()) ::
           {:ok, create_opt_out_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_opt_out_list_errors()}
   def create_opt_out_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4217,6 +4222,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_pool(map(), create_pool_request(), list()) ::
           {:ok, create_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pool_errors()}
   def create_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4235,6 +4241,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_protect_configuration(map(), create_protect_configuration_request(), list()) ::
           {:ok, create_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_protect_configuration_errors()}
   def create_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4248,6 +4255,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_registration(map(), create_registration_request(), list()) ::
           {:ok, create_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_registration_errors()}
   def create_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4262,6 +4270,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_registration_association(map(), create_registration_association_request(), list()) ::
           {:ok, create_registration_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_registration_association_errors()}
   def create_registration_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4285,6 +4294,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_registration_attachment(map(), create_registration_attachment_request(), list()) ::
           {:ok, create_registration_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_registration_attachment_errors()}
   def create_registration_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4300,6 +4310,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec create_registration_version(map(), create_registration_version_request(), list()) ::
           {:ok, create_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_registration_version_errors()}
   def create_registration_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4321,6 +4332,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, create_verified_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_verified_destination_number_errors()}
   def create_verified_destination_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4338,6 +4350,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_account_default_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_default_protect_configuration_errors()}
   def delete_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4357,6 +4370,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_configuration_set(map(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4378,6 +4392,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_default_message_type(map(), delete_default_message_type_request(), list()) ::
           {:ok, delete_default_message_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_default_message_type_errors()}
   def delete_default_message_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4396,6 +4411,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_default_sender_id(map(), delete_default_sender_id_request(), list()) ::
           {:ok, delete_default_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_default_sender_id_errors()}
   def delete_default_sender_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4415,6 +4431,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_event_destination(map(), delete_event_destination_request(), list()) ::
           {:ok, delete_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_destination_errors()}
   def delete_event_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4440,6 +4457,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_keyword(map(), delete_keyword_request(), list()) ::
           {:ok, delete_keyword_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_keyword_errors()}
   def delete_keyword(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4463,6 +4481,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_media_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_media_message_spend_limit_override_errors()}
   def delete_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4483,6 +4502,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_opt_out_list(map(), delete_opt_out_list_request(), list()) ::
           {:ok, delete_opt_out_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_opt_out_list_errors()}
   def delete_opt_out_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4504,6 +4524,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_opted_out_number(map(), delete_opted_out_number_request(), list()) ::
           {:ok, delete_opted_out_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_opted_out_number_errors()}
   def delete_opted_out_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4529,6 +4550,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_pool(map(), delete_pool_request(), list()) ::
           {:ok, delete_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pool_errors()}
   def delete_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4546,6 +4568,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_protect_configuration(map(), delete_protect_configuration_request(), list()) ::
           {:ok, delete_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_protect_configuration_errors()}
   def delete_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4563,6 +4586,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_protect_configuration_rule_set_number_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_protect_configuration_rule_set_number_override_errors()}
   def delete_protect_configuration_rule_set_number_override(
         %Client{} = client,
@@ -4586,6 +4610,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_registration(map(), delete_registration_request(), list()) ::
           {:ok, delete_registration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_registration_errors()}
   def delete_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4599,6 +4624,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_registration_attachment(map(), delete_registration_attachment_request(), list()) ::
           {:ok, delete_registration_attachment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_registration_attachment_errors()}
   def delete_registration_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4612,6 +4638,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_registration_field_value(map(), delete_registration_field_value_request(), list()) ::
           {:ok, delete_registration_field_value_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_registration_field_value_errors()}
   def delete_registration_field_value(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4628,6 +4655,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4652,6 +4680,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_text_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_text_message_spend_limit_override_errors()}
   def delete_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4669,6 +4698,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_verified_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_verified_destination_number_errors()}
   def delete_verified_destination_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4693,6 +4723,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, delete_voice_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_voice_message_spend_limit_override_errors()}
   def delete_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4718,6 +4749,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_account_attributes(map(), describe_account_attributes_request(), list()) ::
           {:ok, describe_account_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4744,6 +4776,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_account_limits(map(), describe_account_limits_request(), list()) ::
           {:ok, describe_account_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4768,6 +4801,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_configuration_sets(map(), describe_configuration_sets_request(), list()) ::
           {:ok, describe_configuration_sets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configuration_sets_errors()}
   def describe_configuration_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4795,6 +4829,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_keywords(map(), describe_keywords_request(), list()) ::
           {:ok, describe_keywords_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_keywords_errors()}
   def describe_keywords(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4817,6 +4852,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_opt_out_lists(map(), describe_opt_out_lists_request(), list()) ::
           {:ok, describe_opt_out_lists_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_opt_out_lists_errors()}
   def describe_opt_out_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4843,6 +4879,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_opted_out_numbers(map(), describe_opted_out_numbers_request(), list()) ::
           {:ok, describe_opted_out_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_opted_out_numbers_errors()}
   def describe_opted_out_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4867,6 +4904,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_phone_numbers(map(), describe_phone_numbers_request(), list()) ::
           {:ok, describe_phone_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_phone_numbers_errors()}
   def describe_phone_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4897,6 +4935,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_pools(map(), describe_pools_request(), list()) ::
           {:ok, describe_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pools_errors()}
   def describe_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4912,6 +4951,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_protect_configurations(map(), describe_protect_configurations_request(), list()) ::
           {:ok, describe_protect_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_protect_configurations_errors()}
   def describe_protect_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4930,6 +4970,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_registration_attachments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_attachments_errors()}
   def describe_registration_attachments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4950,6 +4991,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_registration_field_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_field_definitions_errors()}
   def describe_registration_field_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4967,6 +5009,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_registration_field_values_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_field_values_errors()}
   def describe_registration_field_values(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4987,6 +5030,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_registration_section_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_section_definitions_errors()}
   def describe_registration_section_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5007,6 +5051,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_registration_type_definitions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_type_definitions_errors()}
   def describe_registration_type_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5020,6 +5065,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_registration_versions(map(), describe_registration_versions_request(), list()) ::
           {:ok, describe_registration_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registration_versions_errors()}
   def describe_registration_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5033,6 +5079,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_registrations(map(), describe_registrations_request(), list()) ::
           {:ok, describe_registrations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_registrations_errors()}
   def describe_registrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5056,6 +5103,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_sender_ids(map(), describe_sender_ids_request(), list()) ::
           {:ok, describe_sender_ids_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_sender_ids_errors()}
   def describe_sender_ids(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5079,6 +5127,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec describe_spend_limits(map(), describe_spend_limits_request(), list()) ::
           {:ok, describe_spend_limits_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_spend_limits_errors()}
   def describe_spend_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5096,6 +5145,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, describe_verified_destination_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_verified_destination_numbers_errors()}
   def describe_verified_destination_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5117,6 +5167,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, disassociate_origination_identity_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_origination_identity_errors()}
   def disassociate_origination_identity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5134,6 +5185,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, disassociate_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_protect_configuration_errors()}
   def disassociate_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5147,6 +5199,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec discard_registration_version(map(), discard_registration_version_request(), list()) ::
           {:ok, discard_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, discard_registration_version_errors()}
   def discard_registration_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5165,6 +5218,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, get_protect_configuration_country_rule_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_protect_configuration_country_rule_set_errors()}
   def get_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5181,6 +5235,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5202,6 +5257,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, list_pool_origination_identities_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pool_origination_identities_errors()}
   def list_pool_origination_identities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5220,6 +5276,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, list_protect_configuration_rule_set_number_overrides_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_protect_configuration_rule_set_number_overrides_errors()}
   def list_protect_configuration_rule_set_number_overrides(
         %Client{} = client,
@@ -5244,6 +5301,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec list_registration_associations(map(), list_registration_associations_request(), list()) ::
           {:ok, list_registration_associations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_registration_associations_errors()}
   def list_registration_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5257,6 +5315,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5283,6 +5342,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec put_keyword(map(), put_keyword_request(), list()) ::
           {:ok, put_keyword_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_keyword_errors()}
   def put_keyword(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5303,6 +5363,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec put_message_feedback(map(), put_message_feedback_request(), list()) ::
           {:ok, put_message_feedback_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_message_feedback_errors()}
   def put_message_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5320,6 +5381,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec put_opted_out_number(map(), put_opted_out_number_request(), list()) ::
           {:ok, put_opted_out_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_opted_out_number_errors()}
   def put_opted_out_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5338,6 +5400,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, put_protect_configuration_rule_set_number_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_protect_configuration_rule_set_number_override_errors()}
   def put_protect_configuration_rule_set_number_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5357,6 +5420,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec put_registration_field_value(map(), put_registration_field_value_request(), list()) ::
           {:ok, put_registration_field_value_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_registration_field_value_errors()}
   def put_registration_field_value(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5377,6 +5441,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5397,6 +5462,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec release_phone_number(map(), release_phone_number_request(), list()) ::
           {:ok, release_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, release_phone_number_errors()}
   def release_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5410,6 +5476,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec release_sender_id(map(), release_sender_id_request(), list()) ::
           {:ok, release_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, release_sender_id_errors()}
   def release_sender_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5427,6 +5494,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec request_phone_number(map(), request_phone_number_request(), list()) ::
           {:ok, request_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_phone_number_errors()}
   def request_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5440,6 +5508,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec request_sender_id(map(), request_sender_id_request(), list()) ::
           {:ok, request_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_sender_id_errors()}
   def request_sender_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5464,6 +5533,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, send_destination_number_verification_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_destination_number_verification_code_errors()}
   def send_destination_number_verification_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5478,6 +5548,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec send_media_message(map(), send_media_message_request(), list()) ::
           {:ok, send_media_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_media_message_errors()}
   def send_media_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5503,6 +5574,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec send_text_message(map(), send_text_message_request(), list()) ::
           {:ok, send_text_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_text_message_errors()}
   def send_text_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5519,6 +5591,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec send_voice_message(map(), send_voice_message_request(), list()) ::
           {:ok, send_voice_message_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_voice_message_errors()}
   def send_voice_message(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5540,6 +5613,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, set_account_default_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_account_default_protect_configuration_errors()}
   def set_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5557,6 +5631,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, set_default_message_feedback_enabled_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_message_feedback_enabled_errors()}
   def set_default_message_feedback_enabled(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5579,6 +5654,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec set_default_message_type(map(), set_default_message_type_request(), list()) ::
           {:ok, set_default_message_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_message_type_errors()}
   def set_default_message_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5599,6 +5675,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec set_default_sender_id(map(), set_default_sender_id_request(), list()) ::
           {:ok, set_default_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_sender_id_errors()}
   def set_default_sender_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5620,6 +5697,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, set_media_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_media_message_spend_limit_override_errors()}
   def set_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5641,6 +5719,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, set_text_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_text_message_spend_limit_override_errors()}
   def set_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5662,6 +5741,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, set_voice_message_spend_limit_override_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_voice_message_spend_limit_override_errors()}
   def set_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5675,6 +5755,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec submit_registration_version(map(), submit_registration_version_request(), list()) ::
           {:ok, submit_registration_version_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_registration_version_errors()}
   def submit_registration_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5697,6 +5778,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5715,6 +5797,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5738,6 +5821,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec update_event_destination(map(), update_event_destination_request(), list()) ::
           {:ok, update_event_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_destination_errors()}
   def update_event_destination(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5759,6 +5843,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec update_phone_number(map(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5778,6 +5863,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec update_pool(map(), update_pool_request(), list()) ::
           {:ok, update_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pool_errors()}
   def update_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5791,6 +5877,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec update_protect_configuration(map(), update_protect_configuration_request(), list()) ::
           {:ok, update_protect_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_protect_configuration_errors()}
   def update_protect_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5812,6 +5899,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         ) ::
           {:ok, update_protect_configuration_country_rule_set_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_protect_configuration_country_rule_set_errors()}
   def update_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5825,6 +5913,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec update_sender_id(map(), update_sender_id_request(), list()) ::
           {:ok, update_sender_id_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sender_id_errors()}
   def update_sender_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5839,6 +5928,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   @spec verify_destination_number(map(), verify_destination_number_request(), list()) ::
           {:ok, verify_destination_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_destination_number_errors()}
   def verify_destination_number(%Client{} = client, input, options \\ []) do
     meta = metadata()

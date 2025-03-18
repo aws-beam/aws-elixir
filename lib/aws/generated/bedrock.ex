@@ -3335,6 +3335,7 @@ defmodule AWS.Bedrock do
   @spec batch_delete_evaluation_job(map(), batch_delete_evaluation_job_request(), list()) ::
           {:ok, batch_delete_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_evaluation_job_errors()}
   def batch_delete_evaluation_job(%Client{} = client, input, options \\ []) do
     url_path = "/evaluation-jobs/batch-delete"
@@ -3363,6 +3364,7 @@ defmodule AWS.Bedrock do
   @spec create_evaluation_job(map(), create_evaluation_job_request(), list()) ::
           {:ok, create_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_evaluation_job_errors()}
   def create_evaluation_job(%Client{} = client, input, options \\ []) do
     url_path = "/evaluation-jobs"
@@ -3432,6 +3434,7 @@ defmodule AWS.Bedrock do
   @spec create_guardrail(map(), create_guardrail_request(), list()) ::
           {:ok, create_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_guardrail_errors()}
   def create_guardrail(%Client{} = client, input, options \\ []) do
     url_path = "/guardrails"
@@ -3464,6 +3467,7 @@ defmodule AWS.Bedrock do
   @spec create_guardrail_version(map(), String.t(), create_guardrail_version_request(), list()) ::
           {:ok, create_guardrail_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_guardrail_version_errors()}
   def create_guardrail_version(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
@@ -3501,6 +3505,7 @@ defmodule AWS.Bedrock do
   @spec create_inference_profile(map(), create_inference_profile_request(), list()) ::
           {:ok, create_inference_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_inference_profile_errors()}
   def create_inference_profile(%Client{} = client, input, options \\ []) do
     url_path = "/inference-profiles"
@@ -3536,6 +3541,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, create_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_marketplace_model_endpoint_errors()}
   def create_marketplace_model_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/marketplace-model/endpoints"
@@ -3567,6 +3573,7 @@ defmodule AWS.Bedrock do
   @spec create_model_copy_job(map(), create_model_copy_job_request(), list()) ::
           {:ok, create_model_copy_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_copy_job_errors()}
   def create_model_copy_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-copy-jobs"
@@ -3610,6 +3617,7 @@ defmodule AWS.Bedrock do
   @spec create_model_customization_job(map(), create_model_customization_job_request(), list()) ::
           {:ok, create_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_customization_job_errors()}
   def create_model_customization_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-customization-jobs"
@@ -3642,6 +3650,7 @@ defmodule AWS.Bedrock do
   @spec create_model_import_job(map(), create_model_import_job_request(), list()) ::
           {:ok, create_model_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_import_job_errors()}
   def create_model_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-import-jobs"
@@ -3677,6 +3686,7 @@ defmodule AWS.Bedrock do
   @spec create_model_invocation_job(map(), create_model_invocation_job_request(), list()) ::
           {:ok, create_model_invocation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_model_invocation_job_errors()}
   def create_model_invocation_job(%Client{} = client, input, options \\ []) do
     url_path = "/model-invocation-job"
@@ -3706,6 +3716,7 @@ defmodule AWS.Bedrock do
   @spec create_prompt_router(map(), create_prompt_router_request(), list()) ::
           {:ok, create_prompt_router_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_prompt_router_errors()}
   def create_prompt_router(%Client{} = client, input, options \\ []) do
     url_path = "/prompt-routers"
@@ -3743,6 +3754,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, create_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioned_model_throughput_errors()}
   def create_provisioned_model_throughput(%Client{} = client, input, options \\ []) do
     url_path = "/provisioned-model-throughput"
@@ -3774,6 +3786,7 @@ defmodule AWS.Bedrock do
   @spec delete_custom_model(map(), String.t(), delete_custom_model_request(), list()) ::
           {:ok, delete_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_model_errors()}
   def delete_custom_model(%Client{} = client, model_identifier, input, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -3811,6 +3824,7 @@ defmodule AWS.Bedrock do
   @spec delete_guardrail(map(), String.t(), delete_guardrail_request(), list()) ::
           {:ok, delete_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_guardrail_errors()}
   def delete_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
@@ -3848,6 +3862,7 @@ defmodule AWS.Bedrock do
   @spec delete_imported_model(map(), String.t(), delete_imported_model_request(), list()) ::
           {:ok, delete_imported_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_imported_model_errors()}
   def delete_imported_model(%Client{} = client, model_identifier, input, options \\ []) do
     url_path = "/imported-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -3880,6 +3895,7 @@ defmodule AWS.Bedrock do
   @spec delete_inference_profile(map(), String.t(), delete_inference_profile_request(), list()) ::
           {:ok, delete_inference_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_inference_profile_errors()}
   def delete_inference_profile(
         %Client{} = client,
@@ -3918,6 +3934,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, delete_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_marketplace_model_endpoint_errors()}
   def delete_marketplace_model_endpoint(%Client{} = client, endpoint_arn, input, options \\ []) do
     url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
@@ -3950,6 +3967,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, delete_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_model_invocation_logging_configuration_errors()}
   def delete_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
@@ -3980,6 +3998,7 @@ defmodule AWS.Bedrock do
   @spec delete_prompt_router(map(), String.t(), delete_prompt_router_request(), list()) ::
           {:ok, delete_prompt_router_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_prompt_router_errors()}
   def delete_prompt_router(%Client{} = client, prompt_router_arn, input, options \\ []) do
     url_path = "/prompt-routers/#{AWS.Util.encode_uri(prompt_router_arn)}"
@@ -4017,6 +4036,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, delete_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioned_model_throughput_errors()}
   def delete_provisioned_model_throughput(
         %Client{} = client,
@@ -4060,6 +4080,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, deregister_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_marketplace_model_endpoint_errors()}
   def deregister_marketplace_model_endpoint(
         %Client{} = client,
@@ -4095,6 +4116,7 @@ defmodule AWS.Bedrock do
   @spec get_custom_model(map(), String.t(), list()) ::
           {:ok, get_custom_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_model_errors()}
   def get_custom_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/custom-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -4112,6 +4134,7 @@ defmodule AWS.Bedrock do
   @spec get_evaluation_job(map(), String.t(), list()) ::
           {:ok, get_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evaluation_job_errors()}
   def get_evaluation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/evaluation-jobs/#{AWS.Util.encode_uri(job_identifier)}"
@@ -4129,6 +4152,7 @@ defmodule AWS.Bedrock do
   @spec get_foundation_model(map(), String.t(), list()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_foundation_model_errors()}
   def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -4149,6 +4173,7 @@ defmodule AWS.Bedrock do
   @spec get_guardrail(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_guardrail_errors()}
   def get_guardrail(
         %Client{} = client,
@@ -4178,6 +4203,7 @@ defmodule AWS.Bedrock do
   @spec get_imported_model(map(), String.t(), list()) ::
           {:ok, get_imported_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_imported_model_errors()}
   def get_imported_model(%Client{} = client, model_identifier, options \\ []) do
     url_path = "/imported-models/#{AWS.Util.encode_uri(model_identifier)}"
@@ -4199,6 +4225,7 @@ defmodule AWS.Bedrock do
   @spec get_inference_profile(map(), String.t(), list()) ::
           {:ok, get_inference_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_inference_profile_errors()}
   def get_inference_profile(%Client{} = client, inference_profile_identifier, options \\ []) do
     url_path = "/inference-profiles/#{AWS.Util.encode_uri(inference_profile_identifier)}"
@@ -4217,6 +4244,7 @@ defmodule AWS.Bedrock do
   @spec get_marketplace_model_endpoint(map(), String.t(), list()) ::
           {:ok, get_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_marketplace_model_endpoint_errors()}
   def get_marketplace_model_endpoint(%Client{} = client, endpoint_arn, options \\ []) do
     url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
@@ -4237,6 +4265,7 @@ defmodule AWS.Bedrock do
   @spec get_model_copy_job(map(), String.t(), list()) ::
           {:ok, get_model_copy_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_copy_job_errors()}
   def get_model_copy_job(%Client{} = client, job_arn, options \\ []) do
     url_path = "/model-copy-jobs/#{AWS.Util.encode_uri(job_arn)}"
@@ -4258,6 +4287,7 @@ defmodule AWS.Bedrock do
   @spec get_model_customization_job(map(), String.t(), list()) ::
           {:ok, get_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_customization_job_errors()}
   def get_model_customization_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}"
@@ -4281,6 +4311,7 @@ defmodule AWS.Bedrock do
   @spec get_model_import_job(map(), String.t(), list()) ::
           {:ok, get_model_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_import_job_errors()}
   def get_model_import_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-import-jobs/#{AWS.Util.encode_uri(job_identifier)}"
@@ -4300,6 +4331,7 @@ defmodule AWS.Bedrock do
   @spec get_model_invocation_job(map(), String.t(), list()) ::
           {:ok, get_model_invocation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_invocation_job_errors()}
   def get_model_invocation_job(%Client{} = client, job_identifier, options \\ []) do
     url_path = "/model-invocation-job/#{AWS.Util.encode_uri(job_identifier)}"
@@ -4317,6 +4349,7 @@ defmodule AWS.Bedrock do
   @spec get_model_invocation_logging_configuration(map(), list()) ::
           {:ok, get_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_model_invocation_logging_configuration_errors()}
   def get_model_invocation_logging_configuration(%Client{} = client, options \\ []) do
     url_path = "/logging/modelinvocations"
@@ -4334,6 +4367,7 @@ defmodule AWS.Bedrock do
   @spec get_prompt_router(map(), String.t(), list()) ::
           {:ok, get_prompt_router_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_prompt_router_errors()}
   def get_prompt_router(%Client{} = client, prompt_router_arn, options \\ []) do
     url_path = "/prompt-routers/#{AWS.Util.encode_uri(prompt_router_arn)}"
@@ -4354,6 +4388,7 @@ defmodule AWS.Bedrock do
   @spec get_provisioned_model_throughput(map(), String.t(), list()) ::
           {:ok, get_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_provisioned_model_throughput_errors()}
   def get_provisioned_model_throughput(%Client{} = client, provisioned_model_id, options \\ []) do
     url_path = "/provisioned-model-throughput/#{AWS.Util.encode_uri(provisioned_model_id)}"
@@ -4388,6 +4423,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_custom_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_models_errors()}
   def list_custom_models(
         %Client{} = client,
@@ -4500,6 +4536,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_evaluation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_evaluation_jobs_errors()}
   def list_evaluation_jobs(
         %Client{} = client,
@@ -4603,6 +4640,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_foundation_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_foundation_models_errors()}
   def list_foundation_models(
         %Client{} = client,
@@ -4664,6 +4702,7 @@ defmodule AWS.Bedrock do
   @spec list_guardrails(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_guardrails_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_guardrails_errors()}
   def list_guardrails(
         %Client{} = client,
@@ -4723,6 +4762,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_imported_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_imported_models_errors()}
   def list_imported_models(
         %Client{} = client,
@@ -4809,6 +4849,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_inference_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inference_profiles_errors()}
   def list_inference_profiles(
         %Client{} = client,
@@ -4861,6 +4902,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_marketplace_model_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_marketplace_model_endpoints_errors()}
   def list_marketplace_model_endpoints(
         %Client{} = client,
@@ -4922,6 +4964,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_model_copy_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_copy_jobs_errors()}
   def list_model_copy_jobs(
         %Client{} = client,
@@ -5039,6 +5082,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_model_customization_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_customization_jobs_errors()}
   def list_model_customization_jobs(
         %Client{} = client,
@@ -5139,6 +5183,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_model_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_import_jobs_errors()}
   def list_model_import_jobs(
         %Client{} = client,
@@ -5236,6 +5281,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_model_invocation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_model_invocation_jobs_errors()}
   def list_model_invocation_jobs(
         %Client{} = client,
@@ -5320,6 +5366,7 @@ defmodule AWS.Bedrock do
   @spec list_prompt_routers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_prompt_routers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_prompt_routers_errors()}
   def list_prompt_routers(
         %Client{} = client,
@@ -5379,6 +5426,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, list_provisioned_model_throughputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioned_model_throughputs_errors()}
   def list_provisioned_model_throughputs(
         %Client{} = client,
@@ -5474,6 +5522,7 @@ defmodule AWS.Bedrock do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
@@ -5506,6 +5555,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, put_model_invocation_logging_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_model_invocation_logging_configuration_errors()}
   def put_model_invocation_logging_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/logging/modelinvocations"
@@ -5541,6 +5591,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, register_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_marketplace_model_endpoint_errors()}
   def register_marketplace_model_endpoint(
         %Client{} = client,
@@ -5576,6 +5627,7 @@ defmodule AWS.Bedrock do
   @spec stop_evaluation_job(map(), String.t(), stop_evaluation_job_request(), list()) ::
           {:ok, stop_evaluation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_evaluation_job_errors()}
   def stop_evaluation_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/evaluation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
@@ -5612,6 +5664,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, stop_model_customization_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_model_customization_job_errors()}
   def stop_model_customization_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/model-customization-jobs/#{AWS.Util.encode_uri(job_identifier)}/stop"
@@ -5643,6 +5696,7 @@ defmodule AWS.Bedrock do
   @spec stop_model_invocation_job(map(), String.t(), stop_model_invocation_job_request(), list()) ::
           {:ok, stop_model_invocation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_model_invocation_job_errors()}
   def stop_model_invocation_job(%Client{} = client, job_identifier, input, options \\ []) do
     url_path = "/model-invocation-job/#{AWS.Util.encode_uri(job_identifier)}/stop"
@@ -5674,6 +5728,7 @@ defmodule AWS.Bedrock do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
@@ -5705,6 +5760,7 @@ defmodule AWS.Bedrock do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagResource"
@@ -5774,6 +5830,7 @@ defmodule AWS.Bedrock do
   @spec update_guardrail(map(), String.t(), update_guardrail_request(), list()) ::
           {:ok, update_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_guardrail_errors()}
   def update_guardrail(%Client{} = client, guardrail_identifier, input, options \\ []) do
     url_path = "/guardrails/#{AWS.Util.encode_uri(guardrail_identifier)}"
@@ -5809,6 +5866,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, update_marketplace_model_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_marketplace_model_endpoint_errors()}
   def update_marketplace_model_endpoint(%Client{} = client, endpoint_arn, input, options \\ []) do
     url_path = "/marketplace-model/endpoints/#{AWS.Util.encode_uri(endpoint_arn)}"
@@ -5845,6 +5903,7 @@ defmodule AWS.Bedrock do
         ) ::
           {:ok, update_provisioned_model_throughput_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_provisioned_model_throughput_errors()}
   def update_provisioned_model_throughput(
         %Client{} = client,

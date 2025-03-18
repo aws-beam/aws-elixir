@@ -1233,6 +1233,7 @@ defmodule AWS.ACMPCA do
   @spec create_certificate_authority(map(), create_certificate_authority_request(), list()) ::
           {:ok, create_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_certificate_authority_errors()}
   def create_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1268,6 +1269,7 @@ defmodule AWS.ACMPCA do
         ) ::
           {:ok, create_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_certificate_authority_audit_report_errors()}
   def create_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1312,6 +1314,7 @@ defmodule AWS.ACMPCA do
   @spec create_permission(map(), create_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_permission_errors()}
   def create_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1360,6 +1363,7 @@ defmodule AWS.ACMPCA do
   @spec delete_certificate_authority(map(), delete_certificate_authority_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_authority_errors()}
   def delete_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1406,6 +1410,7 @@ defmodule AWS.ACMPCA do
   @spec delete_permission(map(), delete_permission_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_errors()}
   def delete_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1463,6 +1468,7 @@ defmodule AWS.ACMPCA do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1518,6 +1524,7 @@ defmodule AWS.ACMPCA do
   @spec describe_certificate_authority(map(), describe_certificate_authority_request(), list()) ::
           {:ok, describe_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_authority_errors()}
   def describe_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1545,6 +1552,7 @@ defmodule AWS.ACMPCA do
         ) ::
           {:ok, describe_certificate_authority_audit_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_authority_audit_report_errors()}
   def describe_certificate_authority_audit_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1573,6 +1581,7 @@ defmodule AWS.ACMPCA do
   @spec get_certificate(map(), get_certificate_request(), list()) ::
           {:ok, get_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1597,6 +1606,7 @@ defmodule AWS.ACMPCA do
         ) ::
           {:ok, get_certificate_authority_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_certificate_authority_certificate_errors()}
   def get_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1621,6 +1631,7 @@ defmodule AWS.ACMPCA do
   @spec get_certificate_authority_csr(map(), get_certificate_authority_csr_request(), list()) ::
           {:ok, get_certificate_authority_csr_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_certificate_authority_csr_errors()}
   def get_certificate_authority_csr(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1669,6 +1680,7 @@ defmodule AWS.ACMPCA do
   @spec get_policy(map(), get_policy_request(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1816,6 +1828,7 @@ defmodule AWS.ACMPCA do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_certificate_authority_certificate_errors()}
   def import_certificate_authority_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1841,6 +1854,7 @@ defmodule AWS.ACMPCA do
   @spec issue_certificate(map(), issue_certificate_request(), list()) ::
           {:ok, issue_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, issue_certificate_errors()}
   def issue_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1856,6 +1870,7 @@ defmodule AWS.ACMPCA do
   @spec list_certificate_authorities(map(), list_certificate_authorities_request(), list()) ::
           {:ok, list_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificate_authorities_errors()}
   def list_certificate_authorities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1900,6 +1915,7 @@ defmodule AWS.ACMPCA do
   @spec list_permissions(map(), list_permissions_request(), list()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permissions_errors()}
   def list_permissions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1921,6 +1937,7 @@ defmodule AWS.ACMPCA do
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1969,6 +1986,7 @@ defmodule AWS.ACMPCA do
   @spec put_policy(map(), put_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2006,6 +2024,7 @@ defmodule AWS.ACMPCA do
   @spec restore_certificate_authority(map(), restore_certificate_authority_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_certificate_authority_errors()}
   def restore_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2047,6 +2066,7 @@ defmodule AWS.ACMPCA do
   @spec revoke_certificate(map(), revoke_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_certificate_errors()}
   def revoke_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2083,6 +2103,7 @@ defmodule AWS.ACMPCA do
   @spec tag_certificate_authority(map(), tag_certificate_authority_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_certificate_authority_errors()}
   def tag_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2107,6 +2128,7 @@ defmodule AWS.ACMPCA do
   @spec untag_certificate_authority(map(), untag_certificate_authority_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_certificate_authority_errors()}
   def untag_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2132,6 +2154,7 @@ defmodule AWS.ACMPCA do
   @spec update_certificate_authority(map(), update_certificate_authority_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_certificate_authority_errors()}
   def update_certificate_authority(%Client{} = client, input, options \\ []) do
     meta = metadata()

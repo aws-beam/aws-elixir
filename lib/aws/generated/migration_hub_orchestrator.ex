@@ -1381,6 +1381,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec create_template(map(), create_template_request(), list()) ::
           {:ok, create_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_template_errors()}
   def create_template(%Client{} = client, input, options \\ []) do
     url_path = "/template"
@@ -1409,6 +1410,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec create_workflow(map(), create_migration_workflow_request(), list()) ::
           {:ok, create_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/migrationworkflow/"
@@ -1437,6 +1439,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec create_workflow_step(map(), create_workflow_step_request(), list()) ::
           {:ok, create_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_step_errors()}
   def create_workflow_step(%Client{} = client, input, options \\ []) do
     url_path = "/workflowstep"
@@ -1465,6 +1468,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec create_workflow_step_group(map(), create_workflow_step_group_request(), list()) ::
           {:ok, create_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_step_group_errors()}
   def create_workflow_step_group(%Client{} = client, input, options \\ []) do
     url_path = "/workflowstepgroups"
@@ -1493,6 +1497,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec delete_template(map(), String.t(), delete_template_request(), list()) ::
           {:ok, delete_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_template_errors()}
   def delete_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
@@ -1524,6 +1529,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec delete_workflow(map(), String.t(), delete_migration_workflow_request(), list()) ::
           {:ok, delete_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
@@ -1555,6 +1561,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec delete_workflow_step(map(), String.t(), delete_workflow_step_request(), list()) ::
           {:ok, delete_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_step_errors()}
   def delete_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
@@ -1594,6 +1601,7 @@ defmodule AWS.MigrationHubOrchestrator do
         ) ::
           {:ok, delete_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_step_group_errors()}
   def delete_workflow_step_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
@@ -1627,6 +1635,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_template(map(), String.t(), list()) ::
           {:ok, get_migration_workflow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflowtemplate/#{AWS.Util.encode_uri(id)}"
@@ -1644,6 +1653,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_template_step(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_template_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_step_errors()}
   def get_template_step(%Client{} = client, id, step_group_id, template_id, options \\ []) do
     url_path = "/templatestep/#{AWS.Util.encode_uri(id)}"
@@ -1675,6 +1685,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_template_step_group(map(), String.t(), String.t(), list()) ::
           {:ok, get_template_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_template_step_group_errors()}
   def get_template_step_group(%Client{} = client, id, template_id, options \\ []) do
     url_path =
@@ -1694,6 +1705,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_workflow(map(), String.t(), list()) ::
           {:ok, get_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, id, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
@@ -1711,6 +1723,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_workflow_step(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_step_errors()}
   def get_workflow_step(%Client{} = client, id, step_group_id, workflow_id, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
@@ -1742,6 +1755,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec get_workflow_step_group(map(), String.t(), String.t(), list()) ::
           {:ok, get_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_step_group_errors()}
   def get_workflow_step_group(%Client{} = client, id, workflow_id, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"
@@ -1766,6 +1780,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec list_plugins(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_plugins_errors()}
   def list_plugins(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/plugins"
@@ -1797,6 +1812,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1814,6 +1830,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec list_template_step_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_template_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_step_groups_errors()}
   def list_template_step_groups(
         %Client{} = client,
@@ -1858,6 +1875,7 @@ defmodule AWS.MigrationHubOrchestrator do
         ) ::
           {:ok, list_template_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_steps_errors()}
   def list_template_steps(
         %Client{} = client,
@@ -1911,6 +1929,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec list_templates(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_migration_workflow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_templates_errors()}
   def list_templates(
         %Client{} = client,
@@ -1955,6 +1974,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec list_workflow_step_groups(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_workflow_step_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_step_groups_errors()}
   def list_workflow_step_groups(
         %Client{} = client,
@@ -2006,6 +2026,7 @@ defmodule AWS.MigrationHubOrchestrator do
         ) ::
           {:ok, list_workflow_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_steps_errors()}
   def list_workflow_steps(
         %Client{} = client,
@@ -2055,6 +2076,7 @@ defmodule AWS.MigrationHubOrchestrator do
         ) ::
           {:ok, list_migration_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(
         %Client{} = client,
@@ -2123,6 +2145,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec retry_workflow_step(map(), String.t(), retry_workflow_step_request(), list()) ::
           {:ok, retry_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_workflow_step_errors()}
   def retry_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/retryworkflowstep/#{AWS.Util.encode_uri(id)}"
@@ -2157,6 +2180,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec start_workflow(map(), String.t(), start_migration_workflow_request(), list()) ::
           {:ok, start_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_workflow_errors()}
   def start_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/start"
@@ -2185,6 +2209,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec stop_workflow(map(), String.t(), stop_migration_workflow_request(), list()) ::
           {:ok, stop_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_workflow_errors()}
   def stop_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}/stop"
@@ -2213,6 +2238,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2241,6 +2267,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2274,6 +2301,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec update_template(map(), String.t(), update_template_request(), list()) ::
           {:ok, update_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_template_errors()}
   def update_template(%Client{} = client, id, input, options \\ []) do
     url_path = "/template/#{AWS.Util.encode_uri(id)}"
@@ -2302,6 +2330,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec update_workflow(map(), String.t(), update_migration_workflow_request(), list()) ::
           {:ok, update_migration_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, id, input, options \\ []) do
     url_path = "/migrationworkflow/#{AWS.Util.encode_uri(id)}"
@@ -2330,6 +2359,7 @@ defmodule AWS.MigrationHubOrchestrator do
   @spec update_workflow_step(map(), String.t(), update_workflow_step_request(), list()) ::
           {:ok, update_workflow_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workflow_step_errors()}
   def update_workflow_step(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstep/#{AWS.Util.encode_uri(id)}"
@@ -2363,6 +2393,7 @@ defmodule AWS.MigrationHubOrchestrator do
         ) ::
           {:ok, update_workflow_step_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workflow_step_group_errors()}
   def update_workflow_step_group(%Client{} = client, id, input, options \\ []) do
     url_path = "/workflowstepgroup/#{AWS.Util.encode_uri(id)}"

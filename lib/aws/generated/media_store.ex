@@ -700,6 +700,7 @@ defmodule AWS.MediaStore do
   @spec create_container(map(), create_container_input(), list()) ::
           {:ok, create_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_errors()}
   def create_container(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -718,6 +719,7 @@ defmodule AWS.MediaStore do
   @spec delete_container(map(), delete_container_input(), list()) ::
           {:ok, delete_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_errors()}
   def delete_container(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -731,6 +733,7 @@ defmodule AWS.MediaStore do
   @spec delete_container_policy(map(), delete_container_policy_input(), list()) ::
           {:ok, delete_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_policy_errors()}
   def delete_container_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -750,6 +753,7 @@ defmodule AWS.MediaStore do
   @spec delete_cors_policy(map(), delete_cors_policy_input(), list()) ::
           {:ok, delete_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cors_policy_errors()}
   def delete_cors_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -765,6 +769,7 @@ defmodule AWS.MediaStore do
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_input(), list()) ::
           {:ok, delete_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -781,6 +786,7 @@ defmodule AWS.MediaStore do
   @spec delete_metric_policy(map(), delete_metric_policy_input(), list()) ::
           {:ok, delete_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_metric_policy_errors()}
   def delete_metric_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -804,6 +810,7 @@ defmodule AWS.MediaStore do
   @spec describe_container(map(), describe_container_input(), list()) ::
           {:ok, describe_container_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_container_errors()}
   def describe_container(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -821,6 +828,7 @@ defmodule AWS.MediaStore do
   @spec get_container_policy(map(), get_container_policy_input(), list()) ::
           {:ok, get_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_policy_errors()}
   def get_container_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -840,6 +848,7 @@ defmodule AWS.MediaStore do
   @spec get_cors_policy(map(), get_cors_policy_input(), list()) ::
           {:ok, get_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cors_policy_errors()}
   def get_cors_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -853,6 +862,7 @@ defmodule AWS.MediaStore do
   @spec get_lifecycle_policy(map(), get_lifecycle_policy_input(), list()) ::
           {:ok, get_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -866,6 +876,7 @@ defmodule AWS.MediaStore do
   @spec get_metric_policy(map(), get_metric_policy_input(), list()) ::
           {:ok, get_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_policy_errors()}
   def get_metric_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -892,6 +903,7 @@ defmodule AWS.MediaStore do
   @spec list_containers(map(), list_containers_input(), list()) ::
           {:ok, list_containers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_containers_errors()}
   def list_containers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -905,6 +917,7 @@ defmodule AWS.MediaStore do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -927,6 +940,7 @@ defmodule AWS.MediaStore do
   @spec put_container_policy(map(), put_container_policy_input(), list()) ::
           {:ok, put_container_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_container_policy_errors()}
   def put_container_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -961,6 +975,7 @@ defmodule AWS.MediaStore do
   @spec put_cors_policy(map(), put_cors_policy_input(), list()) ::
           {:ok, put_cors_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_cors_policy_errors()}
   def put_cors_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -981,6 +996,7 @@ defmodule AWS.MediaStore do
   @spec put_lifecycle_policy(map(), put_lifecycle_policy_input(), list()) ::
           {:ok, put_lifecycle_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_lifecycle_policy_errors()}
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -997,6 +1013,7 @@ defmodule AWS.MediaStore do
   @spec put_metric_policy(map(), put_metric_policy_input(), list()) ::
           {:ok, put_metric_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metric_policy_errors()}
   def put_metric_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1013,6 +1030,7 @@ defmodule AWS.MediaStore do
   @spec start_access_logging(map(), start_access_logging_input(), list()) ::
           {:ok, start_access_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_access_logging_errors()}
   def start_access_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1030,6 +1048,7 @@ defmodule AWS.MediaStore do
   @spec stop_access_logging(map(), stop_access_logging_input(), list()) ::
           {:ok, stop_access_logging_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_access_logging_errors()}
   def stop_access_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1050,6 +1069,7 @@ defmodule AWS.MediaStore do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1065,6 +1085,7 @@ defmodule AWS.MediaStore do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

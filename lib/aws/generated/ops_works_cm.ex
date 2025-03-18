@@ -859,6 +859,7 @@ defmodule AWS.OpsWorksCM do
   @spec associate_node(map(), associate_node_request(), list()) ::
           {:ok, associate_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_node_errors()}
   def associate_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -890,6 +891,7 @@ defmodule AWS.OpsWorksCM do
   @spec create_backup(map(), create_backup_request(), list()) ::
           {:ok, create_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -938,6 +940,7 @@ defmodule AWS.OpsWorksCM do
   @spec create_server(map(), create_server_request(), list()) ::
           {:ok, create_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_server_errors()}
   def create_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -960,6 +963,7 @@ defmodule AWS.OpsWorksCM do
   @spec delete_backup(map(), delete_backup_request(), list()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -987,6 +991,7 @@ defmodule AWS.OpsWorksCM do
   @spec delete_server(map(), delete_server_request(), list()) ::
           {:ok, delete_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_server_errors()}
   def delete_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1003,6 +1008,7 @@ defmodule AWS.OpsWorksCM do
   @spec describe_account_attributes(map(), describe_account_attributes_request(), list()) ::
           {:ok, describe_account_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1024,6 +1030,7 @@ defmodule AWS.OpsWorksCM do
   @spec describe_backups(map(), describe_backups_request(), list()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1045,6 +1052,7 @@ defmodule AWS.OpsWorksCM do
   @spec describe_events(map(), describe_events_request(), list()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1068,6 +1076,7 @@ defmodule AWS.OpsWorksCM do
         ) ::
           {:ok, describe_node_association_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_node_association_status_errors()}
   def describe_node_association_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1091,6 +1100,7 @@ defmodule AWS.OpsWorksCM do
   @spec describe_servers(map(), describe_servers_request(), list()) ::
           {:ok, describe_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_servers_errors()}
   def describe_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1115,6 +1125,7 @@ defmodule AWS.OpsWorksCM do
   @spec disassociate_node(map(), disassociate_node_request(), list()) ::
           {:ok, disassociate_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_node_errors()}
   def disassociate_node(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1140,6 +1151,7 @@ defmodule AWS.OpsWorksCM do
   @spec export_server_engine_attribute(map(), export_server_engine_attribute_request(), list()) ::
           {:ok, export_server_engine_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_server_engine_attribute_errors()}
   def export_server_engine_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1155,6 +1167,7 @@ defmodule AWS.OpsWorksCM do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1188,6 +1201,7 @@ defmodule AWS.OpsWorksCM do
   @spec restore_server(map(), restore_server_request(), list()) ::
           {:ok, restore_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_server_errors()}
   def restore_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1212,6 +1226,7 @@ defmodule AWS.OpsWorksCM do
   @spec start_maintenance(map(), start_maintenance_request(), list()) ::
           {:ok, start_maintenance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_maintenance_errors()}
   def start_maintenance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1226,6 +1241,7 @@ defmodule AWS.OpsWorksCM do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1239,6 +1255,7 @@ defmodule AWS.OpsWorksCM do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1255,6 +1272,7 @@ defmodule AWS.OpsWorksCM do
   @spec update_server(map(), update_server_request(), list()) ::
           {:ok, update_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_server_errors()}
   def update_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1283,6 +1301,7 @@ defmodule AWS.OpsWorksCM do
   @spec update_server_engine_attributes(map(), update_server_engine_attributes_request(), list()) ::
           {:ok, update_server_engine_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_server_engine_attributes_errors()}
   def update_server_engine_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()

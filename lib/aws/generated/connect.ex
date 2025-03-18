@@ -13003,6 +13003,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, activate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_evaluation_form_errors()}
   def activate_evaluation_form(
         %Client{} = client,
@@ -13047,6 +13048,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_analytics_data_set_errors()}
   def associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
@@ -13077,6 +13079,7 @@ defmodule AWS.Connect do
   @spec associate_approved_origin(map(), String.t(), associate_approved_origin_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_approved_origin_errors()}
   def associate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
@@ -13108,6 +13111,7 @@ defmodule AWS.Connect do
   @spec associate_bot(map(), String.t(), associate_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_bot_errors()}
   def associate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
@@ -13145,6 +13149,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, associate_default_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_default_vocabulary_errors()}
   def associate_default_vocabulary(
         %Client{} = client,
@@ -13181,6 +13186,7 @@ defmodule AWS.Connect do
   @spec associate_flow(map(), String.t(), associate_flow_request(), list()) ::
           {:ok, associate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_flow_errors()}
   def associate_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/flow-associations/#{AWS.Util.encode_uri(instance_id)}"
@@ -13226,6 +13232,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, associate_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_instance_storage_config_errors()}
   def associate_instance_storage_config(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/storage-config"
@@ -13257,6 +13264,7 @@ defmodule AWS.Connect do
   @spec associate_lambda_function(map(), String.t(), associate_lambda_function_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_lambda_function_errors()}
   def associate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
@@ -13288,6 +13296,7 @@ defmodule AWS.Connect do
   @spec associate_lex_bot(map(), String.t(), associate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_lex_bot_errors()}
   def associate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
@@ -13335,6 +13344,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_phone_number_contact_flow_errors()}
   def associate_phone_number_contact_flow(
         %Client{} = client,
@@ -13376,6 +13386,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_queue_quick_connects_errors()}
   def associate_queue_quick_connects(
         %Client{} = client,
@@ -13418,6 +13429,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_routing_profile_queues_errors()}
   def associate_routing_profile_queues(
         %Client{} = client,
@@ -13456,6 +13468,7 @@ defmodule AWS.Connect do
   @spec associate_security_key(map(), String.t(), associate_security_key_request(), list()) ::
           {:ok, associate_security_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_security_key_errors()}
   def associate_security_key(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/security-key"
@@ -13492,6 +13505,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, associate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_traffic_distribution_group_user_errors()}
   def associate_traffic_distribution_group_user(
         %Client{} = client,
@@ -13533,6 +13547,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_user_proficiencies_errors()}
   def associate_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -13572,6 +13587,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, batch_associate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_analytics_data_set_errors()}
   def batch_associate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
@@ -13608,6 +13624,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, batch_disassociate_analytics_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_analytics_data_set_errors()}
   def batch_disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/associations"
@@ -13645,6 +13662,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, batch_get_attached_file_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_attached_file_metadata_errors()}
   def batch_get_attached_file_metadata(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
@@ -13683,6 +13701,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, batch_get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_flow_association_errors()}
   def batch_get_flow_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/flow-associations-batch/#{AWS.Util.encode_uri(instance_id)}"
@@ -13725,6 +13744,7 @@ defmodule AWS.Connect do
   @spec batch_put_contact(map(), String.t(), batch_put_contact_request(), list()) ::
           {:ok, batch_put_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_contact_errors()}
   def batch_put_contact(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact/batch/#{AWS.Util.encode_uri(instance_id)}"
@@ -13796,6 +13816,7 @@ defmodule AWS.Connect do
   @spec claim_phone_number(map(), claim_phone_number_request(), list()) ::
           {:ok, claim_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, claim_phone_number_errors()}
   def claim_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/claim"
@@ -13832,6 +13853,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, complete_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_attached_file_upload_errors()}
   def complete_attached_file_upload(
         %Client{} = client,
@@ -13875,6 +13897,7 @@ defmodule AWS.Connect do
   @spec create_agent_status(map(), String.t(), create_agent_status_request(), list()) ::
           {:ok, create_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agent_status_errors()}
   def create_agent_status(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/agent-status/#{AWS.Util.encode_uri(instance_id)}"
@@ -13909,6 +13932,7 @@ defmodule AWS.Connect do
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/create-contact"
@@ -13940,6 +13964,7 @@ defmodule AWS.Connect do
   @spec create_contact_flow(map(), String.t(), create_contact_flow_request(), list()) ::
           {:ok, create_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_flow_errors()}
   def create_contact_flow(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flows/#{AWS.Util.encode_uri(instance_id)}"
@@ -13973,6 +13998,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_flow_module_errors()}
   def create_contact_flow_module(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-flow-modules/#{AWS.Util.encode_uri(instance_id)}"
@@ -14013,6 +14039,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_contact_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_flow_version_errors()}
   def create_contact_flow_version(
         %Client{} = client,
@@ -14054,6 +14081,7 @@ defmodule AWS.Connect do
   @spec create_email_address(map(), String.t(), create_email_address_request(), list()) ::
           {:ok, create_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_address_errors()}
   def create_email_address(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/email-addresses/#{AWS.Util.encode_uri(instance_id)}"
@@ -14089,6 +14117,7 @@ defmodule AWS.Connect do
   @spec create_evaluation_form(map(), String.t(), create_evaluation_form_request(), list()) ::
           {:ok, create_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_evaluation_form_errors()}
   def create_evaluation_form(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}"
@@ -14119,6 +14148,7 @@ defmodule AWS.Connect do
   @spec create_hours_of_operation(map(), String.t(), create_hours_of_operation_request(), list()) ::
           {:ok, create_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hours_of_operation_errors()}
   def create_hours_of_operation(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/hours-of-operations/#{AWS.Util.encode_uri(instance_id)}"
@@ -14154,6 +14184,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_hours_of_operation_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hours_of_operation_override_errors()}
   def create_hours_of_operation_override(
         %Client{} = client,
@@ -14207,6 +14238,7 @@ defmodule AWS.Connect do
   @spec create_instance(map(), create_instance_request(), list()) ::
           {:ok, create_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
     url_path = "/instance"
@@ -14241,6 +14273,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_integration_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_association_errors()}
   def create_integration_association(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/integration-associations"
@@ -14272,6 +14305,7 @@ defmodule AWS.Connect do
   @spec create_participant(map(), create_participant_request(), list()) ::
           {:ok, create_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_participant_errors()}
   def create_participant(%Client{} = client, input, options \\ []) do
     url_path = "/contact/create-participant"
@@ -14311,6 +14345,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_persistent_contact_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_persistent_contact_association_errors()}
   def create_persistent_contact_association(
         %Client{} = client,
@@ -14359,6 +14394,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_predefined_attribute_errors()}
   def create_predefined_attribute(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/predefined-attributes/#{AWS.Util.encode_uri(instance_id)}"
@@ -14392,6 +14428,7 @@ defmodule AWS.Connect do
   @spec create_prompt(map(), String.t(), create_prompt_request(), list()) ::
           {:ok, create_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_prompt_errors()}
   def create_prompt(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}"
@@ -14432,6 +14469,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_push_notification_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_push_notification_registration_errors()}
   def create_push_notification_registration(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/push-notification/#{AWS.Util.encode_uri(instance_id)}/registrations"
@@ -14487,6 +14525,7 @@ defmodule AWS.Connect do
   @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}"
@@ -14515,6 +14554,7 @@ defmodule AWS.Connect do
   @spec create_quick_connect(map(), String.t(), create_quick_connect_request(), list()) ::
           {:ok, create_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_quick_connect_errors()}
   def create_quick_connect(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/quick-connects/#{AWS.Util.encode_uri(instance_id)}"
@@ -14543,6 +14583,7 @@ defmodule AWS.Connect do
   @spec create_routing_profile(map(), String.t(), create_routing_profile_request(), list()) ::
           {:ok, create_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_routing_profile_errors()}
   def create_routing_profile(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/routing-profiles/#{AWS.Util.encode_uri(instance_id)}"
@@ -14575,6 +14616,7 @@ defmodule AWS.Connect do
   @spec create_rule(map(), String.t(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}"
@@ -14609,6 +14651,7 @@ defmodule AWS.Connect do
   @spec create_security_profile(map(), String.t(), create_security_profile_request(), list()) ::
           {:ok, create_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_profile_errors()}
   def create_security_profile(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/security-profiles/#{AWS.Util.encode_uri(instance_id)}"
@@ -14637,6 +14680,7 @@ defmodule AWS.Connect do
   @spec create_task_template(map(), String.t(), create_task_template_request(), list()) ::
           {:ok, create_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_task_template_errors()}
   def create_task_template(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/task/template"
@@ -14683,6 +14727,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_traffic_distribution_group_errors()}
   def create_traffic_distribution_group(%Client{} = client, input, options \\ []) do
     url_path = "/traffic-distribution-group"
@@ -14711,6 +14756,7 @@ defmodule AWS.Connect do
   @spec create_use_case(map(), String.t(), String.t(), create_use_case_request(), list()) ::
           {:ok, create_use_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_use_case_errors()}
   def create_use_case(
         %Client{} = client,
@@ -14759,6 +14805,7 @@ defmodule AWS.Connect do
   @spec create_user(map(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}"
@@ -14792,6 +14839,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, create_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_hierarchy_group_errors()}
   def create_user_hierarchy_group(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/user-hierarchy-groups/#{AWS.Util.encode_uri(instance_id)}"
@@ -14831,6 +14879,7 @@ defmodule AWS.Connect do
   @spec create_view(map(), String.t(), create_view_request(), list()) ::
           {:ok, create_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_view_errors()}
   def create_view(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}"
@@ -14867,6 +14916,7 @@ defmodule AWS.Connect do
   @spec create_view_version(map(), String.t(), String.t(), create_view_version_request(), list()) ::
           {:ok, create_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_view_version_errors()}
   def create_view_version(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path =
@@ -14903,6 +14953,7 @@ defmodule AWS.Connect do
   @spec create_vocabulary(map(), String.t(), create_vocabulary_request(), list()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vocabulary_errors()}
   def create_vocabulary(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/vocabulary/#{AWS.Util.encode_uri(instance_id)}"
@@ -14940,6 +14991,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, deactivate_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_evaluation_form_errors()}
   def deactivate_evaluation_form(
         %Client{} = client,
@@ -14985,6 +15037,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attached_file_errors()}
   def delete_attached_file(%Client{} = client, file_id, instance_id, input, options \\ []) do
     url_path =
@@ -15026,6 +15079,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_evaluation_errors()}
   def delete_contact_evaluation(
         %Client{} = client,
@@ -15062,6 +15116,7 @@ defmodule AWS.Connect do
   @spec delete_contact_flow(map(), String.t(), String.t(), delete_contact_flow_request(), list()) ::
           {:ok, delete_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_flow_errors()}
   def delete_contact_flow(%Client{} = client, contact_flow_id, instance_id, input, options \\ []) do
     url_path =
@@ -15098,6 +15153,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_flow_module_errors()}
   def delete_contact_flow_module(
         %Client{} = client,
@@ -15141,6 +15197,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_contact_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_flow_version_errors()}
   def delete_contact_flow_version(
         %Client{} = client,
@@ -15184,6 +15241,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_address_errors()}
   def delete_email_address(
         %Client{} = client,
@@ -15234,6 +15292,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_evaluation_form_errors()}
   def delete_evaluation_form(
         %Client{} = client,
@@ -15283,6 +15342,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hours_of_operation_errors()}
   def delete_hours_of_operation(
         %Client{} = client,
@@ -15327,6 +15387,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hours_of_operation_override_errors()}
   def delete_hours_of_operation_override(
         %Client{} = client,
@@ -15376,6 +15437,7 @@ defmodule AWS.Connect do
   @spec delete_instance(map(), String.t(), delete_instance_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -15419,6 +15481,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_association_errors()}
   def delete_integration_association(
         %Client{} = client,
@@ -15461,6 +15524,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_predefined_attribute_errors()}
   def delete_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
     url_path =
@@ -15491,6 +15555,7 @@ defmodule AWS.Connect do
   @spec delete_prompt(map(), String.t(), String.t(), delete_prompt_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_prompt_errors()}
   def delete_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
@@ -15525,6 +15590,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_push_notification_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_push_notification_registration_errors()}
   def delete_push_notification_registration(
         %Client{} = client,
@@ -15566,6 +15632,7 @@ defmodule AWS.Connect do
   @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
@@ -15619,6 +15686,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_quick_connect_errors()}
   def delete_quick_connect(
         %Client{} = client,
@@ -15661,6 +15729,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_routing_profile_errors()}
   def delete_routing_profile(
         %Client{} = client,
@@ -15697,6 +15766,7 @@ defmodule AWS.Connect do
   @spec delete_rule(map(), String.t(), String.t(), delete_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
@@ -15731,6 +15801,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_security_profile_errors()}
   def delete_security_profile(
         %Client{} = client,
@@ -15773,6 +15844,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_task_template_errors()}
   def delete_task_template(
         %Client{} = client,
@@ -15823,6 +15895,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_traffic_distribution_group_errors()}
   def delete_traffic_distribution_group(
         %Client{} = client,
@@ -15863,6 +15936,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_use_case_errors()}
   def delete_use_case(
         %Client{} = client,
@@ -15924,6 +15998,7 @@ defmodule AWS.Connect do
   @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
@@ -15961,6 +16036,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_hierarchy_group_errors()}
   def delete_user_hierarchy_group(
         %Client{} = client,
@@ -16000,6 +16076,7 @@ defmodule AWS.Connect do
   @spec delete_view(map(), String.t(), String.t(), delete_view_request(), list()) ::
           {:ok, delete_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_view_errors()}
   def delete_view(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -16035,6 +16112,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, delete_view_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_view_version_errors()}
   def delete_view_version(
         %Client{} = client,
@@ -16072,6 +16150,7 @@ defmodule AWS.Connect do
   @spec delete_vocabulary(map(), String.t(), String.t(), delete_vocabulary_request(), list()) ::
           {:ok, delete_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vocabulary_errors()}
   def delete_vocabulary(%Client{} = client, instance_id, vocabulary_id, input, options \\ []) do
     url_path =
@@ -16104,6 +16183,7 @@ defmodule AWS.Connect do
   @spec describe_agent_status(map(), String.t(), String.t(), list()) ::
           {:ok, describe_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agent_status_errors()}
   def describe_agent_status(%Client{} = client, agent_status_id, instance_id, options \\ []) do
     url_path =
@@ -16128,6 +16208,7 @@ defmodule AWS.Connect do
   @spec describe_authentication_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_authentication_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_authentication_profile_errors()}
   def describe_authentication_profile(
         %Client{} = client,
@@ -16164,6 +16245,7 @@ defmodule AWS.Connect do
   @spec describe_contact(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contact_errors()}
   def describe_contact(%Client{} = client, contact_id, instance_id, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -16181,6 +16263,7 @@ defmodule AWS.Connect do
   @spec describe_contact_evaluation(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contact_evaluation_errors()}
   def describe_contact_evaluation(%Client{} = client, evaluation_id, instance_id, options \\ []) do
     url_path =
@@ -16216,6 +16299,7 @@ defmodule AWS.Connect do
   @spec describe_contact_flow(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contact_flow_errors()}
   def describe_contact_flow(%Client{} = client, contact_flow_id, instance_id, options \\ []) do
     url_path =
@@ -16240,6 +16324,7 @@ defmodule AWS.Connect do
   @spec describe_contact_flow_module(map(), String.t(), String.t(), list()) ::
           {:ok, describe_contact_flow_module_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_contact_flow_module_errors()}
   def describe_contact_flow_module(
         %Client{} = client,
@@ -16264,6 +16349,7 @@ defmodule AWS.Connect do
   @spec describe_email_address(map(), String.t(), String.t(), list()) ::
           {:ok, describe_email_address_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_email_address_errors()}
   def describe_email_address(%Client{} = client, email_address_id, instance_id, options \\ []) do
     url_path =
@@ -16287,6 +16373,7 @@ defmodule AWS.Connect do
   @spec describe_evaluation_form(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_evaluation_form_errors()}
   def describe_evaluation_form(
         %Client{} = client,
@@ -16321,6 +16408,7 @@ defmodule AWS.Connect do
   @spec describe_hours_of_operation(map(), String.t(), String.t(), list()) ::
           {:ok, describe_hours_of_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hours_of_operation_errors()}
   def describe_hours_of_operation(
         %Client{} = client,
@@ -16345,6 +16433,7 @@ defmodule AWS.Connect do
   @spec describe_hours_of_operation_override(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_hours_of_operation_override_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hours_of_operation_override_errors()}
   def describe_hours_of_operation_override(
         %Client{} = client,
@@ -16380,6 +16469,7 @@ defmodule AWS.Connect do
   @spec describe_instance(map(), String.t(), list()) ::
           {:ok, describe_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_errors()}
   def describe_instance(%Client{} = client, instance_id, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}"
@@ -16399,6 +16489,7 @@ defmodule AWS.Connect do
   @spec describe_instance_attribute(map(), String.t(), String.t(), list()) ::
           {:ok, describe_instance_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_attribute_errors()}
   def describe_instance_attribute(%Client{} = client, attribute_type, instance_id, options \\ []) do
     url_path =
@@ -16422,6 +16513,7 @@ defmodule AWS.Connect do
   @spec describe_instance_storage_config(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_instance_storage_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_instance_storage_config_errors()}
   def describe_instance_storage_config(
         %Client{} = client,
@@ -16469,6 +16561,7 @@ defmodule AWS.Connect do
   @spec describe_phone_number(map(), String.t(), list()) ::
           {:ok, describe_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_phone_number_errors()}
   def describe_phone_number(%Client{} = client, phone_number_id, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -16493,6 +16586,7 @@ defmodule AWS.Connect do
   @spec describe_predefined_attribute(map(), String.t(), String.t(), list()) ::
           {:ok, describe_predefined_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_predefined_attribute_errors()}
   def describe_predefined_attribute(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
@@ -16512,6 +16606,7 @@ defmodule AWS.Connect do
   @spec describe_prompt(map(), String.t(), String.t(), list()) ::
           {:ok, describe_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_prompt_errors()}
   def describe_prompt(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
@@ -16531,6 +16626,7 @@ defmodule AWS.Connect do
   @spec describe_queue(map(), String.t(), String.t(), list()) ::
           {:ok, describe_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_queue_errors()}
   def describe_queue(%Client{} = client, instance_id, queue_id, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}"
@@ -16548,6 +16644,7 @@ defmodule AWS.Connect do
   @spec describe_quick_connect(map(), String.t(), String.t(), list()) ::
           {:ok, describe_quick_connect_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_quick_connect_errors()}
   def describe_quick_connect(%Client{} = client, instance_id, quick_connect_id, options \\ []) do
     url_path =
@@ -16567,6 +16664,7 @@ defmodule AWS.Connect do
   @spec describe_routing_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_routing_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_routing_profile_errors()}
   def describe_routing_profile(%Client{} = client, instance_id, routing_profile_id, options \\ []) do
     url_path =
@@ -16586,6 +16684,7 @@ defmodule AWS.Connect do
   @spec describe_rule(map(), String.t(), String.t(), list()) ::
           {:ok, describe_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rule_errors()}
   def describe_rule(%Client{} = client, instance_id, rule_id, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
@@ -16609,6 +16708,7 @@ defmodule AWS.Connect do
   @spec describe_security_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_security_profile_errors()}
   def describe_security_profile(
         %Client{} = client,
@@ -16633,6 +16733,7 @@ defmodule AWS.Connect do
   @spec describe_traffic_distribution_group(map(), String.t(), list()) ::
           {:ok, describe_traffic_distribution_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_traffic_distribution_group_errors()}
   def describe_traffic_distribution_group(
         %Client{} = client,
@@ -16658,6 +16759,7 @@ defmodule AWS.Connect do
   @spec describe_user(map(), String.t(), String.t(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, instance_id, user_id, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}"
@@ -16675,6 +16777,7 @@ defmodule AWS.Connect do
   @spec describe_user_hierarchy_group(map(), String.t(), String.t(), list()) ::
           {:ok, describe_user_hierarchy_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_hierarchy_group_errors()}
   def describe_user_hierarchy_group(
         %Client{} = client,
@@ -16699,6 +16802,7 @@ defmodule AWS.Connect do
   @spec describe_user_hierarchy_structure(map(), String.t(), list()) ::
           {:ok, describe_user_hierarchy_structure_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_hierarchy_structure_errors()}
   def describe_user_hierarchy_structure(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
@@ -16729,6 +16833,7 @@ defmodule AWS.Connect do
   @spec describe_view(map(), String.t(), String.t(), list()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_view_errors()}
   def describe_view(%Client{} = client, instance_id, view_id, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -16746,6 +16851,7 @@ defmodule AWS.Connect do
   @spec describe_vocabulary(map(), String.t(), String.t(), list()) ::
           {:ok, describe_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vocabulary_errors()}
   def describe_vocabulary(%Client{} = client, instance_id, vocabulary_id, options \\ []) do
     url_path =
@@ -16770,6 +16876,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_analytics_data_set_errors()}
   def disassociate_analytics_data_set(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/analytics-data/instance/#{AWS.Util.encode_uri(instance_id)}/association"
@@ -16805,6 +16912,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_approved_origin_errors()}
   def disassociate_approved_origin(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/approved-origin"
@@ -16843,6 +16951,7 @@ defmodule AWS.Connect do
   @spec disassociate_bot(map(), String.t(), disassociate_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_bot_errors()}
   def disassociate_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/bot"
@@ -16878,6 +16987,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, disassociate_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_flow_errors()}
   def disassociate_flow(
         %Client{} = client,
@@ -16925,6 +17035,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_instance_storage_config_errors()}
   def disassociate_instance_storage_config(
         %Client{} = client,
@@ -16975,6 +17086,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_lambda_function_errors()}
   def disassociate_lambda_function(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lambda-function"
@@ -17013,6 +17125,7 @@ defmodule AWS.Connect do
   @spec disassociate_lex_bot(map(), String.t(), disassociate_lex_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_lex_bot_errors()}
   def disassociate_lex_bot(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/lex-bot"
@@ -17066,6 +17179,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_phone_number_contact_flow_errors()}
   def disassociate_phone_number_contact_flow(
         %Client{} = client,
@@ -17112,6 +17226,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_queue_quick_connects_errors()}
   def disassociate_queue_quick_connects(
         %Client{} = client,
@@ -17154,6 +17269,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_routing_profile_queues_errors()}
   def disassociate_routing_profile_queues(
         %Client{} = client,
@@ -17198,6 +17314,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_security_key_errors()}
   def disassociate_security_key(
         %Client{} = client,
@@ -17247,6 +17364,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, disassociate_traffic_distribution_group_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_traffic_distribution_group_user_errors()}
   def disassociate_traffic_distribution_group_user(
         %Client{} = client,
@@ -17294,6 +17412,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_user_proficiencies_errors()}
   def disassociate_user_proficiencies(
         %Client{} = client,
@@ -17343,6 +17462,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, dismiss_user_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dismiss_user_contact_errors()}
   def dismiss_user_contact(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -17378,6 +17498,7 @@ defmodule AWS.Connect do
   @spec get_attached_file(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_attached_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_attached_file_errors()}
   def get_attached_file(
         %Client{} = client,
@@ -17418,6 +17539,7 @@ defmodule AWS.Connect do
   @spec get_contact_attributes(map(), String.t(), String.t(), list()) ::
           {:ok, get_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_attributes_errors()}
   def get_contact_attributes(%Client{} = client, initial_contact_id, instance_id, options \\ []) do
     url_path =
@@ -17440,6 +17562,7 @@ defmodule AWS.Connect do
   @spec get_current_metric_data(map(), String.t(), get_current_metric_data_request(), list()) ::
           {:ok, get_current_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_current_metric_data_errors()}
   def get_current_metric_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/current/#{AWS.Util.encode_uri(instance_id)}"
@@ -17468,6 +17591,7 @@ defmodule AWS.Connect do
   @spec get_current_user_data(map(), String.t(), get_current_user_data_request(), list()) ::
           {:ok, get_current_user_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_current_user_data_errors()}
   def get_current_user_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/userdata/#{AWS.Util.encode_uri(instance_id)}"
@@ -17503,6 +17627,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, get_effective_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_effective_hours_of_operations_errors()}
   def get_effective_hours_of_operations(
         %Client{} = client,
@@ -17561,6 +17686,7 @@ defmodule AWS.Connect do
   @spec get_federation_token(map(), String.t(), list()) ::
           {:ok, get_federation_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, instance_id, options \\ []) do
     url_path = "/user/federate/#{AWS.Util.encode_uri(instance_id)}"
@@ -17578,6 +17704,7 @@ defmodule AWS.Connect do
   @spec get_flow_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_flow_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_association_errors()}
   def get_flow_association(
         %Client{} = client,
@@ -17620,6 +17747,7 @@ defmodule AWS.Connect do
   @spec get_metric_data(map(), String.t(), get_metric_data_request(), list()) ::
           {:ok, get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_data_errors()}
   def get_metric_data(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/metrics/historical/#{AWS.Util.encode_uri(instance_id)}"
@@ -17663,6 +17791,7 @@ defmodule AWS.Connect do
   @spec get_metric_data_v2(map(), get_metric_data_v2_request(), list()) ::
           {:ok, get_metric_data_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_data_v2_errors()}
   def get_metric_data_v2(%Client{} = client, input, options \\ []) do
     url_path = "/metrics/data"
@@ -17691,6 +17820,7 @@ defmodule AWS.Connect do
   @spec get_prompt_file(map(), String.t(), String.t(), list()) ::
           {:ok, get_prompt_file_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_prompt_file_errors()}
   def get_prompt_file(%Client{} = client, instance_id, prompt_id, options \\ []) do
     url_path =
@@ -17711,6 +17841,7 @@ defmodule AWS.Connect do
   @spec get_task_template(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_task_template_errors()}
   def get_task_template(
         %Client{} = client,
@@ -17744,6 +17875,7 @@ defmodule AWS.Connect do
   @spec get_traffic_distribution(map(), String.t(), list()) ::
           {:ok, get_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_traffic_distribution_errors()}
   def get_traffic_distribution(%Client{} = client, id, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
@@ -17796,6 +17928,7 @@ defmodule AWS.Connect do
   @spec import_phone_number(map(), import_phone_number_request(), list()) ::
           {:ok, import_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_phone_number_errors()}
   def import_phone_number(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/import"
@@ -17833,6 +17966,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agent_statuses_errors()}
   def list_agent_statuses(
         %Client{} = client,
@@ -17886,6 +18020,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_analytics_data_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analytics_data_associations_errors()}
   def list_analytics_data_associations(
         %Client{} = client,
@@ -17939,6 +18074,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_analytics_data_lake_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_analytics_data_lake_data_sets_errors()}
   def list_analytics_data_lake_data_sets(
         %Client{} = client,
@@ -17978,6 +18114,7 @@ defmodule AWS.Connect do
   @spec list_approved_origins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_approved_origins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_approved_origins_errors()}
   def list_approved_origins(
         %Client{} = client,
@@ -18024,6 +18161,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_associated_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_contacts_errors()}
   def list_associated_contacts(
         %Client{} = client,
@@ -18081,6 +18219,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_authentication_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_authentication_profiles_errors()}
   def list_authentication_profiles(
         %Client{} = client,
@@ -18122,6 +18261,7 @@ defmodule AWS.Connect do
   @spec list_bots(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bots_errors()}
   def list_bots(
         %Client{} = client,
@@ -18167,6 +18307,7 @@ defmodule AWS.Connect do
   @spec list_contact_evaluations(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, list_contact_evaluations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_evaluations_errors()}
   def list_contact_evaluations(
         %Client{} = client,
@@ -18212,6 +18353,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_flow_modules_errors()}
   def list_contact_flow_modules(
         %Client{} = client,
@@ -18266,6 +18408,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_contact_flow_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_flow_versions_errors()}
   def list_contact_flow_versions(
         %Client{} = client,
@@ -18321,6 +18464,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_flows_errors()}
   def list_contact_flows(
         %Client{} = client,
@@ -18377,6 +18521,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_contact_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_references_errors()}
   def list_contact_references(
         %Client{} = client,
@@ -18417,6 +18562,7 @@ defmodule AWS.Connect do
   @spec list_default_vocabularies(map(), String.t(), list_default_vocabularies_request(), list()) ::
           {:ok, list_default_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_default_vocabularies_errors()}
   def list_default_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/default-vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
@@ -18452,6 +18598,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_evaluation_form_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_evaluation_form_versions_errors()}
   def list_evaluation_form_versions(
         %Client{} = client,
@@ -18492,6 +18639,7 @@ defmodule AWS.Connect do
   @spec list_evaluation_forms(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_evaluation_forms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_evaluation_forms_errors()}
   def list_evaluation_forms(
         %Client{} = client,
@@ -18536,6 +18684,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_flow_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flow_associations_errors()}
   def list_flow_associations(
         %Client{} = client,
@@ -18588,6 +18737,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_hours_of_operation_overrides_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hours_of_operation_overrides_errors()}
   def list_hours_of_operation_overrides(
         %Client{} = client,
@@ -18634,6 +18784,7 @@ defmodule AWS.Connect do
   @spec list_hours_of_operations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hours_of_operations_errors()}
   def list_hours_of_operations(
         %Client{} = client,
@@ -18673,6 +18824,7 @@ defmodule AWS.Connect do
   @spec list_instance_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_instance_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_attributes_errors()}
   def list_instance_attributes(
         %Client{} = client,
@@ -18721,6 +18873,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_instance_storage_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_storage_configs_errors()}
   def list_instance_storage_configs(
         %Client{} = client,
@@ -18772,6 +18925,7 @@ defmodule AWS.Connect do
   @spec list_instances(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/instance"
@@ -18813,6 +18967,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_integration_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_integration_associations_errors()}
   def list_integration_associations(
         %Client{} = client,
@@ -18870,6 +19025,7 @@ defmodule AWS.Connect do
   @spec list_lambda_functions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_lambda_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lambda_functions_errors()}
   def list_lambda_functions(
         %Client{} = client,
@@ -18913,6 +19069,7 @@ defmodule AWS.Connect do
   @spec list_lex_bots(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_lex_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lex_bots_errors()}
   def list_lex_bots(
         %Client{} = client,
@@ -18982,6 +19139,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_numbers_errors()}
   def list_phone_numbers(
         %Client{} = client,
@@ -19055,6 +19213,7 @@ defmodule AWS.Connect do
   @spec list_phone_numbers_v2(map(), list_phone_numbers_v2_request(), list()) ::
           {:ok, list_phone_numbers_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_numbers_v2_errors()}
   def list_phone_numbers_v2(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/list"
@@ -19090,6 +19249,7 @@ defmodule AWS.Connect do
   @spec list_predefined_attributes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_predefined_attributes_errors()}
   def list_predefined_attributes(
         %Client{} = client,
@@ -19128,6 +19288,7 @@ defmodule AWS.Connect do
   @spec list_prompts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_prompts_errors()}
   def list_prompts(
         %Client{} = client,
@@ -19174,6 +19335,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_queue_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_quick_connects_errors()}
   def list_queue_quick_connects(
         %Client{} = client,
@@ -19231,6 +19393,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(
         %Client{} = client,
@@ -19284,6 +19447,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_quick_connects_errors()}
   def list_quick_connects(
         %Client{} = client,
@@ -19341,6 +19505,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_realtime_contact_analysis_segments_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_realtime_contact_analysis_segments_v2_errors()}
   def list_realtime_contact_analysis_segments_v2(
         %Client{} = client,
@@ -19384,6 +19549,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_routing_profile_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routing_profile_queues_errors()}
   def list_routing_profile_queues(
         %Client{} = client,
@@ -19430,6 +19596,7 @@ defmodule AWS.Connect do
   @spec list_routing_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routing_profiles_errors()}
   def list_routing_profiles(
         %Client{} = client,
@@ -19475,6 +19642,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(
         %Client{} = client,
@@ -19530,6 +19698,7 @@ defmodule AWS.Connect do
   @spec list_security_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_security_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_keys_errors()}
   def list_security_keys(
         %Client{} = client,
@@ -19574,6 +19743,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_security_profile_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_profile_applications_errors()}
   def list_security_profile_applications(
         %Client{} = client,
@@ -19627,6 +19797,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_security_profile_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_profile_permissions_errors()}
   def list_security_profile_permissions(
         %Client{} = client,
@@ -19674,6 +19845,7 @@ defmodule AWS.Connect do
   @spec list_security_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_profiles_errors()}
   def list_security_profiles(
         %Client{} = client,
@@ -19716,6 +19888,7 @@ defmodule AWS.Connect do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -19741,6 +19914,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_task_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_task_templates_errors()}
   def list_task_templates(
         %Client{} = client,
@@ -19800,6 +19974,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_traffic_distribution_group_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_distribution_group_users_errors()}
   def list_traffic_distribution_group_users(
         %Client{} = client,
@@ -19845,6 +20020,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_traffic_distribution_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_distribution_groups_errors()}
   def list_traffic_distribution_groups(
         %Client{} = client,
@@ -19889,6 +20065,7 @@ defmodule AWS.Connect do
   @spec list_use_cases(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_use_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_use_cases_errors()}
   def list_use_cases(
         %Client{} = client,
@@ -19935,6 +20112,7 @@ defmodule AWS.Connect do
   @spec list_user_hierarchy_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_hierarchy_groups_errors()}
   def list_user_hierarchy_groups(
         %Client{} = client,
@@ -19979,6 +20157,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_user_proficiencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_proficiencies_errors()}
   def list_user_proficiencies(
         %Client{} = client,
@@ -20020,6 +20199,7 @@ defmodule AWS.Connect do
   @spec list_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(
         %Client{} = client,
@@ -20068,6 +20248,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_view_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_view_versions_errors()}
   def list_view_versions(
         %Client{} = client,
@@ -20117,6 +20298,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, list_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_views_errors()}
   def list_views(
         %Client{} = client,
@@ -20166,6 +20348,7 @@ defmodule AWS.Connect do
   @spec monitor_contact(map(), monitor_contact_request(), list()) ::
           {:ok, monitor_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, monitor_contact_errors()}
   def monitor_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/monitor"
@@ -20194,6 +20377,7 @@ defmodule AWS.Connect do
   @spec pause_contact(map(), pause_contact_request(), list()) ::
           {:ok, pause_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, pause_contact_errors()}
   def pause_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/pause"
@@ -20229,6 +20413,7 @@ defmodule AWS.Connect do
   @spec put_user_status(map(), String.t(), String.t(), put_user_status_request(), list()) ::
           {:ok, put_user_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_user_status_errors()}
   def put_user_status(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path = "/users/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(user_id)}/status"
@@ -20295,6 +20480,7 @@ defmodule AWS.Connect do
   @spec release_phone_number(map(), String.t(), release_phone_number_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, release_phone_number_errors()}
   def release_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -20336,6 +20522,7 @@ defmodule AWS.Connect do
   @spec replicate_instance(map(), String.t(), replicate_instance_request(), list()) ::
           {:ok, replicate_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, replicate_instance_errors()}
   def replicate_instance(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/replicate"
@@ -20364,6 +20551,7 @@ defmodule AWS.Connect do
   @spec resume_contact(map(), resume_contact_request(), list()) ::
           {:ok, resume_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_contact_errors()}
   def resume_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume"
@@ -20400,6 +20588,7 @@ defmodule AWS.Connect do
   @spec resume_contact_recording(map(), resume_contact_recording_request(), list()) ::
           {:ok, resume_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_contact_recording_errors()}
   def resume_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/resume-recording"
@@ -20428,6 +20617,7 @@ defmodule AWS.Connect do
   @spec search_agent_statuses(map(), search_agent_statuses_request(), list()) ::
           {:ok, search_agent_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_agent_statuses_errors()}
   def search_agent_statuses(%Client{} = client, input, options \\ []) do
     url_path = "/search-agent-statuses"
@@ -20462,6 +20652,7 @@ defmodule AWS.Connect do
   @spec search_available_phone_numbers(map(), search_available_phone_numbers_request(), list()) ::
           {:ok, search_available_phone_numbers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_available_phone_numbers_errors()}
   def search_available_phone_numbers(%Client{} = client, input, options \\ []) do
     url_path = "/phone-number/search-available"
@@ -20491,6 +20682,7 @@ defmodule AWS.Connect do
   @spec search_contact_flow_modules(map(), search_contact_flow_modules_request(), list()) ::
           {:ok, search_contact_flow_modules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_contact_flow_modules_errors()}
   def search_contact_flow_modules(%Client{} = client, input, options \\ []) do
     url_path = "/search-contact-flow-modules"
@@ -20519,6 +20711,7 @@ defmodule AWS.Connect do
   @spec search_contact_flows(map(), search_contact_flows_request(), list()) ::
           {:ok, search_contact_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_contact_flows_errors()}
   def search_contact_flows(%Client{} = client, input, options \\ []) do
     url_path = "/search-contact-flows"
@@ -20547,6 +20740,7 @@ defmodule AWS.Connect do
   @spec search_contacts(map(), search_contacts_request(), list()) ::
           {:ok, search_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_contacts_errors()}
   def search_contacts(%Client{} = client, input, options \\ []) do
     url_path = "/search-contacts"
@@ -20575,6 +20769,7 @@ defmodule AWS.Connect do
   @spec search_email_addresses(map(), search_email_addresses_request(), list()) ::
           {:ok, search_email_addresses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_email_addresses_errors()}
   def search_email_addresses(%Client{} = client, input, options \\ []) do
     url_path = "/search-email-addresses"
@@ -20607,6 +20802,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, search_hours_of_operation_overrides_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_hours_of_operation_overrides_errors()}
   def search_hours_of_operation_overrides(%Client{} = client, input, options \\ []) do
     url_path = "/search-hours-of-operation-overrides"
@@ -20636,6 +20832,7 @@ defmodule AWS.Connect do
   @spec search_hours_of_operations(map(), search_hours_of_operations_request(), list()) ::
           {:ok, search_hours_of_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_hours_of_operations_errors()}
   def search_hours_of_operations(%Client{} = client, input, options \\ []) do
     url_path = "/search-hours-of-operations"
@@ -20671,6 +20868,7 @@ defmodule AWS.Connect do
   @spec search_predefined_attributes(map(), search_predefined_attributes_request(), list()) ::
           {:ok, search_predefined_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_predefined_attributes_errors()}
   def search_predefined_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/search-predefined-attributes"
@@ -20699,6 +20897,7 @@ defmodule AWS.Connect do
   @spec search_prompts(map(), search_prompts_request(), list()) ::
           {:ok, search_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_prompts_errors()}
   def search_prompts(%Client{} = client, input, options \\ []) do
     url_path = "/search-prompts"
@@ -20727,6 +20926,7 @@ defmodule AWS.Connect do
   @spec search_queues(map(), search_queues_request(), list()) ::
           {:ok, search_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_queues_errors()}
   def search_queues(%Client{} = client, input, options \\ []) do
     url_path = "/search-queues"
@@ -20755,6 +20955,7 @@ defmodule AWS.Connect do
   @spec search_quick_connects(map(), search_quick_connects_request(), list()) ::
           {:ok, search_quick_connects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_quick_connects_errors()}
   def search_quick_connects(%Client{} = client, input, options \\ []) do
     url_path = "/search-quick-connects"
@@ -20783,6 +20984,7 @@ defmodule AWS.Connect do
   @spec search_resource_tags(map(), search_resource_tags_request(), list()) ::
           {:ok, search_resource_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_resource_tags_errors()}
   def search_resource_tags(%Client{} = client, input, options \\ []) do
     url_path = "/search-resource-tags"
@@ -20812,6 +21014,7 @@ defmodule AWS.Connect do
   @spec search_routing_profiles(map(), search_routing_profiles_request(), list()) ::
           {:ok, search_routing_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_routing_profiles_errors()}
   def search_routing_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/search-routing-profiles"
@@ -20847,6 +21050,7 @@ defmodule AWS.Connect do
   @spec search_security_profiles(map(), search_security_profiles_request(), list()) ::
           {:ok, search_security_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_security_profiles_errors()}
   def search_security_profiles(%Client{} = client, input, options \\ []) do
     url_path = "/search-security-profiles"
@@ -20880,6 +21084,7 @@ defmodule AWS.Connect do
   @spec search_user_hierarchy_groups(map(), search_user_hierarchy_groups_request(), list()) ::
           {:ok, search_user_hierarchy_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_user_hierarchy_groups_errors()}
   def search_user_hierarchy_groups(%Client{} = client, input, options \\ []) do
     url_path = "/search-user-hierarchy-groups"
@@ -20910,6 +21115,7 @@ defmodule AWS.Connect do
   @spec search_users(map(), search_users_request(), list()) ::
           {:ok, search_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_users_errors()}
   def search_users(%Client{} = client, input, options \\ []) do
     url_path = "/search-users"
@@ -20939,6 +21145,7 @@ defmodule AWS.Connect do
   @spec search_vocabularies(map(), String.t(), search_vocabularies_request(), list()) ::
           {:ok, search_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_vocabularies_errors()}
   def search_vocabularies(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/vocabulary-summary/#{AWS.Util.encode_uri(instance_id)}"
@@ -20989,6 +21196,7 @@ defmodule AWS.Connect do
   @spec send_chat_integration_event(map(), send_chat_integration_event_request(), list()) ::
           {:ok, send_chat_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_chat_integration_event_errors()}
   def send_chat_integration_event(%Client{} = client, input, options \\ []) do
     url_path = "/chat-integration-event"
@@ -21024,6 +21232,7 @@ defmodule AWS.Connect do
   @spec send_outbound_email(map(), String.t(), send_outbound_email_request(), list()) ::
           {:ok, send_outbound_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_outbound_email_errors()}
   def send_outbound_email(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/outbound-email"
@@ -21061,6 +21270,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, start_attached_file_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_attached_file_upload_errors()}
   def start_attached_file_upload(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}"
@@ -21131,6 +21341,7 @@ defmodule AWS.Connect do
   @spec start_chat_contact(map(), start_chat_contact_request(), list()) ::
           {:ok, start_chat_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_chat_contact_errors()}
   def start_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/chat"
@@ -21170,6 +21381,7 @@ defmodule AWS.Connect do
   @spec start_contact_evaluation(map(), String.t(), start_contact_evaluation_request(), list()) ::
           {:ok, start_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_contact_evaluation_errors()}
   def start_contact_evaluation(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/contact-evaluations/#{AWS.Util.encode_uri(instance_id)}"
@@ -21222,6 +21434,7 @@ defmodule AWS.Connect do
   @spec start_contact_recording(map(), start_contact_recording_request(), list()) ::
           {:ok, start_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_contact_recording_errors()}
   def start_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/start-recording"
@@ -21264,6 +21477,7 @@ defmodule AWS.Connect do
   @spec start_contact_streaming(map(), start_contact_streaming_request(), list()) ::
           {:ok, start_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_contact_streaming_errors()}
   def start_contact_streaming(%Client{} = client, input, options \\ []) do
     url_path = "/contact/start-streaming"
@@ -21296,6 +21510,7 @@ defmodule AWS.Connect do
   @spec start_email_contact(map(), start_email_contact_request(), list()) ::
           {:ok, start_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_email_contact_errors()}
   def start_email_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/email"
@@ -21353,6 +21568,7 @@ defmodule AWS.Connect do
   @spec start_outbound_chat_contact(map(), start_outbound_chat_contact_request(), list()) ::
           {:ok, start_outbound_chat_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_outbound_chat_contact_errors()}
   def start_outbound_chat_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-chat"
@@ -21383,6 +21599,7 @@ defmodule AWS.Connect do
   @spec start_outbound_email_contact(map(), start_outbound_email_contact_request(), list()) ::
           {:ok, start_outbound_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_outbound_email_contact_errors()}
   def start_outbound_email_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-email"
@@ -21436,6 +21653,7 @@ defmodule AWS.Connect do
   @spec start_outbound_voice_contact(map(), start_outbound_voice_contact_request(), list()) ::
           {:ok, start_outbound_voice_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_outbound_voice_contact_errors()}
   def start_outbound_voice_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/outbound-voice"
@@ -21469,6 +21687,7 @@ defmodule AWS.Connect do
   @spec start_screen_sharing(map(), start_screen_sharing_request(), list()) ::
           {:ok, start_screen_sharing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_screen_sharing_errors()}
   def start_screen_sharing(%Client{} = client, input, options \\ []) do
     url_path = "/contact/screen-sharing"
@@ -21554,6 +21773,7 @@ defmodule AWS.Connect do
   @spec start_task_contact(map(), start_task_contact_request(), list()) ::
           {:ok, start_task_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_task_contact_errors()}
   def start_task_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/task"
@@ -21587,6 +21807,7 @@ defmodule AWS.Connect do
   @spec start_web_r_t_c_contact(map(), start_web_r_t_c_contact_request(), list()) ::
           {:ok, start_web_r_t_c_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_web_r_t_c_contact_errors()}
   def start_web_r_t_c_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/webrtc"
@@ -21636,6 +21857,7 @@ defmodule AWS.Connect do
   @spec stop_contact(map(), stop_contact_request(), list()) ::
           {:ok, stop_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_contact_errors()}
   def stop_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop"
@@ -21675,6 +21897,7 @@ defmodule AWS.Connect do
   @spec stop_contact_recording(map(), stop_contact_recording_request(), list()) ::
           {:ok, stop_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_contact_recording_errors()}
   def stop_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop-recording"
@@ -21708,6 +21931,7 @@ defmodule AWS.Connect do
   @spec stop_contact_streaming(map(), stop_contact_streaming_request(), list()) ::
           {:ok, stop_contact_streaming_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_contact_streaming_errors()}
   def stop_contact_streaming(%Client{} = client, input, options \\ []) do
     url_path = "/contact/stop-streaming"
@@ -21753,6 +21977,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, submit_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_contact_evaluation_errors()}
   def submit_contact_evaluation(
         %Client{} = client,
@@ -21804,6 +22029,7 @@ defmodule AWS.Connect do
   @spec suspend_contact_recording(map(), suspend_contact_recording_request(), list()) ::
           {:ok, suspend_contact_recording_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, suspend_contact_recording_errors()}
   def suspend_contact_recording(%Client{} = client, input, options \\ []) do
     url_path = "/contact/suspend-recording"
@@ -21836,6 +22062,7 @@ defmodule AWS.Connect do
   @spec tag_contact(map(), tag_contact_request(), list()) ::
           {:ok, tag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_contact_errors()}
   def tag_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/tags"
@@ -21875,6 +22102,7 @@ defmodule AWS.Connect do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -21931,6 +22159,7 @@ defmodule AWS.Connect do
   @spec transfer_contact(map(), transfer_contact_request(), list()) ::
           {:ok, transfer_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transfer_contact_errors()}
   def transfer_contact(%Client{} = client, input, options \\ []) do
     url_path = "/contact/transfer"
@@ -21963,6 +22192,7 @@ defmodule AWS.Connect do
   @spec untag_contact(map(), String.t(), String.t(), untag_contact_request(), list()) ::
           {:ok, untag_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_contact_errors()}
   def untag_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
     url_path =
@@ -21998,6 +22228,7 @@ defmodule AWS.Connect do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -22033,6 +22264,7 @@ defmodule AWS.Connect do
   @spec update_agent_status(map(), String.t(), String.t(), update_agent_status_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agent_status_errors()}
   def update_agent_status(%Client{} = client, agent_status_id, instance_id, input, options \\ []) do
     url_path =
@@ -22074,6 +22306,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_authentication_profile_errors()}
   def update_authentication_profile(
         %Client{} = client,
@@ -22118,6 +22351,7 @@ defmodule AWS.Connect do
   @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, contact_id, instance_id, input, options \\ []) do
     url_path = "/contacts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
@@ -22169,6 +22403,7 @@ defmodule AWS.Connect do
   @spec update_contact_attributes(map(), update_contact_attributes_request(), list()) ::
           {:ok, update_contact_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_attributes_errors()}
   def update_contact_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/contact/attributes"
@@ -22211,6 +22446,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_evaluation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_evaluation_errors()}
   def update_contact_evaluation(
         %Client{} = client,
@@ -22261,6 +22497,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_flow_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_flow_content_errors()}
   def update_contact_flow_content(
         %Client{} = client,
@@ -22303,6 +22540,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_flow_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_flow_metadata_errors()}
   def update_contact_flow_metadata(
         %Client{} = client,
@@ -22350,6 +22588,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_flow_module_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_flow_module_content_errors()}
   def update_contact_flow_module_content(
         %Client{} = client,
@@ -22392,6 +22631,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_flow_module_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_flow_module_metadata_errors()}
   def update_contact_flow_module_metadata(
         %Client{} = client,
@@ -22437,6 +22677,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_flow_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_flow_name_errors()}
   def update_contact_flow_name(
         %Client{} = client,
@@ -22498,6 +22739,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_contact_routing_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_routing_data_errors()}
   def update_contact_routing_data(
         %Client{} = client,
@@ -22534,6 +22776,7 @@ defmodule AWS.Connect do
   @spec update_contact_schedule(map(), update_contact_schedule_request(), list()) ::
           {:ok, update_contact_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_schedule_errors()}
   def update_contact_schedule(%Client{} = client, input, options \\ []) do
     url_path = "/contact/schedule"
@@ -22571,6 +22814,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_email_address_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_email_address_metadata_errors()}
   def update_email_address_metadata(
         %Client{} = client,
@@ -22622,6 +22866,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_evaluation_form_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_evaluation_form_errors()}
   def update_evaluation_form(
         %Client{} = client,
@@ -22666,6 +22911,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hours_of_operation_errors()}
   def update_hours_of_operation(
         %Client{} = client,
@@ -22709,6 +22955,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hours_of_operation_override_errors()}
   def update_hours_of_operation_override(
         %Client{} = client,
@@ -22754,6 +23001,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_attribute_errors()}
   def update_instance_attribute(
         %Client{} = client,
@@ -22798,6 +23046,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_storage_config_errors()}
   def update_instance_storage_config(
         %Client{} = client,
@@ -22861,6 +23110,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_participant_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_participant_authentication_errors()}
   def update_participant_authentication(%Client{} = client, input, options \\ []) do
     url_path = "/contact/update-participant-authentication"
@@ -22914,6 +23164,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_participant_role_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_participant_role_config_errors()}
   def update_participant_role_config(
         %Client{} = client,
@@ -22967,6 +23218,7 @@ defmodule AWS.Connect do
   @spec update_phone_number(map(), String.t(), update_phone_number_request(), list()) ::
           {:ok, update_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}"
@@ -23004,6 +23256,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_phone_number_metadata_errors()}
   def update_phone_number_metadata(%Client{} = client, phone_number_id, input, options \\ []) do
     url_path = "/phone-number/#{AWS.Util.encode_uri(phone_number_id)}/metadata"
@@ -23045,6 +23298,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_predefined_attribute_errors()}
   def update_predefined_attribute(%Client{} = client, instance_id, name, input, options \\ []) do
     url_path =
@@ -23075,6 +23329,7 @@ defmodule AWS.Connect do
   @spec update_prompt(map(), String.t(), String.t(), update_prompt_request(), list()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_prompt_errors()}
   def update_prompt(%Client{} = client, instance_id, prompt_id, input, options \\ []) do
     url_path = "/prompts/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(prompt_id)}"
@@ -23111,6 +23366,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_hours_of_operation_errors()}
   def update_queue_hours_of_operation(
         %Client{} = client,
@@ -23157,6 +23413,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_max_contacts_errors()}
   def update_queue_max_contacts(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path =
@@ -23190,6 +23447,7 @@ defmodule AWS.Connect do
   @spec update_queue_name(map(), String.t(), String.t(), update_queue_name_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_name_errors()}
   def update_queue_name(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path = "/queues/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(queue_id)}/name"
@@ -23255,6 +23513,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_outbound_caller_config_errors()}
   def update_queue_outbound_caller_config(
         %Client{} = client,
@@ -23297,6 +23556,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_outbound_email_config_errors()}
   def update_queue_outbound_email_config(
         %Client{} = client,
@@ -23335,6 +23595,7 @@ defmodule AWS.Connect do
   @spec update_queue_status(map(), String.t(), String.t(), update_queue_status_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_status_errors()}
   def update_queue_status(%Client{} = client, instance_id, queue_id, input, options \\ []) do
     url_path =
@@ -23371,6 +23632,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_quick_connect_config_errors()}
   def update_quick_connect_config(
         %Client{} = client,
@@ -23416,6 +23678,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_quick_connect_name_errors()}
   def update_quick_connect_name(
         %Client{} = client,
@@ -23461,6 +23724,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_profile_agent_availability_timer_errors()}
   def update_routing_profile_agent_availability_timer(
         %Client{} = client,
@@ -23505,6 +23769,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_profile_concurrency_errors()}
   def update_routing_profile_concurrency(
         %Client{} = client,
@@ -23547,6 +23812,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_profile_default_outbound_queue_errors()}
   def update_routing_profile_default_outbound_queue(
         %Client{} = client,
@@ -23592,6 +23858,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_profile_name_errors()}
   def update_routing_profile_name(
         %Client{} = client,
@@ -23634,6 +23901,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_profile_queues_errors()}
   def update_routing_profile_queues(
         %Client{} = client,
@@ -23674,6 +23942,7 @@ defmodule AWS.Connect do
   @spec update_rule(map(), String.t(), String.t(), update_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, instance_id, rule_id, input, options \\ []) do
     url_path = "/rules/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(rule_id)}"
@@ -23714,6 +23983,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_profile_errors()}
   def update_security_profile(
         %Client{} = client,
@@ -23761,6 +24031,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_task_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_template_errors()}
   def update_task_template(
         %Client{} = client,
@@ -23821,6 +24092,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_traffic_distribution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_traffic_distribution_errors()}
   def update_traffic_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/traffic-distribution/#{AWS.Util.encode_uri(id)}"
@@ -23855,6 +24127,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_hierarchy_errors()}
   def update_user_hierarchy(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -23891,6 +24164,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_hierarchy_group_name_errors()}
   def update_user_hierarchy_group_name(
         %Client{} = client,
@@ -23933,6 +24207,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_hierarchy_structure_errors()}
   def update_user_hierarchy_structure(%Client{} = client, instance_id, input, options \\ []) do
     url_path = "/user-hierarchy-structure/#{AWS.Util.encode_uri(instance_id)}"
@@ -23979,6 +24254,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_identity_info_errors()}
   def update_user_identity_info(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -24015,6 +24291,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_phone_config_errors()}
   def update_user_phone_config(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -24051,6 +24328,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_proficiencies_errors()}
   def update_user_proficiencies(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -24087,6 +24365,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_routing_profile_errors()}
   def update_user_routing_profile(%Client{} = client, instance_id, user_id, input, options \\ []) do
     url_path =
@@ -24123,6 +24402,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_security_profiles_errors()}
   def update_user_security_profiles(
         %Client{} = client,
@@ -24166,6 +24446,7 @@ defmodule AWS.Connect do
   @spec update_view_content(map(), String.t(), String.t(), update_view_content_request(), list()) ::
           {:ok, update_view_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_view_content_errors()}
   def update_view_content(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path = "/views/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(view_id)}"
@@ -24203,6 +24484,7 @@ defmodule AWS.Connect do
         ) ::
           {:ok, update_view_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_view_metadata_errors()}
   def update_view_metadata(%Client{} = client, instance_id, view_id, input, options \\ []) do
     url_path =

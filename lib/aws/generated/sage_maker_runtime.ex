@@ -280,6 +280,7 @@ defmodule AWS.SageMakerRuntime do
   @spec invoke_endpoint(map(), String.t(), invoke_endpoint_input(), list()) ::
           {:ok, invoke_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_endpoint_errors()}
   def invoke_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/invocations"
@@ -371,6 +372,7 @@ defmodule AWS.SageMakerRuntime do
   @spec invoke_endpoint_async(map(), String.t(), invoke_endpoint_async_input(), list()) ::
           {:ok, invoke_endpoint_async_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_endpoint_async_errors()}
   def invoke_endpoint_async(%Client{} = client, endpoint_name, input, options \\ []) do
     url_path = "/endpoints/#{AWS.Util.encode_uri(endpoint_name)}/async-invocations"
@@ -463,6 +465,7 @@ defmodule AWS.SageMakerRuntime do
         ) ::
           {:ok, invoke_endpoint_with_response_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_endpoint_with_response_stream_errors()}
   def invoke_endpoint_with_response_stream(
         %Client{} = client,

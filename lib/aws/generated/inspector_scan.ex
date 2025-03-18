@@ -125,6 +125,7 @@ defmodule AWS.InspectorScan do
   @spec scan_sbom(map(), scan_sbom_request(), list()) ::
           {:ok, scan_sbom_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, scan_sbom_errors()}
   def scan_sbom(%Client{} = client, input, options \\ []) do
     url_path = "/scan/sbom"

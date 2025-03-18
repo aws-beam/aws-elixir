@@ -472,6 +472,7 @@ defmodule AWS.Account do
   @spec accept_primary_email_update(map(), accept_primary_email_update_request(), list()) ::
           {:ok, accept_primary_email_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_primary_email_update_errors()}
   def accept_primary_email_update(%Client{} = client, input, options \\ []) do
     url_path = "/acceptPrimaryEmailUpdate"
@@ -510,6 +511,7 @@ defmodule AWS.Account do
   @spec delete_alternate_contact(map(), delete_alternate_contact_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alternate_contact_errors()}
   def delete_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/deleteAlternateContact"
@@ -541,6 +543,7 @@ defmodule AWS.Account do
   @spec disable_region(map(), disable_region_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_region_errors()}
   def disable_region(%Client{} = client, input, options \\ []) do
     url_path = "/disableRegion"
@@ -569,6 +572,7 @@ defmodule AWS.Account do
   @spec enable_region(map(), enable_region_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_region_errors()}
   def enable_region(%Client{} = client, input, options \\ []) do
     url_path = "/enableRegion"
@@ -608,6 +612,7 @@ defmodule AWS.Account do
   @spec get_alternate_contact(map(), get_alternate_contact_request(), list()) ::
           {:ok, get_alternate_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_alternate_contact_errors()}
   def get_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/getAlternateContact"
@@ -640,6 +645,7 @@ defmodule AWS.Account do
   @spec get_contact_information(map(), get_contact_information_request(), list()) ::
           {:ok, get_contact_information_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_information_errors()}
   def get_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/getContactInformation"
@@ -668,6 +674,7 @@ defmodule AWS.Account do
   @spec get_primary_email(map(), get_primary_email_request(), list()) ::
           {:ok, get_primary_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_primary_email_errors()}
   def get_primary_email(%Client{} = client, input, options \\ []) do
     url_path = "/getPrimaryEmail"
@@ -696,6 +703,7 @@ defmodule AWS.Account do
   @spec get_region_opt_status(map(), get_region_opt_status_request(), list()) ::
           {:ok, get_region_opt_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_region_opt_status_errors()}
   def get_region_opt_status(%Client{} = client, input, options \\ []) do
     url_path = "/getRegionOptStatus"
@@ -727,6 +735,7 @@ defmodule AWS.Account do
   @spec list_regions(map(), list_regions_request(), list()) ::
           {:ok, list_regions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_regions_errors()}
   def list_regions(%Client{} = client, input, options \\ []) do
     url_path = "/listRegions"
@@ -766,6 +775,7 @@ defmodule AWS.Account do
   @spec put_alternate_contact(map(), put_alternate_contact_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_alternate_contact_errors()}
   def put_alternate_contact(%Client{} = client, input, options \\ []) do
     url_path = "/putAlternateContact"
@@ -798,6 +808,7 @@ defmodule AWS.Account do
   @spec put_contact_information(map(), put_contact_information_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_contact_information_errors()}
   def put_contact_information(%Client{} = client, input, options \\ []) do
     url_path = "/putContactInformation"
@@ -827,6 +838,7 @@ defmodule AWS.Account do
   @spec start_primary_email_update(map(), start_primary_email_update_request(), list()) ::
           {:ok, start_primary_email_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_primary_email_update_errors()}
   def start_primary_email_update(%Client{} = client, input, options \\ []) do
     url_path = "/startPrimaryEmailUpdate"

@@ -1115,6 +1115,7 @@ defmodule AWS.MedicalImaging do
   @spec copy_image_set(map(), String.t(), String.t(), copy_image_set_request(), list()) ::
           {:ok, copy_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_image_set_errors()}
   def copy_image_set(%Client{} = client, datastore_id, source_image_set_id, input, options \\ []) do
     url_path =
@@ -1150,6 +1151,7 @@ defmodule AWS.MedicalImaging do
   @spec create_datastore(map(), create_datastore_request(), list()) ::
           {:ok, create_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_datastore_errors()}
   def create_datastore(%Client{} = client, input, options \\ []) do
     url_path = "/datastore"
@@ -1181,6 +1183,7 @@ defmodule AWS.MedicalImaging do
   @spec delete_datastore(map(), String.t(), delete_datastore_request(), list()) ::
           {:ok, delete_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_datastore_errors()}
   def delete_datastore(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
@@ -1209,6 +1212,7 @@ defmodule AWS.MedicalImaging do
   @spec delete_image_set(map(), String.t(), String.t(), delete_image_set_request(), list()) ::
           {:ok, delete_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_image_set_errors()}
   def delete_image_set(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
@@ -1247,6 +1251,7 @@ defmodule AWS.MedicalImaging do
   @spec get_d_i_c_o_m_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_d_i_c_o_m_import_job_errors()}
   def get_d_i_c_o_m_import_job(%Client{} = client, datastore_id, job_id, options \\ []) do
     url_path =
@@ -1266,6 +1271,7 @@ defmodule AWS.MedicalImaging do
   @spec get_datastore(map(), String.t(), list()) ::
           {:ok, get_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_datastore_errors()}
   def get_datastore(%Client{} = client, datastore_id, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}"
@@ -1283,6 +1289,7 @@ defmodule AWS.MedicalImaging do
   @spec get_image_frame(map(), String.t(), String.t(), get_image_frame_request(), list()) ::
           {:ok, get_image_frame_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_frame_errors()}
   def get_image_frame(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
@@ -1320,6 +1327,7 @@ defmodule AWS.MedicalImaging do
   @spec get_image_set(map(), String.t(), String.t(), get_image_set_request(), list()) ::
           {:ok, get_image_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_set_errors()}
   def get_image_set(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
@@ -1361,6 +1369,7 @@ defmodule AWS.MedicalImaging do
         ) ::
           {:ok, get_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_image_set_metadata_errors()}
   def get_image_set_metadata(%Client{} = client, datastore_id, image_set_id, input, options \\ []) do
     url_path =
@@ -1410,6 +1419,7 @@ defmodule AWS.MedicalImaging do
         ) ::
           {:ok, list_d_i_c_o_m_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_d_i_c_o_m_import_jobs_errors()}
   def list_d_i_c_o_m_import_jobs(
         %Client{} = client,
@@ -1455,6 +1465,7 @@ defmodule AWS.MedicalImaging do
   @spec list_datastores(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datastores_errors()}
   def list_datastores(
         %Client{} = client,
@@ -1505,6 +1516,7 @@ defmodule AWS.MedicalImaging do
         ) ::
           {:ok, list_image_set_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_image_set_versions_errors()}
   def list_image_set_versions(
         %Client{} = client,
@@ -1547,6 +1559,7 @@ defmodule AWS.MedicalImaging do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1573,6 +1586,7 @@ defmodule AWS.MedicalImaging do
   @spec search_image_sets(map(), String.t(), search_image_sets_request(), list()) ::
           {:ok, search_image_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_image_sets_errors()}
   def search_image_sets(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/datastore/#{AWS.Util.encode_uri(datastore_id)}/searchImageSets"
@@ -1617,6 +1631,7 @@ defmodule AWS.MedicalImaging do
         ) ::
           {:ok, start_d_i_c_o_m_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_d_i_c_o_m_import_job_errors()}
   def start_d_i_c_o_m_import_job(%Client{} = client, datastore_id, input, options \\ []) do
     url_path = "/startDICOMImportJob/datastore/#{AWS.Util.encode_uri(datastore_id)}"
@@ -1645,6 +1660,7 @@ defmodule AWS.MedicalImaging do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1673,6 +1689,7 @@ defmodule AWS.MedicalImaging do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1712,6 +1729,7 @@ defmodule AWS.MedicalImaging do
         ) ::
           {:ok, update_image_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_image_set_metadata_errors()}
   def update_image_set_metadata(
         %Client{} = client,

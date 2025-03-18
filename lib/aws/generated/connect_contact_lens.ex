@@ -247,6 +247,7 @@ defmodule AWS.ConnectContactLens do
         ) ::
           {:ok, list_realtime_contact_analysis_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_realtime_contact_analysis_segments_errors()}
   def list_realtime_contact_analysis_segments(%Client{} = client, input, options \\ []) do
     url_path = "/realtime-contact-analysis/analysis-segments"

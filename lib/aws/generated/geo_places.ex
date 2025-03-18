@@ -1153,6 +1153,7 @@ defmodule AWS.GeoPlaces do
   @spec autocomplete(map(), autocomplete_request(), list()) ::
           {:ok, autocomplete_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, autocomplete_errors()}
   def autocomplete(%Client{} = client, input, options \\ []) do
     url_path = "/autocomplete"
@@ -1194,6 +1195,7 @@ defmodule AWS.GeoPlaces do
   @spec geocode(map(), geocode_request(), list()) ::
           {:ok, geocode_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, geocode_errors()}
   def geocode(%Client{} = client, input, options \\ []) do
     url_path = "/geocode"
@@ -1246,6 +1248,7 @@ defmodule AWS.GeoPlaces do
         ) ::
           {:ok, get_place_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_place_errors()}
   def get_place(
         %Client{} = client,
@@ -1315,6 +1318,7 @@ defmodule AWS.GeoPlaces do
   @spec reverse_geocode(map(), reverse_geocode_request(), list()) ::
           {:ok, reverse_geocode_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reverse_geocode_errors()}
   def reverse_geocode(%Client{} = client, input, options \\ []) do
     url_path = "/reverse-geocode"
@@ -1355,6 +1359,7 @@ defmodule AWS.GeoPlaces do
   @spec search_nearby(map(), search_nearby_request(), list()) ::
           {:ok, search_nearby_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_nearby_errors()}
   def search_nearby(%Client{} = client, input, options \\ []) do
     url_path = "/search-nearby"
@@ -1398,6 +1403,7 @@ defmodule AWS.GeoPlaces do
   @spec search_text(map(), search_text_request(), list()) ::
           {:ok, search_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_text_errors()}
   def search_text(%Client{} = client, input, options \\ []) do
     url_path = "/search-text"
@@ -1442,6 +1448,7 @@ defmodule AWS.GeoPlaces do
   @spec suggest(map(), suggest_request(), list()) ::
           {:ok, suggest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, suggest_errors()}
   def suggest(%Client{} = client, input, options \\ []) do
     url_path = "/suggest"

@@ -2850,6 +2850,7 @@ defmodule AWS.Athena do
   @spec batch_get_named_query(map(), batch_get_named_query_input(), list()) ::
           {:ok, batch_get_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_named_query_errors()}
   def batch_get_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2871,6 +2872,7 @@ defmodule AWS.Athena do
   @spec batch_get_prepared_statement(map(), batch_get_prepared_statement_input(), list()) ::
           {:ok, batch_get_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_prepared_statement_errors()}
   def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2892,6 +2894,7 @@ defmodule AWS.Athena do
   @spec batch_get_query_execution(map(), batch_get_query_execution_input(), list()) ::
           {:ok, batch_get_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_query_execution_errors()}
   def batch_get_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2912,6 +2915,7 @@ defmodule AWS.Athena do
   @spec cancel_capacity_reservation(map(), cancel_capacity_reservation_input(), list()) ::
           {:ok, cancel_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_capacity_reservation_errors()}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2927,6 +2931,7 @@ defmodule AWS.Athena do
   @spec create_capacity_reservation(map(), create_capacity_reservation_input(), list()) ::
           {:ok, create_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_capacity_reservation_errors()}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2960,6 +2965,7 @@ defmodule AWS.Athena do
   @spec create_data_catalog(map(), create_data_catalog_input(), list()) ::
           {:ok, create_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_catalog_errors()}
   def create_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2976,6 +2982,7 @@ defmodule AWS.Athena do
   @spec create_named_query(map(), create_named_query_input(), list()) ::
           {:ok, create_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_named_query_errors()}
   def create_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2993,6 +3000,7 @@ defmodule AWS.Athena do
   @spec create_notebook(map(), create_notebook_input(), list()) ::
           {:ok, create_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notebook_errors()}
   def create_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3006,6 +3014,7 @@ defmodule AWS.Athena do
   @spec create_prepared_statement(map(), create_prepared_statement_input(), list()) ::
           {:ok, create_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_prepared_statement_errors()}
   def create_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3026,6 +3035,7 @@ defmodule AWS.Athena do
   @spec create_presigned_notebook_url(map(), create_presigned_notebook_url_request(), list()) ::
           {:ok, create_presigned_notebook_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_presigned_notebook_url_errors()}
   def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3042,6 +3052,7 @@ defmodule AWS.Athena do
   @spec create_work_group(map(), create_work_group_input(), list()) ::
           {:ok, create_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_work_group_errors()}
   def create_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3063,6 +3074,7 @@ defmodule AWS.Athena do
   @spec delete_capacity_reservation(map(), delete_capacity_reservation_input(), list()) ::
           {:ok, delete_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_capacity_reservation_errors()}
   def delete_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3076,6 +3088,7 @@ defmodule AWS.Athena do
   @spec delete_data_catalog(map(), delete_data_catalog_input(), list()) ::
           {:ok, delete_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_catalog_errors()}
   def delete_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3091,6 +3104,7 @@ defmodule AWS.Athena do
   @spec delete_named_query(map(), delete_named_query_input(), list()) ::
           {:ok, delete_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_named_query_errors()}
   def delete_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3104,6 +3118,7 @@ defmodule AWS.Athena do
   @spec delete_notebook(map(), delete_notebook_input(), list()) ::
           {:ok, delete_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notebook_errors()}
   def delete_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,6 +3133,7 @@ defmodule AWS.Athena do
   @spec delete_prepared_statement(map(), delete_prepared_statement_input(), list()) ::
           {:ok, delete_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_prepared_statement_errors()}
   def delete_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3134,6 +3150,7 @@ defmodule AWS.Athena do
   @spec delete_work_group(map(), delete_work_group_input(), list()) ::
           {:ok, delete_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_work_group_errors()}
   def delete_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3147,6 +3164,7 @@ defmodule AWS.Athena do
   @spec export_notebook(map(), export_notebook_input(), list()) ::
           {:ok, export_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_notebook_errors()}
   def export_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3160,6 +3178,7 @@ defmodule AWS.Athena do
   @spec get_calculation_execution(map(), get_calculation_execution_request(), list()) ::
           {:ok, get_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calculation_execution_errors()}
   def get_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3173,6 +3192,7 @@ defmodule AWS.Athena do
   @spec get_calculation_execution_code(map(), get_calculation_execution_code_request(), list()) ::
           {:ok, get_calculation_execution_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calculation_execution_code_errors()}
   def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3190,6 +3210,7 @@ defmodule AWS.Athena do
         ) ::
           {:ok, get_calculation_execution_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_calculation_execution_status_errors()}
   def get_calculation_execution_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3208,6 +3229,7 @@ defmodule AWS.Athena do
         ) ::
           {:ok, get_capacity_assignment_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_capacity_assignment_configuration_errors()}
   def get_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3221,6 +3243,7 @@ defmodule AWS.Athena do
   @spec get_capacity_reservation(map(), get_capacity_reservation_input(), list()) ::
           {:ok, get_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_capacity_reservation_errors()}
   def get_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3234,6 +3257,7 @@ defmodule AWS.Athena do
   @spec get_data_catalog(map(), get_data_catalog_input(), list()) ::
           {:ok, get_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_catalog_errors()}
   def get_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3247,6 +3271,7 @@ defmodule AWS.Athena do
   @spec get_database(map(), get_database_input(), list()) ::
           {:ok, get_database_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3263,6 +3288,7 @@ defmodule AWS.Athena do
   @spec get_named_query(map(), get_named_query_input(), list()) ::
           {:ok, get_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_named_query_errors()}
   def get_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3276,6 +3302,7 @@ defmodule AWS.Athena do
   @spec get_notebook_metadata(map(), get_notebook_metadata_input(), list()) ::
           {:ok, get_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notebook_metadata_errors()}
   def get_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3290,6 +3317,7 @@ defmodule AWS.Athena do
   @spec get_prepared_statement(map(), get_prepared_statement_input(), list()) ::
           {:ok, get_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_prepared_statement_errors()}
   def get_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3308,6 +3336,7 @@ defmodule AWS.Athena do
   @spec get_query_execution(map(), get_query_execution_input(), list()) ::
           {:ok, get_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_execution_errors()}
   def get_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3339,6 +3368,7 @@ defmodule AWS.Athena do
   @spec get_query_results(map(), get_query_results_input(), list()) ::
           {:ok, get_query_results_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3365,6 +3395,7 @@ defmodule AWS.Athena do
   @spec get_query_runtime_statistics(map(), get_query_runtime_statistics_input(), list()) ::
           {:ok, get_query_runtime_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_runtime_statistics_errors()}
   def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3380,6 +3411,7 @@ defmodule AWS.Athena do
   @spec get_session(map(), get_session_request(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3393,6 +3425,7 @@ defmodule AWS.Athena do
   @spec get_session_status(map(), get_session_status_request(), list()) ::
           {:ok, get_session_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_status_errors()}
   def get_session_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3406,6 +3439,7 @@ defmodule AWS.Athena do
   @spec get_table_metadata(map(), get_table_metadata_input(), list()) ::
           {:ok, get_table_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_metadata_errors()}
   def get_table_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3419,6 +3453,7 @@ defmodule AWS.Athena do
   @spec get_work_group(map(), get_work_group_input(), list()) ::
           {:ok, get_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_work_group_errors()}
   def get_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3439,6 +3474,7 @@ defmodule AWS.Athena do
   @spec import_notebook(map(), import_notebook_input(), list()) ::
           {:ok, import_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_notebook_errors()}
   def import_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3454,6 +3490,7 @@ defmodule AWS.Athena do
   @spec list_application_d_p_u_sizes(map(), list_application_d_p_u_sizes_input(), list()) ::
           {:ok, list_application_d_p_u_sizes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_d_p_u_sizes_errors()}
   def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3470,6 +3507,7 @@ defmodule AWS.Athena do
   @spec list_calculation_executions(map(), list_calculation_executions_request(), list()) ::
           {:ok, list_calculation_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_calculation_executions_errors()}
   def list_calculation_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3483,6 +3521,7 @@ defmodule AWS.Athena do
   @spec list_capacity_reservations(map(), list_capacity_reservations_input(), list()) ::
           {:ok, list_capacity_reservations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_capacity_reservations_errors()}
   def list_capacity_reservations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3499,6 +3538,7 @@ defmodule AWS.Athena do
   @spec list_data_catalogs(map(), list_data_catalogs_input(), list()) ::
           {:ok, list_data_catalogs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_catalogs_errors()}
   def list_data_catalogs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3512,6 +3552,7 @@ defmodule AWS.Athena do
   @spec list_databases(map(), list_databases_input(), list()) ::
           {:ok, list_databases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3527,6 +3568,7 @@ defmodule AWS.Athena do
   @spec list_engine_versions(map(), list_engine_versions_input(), list()) ::
           {:ok, list_engine_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_engine_versions_errors()}
   def list_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3545,6 +3587,7 @@ defmodule AWS.Athena do
   @spec list_executors(map(), list_executors_request(), list()) ::
           {:ok, list_executors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_executors_errors()}
   def list_executors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3562,6 +3605,7 @@ defmodule AWS.Athena do
   @spec list_named_queries(map(), list_named_queries_input(), list()) ::
           {:ok, list_named_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_named_queries_errors()}
   def list_named_queries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3575,6 +3619,7 @@ defmodule AWS.Athena do
   @spec list_notebook_metadata(map(), list_notebook_metadata_input(), list()) ::
           {:ok, list_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notebook_metadata_errors()}
   def list_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3594,6 +3639,7 @@ defmodule AWS.Athena do
   @spec list_notebook_sessions(map(), list_notebook_sessions_request(), list()) ::
           {:ok, list_notebook_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notebook_sessions_errors()}
   def list_notebook_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3607,6 +3653,7 @@ defmodule AWS.Athena do
   @spec list_prepared_statements(map(), list_prepared_statements_input(), list()) ::
           {:ok, list_prepared_statements_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_prepared_statements_errors()}
   def list_prepared_statements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3627,6 +3674,7 @@ defmodule AWS.Athena do
   @spec list_query_executions(map(), list_query_executions_input(), list()) ::
           {:ok, list_query_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_query_executions_errors()}
   def list_query_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3645,6 +3693,7 @@ defmodule AWS.Athena do
   @spec list_sessions(map(), list_sessions_request(), list()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3658,6 +3707,7 @@ defmodule AWS.Athena do
   @spec list_table_metadata(map(), list_table_metadata_input(), list()) ::
           {:ok, list_table_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_table_metadata_errors()}
   def list_table_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3671,6 +3721,7 @@ defmodule AWS.Athena do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3684,6 +3735,7 @@ defmodule AWS.Athena do
   @spec list_work_groups(map(), list_work_groups_input(), list()) ::
           {:ok, list_work_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_work_groups_errors()}
   def list_work_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3706,6 +3758,7 @@ defmodule AWS.Athena do
         ) ::
           {:ok, put_capacity_assignment_configuration_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_capacity_assignment_configuration_errors()}
   def put_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3729,6 +3782,7 @@ defmodule AWS.Athena do
   @spec start_calculation_execution(map(), start_calculation_execution_request(), list()) ::
           {:ok, start_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_calculation_execution_errors()}
   def start_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3750,6 +3804,7 @@ defmodule AWS.Athena do
   @spec start_query_execution(map(), start_query_execution_input(), list()) ::
           {:ok, start_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_query_execution_errors()}
   def start_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3766,6 +3821,7 @@ defmodule AWS.Athena do
   @spec start_session(map(), start_session_request(), list()) ::
           {:ok, start_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3790,6 +3846,7 @@ defmodule AWS.Athena do
   @spec stop_calculation_execution(map(), stop_calculation_execution_request(), list()) ::
           {:ok, stop_calculation_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_calculation_execution_errors()}
   def stop_calculation_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3806,6 +3863,7 @@ defmodule AWS.Athena do
   @spec stop_query_execution(map(), stop_query_execution_input(), list()) ::
           {:ok, stop_query_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_query_execution_errors()}
   def stop_query_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3837,6 +3895,7 @@ defmodule AWS.Athena do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3856,6 +3915,7 @@ defmodule AWS.Athena do
   @spec terminate_session(map(), terminate_session_request(), list()) ::
           {:ok, terminate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3869,6 +3929,7 @@ defmodule AWS.Athena do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3884,6 +3945,7 @@ defmodule AWS.Athena do
   @spec update_capacity_reservation(map(), update_capacity_reservation_input(), list()) ::
           {:ok, update_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_capacity_reservation_errors()}
   def update_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3897,6 +3959,7 @@ defmodule AWS.Athena do
   @spec update_data_catalog(map(), update_data_catalog_input(), list()) ::
           {:ok, update_data_catalog_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_catalog_errors()}
   def update_data_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3913,6 +3976,7 @@ defmodule AWS.Athena do
   @spec update_named_query(map(), update_named_query_input(), list()) ::
           {:ok, update_named_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_named_query_errors()}
   def update_named_query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3926,6 +3990,7 @@ defmodule AWS.Athena do
   @spec update_notebook(map(), update_notebook_input(), list()) ::
           {:ok, update_notebook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notebook_errors()}
   def update_notebook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3939,6 +4004,7 @@ defmodule AWS.Athena do
   @spec update_notebook_metadata(map(), update_notebook_metadata_input(), list()) ::
           {:ok, update_notebook_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notebook_metadata_errors()}
   def update_notebook_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3952,6 +4018,7 @@ defmodule AWS.Athena do
   @spec update_prepared_statement(map(), update_prepared_statement_input(), list()) ::
           {:ok, update_prepared_statement_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_prepared_statement_errors()}
   def update_prepared_statement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3968,6 +4035,7 @@ defmodule AWS.Athena do
   @spec update_work_group(map(), update_work_group_input(), list()) ::
           {:ok, update_work_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_work_group_errors()}
   def update_work_group(%Client{} = client, input, options \\ []) do
     meta = metadata()

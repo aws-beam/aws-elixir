@@ -263,6 +263,7 @@ defmodule AWS.EC2InstanceConnect do
         ) ::
           {:ok, send_serial_console_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_serial_console_ssh_public_key_errors()}
   def send_serial_console_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -282,6 +283,7 @@ defmodule AWS.EC2InstanceConnect do
   @spec send_ssh_public_key(map(), send_ssh_public_key_request(), list()) ::
           {:ok, send_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_ssh_public_key_errors()}
   def send_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()

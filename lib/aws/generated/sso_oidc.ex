@@ -439,6 +439,7 @@ defmodule AWS.SSOOIDC do
   @spec create_token(map(), create_token_request(), list()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, input, options \\ []) do
     url_path = "/token"
@@ -474,6 +475,7 @@ defmodule AWS.SSOOIDC do
   @spec create_token_with_iam(map(), create_token_with_iam_request(), list()) ::
           {:ok, create_token_with_iam_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_token_with_iam_errors()}
   def create_token_with_iam(%Client{} = client, input, options \\ []) do
     url_path = "/token?aws_iam=t"
@@ -507,6 +509,7 @@ defmodule AWS.SSOOIDC do
   @spec register_client(map(), register_client_request(), list()) ::
           {:ok, register_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_client_errors()}
   def register_client(%Client{} = client, input, options \\ []) do
     url_path = "/client/register"
@@ -537,6 +540,7 @@ defmodule AWS.SSOOIDC do
   @spec start_device_authorization(map(), start_device_authorization_request(), list()) ::
           {:ok, start_device_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_device_authorization_errors()}
   def start_device_authorization(%Client{} = client, input, options \\ []) do
     url_path = "/device_authorization"

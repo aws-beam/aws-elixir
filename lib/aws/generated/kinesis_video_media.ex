@@ -192,6 +192,7 @@ defmodule AWS.KinesisVideoMedia do
   @spec get_media(map(), get_media_input(), list()) ::
           {:ok, get_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_errors()}
   def get_media(%Client{} = client, input, options \\ []) do
     url_path = "/getMedia"

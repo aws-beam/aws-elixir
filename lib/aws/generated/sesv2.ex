@@ -4026,6 +4026,7 @@ defmodule AWS.SESv2 do
   @spec batch_get_metric_data(map(), batch_get_metric_data_request(), list()) ::
           {:ok, batch_get_metric_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_metric_data_errors()}
   def batch_get_metric_data(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/metrics/batch"
@@ -4054,6 +4055,7 @@ defmodule AWS.SESv2 do
   @spec cancel_export_job(map(), String.t(), cancel_export_job_request(), list()) ::
           {:ok, cancel_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_export_job_errors()}
   def cancel_export_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}/cancel"
@@ -4091,6 +4093,7 @@ defmodule AWS.SESv2 do
   @spec create_configuration_set(map(), create_configuration_set_request(), list()) ::
           {:ok, create_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/configuration-sets"
@@ -4133,6 +4136,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(
         %Client{} = client,
@@ -4170,6 +4174,7 @@ defmodule AWS.SESv2 do
   @spec create_contact(map(), String.t(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts"
@@ -4198,6 +4203,7 @@ defmodule AWS.SESv2 do
   @spec create_contact_list(map(), create_contact_list_request(), list()) ::
           {:ok, create_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_list_errors()}
   def create_contact_list(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/contact-lists"
@@ -4237,6 +4243,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_verification_email_template_errors()}
   def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/custom-verification-email-templates"
@@ -4272,6 +4279,7 @@ defmodule AWS.SESv2 do
   @spec create_dedicated_ip_pool(map(), create_dedicated_ip_pool_request(), list()) ::
           {:ok, create_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dedicated_ip_pool_errors()}
   def create_dedicated_ip_pool(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools"
@@ -4316,6 +4324,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deliverability_test_report_errors()}
   def create_deliverability_test_report(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test"
@@ -4387,6 +4396,7 @@ defmodule AWS.SESv2 do
   @spec create_email_identity(map(), create_email_identity_request(), list()) ::
           {:ok, create_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_identity_errors()}
   def create_email_identity(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/identities"
@@ -4434,6 +4444,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, create_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_identity_policy_errors()}
   def create_email_identity_policy(
         %Client{} = client,
@@ -4476,6 +4487,7 @@ defmodule AWS.SESv2 do
   @spec create_email_template(map(), create_email_template_request(), list()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_email_template_errors()}
   def create_email_template(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/templates"
@@ -4506,6 +4518,7 @@ defmodule AWS.SESv2 do
   @spec create_export_job(map(), create_export_job_request(), list()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_export_job_errors()}
   def create_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/export-jobs"
@@ -4534,6 +4547,7 @@ defmodule AWS.SESv2 do
   @spec create_import_job(map(), create_import_job_request(), list()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_import_job_errors()}
   def create_import_job(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/import-jobs"
@@ -4570,6 +4584,7 @@ defmodule AWS.SESv2 do
   @spec create_multi_region_endpoint(map(), create_multi_region_endpoint_request(), list()) ::
           {:ok, create_multi_region_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multi_region_endpoint_errors()}
   def create_multi_region_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/multi-region-endpoints"
@@ -4605,6 +4620,7 @@ defmodule AWS.SESv2 do
   @spec delete_configuration_set(map(), String.t(), delete_configuration_set_request(), list()) ::
           {:ok, delete_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, configuration_set_name, input, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -4645,6 +4661,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(
         %Client{} = client,
@@ -4681,6 +4698,7 @@ defmodule AWS.SESv2 do
   @spec delete_contact(map(), String.t(), String.t(), delete_contact_request(), list()) ::
           {:ok, delete_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_errors()}
   def delete_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
@@ -4711,6 +4729,7 @@ defmodule AWS.SESv2 do
   @spec delete_contact_list(map(), String.t(), delete_contact_list_request(), list()) ::
           {:ok, delete_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_list_errors()}
   def delete_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
@@ -4751,6 +4770,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_verification_email_template_errors()}
   def delete_custom_verification_email_template(
         %Client{} = client,
@@ -4786,6 +4806,7 @@ defmodule AWS.SESv2 do
   @spec delete_dedicated_ip_pool(map(), String.t(), delete_dedicated_ip_pool_request(), list()) ::
           {:ok, delete_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dedicated_ip_pool_errors()}
   def delete_dedicated_ip_pool(%Client{} = client, pool_name, input, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
@@ -4817,6 +4838,7 @@ defmodule AWS.SESv2 do
   @spec delete_email_identity(map(), String.t(), delete_email_identity_request(), list()) ::
           {:ok, delete_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_identity_errors()}
   def delete_email_identity(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -4867,6 +4889,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_identity_policy_errors()}
   def delete_email_identity_policy(
         %Client{} = client,
@@ -4905,6 +4928,7 @@ defmodule AWS.SESv2 do
   @spec delete_email_template(map(), String.t(), delete_email_template_request(), list()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_email_template_errors()}
   def delete_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
@@ -4942,6 +4966,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_multi_region_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multi_region_endpoint_errors()}
   def delete_multi_region_endpoint(%Client{} = client, endpoint_name, input, options \\ []) do
     url_path = "/v2/email/multi-region-endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
@@ -4975,6 +5000,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, delete_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_suppressed_destination_errors()}
   def delete_suppressed_destination(%Client{} = client, email_address, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
@@ -5005,6 +5031,7 @@ defmodule AWS.SESv2 do
   @spec get_account(map(), list()) ::
           {:ok, get_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_errors()}
   def get_account(%Client{} = client, options \\ []) do
     url_path = "/v2/email/account"
@@ -5022,6 +5049,7 @@ defmodule AWS.SESv2 do
   @spec get_blacklist_reports(map(), String.t(), list()) ::
           {:ok, get_blacklist_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_blacklist_reports_errors()}
   def get_blacklist_reports(%Client{} = client, blacklist_item_names, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/blacklist-report"
@@ -5056,6 +5084,7 @@ defmodule AWS.SESv2 do
   @spec get_configuration_set(map(), String.t(), list()) ::
           {:ok, get_configuration_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_set_errors()}
   def get_configuration_set(%Client{} = client, configuration_set_name, options \\ []) do
     url_path = "/v2/email/configuration-sets/#{AWS.Util.encode_uri(configuration_set_name)}"
@@ -5080,6 +5109,7 @@ defmodule AWS.SESv2 do
   @spec get_configuration_set_event_destinations(map(), String.t(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configuration_set_event_destinations_errors()}
   def get_configuration_set_event_destinations(
         %Client{} = client,
@@ -5103,6 +5133,7 @@ defmodule AWS.SESv2 do
   @spec get_contact(map(), String.t(), String.t(), list()) ::
           {:ok, get_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_errors()}
   def get_contact(%Client{} = client, contact_list_name, email_address, options \\ []) do
     url_path =
@@ -5125,6 +5156,7 @@ defmodule AWS.SESv2 do
   @spec get_contact_list(map(), String.t(), list()) ::
           {:ok, get_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_list_errors()}
   def get_contact_list(%Client{} = client, contact_list_name, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
@@ -5150,6 +5182,7 @@ defmodule AWS.SESv2 do
   @spec get_custom_verification_email_template(map(), String.t(), list()) ::
           {:ok, get_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_verification_email_template_errors()}
   def get_custom_verification_email_template(%Client{} = client, template_name, options \\ []) do
     url_path =
@@ -5173,6 +5206,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ip(map(), String.t(), list()) ::
           {:ok, get_dedicated_ip_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dedicated_ip_errors()}
   def get_dedicated_ip(%Client{} = client, ip, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}"
@@ -5190,6 +5224,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ip_pool(map(), String.t(), list()) ::
           {:ok, get_dedicated_ip_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dedicated_ip_pool_errors()}
   def get_dedicated_ip_pool(%Client{} = client, pool_name, options \\ []) do
     url_path = "/v2/email/dedicated-ip-pools/#{AWS.Util.encode_uri(pool_name)}"
@@ -5209,6 +5244,7 @@ defmodule AWS.SESv2 do
   @spec get_dedicated_ips(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_dedicated_ips_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dedicated_ips_errors()}
   def get_dedicated_ips(
         %Client{} = client,
@@ -5268,6 +5304,7 @@ defmodule AWS.SESv2 do
   @spec get_deliverability_dashboard_options(map(), list()) ::
           {:ok, get_deliverability_dashboard_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deliverability_dashboard_options_errors()}
   def get_deliverability_dashboard_options(%Client{} = client, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -5285,6 +5322,7 @@ defmodule AWS.SESv2 do
   @spec get_deliverability_test_report(map(), String.t(), list()) ::
           {:ok, get_deliverability_test_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deliverability_test_report_errors()}
   def get_deliverability_test_report(%Client{} = client, report_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/test-reports/#{AWS.Util.encode_uri(report_id)}"
@@ -5306,6 +5344,7 @@ defmodule AWS.SESv2 do
   @spec get_domain_deliverability_campaign(map(), String.t(), list()) ::
           {:ok, get_domain_deliverability_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_deliverability_campaign_errors()}
   def get_domain_deliverability_campaign(%Client{} = client, campaign_id, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard/campaigns/#{AWS.Util.encode_uri(campaign_id)}"
@@ -5325,6 +5364,7 @@ defmodule AWS.SESv2 do
   @spec get_domain_statistics_report(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_domain_statistics_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_statistics_report_errors()}
   def get_domain_statistics_report(
         %Client{} = client,
@@ -5368,6 +5408,7 @@ defmodule AWS.SESv2 do
   @spec get_email_identity(map(), String.t(), list()) ::
           {:ok, get_email_identity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_identity_errors()}
   def get_email_identity(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}"
@@ -5401,6 +5442,7 @@ defmodule AWS.SESv2 do
   @spec get_email_identity_policies(map(), String.t(), list()) ::
           {:ok, get_email_identity_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_identity_policies_errors()}
   def get_email_identity_policies(%Client{} = client, email_identity, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/policies"
@@ -5422,6 +5464,7 @@ defmodule AWS.SESv2 do
   @spec get_email_template(map(), String.t(), list()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_email_template_errors()}
   def get_email_template(%Client{} = client, template_name, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
@@ -5439,6 +5482,7 @@ defmodule AWS.SESv2 do
   @spec get_export_job(map(), String.t(), list()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_job_errors()}
   def get_export_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/export-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -5456,6 +5500,7 @@ defmodule AWS.SESv2 do
   @spec get_import_job(map(), String.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v2/email/import-jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -5477,6 +5522,7 @@ defmodule AWS.SESv2 do
   @spec get_message_insights(map(), String.t(), list()) ::
           {:ok, get_message_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_message_insights_errors()}
   def get_message_insights(%Client{} = client, message_id, options \\ []) do
     url_path = "/v2/email/insights/#{AWS.Util.encode_uri(message_id)}"
@@ -5498,6 +5544,7 @@ defmodule AWS.SESv2 do
   @spec get_multi_region_endpoint(map(), String.t(), list()) ::
           {:ok, get_multi_region_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_multi_region_endpoint_errors()}
   def get_multi_region_endpoint(%Client{} = client, endpoint_name, options \\ []) do
     url_path = "/v2/email/multi-region-endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
@@ -5517,6 +5564,7 @@ defmodule AWS.SESv2 do
   @spec get_suppressed_destination(map(), String.t(), list()) ::
           {:ok, get_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_suppressed_destination_errors()}
   def get_suppressed_destination(%Client{} = client, email_address, options \\ []) do
     url_path = "/v2/email/suppression/addresses/#{AWS.Util.encode_uri(email_address)}"
@@ -5542,6 +5590,7 @@ defmodule AWS.SESv2 do
   @spec list_configuration_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configuration_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configuration_sets_errors()}
   def list_configuration_sets(
         %Client{} = client,
@@ -5578,6 +5627,7 @@ defmodule AWS.SESv2 do
   @spec list_contact_lists(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_contact_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contact_lists_errors()}
   def list_contact_lists(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/v2/email/contact-lists"
@@ -5609,6 +5659,7 @@ defmodule AWS.SESv2 do
   @spec list_contacts(map(), String.t(), list_contacts_request(), list()) ::
           {:ok, list_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contacts_errors()}
   def list_contacts(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}/contacts/list"
@@ -5651,6 +5702,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_custom_verification_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_verification_email_templates_errors()}
   def list_custom_verification_email_templates(
         %Client{} = client,
@@ -5689,6 +5741,7 @@ defmodule AWS.SESv2 do
   @spec list_dedicated_ip_pools(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_dedicated_ip_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dedicated_ip_pools_errors()}
   def list_dedicated_ip_pools(
         %Client{} = client,
@@ -5731,6 +5784,7 @@ defmodule AWS.SESv2 do
   @spec list_deliverability_test_reports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_deliverability_test_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deliverability_test_reports_errors()}
   def list_deliverability_test_reports(
         %Client{} = client,
@@ -5780,6 +5834,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_domain_deliverability_campaigns_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_deliverability_campaigns_errors()}
   def list_domain_deliverability_campaigns(
         %Client{} = client,
@@ -5842,6 +5897,7 @@ defmodule AWS.SESv2 do
   @spec list_email_identities(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_identities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_email_identities_errors()}
   def list_email_identities(
         %Client{} = client,
@@ -5882,6 +5938,7 @@ defmodule AWS.SESv2 do
   @spec list_email_templates(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_email_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_email_templates_errors()}
   def list_email_templates(%Client{} = client, next_token \\ nil, page_size \\ nil, options \\ []) do
     url_path = "/v2/email/templates"
@@ -5913,6 +5970,7 @@ defmodule AWS.SESv2 do
   @spec list_export_jobs(map(), list_export_jobs_request(), list()) ::
           {:ok, list_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_export_jobs_errors()}
   def list_export_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/list-export-jobs"
@@ -5941,6 +5999,7 @@ defmodule AWS.SESv2 do
   @spec list_import_jobs(map(), list_import_jobs_request(), list()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_jobs_errors()}
   def list_import_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/import-jobs/list"
@@ -5973,6 +6032,7 @@ defmodule AWS.SESv2 do
   @spec list_multi_region_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_multi_region_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multi_region_endpoints_errors()}
   def list_multi_region_endpoints(
         %Client{} = client,
@@ -6012,6 +6072,7 @@ defmodule AWS.SESv2 do
   @spec list_recommendations(map(), list_recommendations_request(), list()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/vdm/recommendations"
@@ -6049,6 +6110,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, list_suppressed_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_suppressed_destinations_errors()}
   def list_suppressed_destinations(
         %Client{} = client,
@@ -6118,6 +6180,7 @@ defmodule AWS.SESv2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v2/email/tags"
@@ -6146,6 +6209,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_account_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_dedicated_ip_warmup_attributes_errors()}
   def put_account_dedicated_ip_warmup_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/dedicated-ips/warmup"
@@ -6174,6 +6238,7 @@ defmodule AWS.SESv2 do
   @spec put_account_details(map(), put_account_details_request(), list()) ::
           {:ok, put_account_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_details_errors()}
   def put_account_details(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/details"
@@ -6202,6 +6267,7 @@ defmodule AWS.SESv2 do
   @spec put_account_sending_attributes(map(), put_account_sending_attributes_request(), list()) ::
           {:ok, put_account_sending_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_sending_attributes_errors()}
   def put_account_sending_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/sending"
@@ -6234,6 +6300,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_account_suppression_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_suppression_attributes_errors()}
   def put_account_suppression_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/suppression"
@@ -6264,6 +6331,7 @@ defmodule AWS.SESv2 do
   @spec put_account_vdm_attributes(map(), put_account_vdm_attributes_request(), list()) ::
           {:ok, put_account_vdm_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_vdm_attributes_errors()}
   def put_account_vdm_attributes(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/account/vdm"
@@ -6302,6 +6370,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_archiving_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_archiving_options_errors()}
   def put_configuration_set_archiving_options(
         %Client{} = client,
@@ -6345,6 +6414,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_delivery_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_delivery_options_errors()}
   def put_configuration_set_delivery_options(
         %Client{} = client,
@@ -6387,6 +6457,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_reputation_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_reputation_options_errors()}
   def put_configuration_set_reputation_options(
         %Client{} = client,
@@ -6429,6 +6500,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_sending_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_sending_options_errors()}
   def put_configuration_set_sending_options(
         %Client{} = client,
@@ -6469,6 +6541,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_suppression_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_suppression_options_errors()}
   def put_configuration_set_suppression_options(
         %Client{} = client,
@@ -6511,6 +6584,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_tracking_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_tracking_options_errors()}
   def put_configuration_set_tracking_options(
         %Client{} = client,
@@ -6553,6 +6627,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_configuration_set_vdm_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configuration_set_vdm_options_errors()}
   def put_configuration_set_vdm_options(
         %Client{} = client,
@@ -6595,6 +6670,7 @@ defmodule AWS.SESv2 do
   @spec put_dedicated_ip_in_pool(map(), String.t(), put_dedicated_ip_in_pool_request(), list()) ::
           {:ok, put_dedicated_ip_in_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dedicated_ip_in_pool_errors()}
   def put_dedicated_ip_in_pool(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/pool"
@@ -6630,6 +6706,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_dedicated_ip_pool_scaling_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dedicated_ip_pool_scaling_attributes_errors()}
   def put_dedicated_ip_pool_scaling_attributes(
         %Client{} = client,
@@ -6665,6 +6742,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_dedicated_ip_warmup_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dedicated_ip_warmup_attributes_errors()}
   def put_dedicated_ip_warmup_attributes(%Client{} = client, ip, input, options \\ []) do
     url_path = "/v2/email/dedicated-ips/#{AWS.Util.encode_uri(ip)}/warmup"
@@ -6710,6 +6788,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_deliverability_dashboard_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_deliverability_dashboard_option_errors()}
   def put_deliverability_dashboard_option(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/deliverability-dashboard"
@@ -6743,6 +6822,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_configuration_set_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_configuration_set_attributes_errors()}
   def put_email_identity_configuration_set_attributes(
         %Client{} = client,
@@ -6781,6 +6861,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_dkim_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_dkim_attributes_errors()}
   def put_email_identity_dkim_attributes(%Client{} = client, email_identity, input, options \\ []) do
     url_path = "/v2/email/identities/#{AWS.Util.encode_uri(email_identity)}/dkim"
@@ -6836,6 +6917,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_dkim_signing_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_dkim_signing_attributes_errors()}
   def put_email_identity_dkim_signing_attributes(
         %Client{} = client,
@@ -6892,6 +6974,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_feedback_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_feedback_attributes_errors()}
   def put_email_identity_feedback_attributes(
         %Client{} = client,
@@ -6931,6 +7014,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, put_email_identity_mail_from_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_email_identity_mail_from_attributes_errors()}
   def put_email_identity_mail_from_attributes(
         %Client{} = client,
@@ -6964,6 +7048,7 @@ defmodule AWS.SESv2 do
   @spec put_suppressed_destination(map(), put_suppressed_destination_request(), list()) ::
           {:ok, put_suppressed_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_suppressed_destination_errors()}
   def put_suppressed_destination(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/suppression/addresses"
@@ -6992,6 +7077,7 @@ defmodule AWS.SESv2 do
   @spec send_bulk_email(map(), send_bulk_email_request(), list()) ::
           {:ok, send_bulk_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_bulk_email_errors()}
   def send_bulk_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-bulk-emails"
@@ -7036,6 +7122,7 @@ defmodule AWS.SESv2 do
   @spec send_custom_verification_email(map(), send_custom_verification_email_request(), list()) ::
           {:ok, send_custom_verification_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_custom_verification_email_errors()}
   def send_custom_verification_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-custom-verification-emails"
@@ -7088,6 +7175,7 @@ defmodule AWS.SESv2 do
   @spec send_email(map(), send_email_request(), list()) ::
           {:ok, send_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_email_errors()}
   def send_email(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/outbound-emails"
@@ -7130,6 +7218,7 @@ defmodule AWS.SESv2 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
@@ -7167,6 +7256,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, test_render_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_render_email_template_errors()}
   def test_render_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}/render"
@@ -7195,6 +7285,7 @@ defmodule AWS.SESv2 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v2/email/tags"
@@ -7241,6 +7332,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_configuration_set_event_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(
         %Client{} = client,
@@ -7281,6 +7373,7 @@ defmodule AWS.SESv2 do
   @spec update_contact(map(), String.t(), String.t(), update_contact_request(), list()) ::
           {:ok, update_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, contact_list_name, email_address, input, options \\ []) do
     url_path =
@@ -7313,6 +7406,7 @@ defmodule AWS.SESv2 do
   @spec update_contact_list(map(), String.t(), update_contact_list_request(), list()) ::
           {:ok, update_contact_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_contact_list_errors()}
   def update_contact_list(%Client{} = client, contact_list_name, input, options \\ []) do
     url_path = "/v2/email/contact-lists/#{AWS.Util.encode_uri(contact_list_name)}"
@@ -7353,6 +7447,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_custom_verification_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_verification_email_template_errors()}
   def update_custom_verification_email_template(
         %Client{} = client,
@@ -7410,6 +7505,7 @@ defmodule AWS.SESv2 do
         ) ::
           {:ok, update_email_identity_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_email_identity_policy_errors()}
   def update_email_identity_policy(
         %Client{} = client,
@@ -7452,6 +7548,7 @@ defmodule AWS.SESv2 do
   @spec update_email_template(map(), String.t(), update_email_template_request(), list()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_email_template_errors()}
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"

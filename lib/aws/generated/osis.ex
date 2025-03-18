@@ -800,6 +800,7 @@ defmodule AWS.OSIS do
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/createPipeline"
@@ -830,6 +831,7 @@ defmodule AWS.OSIS do
   @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/deletePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -858,6 +860,7 @@ defmodule AWS.OSIS do
   @spec get_pipeline(map(), String.t(), list()) ::
           {:ok, get_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -880,6 +883,7 @@ defmodule AWS.OSIS do
   @spec get_pipeline_blueprint(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_pipeline_blueprint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_blueprint_errors()}
   def get_pipeline_blueprint(%Client{} = client, blueprint_name, format \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineBlueprint/#{AWS.Util.encode_uri(blueprint_name)}"
@@ -911,6 +915,7 @@ defmodule AWS.OSIS do
   @spec get_pipeline_change_progress(map(), String.t(), list()) ::
           {:ok, get_pipeline_change_progress_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_change_progress_errors()}
   def get_pipeline_change_progress(%Client{} = client, pipeline_name, options \\ []) do
     url_path = "/2022-01-01/osis/getPipelineChangeProgress/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -931,6 +936,7 @@ defmodule AWS.OSIS do
   @spec list_pipeline_blueprints(map(), list_pipeline_blueprints_request(), list()) ::
           {:ok, list_pipeline_blueprints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipeline_blueprints_errors()}
   def list_pipeline_blueprints(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelineBlueprints"
@@ -963,6 +969,7 @@ defmodule AWS.OSIS do
   @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2022-01-01/osis/listPipelines"
@@ -997,6 +1004,7 @@ defmodule AWS.OSIS do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2022-01-01/osis/listTagsForResource"
@@ -1023,6 +1031,7 @@ defmodule AWS.OSIS do
   @spec start_pipeline(map(), String.t(), start_pipeline_request(), list()) ::
           {:ok, start_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pipeline_errors()}
   def start_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/startPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -1053,6 +1062,7 @@ defmodule AWS.OSIS do
   @spec stop_pipeline(map(), String.t(), stop_pipeline_request(), list()) ::
           {:ok, stop_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_pipeline_errors()}
   def stop_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/stopPipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -1083,6 +1093,7 @@ defmodule AWS.OSIS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/tagResource"
@@ -1119,6 +1130,7 @@ defmodule AWS.OSIS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/untagResource"
@@ -1154,6 +1166,7 @@ defmodule AWS.OSIS do
   @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, pipeline_name, input, options \\ []) do
     url_path = "/2022-01-01/osis/updatePipeline/#{AWS.Util.encode_uri(pipeline_name)}"
@@ -1187,6 +1200,7 @@ defmodule AWS.OSIS do
   @spec validate_pipeline(map(), validate_pipeline_request(), list()) ::
           {:ok, validate_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_pipeline_errors()}
   def validate_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2022-01-01/osis/validatePipeline"

@@ -6843,6 +6843,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, accept_reserved_node_exchange_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_reserved_node_exchange_errors()}
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6861,6 +6862,7 @@ defmodule AWS.Redshift do
   @spec add_partner(map(), partner_integration_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_partner_errors()}
   def add_partner(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6878,6 +6880,7 @@ defmodule AWS.Redshift do
   @spec associate_data_share_consumer(map(), associate_data_share_consumer_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_data_share_consumer_errors()}
   def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6920,6 +6923,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, authorize_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_cluster_security_group_ingress_errors()}
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6938,6 +6942,7 @@ defmodule AWS.Redshift do
   @spec authorize_data_share(map(), authorize_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_data_share_errors()}
   def authorize_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6951,6 +6956,7 @@ defmodule AWS.Redshift do
   @spec authorize_endpoint_access(map(), authorize_endpoint_access_message(), list()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_endpoint_access_errors()}
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6969,6 +6975,7 @@ defmodule AWS.Redshift do
   @spec authorize_snapshot_access(map(), authorize_snapshot_access_message(), list()) ::
           {:ok, authorize_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, authorize_snapshot_access_errors()}
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6982,6 +6989,7 @@ defmodule AWS.Redshift do
   @spec batch_delete_cluster_snapshots(map(), batch_delete_cluster_snapshots_request(), list()) ::
           {:ok, batch_delete_cluster_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_cluster_snapshots_errors()}
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6995,6 +7003,7 @@ defmodule AWS.Redshift do
   @spec batch_modify_cluster_snapshots(map(), batch_modify_cluster_snapshots_message(), list()) ::
           {:ok, batch_modify_cluster_snapshots_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_modify_cluster_snapshots_errors()}
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7008,6 +7017,7 @@ defmodule AWS.Redshift do
   @spec cancel_resize(map(), cancel_resize_message(), list()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_resize_errors()}
   def cancel_resize(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7039,6 +7049,7 @@ defmodule AWS.Redshift do
   @spec copy_cluster_snapshot(map(), copy_cluster_snapshot_message(), list()) ::
           {:ok, copy_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_cluster_snapshot_errors()}
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7052,6 +7063,7 @@ defmodule AWS.Redshift do
   @spec create_authentication_profile(map(), create_authentication_profile_message(), list()) ::
           {:ok, create_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_authentication_profile_errors()}
   def create_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7098,6 +7110,7 @@ defmodule AWS.Redshift do
   @spec create_cluster(map(), create_cluster_message(), list()) ::
           {:ok, create_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7124,6 +7137,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_parameter_group(map(), create_cluster_parameter_group_message(), list()) ::
           {:ok, create_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_parameter_group_errors()}
   def create_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7145,6 +7159,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_security_group(map(), create_cluster_security_group_message(), list()) ::
           {:ok, create_cluster_security_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_security_group_errors()}
   def create_cluster_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7165,6 +7180,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_snapshot(map(), create_cluster_snapshot_message(), list()) ::
           {:ok, create_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_snapshot_errors()}
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7187,6 +7203,7 @@ defmodule AWS.Redshift do
   @spec create_cluster_subnet_group(map(), create_cluster_subnet_group_message(), list()) ::
           {:ok, create_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_subnet_group_errors()}
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7208,6 +7225,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, create_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7221,6 +7239,7 @@ defmodule AWS.Redshift do
   @spec create_endpoint_access(map(), create_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7268,6 +7287,7 @@ defmodule AWS.Redshift do
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7294,6 +7314,7 @@ defmodule AWS.Redshift do
   @spec create_hsm_client_certificate(map(), create_hsm_client_certificate_message(), list()) ::
           {:ok, create_hsm_client_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hsm_client_certificate_errors()}
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7318,6 +7339,7 @@ defmodule AWS.Redshift do
   @spec create_hsm_configuration(map(), create_hsm_configuration_message(), list()) ::
           {:ok, create_hsm_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hsm_configuration_errors()}
   def create_hsm_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7331,6 +7353,7 @@ defmodule AWS.Redshift do
   @spec create_integration(map(), create_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7344,6 +7367,7 @@ defmodule AWS.Redshift do
   @spec create_redshift_idc_application(map(), create_redshift_idc_application_message(), list()) ::
           {:ok, create_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_redshift_idc_application_errors()}
   def create_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7361,6 +7385,7 @@ defmodule AWS.Redshift do
   @spec create_scheduled_action(map(), create_scheduled_action_message(), list()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7381,6 +7406,7 @@ defmodule AWS.Redshift do
   @spec create_snapshot_copy_grant(map(), create_snapshot_copy_grant_message(), list()) ::
           {:ok, create_snapshot_copy_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_copy_grant_errors()}
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7395,6 +7421,7 @@ defmodule AWS.Redshift do
   @spec create_snapshot_schedule(map(), create_snapshot_schedule_message(), list()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_schedule_errors()}
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7415,6 +7442,7 @@ defmodule AWS.Redshift do
   @spec create_tags(map(), create_tags_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7430,6 +7458,7 @@ defmodule AWS.Redshift do
   @spec create_usage_limit(map(), create_usage_limit_message(), list()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7444,6 +7473,7 @@ defmodule AWS.Redshift do
   @spec deauthorize_data_share(map(), deauthorize_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deauthorize_data_share_errors()}
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7457,6 +7487,7 @@ defmodule AWS.Redshift do
   @spec delete_authentication_profile(map(), delete_authentication_profile_message(), list()) ::
           {:ok, delete_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_authentication_profile_errors()}
   def delete_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7492,6 +7523,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster(map(), delete_cluster_message(), list()) ::
           {:ok, delete_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7508,6 +7540,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_parameter_group(map(), delete_cluster_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_parameter_group_errors()}
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7529,6 +7562,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_security_group(map(), delete_cluster_security_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_security_group_errors()}
   def delete_cluster_security_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7554,6 +7588,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_snapshot(map(), delete_cluster_snapshot_message(), list()) ::
           {:ok, delete_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_snapshot_errors()}
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7567,6 +7602,7 @@ defmodule AWS.Redshift do
   @spec delete_cluster_subnet_group(map(), delete_cluster_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_subnet_group_errors()}
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7584,6 +7620,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7597,6 +7634,7 @@ defmodule AWS.Redshift do
   @spec delete_endpoint_access(map(), delete_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7610,6 +7648,7 @@ defmodule AWS.Redshift do
   @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7623,6 +7662,7 @@ defmodule AWS.Redshift do
   @spec delete_hsm_client_certificate(map(), delete_hsm_client_certificate_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hsm_client_certificate_errors()}
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7636,6 +7676,7 @@ defmodule AWS.Redshift do
   @spec delete_hsm_configuration(map(), delete_hsm_configuration_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hsm_configuration_errors()}
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7649,6 +7690,7 @@ defmodule AWS.Redshift do
   @spec delete_integration(map(), delete_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7665,6 +7707,7 @@ defmodule AWS.Redshift do
   @spec delete_partner(map(), partner_integration_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_partner_errors()}
   def delete_partner(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7678,6 +7721,7 @@ defmodule AWS.Redshift do
   @spec delete_redshift_idc_application(map(), delete_redshift_idc_application_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_redshift_idc_application_errors()}
   def delete_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7691,6 +7735,7 @@ defmodule AWS.Redshift do
   @spec delete_resource_policy(map(), delete_resource_policy_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7704,6 +7749,7 @@ defmodule AWS.Redshift do
   @spec delete_scheduled_action(map(), delete_scheduled_action_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7717,6 +7763,7 @@ defmodule AWS.Redshift do
   @spec delete_snapshot_copy_grant(map(), delete_snapshot_copy_grant_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_copy_grant_errors()}
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7730,6 +7777,7 @@ defmodule AWS.Redshift do
   @spec delete_snapshot_schedule(map(), delete_snapshot_schedule_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7746,6 +7794,7 @@ defmodule AWS.Redshift do
   @spec delete_tags(map(), delete_tags_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7759,6 +7808,7 @@ defmodule AWS.Redshift do
   @spec delete_usage_limit(map(), delete_usage_limit_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7773,6 +7823,7 @@ defmodule AWS.Redshift do
   @spec deregister_namespace(map(), deregister_namespace_input_message(), list()) ::
           {:ok, deregister_namespace_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_namespace_errors()}
   def deregister_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7786,6 +7837,7 @@ defmodule AWS.Redshift do
   @spec describe_account_attributes(map(), describe_account_attributes_message(), list()) ::
           {:ok, account_attribute_list(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -7802,6 +7854,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_authentication_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_authentication_profiles_errors()}
   def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7815,6 +7868,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_db_revisions(map(), describe_cluster_db_revisions_message(), list()) ::
           {:ok, cluster_db_revisions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_db_revisions_errors()}
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7855,6 +7909,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_parameter_groups_errors()}
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7885,6 +7940,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_parameters(map(), describe_cluster_parameters_message(), list()) ::
           {:ok, cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_parameters_errors()}
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7924,6 +7980,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_security_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_security_groups_errors()}
   def describe_cluster_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7958,6 +8015,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_snapshots(map(), describe_cluster_snapshots_message(), list()) ::
           {:ok, snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_snapshots_errors()}
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7988,6 +8046,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_subnet_groups(map(), describe_cluster_subnet_groups_message(), list()) ::
           {:ok, cluster_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_subnet_groups_errors()}
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8001,6 +8060,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_tracks(map(), describe_cluster_tracks_message(), list()) ::
           {:ok, track_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_tracks_errors()}
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8022,6 +8082,7 @@ defmodule AWS.Redshift do
   @spec describe_cluster_versions(map(), describe_cluster_versions_message(), list()) ::
           {:ok, cluster_versions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_cluster_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8053,6 +8114,7 @@ defmodule AWS.Redshift do
   @spec describe_clusters(map(), describe_clusters_message(), list()) ::
           {:ok, clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8070,6 +8132,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, custom_domain_associations_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_custom_domain_associations_errors()}
   def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8085,6 +8148,7 @@ defmodule AWS.Redshift do
   @spec describe_data_shares(map(), describe_data_shares_message(), list()) ::
           {:ok, describe_data_shares_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_shares_errors()}
   def describe_data_shares(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8103,6 +8167,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_data_shares_for_consumer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_shares_for_consumer_errors()}
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8121,6 +8186,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_data_shares_for_producer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_shares_for_producer_errors()}
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8143,6 +8209,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_default_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8155,6 +8222,7 @@ defmodule AWS.Redshift do
   @spec describe_endpoint_access(map(), describe_endpoint_access_message(), list()) ::
           {:ok, endpoint_access_list(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoint_access_errors()}
   def describe_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8168,6 +8236,7 @@ defmodule AWS.Redshift do
   @spec describe_endpoint_authorization(map(), describe_endpoint_authorization_message(), list()) ::
           {:ok, endpoint_authorization_list(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoint_authorization_errors()}
   def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8186,6 +8255,7 @@ defmodule AWS.Redshift do
   @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8215,6 +8285,7 @@ defmodule AWS.Redshift do
   @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8234,6 +8305,7 @@ defmodule AWS.Redshift do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8267,6 +8339,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, hsm_client_certificate_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hsm_client_certificates_errors()}
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8297,6 +8370,7 @@ defmodule AWS.Redshift do
   @spec describe_hsm_configurations(map(), describe_hsm_configurations_message(), list()) ::
           {:ok, hsm_configuration_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_hsm_configurations_errors()}
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8310,6 +8384,7 @@ defmodule AWS.Redshift do
   @spec describe_inbound_integrations(map(), describe_inbound_integrations_message(), list()) ::
           {:ok, inbound_integrations_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8323,6 +8398,7 @@ defmodule AWS.Redshift do
   @spec describe_integrations(map(), describe_integrations_message(), list()) ::
           {:ok, integrations_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8337,6 +8413,7 @@ defmodule AWS.Redshift do
   @spec describe_logging_status(map(), describe_logging_status_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_logging_status_errors()}
   def describe_logging_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8356,6 +8433,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, node_configuration_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_node_configuration_options_errors()}
   def describe_node_configuration_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8387,6 +8465,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, orderable_cluster_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8399,6 +8478,7 @@ defmodule AWS.Redshift do
   @spec describe_partners(map(), describe_partners_input_message(), list()) ::
           {:ok, describe_partners_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_partners_errors()}
   def describe_partners(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8416,6 +8496,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_redshift_idc_applications_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_redshift_idc_applications_errors()}
   def describe_redshift_idc_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8436,6 +8517,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, describe_reserved_node_exchange_status_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_node_exchange_status_errors()}
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8467,6 +8549,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, reserved_node_offerings_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_node_offerings_errors()}
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8480,6 +8563,7 @@ defmodule AWS.Redshift do
   @spec describe_reserved_nodes(map(), describe_reserved_nodes_message(), list()) ::
           {:ok, reserved_nodes_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8507,6 +8591,7 @@ defmodule AWS.Redshift do
   @spec describe_resize(map(), describe_resize_message(), list()) ::
           {:ok, resize_progress_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resize_errors()}
   def describe_resize(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8520,6 +8605,7 @@ defmodule AWS.Redshift do
   @spec describe_scheduled_actions(map(), describe_scheduled_actions_message(), list()) ::
           {:ok, scheduled_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8539,6 +8625,7 @@ defmodule AWS.Redshift do
   @spec describe_snapshot_copy_grants(map(), describe_snapshot_copy_grants_message(), list()) ::
           {:ok, snapshot_copy_grant_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshot_copy_grants_errors()}
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8552,6 +8639,7 @@ defmodule AWS.Redshift do
   @spec describe_snapshot_schedules(map(), describe_snapshot_schedules_message(), list()) ::
           {:ok, describe_snapshot_schedules_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_snapshot_schedules(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8564,6 +8652,7 @@ defmodule AWS.Redshift do
   @spec describe_storage(map(), %{}, list()) ::
           {:ok, customer_storage_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_storage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -8585,6 +8674,7 @@ defmodule AWS.Redshift do
   @spec describe_table_restore_status(map(), describe_table_restore_status_message(), list()) ::
           {:ok, table_restore_status_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_table_restore_status_errors()}
   def describe_table_restore_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8628,6 +8718,7 @@ defmodule AWS.Redshift do
   @spec describe_tags(map(), describe_tags_message(), list()) ::
           {:ok, tagged_resource_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8663,6 +8754,7 @@ defmodule AWS.Redshift do
   @spec describe_usage_limits(map(), describe_usage_limits_message(), list()) ::
           {:ok, usage_limit_list(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_usage_limits_errors()}
   def describe_usage_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8677,6 +8769,7 @@ defmodule AWS.Redshift do
   @spec disable_logging(map(), disable_logging_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_logging_errors()}
   def disable_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8697,6 +8790,7 @@ defmodule AWS.Redshift do
   @spec disable_snapshot_copy(map(), disable_snapshot_copy_message(), list()) ::
           {:ok, disable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_snapshot_copy_errors()}
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8715,6 +8809,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_data_share_consumer_errors()}
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8729,6 +8824,7 @@ defmodule AWS.Redshift do
   @spec enable_logging(map(), enable_logging_message(), list()) ::
           {:ok, logging_status(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_logging_errors()}
   def enable_logging(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8743,6 +8839,7 @@ defmodule AWS.Redshift do
   @spec enable_snapshot_copy(map(), enable_snapshot_copy_message(), list()) ::
           {:ok, enable_snapshot_copy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_snapshot_copy_errors()}
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8757,6 +8854,7 @@ defmodule AWS.Redshift do
   @spec failover_primary_compute(map(), failover_primary_compute_input_message(), list()) ::
           {:ok, failover_primary_compute_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_primary_compute_errors()}
   def failover_primary_compute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8803,6 +8901,7 @@ defmodule AWS.Redshift do
   @spec get_cluster_credentials(map(), get_cluster_credentials_message(), list()) ::
           {:ok, cluster_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_credentials_errors()}
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8835,6 +8934,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, cluster_extended_credentials(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_credentials_with_iam_errors()}
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8857,6 +8957,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, get_reserved_node_exchange_configuration_options_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reserved_node_exchange_configuration_options_errors()}
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8882,6 +8983,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, get_reserved_node_exchange_offerings_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reserved_node_exchange_offerings_errors()}
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8895,6 +8997,7 @@ defmodule AWS.Redshift do
   @spec get_resource_policy(map(), get_resource_policy_message(), list()) ::
           {:ok, get_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8909,6 +9012,7 @@ defmodule AWS.Redshift do
   @spec list_recommendations(map(), list_recommendations_message(), list()) ::
           {:ok, list_recommendations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8925,6 +9029,7 @@ defmodule AWS.Redshift do
   @spec modify_aqua_configuration(map(), modify_aqua_input_message(), list()) ::
           {:ok, modify_aqua_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_aqua_configuration_errors()}
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8938,6 +9043,7 @@ defmodule AWS.Redshift do
   @spec modify_authentication_profile(map(), modify_authentication_profile_message(), list()) ::
           {:ok, modify_authentication_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_authentication_profile_errors()}
   def modify_authentication_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8990,6 +9096,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster(map(), modify_cluster_message(), list()) ::
           {:ok, modify_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9006,6 +9113,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_db_revision(map(), modify_cluster_db_revision_message(), list()) ::
           {:ok, modify_cluster_db_revision_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_db_revision_errors()}
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9024,6 +9132,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_iam_roles(map(), modify_cluster_iam_roles_message(), list()) ::
           {:ok, modify_cluster_iam_roles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_iam_roles_errors()}
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9037,6 +9146,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_maintenance(map(), modify_cluster_maintenance_message(), list()) ::
           {:ok, modify_cluster_maintenance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_maintenance_errors()}
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9056,6 +9166,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_parameter_group(map(), modify_cluster_parameter_group_message(), list()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_parameter_group_errors()}
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9072,6 +9183,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_snapshot(map(), modify_cluster_snapshot_message(), list()) ::
           {:ok, modify_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_snapshot_errors()}
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9089,6 +9201,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_snapshot_schedule_errors()}
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9130,6 +9243,7 @@ defmodule AWS.Redshift do
   @spec modify_cluster_subnet_group(map(), modify_cluster_subnet_group_message(), list()) ::
           {:ok, modify_cluster_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_cluster_subnet_group_errors()}
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9147,6 +9261,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, modify_custom_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_custom_domain_association_errors()}
   def modify_custom_domain_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9160,6 +9275,7 @@ defmodule AWS.Redshift do
   @spec modify_endpoint_access(map(), modify_endpoint_access_message(), list()) ::
           {:ok, endpoint_access(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_endpoint_access_errors()}
   def modify_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9173,6 +9289,7 @@ defmodule AWS.Redshift do
   @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9186,6 +9303,7 @@ defmodule AWS.Redshift do
   @spec modify_integration(map(), modify_integration_message(), list()) ::
           {:ok, integration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9199,6 +9317,7 @@ defmodule AWS.Redshift do
   @spec modify_redshift_idc_application(map(), modify_redshift_idc_application_message(), list()) ::
           {:ok, modify_redshift_idc_application_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_redshift_idc_application_errors()}
   def modify_redshift_idc_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9212,6 +9331,7 @@ defmodule AWS.Redshift do
   @spec modify_scheduled_action(map(), modify_scheduled_action_message(), list()) ::
           {:ok, scheduled_action(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_scheduled_action_errors()}
   def modify_scheduled_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9242,6 +9362,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, modify_snapshot_copy_retention_period_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_snapshot_copy_retention_period_errors()}
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9258,6 +9379,7 @@ defmodule AWS.Redshift do
   @spec modify_snapshot_schedule(map(), modify_snapshot_schedule_message(), list()) ::
           {:ok, snapshot_schedule(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_snapshot_schedule_errors()}
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9273,6 +9395,7 @@ defmodule AWS.Redshift do
   @spec modify_usage_limit(map(), modify_usage_limit_message(), list()) ::
           {:ok, usage_limit(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_usage_limit_errors()}
   def modify_usage_limit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9286,6 +9409,7 @@ defmodule AWS.Redshift do
   @spec pause_cluster(map(), pause_cluster_message(), list()) ::
           {:ok, pause_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, pause_cluster_errors()}
   def pause_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9311,6 +9435,7 @@ defmodule AWS.Redshift do
   @spec purchase_reserved_node_offering(map(), purchase_reserved_node_offering_message(), list()) ::
           {:ok, purchase_reserved_node_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_reserved_node_offering_errors()}
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9324,6 +9449,7 @@ defmodule AWS.Redshift do
   @spec put_resource_policy(map(), put_resource_policy_message(), list()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9346,6 +9472,7 @@ defmodule AWS.Redshift do
   @spec reboot_cluster(map(), reboot_cluster_message(), list()) ::
           {:ok, reboot_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_cluster_errors()}
   def reboot_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9360,6 +9487,7 @@ defmodule AWS.Redshift do
   @spec register_namespace(map(), register_namespace_input_message(), list()) ::
           {:ok, register_namespace_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_namespace_errors()}
   def register_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9373,6 +9501,7 @@ defmodule AWS.Redshift do
   @spec reject_data_share(map(), reject_data_share_message(), list()) ::
           {:ok, data_share(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_data_share_errors()}
   def reject_data_share(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9391,6 +9520,7 @@ defmodule AWS.Redshift do
   @spec reset_cluster_parameter_group(map(), reset_cluster_parameter_group_message(), list()) ::
           {:ok, cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_cluster_parameter_group_errors()}
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9438,6 +9568,7 @@ defmodule AWS.Redshift do
   @spec resize_cluster(map(), resize_cluster_message(), list()) ::
           {:ok, resize_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resize_cluster_errors()}
   def resize_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9495,6 +9626,7 @@ defmodule AWS.Redshift do
   @spec restore_from_cluster_snapshot(map(), restore_from_cluster_snapshot_message(), list()) ::
           {:ok, restore_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_from_cluster_snapshot_errors()}
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9533,6 +9665,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, restore_table_from_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_table_from_cluster_snapshot_errors()}
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9546,6 +9679,7 @@ defmodule AWS.Redshift do
   @spec resume_cluster(map(), resume_cluster_message(), list()) ::
           {:ok, resume_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_cluster_errors()}
   def resume_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9571,6 +9705,7 @@ defmodule AWS.Redshift do
         ) ::
           {:ok, revoke_cluster_security_group_ingress_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_cluster_security_group_ingress_errors()}
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9584,6 +9719,7 @@ defmodule AWS.Redshift do
   @spec revoke_endpoint_access(map(), revoke_endpoint_access_message(), list()) ::
           {:ok, endpoint_authorization(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_endpoint_access_errors()}
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9606,6 +9742,7 @@ defmodule AWS.Redshift do
   @spec revoke_snapshot_access(map(), revoke_snapshot_access_message(), list()) ::
           {:ok, revoke_snapshot_access_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_snapshot_access_errors()}
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9619,6 +9756,7 @@ defmodule AWS.Redshift do
   @spec rotate_encryption_key(map(), rotate_encryption_key_message(), list()) ::
           {:ok, rotate_encryption_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rotate_encryption_key_errors()}
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9632,6 +9770,7 @@ defmodule AWS.Redshift do
   @spec update_partner_status(map(), update_partner_status_input_message(), list()) ::
           {:ok, partner_integration_output_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_partner_status_errors()}
   def update_partner_status(%Client{} = client, input, options \\ []) do
     meta = metadata()

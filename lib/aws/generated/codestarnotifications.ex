@@ -653,6 +653,7 @@ defmodule AWS.Codestarnotifications do
   @spec create_notification_rule(map(), create_notification_rule_request(), list()) ::
           {:ok, create_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notification_rule_errors()}
   def create_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/createNotificationRule"
@@ -681,6 +682,7 @@ defmodule AWS.Codestarnotifications do
   @spec delete_notification_rule(map(), delete_notification_rule_request(), list()) ::
           {:ok, delete_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_rule_errors()}
   def delete_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/deleteNotificationRule"
@@ -709,6 +711,7 @@ defmodule AWS.Codestarnotifications do
   @spec delete_target(map(), delete_target_request(), list()) ::
           {:ok, delete_target_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_target_errors()}
   def delete_target(%Client{} = client, input, options \\ []) do
     url_path = "/deleteTarget"
@@ -737,6 +740,7 @@ defmodule AWS.Codestarnotifications do
   @spec describe_notification_rule(map(), describe_notification_rule_request(), list()) ::
           {:ok, describe_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notification_rule_errors()}
   def describe_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/describeNotificationRule"
@@ -766,6 +770,7 @@ defmodule AWS.Codestarnotifications do
   @spec list_event_types(map(), list_event_types_request(), list()) ::
           {:ok, list_event_types_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_types_errors()}
   def list_event_types(%Client{} = client, input, options \\ []) do
     url_path = "/listEventTypes"
@@ -794,6 +799,7 @@ defmodule AWS.Codestarnotifications do
   @spec list_notification_rules(map(), list_notification_rules_request(), list()) ::
           {:ok, list_notification_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_rules_errors()}
   def list_notification_rules(%Client{} = client, input, options \\ []) do
     url_path = "/listNotificationRules"
@@ -822,6 +828,7 @@ defmodule AWS.Codestarnotifications do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/listTagsForResource"
@@ -851,6 +858,7 @@ defmodule AWS.Codestarnotifications do
   @spec list_targets(map(), list_targets_request(), list()) ::
           {:ok, list_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_errors()}
   def list_targets(%Client{} = client, input, options \\ []) do
     url_path = "/listTargets"
@@ -883,6 +891,7 @@ defmodule AWS.Codestarnotifications do
   @spec subscribe(map(), subscribe_request(), list()) ::
           {:ok, subscribe_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, subscribe_errors()}
   def subscribe(%Client{} = client, input, options \\ []) do
     url_path = "/subscribe"
@@ -911,6 +920,7 @@ defmodule AWS.Codestarnotifications do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagResource"
@@ -942,6 +952,7 @@ defmodule AWS.Codestarnotifications do
   @spec unsubscribe(map(), unsubscribe_request(), list()) ::
           {:ok, unsubscribe_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unsubscribe_errors()}
   def unsubscribe(%Client{} = client, input, options \\ []) do
     url_path = "/unsubscribe"
@@ -971,6 +982,7 @@ defmodule AWS.Codestarnotifications do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/untagResource/#{AWS.Util.encode_uri(arn)}"
@@ -1011,6 +1023,7 @@ defmodule AWS.Codestarnotifications do
   @spec update_notification_rule(map(), update_notification_rule_request(), list()) ::
           {:ok, update_notification_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_rule_errors()}
   def update_notification_rule(%Client{} = client, input, options \\ []) do
     url_path = "/updateNotificationRule"

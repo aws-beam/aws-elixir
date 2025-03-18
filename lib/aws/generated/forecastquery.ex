@@ -192,6 +192,7 @@ defmodule AWS.Forecastquery do
   @spec query_forecast(map(), query_forecast_request(), list()) ::
           {:ok, query_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_forecast_errors()}
   def query_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -205,6 +206,7 @@ defmodule AWS.Forecastquery do
   @spec query_what_if_forecast(map(), query_what_if_forecast_request(), list()) ::
           {:ok, query_what_if_forecast_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_what_if_forecast_errors()}
   def query_what_if_forecast(%Client{} = client, input, options \\ []) do
     meta = metadata()

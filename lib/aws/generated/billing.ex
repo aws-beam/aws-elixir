@@ -542,6 +542,7 @@ defmodule AWS.Billing do
   @spec create_billing_view(map(), create_billing_view_request(), list()) ::
           {:ok, create_billing_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_billing_view_errors()}
   def create_billing_view(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -555,6 +556,7 @@ defmodule AWS.Billing do
   @spec delete_billing_view(map(), delete_billing_view_request(), list()) ::
           {:ok, delete_billing_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_billing_view_errors()}
   def delete_billing_view(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -568,6 +570,7 @@ defmodule AWS.Billing do
   @spec get_billing_view(map(), get_billing_view_request(), list()) ::
           {:ok, get_billing_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_billing_view_errors()}
   def get_billing_view(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -582,6 +585,7 @@ defmodule AWS.Billing do
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -600,6 +604,7 @@ defmodule AWS.Billing do
   @spec list_billing_views(map(), list_billing_views_request(), list()) ::
           {:ok, list_billing_views_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_billing_views_errors()}
   def list_billing_views(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -618,6 +623,7 @@ defmodule AWS.Billing do
         ) ::
           {:ok, list_source_views_for_billing_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_source_views_for_billing_view_errors()}
   def list_source_views_for_billing_view(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -631,6 +637,7 @@ defmodule AWS.Billing do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -645,6 +652,7 @@ defmodule AWS.Billing do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -661,6 +669,7 @@ defmodule AWS.Billing do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -674,6 +683,7 @@ defmodule AWS.Billing do
   @spec update_billing_view(map(), update_billing_view_request(), list()) ::
           {:ok, update_billing_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_billing_view_errors()}
   def update_billing_view(%Client{} = client, input, options \\ []) do
     meta = metadata()

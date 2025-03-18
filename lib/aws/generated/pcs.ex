@@ -1070,6 +1070,7 @@ defmodule AWS.PCS do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1100,6 +1101,7 @@ defmodule AWS.PCS do
   @spec create_compute_node_group(map(), create_compute_node_group_request(), list()) ::
           {:ok, create_compute_node_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_compute_node_group_errors()}
   def create_compute_node_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1116,6 +1118,7 @@ defmodule AWS.PCS do
   @spec create_queue(map(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1132,6 +1135,7 @@ defmodule AWS.PCS do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1148,6 +1152,7 @@ defmodule AWS.PCS do
   @spec delete_compute_node_group(map(), delete_compute_node_group_request(), list()) ::
           {:ok, delete_compute_node_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_compute_node_group_errors()}
   def delete_compute_node_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1166,6 +1171,7 @@ defmodule AWS.PCS do
   @spec delete_queue(map(), delete_queue_request(), list()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1184,6 +1190,7 @@ defmodule AWS.PCS do
   @spec get_cluster(map(), get_cluster_request(), list()) ::
           {:ok, get_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1202,6 +1209,7 @@ defmodule AWS.PCS do
   @spec get_compute_node_group(map(), get_compute_node_group_request(), list()) ::
           {:ok, get_compute_node_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_compute_node_group_errors()}
   def get_compute_node_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1218,6 +1226,7 @@ defmodule AWS.PCS do
   @spec get_queue(map(), get_queue_request(), list()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1231,6 +1240,7 @@ defmodule AWS.PCS do
   @spec list_clusters(map(), list_clusters_request(), list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1244,6 +1254,7 @@ defmodule AWS.PCS do
   @spec list_compute_node_groups(map(), list_compute_node_groups_request(), list()) ::
           {:ok, list_compute_node_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compute_node_groups_errors()}
   def list_compute_node_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1257,6 +1268,7 @@ defmodule AWS.PCS do
   @spec list_queues(map(), list_queues_request(), list()) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1270,6 +1282,7 @@ defmodule AWS.PCS do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1291,6 +1304,7 @@ defmodule AWS.PCS do
         ) ::
           {:ok, register_compute_node_group_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_compute_node_group_instance_errors()}
   def register_compute_node_group_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1311,6 +1325,7 @@ defmodule AWS.PCS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1327,6 +1342,7 @@ defmodule AWS.PCS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1345,6 +1361,7 @@ defmodule AWS.PCS do
   @spec update_compute_node_group(map(), update_compute_node_group_request(), list()) ::
           {:ok, update_compute_node_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_compute_node_group_errors()}
   def update_compute_node_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1361,6 +1378,7 @@ defmodule AWS.PCS do
   @spec update_queue(map(), update_queue_request(), list()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, input, options \\ []) do
     meta = metadata()

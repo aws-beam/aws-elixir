@@ -4163,6 +4163,7 @@ defmodule AWS.QBusiness do
   @spec associate_permission(map(), String.t(), associate_permission_request(), list()) ::
           {:ok, associate_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_permission_errors()}
   def associate_permission(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
@@ -4201,6 +4202,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -4247,6 +4249,7 @@ defmodule AWS.QBusiness do
   @spec batch_put_document(map(), String.t(), String.t(), batch_put_document_request(), list()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -4281,6 +4284,7 @@ defmodule AWS.QBusiness do
   @spec cancel_subscription(map(), String.t(), String.t(), cancel_subscription_request(), list()) ::
           {:ok, cancel_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_subscription_errors()}
   def cancel_subscription(
         %Client{} = client,
@@ -4317,6 +4321,7 @@ defmodule AWS.QBusiness do
   @spec chat(map(), String.t(), chat_input(), list()) ::
           {:ok, chat_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, chat_errors()}
   def chat(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations"
@@ -4354,6 +4359,7 @@ defmodule AWS.QBusiness do
   @spec chat_sync(map(), String.t(), chat_sync_input(), list()) ::
           {:ok, chat_sync_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, chat_sync_errors()}
   def chat_sync(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/conversations?sync"
@@ -4407,6 +4413,7 @@ defmodule AWS.QBusiness do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -4446,6 +4453,7 @@ defmodule AWS.QBusiness do
   @spec create_data_accessor(map(), String.t(), create_data_accessor_request(), list()) ::
           {:ok, create_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_accessor_errors()}
   def create_data_accessor(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataaccessors"
@@ -4477,6 +4485,7 @@ defmodule AWS.QBusiness do
   @spec create_data_source(map(), String.t(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -4519,6 +4528,7 @@ defmodule AWS.QBusiness do
   @spec create_index(map(), String.t(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/indices"
@@ -4547,6 +4557,7 @@ defmodule AWS.QBusiness do
   @spec create_plugin(map(), String.t(), create_plugin_request(), list()) ::
           {:ok, create_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_plugin_errors()}
   def create_plugin(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/plugins"
@@ -4575,6 +4586,7 @@ defmodule AWS.QBusiness do
   @spec create_retriever(map(), String.t(), create_retriever_request(), list()) ::
           {:ok, create_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_retriever_errors()}
   def create_retriever(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/retrievers"
@@ -4608,6 +4620,7 @@ defmodule AWS.QBusiness do
   @spec create_subscription(map(), String.t(), create_subscription_request(), list()) ::
           {:ok, create_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_subscription_errors()}
   def create_subscription(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/subscriptions"
@@ -4638,6 +4651,7 @@ defmodule AWS.QBusiness do
   @spec create_user(map(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/users"
@@ -4666,6 +4680,7 @@ defmodule AWS.QBusiness do
   @spec create_web_experience(map(), String.t(), create_web_experience_request(), list()) ::
           {:ok, create_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_web_experience_errors()}
   def create_web_experience(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/experiences"
@@ -4694,6 +4709,7 @@ defmodule AWS.QBusiness do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -4729,6 +4745,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, delete_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attachment_errors()}
   def delete_attachment(
         %Client{} = client,
@@ -4776,6 +4793,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, delete_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_chat_controls_configuration_errors()}
   def delete_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
@@ -4804,6 +4822,7 @@ defmodule AWS.QBusiness do
   @spec delete_conversation(map(), String.t(), String.t(), delete_conversation_request(), list()) ::
           {:ok, delete_conversation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_conversation_errors()}
   def delete_conversation(
         %Client{} = client,
@@ -4855,6 +4874,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, delete_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_accessor_errors()}
   def delete_data_accessor(
         %Client{} = client,
@@ -4902,6 +4922,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(
         %Client{} = client,
@@ -4954,6 +4975,7 @@ defmodule AWS.QBusiness do
   @spec delete_group(map(), String.t(), String.t(), String.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, application_id, group_name, index_id, input, options \\ []) do
     url_path =
@@ -4989,6 +5011,7 @@ defmodule AWS.QBusiness do
   @spec delete_index(map(), String.t(), String.t(), delete_index_request(), list()) ::
           {:ok, delete_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -5019,6 +5042,7 @@ defmodule AWS.QBusiness do
   @spec delete_plugin(map(), String.t(), String.t(), delete_plugin_request(), list()) ::
           {:ok, delete_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_plugin_errors()}
   def delete_plugin(%Client{} = client, application_id, plugin_id, input, options \\ []) do
     url_path =
@@ -5049,6 +5073,7 @@ defmodule AWS.QBusiness do
   @spec delete_retriever(map(), String.t(), String.t(), delete_retriever_request(), list()) ::
           {:ok, delete_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_retriever_errors()}
   def delete_retriever(%Client{} = client, application_id, retriever_id, input, options \\ []) do
     url_path =
@@ -5079,6 +5104,7 @@ defmodule AWS.QBusiness do
   @spec delete_user(map(), String.t(), String.t(), delete_user_request(), list()) ::
           {:ok, delete_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, application_id, user_id, input, options \\ []) do
     url_path =
@@ -5115,6 +5141,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, delete_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_web_experience_errors()}
   def delete_web_experience(
         %Client{} = client,
@@ -5162,6 +5189,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, disassociate_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_permission_errors()}
   def disassociate_permission(
         %Client{} = client,
@@ -5198,6 +5226,7 @@ defmodule AWS.QBusiness do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -5223,6 +5252,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, get_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_chat_controls_configuration_errors()}
   def get_chat_controls_configuration(
         %Client{} = client,
@@ -5268,6 +5298,7 @@ defmodule AWS.QBusiness do
   @spec get_data_accessor(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_accessor_errors()}
   def get_data_accessor(%Client{} = client, application_id, data_accessor_id, options \\ []) do
     url_path =
@@ -5287,6 +5318,7 @@ defmodule AWS.QBusiness do
   @spec get_data_source(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, application_id, data_source_id, index_id, options \\ []) do
     url_path =
@@ -5306,6 +5338,7 @@ defmodule AWS.QBusiness do
   @spec get_group(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(
         %Client{} = client,
@@ -5339,6 +5372,7 @@ defmodule AWS.QBusiness do
   @spec get_index(map(), String.t(), String.t(), list()) ::
           {:ok, get_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_index_errors()}
   def get_index(%Client{} = client, application_id, index_id, options \\ []) do
     url_path =
@@ -5366,6 +5400,7 @@ defmodule AWS.QBusiness do
   @spec get_media(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_media_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_errors()}
   def get_media(
         %Client{} = client,
@@ -5392,6 +5427,7 @@ defmodule AWS.QBusiness do
   @spec get_plugin(map(), String.t(), String.t(), list()) ::
           {:ok, get_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_plugin_errors()}
   def get_plugin(%Client{} = client, application_id, plugin_id, options \\ []) do
     url_path =
@@ -5415,6 +5451,7 @@ defmodule AWS.QBusiness do
   @spec get_policy(map(), String.t(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
@@ -5433,6 +5470,7 @@ defmodule AWS.QBusiness do
   @spec get_retriever(map(), String.t(), String.t(), list()) ::
           {:ok, get_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_retriever_errors()}
   def get_retriever(%Client{} = client, application_id, retriever_id, options \\ []) do
     url_path =
@@ -5454,6 +5492,7 @@ defmodule AWS.QBusiness do
   @spec get_user(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, application_id, user_id, options \\ []) do
     url_path =
@@ -5473,6 +5512,7 @@ defmodule AWS.QBusiness do
   @spec get_web_experience(map(), String.t(), String.t(), list()) ::
           {:ok, get_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_web_experience_errors()}
   def get_web_experience(%Client{} = client, application_id, web_experience_id, options \\ []) do
     url_path =
@@ -5497,6 +5537,7 @@ defmodule AWS.QBusiness do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -5538,6 +5579,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attachments_errors()}
   def list_attachments(
         %Client{} = client,
@@ -5598,6 +5640,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_conversations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_conversations_errors()}
   def list_conversations(
         %Client{} = client,
@@ -5648,6 +5691,7 @@ defmodule AWS.QBusiness do
   @spec list_data_accessors(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_accessors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_accessors_errors()}
   def list_data_accessors(
         %Client{} = client,
@@ -5697,6 +5741,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(
         %Client{} = client,
@@ -5769,6 +5814,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(
         %Client{} = client,
@@ -5817,6 +5863,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_documents_errors()}
   def list_documents(
         %Client{} = client,
@@ -5874,6 +5921,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(
         %Client{} = client,
@@ -5930,6 +5978,7 @@ defmodule AWS.QBusiness do
   @spec list_indices(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(
         %Client{} = client,
@@ -5975,6 +6024,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_messages_errors()}
   def list_messages(
         %Client{} = client,
@@ -6031,6 +6081,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, list_plugin_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_plugin_actions_errors()}
   def list_plugin_actions(
         %Client{} = client,
@@ -6072,6 +6123,7 @@ defmodule AWS.QBusiness do
   @spec list_plugin_type_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_plugin_type_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_plugin_type_actions_errors()}
   def list_plugin_type_actions(
         %Client{} = client,
@@ -6109,6 +6161,7 @@ defmodule AWS.QBusiness do
   @spec list_plugin_type_metadata(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_plugin_type_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_plugin_type_metadata_errors()}
   def list_plugin_type_metadata(
         %Client{} = client,
@@ -6145,6 +6198,7 @@ defmodule AWS.QBusiness do
   @spec list_plugins(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_plugins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_plugins_errors()}
   def list_plugins(
         %Client{} = client,
@@ -6182,6 +6236,7 @@ defmodule AWS.QBusiness do
   @spec list_retrievers(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_retrievers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_retrievers_errors()}
   def list_retrievers(
         %Client{} = client,
@@ -6219,6 +6274,7 @@ defmodule AWS.QBusiness do
   @spec list_subscriptions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscriptions_errors()}
   def list_subscriptions(
         %Client{} = client,
@@ -6259,6 +6315,7 @@ defmodule AWS.QBusiness do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6276,6 +6333,7 @@ defmodule AWS.QBusiness do
   @spec list_web_experiences(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_web_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_web_experiences_errors()}
   def list_web_experiences(
         %Client{} = client,
@@ -6315,6 +6373,7 @@ defmodule AWS.QBusiness do
   @spec put_feedback(map(), String.t(), String.t(), String.t(), put_feedback_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_feedback_errors()}
   def put_feedback(
         %Client{} = client,
@@ -6376,6 +6435,7 @@ defmodule AWS.QBusiness do
   @spec put_group(map(), String.t(), String.t(), put_group_request(), list()) ::
           {:ok, put_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_group_errors()}
   def put_group(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -6417,6 +6477,7 @@ defmodule AWS.QBusiness do
   @spec search_relevant_content(map(), String.t(), search_relevant_content_request(), list()) ::
           {:ok, search_relevant_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_relevant_content_errors()}
   def search_relevant_content(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/relevant-content"
@@ -6455,6 +6516,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(
         %Client{} = client,
@@ -6500,6 +6562,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, stop_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(
         %Client{} = client,
@@ -6542,6 +6605,7 @@ defmodule AWS.QBusiness do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6570,6 +6634,7 @@ defmodule AWS.QBusiness do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6613,6 +6678,7 @@ defmodule AWS.QBusiness do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -6647,6 +6713,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, update_chat_controls_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_chat_controls_configuration_errors()}
   def update_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
@@ -6687,6 +6754,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, update_data_accessor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_accessor_errors()}
   def update_data_accessor(
         %Client{} = client,
@@ -6730,6 +6798,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(
         %Client{} = client,
@@ -6767,6 +6836,7 @@ defmodule AWS.QBusiness do
   @spec update_index(map(), String.t(), String.t(), update_index_request(), list()) ::
           {:ok, update_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, application_id, index_id, input, options \\ []) do
     url_path =
@@ -6797,6 +6867,7 @@ defmodule AWS.QBusiness do
   @spec update_plugin(map(), String.t(), String.t(), update_plugin_request(), list()) ::
           {:ok, update_plugin_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_plugin_errors()}
   def update_plugin(%Client{} = client, application_id, plugin_id, input, options \\ []) do
     url_path =
@@ -6827,6 +6898,7 @@ defmodule AWS.QBusiness do
   @spec update_retriever(map(), String.t(), String.t(), update_retriever_request(), list()) ::
           {:ok, update_retriever_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_retriever_errors()}
   def update_retriever(%Client{} = client, application_id, retriever_id, input, options \\ []) do
     url_path =
@@ -6863,6 +6935,7 @@ defmodule AWS.QBusiness do
   @spec update_subscription(map(), String.t(), String.t(), update_subscription_request(), list()) ::
           {:ok, update_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_subscription_errors()}
   def update_subscription(
         %Client{} = client,
@@ -6899,6 +6972,7 @@ defmodule AWS.QBusiness do
   @spec update_user(map(), String.t(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, application_id, user_id, input, options \\ []) do
     url_path =
@@ -6935,6 +7009,7 @@ defmodule AWS.QBusiness do
         ) ::
           {:ok, update_web_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_web_experience_errors()}
   def update_web_experience(
         %Client{} = client,

@@ -1518,6 +1518,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, associate_configuration_items_to_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_configuration_items_to_application_errors()}
   def associate_configuration_items_to_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1536,6 +1537,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec batch_delete_agents(map(), batch_delete_agents_request(), list()) ::
           {:ok, batch_delete_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_agents_errors()}
   def batch_delete_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1562,6 +1564,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec batch_delete_import_data(map(), batch_delete_import_data_request(), list()) ::
           {:ok, batch_delete_import_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_import_data_errors()}
   def batch_delete_import_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1575,6 +1578,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1593,6 +1597,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec create_tags(map(), create_tags_request(), list()) ::
           {:ok, create_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1607,6 +1612,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec delete_applications(map(), delete_applications_request(), list()) ::
           {:ok, delete_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_applications_errors()}
   def delete_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1623,6 +1629,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec delete_tags(map(), delete_tags_request(), list()) ::
           {:ok, delete_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1640,6 +1647,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_agents(map(), describe_agents_request(), list()) ::
           {:ok, describe_agents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agents_errors()}
   def describe_agents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1659,6 +1667,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, describe_batch_delete_configuration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_batch_delete_configuration_task_errors()}
   def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1697,6 +1706,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_configurations(map(), describe_configurations_request(), list()) ::
           {:ok, describe_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_configurations_errors()}
   def describe_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1714,6 +1724,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_continuous_exports(map(), describe_continuous_exports_request(), list()) ::
           {:ok, describe_continuous_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_continuous_exports_errors()}
   def describe_continuous_exports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1732,6 +1743,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_export_configurations(map(), describe_export_configurations_request(), list()) ::
           {:ok, describe_export_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_configurations_errors()}
   def describe_export_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1748,6 +1760,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_export_tasks(map(), describe_export_tasks_request(), list()) ::
           {:ok, describe_export_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1763,6 +1776,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_import_tasks(map(), describe_import_tasks_request(), list()) ::
           {:ok, describe_import_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_import_tasks_errors()}
   def describe_import_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1792,6 +1806,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec describe_tags(map(), describe_tags_request(), list()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1809,6 +1824,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, disassociate_configuration_items_from_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_configuration_items_from_application_errors()}
   def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1839,6 +1855,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec export_configurations(map(), %{}, list()) ::
           {:ok, export_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_configurations_errors()}
   def export_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1856,6 +1873,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec get_discovery_summary(map(), get_discovery_summary_request(), list()) ::
           {:ok, get_discovery_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_discovery_summary_errors()}
   def get_discovery_summary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1873,6 +1891,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec list_configurations(map(), list_configurations_request(), list()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1887,6 +1906,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec list_server_neighbors(map(), list_server_neighbors_request(), list()) ::
           {:ok, list_server_neighbors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_server_neighbors_errors()}
   def list_server_neighbors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1908,6 +1928,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, start_batch_delete_configuration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_batch_delete_configuration_task_errors()}
   def start_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1921,6 +1942,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec start_continuous_export(map(), start_continuous_export_request(), list()) ::
           {:ok, start_continuous_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_continuous_export_errors()}
   def start_continuous_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1938,6 +1960,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, start_data_collection_by_agent_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_collection_by_agent_ids_errors()}
   def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1982,6 +2005,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec start_export_task(map(), start_export_task_request(), list()) ::
           {:ok, start_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2039,6 +2063,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec start_import_task(map(), start_import_task_request(), list()) ::
           {:ok, start_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_task_errors()}
   def start_import_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2052,6 +2077,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec stop_continuous_export(map(), stop_continuous_export_request(), list()) ::
           {:ok, stop_continuous_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_continuous_export_errors()}
   def stop_continuous_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2069,6 +2095,7 @@ defmodule AWS.ApplicationDiscovery do
         ) ::
           {:ok, stop_data_collection_by_agent_ids_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_data_collection_by_agent_ids_errors()}
   def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2082,6 +2109,7 @@ defmodule AWS.ApplicationDiscovery do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()

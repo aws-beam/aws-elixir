@@ -2095,6 +2095,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, abort_document_version_upload_errors()}
   def abort_document_version_upload(
         %Client{} = client,
@@ -2139,6 +2140,7 @@ defmodule AWS.WorkDocs do
   @spec activate_user(map(), String.t(), activate_user_request(), list()) ::
           {:ok, activate_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_user_errors()}
   def activate_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
@@ -2177,6 +2179,7 @@ defmodule AWS.WorkDocs do
   @spec add_resource_permissions(map(), String.t(), add_resource_permissions_request(), list()) ::
           {:ok, add_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_resource_permissions_errors()}
   def add_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
@@ -2211,6 +2214,7 @@ defmodule AWS.WorkDocs do
   @spec create_comment(map(), String.t(), String.t(), create_comment_request(), list()) ::
           {:ok, create_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_comment_errors()}
   def create_comment(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
@@ -2248,6 +2252,7 @@ defmodule AWS.WorkDocs do
   @spec create_custom_metadata(map(), String.t(), create_custom_metadata_request(), list()) ::
           {:ok, create_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_metadata_errors()}
   def create_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
@@ -2287,6 +2292,7 @@ defmodule AWS.WorkDocs do
   @spec create_folder(map(), create_folder_request(), list()) ::
           {:ok, create_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_folder_errors()}
   def create_folder(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/folders"
@@ -2322,6 +2328,7 @@ defmodule AWS.WorkDocs do
   @spec create_labels(map(), String.t(), create_labels_request(), list()) ::
           {:ok, create_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_labels_errors()}
   def create_labels(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
@@ -2368,6 +2375,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, create_notification_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notification_subscription_errors()}
   def create_notification_subscription(%Client{} = client, organization_id, input, options \\ []) do
     url_path = "/api/v1/organizations/#{AWS.Util.encode_uri(organization_id)}/subscriptions"
@@ -2399,6 +2407,7 @@ defmodule AWS.WorkDocs do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/users"
@@ -2434,6 +2443,7 @@ defmodule AWS.WorkDocs do
   @spec deactivate_user(map(), String.t(), deactivate_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_user_errors()}
   def deactivate_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}/activation"
@@ -2475,6 +2485,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_comment_errors()}
   def delete_comment(
         %Client{} = client,
@@ -2517,6 +2528,7 @@ defmodule AWS.WorkDocs do
   @spec delete_custom_metadata(map(), String.t(), delete_custom_metadata_request(), list()) ::
           {:ok, delete_custom_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_metadata_errors()}
   def delete_custom_metadata(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/customMetadata"
@@ -2558,6 +2570,7 @@ defmodule AWS.WorkDocs do
   @spec delete_document(map(), String.t(), delete_document_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
@@ -2598,6 +2611,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_document_version_errors()}
   def delete_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
@@ -2638,6 +2652,7 @@ defmodule AWS.WorkDocs do
   @spec delete_folder(map(), String.t(), delete_folder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_folder_errors()}
   def delete_folder(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -2672,6 +2687,7 @@ defmodule AWS.WorkDocs do
   @spec delete_folder_contents(map(), String.t(), delete_folder_contents_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_folder_contents_errors()}
   def delete_folder_contents(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}/contents"
@@ -2706,6 +2722,7 @@ defmodule AWS.WorkDocs do
   @spec delete_labels(map(), String.t(), delete_labels_request(), list()) ::
           {:ok, delete_labels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_labels_errors()}
   def delete_labels(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/labels"
@@ -2752,6 +2769,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_subscription_errors()}
   def delete_notification_subscription(
         %Client{} = client,
@@ -2791,6 +2809,7 @@ defmodule AWS.WorkDocs do
   @spec delete_user(map(), String.t(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"
@@ -2838,6 +2857,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_activities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_activities_errors()}
   def describe_activities(
         %Client{} = client,
@@ -2947,6 +2967,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_comments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_comments_errors()}
   def describe_comments(
         %Client{} = client,
@@ -3007,6 +3028,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_document_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_document_versions_errors()}
   def describe_document_versions(
         %Client{} = client,
@@ -3087,6 +3109,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_folder_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_folder_contents_errors()}
   def describe_folder_contents(
         %Client{} = client,
@@ -3176,6 +3199,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_groups_errors()}
   def describe_groups(
         %Client{} = client,
@@ -3243,6 +3267,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_notification_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_notification_subscriptions_errors()}
   def describe_notification_subscriptions(
         %Client{} = client,
@@ -3288,6 +3313,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_resource_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_permissions_errors()}
   def describe_resource_permissions(
         %Client{} = client,
@@ -3355,6 +3381,7 @@ defmodule AWS.WorkDocs do
   @spec describe_root_folders(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, describe_root_folders_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_root_folders_errors()}
   def describe_root_folders(
         %Client{} = client,
@@ -3422,6 +3449,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, describe_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(
         %Client{} = client,
@@ -3534,6 +3562,7 @@ defmodule AWS.WorkDocs do
   @spec get_current_user(map(), String.t(), list()) ::
           {:ok, get_current_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_current_user_errors()}
   def get_current_user(%Client{} = client, authentication_token, options \\ []) do
     url_path = "/api/v1/me"
@@ -3559,6 +3588,7 @@ defmodule AWS.WorkDocs do
   @spec get_document(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_errors()}
   def get_document(
         %Client{} = client,
@@ -3612,6 +3642,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, get_document_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_path_errors()}
   def get_document_path(
         %Client{} = client,
@@ -3674,6 +3705,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, get_document_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_document_version_errors()}
   def get_document_version(
         %Client{} = client,
@@ -3723,6 +3755,7 @@ defmodule AWS.WorkDocs do
   @spec get_folder(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_folder_errors()}
   def get_folder(
         %Client{} = client,
@@ -3776,6 +3809,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, get_folder_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_folder_path_errors()}
   def get_folder_path(
         %Client{} = client,
@@ -3841,6 +3875,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, get_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resources_errors()}
   def get_resources(
         %Client{} = client,
@@ -3916,6 +3951,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, initiate_document_version_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_document_version_upload_errors()}
   def initiate_document_version_upload(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/documents"
@@ -3955,6 +3991,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_all_resource_permissions_errors()}
   def remove_all_resource_permissions(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/api/v1/resources/#{AWS.Util.encode_uri(resource_id)}/permissions"
@@ -3996,6 +4033,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_resource_permission_errors()}
   def remove_resource_permission(
         %Client{} = client,
@@ -4042,6 +4080,7 @@ defmodule AWS.WorkDocs do
   @spec restore_document_versions(map(), String.t(), restore_document_versions_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_document_versions_errors()}
   def restore_document_versions(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documentVersions/restore/#{AWS.Util.encode_uri(document_id)}"
@@ -4077,6 +4116,7 @@ defmodule AWS.WorkDocs do
   @spec search_resources(map(), search_resources_request(), list()) ::
           {:ok, search_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_resources_errors()}
   def search_resources(%Client{} = client, input, options \\ []) do
     url_path = "/api/v1/search"
@@ -4114,6 +4154,7 @@ defmodule AWS.WorkDocs do
   @spec update_document(map(), String.t(), update_document_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_document_errors()}
   def update_document(%Client{} = client, document_id, input, options \\ []) do
     url_path = "/api/v1/documents/#{AWS.Util.encode_uri(document_id)}"
@@ -4160,6 +4201,7 @@ defmodule AWS.WorkDocs do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_document_version_errors()}
   def update_document_version(%Client{} = client, document_id, version_id, input, options \\ []) do
     url_path =
@@ -4198,6 +4240,7 @@ defmodule AWS.WorkDocs do
   @spec update_folder(map(), String.t(), update_folder_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_folder_errors()}
   def update_folder(%Client{} = client, folder_id, input, options \\ []) do
     url_path = "/api/v1/folders/#{AWS.Util.encode_uri(folder_id)}"
@@ -4233,6 +4276,7 @@ defmodule AWS.WorkDocs do
   @spec update_user(map(), String.t(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, user_id, input, options \\ []) do
     url_path = "/api/v1/users/#{AWS.Util.encode_uri(user_id)}"

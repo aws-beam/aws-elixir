@@ -1496,6 +1496,7 @@ defmodule AWS.NeptuneGraph do
   @spec cancel_export_task(map(), String.t(), cancel_export_task_input(), list()) ::
           {:ok, cancel_export_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, task_identifier, input, options \\ []) do
     url_path = "/exporttasks/#{AWS.Util.encode_uri(task_identifier)}"
@@ -1524,6 +1525,7 @@ defmodule AWS.NeptuneGraph do
   @spec cancel_import_task(map(), String.t(), cancel_import_task_input(), list()) ::
           {:ok, cancel_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_import_task_errors()}
   def cancel_import_task(%Client{} = client, task_identifier, input, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
@@ -1552,6 +1554,7 @@ defmodule AWS.NeptuneGraph do
   @spec cancel_query(map(), String.t(), cancel_query_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, query_id, input, options \\ []) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
@@ -1586,6 +1589,7 @@ defmodule AWS.NeptuneGraph do
   @spec create_graph(map(), create_graph_input(), list()) ::
           {:ok, create_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_graph_errors()}
   def create_graph(%Client{} = client, input, options \\ []) do
     url_path = "/graphs"
@@ -1614,6 +1618,7 @@ defmodule AWS.NeptuneGraph do
   @spec create_graph_snapshot(map(), create_graph_snapshot_input(), list()) ::
           {:ok, create_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_graph_snapshot_errors()}
   def create_graph_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/snapshots"
@@ -1648,6 +1653,7 @@ defmodule AWS.NeptuneGraph do
   @spec create_graph_using_import_task(map(), create_graph_using_import_task_input(), list()) ::
           {:ok, create_graph_using_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_graph_using_import_task_errors()}
   def create_graph_using_import_task(%Client{} = client, input, options \\ []) do
     url_path = "/importtasks"
@@ -1687,6 +1693,7 @@ defmodule AWS.NeptuneGraph do
         ) ::
           {:ok, create_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_private_graph_endpoint_errors()}
   def create_private_graph_endpoint(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/endpoints/"
@@ -1717,6 +1724,7 @@ defmodule AWS.NeptuneGraph do
   @spec delete_graph(map(), String.t(), delete_graph_input(), list()) ::
           {:ok, delete_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_graph_errors()}
   def delete_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
@@ -1750,6 +1758,7 @@ defmodule AWS.NeptuneGraph do
   @spec delete_graph_snapshot(map(), String.t(), delete_graph_snapshot_input(), list()) ::
           {:ok, delete_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_graph_snapshot_errors()}
   def delete_graph_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
@@ -1784,6 +1793,7 @@ defmodule AWS.NeptuneGraph do
         ) ::
           {:ok, delete_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_private_graph_endpoint_errors()}
   def delete_private_graph_endpoint(
         %Client{} = client,
@@ -1834,6 +1844,7 @@ defmodule AWS.NeptuneGraph do
   @spec execute_query(map(), execute_query_input(), list()) ::
           {:ok, execute_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_query_errors()}
   def execute_query(%Client{} = client, input, options \\ []) do
     url_path = "/queries"
@@ -1868,6 +1879,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_export_task(map(), String.t(), list()) ::
           {:ok, get_export_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_task_errors()}
   def get_export_task(%Client{} = client, task_identifier, options \\ []) do
     url_path = "/exporttasks/#{AWS.Util.encode_uri(task_identifier)}"
@@ -1885,6 +1897,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_graph(map(), String.t(), list()) ::
           {:ok, get_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_graph_errors()}
   def get_graph(%Client{} = client, graph_identifier, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
@@ -1902,6 +1915,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_graph_snapshot(map(), String.t(), list()) ::
           {:ok, get_graph_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_graph_snapshot_errors()}
   def get_graph_snapshot(%Client{} = client, snapshot_identifier, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}"
@@ -1919,6 +1933,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_graph_summary(map(), String.t() | nil, String.t(), list()) ::
           {:ok, get_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_graph_summary_errors()}
   def get_graph_summary(%Client{} = client, mode \\ nil, graph_identifier, options \\ []) do
     url_path = "/summary"
@@ -1951,6 +1966,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_import_task(map(), String.t(), list()) ::
           {:ok, get_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_task_errors()}
   def get_import_task(%Client{} = client, task_identifier, options \\ []) do
     url_path = "/importtasks/#{AWS.Util.encode_uri(task_identifier)}"
@@ -1968,6 +1984,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_private_graph_endpoint(map(), String.t(), String.t(), list()) ::
           {:ok, get_private_graph_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_private_graph_endpoint_errors()}
   def get_private_graph_endpoint(%Client{} = client, graph_identifier, vpc_id, options \\ []) do
     url_path =
@@ -1991,6 +2008,7 @@ defmodule AWS.NeptuneGraph do
   @spec get_query(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_errors()}
   def get_query(%Client{} = client, query_id, graph_identifier, options \\ []) do
     url_path = "/queries/#{AWS.Util.encode_uri(query_id)}"
@@ -2016,6 +2034,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_export_tasks(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_export_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_export_tasks_errors()}
   def list_export_tasks(
         %Client{} = client,
@@ -2060,6 +2079,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_graph_snapshots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_graph_snapshots_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_graph_snapshots_errors()}
   def list_graph_snapshots(
         %Client{} = client,
@@ -2104,6 +2124,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_graphs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_graphs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_graphs_errors()}
   def list_graphs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/graphs"
@@ -2135,6 +2156,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_import_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_import_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_tasks_errors()}
   def list_import_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/importtasks"
@@ -2172,6 +2194,7 @@ defmodule AWS.NeptuneGraph do
         ) ::
           {:ok, list_private_graph_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_private_graph_endpoints_errors()}
   def list_private_graph_endpoints(
         %Client{} = client,
@@ -2209,6 +2232,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_queries(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, list_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queries_errors()}
   def list_queries(%Client{} = client, max_results, state \\ nil, graph_identifier, options \\ []) do
     url_path = "/queries"
@@ -2248,6 +2272,7 @@ defmodule AWS.NeptuneGraph do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2265,6 +2290,7 @@ defmodule AWS.NeptuneGraph do
   @spec reset_graph(map(), String.t(), reset_graph_input(), list()) ::
           {:ok, reset_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_graph_errors()}
   def reset_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"
@@ -2298,6 +2324,7 @@ defmodule AWS.NeptuneGraph do
         ) ::
           {:ok, restore_graph_from_snapshot_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_graph_from_snapshot_errors()}
   def restore_graph_from_snapshot(%Client{} = client, snapshot_identifier, input, options \\ []) do
     url_path = "/snapshots/#{AWS.Util.encode_uri(snapshot_identifier)}/restore"
@@ -2328,6 +2355,7 @@ defmodule AWS.NeptuneGraph do
   @spec start_export_task(map(), start_export_task_input(), list()) ::
           {:ok, start_export_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
     url_path = "/exporttasks"
@@ -2359,6 +2387,7 @@ defmodule AWS.NeptuneGraph do
   @spec start_import_task(map(), String.t(), start_import_task_input(), list()) ::
           {:ok, start_import_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_task_errors()}
   def start_import_task(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}/importtasks"
@@ -2387,6 +2416,7 @@ defmodule AWS.NeptuneGraph do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2415,6 +2445,7 @@ defmodule AWS.NeptuneGraph do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2448,6 +2479,7 @@ defmodule AWS.NeptuneGraph do
   @spec update_graph(map(), String.t(), update_graph_input(), list()) ::
           {:ok, update_graph_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_graph_errors()}
   def update_graph(%Client{} = client, graph_identifier, input, options \\ []) do
     url_path = "/graphs/#{AWS.Util.encode_uri(graph_identifier)}"

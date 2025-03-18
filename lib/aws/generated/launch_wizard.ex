@@ -557,6 +557,7 @@ defmodule AWS.LaunchWizard do
   @spec create_deployment(map(), create_deployment_input(), list()) ::
           {:ok, create_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/createDeployment"
@@ -585,6 +586,7 @@ defmodule AWS.LaunchWizard do
   @spec delete_deployment(map(), delete_deployment_input(), list()) ::
           {:ok, delete_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/deleteDeployment"
@@ -613,6 +615,7 @@ defmodule AWS.LaunchWizard do
   @spec get_deployment(map(), get_deployment_input(), list()) ::
           {:ok, get_deployment_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/getDeployment"
@@ -641,6 +644,7 @@ defmodule AWS.LaunchWizard do
   @spec get_workload(map(), get_workload_input(), list()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workload_errors()}
   def get_workload(%Client{} = client, input, options \\ []) do
     url_path = "/getWorkload"
@@ -677,6 +681,7 @@ defmodule AWS.LaunchWizard do
   @spec get_workload_deployment_pattern(map(), get_workload_deployment_pattern_input(), list()) ::
           {:ok, get_workload_deployment_pattern_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workload_deployment_pattern_errors()}
   def get_workload_deployment_pattern(%Client{} = client, input, options \\ []) do
     url_path = "/getWorkloadDeploymentPattern"
@@ -705,6 +710,7 @@ defmodule AWS.LaunchWizard do
   @spec list_deployment_events(map(), list_deployment_events_input(), list()) ::
           {:ok, list_deployment_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_events_errors()}
   def list_deployment_events(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentEvents"
@@ -733,6 +739,7 @@ defmodule AWS.LaunchWizard do
   @spec list_deployments(map(), list_deployments_input(), list()) ::
           {:ok, list_deployments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
     url_path = "/listDeployments"
@@ -761,6 +768,7 @@ defmodule AWS.LaunchWizard do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -786,6 +794,7 @@ defmodule AWS.LaunchWizard do
         ) ::
           {:ok, list_workload_deployment_patterns_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workload_deployment_patterns_errors()}
   def list_workload_deployment_patterns(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloadDeploymentPatterns"
@@ -818,6 +827,7 @@ defmodule AWS.LaunchWizard do
   @spec list_workloads(map(), list_workloads_input(), list()) ::
           {:ok, list_workloads_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workloads_errors()}
   def list_workloads(%Client{} = client, input, options \\ []) do
     url_path = "/listWorkloads"
@@ -846,6 +856,7 @@ defmodule AWS.LaunchWizard do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -874,6 +885,7 @@ defmodule AWS.LaunchWizard do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

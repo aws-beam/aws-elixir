@@ -2469,6 +2469,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_trained_model_errors()}
   def cancel_trained_model(
         %Client{} = client,
@@ -2511,6 +2512,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_trained_model_inference_job_errors()}
   def cancel_trained_model_inference_job(
         %Client{} = client,
@@ -2552,6 +2554,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_audience_model(map(), create_audience_model_request(), list()) ::
           {:ok, create_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_audience_model_errors()}
   def create_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/audience-model"
@@ -2584,6 +2587,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, create_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_audience_model_errors()}
   def create_configured_audience_model(%Client{} = client, input, options \\ []) do
     url_path = "/configured-audience-model"
@@ -2617,6 +2621,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, create_configured_model_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_model_algorithm_errors()}
   def create_configured_model_algorithm(%Client{} = client, input, options \\ []) do
     url_path = "/configured-model-algorithms"
@@ -2651,6 +2656,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, create_configured_model_algorithm_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_configured_model_algorithm_association_errors()}
   def create_configured_model_algorithm_association(
         %Client{} = client,
@@ -2688,6 +2694,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_ml_input_channel(map(), String.t(), create_ml_input_channel_request(), list()) ::
           {:ok, create_ml_input_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ml_input_channel_errors()}
   def create_ml_input_channel(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-input-channels"
@@ -2717,6 +2724,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_trained_model(map(), String.t(), create_trained_model_request(), list()) ::
           {:ok, create_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trained_model_errors()}
   def create_trained_model(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models"
@@ -2748,6 +2756,7 @@ defmodule AWS.CleanRoomsML do
   @spec create_training_dataset(map(), create_training_dataset_request(), list()) ::
           {:ok, create_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_training_dataset_errors()}
   def create_training_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/training-dataset"
@@ -2782,6 +2791,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_audience_generation_job_errors()}
   def delete_audience_generation_job(
         %Client{} = client,
@@ -2818,6 +2828,7 @@ defmodule AWS.CleanRoomsML do
   @spec delete_audience_model(map(), String.t(), delete_audience_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_audience_model_errors()}
   def delete_audience_model(%Client{} = client, audience_model_arn, input, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
@@ -2855,6 +2866,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_audience_model_errors()}
   def delete_configured_audience_model(
         %Client{} = client,
@@ -2893,6 +2905,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_audience_model_policy_errors()}
   def delete_configured_audience_model_policy(
         %Client{} = client,
@@ -2933,6 +2946,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_model_algorithm_errors()}
   def delete_configured_model_algorithm(
         %Client{} = client,
@@ -2974,6 +2988,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_configured_model_algorithm_association_errors()}
   def delete_configured_model_algorithm_association(
         %Client{} = client,
@@ -3010,6 +3025,7 @@ defmodule AWS.CleanRoomsML do
   @spec delete_ml_configuration(map(), String.t(), delete_ml_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ml_configuration_errors()}
   def delete_ml_configuration(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-configurations"
@@ -3044,6 +3060,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ml_input_channel_data_errors()}
   def delete_ml_input_channel_data(
         %Client{} = client,
@@ -3086,6 +3103,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trained_model_output_errors()}
   def delete_trained_model_output(
         %Client{} = client,
@@ -3127,6 +3145,7 @@ defmodule AWS.CleanRoomsML do
   @spec delete_training_dataset(map(), String.t(), delete_training_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_training_dataset_errors()}
   def delete_training_dataset(%Client{} = client, training_dataset_arn, input, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
@@ -3155,6 +3174,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_audience_generation_job(map(), String.t(), list()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_audience_generation_job_errors()}
   def get_audience_generation_job(%Client{} = client, audience_generation_job_arn, options \\ []) do
     url_path = "/audience-generation-job/#{AWS.Util.encode_uri(audience_generation_job_arn)}"
@@ -3172,6 +3192,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_audience_model(map(), String.t(), list()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_audience_model_errors()}
   def get_audience_model(%Client{} = client, audience_model_arn, options \\ []) do
     url_path = "/audience-model/#{AWS.Util.encode_uri(audience_model_arn)}"
@@ -3195,6 +3216,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, get_collaboration_configured_model_algorithm_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_configured_model_algorithm_association_errors()}
   def get_collaboration_configured_model_algorithm_association(
         %Client{} = client,
@@ -3219,6 +3241,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_collaboration_ml_input_channel(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_ml_input_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_ml_input_channel_errors()}
   def get_collaboration_ml_input_channel(
         %Client{} = client,
@@ -3243,6 +3266,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_collaboration_trained_model(map(), String.t(), String.t(), list()) ::
           {:ok, get_collaboration_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_collaboration_trained_model_errors()}
   def get_collaboration_trained_model(
         %Client{} = client,
@@ -3267,6 +3291,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_audience_model(map(), String.t(), list()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_audience_model_errors()}
   def get_configured_audience_model(
         %Client{} = client,
@@ -3288,6 +3313,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_audience_model_policy(map(), String.t(), list()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_audience_model_policy_errors()}
   def get_configured_audience_model_policy(
         %Client{} = client,
@@ -3311,6 +3337,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_model_algorithm(map(), String.t(), list()) ::
           {:ok, get_configured_model_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_model_algorithm_errors()}
   def get_configured_model_algorithm(
         %Client{} = client,
@@ -3334,6 +3361,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_configured_model_algorithm_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_configured_model_algorithm_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_configured_model_algorithm_association_errors()}
   def get_configured_model_algorithm_association(
         %Client{} = client,
@@ -3358,6 +3386,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_ml_configuration(map(), String.t(), list()) ::
           {:ok, get_ml_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_configuration_errors()}
   def get_ml_configuration(%Client{} = client, membership_identifier, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-configurations"
@@ -3375,6 +3404,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_ml_input_channel(map(), String.t(), String.t(), list()) ::
           {:ok, get_ml_input_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_input_channel_errors()}
   def get_ml_input_channel(
         %Client{} = client,
@@ -3399,6 +3429,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_trained_model(map(), String.t(), String.t(), list()) ::
           {:ok, get_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trained_model_errors()}
   def get_trained_model(
         %Client{} = client,
@@ -3423,6 +3454,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_trained_model_inference_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_trained_model_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trained_model_inference_job_errors()}
   def get_trained_model_inference_job(
         %Client{} = client,
@@ -3447,6 +3479,7 @@ defmodule AWS.CleanRoomsML do
   @spec get_training_dataset(map(), String.t(), list()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_training_dataset_errors()}
   def get_training_dataset(%Client{} = client, training_dataset_arn, options \\ []) do
     url_path = "/training-dataset/#{AWS.Util.encode_uri(training_dataset_arn)}"
@@ -3470,6 +3503,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_audience_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audience_export_jobs_errors()}
   def list_audience_export_jobs(
         %Client{} = client,
@@ -3521,6 +3555,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_audience_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audience_generation_jobs_errors()}
   def list_audience_generation_jobs(
         %Client{} = client,
@@ -3573,6 +3608,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_audience_models_errors()}
   def list_audience_models(
         %Client{} = client,
@@ -3616,6 +3652,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_collaboration_configured_model_algorithm_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_configured_model_algorithm_associations_errors()}
   def list_collaboration_configured_model_algorithm_associations(
         %Client{} = client,
@@ -3661,6 +3698,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_collaboration_ml_input_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_ml_input_channels_errors()}
   def list_collaboration_ml_input_channels(
         %Client{} = client,
@@ -3707,6 +3745,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_collaboration_trained_model_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_trained_model_export_jobs_errors()}
   def list_collaboration_trained_model_export_jobs(
         %Client{} = client,
@@ -3754,6 +3793,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_collaboration_trained_model_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_trained_model_inference_jobs_errors()}
   def list_collaboration_trained_model_inference_jobs(
         %Client{} = client,
@@ -3807,6 +3847,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_collaboration_trained_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collaboration_trained_models_errors()}
   def list_collaboration_trained_models(
         %Client{} = client,
@@ -3844,6 +3885,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_configured_audience_models(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configured_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_audience_models_errors()}
   def list_configured_audience_models(
         %Client{} = client,
@@ -3886,6 +3928,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_configured_model_algorithm_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_model_algorithm_associations_errors()}
   def list_configured_model_algorithm_associations(
         %Client{} = client,
@@ -3925,6 +3968,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_configured_model_algorithms(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_configured_model_algorithms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_configured_model_algorithms_errors()}
   def list_configured_model_algorithms(
         %Client{} = client,
@@ -3961,6 +4005,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_ml_input_channels(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ml_input_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ml_input_channels_errors()}
   def list_ml_input_channels(
         %Client{} = client,
@@ -3998,6 +4043,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4023,6 +4069,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, list_trained_model_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trained_model_inference_jobs_errors()}
   def list_trained_model_inference_jobs(
         %Client{} = client,
@@ -4070,6 +4117,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_trained_models(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_trained_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_trained_models_errors()}
   def list_trained_models(
         %Client{} = client,
@@ -4107,6 +4155,7 @@ defmodule AWS.CleanRoomsML do
   @spec list_training_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_training_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_training_datasets_errors()}
   def list_training_datasets(
         %Client{} = client,
@@ -4148,6 +4197,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, put_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_configured_audience_model_policy_errors()}
   def put_configured_audience_model_policy(
         %Client{} = client,
@@ -4183,6 +4233,7 @@ defmodule AWS.CleanRoomsML do
   @spec put_ml_configuration(map(), String.t(), put_ml_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_ml_configuration_errors()}
   def put_ml_configuration(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/ml-configurations"
@@ -4211,6 +4262,7 @@ defmodule AWS.CleanRoomsML do
   @spec start_audience_export_job(map(), start_audience_export_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_audience_export_job_errors()}
   def start_audience_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-export-job"
@@ -4239,6 +4291,7 @@ defmodule AWS.CleanRoomsML do
   @spec start_audience_generation_job(map(), start_audience_generation_job_request(), list()) ::
           {:ok, start_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_audience_generation_job_errors()}
   def start_audience_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/audience-generation-job"
@@ -4273,6 +4326,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_trained_model_export_job_errors()}
   def start_trained_model_export_job(
         %Client{} = client,
@@ -4314,6 +4368,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, start_trained_model_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_trained_model_inference_job_errors()}
   def start_trained_model_inference_job(
         %Client{} = client,
@@ -4349,6 +4404,7 @@ defmodule AWS.CleanRoomsML do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4377,6 +4433,7 @@ defmodule AWS.CleanRoomsML do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4418,6 +4475,7 @@ defmodule AWS.CleanRoomsML do
         ) ::
           {:ok, update_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_configured_audience_model_errors()}
   def update_configured_audience_model(
         %Client{} = client,

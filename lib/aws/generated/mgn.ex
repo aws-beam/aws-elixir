@@ -2874,6 +2874,7 @@ defmodule AWS.Mgn do
   @spec archive_application(map(), archive_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, archive_application_errors()}
   def archive_application(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveApplication"
@@ -2902,6 +2903,7 @@ defmodule AWS.Mgn do
   @spec archive_wave(map(), archive_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, archive_wave_errors()}
   def archive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/ArchiveWave"
@@ -2930,6 +2932,7 @@ defmodule AWS.Mgn do
   @spec associate_applications(map(), associate_applications_request(), list()) ::
           {:ok, associate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_applications_errors()}
   def associate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateApplications"
@@ -2958,6 +2961,7 @@ defmodule AWS.Mgn do
   @spec associate_source_servers(map(), associate_source_servers_request(), list()) ::
           {:ok, associate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_source_servers_errors()}
   def associate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/AssociateSourceServers"
@@ -2990,6 +2994,7 @@ defmodule AWS.Mgn do
   @spec change_server_life_cycle_state(map(), change_server_life_cycle_state_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_server_life_cycle_state_errors()}
   def change_server_life_cycle_state(%Client{} = client, input, options \\ []) do
     url_path = "/ChangeServerLifeCycleState"
@@ -3018,6 +3023,7 @@ defmodule AWS.Mgn do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/CreateApplication"
@@ -3046,6 +3052,7 @@ defmodule AWS.Mgn do
   @spec create_connector(map(), create_connector_request(), list()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
     url_path = "/CreateConnector"
@@ -3078,6 +3085,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_launch_configuration_template_errors()}
   def create_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLaunchConfigurationTemplate"
@@ -3110,6 +3118,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_configuration_template_errors()}
   def create_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/CreateReplicationConfigurationTemplate"
@@ -3138,6 +3147,7 @@ defmodule AWS.Mgn do
   @spec create_wave(map(), create_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_wave_errors()}
   def create_wave(%Client{} = client, input, options \\ []) do
     url_path = "/CreateWave"
@@ -3166,6 +3176,7 @@ defmodule AWS.Mgn do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteApplication"
@@ -3194,6 +3205,7 @@ defmodule AWS.Mgn do
   @spec delete_connector(map(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteConnector"
@@ -3222,6 +3234,7 @@ defmodule AWS.Mgn do
   @spec delete_job(map(), delete_job_request(), list()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteJob"
@@ -3254,6 +3267,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, delete_launch_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_launch_configuration_template_errors()}
   def delete_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLaunchConfigurationTemplate"
@@ -3286,6 +3300,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, delete_replication_configuration_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_configuration_template_errors()}
   def delete_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteReplicationConfigurationTemplate"
@@ -3314,6 +3329,7 @@ defmodule AWS.Mgn do
   @spec delete_source_server(map(), delete_source_server_request(), list()) ::
           {:ok, delete_source_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_source_server_errors()}
   def delete_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSourceServer"
@@ -3342,6 +3358,7 @@ defmodule AWS.Mgn do
   @spec delete_vcenter_client(map(), delete_vcenter_client_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vcenter_client_errors()}
   def delete_vcenter_client(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteVcenterClient"
@@ -3370,6 +3387,7 @@ defmodule AWS.Mgn do
   @spec delete_wave(map(), delete_wave_request(), list()) ::
           {:ok, delete_wave_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_wave_errors()}
   def delete_wave(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteWave"
@@ -3398,6 +3416,7 @@ defmodule AWS.Mgn do
   @spec describe_job_log_items(map(), describe_job_log_items_request(), list()) ::
           {:ok, describe_job_log_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_log_items_errors()}
   def describe_job_log_items(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobLogItems"
@@ -3433,6 +3452,7 @@ defmodule AWS.Mgn do
   @spec describe_jobs(map(), describe_jobs_request(), list()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_jobs_errors()}
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeJobs"
@@ -3466,6 +3486,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, describe_launch_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_launch_configuration_templates_errors()}
   def describe_launch_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeLaunchConfigurationTemplates"
@@ -3498,6 +3519,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, describe_replication_configuration_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_configuration_templates_errors()}
   def describe_replication_configuration_templates(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeReplicationConfigurationTemplates"
@@ -3526,6 +3548,7 @@ defmodule AWS.Mgn do
   @spec describe_source_servers(map(), describe_source_servers_request(), list()) ::
           {:ok, describe_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_source_servers_errors()}
   def describe_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeSourceServers"
@@ -3554,6 +3577,7 @@ defmodule AWS.Mgn do
   @spec describe_vcenter_clients(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_vcenter_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_vcenter_clients_errors()}
   def describe_vcenter_clients(
         %Client{} = client,
@@ -3590,6 +3614,7 @@ defmodule AWS.Mgn do
   @spec disassociate_applications(map(), disassociate_applications_request(), list()) ::
           {:ok, disassociate_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_applications_errors()}
   def disassociate_applications(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateApplications"
@@ -3618,6 +3643,7 @@ defmodule AWS.Mgn do
   @spec disassociate_source_servers(map(), disassociate_source_servers_request(), list()) ::
           {:ok, disassociate_source_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_source_servers_errors()}
   def disassociate_source_servers(%Client{} = client, input, options \\ []) do
     url_path = "/DisassociateSourceServers"
@@ -3659,6 +3685,7 @@ defmodule AWS.Mgn do
   @spec disconnect_from_service(map(), disconnect_from_service_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_from_service_errors()}
   def disconnect_from_service(%Client{} = client, input, options \\ []) do
     url_path = "/DisconnectFromService"
@@ -3698,6 +3725,7 @@ defmodule AWS.Mgn do
   @spec finalize_cutover(map(), finalize_cutover_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, finalize_cutover_errors()}
   def finalize_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/FinalizeCutover"
@@ -3726,6 +3754,7 @@ defmodule AWS.Mgn do
   @spec get_launch_configuration(map(), get_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_launch_configuration_errors()}
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
@@ -3754,6 +3783,7 @@ defmodule AWS.Mgn do
   @spec get_replication_configuration(map(), get_replication_configuration_request(), list()) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_replication_configuration_errors()}
   def get_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetReplicationConfiguration"
@@ -3782,6 +3812,7 @@ defmodule AWS.Mgn do
   @spec initialize_service(map(), initialize_service_request(), list()) ::
           {:ok, initialize_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initialize_service_errors()}
   def initialize_service(%Client{} = client, input, options \\ []) do
     url_path = "/InitializeService"
@@ -3810,6 +3841,7 @@ defmodule AWS.Mgn do
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     url_path = "/ListApplications"
@@ -3838,6 +3870,7 @@ defmodule AWS.Mgn do
   @spec list_connectors(map(), list_connectors_request(), list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListConnectors"
@@ -3866,6 +3899,7 @@ defmodule AWS.Mgn do
   @spec list_export_errors(map(), list_export_errors_request(), list()) ::
           {:ok, list_export_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_export_errors_errors()}
   def list_export_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListExportErrors"
@@ -3894,6 +3928,7 @@ defmodule AWS.Mgn do
   @spec list_exports(map(), list_exports_request(), list()) ::
           {:ok, list_exports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
     url_path = "/ListExports"
@@ -3922,6 +3957,7 @@ defmodule AWS.Mgn do
   @spec list_import_errors(map(), list_import_errors_request(), list()) ::
           {:ok, list_import_errors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_errors_errors()}
   def list_import_errors(%Client{} = client, input, options \\ []) do
     url_path = "/ListImportErrors"
@@ -3950,6 +3986,7 @@ defmodule AWS.Mgn do
   @spec list_imports(map(), list_imports_request(), list()) ::
           {:ok, list_imports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
     url_path = "/ListImports"
@@ -3978,6 +4015,7 @@ defmodule AWS.Mgn do
   @spec list_managed_accounts(map(), list_managed_accounts_request(), list()) ::
           {:ok, list_managed_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_accounts_errors()}
   def list_managed_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/ListManagedAccounts"
@@ -4006,6 +4044,7 @@ defmodule AWS.Mgn do
   @spec list_source_server_actions(map(), list_source_server_actions_request(), list()) ::
           {:ok, list_source_server_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_source_server_actions_errors()}
   def list_source_server_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListSourceServerActions"
@@ -4034,6 +4073,7 @@ defmodule AWS.Mgn do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4051,6 +4091,7 @@ defmodule AWS.Mgn do
   @spec list_template_actions(map(), list_template_actions_request(), list()) ::
           {:ok, list_template_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_template_actions_errors()}
   def list_template_actions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTemplateActions"
@@ -4079,6 +4120,7 @@ defmodule AWS.Mgn do
   @spec list_waves(map(), list_waves_request(), list()) ::
           {:ok, list_waves_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_waves_errors()}
   def list_waves(%Client{} = client, input, options \\ []) do
     url_path = "/ListWaves"
@@ -4111,6 +4153,7 @@ defmodule AWS.Mgn do
   @spec mark_as_archived(map(), mark_as_archived_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, mark_as_archived_errors()}
   def mark_as_archived(%Client{} = client, input, options \\ []) do
     url_path = "/MarkAsArchived"
@@ -4139,6 +4182,7 @@ defmodule AWS.Mgn do
   @spec pause_replication(map(), pause_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, pause_replication_errors()}
   def pause_replication(%Client{} = client, input, options \\ []) do
     url_path = "/PauseReplication"
@@ -4167,6 +4211,7 @@ defmodule AWS.Mgn do
   @spec put_source_server_action(map(), put_source_server_action_request(), list()) ::
           {:ok, source_server_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_source_server_action_errors()}
   def put_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutSourceServerAction"
@@ -4195,6 +4240,7 @@ defmodule AWS.Mgn do
   @spec put_template_action(map(), put_template_action_request(), list()) ::
           {:ok, template_action_document(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_template_action_errors()}
   def put_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/PutTemplateAction"
@@ -4223,6 +4269,7 @@ defmodule AWS.Mgn do
   @spec remove_source_server_action(map(), remove_source_server_action_request(), list()) ::
           {:ok, remove_source_server_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_source_server_action_errors()}
   def remove_source_server_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveSourceServerAction"
@@ -4251,6 +4298,7 @@ defmodule AWS.Mgn do
   @spec remove_template_action(map(), remove_template_action_request(), list()) ::
           {:ok, remove_template_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_template_action_errors()}
   def remove_template_action(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveTemplateAction"
@@ -4279,6 +4327,7 @@ defmodule AWS.Mgn do
   @spec resume_replication(map(), resume_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resume_replication_errors()}
   def resume_replication(%Client{} = client, input, options \\ []) do
     url_path = "/ResumeReplication"
@@ -4312,6 +4361,7 @@ defmodule AWS.Mgn do
   @spec retry_data_replication(map(), retry_data_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_data_replication_errors()}
   def retry_data_replication(%Client{} = client, input, options \\ []) do
     url_path = "/RetryDataReplication"
@@ -4343,6 +4393,7 @@ defmodule AWS.Mgn do
   @spec start_cutover(map(), start_cutover_request(), list()) ::
           {:ok, start_cutover_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_cutover_errors()}
   def start_cutover(%Client{} = client, input, options \\ []) do
     url_path = "/StartCutover"
@@ -4371,6 +4422,7 @@ defmodule AWS.Mgn do
   @spec start_export(map(), start_export_request(), list()) ::
           {:ok, start_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_export_errors()}
   def start_export(%Client{} = client, input, options \\ []) do
     url_path = "/StartExport"
@@ -4399,6 +4451,7 @@ defmodule AWS.Mgn do
   @spec start_import(map(), start_import_request(), list()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/StartImport"
@@ -4427,6 +4480,7 @@ defmodule AWS.Mgn do
   @spec start_replication(map(), start_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StartReplication"
@@ -4458,6 +4512,7 @@ defmodule AWS.Mgn do
   @spec start_test(map(), start_test_request(), list()) ::
           {:ok, start_test_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_test_errors()}
   def start_test(%Client{} = client, input, options \\ []) do
     url_path = "/StartTest"
@@ -4486,6 +4541,7 @@ defmodule AWS.Mgn do
   @spec stop_replication(map(), stop_replication_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
     url_path = "/StopReplication"
@@ -4519,6 +4575,7 @@ defmodule AWS.Mgn do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4550,6 +4607,7 @@ defmodule AWS.Mgn do
   @spec terminate_target_instances(map(), terminate_target_instances_request(), list()) ::
           {:ok, terminate_target_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_target_instances_errors()}
   def terminate_target_instances(%Client{} = client, input, options \\ []) do
     url_path = "/TerminateTargetInstances"
@@ -4578,6 +4636,7 @@ defmodule AWS.Mgn do
   @spec unarchive_application(map(), unarchive_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unarchive_application_errors()}
   def unarchive_application(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveApplication"
@@ -4606,6 +4665,7 @@ defmodule AWS.Mgn do
   @spec unarchive_wave(map(), unarchive_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unarchive_wave_errors()}
   def unarchive_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UnarchiveWave"
@@ -4635,6 +4695,7 @@ defmodule AWS.Mgn do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4668,6 +4729,7 @@ defmodule AWS.Mgn do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateApplication"
@@ -4696,6 +4758,7 @@ defmodule AWS.Mgn do
   @spec update_connector(map(), update_connector_request(), list()) ::
           {:ok, connector(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_errors()}
   def update_connector(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateConnector"
@@ -4726,6 +4789,7 @@ defmodule AWS.Mgn do
   @spec update_launch_configuration(map(), update_launch_configuration_request(), list()) ::
           {:ok, launch_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_launch_configuration_errors()}
   def update_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfiguration"
@@ -4758,6 +4822,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, launch_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_launch_configuration_template_errors()}
   def update_launch_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLaunchConfigurationTemplate"
@@ -4790,6 +4855,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_configuration_errors()}
   def update_replication_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfiguration"
@@ -4822,6 +4888,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, replication_configuration_template(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_configuration_template_errors()}
   def update_replication_configuration_template(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateReplicationConfigurationTemplate"
@@ -4850,6 +4917,7 @@ defmodule AWS.Mgn do
   @spec update_source_server(map(), update_source_server_request(), list()) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_source_server_errors()}
   def update_source_server(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServer"
@@ -4883,6 +4951,7 @@ defmodule AWS.Mgn do
         ) ::
           {:ok, source_server(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_source_server_replication_type_errors()}
   def update_source_server_replication_type(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSourceServerReplicationType"
@@ -4911,6 +4980,7 @@ defmodule AWS.Mgn do
   @spec update_wave(map(), update_wave_request(), list()) ::
           {:ok, wave(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_wave_errors()}
   def update_wave(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateWave"

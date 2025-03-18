@@ -3296,6 +3296,7 @@ defmodule AWS.CodePipeline do
   @spec acknowledge_job(map(), acknowledge_job_input(), list()) ::
           {:ok, acknowledge_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, acknowledge_job_errors()}
   def acknowledge_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3312,6 +3313,7 @@ defmodule AWS.CodePipeline do
   @spec acknowledge_third_party_job(map(), acknowledge_third_party_job_input(), list()) ::
           {:ok, acknowledge_third_party_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, acknowledge_third_party_job_errors()}
   def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3329,6 +3331,7 @@ defmodule AWS.CodePipeline do
   @spec create_custom_action_type(map(), create_custom_action_type_input(), list()) ::
           {:ok, create_custom_action_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_action_type_errors()}
   def create_custom_action_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3347,6 +3350,7 @@ defmodule AWS.CodePipeline do
   @spec create_pipeline(map(), create_pipeline_input(), list()) ::
           {:ok, create_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3370,6 +3374,7 @@ defmodule AWS.CodePipeline do
   @spec delete_custom_action_type(map(), delete_custom_action_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_action_type_errors()}
   def delete_custom_action_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3383,6 +3388,7 @@ defmodule AWS.CodePipeline do
   @spec delete_pipeline(map(), delete_pipeline_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3404,6 +3410,7 @@ defmodule AWS.CodePipeline do
   @spec delete_webhook(map(), delete_webhook_input(), list()) ::
           {:ok, delete_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3425,6 +3432,7 @@ defmodule AWS.CodePipeline do
         ) ::
           {:ok, deregister_webhook_with_third_party_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_webhook_with_third_party_errors()}
   def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3439,6 +3447,7 @@ defmodule AWS.CodePipeline do
   @spec disable_stage_transition(map(), disable_stage_transition_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_stage_transition_errors()}
   def disable_stage_transition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3452,6 +3461,7 @@ defmodule AWS.CodePipeline do
   @spec enable_stage_transition(map(), enable_stage_transition_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_stage_transition_errors()}
   def enable_stage_transition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3470,6 +3480,7 @@ defmodule AWS.CodePipeline do
   @spec get_action_type(map(), get_action_type_input(), list()) ::
           {:ok, get_action_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_action_type_errors()}
   def get_action_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3491,6 +3502,7 @@ defmodule AWS.CodePipeline do
   @spec get_job_details(map(), get_job_details_input(), list()) ::
           {:ok, get_job_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_details_errors()}
   def get_job_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3509,6 +3521,7 @@ defmodule AWS.CodePipeline do
   @spec get_pipeline(map(), get_pipeline_input(), list()) ::
           {:ok, get_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3524,6 +3537,7 @@ defmodule AWS.CodePipeline do
   @spec get_pipeline_execution(map(), get_pipeline_execution_input(), list()) ::
           {:ok, get_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_execution_errors()}
   def get_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3542,6 +3556,7 @@ defmodule AWS.CodePipeline do
   @spec get_pipeline_state(map(), get_pipeline_state_input(), list()) ::
           {:ok, get_pipeline_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_pipeline_state_errors()}
   def get_pipeline_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3564,6 +3579,7 @@ defmodule AWS.CodePipeline do
   @spec get_third_party_job_details(map(), get_third_party_job_details_input(), list()) ::
           {:ok, get_third_party_job_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_third_party_job_details_errors()}
   def get_third_party_job_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3577,6 +3593,7 @@ defmodule AWS.CodePipeline do
   @spec list_action_executions(map(), list_action_executions_input(), list()) ::
           {:ok, list_action_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_action_executions_errors()}
   def list_action_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3591,6 +3608,7 @@ defmodule AWS.CodePipeline do
   @spec list_action_types(map(), list_action_types_input(), list()) ::
           {:ok, list_action_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_action_types_errors()}
   def list_action_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3610,6 +3628,7 @@ defmodule AWS.CodePipeline do
   @spec list_pipeline_executions(map(), list_pipeline_executions_input(), list()) ::
           {:ok, list_pipeline_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3623,6 +3642,7 @@ defmodule AWS.CodePipeline do
   @spec list_pipelines(map(), list_pipelines_input(), list()) ::
           {:ok, list_pipelines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3638,6 +3658,7 @@ defmodule AWS.CodePipeline do
   @spec list_rule_executions(map(), list_rule_executions_input(), list()) ::
           {:ok, list_rule_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_executions_errors()}
   def list_rule_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3655,6 +3676,7 @@ defmodule AWS.CodePipeline do
   @spec list_rule_types(map(), list_rule_types_input(), list()) ::
           {:ok, list_rule_types_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rule_types_errors()}
   def list_rule_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3669,6 +3691,7 @@ defmodule AWS.CodePipeline do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3688,6 +3711,7 @@ defmodule AWS.CodePipeline do
   @spec list_webhooks(map(), list_webhooks_input(), list()) ::
           {:ok, list_webhooks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_webhooks_errors()}
   def list_webhooks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3704,6 +3728,7 @@ defmodule AWS.CodePipeline do
   @spec override_stage_condition(map(), override_stage_condition_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, override_stage_condition_errors()}
   def override_stage_condition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3727,6 +3752,7 @@ defmodule AWS.CodePipeline do
   @spec poll_for_jobs(map(), poll_for_jobs_input(), list()) ::
           {:ok, poll_for_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, poll_for_jobs_errors()}
   def poll_for_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3747,6 +3773,7 @@ defmodule AWS.CodePipeline do
   @spec poll_for_third_party_jobs(map(), poll_for_third_party_jobs_input(), list()) ::
           {:ok, poll_for_third_party_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, poll_for_third_party_jobs_errors()}
   def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3761,6 +3788,7 @@ defmodule AWS.CodePipeline do
   @spec put_action_revision(map(), put_action_revision_input(), list()) ::
           {:ok, put_action_revision_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_action_revision_errors()}
   def put_action_revision(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3777,6 +3805,7 @@ defmodule AWS.CodePipeline do
   @spec put_approval_result(map(), put_approval_result_input(), list()) ::
           {:ok, put_approval_result_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_approval_result_errors()}
   def put_approval_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3793,6 +3822,7 @@ defmodule AWS.CodePipeline do
   @spec put_job_failure_result(map(), put_job_failure_result_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_job_failure_result_errors()}
   def put_job_failure_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3809,6 +3839,7 @@ defmodule AWS.CodePipeline do
   @spec put_job_success_result(map(), put_job_success_result_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_job_success_result_errors()}
   def put_job_success_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3829,6 +3860,7 @@ defmodule AWS.CodePipeline do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_third_party_job_failure_result_errors()}
   def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3849,6 +3881,7 @@ defmodule AWS.CodePipeline do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_third_party_job_success_result_errors()}
   def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3887,6 +3920,7 @@ defmodule AWS.CodePipeline do
   @spec put_webhook(map(), put_webhook_input(), list()) ::
           {:ok, put_webhook_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_webhook_errors()}
   def put_webhook(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3906,6 +3940,7 @@ defmodule AWS.CodePipeline do
         ) ::
           {:ok, register_webhook_with_third_party_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_webhook_with_third_party_errors()}
   def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3934,6 +3969,7 @@ defmodule AWS.CodePipeline do
   @spec retry_stage_execution(map(), retry_stage_execution_input(), list()) ::
           {:ok, retry_stage_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retry_stage_execution_errors()}
   def retry_stage_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3947,6 +3983,7 @@ defmodule AWS.CodePipeline do
   @spec rollback_stage(map(), rollback_stage_input(), list()) ::
           {:ok, rollback_stage_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rollback_stage_errors()}
   def rollback_stage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3963,6 +4000,7 @@ defmodule AWS.CodePipeline do
   @spec start_pipeline_execution(map(), start_pipeline_execution_input(), list()) ::
           {:ok, start_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3985,6 +4023,7 @@ defmodule AWS.CodePipeline do
   @spec stop_pipeline_execution(map(), stop_pipeline_execution_input(), list()) ::
           {:ok, stop_pipeline_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4001,6 +4040,7 @@ defmodule AWS.CodePipeline do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4014,6 +4054,7 @@ defmodule AWS.CodePipeline do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4033,6 +4074,7 @@ defmodule AWS.CodePipeline do
   @spec update_action_type(map(), update_action_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_action_type_errors()}
   def update_action_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4052,6 +4094,7 @@ defmodule AWS.CodePipeline do
   @spec update_pipeline(map(), update_pipeline_input(), list()) ::
           {:ok, update_pipeline_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
     meta = metadata()

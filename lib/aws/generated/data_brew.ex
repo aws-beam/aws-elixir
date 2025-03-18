@@ -2088,6 +2088,7 @@ defmodule AWS.DataBrew do
         ) ::
           {:ok, batch_delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_recipe_version_errors()}
   def batch_delete_recipe_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/batchDeleteRecipeVersion"
@@ -2116,6 +2117,7 @@ defmodule AWS.DataBrew do
   @spec create_dataset(map(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
     url_path = "/datasets"
@@ -2144,6 +2146,7 @@ defmodule AWS.DataBrew do
   @spec create_profile_job(map(), create_profile_job_request(), list()) ::
           {:ok, create_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_job_errors()}
   def create_profile_job(%Client{} = client, input, options \\ []) do
     url_path = "/profileJobs"
@@ -2172,6 +2175,7 @@ defmodule AWS.DataBrew do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     url_path = "/projects"
@@ -2200,6 +2204,7 @@ defmodule AWS.DataBrew do
   @spec create_recipe(map(), create_recipe_request(), list()) ::
           {:ok, create_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recipe_errors()}
   def create_recipe(%Client{} = client, input, options \\ []) do
     url_path = "/recipes"
@@ -2229,6 +2234,7 @@ defmodule AWS.DataBrew do
   @spec create_recipe_job(map(), create_recipe_job_request(), list()) ::
           {:ok, create_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_recipe_job_errors()}
   def create_recipe_job(%Client{} = client, input, options \\ []) do
     url_path = "/recipeJobs"
@@ -2258,6 +2264,7 @@ defmodule AWS.DataBrew do
   @spec create_ruleset(map(), create_ruleset_request(), list()) ::
           {:ok, create_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ruleset_errors()}
   def create_ruleset(%Client{} = client, input, options \\ []) do
     url_path = "/rulesets"
@@ -2289,6 +2296,7 @@ defmodule AWS.DataBrew do
   @spec create_schedule(map(), create_schedule_request(), list()) ::
           {:ok, create_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schedule_errors()}
   def create_schedule(%Client{} = client, input, options \\ []) do
     url_path = "/schedules"
@@ -2317,6 +2325,7 @@ defmodule AWS.DataBrew do
   @spec delete_dataset(map(), String.t(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
@@ -2345,6 +2354,7 @@ defmodule AWS.DataBrew do
   @spec delete_job(map(), String.t(), delete_job_request(), list()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
@@ -2373,6 +2383,7 @@ defmodule AWS.DataBrew do
   @spec delete_project(map(), String.t(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
@@ -2407,6 +2418,7 @@ defmodule AWS.DataBrew do
         ) ::
           {:ok, delete_recipe_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_recipe_version_errors()}
   def delete_recipe_version(%Client{} = client, name, recipe_version, input, options \\ []) do
     url_path =
@@ -2437,6 +2449,7 @@ defmodule AWS.DataBrew do
   @spec delete_ruleset(map(), String.t(), delete_ruleset_request(), list()) ::
           {:ok, delete_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ruleset_errors()}
   def delete_ruleset(%Client{} = client, name, input, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
@@ -2465,6 +2478,7 @@ defmodule AWS.DataBrew do
   @spec delete_schedule(map(), String.t(), delete_schedule_request(), list()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schedule_errors()}
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
@@ -2493,6 +2507,7 @@ defmodule AWS.DataBrew do
   @spec describe_dataset(map(), String.t(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, name, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
@@ -2510,6 +2525,7 @@ defmodule AWS.DataBrew do
   @spec describe_job(map(), String.t(), list()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, name, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}"
@@ -2527,6 +2543,7 @@ defmodule AWS.DataBrew do
   @spec describe_job_run(map(), String.t(), String.t(), list()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_run_errors()}
   def describe_job_run(%Client{} = client, name, run_id, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/jobRun/#{AWS.Util.encode_uri(run_id)}"
@@ -2544,6 +2561,7 @@ defmodule AWS.DataBrew do
   @spec describe_project(map(), String.t(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_project_errors()}
   def describe_project(%Client{} = client, name, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
@@ -2563,6 +2581,7 @@ defmodule AWS.DataBrew do
   @spec describe_recipe(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recipe_errors()}
   def describe_recipe(%Client{} = client, name, recipe_version \\ nil, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
@@ -2587,6 +2606,7 @@ defmodule AWS.DataBrew do
   @spec describe_ruleset(map(), String.t(), list()) ::
           {:ok, describe_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ruleset_errors()}
   def describe_ruleset(%Client{} = client, name, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
@@ -2604,6 +2624,7 @@ defmodule AWS.DataBrew do
   @spec describe_schedule(map(), String.t(), list()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_schedule_errors()}
   def describe_schedule(%Client{} = client, name, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
@@ -2621,6 +2642,7 @@ defmodule AWS.DataBrew do
   @spec list_datasets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/datasets"
@@ -2652,6 +2674,7 @@ defmodule AWS.DataBrew do
   @spec list_job_runs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_runs_errors()}
   def list_job_runs(
         %Client{} = client,
@@ -2696,6 +2719,7 @@ defmodule AWS.DataBrew do
         ) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -2748,6 +2772,7 @@ defmodule AWS.DataBrew do
   @spec list_projects(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/projects"
@@ -2780,6 +2805,7 @@ defmodule AWS.DataBrew do
   @spec list_recipe_versions(map(), String.t() | nil, String.t(), String.t() | nil, list()) ::
           {:ok, list_recipe_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recipe_versions_errors()}
   def list_recipe_versions(
         %Client{} = client,
@@ -2824,6 +2850,7 @@ defmodule AWS.DataBrew do
   @spec list_recipes(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_recipes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recipes_errors()}
   def list_recipes(
         %Client{} = client,
@@ -2869,6 +2896,7 @@ defmodule AWS.DataBrew do
   @spec list_rulesets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rulesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rulesets_errors()}
   def list_rulesets(
         %Client{} = client,
@@ -2913,6 +2941,7 @@ defmodule AWS.DataBrew do
   @spec list_schedules(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_schedules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schedules_errors()}
   def list_schedules(
         %Client{} = client,
@@ -2957,6 +2986,7 @@ defmodule AWS.DataBrew do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2974,6 +3004,7 @@ defmodule AWS.DataBrew do
   @spec publish_recipe(map(), String.t(), publish_recipe_request(), list()) ::
           {:ok, publish_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_recipe_errors()}
   def publish_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}/publishRecipe"
@@ -3008,6 +3039,7 @@ defmodule AWS.DataBrew do
         ) ::
           {:ok, send_project_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_project_session_action_errors()}
   def send_project_session_action(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/sendProjectSessionAction"
@@ -3036,6 +3068,7 @@ defmodule AWS.DataBrew do
   @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, name, input, options \\ []) do
     url_path = "/jobs/#{AWS.Util.encode_uri(name)}/startJobRun"
@@ -3065,6 +3098,7 @@ defmodule AWS.DataBrew do
   @spec start_project_session(map(), String.t(), start_project_session_request(), list()) ::
           {:ok, start_project_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_project_session_errors()}
   def start_project_session(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}/startProjectSession"
@@ -3093,6 +3127,7 @@ defmodule AWS.DataBrew do
   @spec stop_job_run(map(), String.t(), String.t(), stop_job_run_request(), list()) ::
           {:ok, stop_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_job_run_errors()}
   def stop_job_run(%Client{} = client, name, run_id, input, options \\ []) do
     url_path =
@@ -3125,6 +3160,7 @@ defmodule AWS.DataBrew do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3153,6 +3189,7 @@ defmodule AWS.DataBrew do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3186,6 +3223,7 @@ defmodule AWS.DataBrew do
   @spec update_dataset(map(), String.t(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, name, input, options \\ []) do
     url_path = "/datasets/#{AWS.Util.encode_uri(name)}"
@@ -3214,6 +3252,7 @@ defmodule AWS.DataBrew do
   @spec update_profile_job(map(), String.t(), update_profile_job_request(), list()) ::
           {:ok, update_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_job_errors()}
   def update_profile_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/profileJobs/#{AWS.Util.encode_uri(name)}"
@@ -3242,6 +3281,7 @@ defmodule AWS.DataBrew do
   @spec update_project(map(), String.t(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, name, input, options \\ []) do
     url_path = "/projects/#{AWS.Util.encode_uri(name)}"
@@ -3271,6 +3311,7 @@ defmodule AWS.DataBrew do
   @spec update_recipe(map(), String.t(), update_recipe_request(), list()) ::
           {:ok, update_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recipe_errors()}
   def update_recipe(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipes/#{AWS.Util.encode_uri(name)}"
@@ -3299,6 +3340,7 @@ defmodule AWS.DataBrew do
   @spec update_recipe_job(map(), String.t(), update_recipe_job_request(), list()) ::
           {:ok, update_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recipe_job_errors()}
   def update_recipe_job(%Client{} = client, name, input, options \\ []) do
     url_path = "/recipeJobs/#{AWS.Util.encode_uri(name)}"
@@ -3327,6 +3369,7 @@ defmodule AWS.DataBrew do
   @spec update_ruleset(map(), String.t(), update_ruleset_request(), list()) ::
           {:ok, update_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ruleset_errors()}
   def update_ruleset(%Client{} = client, name, input, options \\ []) do
     url_path = "/rulesets/#{AWS.Util.encode_uri(name)}"
@@ -3355,6 +3398,7 @@ defmodule AWS.DataBrew do
   @spec update_schedule(map(), String.t(), update_schedule_request(), list()) ::
           {:ok, update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_schedule_errors()}
   def update_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"

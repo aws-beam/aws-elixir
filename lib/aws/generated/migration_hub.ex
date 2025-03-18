@@ -1006,6 +1006,7 @@ defmodule AWS.MigrationHub do
   @spec associate_created_artifact(map(), associate_created_artifact_request(), list()) ::
           {:ok, associate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_created_artifact_errors()}
   def associate_created_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1021,6 +1022,7 @@ defmodule AWS.MigrationHub do
   @spec associate_discovered_resource(map(), associate_discovered_resource_request(), list()) ::
           {:ok, associate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_discovered_resource_errors()}
   def associate_discovered_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1037,6 +1039,7 @@ defmodule AWS.MigrationHub do
   @spec associate_source_resource(map(), associate_source_resource_request(), list()) ::
           {:ok, associate_source_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_source_resource_errors()}
   def associate_source_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1059,6 +1062,7 @@ defmodule AWS.MigrationHub do
   @spec create_progress_update_stream(map(), create_progress_update_stream_request(), list()) ::
           {:ok, create_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_progress_update_stream_errors()}
   def create_progress_update_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1105,6 +1109,7 @@ defmodule AWS.MigrationHub do
   @spec delete_progress_update_stream(map(), delete_progress_update_stream_request(), list()) ::
           {:ok, delete_progress_update_stream_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_progress_update_stream_errors()}
   def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1118,6 +1123,7 @@ defmodule AWS.MigrationHub do
   @spec describe_application_state(map(), describe_application_state_request(), list()) ::
           {:ok, describe_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_state_errors()}
   def describe_application_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1131,6 +1137,7 @@ defmodule AWS.MigrationHub do
   @spec describe_migration_task(map(), describe_migration_task_request(), list()) ::
           {:ok, describe_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_migration_task_errors()}
   def describe_migration_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1162,6 +1169,7 @@ defmodule AWS.MigrationHub do
   @spec disassociate_created_artifact(map(), disassociate_created_artifact_request(), list()) ::
           {:ok, disassociate_created_artifact_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_created_artifact_errors()}
   def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1181,6 +1189,7 @@ defmodule AWS.MigrationHub do
         ) ::
           {:ok, disassociate_discovered_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_discovered_resource_errors()}
   def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1194,6 +1203,7 @@ defmodule AWS.MigrationHub do
   @spec disassociate_source_resource(map(), disassociate_source_resource_request(), list()) ::
           {:ok, disassociate_source_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_source_resource_errors()}
   def disassociate_source_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1212,6 +1222,7 @@ defmodule AWS.MigrationHub do
   @spec import_migration_task(map(), import_migration_task_request(), list()) ::
           {:ok, import_migration_task_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_migration_task_errors()}
   def import_migration_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1229,6 +1240,7 @@ defmodule AWS.MigrationHub do
   @spec list_application_states(map(), list_application_states_request(), list()) ::
           {:ok, list_application_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_states_errors()}
   def list_application_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1257,6 +1269,7 @@ defmodule AWS.MigrationHub do
   @spec list_created_artifacts(map(), list_created_artifacts_request(), list()) ::
           {:ok, list_created_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_created_artifacts_errors()}
   def list_created_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1270,6 +1283,7 @@ defmodule AWS.MigrationHub do
   @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
           {:ok, list_discovered_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1285,6 +1299,7 @@ defmodule AWS.MigrationHub do
   @spec list_migration_task_updates(map(), list_migration_task_updates_request(), list()) ::
           {:ok, list_migration_task_updates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_migration_task_updates_errors()}
   def list_migration_task_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1312,6 +1327,7 @@ defmodule AWS.MigrationHub do
   @spec list_migration_tasks(map(), list_migration_tasks_request(), list()) ::
           {:ok, list_migration_tasks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_migration_tasks_errors()}
   def list_migration_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1325,6 +1341,7 @@ defmodule AWS.MigrationHub do
   @spec list_progress_update_streams(map(), list_progress_update_streams_request(), list()) ::
           {:ok, list_progress_update_streams_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_progress_update_streams_errors()}
   def list_progress_update_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1339,6 +1356,7 @@ defmodule AWS.MigrationHub do
   @spec list_source_resources(map(), list_source_resources_request(), list()) ::
           {:ok, list_source_resources_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_source_resources_errors()}
   def list_source_resources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1363,6 +1381,7 @@ defmodule AWS.MigrationHub do
   @spec notify_application_state(map(), notify_application_state_request(), list()) ::
           {:ok, notify_application_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_application_state_errors()}
   def notify_application_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1394,6 +1413,7 @@ defmodule AWS.MigrationHub do
   @spec notify_migration_task_state(map(), notify_migration_task_state_request(), list()) ::
           {:ok, notify_migration_task_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_migration_task_state_errors()}
   def notify_migration_task_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1431,6 +1451,7 @@ defmodule AWS.MigrationHub do
   @spec put_resource_attributes(map(), put_resource_attributes_request(), list()) ::
           {:ok, put_resource_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_attributes_errors()}
   def put_resource_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()

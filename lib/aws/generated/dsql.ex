@@ -404,6 +404,7 @@ defmodule AWS.DSQL do
   @spec create_cluster(map(), create_cluster_input(), list()) ::
           {:ok, create_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
@@ -437,6 +438,7 @@ defmodule AWS.DSQL do
   @spec create_multi_region_clusters(map(), create_multi_region_clusters_input(), list()) ::
           {:ok, create_multi_region_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multi_region_clusters_errors()}
   def create_multi_region_clusters(%Client{} = client, input, options \\ []) do
     url_path = "/multi-region-clusters"
@@ -465,6 +467,7 @@ defmodule AWS.DSQL do
   @spec delete_cluster(map(), String.t(), delete_cluster_input(), list()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}"
@@ -498,6 +501,7 @@ defmodule AWS.DSQL do
   @spec delete_multi_region_clusters(map(), delete_multi_region_clusters_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multi_region_clusters_errors()}
   def delete_multi_region_clusters(%Client{} = client, input, options \\ []) do
     url_path = "/multi-region-clusters"
@@ -532,6 +536,7 @@ defmodule AWS.DSQL do
   @spec get_cluster(map(), String.t(), list()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, identifier, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}"
@@ -549,6 +554,7 @@ defmodule AWS.DSQL do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cluster"
@@ -580,6 +586,7 @@ defmodule AWS.DSQL do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -597,6 +604,7 @@ defmodule AWS.DSQL do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -625,6 +633,7 @@ defmodule AWS.DSQL do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -658,6 +667,7 @@ defmodule AWS.DSQL do
   @spec update_cluster(map(), String.t(), update_cluster_input(), list()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}"

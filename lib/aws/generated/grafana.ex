@@ -1197,6 +1197,7 @@ defmodule AWS.Grafana do
   @spec associate_license(map(), String.t(), String.t(), associate_license_request(), list()) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_license_errors()}
   def associate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
     url_path =
@@ -1240,6 +1241,7 @@ defmodule AWS.Grafana do
   @spec create_workspace(map(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_errors()}
   def create_workspace(%Client{} = client, input, options \\ []) do
     url_path = "/workspaces"
@@ -1276,6 +1278,7 @@ defmodule AWS.Grafana do
   @spec create_workspace_api_key(map(), String.t(), create_workspace_api_key_request(), list()) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_api_key_errors()}
   def create_workspace_api_key(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/apikeys"
@@ -1327,6 +1330,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, create_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_service_account_errors()}
   def create_workspace_service_account(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/serviceaccounts"
@@ -1376,6 +1380,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, create_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workspace_service_account_token_errors()}
   def create_workspace_service_account_token(
         %Client{} = client,
@@ -1412,6 +1417,7 @@ defmodule AWS.Grafana do
   @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_errors()}
   def delete_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -1449,6 +1455,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, delete_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_api_key_errors()}
   def delete_workspace_api_key(%Client{} = client, key_name, workspace_id, input, options \\ []) do
     url_path =
@@ -1494,6 +1501,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, delete_workspace_service_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_service_account_errors()}
   def delete_workspace_service_account(
         %Client{} = client,
@@ -1547,6 +1555,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, delete_workspace_service_account_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workspace_service_account_token_errors()}
   def delete_workspace_service_account_token(
         %Client{} = client,
@@ -1584,6 +1593,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace(map(), String.t(), list()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workspace_errors()}
   def describe_workspace(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -1603,6 +1613,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace_authentication(map(), String.t(), list()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workspace_authentication_errors()}
   def describe_workspace_authentication(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
@@ -1620,6 +1631,7 @@ defmodule AWS.Grafana do
   @spec describe_workspace_configuration(map(), String.t(), list()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workspace_configuration_errors()}
   def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
@@ -1643,6 +1655,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, disassociate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_license_errors()}
   def disassociate_license(%Client{} = client, license_type, workspace_id, input, options \\ []) do
     url_path =
@@ -1690,6 +1703,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permissions_errors()}
   def list_permissions(
         %Client{} = client,
@@ -1756,6 +1770,7 @@ defmodule AWS.Grafana do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1777,6 +1792,7 @@ defmodule AWS.Grafana do
   @spec list_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_versions_errors()}
   def list_versions(
         %Client{} = client,
@@ -1835,6 +1851,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workspace_service_account_tokens_errors()}
   def list_workspace_service_account_tokens(
         %Client{} = client,
@@ -1885,6 +1902,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, list_workspace_service_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workspace_service_accounts_errors()}
   def list_workspace_service_accounts(
         %Client{} = client,
@@ -1927,6 +1945,7 @@ defmodule AWS.Grafana do
   @spec list_workspaces(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workspaces_errors()}
   def list_workspaces(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/workspaces"
@@ -1969,6 +1988,7 @@ defmodule AWS.Grafana do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1998,6 +2018,7 @@ defmodule AWS.Grafana do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2032,6 +2053,7 @@ defmodule AWS.Grafana do
   @spec update_permissions(map(), String.t(), update_permissions_request(), list()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_permissions_errors()}
   def update_permissions(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/permissions"
@@ -2071,6 +2093,7 @@ defmodule AWS.Grafana do
   @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workspace_errors()}
   def update_workspace(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}"
@@ -2113,6 +2136,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, update_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workspace_authentication_errors()}
   def update_workspace_authentication(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/authentication"
@@ -2146,6 +2170,7 @@ defmodule AWS.Grafana do
         ) ::
           {:ok, update_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workspace_configuration_errors()}
   def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"

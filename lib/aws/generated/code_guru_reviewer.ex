@@ -945,6 +945,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec associate_repository(map(), associate_repository_request(), list()) ::
           {:ok, associate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_repository_errors()}
   def associate_repository(%Client{} = client, input, options \\ []) do
     url_path = "/associations"
@@ -980,6 +981,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec create_code_review(map(), create_code_review_request(), list()) ::
           {:ok, create_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_code_review_errors()}
   def create_code_review(%Client{} = client, input, options \\ []) do
     url_path = "/codereviews"
@@ -1008,6 +1010,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec describe_code_review(map(), String.t(), list()) ::
           {:ok, describe_code_review_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_code_review_errors()}
   def describe_code_review(%Client{} = client, code_review_arn, options \\ []) do
     url_path = "/codereviews/#{AWS.Util.encode_uri(code_review_arn)}"
@@ -1025,6 +1028,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec describe_recommendation_feedback(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_recommendation_feedback_errors()}
   def describe_recommendation_feedback(
         %Client{} = client,
@@ -1065,6 +1069,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec describe_repository_association(map(), String.t(), list()) ::
           {:ok, describe_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_repository_association_errors()}
   def describe_repository_association(%Client{} = client, association_arn, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
@@ -1082,6 +1087,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec disassociate_repository(map(), String.t(), disassociate_repository_request(), list()) ::
           {:ok, disassociate_repository_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_repository_errors()}
   def disassociate_repository(%Client{} = client, association_arn, input, options \\ []) do
     url_path = "/associations/#{AWS.Util.encode_uri(association_arn)}"
@@ -1119,6 +1125,7 @@ defmodule AWS.CodeGuruReviewer do
         ) ::
           {:ok, list_code_reviews_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_code_reviews_errors()}
   def list_code_reviews(
         %Client{} = client,
@@ -1198,6 +1205,7 @@ defmodule AWS.CodeGuruReviewer do
         ) ::
           {:ok, list_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendation_feedback_errors()}
   def list_recommendation_feedback(
         %Client{} = client,
@@ -1251,6 +1259,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec list_recommendations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(
         %Client{} = client,
@@ -1305,6 +1314,7 @@ defmodule AWS.CodeGuruReviewer do
         ) ::
           {:ok, list_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_repository_associations_errors()}
   def list_repository_associations(
         %Client{} = client,
@@ -1373,6 +1383,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1393,6 +1404,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec put_recommendation_feedback(map(), put_recommendation_feedback_request(), list()) ::
           {:ok, put_recommendation_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_recommendation_feedback_errors()}
   def put_recommendation_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
@@ -1421,6 +1433,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1449,6 +1462,7 @@ defmodule AWS.CodeGuruReviewer do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

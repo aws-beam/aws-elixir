@@ -2839,6 +2839,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, add_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_cloud_watch_logging_option_errors()}
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2865,6 +2866,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec add_application_input(map(), add_application_input_request(), list()) ::
           {:ok, add_application_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_input_errors()}
   def add_application_input(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2888,6 +2890,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, add_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_input_processing_configuration_errors()}
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2930,6 +2933,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec add_application_output(map(), add_application_output_request(), list()) ::
           {:ok, add_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_output_errors()}
   def add_application_output(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2958,6 +2962,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, add_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_reference_data_source_errors()}
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2990,6 +2995,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, add_application_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_application_vpc_configuration_errors()}
   def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3006,6 +3012,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3042,6 +3049,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, create_application_presigned_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_presigned_url_errors()}
   def create_application_presigned_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3055,6 +3063,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec create_application_snapshot(map(), create_application_snapshot_request(), list()) ::
           {:ok, create_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_snapshot_errors()}
   def create_application_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3071,6 +3080,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec delete_application(map(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3089,6 +3099,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, delete_application_cloud_watch_logging_option_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3106,6 +3117,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, delete_application_input_processing_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_input_processing_configuration_errors()}
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3129,6 +3141,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec delete_application_output(map(), delete_application_output_request(), list()) ::
           {:ok, delete_application_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_output_errors()}
   def delete_application_output(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3151,6 +3164,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, delete_application_reference_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_reference_data_source_errors()}
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3164,6 +3178,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec delete_application_snapshot(map(), delete_application_snapshot_request(), list()) ::
           {:ok, delete_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_snapshot_errors()}
   def delete_application_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3181,6 +3196,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, delete_application_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_vpc_configuration_errors()}
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3198,6 +3214,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec describe_application(map(), describe_application_request(), list()) ::
           {:ok, describe_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3229,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec describe_application_operation(map(), describe_application_operation_request(), list()) ::
           {:ok, describe_application_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_operation_errors()}
   def describe_application_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3225,6 +3243,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec describe_application_snapshot(map(), describe_application_snapshot_request(), list()) ::
           {:ok, describe_application_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_snapshot_errors()}
   def describe_application_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3243,6 +3262,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec describe_application_version(map(), describe_application_version_request(), list()) ::
           {:ok, describe_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_application_version_errors()}
   def describe_application_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3268,6 +3288,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec discover_input_schema(map(), discover_input_schema_request(), list()) ::
           {:ok, discover_input_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, discover_input_schema_errors()}
   def discover_input_schema(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3282,6 +3303,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec list_application_operations(map(), list_application_operations_request(), list()) ::
           {:ok, list_application_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_operations_errors()}
   def list_application_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3295,6 +3317,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec list_application_snapshots(map(), list_application_snapshots_request(), list()) ::
           {:ok, list_application_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_snapshots_errors()}
   def list_application_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3317,6 +3340,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec list_application_versions(map(), list_application_versions_request(), list()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_versions_errors()}
   def list_application_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3338,6 +3362,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec list_applications(map(), list_applications_request(), list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3354,6 +3379,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3379,6 +3405,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec rollback_application(map(), rollback_application_request(), list()) ::
           {:ok, rollback_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rollback_application_errors()}
   def rollback_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3395,6 +3422,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec start_application(map(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3418,6 +3446,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec stop_application(map(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3437,6 +3466,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3453,6 +3483,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3473,6 +3504,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   @spec update_application(map(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3516,6 +3548,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         ) ::
           {:ok, update_application_maintenance_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_maintenance_configuration_errors()}
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

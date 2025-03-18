@@ -4444,6 +4444,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, associate_entities_to_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_entities_to_experience_errors()}
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4463,6 +4464,7 @@ defmodule AWS.Kendra do
   @spec associate_personas_to_entities(map(), associate_personas_to_entities_request(), list()) ::
           {:ok, associate_personas_to_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_personas_to_entities_errors()}
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4491,6 +4493,7 @@ defmodule AWS.Kendra do
   @spec batch_delete_document(map(), batch_delete_document_request(), list()) ::
           {:ok, batch_delete_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4512,6 +4515,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, batch_delete_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_featured_results_set_errors()}
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4539,6 +4543,7 @@ defmodule AWS.Kendra do
   @spec batch_get_document_status(map(), batch_get_document_status_request(), list()) ::
           {:ok, batch_get_document_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_document_status_errors()}
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4570,6 +4575,7 @@ defmodule AWS.Kendra do
   @spec batch_put_document(map(), batch_put_document_request(), list()) ::
           {:ok, batch_put_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4593,6 +4599,7 @@ defmodule AWS.Kendra do
   @spec clear_query_suggestions(map(), clear_query_suggestions_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, clear_query_suggestions_errors()}
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4650,6 +4657,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, create_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_control_configuration_errors()}
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4676,6 +4684,7 @@ defmodule AWS.Kendra do
   @spec create_data_source(map(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4695,6 +4704,7 @@ defmodule AWS.Kendra do
   @spec create_experience(map(), create_experience_request(), list()) ::
           {:ok, create_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_experience_errors()}
   def create_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4715,6 +4725,7 @@ defmodule AWS.Kendra do
   @spec create_faq(map(), create_faq_request(), list()) ::
           {:ok, create_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_faq_errors()}
   def create_faq(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4737,6 +4748,7 @@ defmodule AWS.Kendra do
   @spec create_featured_results_set(map(), create_featured_results_set_request(), list()) ::
           {:ok, create_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_featured_results_set_errors()}
   def create_featured_results_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4764,6 +4776,7 @@ defmodule AWS.Kendra do
   @spec create_index(map(), create_index_request(), list()) ::
           {:ok, create_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4798,6 +4811,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, create_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_query_suggestions_block_list_errors()}
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4818,6 +4832,7 @@ defmodule AWS.Kendra do
   @spec create_thesaurus(map(), create_thesaurus_request(), list()) ::
           {:ok, create_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_thesaurus_errors()}
   def create_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4842,6 +4857,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, delete_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_control_configuration_errors()}
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4867,6 +4883,7 @@ defmodule AWS.Kendra do
   @spec delete_data_source(map(), delete_data_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4884,6 +4901,7 @@ defmodule AWS.Kendra do
   @spec delete_experience(map(), delete_experience_request(), list()) ::
           {:ok, delete_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_experience_errors()}
   def delete_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4897,6 +4915,7 @@ defmodule AWS.Kendra do
   @spec delete_faq(map(), delete_faq_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_faq_errors()}
   def delete_faq(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4915,6 +4934,7 @@ defmodule AWS.Kendra do
   @spec delete_index(map(), delete_index_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4947,6 +4967,7 @@ defmodule AWS.Kendra do
   @spec delete_principal_mapping(map(), delete_principal_mapping_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_principal_mapping_errors()}
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4971,6 +4992,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_query_suggestions_block_list_errors()}
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4984,6 +5006,7 @@ defmodule AWS.Kendra do
   @spec delete_thesaurus(map(), delete_thesaurus_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_thesaurus_errors()}
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5007,6 +5030,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, describe_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_access_control_configuration_errors()}
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5020,6 +5044,7 @@ defmodule AWS.Kendra do
   @spec describe_data_source(map(), describe_data_source_request(), list()) ::
           {:ok, describe_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5038,6 +5063,7 @@ defmodule AWS.Kendra do
   @spec describe_experience(map(), describe_experience_request(), list()) ::
           {:ok, describe_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_experience_errors()}
   def describe_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5051,6 +5077,7 @@ defmodule AWS.Kendra do
   @spec describe_faq(map(), describe_faq_request(), list()) ::
           {:ok, describe_faq_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_faq_errors()}
   def describe_faq(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5069,6 +5096,7 @@ defmodule AWS.Kendra do
   @spec describe_featured_results_set(map(), describe_featured_results_set_request(), list()) ::
           {:ok, describe_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_featured_results_set_errors()}
   def describe_featured_results_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5082,6 +5110,7 @@ defmodule AWS.Kendra do
   @spec describe_index(map(), describe_index_request(), list()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5107,6 +5136,7 @@ defmodule AWS.Kendra do
   @spec describe_principal_mapping(map(), describe_principal_mapping_request(), list()) ::
           {:ok, describe_principal_mapping_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_principal_mapping_errors()}
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5131,6 +5161,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, describe_query_suggestions_block_list_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_query_suggestions_block_list_errors()}
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5154,6 +5185,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, describe_query_suggestions_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_query_suggestions_config_errors()}
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5167,6 +5199,7 @@ defmodule AWS.Kendra do
   @spec describe_thesaurus(map(), describe_thesaurus_request(), list()) ::
           {:ok, describe_thesaurus_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thesaurus_errors()}
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5190,6 +5223,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, disassociate_entities_from_experience_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_entities_from_experience_errors()}
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5213,6 +5247,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, disassociate_personas_from_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_personas_from_entities_errors()}
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5229,6 +5264,7 @@ defmodule AWS.Kendra do
   @spec get_query_suggestions(map(), get_query_suggestions_request(), list()) ::
           {:ok, get_query_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_suggestions_errors()}
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5245,6 +5281,7 @@ defmodule AWS.Kendra do
   @spec get_snapshots(map(), get_snapshots_request(), list()) ::
           {:ok, get_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_snapshots_errors()}
   def get_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5268,6 +5305,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, list_access_control_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_control_configurations_errors()}
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5281,6 +5319,7 @@ defmodule AWS.Kendra do
   @spec list_data_source_sync_jobs(map(), list_data_source_sync_jobs_request(), list()) ::
           {:ok, list_data_source_sync_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5294,6 +5333,7 @@ defmodule AWS.Kendra do
   @spec list_data_sources(map(), list_data_sources_request(), list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5308,6 +5348,7 @@ defmodule AWS.Kendra do
   @spec list_entity_personas(map(), list_entity_personas_request(), list()) ::
           {:ok, list_entity_personas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entity_personas_errors()}
   def list_entity_personas(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5327,6 +5368,7 @@ defmodule AWS.Kendra do
   @spec list_experience_entities(map(), list_experience_entities_request(), list()) ::
           {:ok, list_experience_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experience_entities_errors()}
   def list_experience_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5345,6 +5387,7 @@ defmodule AWS.Kendra do
   @spec list_experiences(map(), list_experiences_request(), list()) ::
           {:ok, list_experiences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_experiences_errors()}
   def list_experiences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5358,6 +5401,7 @@ defmodule AWS.Kendra do
   @spec list_faqs(map(), list_faqs_request(), list()) ::
           {:ok, list_faqs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_faqs_errors()}
   def list_faqs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5377,6 +5421,7 @@ defmodule AWS.Kendra do
   @spec list_featured_results_sets(map(), list_featured_results_sets_request(), list()) ::
           {:ok, list_featured_results_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_featured_results_sets_errors()}
   def list_featured_results_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5398,6 +5443,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, list_groups_older_than_ordering_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_older_than_ordering_id_errors()}
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5411,6 +5457,7 @@ defmodule AWS.Kendra do
   @spec list_indices(map(), list_indices_request(), list()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5434,6 +5481,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, list_query_suggestions_block_lists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_query_suggestions_block_lists_errors()}
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5450,6 +5498,7 @@ defmodule AWS.Kendra do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5463,6 +5512,7 @@ defmodule AWS.Kendra do
   @spec list_thesauri(map(), list_thesauri_request(), list()) ::
           {:ok, list_thesauri_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_thesauri_errors()}
   def list_thesauri(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5497,6 +5547,7 @@ defmodule AWS.Kendra do
   @spec put_principal_mapping(map(), put_principal_mapping_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_principal_mapping_errors()}
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5554,6 +5605,7 @@ defmodule AWS.Kendra do
   @spec query(map(), query_request(), list()) ::
           {:ok, query_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5615,6 +5667,7 @@ defmodule AWS.Kendra do
   @spec retrieve(map(), retrieve_request(), list()) ::
           {:ok, retrieve_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5637,6 +5690,7 @@ defmodule AWS.Kendra do
   @spec start_data_source_sync_job(map(), start_data_source_sync_job_request(), list()) ::
           {:ok, start_data_source_sync_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5653,6 +5707,7 @@ defmodule AWS.Kendra do
   @spec stop_data_source_sync_job(map(), stop_data_source_sync_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5670,6 +5725,7 @@ defmodule AWS.Kendra do
   @spec submit_feedback(map(), submit_feedback_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_feedback_errors()}
   def submit_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5687,6 +5743,7 @@ defmodule AWS.Kendra do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5700,6 +5757,7 @@ defmodule AWS.Kendra do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5755,6 +5813,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, update_access_control_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_control_configuration_errors()}
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5768,6 +5827,7 @@ defmodule AWS.Kendra do
   @spec update_data_source(map(), update_data_source_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5785,6 +5845,7 @@ defmodule AWS.Kendra do
   @spec update_experience(map(), update_experience_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_experience_errors()}
   def update_experience(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5806,6 +5867,7 @@ defmodule AWS.Kendra do
   @spec update_featured_results_set(map(), update_featured_results_set_request(), list()) ::
           {:ok, update_featured_results_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_featured_results_set_errors()}
   def update_featured_results_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5819,6 +5881,7 @@ defmodule AWS.Kendra do
   @spec update_index(map(), update_index_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5849,6 +5912,7 @@ defmodule AWS.Kendra do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_query_suggestions_block_list_errors()}
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5877,6 +5941,7 @@ defmodule AWS.Kendra do
   @spec update_query_suggestions_config(map(), update_query_suggestions_config_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_query_suggestions_config_errors()}
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5890,6 +5955,7 @@ defmodule AWS.Kendra do
   @spec update_thesaurus(map(), update_thesaurus_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_thesaurus_errors()}
   def update_thesaurus(%Client{} = client, input, options \\ []) do
     meta = metadata()

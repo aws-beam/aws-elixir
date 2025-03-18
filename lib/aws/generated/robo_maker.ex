@@ -2771,6 +2771,7 @@ defmodule AWS.RoboMaker do
   @spec batch_delete_worlds(map(), batch_delete_worlds_request(), list()) ::
           {:ok, batch_delete_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_worlds_errors()}
   def batch_delete_worlds(%Client{} = client, input, options \\ []) do
     url_path = "/batchDeleteWorlds"
@@ -2810,6 +2811,7 @@ defmodule AWS.RoboMaker do
   @spec batch_describe_simulation_job(map(), batch_describe_simulation_job_request(), list()) ::
           {:ok, batch_describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_describe_simulation_job_errors()}
   def batch_describe_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/batchDescribeSimulationJob"
@@ -2844,6 +2846,7 @@ defmodule AWS.RoboMaker do
   @spec cancel_deployment_job(map(), cancel_deployment_job_request(), list()) ::
           {:ok, cancel_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_deployment_job_errors()}
   def cancel_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelDeploymentJob"
@@ -2883,6 +2886,7 @@ defmodule AWS.RoboMaker do
   @spec cancel_simulation_job(map(), cancel_simulation_job_request(), list()) ::
           {:ok, cancel_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_simulation_job_errors()}
   def cancel_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelSimulationJob"
@@ -2924,6 +2928,7 @@ defmodule AWS.RoboMaker do
   @spec cancel_simulation_job_batch(map(), cancel_simulation_job_batch_request(), list()) ::
           {:ok, cancel_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_simulation_job_batch_errors()}
   def cancel_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/cancelSimulationJobBatch"
@@ -2963,6 +2968,7 @@ defmodule AWS.RoboMaker do
   @spec cancel_world_export_job(map(), cancel_world_export_job_request(), list()) ::
           {:ok, cancel_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_world_export_job_errors()}
   def cancel_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelWorldExportJob"
@@ -3002,6 +3008,7 @@ defmodule AWS.RoboMaker do
   @spec cancel_world_generation_job(map(), cancel_world_generation_job_request(), list()) ::
           {:ok, cancel_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_world_generation_job_errors()}
   def cancel_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/cancelWorldGenerationJob"
@@ -3055,6 +3062,7 @@ defmodule AWS.RoboMaker do
   @spec create_deployment_job(map(), create_deployment_job_request(), list()) ::
           {:ok, create_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_job_errors()}
   def create_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/createDeploymentJob"
@@ -3099,6 +3107,7 @@ defmodule AWS.RoboMaker do
   @spec create_fleet(map(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/createFleet"
@@ -3143,6 +3152,7 @@ defmodule AWS.RoboMaker do
   @spec create_robot(map(), create_robot_request(), list()) ::
           {:ok, create_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_robot_errors()}
   def create_robot(%Client{} = client, input, options \\ []) do
     url_path = "/createRobot"
@@ -3182,6 +3192,7 @@ defmodule AWS.RoboMaker do
   @spec create_robot_application(map(), create_robot_application_request(), list()) ::
           {:ok, create_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_robot_application_errors()}
   def create_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/createRobotApplication"
@@ -3225,6 +3236,7 @@ defmodule AWS.RoboMaker do
         ) ::
           {:ok, create_robot_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_robot_application_version_errors()}
   def create_robot_application_version(%Client{} = client, input, options \\ []) do
     url_path = "/createRobotApplicationVersion"
@@ -3264,6 +3276,7 @@ defmodule AWS.RoboMaker do
   @spec create_simulation_application(map(), create_simulation_application_request(), list()) ::
           {:ok, create_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_simulation_application_errors()}
   def create_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationApplication"
@@ -3307,6 +3320,7 @@ defmodule AWS.RoboMaker do
         ) ::
           {:ok, create_simulation_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_simulation_application_version_errors()}
   def create_simulation_application_version(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationApplicationVersion"
@@ -3350,6 +3364,7 @@ defmodule AWS.RoboMaker do
   @spec create_simulation_job(map(), create_simulation_job_request(), list()) ::
           {:ok, create_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_simulation_job_errors()}
   def create_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/createSimulationJob"
@@ -3389,6 +3404,7 @@ defmodule AWS.RoboMaker do
   @spec create_world_export_job(map(), create_world_export_job_request(), list()) ::
           {:ok, create_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_world_export_job_errors()}
   def create_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldExportJob"
@@ -3428,6 +3444,7 @@ defmodule AWS.RoboMaker do
   @spec create_world_generation_job(map(), create_world_generation_job_request(), list()) ::
           {:ok, create_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_world_generation_job_errors()}
   def create_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldGenerationJob"
@@ -3467,6 +3484,7 @@ defmodule AWS.RoboMaker do
   @spec create_world_template(map(), create_world_template_request(), list()) ::
           {:ok, create_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_world_template_errors()}
   def create_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/createWorldTemplate"
@@ -3511,6 +3529,7 @@ defmodule AWS.RoboMaker do
   @spec delete_fleet(map(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/deleteFleet"
@@ -3555,6 +3574,7 @@ defmodule AWS.RoboMaker do
   @spec delete_robot(map(), delete_robot_request(), list()) ::
           {:ok, delete_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_robot_errors()}
   def delete_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deleteRobot"
@@ -3594,6 +3614,7 @@ defmodule AWS.RoboMaker do
   @spec delete_robot_application(map(), delete_robot_application_request(), list()) ::
           {:ok, delete_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_robot_application_errors()}
   def delete_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/deleteRobotApplication"
@@ -3633,6 +3654,7 @@ defmodule AWS.RoboMaker do
   @spec delete_simulation_application(map(), delete_simulation_application_request(), list()) ::
           {:ok, delete_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_simulation_application_errors()}
   def delete_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/deleteSimulationApplication"
@@ -3672,6 +3694,7 @@ defmodule AWS.RoboMaker do
   @spec delete_world_template(map(), delete_world_template_request(), list()) ::
           {:ok, delete_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_world_template_errors()}
   def delete_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/deleteWorldTemplate"
@@ -3716,6 +3739,7 @@ defmodule AWS.RoboMaker do
   @spec deregister_robot(map(), deregister_robot_request(), list()) ::
           {:ok, deregister_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_robot_errors()}
   def deregister_robot(%Client{} = client, input, options \\ []) do
     url_path = "/deregisterRobot"
@@ -3760,6 +3784,7 @@ defmodule AWS.RoboMaker do
   @spec describe_deployment_job(map(), describe_deployment_job_request(), list()) ::
           {:ok, describe_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_deployment_job_errors()}
   def describe_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeDeploymentJob"
@@ -3804,6 +3829,7 @@ defmodule AWS.RoboMaker do
   @spec describe_fleet(map(), describe_fleet_request(), list()) ::
           {:ok, describe_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fleet_errors()}
   def describe_fleet(%Client{} = client, input, options \\ []) do
     url_path = "/describeFleet"
@@ -3848,6 +3874,7 @@ defmodule AWS.RoboMaker do
   @spec describe_robot(map(), describe_robot_request(), list()) ::
           {:ok, describe_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_robot_errors()}
   def describe_robot(%Client{} = client, input, options \\ []) do
     url_path = "/describeRobot"
@@ -3887,6 +3914,7 @@ defmodule AWS.RoboMaker do
   @spec describe_robot_application(map(), describe_robot_application_request(), list()) ::
           {:ok, describe_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_robot_application_errors()}
   def describe_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/describeRobotApplication"
@@ -3926,6 +3954,7 @@ defmodule AWS.RoboMaker do
   @spec describe_simulation_application(map(), describe_simulation_application_request(), list()) ::
           {:ok, describe_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_simulation_application_errors()}
   def describe_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationApplication"
@@ -3965,6 +3994,7 @@ defmodule AWS.RoboMaker do
   @spec describe_simulation_job(map(), describe_simulation_job_request(), list()) ::
           {:ok, describe_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_simulation_job_errors()}
   def describe_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationJob"
@@ -4004,6 +4034,7 @@ defmodule AWS.RoboMaker do
   @spec describe_simulation_job_batch(map(), describe_simulation_job_batch_request(), list()) ::
           {:ok, describe_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_simulation_job_batch_errors()}
   def describe_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/describeSimulationJobBatch"
@@ -4043,6 +4074,7 @@ defmodule AWS.RoboMaker do
   @spec describe_world(map(), describe_world_request(), list()) ::
           {:ok, describe_world_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_world_errors()}
   def describe_world(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorld"
@@ -4082,6 +4114,7 @@ defmodule AWS.RoboMaker do
   @spec describe_world_export_job(map(), describe_world_export_job_request(), list()) ::
           {:ok, describe_world_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_world_export_job_errors()}
   def describe_world_export_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldExportJob"
@@ -4121,6 +4154,7 @@ defmodule AWS.RoboMaker do
   @spec describe_world_generation_job(map(), describe_world_generation_job_request(), list()) ::
           {:ok, describe_world_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_world_generation_job_errors()}
   def describe_world_generation_job(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldGenerationJob"
@@ -4160,6 +4194,7 @@ defmodule AWS.RoboMaker do
   @spec describe_world_template(map(), describe_world_template_request(), list()) ::
           {:ok, describe_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_world_template_errors()}
   def describe_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/describeWorldTemplate"
@@ -4199,6 +4234,7 @@ defmodule AWS.RoboMaker do
   @spec get_world_template_body(map(), get_world_template_body_request(), list()) ::
           {:ok, get_world_template_body_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_world_template_body_errors()}
   def get_world_template_body(%Client{} = client, input, options \\ []) do
     url_path = "/getWorldTemplateBody"
@@ -4244,6 +4280,7 @@ defmodule AWS.RoboMaker do
   @spec list_deployment_jobs(map(), list_deployment_jobs_request(), list()) ::
           {:ok, list_deployment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployment_jobs_errors()}
   def list_deployment_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listDeploymentJobs"
@@ -4289,6 +4326,7 @@ defmodule AWS.RoboMaker do
   @spec list_fleets(map(), list_fleets_request(), list()) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
     url_path = "/listFleets"
@@ -4330,6 +4368,7 @@ defmodule AWS.RoboMaker do
   @spec list_robot_applications(map(), list_robot_applications_request(), list()) ::
           {:ok, list_robot_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_robot_applications_errors()}
   def list_robot_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listRobotApplications"
@@ -4375,6 +4414,7 @@ defmodule AWS.RoboMaker do
   @spec list_robots(map(), list_robots_request(), list()) ::
           {:ok, list_robots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_robots_errors()}
   def list_robots(%Client{} = client, input, options \\ []) do
     url_path = "/listRobots"
@@ -4415,6 +4455,7 @@ defmodule AWS.RoboMaker do
   @spec list_simulation_applications(map(), list_simulation_applications_request(), list()) ::
           {:ok, list_simulation_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_simulation_applications_errors()}
   def list_simulation_applications(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationApplications"
@@ -4456,6 +4497,7 @@ defmodule AWS.RoboMaker do
   @spec list_simulation_job_batches(map(), list_simulation_job_batches_request(), list()) ::
           {:ok, list_simulation_job_batches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_simulation_job_batches_errors()}
   def list_simulation_job_batches(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobBatches"
@@ -4497,6 +4539,7 @@ defmodule AWS.RoboMaker do
   @spec list_simulation_jobs(map(), list_simulation_jobs_request(), list()) ::
           {:ok, list_simulation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_simulation_jobs_errors()}
   def list_simulation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listSimulationJobs"
@@ -4536,6 +4579,7 @@ defmodule AWS.RoboMaker do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4564,6 +4608,7 @@ defmodule AWS.RoboMaker do
   @spec list_world_export_jobs(map(), list_world_export_jobs_request(), list()) ::
           {:ok, list_world_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_world_export_jobs_errors()}
   def list_world_export_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldExportJobs"
@@ -4603,6 +4648,7 @@ defmodule AWS.RoboMaker do
   @spec list_world_generation_jobs(map(), list_world_generation_jobs_request(), list()) ::
           {:ok, list_world_generation_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_world_generation_jobs_errors()}
   def list_world_generation_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldGenerationJobs"
@@ -4642,6 +4688,7 @@ defmodule AWS.RoboMaker do
   @spec list_world_templates(map(), list_world_templates_request(), list()) ::
           {:ok, list_world_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_world_templates_errors()}
   def list_world_templates(%Client{} = client, input, options \\ []) do
     url_path = "/listWorldTemplates"
@@ -4681,6 +4728,7 @@ defmodule AWS.RoboMaker do
   @spec list_worlds(map(), list_worlds_request(), list()) ::
           {:ok, list_worlds_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_worlds_errors()}
   def list_worlds(%Client{} = client, input, options \\ []) do
     url_path = "/listWorlds"
@@ -4725,6 +4773,7 @@ defmodule AWS.RoboMaker do
   @spec register_robot(map(), register_robot_request(), list()) ::
           {:ok, register_robot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_robot_errors()}
   def register_robot(%Client{} = client, input, options \\ []) do
     url_path = "/registerRobot"
@@ -4764,6 +4813,7 @@ defmodule AWS.RoboMaker do
   @spec restart_simulation_job(map(), restart_simulation_job_request(), list()) ::
           {:ok, restart_simulation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restart_simulation_job_errors()}
   def restart_simulation_job(%Client{} = client, input, options \\ []) do
     url_path = "/restartSimulationJob"
@@ -4804,6 +4854,7 @@ defmodule AWS.RoboMaker do
   @spec start_simulation_job_batch(map(), start_simulation_job_batch_request(), list()) ::
           {:ok, start_simulation_job_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_simulation_job_batch_errors()}
   def start_simulation_job_batch(%Client{} = client, input, options \\ []) do
     url_path = "/startSimulationJobBatch"
@@ -4849,6 +4900,7 @@ defmodule AWS.RoboMaker do
   @spec sync_deployment_job(map(), sync_deployment_job_request(), list()) ::
           {:ok, sync_deployment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sync_deployment_job_errors()}
   def sync_deployment_job(%Client{} = client, input, options \\ []) do
     url_path = "/syncDeploymentJob"
@@ -4897,6 +4949,7 @@ defmodule AWS.RoboMaker do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4942,6 +4995,7 @@ defmodule AWS.RoboMaker do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4986,6 +5040,7 @@ defmodule AWS.RoboMaker do
   @spec update_robot_application(map(), update_robot_application_request(), list()) ::
           {:ok, update_robot_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_robot_application_errors()}
   def update_robot_application(%Client{} = client, input, options \\ []) do
     url_path = "/updateRobotApplication"
@@ -5025,6 +5080,7 @@ defmodule AWS.RoboMaker do
   @spec update_simulation_application(map(), update_simulation_application_request(), list()) ::
           {:ok, update_simulation_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_simulation_application_errors()}
   def update_simulation_application(%Client{} = client, input, options \\ []) do
     url_path = "/updateSimulationApplication"
@@ -5064,6 +5120,7 @@ defmodule AWS.RoboMaker do
   @spec update_world_template(map(), update_world_template_request(), list()) ::
           {:ok, update_world_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_world_template_errors()}
   def update_world_template(%Client{} = client, input, options \\ []) do
     url_path = "/updateWorldTemplate"

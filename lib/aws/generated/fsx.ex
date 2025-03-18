@@ -3470,6 +3470,7 @@ defmodule AWS.FSx do
   @spec associate_file_system_aliases(map(), associate_file_system_aliases_request(), list()) ::
           {:ok, associate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_file_system_aliases_errors()}
   def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3502,6 +3503,7 @@ defmodule AWS.FSx do
   @spec cancel_data_repository_task(map(), cancel_data_repository_task_request(), list()) ::
           {:ok, cancel_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_data_repository_task_errors()}
   def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3551,6 +3553,7 @@ defmodule AWS.FSx do
   @spec copy_backup(map(), copy_backup_request(), list()) ::
           {:ok, copy_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_backup_errors()}
   def copy_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3569,6 +3572,7 @@ defmodule AWS.FSx do
   @spec copy_snapshot_and_update_volume(map(), copy_snapshot_and_update_volume_request(), list()) ::
           {:ok, copy_snapshot_and_update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_snapshot_and_update_volume_errors()}
   def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3645,6 +3649,7 @@ defmodule AWS.FSx do
   @spec create_backup(map(), create_backup_request(), list()) ::
           {:ok, create_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3680,6 +3685,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, create_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_repository_association_errors()}
   def create_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3718,6 +3724,7 @@ defmodule AWS.FSx do
   @spec create_data_repository_task(map(), create_data_repository_task_request(), list()) ::
           {:ok, create_data_repository_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_repository_task_errors()}
   def create_data_repository_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3754,6 +3761,7 @@ defmodule AWS.FSx do
   @spec create_file_cache(map(), create_file_cache_request(), list()) ::
           {:ok, create_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_file_cache_errors()}
   def create_file_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3820,6 +3828,7 @@ defmodule AWS.FSx do
   @spec create_file_system(map(), create_file_system_request(), list()) ::
           {:ok, create_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_file_system_errors()}
   def create_file_system(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3875,6 +3884,7 @@ defmodule AWS.FSx do
   @spec create_file_system_from_backup(map(), create_file_system_from_backup_request(), list()) ::
           {:ok, create_file_system_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_file_system_from_backup_errors()}
   def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3925,6 +3935,7 @@ defmodule AWS.FSx do
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3938,6 +3949,7 @@ defmodule AWS.FSx do
   @spec create_storage_virtual_machine(map(), create_storage_virtual_machine_request(), list()) ::
           {:ok, create_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_storage_virtual_machine_errors()}
   def create_storage_virtual_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3951,6 +3963,7 @@ defmodule AWS.FSx do
   @spec create_volume(map(), create_volume_request(), list()) ::
           {:ok, create_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3965,6 +3978,7 @@ defmodule AWS.FSx do
   @spec create_volume_from_backup(map(), create_volume_from_backup_request(), list()) ::
           {:ok, create_volume_from_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_volume_from_backup_errors()}
   def create_volume_from_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3987,6 +4001,7 @@ defmodule AWS.FSx do
   @spec delete_backup(map(), delete_backup_request(), list()) ::
           {:ok, delete_backup_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4012,6 +4027,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, delete_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_repository_association_errors()}
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4040,6 +4056,7 @@ defmodule AWS.FSx do
   @spec delete_file_cache(map(), delete_file_cache_request(), list()) ::
           {:ok, delete_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_cache_errors()}
   def delete_file_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4100,6 +4117,7 @@ defmodule AWS.FSx do
   @spec delete_file_system(map(), delete_file_system_request(), list()) ::
           {:ok, delete_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_system_errors()}
   def delete_file_system(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4121,6 +4139,7 @@ defmodule AWS.FSx do
   @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
           {:ok, delete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4138,6 +4157,7 @@ defmodule AWS.FSx do
   @spec delete_storage_virtual_machine(map(), delete_storage_virtual_machine_request(), list()) ::
           {:ok, delete_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_storage_virtual_machine_errors()}
   def delete_storage_virtual_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4152,6 +4172,7 @@ defmodule AWS.FSx do
   @spec delete_volume(map(), delete_volume_request(), list()) ::
           {:ok, delete_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4196,6 +4217,7 @@ defmodule AWS.FSx do
   @spec describe_backups(map(), describe_backups_request(), list()) ::
           {:ok, describe_backups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4239,6 +4261,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, describe_data_repository_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_repository_associations_errors()}
   def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4270,6 +4293,7 @@ defmodule AWS.FSx do
   @spec describe_data_repository_tasks(map(), describe_data_repository_tasks_request(), list()) ::
           {:ok, describe_data_repository_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_repository_tasks_errors()}
   def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4314,6 +4338,7 @@ defmodule AWS.FSx do
   @spec describe_file_caches(map(), describe_file_caches_request(), list()) ::
           {:ok, describe_file_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_caches_errors()}
   def describe_file_caches(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4333,6 +4358,7 @@ defmodule AWS.FSx do
   @spec describe_file_system_aliases(map(), describe_file_system_aliases_request(), list()) ::
           {:ok, describe_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_system_aliases_errors()}
   def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4378,6 +4404,7 @@ defmodule AWS.FSx do
   @spec describe_file_systems(map(), describe_file_systems_request(), list()) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_systems_errors()}
   def describe_file_systems(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4400,6 +4427,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, describe_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_shared_vpc_configuration_errors()}
   def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4444,6 +4472,7 @@ defmodule AWS.FSx do
   @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::
           {:ok, describe_snapshots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4462,6 +4491,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, describe_storage_virtual_machines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_storage_virtual_machines_errors()}
   def describe_storage_virtual_machines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4476,6 +4506,7 @@ defmodule AWS.FSx do
   @spec describe_volumes(map(), describe_volumes_request(), list()) ::
           {:ok, describe_volumes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4506,6 +4537,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, disassociate_file_system_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_file_system_aliases_errors()}
   def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4544,6 +4576,7 @@ defmodule AWS.FSx do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4562,6 +4595,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, release_file_system_nfs_v3_locks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, release_file_system_nfs_v3_locks_errors()}
   def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4576,6 +4610,7 @@ defmodule AWS.FSx do
   @spec restore_volume_from_snapshot(map(), restore_volume_from_snapshot_request(), list()) ::
           {:ok, restore_volume_from_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_volume_from_snapshot_errors()}
   def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4595,6 +4630,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, start_misconfigured_state_recovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_misconfigured_state_recovery_errors()}
   def start_misconfigured_state_recovery(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4608,6 +4644,7 @@ defmodule AWS.FSx do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4621,6 +4658,7 @@ defmodule AWS.FSx do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4643,6 +4681,7 @@ defmodule AWS.FSx do
         ) ::
           {:ok, update_data_repository_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_repository_association_errors()}
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4658,6 +4697,7 @@ defmodule AWS.FSx do
   @spec update_file_cache(map(), update_file_cache_request(), list()) ::
           {:ok, update_file_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_file_cache_errors()}
   def update_file_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4854,6 +4894,7 @@ defmodule AWS.FSx do
   @spec update_file_system(map(), update_file_system_request(), list()) ::
           {:ok, update_file_system_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_file_system_errors()}
   def update_file_system(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4880,6 +4921,7 @@ defmodule AWS.FSx do
   @spec update_shared_vpc_configuration(map(), update_shared_vpc_configuration_request(), list()) ::
           {:ok, update_shared_vpc_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_shared_vpc_configuration_errors()}
   def update_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4893,6 +4935,7 @@ defmodule AWS.FSx do
   @spec update_snapshot(map(), update_snapshot_request(), list()) ::
           {:ok, update_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4906,6 +4949,7 @@ defmodule AWS.FSx do
   @spec update_storage_virtual_machine(map(), update_storage_virtual_machine_request(), list()) ::
           {:ok, update_storage_virtual_machine_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_storage_virtual_machine_errors()}
   def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4920,6 +4964,7 @@ defmodule AWS.FSx do
   @spec update_volume(map(), update_volume_request(), list()) ::
           {:ok, update_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
     meta = metadata()

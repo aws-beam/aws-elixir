@@ -1309,6 +1309,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, accept_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_domain_transfer_from_another_aws_account_errors()}
   def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1343,6 +1344,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, associate_delegation_signer_to_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_delegation_signer_to_domain_errors()}
   def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1376,6 +1378,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, cancel_domain_transfer_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_domain_transfer_to_another_aws_account_errors()}
   def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1394,6 +1397,7 @@ defmodule AWS.Route53Domains do
   @spec check_domain_availability(map(), check_domain_availability_request(), list()) ::
           {:ok, check_domain_availability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_domain_availability_errors()}
   def check_domain_availability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1407,6 +1411,7 @@ defmodule AWS.Route53Domains do
   @spec check_domain_transferability(map(), check_domain_transferability_request(), list()) ::
           {:ok, check_domain_transferability_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_domain_transferability_errors()}
   def check_domain_transferability(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1441,6 +1446,7 @@ defmodule AWS.Route53Domains do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1457,6 +1463,7 @@ defmodule AWS.Route53Domains do
   @spec delete_tags_for_domain(map(), delete_tags_for_domain_request(), list()) ::
           {:ok, delete_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_for_domain_errors()}
   def delete_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1472,6 +1479,7 @@ defmodule AWS.Route53Domains do
   @spec disable_domain_auto_renew(map(), disable_domain_auto_renew_request(), list()) ::
           {:ok, disable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_domain_auto_renew_errors()}
   def disable_domain_auto_renew(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1495,6 +1503,7 @@ defmodule AWS.Route53Domains do
   @spec disable_domain_transfer_lock(map(), disable_domain_transfer_lock_request(), list()) ::
           {:ok, disable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_domain_transfer_lock_errors()}
   def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1513,6 +1522,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, disassociate_delegation_signer_from_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_delegation_signer_from_domain_errors()}
   def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1539,6 +1549,7 @@ defmodule AWS.Route53Domains do
   @spec enable_domain_auto_renew(map(), enable_domain_auto_renew_request(), list()) ::
           {:ok, enable_domain_auto_renew_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_domain_auto_renew_errors()}
   def enable_domain_auto_renew(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1559,6 +1570,7 @@ defmodule AWS.Route53Domains do
   @spec enable_domain_transfer_lock(map(), enable_domain_transfer_lock_request(), list()) ::
           {:ok, enable_domain_transfer_lock_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_domain_transfer_lock_errors()}
   def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1579,6 +1591,7 @@ defmodule AWS.Route53Domains do
   @spec get_contact_reachability_status(map(), get_contact_reachability_status_request(), list()) ::
           {:ok, get_contact_reachability_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_reachability_status_errors()}
   def get_contact_reachability_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1596,6 +1609,7 @@ defmodule AWS.Route53Domains do
   @spec get_domain_detail(map(), get_domain_detail_request(), list()) ::
           {:ok, get_domain_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_detail_errors()}
   def get_domain_detail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1609,6 +1623,7 @@ defmodule AWS.Route53Domains do
   @spec get_domain_suggestions(map(), get_domain_suggestions_request(), list()) ::
           {:ok, get_domain_suggestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_suggestions_errors()}
   def get_domain_suggestions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1623,6 +1638,7 @@ defmodule AWS.Route53Domains do
   @spec get_operation_detail(map(), get_operation_detail_request(), list()) ::
           {:ok, get_operation_detail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operation_detail_errors()}
   def get_operation_detail(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1638,6 +1654,7 @@ defmodule AWS.Route53Domains do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1655,6 +1672,7 @@ defmodule AWS.Route53Domains do
   @spec list_operations(map(), list_operations_request(), list()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1684,6 +1702,7 @@ defmodule AWS.Route53Domains do
   @spec list_prices(map(), list_prices_request(), list()) ::
           {:ok, list_prices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_prices_errors()}
   def list_prices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1701,6 +1720,7 @@ defmodule AWS.Route53Domains do
   @spec list_tags_for_domain(map(), list_tags_for_domain_request(), list()) ::
           {:ok, list_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_domain_errors()}
   def list_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1720,6 +1740,7 @@ defmodule AWS.Route53Domains do
   @spec push_domain(map(), push_domain_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, push_domain_errors()}
   def push_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1769,6 +1790,7 @@ defmodule AWS.Route53Domains do
   @spec register_domain(map(), register_domain_request(), list()) ::
           {:ok, register_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1796,6 +1818,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, reject_domain_transfer_from_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_domain_transfer_from_another_aws_account_errors()}
   def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1828,6 +1851,7 @@ defmodule AWS.Route53Domains do
   @spec renew_domain(map(), renew_domain_request(), list()) ::
           {:ok, renew_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, renew_domain_errors()}
   def renew_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1848,6 +1872,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, resend_contact_reachability_email_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resend_contact_reachability_email_errors()}
   def resend_contact_reachability_email(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1861,6 +1886,7 @@ defmodule AWS.Route53Domains do
   @spec resend_operation_authorization(map(), resend_operation_authorization_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resend_operation_authorization_errors()}
   def resend_operation_authorization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1877,6 +1903,7 @@ defmodule AWS.Route53Domains do
   @spec retrieve_domain_auth_code(map(), retrieve_domain_auth_code_request(), list()) ::
           {:ok, retrieve_domain_auth_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, retrieve_domain_auth_code_errors()}
   def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1943,6 +1970,7 @@ defmodule AWS.Route53Domains do
   @spec transfer_domain(map(), transfer_domain_request(), list()) ::
           {:ok, transfer_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transfer_domain_errors()}
   def transfer_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1998,6 +2026,7 @@ defmodule AWS.Route53Domains do
         ) ::
           {:ok, transfer_domain_to_another_aws_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transfer_domain_to_another_aws_account_errors()}
   def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2021,6 +2050,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_contact(map(), update_domain_contact_request(), list()) ::
           {:ok, update_domain_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_contact_errors()}
   def update_domain_contact(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2067,6 +2097,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_contact_privacy(map(), update_domain_contact_privacy_request(), list()) ::
           {:ok, update_domain_contact_privacy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_contact_privacy_errors()}
   def update_domain_contact_privacy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2090,6 +2121,7 @@ defmodule AWS.Route53Domains do
   @spec update_domain_nameservers(map(), update_domain_nameservers_request(), list()) ::
           {:ok, update_domain_nameservers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_nameservers_errors()}
   def update_domain_nameservers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2106,6 +2138,7 @@ defmodule AWS.Route53Domains do
   @spec update_tags_for_domain(map(), update_tags_for_domain_request(), list()) ::
           {:ok, update_tags_for_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_tags_for_domain_errors()}
   def update_tags_for_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2120,6 +2153,7 @@ defmodule AWS.Route53Domains do
   @spec view_billing(map(), view_billing_request(), list()) ::
           {:ok, view_billing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, view_billing_errors()}
   def view_billing(%Client{} = client, input, options \\ []) do
     meta = metadata()

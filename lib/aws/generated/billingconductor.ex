@@ -1815,6 +1815,7 @@ defmodule AWS.Billingconductor do
   @spec associate_accounts(map(), associate_accounts_input(), list()) ::
           {:ok, associate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_accounts_errors()}
   def associate_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/associate-accounts"
@@ -1845,6 +1846,7 @@ defmodule AWS.Billingconductor do
   @spec associate_pricing_rules(map(), associate_pricing_rules_input(), list()) ::
           {:ok, associate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_pricing_rules_errors()}
   def associate_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/associate-pricing-rules"
@@ -1878,6 +1880,7 @@ defmodule AWS.Billingconductor do
         ) ::
           {:ok, batch_associate_resources_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_resources_to_custom_line_item_errors()}
   def batch_associate_resources_to_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/batch-associate-resources-to-custom-line-item"
@@ -1911,6 +1914,7 @@ defmodule AWS.Billingconductor do
         ) ::
           {:ok, batch_disassociate_resources_from_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_resources_from_custom_line_item_errors()}
   def batch_disassociate_resources_from_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/batch-disassociate-resources-from-custom-line-item"
@@ -1941,6 +1945,7 @@ defmodule AWS.Billingconductor do
   @spec create_billing_group(map(), create_billing_group_input(), list()) ::
           {:ok, create_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_billing_group_errors()}
   def create_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/create-billing-group"
@@ -1980,6 +1985,7 @@ defmodule AWS.Billingconductor do
   @spec create_custom_line_item(map(), create_custom_line_item_input(), list()) ::
           {:ok, create_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_custom_line_item_errors()}
   def create_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/create-custom-line-item"
@@ -2015,6 +2021,7 @@ defmodule AWS.Billingconductor do
   @spec create_pricing_plan(map(), create_pricing_plan_input(), list()) ::
           {:ok, create_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pricing_plan_errors()}
   def create_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/create-pricing-plan"
@@ -2051,6 +2058,7 @@ defmodule AWS.Billingconductor do
   @spec create_pricing_rule(map(), create_pricing_rule_input(), list()) ::
           {:ok, create_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pricing_rule_errors()}
   def create_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/create-pricing-rule"
@@ -2086,6 +2094,7 @@ defmodule AWS.Billingconductor do
   @spec delete_billing_group(map(), delete_billing_group_input(), list()) ::
           {:ok, delete_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_billing_group_errors()}
   def delete_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/delete-billing-group"
@@ -2116,6 +2125,7 @@ defmodule AWS.Billingconductor do
   @spec delete_custom_line_item(map(), delete_custom_line_item_input(), list()) ::
           {:ok, delete_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_custom_line_item_errors()}
   def delete_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/delete-custom-line-item"
@@ -2147,6 +2157,7 @@ defmodule AWS.Billingconductor do
   @spec delete_pricing_plan(map(), delete_pricing_plan_input(), list()) ::
           {:ok, delete_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pricing_plan_errors()}
   def delete_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-plan"
@@ -2176,6 +2187,7 @@ defmodule AWS.Billingconductor do
   @spec delete_pricing_rule(map(), delete_pricing_rule_input(), list()) ::
           {:ok, delete_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pricing_rule_errors()}
   def delete_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/delete-pricing-rule"
@@ -2204,6 +2216,7 @@ defmodule AWS.Billingconductor do
   @spec disassociate_accounts(map(), disassociate_accounts_input(), list()) ::
           {:ok, disassociate_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_accounts_errors()}
   def disassociate_accounts(%Client{} = client, input, options \\ []) do
     url_path = "/disassociate-accounts"
@@ -2233,6 +2246,7 @@ defmodule AWS.Billingconductor do
   @spec disassociate_pricing_rules(map(), disassociate_pricing_rules_input(), list()) ::
           {:ok, disassociate_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_pricing_rules_errors()}
   def disassociate_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/disassociate-pricing-rules"
@@ -2263,6 +2277,7 @@ defmodule AWS.Billingconductor do
   @spec get_billing_group_cost_report(map(), get_billing_group_cost_report_input(), list()) ::
           {:ok, get_billing_group_cost_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_billing_group_cost_report_errors()}
   def get_billing_group_cost_report(%Client{} = client, input, options \\ []) do
     url_path = "/get-billing-group-cost-report"
@@ -2298,6 +2313,7 @@ defmodule AWS.Billingconductor do
   @spec list_account_associations(map(), list_account_associations_input(), list()) ::
           {:ok, list_account_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_associations_errors()}
   def list_account_associations(%Client{} = client, input, options \\ []) do
     url_path = "/list-account-associations"
@@ -2329,6 +2345,7 @@ defmodule AWS.Billingconductor do
   @spec list_billing_group_cost_reports(map(), list_billing_group_cost_reports_input(), list()) ::
           {:ok, list_billing_group_cost_reports_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_billing_group_cost_reports_errors()}
   def list_billing_group_cost_reports(%Client{} = client, input, options \\ []) do
     url_path = "/list-billing-group-cost-reports"
@@ -2360,6 +2377,7 @@ defmodule AWS.Billingconductor do
   @spec list_billing_groups(map(), list_billing_groups_input(), list()) ::
           {:ok, list_billing_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_billing_groups_errors()}
   def list_billing_groups(%Client{} = client, input, options \\ []) do
     url_path = "/list-billing-groups"
@@ -2388,6 +2406,7 @@ defmodule AWS.Billingconductor do
   @spec list_custom_line_item_versions(map(), list_custom_line_item_versions_input(), list()) ::
           {:ok, list_custom_line_item_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_line_item_versions_errors()}
   def list_custom_line_item_versions(%Client{} = client, input, options \\ []) do
     url_path = "/list-custom-line-item-versions"
@@ -2420,6 +2439,7 @@ defmodule AWS.Billingconductor do
   @spec list_custom_line_items(map(), list_custom_line_items_input(), list()) ::
           {:ok, list_custom_line_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_custom_line_items_errors()}
   def list_custom_line_items(%Client{} = client, input, options \\ []) do
     url_path = "/list-custom-line-items"
@@ -2450,6 +2470,7 @@ defmodule AWS.Billingconductor do
   @spec list_pricing_plans(map(), list_pricing_plans_input(), list()) ::
           {:ok, list_pricing_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pricing_plans_errors()}
   def list_pricing_plans(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-plans"
@@ -2483,6 +2504,7 @@ defmodule AWS.Billingconductor do
         ) ::
           {:ok, list_pricing_plans_associated_with_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pricing_plans_associated_with_pricing_rule_errors()}
   def list_pricing_plans_associated_with_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-plans-associated-with-pricing-rule"
@@ -2513,6 +2535,7 @@ defmodule AWS.Billingconductor do
   @spec list_pricing_rules(map(), list_pricing_rules_input(), list()) ::
           {:ok, list_pricing_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pricing_rules_errors()}
   def list_pricing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-rules"
@@ -2546,6 +2569,7 @@ defmodule AWS.Billingconductor do
         ) ::
           {:ok, list_pricing_rules_associated_to_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pricing_rules_associated_to_pricing_plan_errors()}
   def list_pricing_rules_associated_to_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/list-pricing-rules-associated-to-pricing-plan"
@@ -2579,6 +2603,7 @@ defmodule AWS.Billingconductor do
         ) ::
           {:ok, list_resources_associated_to_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_associated_to_custom_line_item_errors()}
   def list_resources_associated_to_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/list-resources-associated-to-custom-line-item"
@@ -2608,6 +2633,7 @@ defmodule AWS.Billingconductor do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2629,6 +2655,7 @@ defmodule AWS.Billingconductor do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2658,6 +2685,7 @@ defmodule AWS.Billingconductor do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2691,6 +2719,7 @@ defmodule AWS.Billingconductor do
   @spec update_billing_group(map(), update_billing_group_input(), list()) ::
           {:ok, update_billing_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_billing_group_errors()}
   def update_billing_group(%Client{} = client, input, options \\ []) do
     url_path = "/update-billing-group"
@@ -2720,6 +2749,7 @@ defmodule AWS.Billingconductor do
   @spec update_custom_line_item(map(), update_custom_line_item_input(), list()) ::
           {:ok, update_custom_line_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_custom_line_item_errors()}
   def update_custom_line_item(%Client{} = client, input, options \\ []) do
     url_path = "/update-custom-line-item"
@@ -2748,6 +2778,7 @@ defmodule AWS.Billingconductor do
   @spec update_pricing_plan(map(), update_pricing_plan_input(), list()) ::
           {:ok, update_pricing_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pricing_plan_errors()}
   def update_pricing_plan(%Client{} = client, input, options \\ []) do
     url_path = "/update-pricing-plan"
@@ -2777,6 +2808,7 @@ defmodule AWS.Billingconductor do
   @spec update_pricing_rule(map(), update_pricing_rule_input(), list()) ::
           {:ok, update_pricing_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pricing_rule_errors()}
   def update_pricing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/update-pricing-rule"

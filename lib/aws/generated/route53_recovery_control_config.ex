@@ -961,6 +961,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/cluster"
@@ -995,6 +996,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec create_control_panel(map(), create_control_panel_request(), list()) ::
           {:ok, create_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_control_panel_errors()}
   def create_control_panel(%Client{} = client, input, options \\ []) do
     url_path = "/controlpanel"
@@ -1030,6 +1032,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec create_routing_control(map(), create_routing_control_request(), list()) ::
           {:ok, create_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_routing_control_errors()}
   def create_routing_control(%Client{} = client, input, options \\ []) do
     url_path = "/routingcontrol"
@@ -1078,6 +1081,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec create_safety_rule(map(), create_safety_rule_request(), list()) ::
           {:ok, create_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_safety_rule_errors()}
   def create_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"
@@ -1106,6 +1110,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, cluster_arn, input, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -1134,6 +1139,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec delete_control_panel(map(), String.t(), delete_control_panel_request(), list()) ::
           {:ok, delete_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_control_panel_errors()}
   def delete_control_panel(%Client{} = client, control_panel_arn, input, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
@@ -1162,6 +1168,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec delete_routing_control(map(), String.t(), delete_routing_control_request(), list()) ::
           {:ok, delete_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_routing_control_errors()}
   def delete_routing_control(%Client{} = client, routing_control_arn, input, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
@@ -1192,6 +1199,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec delete_safety_rule(map(), String.t(), delete_safety_rule_request(), list()) ::
           {:ok, delete_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_safety_rule_errors()}
   def delete_safety_rule(%Client{} = client, safety_rule_arn, input, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
@@ -1223,6 +1231,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec describe_cluster(map(), String.t(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, cluster_arn, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(cluster_arn)}"
@@ -1240,6 +1249,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec describe_control_panel(map(), String.t(), list()) ::
           {:ok, describe_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_control_panel_errors()}
   def describe_control_panel(%Client{} = client, control_panel_arn, options \\ []) do
     url_path = "/controlpanel/#{AWS.Util.encode_uri(control_panel_arn)}"
@@ -1264,6 +1274,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec describe_routing_control(map(), String.t(), list()) ::
           {:ok, describe_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_routing_control_errors()}
   def describe_routing_control(%Client{} = client, routing_control_arn, options \\ []) do
     url_path = "/routingcontrol/#{AWS.Util.encode_uri(routing_control_arn)}"
@@ -1281,6 +1292,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec describe_safety_rule(map(), String.t(), list()) ::
           {:ok, describe_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_safety_rule_errors()}
   def describe_safety_rule(%Client{} = client, safety_rule_arn, options \\ []) do
     url_path = "/safetyrule/#{AWS.Util.encode_uri(safety_rule_arn)}"
@@ -1298,6 +1310,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcePolicy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1322,6 +1335,7 @@ defmodule AWS.Route53RecoveryControlConfig do
         ) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associated_route53_health_checks_errors()}
   def list_associated_route53_health_checks(
         %Client{} = client,
@@ -1361,6 +1375,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/cluster"
@@ -1392,6 +1407,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec list_control_panels(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_control_panels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_control_panels_errors()}
   def list_control_panels(
         %Client{} = client,
@@ -1441,6 +1457,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec list_routing_controls(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routing_controls_errors()}
   def list_routing_controls(
         %Client{} = client,
@@ -1479,6 +1496,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec list_safety_rules(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_safety_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_safety_rules_errors()}
   def list_safety_rules(
         %Client{} = client,
@@ -1516,6 +1534,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1533,6 +1552,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1561,6 +1581,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1597,6 +1618,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec update_control_panel(map(), update_control_panel_request(), list()) ::
           {:ok, update_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_control_panel_errors()}
   def update_control_panel(%Client{} = client, input, options \\ []) do
     url_path = "/controlpanel"
@@ -1629,6 +1651,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec update_routing_control(map(), update_routing_control_request(), list()) ::
           {:ok, update_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_control_errors()}
   def update_routing_control(%Client{} = client, input, options \\ []) do
     url_path = "/routingcontrol"
@@ -1660,6 +1683,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @spec update_safety_rule(map(), update_safety_rule_request(), list()) ::
           {:ok, update_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_safety_rule_errors()}
   def update_safety_rule(%Client{} = client, input, options \\ []) do
     url_path = "/safetyrule"

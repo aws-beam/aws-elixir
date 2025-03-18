@@ -2469,6 +2469,7 @@ defmodule AWS.Finspace do
   @spec create_environment(map(), create_environment_request(), list()) ::
           {:ok, create_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
     url_path = "/environment"
@@ -2501,6 +2502,7 @@ defmodule AWS.Finspace do
   @spec create_kx_changeset(map(), String.t(), String.t(), create_kx_changeset_request(), list()) ::
           {:ok, create_kx_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_changeset_errors()}
   def create_kx_changeset(%Client{} = client, database_name, environment_id, input, options \\ []) do
     url_path =
@@ -2531,6 +2533,7 @@ defmodule AWS.Finspace do
   @spec create_kx_cluster(map(), String.t(), create_kx_cluster_request(), list()) ::
           {:ok, create_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_cluster_errors()}
   def create_kx_cluster(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/clusters"
@@ -2559,6 +2562,7 @@ defmodule AWS.Finspace do
   @spec create_kx_database(map(), String.t(), create_kx_database_request(), list()) ::
           {:ok, create_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_database_errors()}
   def create_kx_database(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/databases"
@@ -2592,6 +2596,7 @@ defmodule AWS.Finspace do
   @spec create_kx_dataview(map(), String.t(), String.t(), create_kx_dataview_request(), list()) ::
           {:ok, create_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_dataview_errors()}
   def create_kx_dataview(%Client{} = client, database_name, environment_id, input, options \\ []) do
     url_path =
@@ -2622,6 +2627,7 @@ defmodule AWS.Finspace do
   @spec create_kx_environment(map(), create_kx_environment_request(), list()) ::
           {:ok, create_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_environment_errors()}
   def create_kx_environment(%Client{} = client, input, options \\ []) do
     url_path = "/kx/environments"
@@ -2650,6 +2656,7 @@ defmodule AWS.Finspace do
   @spec create_kx_scaling_group(map(), String.t(), create_kx_scaling_group_request(), list()) ::
           {:ok, create_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_scaling_group_errors()}
   def create_kx_scaling_group(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/scalingGroups"
@@ -2678,6 +2685,7 @@ defmodule AWS.Finspace do
   @spec create_kx_user(map(), String.t(), create_kx_user_request(), list()) ::
           {:ok, create_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_user_errors()}
   def create_kx_user(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/users"
@@ -2707,6 +2715,7 @@ defmodule AWS.Finspace do
   @spec create_kx_volume(map(), String.t(), create_kx_volume_request(), list()) ::
           {:ok, create_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_kx_volume_errors()}
   def create_kx_volume(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/kxvolumes"
@@ -2735,6 +2744,7 @@ defmodule AWS.Finspace do
   @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
@@ -2763,6 +2773,7 @@ defmodule AWS.Finspace do
   @spec delete_kx_cluster(map(), String.t(), String.t(), delete_kx_cluster_request(), list()) ::
           {:ok, delete_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_cluster_errors()}
   def delete_kx_cluster(%Client{} = client, cluster_name, environment_id, input, options \\ []) do
     url_path =
@@ -2805,6 +2816,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, delete_kx_cluster_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_cluster_node_errors()}
   def delete_kx_cluster_node(
         %Client{} = client,
@@ -2845,6 +2857,7 @@ defmodule AWS.Finspace do
   @spec delete_kx_database(map(), String.t(), String.t(), delete_kx_database_request(), list()) ::
           {:ok, delete_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_database_errors()}
   def delete_kx_database(%Client{} = client, database_name, environment_id, input, options \\ []) do
     url_path =
@@ -2890,6 +2903,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, delete_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_dataview_errors()}
   def delete_kx_dataview(
         %Client{} = client,
@@ -2935,6 +2949,7 @@ defmodule AWS.Finspace do
   @spec delete_kx_environment(map(), String.t(), delete_kx_environment_request(), list()) ::
           {:ok, delete_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_environment_errors()}
   def delete_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -2978,6 +2993,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, delete_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_scaling_group_errors()}
   def delete_kx_scaling_group(
         %Client{} = client,
@@ -3019,6 +3035,7 @@ defmodule AWS.Finspace do
   @spec delete_kx_user(map(), String.t(), String.t(), delete_kx_user_request(), list()) ::
           {:ok, delete_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_user_errors()}
   def delete_kx_user(%Client{} = client, environment_id, user_name, input, options \\ []) do
     url_path =
@@ -3059,6 +3076,7 @@ defmodule AWS.Finspace do
   @spec delete_kx_volume(map(), String.t(), String.t(), delete_kx_volume_request(), list()) ::
           {:ok, delete_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_kx_volume_errors()}
   def delete_kx_volume(%Client{} = client, environment_id, volume_name, input, options \\ []) do
     url_path =
@@ -3094,6 +3112,7 @@ defmodule AWS.Finspace do
   @spec get_environment(map(), String.t(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
@@ -3111,6 +3130,7 @@ defmodule AWS.Finspace do
   @spec get_kx_changeset(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_kx_changeset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_changeset_errors()}
   def get_kx_changeset(
         %Client{} = client,
@@ -3136,6 +3156,7 @@ defmodule AWS.Finspace do
   @spec get_kx_cluster(map(), String.t(), String.t(), list()) ::
           {:ok, get_kx_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_cluster_errors()}
   def get_kx_cluster(%Client{} = client, cluster_name, environment_id, options \\ []) do
     url_path =
@@ -3158,6 +3179,7 @@ defmodule AWS.Finspace do
   @spec get_kx_connection_string(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_kx_connection_string_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_connection_string_errors()}
   def get_kx_connection_string(
         %Client{} = client,
@@ -3195,6 +3217,7 @@ defmodule AWS.Finspace do
   @spec get_kx_database(map(), String.t(), String.t(), list()) ::
           {:ok, get_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_database_errors()}
   def get_kx_database(%Client{} = client, database_name, environment_id, options \\ []) do
     url_path =
@@ -3215,6 +3238,7 @@ defmodule AWS.Finspace do
   @spec get_kx_dataview(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_dataview_errors()}
   def get_kx_dataview(
         %Client{} = client,
@@ -3240,6 +3264,7 @@ defmodule AWS.Finspace do
   @spec get_kx_environment(map(), String.t(), list()) ::
           {:ok, get_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_environment_errors()}
   def get_kx_environment(%Client{} = client, environment_id, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -3258,6 +3283,7 @@ defmodule AWS.Finspace do
   @spec get_kx_scaling_group(map(), String.t(), String.t(), list()) ::
           {:ok, get_kx_scaling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_scaling_group_errors()}
   def get_kx_scaling_group(%Client{} = client, environment_id, scaling_group_name, options \\ []) do
     url_path =
@@ -3277,6 +3303,7 @@ defmodule AWS.Finspace do
   @spec get_kx_user(map(), String.t(), String.t(), list()) ::
           {:ok, get_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_user_errors()}
   def get_kx_user(%Client{} = client, environment_id, user_name, options \\ []) do
     url_path =
@@ -3297,6 +3324,7 @@ defmodule AWS.Finspace do
   @spec get_kx_volume(map(), String.t(), String.t(), list()) ::
           {:ok, get_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_kx_volume_errors()}
   def get_kx_volume(%Client{} = client, environment_id, volume_name, options \\ []) do
     url_path =
@@ -3316,6 +3344,7 @@ defmodule AWS.Finspace do
   @spec list_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/environment"
@@ -3354,6 +3383,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, list_kx_changesets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_changesets_errors()}
   def list_kx_changesets(
         %Client{} = client,
@@ -3401,6 +3431,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, list_kx_cluster_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_cluster_nodes_errors()}
   def list_kx_cluster_nodes(
         %Client{} = client,
@@ -3448,6 +3479,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, list_kx_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_clusters_errors()}
   def list_kx_clusters(
         %Client{} = client,
@@ -3493,6 +3525,7 @@ defmodule AWS.Finspace do
   @spec list_kx_databases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_kx_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_databases_errors()}
   def list_kx_databases(
         %Client{} = client,
@@ -3538,6 +3571,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, list_kx_dataviews_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_dataviews_errors()}
   def list_kx_dataviews(
         %Client{} = client,
@@ -3578,6 +3612,7 @@ defmodule AWS.Finspace do
   @spec list_kx_environments(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_kx_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_environments_errors()}
   def list_kx_environments(
         %Client{} = client,
@@ -3615,6 +3650,7 @@ defmodule AWS.Finspace do
   @spec list_kx_scaling_groups(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_kx_scaling_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_scaling_groups_errors()}
   def list_kx_scaling_groups(
         %Client{} = client,
@@ -3652,6 +3688,7 @@ defmodule AWS.Finspace do
   @spec list_kx_users(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_kx_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_users_errors()}
   def list_kx_users(
         %Client{} = client,
@@ -3697,6 +3734,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, list_kx_volumes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_kx_volumes_errors()}
   def list_kx_volumes(
         %Client{} = client,
@@ -3742,6 +3780,7 @@ defmodule AWS.Finspace do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3759,6 +3798,7 @@ defmodule AWS.Finspace do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3787,6 +3827,7 @@ defmodule AWS.Finspace do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3820,6 +3861,7 @@ defmodule AWS.Finspace do
   @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/environment/#{AWS.Util.encode_uri(environment_id)}"
@@ -3860,6 +3902,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, update_kx_cluster_code_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_cluster_code_configuration_errors()}
   def update_kx_cluster_code_configuration(
         %Client{} = client,
@@ -3909,6 +3952,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, update_kx_cluster_databases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_cluster_databases_errors()}
   def update_kx_cluster_databases(
         %Client{} = client,
@@ -3945,6 +3989,7 @@ defmodule AWS.Finspace do
   @spec update_kx_database(map(), String.t(), String.t(), update_kx_database_request(), list()) ::
           {:ok, update_kx_database_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_database_errors()}
   def update_kx_database(%Client{} = client, database_name, environment_id, input, options \\ []) do
     url_path =
@@ -3987,6 +4032,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, update_kx_dataview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_dataview_errors()}
   def update_kx_dataview(
         %Client{} = client,
@@ -4024,6 +4070,7 @@ defmodule AWS.Finspace do
   @spec update_kx_environment(map(), String.t(), update_kx_environment_request(), list()) ::
           {:ok, update_kx_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_environment_errors()}
   def update_kx_environment(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}"
@@ -4065,6 +4112,7 @@ defmodule AWS.Finspace do
         ) ::
           {:ok, update_kx_environment_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_environment_network_errors()}
   def update_kx_environment_network(%Client{} = client, environment_id, input, options \\ []) do
     url_path = "/kx/environments/#{AWS.Util.encode_uri(environment_id)}/network"
@@ -4095,6 +4143,7 @@ defmodule AWS.Finspace do
   @spec update_kx_user(map(), String.t(), String.t(), update_kx_user_request(), list()) ::
           {:ok, update_kx_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_user_errors()}
   def update_kx_user(%Client{} = client, environment_id, user_name, input, options \\ []) do
     url_path =
@@ -4130,6 +4179,7 @@ defmodule AWS.Finspace do
   @spec update_kx_volume(map(), String.t(), String.t(), update_kx_volume_request(), list()) ::
           {:ok, update_kx_volume_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_kx_volume_errors()}
   def update_kx_volume(%Client{} = client, environment_id, volume_name, input, options \\ []) do
     url_path =

@@ -662,6 +662,7 @@ defmodule AWS.ARCZonalShift do
   @spec cancel_zonal_shift(map(), String.t(), cancel_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_zonal_shift_errors()}
   def cancel_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"
@@ -715,6 +716,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, create_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_practice_run_configuration_errors()}
   def create_practice_run_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration"
@@ -754,6 +756,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, delete_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_practice_run_configuration_errors()}
   def delete_practice_run_configuration(
         %Client{} = client,
@@ -804,6 +807,7 @@ defmodule AWS.ARCZonalShift do
   @spec get_autoshift_observer_notification_status(map(), list()) ::
           {:ok, get_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_autoshift_observer_notification_status_errors()}
   def get_autoshift_observer_notification_status(%Client{} = client, options \\ []) do
     url_path = "/autoshift-observer-notification"
@@ -831,6 +835,7 @@ defmodule AWS.ARCZonalShift do
   @spec get_managed_resource(map(), String.t(), list()) ::
           {:ok, get_managed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_resource_errors()}
   def get_managed_resource(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/managedresources/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -853,6 +858,7 @@ defmodule AWS.ARCZonalShift do
   @spec list_autoshifts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_autoshifts_errors()}
   def list_autoshifts(
         %Client{} = client,
@@ -905,6 +911,7 @@ defmodule AWS.ARCZonalShift do
   @spec list_managed_resources(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_resources_errors()}
   def list_managed_resources(
         %Client{} = client,
@@ -959,6 +966,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, list_zonal_shifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_zonal_shifts_errors()}
   def list_zonal_shifts(
         %Client{} = client,
@@ -1032,6 +1040,7 @@ defmodule AWS.ARCZonalShift do
   @spec start_zonal_shift(map(), start_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_zonal_shift_errors()}
   def start_zonal_shift(%Client{} = client, input, options \\ []) do
     url_path = "/zonalshifts"
@@ -1081,6 +1090,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, update_autoshift_observer_notification_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_autoshift_observer_notification_status_errors()}
   def update_autoshift_observer_notification_status(%Client{} = client, input, options \\ []) do
     url_path = "/autoshift-observer-notification"
@@ -1116,6 +1126,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, update_practice_run_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_practice_run_configuration_errors()}
   def update_practice_run_configuration(
         %Client{} = client,
@@ -1170,6 +1181,7 @@ defmodule AWS.ARCZonalShift do
         ) ::
           {:ok, update_zonal_autoshift_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_zonal_autoshift_configuration_errors()}
   def update_zonal_autoshift_configuration(
         %Client{} = client,
@@ -1207,6 +1219,7 @@ defmodule AWS.ARCZonalShift do
   @spec update_zonal_shift(map(), String.t(), update_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_zonal_shift_errors()}
   def update_zonal_shift(%Client{} = client, zonal_shift_id, input, options \\ []) do
     url_path = "/zonalshifts/#{AWS.Util.encode_uri(zonal_shift_id)}"

@@ -1479,6 +1479,7 @@ defmodule AWS.SSMIncidents do
   @spec batch_get_incident_findings(map(), batch_get_incident_findings_input(), list()) ::
           {:ok, batch_get_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_incident_findings_errors()}
   def batch_get_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/batchGetIncidentFindings"
@@ -1509,6 +1510,7 @@ defmodule AWS.SSMIncidents do
   @spec create_replication_set(map(), create_replication_set_input(), list()) ::
           {:ok, create_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_set_errors()}
   def create_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/createReplicationSet"
@@ -1542,6 +1544,7 @@ defmodule AWS.SSMIncidents do
   @spec create_response_plan(map(), create_response_plan_input(), list()) ::
           {:ok, create_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_response_plan_errors()}
   def create_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/createResponsePlan"
@@ -1577,6 +1580,7 @@ defmodule AWS.SSMIncidents do
   @spec create_timeline_event(map(), create_timeline_event_input(), list()) ::
           {:ok, create_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_timeline_event_errors()}
   def create_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/createTimelineEvent"
@@ -1605,6 +1609,7 @@ defmodule AWS.SSMIncidents do
   @spec delete_incident_record(map(), delete_incident_record_input(), list()) ::
           {:ok, delete_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_incident_record_errors()}
   def delete_incident_record(%Client{} = client, input, options \\ []) do
     url_path = "/deleteIncidentRecord"
@@ -1636,6 +1641,7 @@ defmodule AWS.SSMIncidents do
   @spec delete_replication_set(map(), delete_replication_set_input(), list()) ::
           {:ok, delete_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_set_errors()}
   def delete_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/deleteReplicationSet"
@@ -1671,6 +1677,7 @@ defmodule AWS.SSMIncidents do
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, delete_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResourcePolicy"
@@ -1703,6 +1710,7 @@ defmodule AWS.SSMIncidents do
   @spec delete_response_plan(map(), delete_response_plan_input(), list()) ::
           {:ok, delete_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_response_plan_errors()}
   def delete_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/deleteResponsePlan"
@@ -1731,6 +1739,7 @@ defmodule AWS.SSMIncidents do
   @spec delete_timeline_event(map(), delete_timeline_event_input(), list()) ::
           {:ok, delete_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_timeline_event_errors()}
   def delete_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/deleteTimelineEvent"
@@ -1759,6 +1768,7 @@ defmodule AWS.SSMIncidents do
   @spec get_incident_record(map(), String.t(), list()) ::
           {:ok, get_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_incident_record_errors()}
   def get_incident_record(%Client{} = client, arn, options \\ []) do
     url_path = "/getIncidentRecord"
@@ -1783,6 +1793,7 @@ defmodule AWS.SSMIncidents do
   @spec get_replication_set(map(), String.t(), list()) ::
           {:ok, get_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_replication_set_errors()}
   def get_replication_set(%Client{} = client, arn, options \\ []) do
     url_path = "/getReplicationSet"
@@ -1807,6 +1818,7 @@ defmodule AWS.SSMIncidents do
   @spec get_resource_policies(map(), get_resource_policies_input(), list()) ::
           {:ok, get_resource_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/getResourcePolicies"
@@ -1840,6 +1852,7 @@ defmodule AWS.SSMIncidents do
   @spec get_response_plan(map(), String.t(), list()) ::
           {:ok, get_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_response_plan_errors()}
   def get_response_plan(%Client{} = client, arn, options \\ []) do
     url_path = "/getResponsePlan"
@@ -1864,6 +1877,7 @@ defmodule AWS.SSMIncidents do
   @spec get_timeline_event(map(), String.t(), String.t(), list()) ::
           {:ok, get_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_timeline_event_errors()}
   def get_timeline_event(%Client{} = client, event_id, incident_record_arn, options \\ []) do
     url_path = "/getTimelineEvent"
@@ -1901,6 +1915,7 @@ defmodule AWS.SSMIncidents do
   @spec list_incident_findings(map(), list_incident_findings_input(), list()) ::
           {:ok, list_incident_findings_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_incident_findings_errors()}
   def list_incident_findings(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentFindings"
@@ -1932,6 +1947,7 @@ defmodule AWS.SSMIncidents do
   @spec list_incident_records(map(), list_incident_records_input(), list()) ::
           {:ok, list_incident_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_incident_records_errors()}
   def list_incident_records(%Client{} = client, input, options \\ []) do
     url_path = "/listIncidentRecords"
@@ -1960,6 +1976,7 @@ defmodule AWS.SSMIncidents do
   @spec list_related_items(map(), list_related_items_input(), list()) ::
           {:ok, list_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_related_items_errors()}
   def list_related_items(%Client{} = client, input, options \\ []) do
     url_path = "/listRelatedItems"
@@ -1988,6 +2005,7 @@ defmodule AWS.SSMIncidents do
   @spec list_replication_sets(map(), list_replication_sets_input(), list()) ::
           {:ok, list_replication_sets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_replication_sets_errors()}
   def list_replication_sets(%Client{} = client, input, options \\ []) do
     url_path = "/listReplicationSets"
@@ -2016,6 +2034,7 @@ defmodule AWS.SSMIncidents do
   @spec list_response_plans(map(), list_response_plans_input(), list()) ::
           {:ok, list_response_plans_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_response_plans_errors()}
   def list_response_plans(%Client{} = client, input, options \\ []) do
     url_path = "/listResponsePlans"
@@ -2044,6 +2063,7 @@ defmodule AWS.SSMIncidents do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2061,6 +2081,7 @@ defmodule AWS.SSMIncidents do
   @spec list_timeline_events(map(), list_timeline_events_input(), list()) ::
           {:ok, list_timeline_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_timeline_events_errors()}
   def list_timeline_events(%Client{} = client, input, options \\ []) do
     url_path = "/listTimelineEvents"
@@ -2094,6 +2115,7 @@ defmodule AWS.SSMIncidents do
   @spec put_resource_policy(map(), put_resource_policy_input(), list()) ::
           {:ok, put_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/putResourcePolicy"
@@ -2123,6 +2145,7 @@ defmodule AWS.SSMIncidents do
   @spec start_incident(map(), start_incident_input(), list()) ::
           {:ok, start_incident_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_incident_errors()}
   def start_incident(%Client{} = client, input, options \\ []) do
     url_path = "/startIncident"
@@ -2151,6 +2174,7 @@ defmodule AWS.SSMIncidents do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2179,6 +2203,7 @@ defmodule AWS.SSMIncidents do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2214,6 +2239,7 @@ defmodule AWS.SSMIncidents do
   @spec update_deletion_protection(map(), update_deletion_protection_input(), list()) ::
           {:ok, update_deletion_protection_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_deletion_protection_errors()}
   def update_deletion_protection(%Client{} = client, input, options \\ []) do
     url_path = "/updateDeletionProtection"
@@ -2247,6 +2273,7 @@ defmodule AWS.SSMIncidents do
   @spec update_incident_record(map(), update_incident_record_input(), list()) ::
           {:ok, update_incident_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_incident_record_errors()}
   def update_incident_record(%Client{} = client, input, options \\ []) do
     url_path = "/updateIncidentRecord"
@@ -2275,6 +2302,7 @@ defmodule AWS.SSMIncidents do
   @spec update_related_items(map(), update_related_items_input(), list()) ::
           {:ok, update_related_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_related_items_errors()}
   def update_related_items(%Client{} = client, input, options \\ []) do
     url_path = "/updateRelatedItems"
@@ -2303,6 +2331,7 @@ defmodule AWS.SSMIncidents do
   @spec update_replication_set(map(), update_replication_set_input(), list()) ::
           {:ok, update_replication_set_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_set_errors()}
   def update_replication_set(%Client{} = client, input, options \\ []) do
     url_path = "/updateReplicationSet"
@@ -2331,6 +2360,7 @@ defmodule AWS.SSMIncidents do
   @spec update_response_plan(map(), update_response_plan_input(), list()) ::
           {:ok, update_response_plan_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_response_plan_errors()}
   def update_response_plan(%Client{} = client, input, options \\ []) do
     url_path = "/updateResponsePlan"
@@ -2361,6 +2391,7 @@ defmodule AWS.SSMIncidents do
   @spec update_timeline_event(map(), update_timeline_event_input(), list()) ::
           {:ok, update_timeline_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_timeline_event_errors()}
   def update_timeline_event(%Client{} = client, input, options \\ []) do
     url_path = "/updateTimelineEvent"

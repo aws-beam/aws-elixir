@@ -2396,6 +2396,7 @@ defmodule AWS.Batch do
   @spec cancel_job(map(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/canceljob"
@@ -2543,6 +2544,7 @@ defmodule AWS.Batch do
   @spec create_compute_environment(map(), create_compute_environment_request(), list()) ::
           {:ok, create_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_compute_environment_errors()}
   def create_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createcomputeenvironment"
@@ -2571,6 +2573,7 @@ defmodule AWS.Batch do
   @spec create_consumable_resource(map(), create_consumable_resource_request(), list()) ::
           {:ok, create_consumable_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_consumable_resource_errors()}
   def create_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createconsumableresource"
@@ -2612,6 +2615,7 @@ defmodule AWS.Batch do
   @spec create_job_queue(map(), create_job_queue_request(), list()) ::
           {:ok, create_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_queue_errors()}
   def create_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createjobqueue"
@@ -2640,6 +2644,7 @@ defmodule AWS.Batch do
   @spec create_scheduling_policy(map(), create_scheduling_policy_request(), list()) ::
           {:ok, create_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_scheduling_policy_errors()}
   def create_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/createschedulingpolicy"
@@ -2677,6 +2682,7 @@ defmodule AWS.Batch do
   @spec delete_compute_environment(map(), delete_compute_environment_request(), list()) ::
           {:ok, delete_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_compute_environment_errors()}
   def delete_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletecomputeenvironment"
@@ -2705,6 +2711,7 @@ defmodule AWS.Batch do
   @spec delete_consumable_resource(map(), delete_consumable_resource_request(), list()) ::
           {:ok, delete_consumable_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_consumable_resource_errors()}
   def delete_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deleteconsumableresource"
@@ -2743,6 +2750,7 @@ defmodule AWS.Batch do
   @spec delete_job_queue(map(), delete_job_queue_request(), list()) ::
           {:ok, delete_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_queue_errors()}
   def delete_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deletejobqueue"
@@ -2773,6 +2781,7 @@ defmodule AWS.Batch do
   @spec delete_scheduling_policy(map(), delete_scheduling_policy_request(), list()) ::
           {:ok, delete_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_scheduling_policy_errors()}
   def delete_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deleteschedulingpolicy"
@@ -2804,6 +2813,7 @@ defmodule AWS.Batch do
   @spec deregister_job_definition(map(), deregister_job_definition_request(), list()) ::
           {:ok, deregister_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_job_definition_errors()}
   def deregister_job_definition(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deregisterjobdefinition"
@@ -2836,6 +2846,7 @@ defmodule AWS.Batch do
   @spec describe_compute_environments(map(), describe_compute_environments_request(), list()) ::
           {:ok, describe_compute_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_compute_environments_errors()}
   def describe_compute_environments(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describecomputeenvironments"
@@ -2864,6 +2875,7 @@ defmodule AWS.Batch do
   @spec describe_consumable_resource(map(), describe_consumable_resource_request(), list()) ::
           {:ok, describe_consumable_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_consumable_resource_errors()}
   def describe_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describeconsumableresource"
@@ -2895,6 +2907,7 @@ defmodule AWS.Batch do
   @spec describe_job_definitions(map(), describe_job_definitions_request(), list()) ::
           {:ok, describe_job_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_definitions_errors()}
   def describe_job_definitions(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobdefinitions"
@@ -2923,6 +2936,7 @@ defmodule AWS.Batch do
   @spec describe_job_queues(map(), describe_job_queues_request(), list()) ::
           {:ok, describe_job_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_queues_errors()}
   def describe_job_queues(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobqueues"
@@ -2951,6 +2965,7 @@ defmodule AWS.Batch do
   @spec describe_jobs(map(), describe_jobs_request(), list()) ::
           {:ok, describe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_jobs_errors()}
   def describe_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describejobs"
@@ -2979,6 +2994,7 @@ defmodule AWS.Batch do
   @spec describe_scheduling_policies(map(), describe_scheduling_policies_request(), list()) ::
           {:ok, describe_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scheduling_policies_errors()}
   def describe_scheduling_policies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/describeschedulingpolicies"
@@ -3008,6 +3024,7 @@ defmodule AWS.Batch do
   @spec get_job_queue_snapshot(map(), get_job_queue_snapshot_request(), list()) ::
           {:ok, get_job_queue_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_queue_snapshot_errors()}
   def get_job_queue_snapshot(%Client{} = client, input, options \\ []) do
     url_path = "/v1/getjobqueuesnapshot"
@@ -3036,6 +3053,7 @@ defmodule AWS.Batch do
   @spec list_consumable_resources(map(), list_consumable_resources_request(), list()) ::
           {:ok, list_consumable_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_consumable_resources_errors()}
   def list_consumable_resources(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listconsumableresources"
@@ -3078,6 +3096,7 @@ defmodule AWS.Batch do
   @spec list_jobs(map(), list_jobs_request(), list()) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listjobs"
@@ -3110,6 +3129,7 @@ defmodule AWS.Batch do
         ) ::
           {:ok, list_jobs_by_consumable_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_by_consumable_resource_errors()}
   def list_jobs_by_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listjobsbyconsumableresource"
@@ -3138,6 +3158,7 @@ defmodule AWS.Batch do
   @spec list_scheduling_policies(map(), list_scheduling_policies_request(), list()) ::
           {:ok, list_scheduling_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_scheduling_policies_errors()}
   def list_scheduling_policies(%Client{} = client, input, options \\ []) do
     url_path = "/v1/listschedulingpolicies"
@@ -3171,6 +3192,7 @@ defmodule AWS.Batch do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3188,6 +3210,7 @@ defmodule AWS.Batch do
   @spec register_job_definition(map(), register_job_definition_request(), list()) ::
           {:ok, register_job_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_job_definition_errors()}
   def register_job_definition(%Client{} = client, input, options \\ []) do
     url_path = "/v1/registerjobdefinition"
@@ -3235,6 +3258,7 @@ defmodule AWS.Batch do
   @spec submit_job(map(), submit_job_request(), list()) ::
           {:ok, submit_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_job_errors()}
   def submit_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/submitjob"
@@ -3272,6 +3296,7 @@ defmodule AWS.Batch do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3305,6 +3330,7 @@ defmodule AWS.Batch do
   @spec terminate_job(map(), terminate_job_request(), list()) ::
           {:ok, terminate_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_job_errors()}
   def terminate_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/terminatejob"
@@ -3333,6 +3359,7 @@ defmodule AWS.Batch do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3366,6 +3393,7 @@ defmodule AWS.Batch do
   @spec update_compute_environment(map(), update_compute_environment_request(), list()) ::
           {:ok, update_compute_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_compute_environment_errors()}
   def update_compute_environment(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatecomputeenvironment"
@@ -3394,6 +3422,7 @@ defmodule AWS.Batch do
   @spec update_consumable_resource(map(), update_consumable_resource_request(), list()) ::
           {:ok, update_consumable_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_consumable_resource_errors()}
   def update_consumable_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updateconsumableresource"
@@ -3422,6 +3451,7 @@ defmodule AWS.Batch do
   @spec update_job_queue(map(), update_job_queue_request(), list()) ::
           {:ok, update_job_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_queue_errors()}
   def update_job_queue(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updatejobqueue"
@@ -3450,6 +3480,7 @@ defmodule AWS.Batch do
   @spec update_scheduling_policy(map(), update_scheduling_policy_request(), list()) ::
           {:ok, update_scheduling_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scheduling_policy_errors()}
   def update_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updateschedulingpolicy"

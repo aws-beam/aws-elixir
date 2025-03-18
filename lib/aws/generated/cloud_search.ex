@@ -1321,6 +1321,7 @@ defmodule AWS.CloudSearch do
   @spec build_suggesters(map(), build_suggesters_request(), list()) ::
           {:ok, build_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, build_suggesters_errors()}
   def build_suggesters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1338,6 +1339,7 @@ defmodule AWS.CloudSearch do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1355,6 +1357,7 @@ defmodule AWS.CloudSearch do
   @spec define_analysis_scheme(map(), define_analysis_scheme_request(), list()) ::
           {:ok, define_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, define_analysis_scheme_errors()}
   def define_analysis_scheme(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1373,6 +1376,7 @@ defmodule AWS.CloudSearch do
   @spec define_expression(map(), define_expression_request(), list()) ::
           {:ok, define_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, define_expression_errors()}
   def define_expression(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1394,6 +1398,7 @@ defmodule AWS.CloudSearch do
   @spec define_index_field(map(), define_index_field_request(), list()) ::
           {:ok, define_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, define_index_field_errors()}
   def define_index_field(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1413,6 +1418,7 @@ defmodule AWS.CloudSearch do
   @spec define_suggester(map(), define_suggester_request(), list()) ::
           {:ok, define_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, define_suggester_errors()}
   def define_suggester(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1429,6 +1435,7 @@ defmodule AWS.CloudSearch do
   @spec delete_analysis_scheme(map(), delete_analysis_scheme_request(), list()) ::
           {:ok, delete_analysis_scheme_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_analysis_scheme_errors()}
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1446,6 +1453,7 @@ defmodule AWS.CloudSearch do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1462,6 +1470,7 @@ defmodule AWS.CloudSearch do
   @spec delete_expression(map(), delete_expression_request(), list()) ::
           {:ok, delete_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_expression_errors()}
   def delete_expression(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1478,6 +1487,7 @@ defmodule AWS.CloudSearch do
   @spec delete_index_field(map(), delete_index_field_request(), list()) ::
           {:ok, delete_index_field_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_index_field_errors()}
   def delete_index_field(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1494,6 +1504,7 @@ defmodule AWS.CloudSearch do
   @spec delete_suggester(map(), delete_suggester_request(), list()) ::
           {:ok, delete_suggester_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_suggester_errors()}
   def delete_suggester(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1515,6 +1526,7 @@ defmodule AWS.CloudSearch do
   @spec describe_analysis_schemes(map(), describe_analysis_schemes_request(), list()) ::
           {:ok, describe_analysis_schemes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_analysis_schemes_errors()}
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1533,6 +1545,7 @@ defmodule AWS.CloudSearch do
   @spec describe_availability_options(map(), describe_availability_options_request(), list()) ::
           {:ok, describe_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_availability_options_errors()}
   def describe_availability_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1554,6 +1567,7 @@ defmodule AWS.CloudSearch do
         ) ::
           {:ok, describe_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_endpoint_options_errors()}
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1574,6 +1588,7 @@ defmodule AWS.CloudSearch do
   @spec describe_domains(map(), describe_domains_request(), list()) ::
           {:ok, describe_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domains_errors()}
   def describe_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1593,6 +1608,7 @@ defmodule AWS.CloudSearch do
   @spec describe_expressions(map(), describe_expressions_request(), list()) ::
           {:ok, describe_expressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_expressions_errors()}
   def describe_expressions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1613,6 +1629,7 @@ defmodule AWS.CloudSearch do
   @spec describe_index_fields(map(), describe_index_fields_request(), list()) ::
           {:ok, describe_index_fields_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_index_fields_errors()}
   def describe_index_fields(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1630,6 +1647,7 @@ defmodule AWS.CloudSearch do
   @spec describe_scaling_parameters(map(), describe_scaling_parameters_request(), list()) ::
           {:ok, describe_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_scaling_parameters_errors()}
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1654,6 +1672,7 @@ defmodule AWS.CloudSearch do
         ) ::
           {:ok, describe_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_access_policies_errors()}
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1674,6 +1693,7 @@ defmodule AWS.CloudSearch do
   @spec describe_suggesters(map(), describe_suggesters_request(), list()) ::
           {:ok, describe_suggesters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_suggesters_errors()}
   def describe_suggesters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1691,6 +1711,7 @@ defmodule AWS.CloudSearch do
   @spec index_documents(map(), index_documents_request(), list()) ::
           {:ok, index_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, index_documents_errors()}
   def index_documents(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1704,6 +1725,7 @@ defmodule AWS.CloudSearch do
   @spec list_domain_names(map(), %{}, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1724,6 +1746,7 @@ defmodule AWS.CloudSearch do
   @spec update_availability_options(map(), update_availability_options_request(), list()) ::
           {:ok, update_availability_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_availability_options_errors()}
   def update_availability_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1741,6 +1764,7 @@ defmodule AWS.CloudSearch do
   @spec update_domain_endpoint_options(map(), update_domain_endpoint_options_request(), list()) ::
           {:ok, update_domain_endpoint_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_endpoint_options_errors()}
   def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1762,6 +1786,7 @@ defmodule AWS.CloudSearch do
   @spec update_scaling_parameters(map(), update_scaling_parameters_request(), list()) ::
           {:ok, update_scaling_parameters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_scaling_parameters_errors()}
   def update_scaling_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1780,6 +1805,7 @@ defmodule AWS.CloudSearch do
   @spec update_service_access_policies(map(), update_service_access_policies_request(), list()) ::
           {:ok, update_service_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_access_policies_errors()}
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()

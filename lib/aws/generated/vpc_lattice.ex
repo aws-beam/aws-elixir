@@ -2975,6 +2975,7 @@ defmodule AWS.VPCLattice do
   @spec batch_update_rule(map(), String.t(), String.t(), batch_update_rule_request(), list()) ::
           {:ok, batch_update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_rule_errors()}
   def batch_update_rule(
         %Client{} = client,
@@ -3023,6 +3024,7 @@ defmodule AWS.VPCLattice do
   @spec create_access_log_subscription(map(), create_access_log_subscription_request(), list()) ::
           {:ok, create_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_log_subscription_errors()}
   def create_access_log_subscription(%Client{} = client, input, options \\ []) do
     url_path = "/accesslogsubscriptions"
@@ -3059,6 +3061,7 @@ defmodule AWS.VPCLattice do
   @spec create_listener(map(), String.t(), create_listener_request(), list()) ::
           {:ok, create_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}/listeners"
@@ -3090,6 +3093,7 @@ defmodule AWS.VPCLattice do
   @spec create_resource_configuration(map(), create_resource_configuration_request(), list()) ::
           {:ok, create_resource_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_configuration_errors()}
   def create_resource_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/resourceconfigurations"
@@ -3118,6 +3122,7 @@ defmodule AWS.VPCLattice do
   @spec create_resource_gateway(map(), create_resource_gateway_request(), list()) ::
           {:ok, create_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_gateway_errors()}
   def create_resource_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/resourcegateways"
@@ -3153,6 +3158,7 @@ defmodule AWS.VPCLattice do
   @spec create_rule(map(), String.t(), String.t(), create_rule_request(), list()) ::
           {:ok, create_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(
         %Client{} = client,
@@ -3198,6 +3204,7 @@ defmodule AWS.VPCLattice do
   @spec create_service(map(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
     url_path = "/services"
@@ -3233,6 +3240,7 @@ defmodule AWS.VPCLattice do
   @spec create_service_network(map(), create_service_network_request(), list()) ::
           {:ok, create_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_network_errors()}
   def create_service_network(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworks"
@@ -3270,6 +3278,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, create_service_network_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_network_resource_association_errors()}
   def create_service_network_resource_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkresourceassociations"
@@ -3320,6 +3329,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, create_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_network_service_association_errors()}
   def create_service_network_service_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkserviceassociations"
@@ -3374,6 +3384,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, create_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_network_vpc_association_errors()}
   def create_service_network_vpc_association(%Client{} = client, input, options \\ []) do
     url_path = "/servicenetworkvpcassociations"
@@ -3410,6 +3421,7 @@ defmodule AWS.VPCLattice do
   @spec create_target_group(map(), create_target_group_request(), list()) ::
           {:ok, create_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
     url_path = "/targetgroups"
@@ -3443,6 +3455,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_log_subscription_errors()}
   def delete_access_log_subscription(
         %Client{} = client,
@@ -3485,6 +3498,7 @@ defmodule AWS.VPCLattice do
   @spec delete_auth_policy(map(), String.t(), delete_auth_policy_request(), list()) ::
           {:ok, delete_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_auth_policy_errors()}
   def delete_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -3513,6 +3527,7 @@ defmodule AWS.VPCLattice do
   @spec delete_listener(map(), String.t(), String.t(), delete_listener_request(), list()) ::
           {:ok, delete_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(
         %Client{} = client,
@@ -3554,6 +3569,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_resource_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_configuration_errors()}
   def delete_resource_configuration(
         %Client{} = client,
@@ -3592,6 +3608,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_resource_endpoint_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_endpoint_association_errors()}
   def delete_resource_endpoint_association(
         %Client{} = client,
@@ -3627,6 +3644,7 @@ defmodule AWS.VPCLattice do
   @spec delete_resource_gateway(map(), String.t(), delete_resource_gateway_request(), list()) ::
           {:ok, delete_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_gateway_errors()}
   def delete_resource_gateway(
         %Client{} = client,
@@ -3660,6 +3678,7 @@ defmodule AWS.VPCLattice do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3699,6 +3718,7 @@ defmodule AWS.VPCLattice do
   @spec delete_rule(map(), String.t(), String.t(), String.t(), delete_rule_request(), list()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(
         %Client{} = client,
@@ -3745,6 +3765,7 @@ defmodule AWS.VPCLattice do
   @spec delete_service(map(), String.t(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
@@ -3781,6 +3802,7 @@ defmodule AWS.VPCLattice do
   @spec delete_service_network(map(), String.t(), delete_service_network_request(), list()) ::
           {:ok, delete_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_network_errors()}
   def delete_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
@@ -3814,6 +3836,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_service_network_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_network_resource_association_errors()}
   def delete_service_network_resource_association(
         %Client{} = client,
@@ -3857,6 +3880,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_network_service_association_errors()}
   def delete_service_network_service_association(
         %Client{} = client,
@@ -3900,6 +3924,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, delete_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_network_vpc_association_errors()}
   def delete_service_network_vpc_association(
         %Client{} = client,
@@ -3938,6 +3963,7 @@ defmodule AWS.VPCLattice do
   @spec delete_target_group(map(), String.t(), delete_target_group_request(), list()) ::
           {:ok, delete_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
@@ -3966,6 +3992,7 @@ defmodule AWS.VPCLattice do
   @spec deregister_targets(map(), String.t(), deregister_targets_request(), list()) ::
           {:ok, deregister_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/deregistertargets"
@@ -3994,6 +4021,7 @@ defmodule AWS.VPCLattice do
   @spec get_access_log_subscription(map(), String.t(), list()) ::
           {:ok, get_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_access_log_subscription_errors()}
   def get_access_log_subscription(
         %Client{} = client,
@@ -4018,6 +4046,7 @@ defmodule AWS.VPCLattice do
   @spec get_auth_policy(map(), String.t(), list()) ::
           {:ok, get_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_auth_policy_errors()}
   def get_auth_policy(%Client{} = client, resource_identifier, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -4035,6 +4064,7 @@ defmodule AWS.VPCLattice do
   @spec get_listener(map(), String.t(), String.t(), list()) ::
           {:ok, get_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_listener_errors()}
   def get_listener(%Client{} = client, listener_identifier, service_identifier, options \\ []) do
     url_path =
@@ -4054,6 +4084,7 @@ defmodule AWS.VPCLattice do
   @spec get_resource_configuration(map(), String.t(), list()) ::
           {:ok, get_resource_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_configuration_errors()}
   def get_resource_configuration(
         %Client{} = client,
@@ -4075,6 +4106,7 @@ defmodule AWS.VPCLattice do
   @spec get_resource_gateway(map(), String.t(), list()) ::
           {:ok, get_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_gateway_errors()}
   def get_resource_gateway(%Client{} = client, resource_gateway_identifier, options \\ []) do
     url_path = "/resourcegateways/#{AWS.Util.encode_uri(resource_gateway_identifier)}"
@@ -4095,6 +4127,7 @@ defmodule AWS.VPCLattice do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4117,6 +4150,7 @@ defmodule AWS.VPCLattice do
   @spec get_rule(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(
         %Client{} = client,
@@ -4142,6 +4176,7 @@ defmodule AWS.VPCLattice do
   @spec get_service(map(), String.t(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, service_identifier, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
@@ -4159,6 +4194,7 @@ defmodule AWS.VPCLattice do
   @spec get_service_network(map(), String.t(), list()) ::
           {:ok, get_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_network_errors()}
   def get_service_network(%Client{} = client, service_network_identifier, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
@@ -4177,6 +4213,7 @@ defmodule AWS.VPCLattice do
   @spec get_service_network_resource_association(map(), String.t(), list()) ::
           {:ok, get_service_network_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_network_resource_association_errors()}
   def get_service_network_resource_association(
         %Client{} = client,
@@ -4201,6 +4238,7 @@ defmodule AWS.VPCLattice do
   @spec get_service_network_service_association(map(), String.t(), list()) ::
           {:ok, get_service_network_service_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_network_service_association_errors()}
   def get_service_network_service_association(
         %Client{} = client,
@@ -4225,6 +4263,7 @@ defmodule AWS.VPCLattice do
   @spec get_service_network_vpc_association(map(), String.t(), list()) ::
           {:ok, get_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_network_vpc_association_errors()}
   def get_service_network_vpc_association(
         %Client{} = client,
@@ -4248,6 +4287,7 @@ defmodule AWS.VPCLattice do
   @spec get_target_group(map(), String.t(), list()) ::
           {:ok, get_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_target_group_errors()}
   def get_target_group(%Client{} = client, target_group_identifier, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"
@@ -4271,6 +4311,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_access_log_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_log_subscriptions_errors()}
   def list_access_log_subscriptions(
         %Client{} = client,
@@ -4315,6 +4356,7 @@ defmodule AWS.VPCLattice do
   @spec list_listeners(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_listeners_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_listeners_errors()}
   def list_listeners(
         %Client{} = client,
@@ -4359,6 +4401,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_resource_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_configurations_errors()}
   def list_resource_configurations(
         %Client{} = client,
@@ -4423,6 +4466,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_resource_endpoint_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_endpoint_associations_errors()}
   def list_resource_endpoint_associations(
         %Client{} = client,
@@ -4494,6 +4538,7 @@ defmodule AWS.VPCLattice do
   @spec list_resource_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_resource_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_gateways_errors()}
   def list_resource_gateways(
         %Client{} = client,
@@ -4530,6 +4575,7 @@ defmodule AWS.VPCLattice do
   @spec list_rules(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(
         %Client{} = client,
@@ -4577,6 +4623,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_service_network_resource_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_network_resource_associations_errors()}
   def list_service_network_resource_associations(
         %Client{} = client,
@@ -4649,6 +4696,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_service_network_service_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_network_service_associations_errors()}
   def list_service_network_service_associations(
         %Client{} = client,
@@ -4712,6 +4760,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_service_network_vpc_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_network_vpc_associations_errors()}
   def list_service_network_vpc_associations(
         %Client{} = client,
@@ -4770,6 +4819,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_service_network_vpc_endpoint_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_network_vpc_endpoint_associations_errors()}
   def list_service_network_vpc_endpoint_associations(
         %Client{} = client,
@@ -4817,6 +4867,7 @@ defmodule AWS.VPCLattice do
   @spec list_service_networks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_service_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_networks_errors()}
   def list_service_networks(
         %Client{} = client,
@@ -4854,6 +4905,7 @@ defmodule AWS.VPCLattice do
   @spec list_services(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/services"
@@ -4885,6 +4937,7 @@ defmodule AWS.VPCLattice do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4912,6 +4965,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, list_target_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_target_groups_errors()}
   def list_target_groups(
         %Client{} = client,
@@ -4968,6 +5022,7 @@ defmodule AWS.VPCLattice do
   @spec list_targets(map(), String.t(), list_targets_request(), list()) ::
           {:ok, list_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_targets_errors()}
   def list_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/listtargets"
@@ -5009,6 +5064,7 @@ defmodule AWS.VPCLattice do
   @spec put_auth_policy(map(), String.t(), put_auth_policy_request(), list()) ::
           {:ok, put_auth_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_auth_policy_errors()}
   def put_auth_policy(%Client{} = client, resource_identifier, input, options \\ []) do
     url_path = "/authpolicy/#{AWS.Util.encode_uri(resource_identifier)}"
@@ -5042,6 +5098,7 @@ defmodule AWS.VPCLattice do
   @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5073,6 +5130,7 @@ defmodule AWS.VPCLattice do
   @spec register_targets(map(), String.t(), register_targets_request(), list()) ::
           {:ok, register_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}/registertargets"
@@ -5101,6 +5159,7 @@ defmodule AWS.VPCLattice do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5129,6 +5188,7 @@ defmodule AWS.VPCLattice do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5167,6 +5227,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, update_access_log_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_log_subscription_errors()}
   def update_access_log_subscription(
         %Client{} = client,
@@ -5202,6 +5263,7 @@ defmodule AWS.VPCLattice do
   @spec update_listener(map(), String.t(), String.t(), update_listener_request(), list()) ::
           {:ok, update_listener_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_listener_errors()}
   def update_listener(
         %Client{} = client,
@@ -5243,6 +5305,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, update_resource_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_configuration_errors()}
   def update_resource_configuration(
         %Client{} = client,
@@ -5276,6 +5339,7 @@ defmodule AWS.VPCLattice do
   @spec update_resource_gateway(map(), String.t(), update_resource_gateway_request(), list()) ::
           {:ok, update_resource_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_gateway_errors()}
   def update_resource_gateway(
         %Client{} = client,
@@ -5312,6 +5376,7 @@ defmodule AWS.VPCLattice do
   @spec update_rule(map(), String.t(), String.t(), String.t(), update_rule_request(), list()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(
         %Client{} = client,
@@ -5349,6 +5414,7 @@ defmodule AWS.VPCLattice do
   @spec update_service(map(), String.t(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, service_identifier, input, options \\ []) do
     url_path = "/services/#{AWS.Util.encode_uri(service_identifier)}"
@@ -5377,6 +5443,7 @@ defmodule AWS.VPCLattice do
   @spec update_service_network(map(), String.t(), update_service_network_request(), list()) ::
           {:ok, update_service_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_network_errors()}
   def update_service_network(%Client{} = client, service_network_identifier, input, options \\ []) do
     url_path = "/servicenetworks/#{AWS.Util.encode_uri(service_network_identifier)}"
@@ -5418,6 +5485,7 @@ defmodule AWS.VPCLattice do
         ) ::
           {:ok, update_service_network_vpc_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_network_vpc_association_errors()}
   def update_service_network_vpc_association(
         %Client{} = client,
@@ -5453,6 +5521,7 @@ defmodule AWS.VPCLattice do
   @spec update_target_group(map(), String.t(), update_target_group_request(), list()) ::
           {:ok, update_target_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_target_group_errors()}
   def update_target_group(%Client{} = client, target_group_identifier, input, options \\ []) do
     url_path = "/targetgroups/#{AWS.Util.encode_uri(target_group_identifier)}"

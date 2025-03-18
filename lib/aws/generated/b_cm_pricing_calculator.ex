@@ -1926,6 +1926,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_create_bill_scenario_commitment_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_bill_scenario_commitment_modification_errors()}
   def batch_create_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1956,6 +1957,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_create_bill_scenario_usage_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_bill_scenario_usage_modification_errors()}
   def batch_create_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1980,6 +1982,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_create_workload_estimate_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_workload_estimate_usage_errors()}
   def batch_create_workload_estimate_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2015,6 +2018,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_delete_bill_scenario_commitment_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_bill_scenario_commitment_modification_errors()}
   def batch_delete_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2050,6 +2054,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_delete_bill_scenario_usage_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_bill_scenario_usage_modification_errors()}
   def batch_delete_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2079,6 +2084,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_delete_workload_estimate_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_workload_estimate_usage_errors()}
   def batch_delete_workload_estimate_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2107,6 +2113,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_update_bill_scenario_commitment_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_bill_scenario_commitment_modification_errors()}
   def batch_update_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2139,6 +2146,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_update_bill_scenario_usage_modification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_bill_scenario_usage_modification_errors()}
   def batch_update_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2165,6 +2173,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, batch_update_workload_estimate_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_workload_estimate_usage_errors()}
   def batch_update_workload_estimate_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2187,6 +2196,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec create_bill_estimate(map(), create_bill_estimate_request(), list()) ::
           {:ok, create_bill_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bill_estimate_errors()}
   def create_bill_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2202,6 +2212,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec create_bill_scenario(map(), create_bill_scenario_request(), list()) ::
           {:ok, create_bill_scenario_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bill_scenario_errors()}
   def create_bill_scenario(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2216,6 +2227,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec create_workload_estimate(map(), create_workload_estimate_request(), list()) ::
           {:ok, create_workload_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workload_estimate_errors()}
   def create_workload_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2230,6 +2242,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec delete_bill_estimate(map(), delete_bill_estimate_request(), list()) ::
           {:ok, delete_bill_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bill_estimate_errors()}
   def delete_bill_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2244,6 +2257,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec delete_bill_scenario(map(), delete_bill_scenario_request(), list()) ::
           {:ok, delete_bill_scenario_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bill_scenario_errors()}
   def delete_bill_scenario(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2258,6 +2272,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec delete_workload_estimate(map(), delete_workload_estimate_request(), list()) ::
           {:ok, delete_workload_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workload_estimate_errors()}
   def delete_workload_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2272,6 +2287,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec get_bill_estimate(map(), get_bill_estimate_request(), list()) ::
           {:ok, get_bill_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bill_estimate_errors()}
   def get_bill_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2286,6 +2302,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec get_bill_scenario(map(), get_bill_scenario_request(), list()) ::
           {:ok, get_bill_scenario_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bill_scenario_errors()}
   def get_bill_scenario(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2301,6 +2318,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec get_preferences(map(), get_preferences_request(), list()) ::
           {:ok, get_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2315,6 +2333,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec get_workload_estimate(map(), get_workload_estimate_request(), list()) ::
           {:ok, get_workload_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workload_estimate_errors()}
   def get_workload_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2329,6 +2348,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_bill_estimate_commitments(map(), list_bill_estimate_commitments_request(), list()) ::
           {:ok, list_bill_estimate_commitments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_estimate_commitments_errors()}
   def list_bill_estimate_commitments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2347,6 +2367,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, list_bill_estimate_input_commitment_modifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_estimate_input_commitment_modifications_errors()}
   def list_bill_estimate_input_commitment_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2371,6 +2392,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, list_bill_estimate_input_usage_modifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_estimate_input_usage_modifications_errors()}
   def list_bill_estimate_input_usage_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2385,6 +2407,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_bill_estimate_line_items(map(), list_bill_estimate_line_items_request(), list()) ::
           {:ok, list_bill_estimate_line_items_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_estimate_line_items_errors()}
   def list_bill_estimate_line_items(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2399,6 +2422,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_bill_estimates(map(), list_bill_estimates_request(), list()) ::
           {:ok, list_bill_estimates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_estimates_errors()}
   def list_bill_estimates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2417,6 +2441,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, list_bill_scenario_commitment_modifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_scenario_commitment_modifications_errors()}
   def list_bill_scenario_commitment_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2435,6 +2460,7 @@ defmodule AWS.BCMPricingCalculator do
         ) ::
           {:ok, list_bill_scenario_usage_modifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_scenario_usage_modifications_errors()}
   def list_bill_scenario_usage_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2449,6 +2475,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_bill_scenarios(map(), list_bill_scenarios_request(), list()) ::
           {:ok, list_bill_scenarios_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bill_scenarios_errors()}
   def list_bill_scenarios(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2463,6 +2490,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2477,6 +2505,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_workload_estimate_usage(map(), list_workload_estimate_usage_request(), list()) ::
           {:ok, list_workload_estimate_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workload_estimate_usage_errors()}
   def list_workload_estimate_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2491,6 +2520,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec list_workload_estimates(map(), list_workload_estimates_request(), list()) ::
           {:ok, list_workload_estimates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workload_estimates_errors()}
   def list_workload_estimates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2505,6 +2535,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2519,6 +2550,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2533,6 +2565,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec update_bill_estimate(map(), update_bill_estimate_request(), list()) ::
           {:ok, update_bill_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bill_estimate_errors()}
   def update_bill_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2547,6 +2580,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec update_bill_scenario(map(), update_bill_scenario_request(), list()) ::
           {:ok, update_bill_scenario_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bill_scenario_errors()}
   def update_bill_scenario(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2561,6 +2595,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec update_preferences(map(), update_preferences_request(), list()) ::
           {:ok, update_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2575,6 +2610,7 @@ defmodule AWS.BCMPricingCalculator do
   @spec update_workload_estimate(map(), update_workload_estimate_request(), list()) ::
           {:ok, update_workload_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_workload_estimate_errors()}
   def update_workload_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -770,6 +770,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -804,6 +805,7 @@ defmodule AWS.ServerlessApplicationRepository do
         ) ::
           {:ok, create_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_version_errors()}
   def create_application_version(
         %Client{} = client,
@@ -845,6 +847,7 @@ defmodule AWS.ServerlessApplicationRepository do
         ) ::
           {:ok, create_cloud_formation_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cloud_formation_change_set_errors()}
   def create_cloud_formation_change_set(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/changesets"
@@ -878,6 +881,7 @@ defmodule AWS.ServerlessApplicationRepository do
         ) ::
           {:ok, create_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cloud_formation_template_errors()}
   def create_cloud_formation_template(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/templates"
@@ -906,6 +910,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -934,6 +939,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec get_application(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, semantic_version \\ nil, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -958,6 +964,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec get_application_policy(map(), String.t(), list()) ::
           {:ok, get_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_policy_errors()}
   def get_application_policy(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
@@ -975,6 +982,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec get_cloud_formation_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_cloud_formation_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cloud_formation_template_errors()}
   def get_cloud_formation_template(%Client{} = client, application_id, template_id, options \\ []) do
     url_path =
@@ -1001,6 +1009,7 @@ defmodule AWS.ServerlessApplicationRepository do
         ) ::
           {:ok, list_application_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_dependencies_errors()}
   def list_application_dependencies(
         %Client{} = client,
@@ -1046,6 +1055,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_application_versions_errors()}
   def list_application_versions(
         %Client{} = client,
@@ -1083,6 +1093,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, max_items \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/applications"
@@ -1119,6 +1130,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec put_application_policy(map(), String.t(), put_application_policy_request(), list()) ::
           {:ok, put_application_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_application_policy_errors()}
   def put_application_policy(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/policy"
@@ -1149,6 +1161,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec unshare_application(map(), String.t(), unshare_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unshare_application_errors()}
   def unshare_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/unshare"
@@ -1177,6 +1190,7 @@ defmodule AWS.ServerlessApplicationRepository do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"

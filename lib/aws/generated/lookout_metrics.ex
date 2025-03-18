@@ -1828,6 +1828,7 @@ defmodule AWS.LookoutMetrics do
   @spec activate_anomaly_detector(map(), activate_anomaly_detector_request(), list()) ::
           {:ok, activate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_anomaly_detector_errors()}
   def activate_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/ActivateAnomalyDetector"
@@ -1856,6 +1857,7 @@ defmodule AWS.LookoutMetrics do
   @spec back_test_anomaly_detector(map(), back_test_anomaly_detector_request(), list()) ::
           {:ok, back_test_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, back_test_anomaly_detector_errors()}
   def back_test_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/BackTestAnomalyDetector"
@@ -1884,6 +1886,7 @@ defmodule AWS.LookoutMetrics do
   @spec create_alert(map(), create_alert_request(), list()) ::
           {:ok, create_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alert_errors()}
   def create_alert(%Client{} = client, input, options \\ []) do
     url_path = "/CreateAlert"
@@ -1912,6 +1915,7 @@ defmodule AWS.LookoutMetrics do
   @spec create_anomaly_detector(map(), create_anomaly_detector_request(), list()) ::
           {:ok, create_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_anomaly_detector_errors()}
   def create_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/CreateAnomalyDetector"
@@ -1940,6 +1944,7 @@ defmodule AWS.LookoutMetrics do
   @spec create_metric_set(map(), create_metric_set_request(), list()) ::
           {:ok, create_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_metric_set_errors()}
   def create_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/CreateMetricSet"
@@ -1968,6 +1973,7 @@ defmodule AWS.LookoutMetrics do
   @spec deactivate_anomaly_detector(map(), deactivate_anomaly_detector_request(), list()) ::
           {:ok, deactivate_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_anomaly_detector_errors()}
   def deactivate_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DeactivateAnomalyDetector"
@@ -1996,6 +2002,7 @@ defmodule AWS.LookoutMetrics do
   @spec delete_alert(map(), delete_alert_request(), list()) ::
           {:ok, delete_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alert_errors()}
   def delete_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteAlert"
@@ -2028,6 +2035,7 @@ defmodule AWS.LookoutMetrics do
   @spec delete_anomaly_detector(map(), delete_anomaly_detector_request(), list()) ::
           {:ok, delete_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteAnomalyDetector"
@@ -2061,6 +2069,7 @@ defmodule AWS.LookoutMetrics do
   @spec describe_alert(map(), describe_alert_request(), list()) ::
           {:ok, describe_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alert_errors()}
   def describe_alert(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAlert"
@@ -2093,6 +2102,7 @@ defmodule AWS.LookoutMetrics do
         ) ::
           {:ok, describe_anomaly_detection_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_anomaly_detection_executions_errors()}
   def describe_anomaly_detection_executions(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetectionExecutions"
@@ -2126,6 +2136,7 @@ defmodule AWS.LookoutMetrics do
   @spec describe_anomaly_detector(map(), describe_anomaly_detector_request(), list()) ::
           {:ok, describe_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_anomaly_detector_errors()}
   def describe_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeAnomalyDetector"
@@ -2159,6 +2170,7 @@ defmodule AWS.LookoutMetrics do
   @spec describe_metric_set(map(), describe_metric_set_request(), list()) ::
           {:ok, describe_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_metric_set_errors()}
   def describe_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeMetricSet"
@@ -2187,6 +2199,7 @@ defmodule AWS.LookoutMetrics do
   @spec detect_metric_set_config(map(), detect_metric_set_config_request(), list()) ::
           {:ok, detect_metric_set_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_metric_set_config_errors()}
   def detect_metric_set_config(%Client{} = client, input, options \\ []) do
     url_path = "/DetectMetricSetConfig"
@@ -2215,6 +2228,7 @@ defmodule AWS.LookoutMetrics do
   @spec get_anomaly_group(map(), get_anomaly_group_request(), list()) ::
           {:ok, get_anomaly_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_anomaly_group_errors()}
   def get_anomaly_group(%Client{} = client, input, options \\ []) do
     url_path = "/GetAnomalyGroup"
@@ -2243,6 +2257,7 @@ defmodule AWS.LookoutMetrics do
   @spec get_data_quality_metrics(map(), get_data_quality_metrics_request(), list()) ::
           {:ok, get_data_quality_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_quality_metrics_errors()}
   def get_data_quality_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataQualityMetrics"
@@ -2271,6 +2286,7 @@ defmodule AWS.LookoutMetrics do
   @spec get_feedback(map(), get_feedback_request(), list()) ::
           {:ok, get_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_feedback_errors()}
   def get_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/GetFeedback"
@@ -2299,6 +2315,7 @@ defmodule AWS.LookoutMetrics do
   @spec get_sample_data(map(), get_sample_data_request(), list()) ::
           {:ok, get_sample_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sample_data_errors()}
   def get_sample_data(%Client{} = client, input, options \\ []) do
     url_path = "/GetSampleData"
@@ -2332,6 +2349,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_alerts(map(), list_alerts_request(), list()) ::
           {:ok, list_alerts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_alerts_errors()}
   def list_alerts(%Client{} = client, input, options \\ []) do
     url_path = "/ListAlerts"
@@ -2365,6 +2383,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_anomaly_detectors(map(), list_anomaly_detectors_request(), list()) ::
           {:ok, list_anomaly_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomaly_detectors_errors()}
   def list_anomaly_detectors(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyDetectors"
@@ -2398,6 +2417,7 @@ defmodule AWS.LookoutMetrics do
         ) ::
           {:ok, list_anomaly_group_related_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomaly_group_related_metrics_errors()}
   def list_anomaly_group_related_metrics(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupRelatedMetrics"
@@ -2426,6 +2446,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_anomaly_group_summaries(map(), list_anomaly_group_summaries_request(), list()) ::
           {:ok, list_anomaly_group_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomaly_group_summaries_errors()}
   def list_anomaly_group_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupSummaries"
@@ -2454,6 +2475,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_anomaly_group_time_series(map(), list_anomaly_group_time_series_request(), list()) ::
           {:ok, list_anomaly_group_time_series_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomaly_group_time_series_errors()}
   def list_anomaly_group_time_series(%Client{} = client, input, options \\ []) do
     url_path = "/ListAnomalyGroupTimeSeries"
@@ -2487,6 +2509,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_metric_sets(map(), list_metric_sets_request(), list()) ::
           {:ok, list_metric_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metric_sets_errors()}
   def list_metric_sets(%Client{} = client, input, options \\ []) do
     url_path = "/ListMetricSets"
@@ -2517,6 +2540,7 @@ defmodule AWS.LookoutMetrics do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2534,6 +2558,7 @@ defmodule AWS.LookoutMetrics do
   @spec put_feedback(map(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_feedback_errors()}
   def put_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/PutFeedback"
@@ -2564,6 +2589,7 @@ defmodule AWS.LookoutMetrics do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2594,6 +2620,7 @@ defmodule AWS.LookoutMetrics do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2627,6 +2654,7 @@ defmodule AWS.LookoutMetrics do
   @spec update_alert(map(), update_alert_request(), list()) ::
           {:ok, update_alert_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_alert_errors()}
   def update_alert(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateAlert"
@@ -2658,6 +2686,7 @@ defmodule AWS.LookoutMetrics do
   @spec update_anomaly_detector(map(), update_anomaly_detector_request(), list()) ::
           {:ok, update_anomaly_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_anomaly_detector_errors()}
   def update_anomaly_detector(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateAnomalyDetector"
@@ -2686,6 +2715,7 @@ defmodule AWS.LookoutMetrics do
   @spec update_metric_set(map(), update_metric_set_request(), list()) ::
           {:ok, update_metric_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_metric_set_errors()}
   def update_metric_set(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateMetricSet"

@@ -749,6 +749,7 @@ defmodule AWS.SocialMessaging do
         ) ::
           {:ok, associate_whats_app_business_account_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_whats_app_business_account_errors()}
   def associate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/signup"
@@ -780,6 +781,7 @@ defmodule AWS.SocialMessaging do
   @spec delete_whats_app_message_media(map(), delete_whats_app_message_media_input(), list()) ::
           {:ok, delete_whats_app_message_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_whats_app_message_media_errors()}
   def delete_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
@@ -819,6 +821,7 @@ defmodule AWS.SocialMessaging do
         ) ::
           {:ok, disassociate_whats_app_business_account_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_whats_app_business_account_errors()}
   def disassociate_whats_app_business_account(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/waba/disassociate"
@@ -852,6 +855,7 @@ defmodule AWS.SocialMessaging do
   @spec get_linked_whats_app_business_account(map(), String.t(), list()) ::
           {:ok, get_linked_whats_app_business_account_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_linked_whats_app_business_account_errors()}
   def get_linked_whats_app_business_account(%Client{} = client, id, options \\ []) do
     url_path = "/v1/whatsapp/waba/details"
@@ -877,6 +881,7 @@ defmodule AWS.SocialMessaging do
   @spec get_linked_whats_app_business_account_phone_number(map(), String.t(), list()) ::
           {:ok, get_linked_whats_app_business_account_phone_number_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_linked_whats_app_business_account_phone_number_errors()}
   def get_linked_whats_app_business_account_phone_number(%Client{} = client, id, options \\ []) do
     url_path = "/v1/whatsapp/waba/phone/details"
@@ -907,6 +912,7 @@ defmodule AWS.SocialMessaging do
   @spec get_whats_app_message_media(map(), get_whats_app_message_media_input(), list()) ::
           {:ok, get_whats_app_message_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_whats_app_message_media_errors()}
   def get_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media/get"
@@ -935,6 +941,7 @@ defmodule AWS.SocialMessaging do
   @spec list_linked_whats_app_business_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_linked_whats_app_business_accounts_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_linked_whats_app_business_accounts_errors()}
   def list_linked_whats_app_business_accounts(
         %Client{} = client,
@@ -971,6 +978,7 @@ defmodule AWS.SocialMessaging do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/list"
@@ -1004,6 +1012,7 @@ defmodule AWS.SocialMessaging do
   @spec post_whats_app_message_media(map(), post_whats_app_message_media_input(), list()) ::
           {:ok, post_whats_app_message_media_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_whats_app_message_media_errors()}
   def post_whats_app_message_media(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/media"
@@ -1040,6 +1049,7 @@ defmodule AWS.SocialMessaging do
         ) ::
           {:ok, put_whats_app_business_account_event_destinations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_whats_app_business_account_event_destinations_errors()}
   def put_whats_app_business_account_event_destinations(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/waba/eventdestinations"
@@ -1075,6 +1085,7 @@ defmodule AWS.SocialMessaging do
   @spec send_whats_app_message(map(), send_whats_app_message_input(), list()) ::
           {:ok, send_whats_app_message_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_whats_app_message_errors()}
   def send_whats_app_message(%Client{} = client, input, options \\ []) do
     url_path = "/v1/whatsapp/send"
@@ -1106,6 +1117,7 @@ defmodule AWS.SocialMessaging do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/tag-resource"
@@ -1134,6 +1146,7 @@ defmodule AWS.SocialMessaging do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/untag-resource"

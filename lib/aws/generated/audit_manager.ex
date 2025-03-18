@@ -2729,6 +2729,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, associate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_assessment_report_evidence_folder_errors()}
   def associate_assessment_report_evidence_folder(
         %Client{} = client,
@@ -2768,6 +2769,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, batch_associate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_assessment_report_evidence_errors()}
   def batch_associate_assessment_report_evidence(
         %Client{} = client,
@@ -2808,6 +2810,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, batch_create_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_delegation_by_assessment_errors()}
   def batch_create_delegation_by_assessment(
         %Client{} = client,
@@ -2846,6 +2849,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, batch_delete_delegation_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_delegation_by_assessment_errors()}
   def batch_delete_delegation_by_assessment(
         %Client{} = client,
@@ -2884,6 +2888,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, batch_disassociate_assessment_report_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_assessment_report_evidence_errors()}
   def batch_disassociate_assessment_report_evidence(
         %Client{} = client,
@@ -2953,6 +2958,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, batch_import_evidence_to_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_import_evidence_to_assessment_control_errors()}
   def batch_import_evidence_to_assessment_control(
         %Client{} = client,
@@ -2990,6 +2996,7 @@ defmodule AWS.AuditManager do
   @spec create_assessment(map(), create_assessment_request(), list()) ::
           {:ok, create_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assessment_errors()}
   def create_assessment(%Client{} = client, input, options \\ []) do
     url_path = "/assessments"
@@ -3018,6 +3025,7 @@ defmodule AWS.AuditManager do
   @spec create_assessment_framework(map(), create_assessment_framework_request(), list()) ::
           {:ok, create_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assessment_framework_errors()}
   def create_assessment_framework(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentFrameworks"
@@ -3046,6 +3054,7 @@ defmodule AWS.AuditManager do
   @spec create_assessment_report(map(), String.t(), create_assessment_report_request(), list()) ::
           {:ok, create_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assessment_report_errors()}
   def create_assessment_report(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/reports"
@@ -3074,6 +3083,7 @@ defmodule AWS.AuditManager do
   @spec create_control(map(), create_control_request(), list()) ::
           {:ok, create_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_control_errors()}
   def create_control(%Client{} = client, input, options \\ []) do
     url_path = "/controls"
@@ -3102,6 +3112,7 @@ defmodule AWS.AuditManager do
   @spec delete_assessment(map(), String.t(), delete_assessment_request(), list()) ::
           {:ok, delete_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_errors()}
   def delete_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
@@ -3135,6 +3146,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, delete_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_framework_errors()}
   def delete_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
@@ -3168,6 +3180,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, delete_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_framework_share_errors()}
   def delete_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
@@ -3242,6 +3255,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, delete_assessment_report_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assessment_report_errors()}
   def delete_assessment_report(
         %Client{} = client,
@@ -3285,6 +3299,7 @@ defmodule AWS.AuditManager do
   @spec delete_control(map(), String.t(), delete_control_request(), list()) ::
           {:ok, delete_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_control_errors()}
   def delete_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -3324,6 +3339,7 @@ defmodule AWS.AuditManager do
   @spec deregister_account(map(), deregister_account_request(), list()) ::
           {:ok, deregister_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_account_errors()}
   def deregister_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterAccount"
@@ -3442,6 +3458,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, deregister_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_organization_admin_account_errors()}
   def deregister_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/deregisterOrganizationAdminAccount"
@@ -3476,6 +3493,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, disassociate_assessment_report_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_assessment_report_evidence_folder_errors()}
   def disassociate_assessment_report_evidence_folder(
         %Client{} = client,
@@ -3511,6 +3529,7 @@ defmodule AWS.AuditManager do
   @spec get_account_status(map(), list()) ::
           {:ok, get_account_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_status_errors()}
   def get_account_status(%Client{} = client, options \\ []) do
     url_path = "/account/status"
@@ -3528,6 +3547,7 @@ defmodule AWS.AuditManager do
   @spec get_assessment(map(), String.t(), list()) ::
           {:ok, get_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assessment_errors()}
   def get_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
@@ -3545,6 +3565,7 @@ defmodule AWS.AuditManager do
   @spec get_assessment_framework(map(), String.t(), list()) ::
           {:ok, get_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assessment_framework_errors()}
   def get_assessment_framework(%Client{} = client, framework_id, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
@@ -3562,6 +3583,7 @@ defmodule AWS.AuditManager do
   @spec get_assessment_report_url(map(), String.t(), String.t(), list()) ::
           {:ok, get_assessment_report_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assessment_report_url_errors()}
   def get_assessment_report_url(
         %Client{} = client,
@@ -3594,6 +3616,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, get_change_logs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_change_logs_errors()}
   def get_change_logs(
         %Client{} = client,
@@ -3647,6 +3670,7 @@ defmodule AWS.AuditManager do
   @spec get_control(map(), String.t(), list()) ::
           {:ok, get_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_control_errors()}
   def get_control(%Client{} = client, control_id, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -3664,6 +3688,7 @@ defmodule AWS.AuditManager do
   @spec get_delegations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_delegations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_delegations_errors()}
   def get_delegations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/delegations"
@@ -3695,6 +3720,7 @@ defmodule AWS.AuditManager do
   @spec get_evidence(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_evidence_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_errors()}
   def get_evidence(
         %Client{} = client,
@@ -3729,6 +3755,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, get_evidence_by_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_by_evidence_folder_errors()}
   def get_evidence_by_evidence_folder(
         %Client{} = client,
@@ -3791,6 +3818,7 @@ defmodule AWS.AuditManager do
   @spec get_evidence_file_upload_url(map(), String.t(), list()) ::
           {:ok, get_evidence_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_file_upload_url_errors()}
   def get_evidence_file_upload_url(%Client{} = client, file_name, options \\ []) do
     url_path = "/evidenceFileUploadUrl"
@@ -3815,6 +3843,7 @@ defmodule AWS.AuditManager do
   @spec get_evidence_folder(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_evidence_folder_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_folder_errors()}
   def get_evidence_folder(
         %Client{} = client,
@@ -3846,6 +3875,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, get_evidence_folders_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_folders_by_assessment_errors()}
   def get_evidence_folders_by_assessment(
         %Client{} = client,
@@ -3893,6 +3923,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, get_evidence_folders_by_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evidence_folders_by_assessment_control_errors()}
   def get_evidence_folders_by_assessment_control(
         %Client{} = client,
@@ -3934,6 +3965,7 @@ defmodule AWS.AuditManager do
   @spec get_insights(map(), list()) ::
           {:ok, get_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insights_errors()}
   def get_insights(%Client{} = client, options \\ []) do
     url_path = "/insights"
@@ -3951,6 +3983,7 @@ defmodule AWS.AuditManager do
   @spec get_insights_by_assessment(map(), String.t(), list()) ::
           {:ok, get_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insights_by_assessment_errors()}
   def get_insights_by_assessment(%Client{} = client, assessment_id, options \\ []) do
     url_path = "/insights/assessments/#{AWS.Util.encode_uri(assessment_id)}"
@@ -3970,6 +4003,7 @@ defmodule AWS.AuditManager do
   @spec get_organization_admin_account(map(), list()) ::
           {:ok, get_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_admin_account_errors()}
   def get_organization_admin_account(%Client{} = client, options \\ []) do
     url_path = "/account/organizationAdminAccount"
@@ -4002,6 +4036,7 @@ defmodule AWS.AuditManager do
   @spec get_services_in_scope(map(), list()) ::
           {:ok, get_services_in_scope_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_services_in_scope_errors()}
   def get_services_in_scope(%Client{} = client, options \\ []) do
     url_path = "/services"
@@ -4019,6 +4054,7 @@ defmodule AWS.AuditManager do
   @spec get_settings(map(), String.t(), list()) ::
           {:ok, get_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_settings_errors()}
   def get_settings(%Client{} = client, attribute, options \\ []) do
     url_path = "/settings/#{AWS.Util.encode_uri(attribute)}"
@@ -4052,6 +4088,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_assessment_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_control_insights_by_control_domain_errors()}
   def list_assessment_control_insights_by_control_domain(
         %Client{} = client,
@@ -4111,6 +4148,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_assessment_framework_share_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_framework_share_requests_errors()}
   def list_assessment_framework_share_requests(
         %Client{} = client,
@@ -4157,6 +4195,7 @@ defmodule AWS.AuditManager do
   @spec list_assessment_frameworks(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assessment_frameworks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_frameworks_errors()}
   def list_assessment_frameworks(
         %Client{} = client,
@@ -4201,6 +4240,7 @@ defmodule AWS.AuditManager do
   @spec list_assessment_reports(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assessment_reports_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessment_reports_errors()}
   def list_assessment_reports(
         %Client{} = client,
@@ -4237,6 +4277,7 @@ defmodule AWS.AuditManager do
   @spec list_assessments(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assessments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assessments_errors()}
   def list_assessments(
         %Client{} = client,
@@ -4298,6 +4339,7 @@ defmodule AWS.AuditManager do
   @spec list_control_domain_insights(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_control_domain_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_control_domain_insights_errors()}
   def list_control_domain_insights(
         %Client{} = client,
@@ -4356,6 +4398,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_control_domain_insights_by_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_control_domain_insights_by_assessment_errors()}
   def list_control_domain_insights_by_assessment(
         %Client{} = client,
@@ -4414,6 +4457,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_control_insights_by_control_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_control_insights_by_control_domain_errors()}
   def list_control_insights_by_control_domain(
         %Client{} = client,
@@ -4465,6 +4509,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_controls_errors()}
   def list_controls(
         %Client{} = client,
@@ -4524,6 +4569,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, list_keywords_for_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keywords_for_data_source_errors()}
   def list_keywords_for_data_source(
         %Client{} = client,
@@ -4568,6 +4614,7 @@ defmodule AWS.AuditManager do
   @spec list_notifications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notifications_errors()}
   def list_notifications(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/notifications"
@@ -4599,6 +4646,7 @@ defmodule AWS.AuditManager do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4616,6 +4664,7 @@ defmodule AWS.AuditManager do
   @spec register_account(map(), register_account_request(), list()) ::
           {:ok, register_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_account_errors()}
   def register_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerAccount"
@@ -4649,6 +4698,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, register_organization_admin_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_organization_admin_account_errors()}
   def register_organization_admin_account(%Client{} = client, input, options \\ []) do
     url_path = "/account/registerOrganizationAdminAccount"
@@ -4733,6 +4783,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, start_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_assessment_framework_share_errors()}
   def start_assessment_framework_share(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}/shareRequests"
@@ -4761,6 +4812,7 @@ defmodule AWS.AuditManager do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4789,6 +4841,7 @@ defmodule AWS.AuditManager do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4822,6 +4875,7 @@ defmodule AWS.AuditManager do
   @spec update_assessment(map(), String.t(), update_assessment_request(), list()) ::
           {:ok, update_assessment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_errors()}
   def update_assessment(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}"
@@ -4857,6 +4911,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, update_assessment_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_control_errors()}
   def update_assessment_control(
         %Client{} = client,
@@ -4900,6 +4955,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, update_assessment_control_set_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_control_set_status_errors()}
   def update_assessment_control_set_status(
         %Client{} = client,
@@ -4941,6 +4997,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, update_assessment_framework_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_framework_errors()}
   def update_assessment_framework(%Client{} = client, framework_id, input, options \\ []) do
     url_path = "/assessmentFrameworks/#{AWS.Util.encode_uri(framework_id)}"
@@ -4974,6 +5031,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, update_assessment_framework_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_framework_share_errors()}
   def update_assessment_framework_share(%Client{} = client, request_id, input, options \\ []) do
     url_path = "/assessmentFrameworkShareRequests/#{AWS.Util.encode_uri(request_id)}"
@@ -5002,6 +5060,7 @@ defmodule AWS.AuditManager do
   @spec update_assessment_status(map(), String.t(), update_assessment_status_request(), list()) ::
           {:ok, update_assessment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_assessment_status_errors()}
   def update_assessment_status(%Client{} = client, assessment_id, input, options \\ []) do
     url_path = "/assessments/#{AWS.Util.encode_uri(assessment_id)}/status"
@@ -5030,6 +5089,7 @@ defmodule AWS.AuditManager do
   @spec update_control(map(), String.t(), update_control_request(), list()) ::
           {:ok, update_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_control_errors()}
   def update_control(%Client{} = client, control_id, input, options \\ []) do
     url_path = "/controls/#{AWS.Util.encode_uri(control_id)}"
@@ -5058,6 +5118,7 @@ defmodule AWS.AuditManager do
   @spec update_settings(map(), update_settings_request(), list()) ::
           {:ok, update_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_settings_errors()}
   def update_settings(%Client{} = client, input, options \\ []) do
     url_path = "/settings"
@@ -5090,6 +5151,7 @@ defmodule AWS.AuditManager do
         ) ::
           {:ok, validate_assessment_report_integrity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_assessment_report_integrity_errors()}
   def validate_assessment_report_integrity(%Client{} = client, input, options \\ []) do
     url_path = "/assessmentReports/integrity"

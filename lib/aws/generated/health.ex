@@ -771,6 +771,7 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_affected_accounts_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_affected_accounts_for_organization_errors()}
   def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -805,6 +806,7 @@ defmodule AWS.Health do
   @spec describe_affected_entities(map(), describe_affected_entities_request(), list()) ::
           {:ok, describe_affected_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_affected_entities_errors()}
   def describe_affected_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -847,6 +849,7 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_affected_entities_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_affected_entities_for_organization_errors()}
   def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -861,6 +864,7 @@ defmodule AWS.Health do
   @spec describe_entity_aggregates(map(), describe_entity_aggregates_request(), list()) ::
           {:ok, describe_entity_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -878,6 +882,7 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_entity_aggregates_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -898,6 +903,7 @@ defmodule AWS.Health do
   @spec describe_event_aggregates(map(), describe_event_aggregates_request(), list()) ::
           {:ok, describe_event_aggregates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_aggregates_errors()}
   def describe_event_aggregates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -929,6 +935,7 @@ defmodule AWS.Health do
   @spec describe_event_details(map(), describe_event_details_request(), list()) ::
           {:ok, describe_event_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_details_errors()}
   def describe_event_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -986,6 +993,7 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_event_details_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_details_for_organization_errors()}
   def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1013,6 +1021,7 @@ defmodule AWS.Health do
   @spec describe_event_types(map(), describe_event_types_request(), list()) ::
           {:ok, describe_event_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_types_errors()}
   def describe_event_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1056,6 +1065,7 @@ defmodule AWS.Health do
   @spec describe_events(map(), describe_events_request(), list()) ::
           {:ok, describe_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1108,6 +1118,7 @@ defmodule AWS.Health do
         ) ::
           {:ok, describe_events_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_events_for_organization_errors()}
   def describe_events_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1126,6 +1137,7 @@ defmodule AWS.Health do
   @spec describe_health_service_status_for_organization(map(), %{}, list()) ::
           {:ok, describe_health_service_status_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1167,6 +1179,7 @@ defmodule AWS.Health do
   @spec disable_health_service_access_for_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_health_service_access_for_organization_errors()}
   def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1217,6 +1230,7 @@ defmodule AWS.Health do
   @spec enable_health_service_access_for_organization(map(), %{}, list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_health_service_access_for_organization_errors()}
   def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()

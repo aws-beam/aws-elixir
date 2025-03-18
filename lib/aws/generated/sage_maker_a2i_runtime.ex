@@ -341,6 +341,7 @@ defmodule AWS.SageMakerA2IRuntime do
   @spec delete_human_loop(map(), String.t(), delete_human_loop_request(), list()) ::
           {:ok, delete_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_human_loop_errors()}
   def delete_human_loop(%Client{} = client, human_loop_name, input, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
@@ -372,6 +373,7 @@ defmodule AWS.SageMakerA2IRuntime do
   @spec describe_human_loop(map(), String.t(), list()) ::
           {:ok, describe_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_human_loop_errors()}
   def describe_human_loop(%Client{} = client, human_loop_name, options \\ []) do
     url_path = "/human-loops/#{AWS.Util.encode_uri(human_loop_name)}"
@@ -400,6 +402,7 @@ defmodule AWS.SageMakerA2IRuntime do
         ) ::
           {:ok, list_human_loops_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_human_loops_errors()}
   def list_human_loops(
         %Client{} = client,
@@ -468,6 +471,7 @@ defmodule AWS.SageMakerA2IRuntime do
   @spec start_human_loop(map(), start_human_loop_request(), list()) ::
           {:ok, start_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_human_loop_errors()}
   def start_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops"
@@ -496,6 +500,7 @@ defmodule AWS.SageMakerA2IRuntime do
   @spec stop_human_loop(map(), stop_human_loop_request(), list()) ::
           {:ok, stop_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_human_loop_errors()}
   def stop_human_loop(%Client{} = client, input, options \\ []) do
     url_path = "/human-loops/stop"

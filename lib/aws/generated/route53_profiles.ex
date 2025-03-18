@@ -715,6 +715,7 @@ defmodule AWS.Route53Profiles do
   @spec associate_profile(map(), associate_profile_request(), list()) ::
           {:ok, associate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_profile_errors()}
   def associate_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profileassociation"
@@ -744,6 +745,7 @@ defmodule AWS.Route53Profiles do
   @spec associate_resource_to_profile(map(), associate_resource_to_profile_request(), list()) ::
           {:ok, associate_resource_to_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_to_profile_errors()}
   def associate_resource_to_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profileresourceassociation"
@@ -773,6 +775,7 @@ defmodule AWS.Route53Profiles do
   @spec create_profile(map(), create_profile_request(), list()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
     url_path = "/profile"
@@ -804,6 +807,7 @@ defmodule AWS.Route53Profiles do
   @spec delete_profile(map(), String.t(), delete_profile_request(), list()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, profile_id, input, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -839,6 +843,7 @@ defmodule AWS.Route53Profiles do
         ) ::
           {:ok, disassociate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_profile_errors()}
   def disassociate_profile(%Client{} = client, profile_id, resource_id, input, options \\ []) do
     url_path =
@@ -876,6 +881,7 @@ defmodule AWS.Route53Profiles do
         ) ::
           {:ok, disassociate_resource_from_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_from_profile_errors()}
   def disassociate_resource_from_profile(
         %Client{} = client,
@@ -914,6 +920,7 @@ defmodule AWS.Route53Profiles do
   @spec get_profile(map(), String.t(), list()) ::
           {:ok, get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, profile_id, options \\ []) do
     url_path = "/profile/#{AWS.Util.encode_uri(profile_id)}"
@@ -935,6 +942,7 @@ defmodule AWS.Route53Profiles do
   @spec get_profile_association(map(), String.t(), list()) ::
           {:ok, get_profile_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_association_errors()}
   def get_profile_association(%Client{} = client, profile_association_id, options \\ []) do
     url_path = "/profileassociation/#{AWS.Util.encode_uri(profile_association_id)}"
@@ -953,6 +961,7 @@ defmodule AWS.Route53Profiles do
   @spec get_profile_resource_association(map(), String.t(), list()) ::
           {:ok, get_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_profile_resource_association_errors()}
   def get_profile_resource_association(
         %Client{} = client,
@@ -984,6 +993,7 @@ defmodule AWS.Route53Profiles do
         ) ::
           {:ok, list_profile_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_associations_errors()}
   def list_profile_associations(
         %Client{} = client,
@@ -1044,6 +1054,7 @@ defmodule AWS.Route53Profiles do
         ) ::
           {:ok, list_profile_resource_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profile_resource_associations_errors()}
   def list_profile_resource_associations(
         %Client{} = client,
@@ -1091,6 +1102,7 @@ defmodule AWS.Route53Profiles do
   @spec list_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/profiles"
@@ -1123,6 +1135,7 @@ defmodule AWS.Route53Profiles do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1141,6 +1154,7 @@ defmodule AWS.Route53Profiles do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1170,6 +1184,7 @@ defmodule AWS.Route53Profiles do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1209,6 +1224,7 @@ defmodule AWS.Route53Profiles do
         ) ::
           {:ok, update_profile_resource_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_resource_association_errors()}
   def update_profile_resource_association(
         %Client{} = client,

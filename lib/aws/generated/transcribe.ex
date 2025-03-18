@@ -1963,6 +1963,7 @@ defmodule AWS.Transcribe do
   @spec create_call_analytics_category(map(), create_call_analytics_category_request(), list()) ::
           {:ok, create_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_call_analytics_category_errors()}
   def create_call_analytics_category(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1991,6 +1992,7 @@ defmodule AWS.Transcribe do
   @spec create_language_model(map(), create_language_model_request(), list()) ::
           {:ok, create_language_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_language_model_errors()}
   def create_language_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2021,6 +2023,7 @@ defmodule AWS.Transcribe do
   @spec create_medical_vocabulary(map(), create_medical_vocabulary_request(), list()) ::
           {:ok, create_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_medical_vocabulary_errors()}
   def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2050,6 +2053,7 @@ defmodule AWS.Transcribe do
   @spec create_vocabulary(map(), create_vocabulary_request(), list()) ::
           {:ok, create_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vocabulary_errors()}
   def create_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2077,6 +2081,7 @@ defmodule AWS.Transcribe do
   @spec create_vocabulary_filter(map(), create_vocabulary_filter_request(), list()) ::
           {:ok, create_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vocabulary_filter_errors()}
   def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2094,6 +2099,7 @@ defmodule AWS.Transcribe do
   @spec delete_call_analytics_category(map(), delete_call_analytics_category_request(), list()) ::
           {:ok, delete_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_call_analytics_category_errors()}
   def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2111,6 +2117,7 @@ defmodule AWS.Transcribe do
   @spec delete_call_analytics_job(map(), delete_call_analytics_job_request(), list()) ::
           {:ok, delete_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_call_analytics_job_errors()}
   def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2128,6 +2135,7 @@ defmodule AWS.Transcribe do
   @spec delete_language_model(map(), delete_language_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_language_model_errors()}
   def delete_language_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2145,6 +2153,7 @@ defmodule AWS.Transcribe do
   @spec delete_medical_scribe_job(map(), delete_medical_scribe_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_medical_scribe_job_errors()}
   def delete_medical_scribe_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2166,6 +2175,7 @@ defmodule AWS.Transcribe do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_medical_transcription_job_errors()}
   def delete_medical_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2183,6 +2193,7 @@ defmodule AWS.Transcribe do
   @spec delete_medical_vocabulary(map(), delete_medical_vocabulary_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_medical_vocabulary_errors()}
   def delete_medical_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2200,6 +2211,7 @@ defmodule AWS.Transcribe do
   @spec delete_transcription_job(map(), delete_transcription_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_transcription_job_errors()}
   def delete_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2217,6 +2229,7 @@ defmodule AWS.Transcribe do
   @spec delete_vocabulary(map(), delete_vocabulary_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vocabulary_errors()}
   def delete_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2234,6 +2247,7 @@ defmodule AWS.Transcribe do
   @spec delete_vocabulary_filter(map(), delete_vocabulary_filter_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vocabulary_filter_errors()}
   def delete_vocabulary_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2258,6 +2272,7 @@ defmodule AWS.Transcribe do
   @spec describe_language_model(map(), describe_language_model_request(), list()) ::
           {:ok, describe_language_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_language_model_errors()}
   def describe_language_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2273,6 +2288,7 @@ defmodule AWS.Transcribe do
   @spec get_call_analytics_category(map(), get_call_analytics_category_request(), list()) ::
           {:ok, get_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_call_analytics_category_errors()}
   def get_call_analytics_category(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2302,6 +2318,7 @@ defmodule AWS.Transcribe do
   @spec get_call_analytics_job(map(), get_call_analytics_job_request(), list()) ::
           {:ok, get_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_call_analytics_job_errors()}
   def get_call_analytics_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2325,6 +2342,7 @@ defmodule AWS.Transcribe do
   @spec get_medical_scribe_job(map(), get_medical_scribe_job_request(), list()) ::
           {:ok, get_medical_scribe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_medical_scribe_job_errors()}
   def get_medical_scribe_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2347,6 +2365,7 @@ defmodule AWS.Transcribe do
   @spec get_medical_transcription_job(map(), get_medical_transcription_job_request(), list()) ::
           {:ok, get_medical_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_medical_transcription_job_errors()}
   def get_medical_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2367,6 +2386,7 @@ defmodule AWS.Transcribe do
   @spec get_medical_vocabulary(map(), get_medical_vocabulary_request(), list()) ::
           {:ok, get_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_medical_vocabulary_errors()}
   def get_medical_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2393,6 +2413,7 @@ defmodule AWS.Transcribe do
   @spec get_transcription_job(map(), get_transcription_job_request(), list()) ::
           {:ok, get_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transcription_job_errors()}
   def get_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2414,6 +2435,7 @@ defmodule AWS.Transcribe do
   @spec get_vocabulary(map(), get_vocabulary_request(), list()) ::
           {:ok, get_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vocabulary_errors()}
   def get_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2429,6 +2451,7 @@ defmodule AWS.Transcribe do
   @spec get_vocabulary_filter(map(), get_vocabulary_filter_request(), list()) ::
           {:ok, get_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vocabulary_filter_errors()}
   def get_vocabulary_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2447,6 +2470,7 @@ defmodule AWS.Transcribe do
   @spec list_call_analytics_categories(map(), list_call_analytics_categories_request(), list()) ::
           {:ok, list_call_analytics_categories_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_call_analytics_categories_errors()}
   def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2466,6 +2490,7 @@ defmodule AWS.Transcribe do
   @spec list_call_analytics_jobs(map(), list_call_analytics_jobs_request(), list()) ::
           {:ok, list_call_analytics_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_call_analytics_jobs_errors()}
   def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2485,6 +2510,7 @@ defmodule AWS.Transcribe do
   @spec list_language_models(map(), list_language_models_request(), list()) ::
           {:ok, list_language_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_language_models_errors()}
   def list_language_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2504,6 +2530,7 @@ defmodule AWS.Transcribe do
   @spec list_medical_scribe_jobs(map(), list_medical_scribe_jobs_request(), list()) ::
           {:ok, list_medical_scribe_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_medical_scribe_jobs_errors()}
   def list_medical_scribe_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2523,6 +2550,7 @@ defmodule AWS.Transcribe do
   @spec list_medical_transcription_jobs(map(), list_medical_transcription_jobs_request(), list()) ::
           {:ok, list_medical_transcription_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_medical_transcription_jobs_errors()}
   def list_medical_transcription_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2543,6 +2571,7 @@ defmodule AWS.Transcribe do
   @spec list_medical_vocabularies(map(), list_medical_vocabularies_request(), list()) ::
           {:ok, list_medical_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_medical_vocabularies_errors()}
   def list_medical_vocabularies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2560,6 +2589,7 @@ defmodule AWS.Transcribe do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2579,6 +2609,7 @@ defmodule AWS.Transcribe do
   @spec list_transcription_jobs(map(), list_transcription_jobs_request(), list()) ::
           {:ok, list_transcription_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_transcription_jobs_errors()}
   def list_transcription_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2598,6 +2629,7 @@ defmodule AWS.Transcribe do
   @spec list_vocabularies(map(), list_vocabularies_request(), list()) ::
           {:ok, list_vocabularies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vocabularies_errors()}
   def list_vocabularies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2617,6 +2649,7 @@ defmodule AWS.Transcribe do
   @spec list_vocabulary_filters(map(), list_vocabulary_filters_request(), list()) ::
           {:ok, list_vocabulary_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vocabulary_filters_errors()}
   def list_vocabulary_filters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2689,6 +2722,7 @@ defmodule AWS.Transcribe do
   @spec start_call_analytics_job(map(), start_call_analytics_job_request(), list()) ::
           {:ok, start_call_analytics_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_call_analytics_job_errors()}
   def start_call_analytics_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2753,6 +2787,7 @@ defmodule AWS.Transcribe do
   @spec start_medical_scribe_job(map(), start_medical_scribe_job_request(), list()) ::
           {:ok, start_medical_scribe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_medical_scribe_job_errors()}
   def start_medical_scribe_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2816,6 +2851,7 @@ defmodule AWS.Transcribe do
   @spec start_medical_transcription_job(map(), start_medical_transcription_job_request(), list()) ::
           {:ok, start_medical_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_medical_transcription_job_errors()}
   def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2864,6 +2900,7 @@ defmodule AWS.Transcribe do
   @spec start_transcription_job(map(), start_transcription_job_request(), list()) ::
           {:ok, start_transcription_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_transcription_job_errors()}
   def start_transcription_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2881,6 +2918,7 @@ defmodule AWS.Transcribe do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2897,6 +2935,7 @@ defmodule AWS.Transcribe do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2918,6 +2957,7 @@ defmodule AWS.Transcribe do
   @spec update_call_analytics_category(map(), update_call_analytics_category_request(), list()) ::
           {:ok, update_call_analytics_category_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_call_analytics_category_errors()}
   def update_call_analytics_category(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2936,6 +2976,7 @@ defmodule AWS.Transcribe do
   @spec update_medical_vocabulary(map(), update_medical_vocabulary_request(), list()) ::
           {:ok, update_medical_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_medical_vocabulary_errors()}
   def update_medical_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2954,6 +2995,7 @@ defmodule AWS.Transcribe do
   @spec update_vocabulary(map(), update_vocabulary_request(), list()) ::
           {:ok, update_vocabulary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vocabulary_errors()}
   def update_vocabulary(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2971,6 +3013,7 @@ defmodule AWS.Transcribe do
   @spec update_vocabulary_filter(map(), update_vocabulary_filter_request(), list()) ::
           {:ok, update_vocabulary_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vocabulary_filter_errors()}
   def update_vocabulary_filter(%Client{} = client, input, options \\ []) do
     meta = metadata()

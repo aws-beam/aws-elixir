@@ -879,6 +879,7 @@ defmodule AWS.SecurityIR do
         ) ::
           {:ok, batch_get_member_account_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def batch_get_member_account_details(%Client{} = client, membership_id, input, options \\ []) do
     url_path = "/v1/membership/#{AWS.Util.encode_uri(membership_id)}/batch-member-details"
     headers = []
@@ -906,6 +907,7 @@ defmodule AWS.SecurityIR do
   @spec cancel_membership(map(), String.t(), cancel_membership_request(), list()) ::
           {:ok, cancel_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def cancel_membership(%Client{} = client, membership_id, input, options \\ []) do
     url_path = "/v1/membership/#{AWS.Util.encode_uri(membership_id)}"
     headers = []
@@ -933,6 +935,7 @@ defmodule AWS.SecurityIR do
   @spec close_case(map(), String.t(), close_case_request(), list()) ::
           {:ok, close_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def close_case(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/close-case"
     headers = []
@@ -960,6 +963,7 @@ defmodule AWS.SecurityIR do
   @spec create_case(map(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_case(%Client{} = client, input, options \\ []) do
     url_path = "/v1/create-case"
     headers = []
@@ -987,6 +991,7 @@ defmodule AWS.SecurityIR do
   @spec create_case_comment(map(), String.t(), create_case_comment_request(), list()) ::
           {:ok, create_case_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_case_comment(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/create-comment"
     headers = []
@@ -1014,6 +1019,7 @@ defmodule AWS.SecurityIR do
   @spec create_membership(map(), create_membership_request(), list()) ::
           {:ok, create_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def create_membership(%Client{} = client, input, options \\ []) do
     url_path = "/v1/membership"
     headers = []
@@ -1041,6 +1047,7 @@ defmodule AWS.SecurityIR do
   @spec get_case(map(), String.t(), list()) ::
           {:ok, get_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_case(%Client{} = client, case_id, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/get-case"
     headers = []
@@ -1058,6 +1065,7 @@ defmodule AWS.SecurityIR do
   @spec get_case_attachment_download_url(map(), String.t(), String.t(), list()) ::
           {:ok, get_case_attachment_download_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_case_attachment_download_url(%Client{} = client, attachment_id, case_id, options \\ []) do
     url_path =
       "/v1/cases/#{AWS.Util.encode_uri(case_id)}/get-presigned-url/#{AWS.Util.encode_uri(attachment_id)}"
@@ -1081,6 +1089,7 @@ defmodule AWS.SecurityIR do
         ) ::
           {:ok, get_case_attachment_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_case_attachment_upload_url(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/get-presigned-url"
     headers = []
@@ -1108,6 +1117,7 @@ defmodule AWS.SecurityIR do
   @spec get_membership(map(), String.t(), list()) ::
           {:ok, get_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_membership(%Client{} = client, membership_id, options \\ []) do
     url_path = "/v1/membership/#{AWS.Util.encode_uri(membership_id)}"
     headers = []
@@ -1124,6 +1134,7 @@ defmodule AWS.SecurityIR do
   @spec list_case_edits(map(), String.t(), list_case_edits_request(), list()) ::
           {:ok, list_case_edits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_case_edits(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/list-case-edits"
     headers = []
@@ -1151,6 +1162,7 @@ defmodule AWS.SecurityIR do
   @spec list_cases(map(), list_cases_request(), list()) ::
           {:ok, list_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_cases(%Client{} = client, input, options \\ []) do
     url_path = "/v1/list-cases"
     headers = []
@@ -1178,6 +1190,7 @@ defmodule AWS.SecurityIR do
   @spec list_comments(map(), String.t(), list_comments_request(), list()) ::
           {:ok, list_comments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_comments(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/list-comments"
     headers = []
@@ -1205,6 +1218,7 @@ defmodule AWS.SecurityIR do
   @spec list_memberships(map(), list_memberships_request(), list()) ::
           {:ok, list_memberships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_memberships(%Client{} = client, input, options \\ []) do
     url_path = "/v1/memberships"
     headers = []
@@ -1232,6 +1246,7 @@ defmodule AWS.SecurityIR do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1249,6 +1264,7 @@ defmodule AWS.SecurityIR do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1277,6 +1293,7 @@ defmodule AWS.SecurityIR do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1310,6 +1327,7 @@ defmodule AWS.SecurityIR do
   @spec update_case(map(), String.t(), update_case_request(), list()) ::
           {:ok, update_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_case(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/update-case"
     headers = []
@@ -1337,6 +1355,7 @@ defmodule AWS.SecurityIR do
   @spec update_case_comment(map(), String.t(), String.t(), update_case_comment_request(), list()) ::
           {:ok, update_case_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_case_comment(%Client{} = client, case_id, comment_id, input, options \\ []) do
     url_path =
       "/v1/cases/#{AWS.Util.encode_uri(case_id)}/update-case-comment/#{AWS.Util.encode_uri(comment_id)}"
@@ -1376,6 +1395,7 @@ defmodule AWS.SecurityIR do
   @spec update_case_status(map(), String.t(), update_case_status_request(), list()) ::
           {:ok, update_case_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_case_status(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/update-case-status"
     headers = []
@@ -1403,6 +1423,7 @@ defmodule AWS.SecurityIR do
   @spec update_membership(map(), String.t(), update_membership_request(), list()) ::
           {:ok, update_membership_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_membership(%Client{} = client, membership_id, input, options \\ []) do
     url_path = "/v1/membership/#{AWS.Util.encode_uri(membership_id)}/update-membership"
     headers = []
@@ -1434,6 +1455,7 @@ defmodule AWS.SecurityIR do
   @spec update_resolver_type(map(), String.t(), update_resolver_type_request(), list()) ::
           {:ok, update_resolver_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def update_resolver_type(%Client{} = client, case_id, input, options \\ []) do
     url_path = "/v1/cases/#{AWS.Util.encode_uri(case_id)}/update-resolver-type"
     headers = []

@@ -2486,6 +2486,7 @@ defmodule AWS.LicenseManager do
   @spec accept_grant(map(), accept_grant_request(), list()) ::
           {:ok, accept_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_grant_errors()}
   def accept_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2501,6 +2502,7 @@ defmodule AWS.LicenseManager do
   @spec check_in_license(map(), check_in_license_request(), list()) ::
           {:ok, check_in_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_in_license_errors()}
   def check_in_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2514,6 +2516,7 @@ defmodule AWS.LicenseManager do
   @spec checkout_borrow_license(map(), checkout_borrow_license_request(), list()) ::
           {:ok, checkout_borrow_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, checkout_borrow_license_errors()}
   def checkout_borrow_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2531,6 +2534,7 @@ defmodule AWS.LicenseManager do
   @spec checkout_license(map(), checkout_license_request(), list()) ::
           {:ok, checkout_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, checkout_license_errors()}
   def checkout_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2549,6 +2553,7 @@ defmodule AWS.LicenseManager do
   @spec create_grant(map(), create_grant_request(), list()) ::
           {:ok, create_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2566,6 +2571,7 @@ defmodule AWS.LicenseManager do
   @spec create_grant_version(map(), create_grant_version_request(), list()) ::
           {:ok, create_grant_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_grant_version_errors()}
   def create_grant_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2579,6 +2585,7 @@ defmodule AWS.LicenseManager do
   @spec create_license(map(), create_license_request(), list()) ::
           {:ok, create_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_errors()}
   def create_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2603,6 +2610,7 @@ defmodule AWS.LicenseManager do
   @spec create_license_configuration(map(), create_license_configuration_request(), list()) ::
           {:ok, create_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_configuration_errors()}
   def create_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2620,6 +2628,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, create_license_conversion_task_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_conversion_task_for_resource_errors()}
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2637,6 +2646,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, create_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_manager_report_generator_errors()}
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2650,6 +2660,7 @@ defmodule AWS.LicenseManager do
   @spec create_license_version(map(), create_license_version_request(), list()) ::
           {:ok, create_license_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_version_errors()}
   def create_license_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2669,6 +2680,7 @@ defmodule AWS.LicenseManager do
   @spec create_token(map(), create_token_request(), list()) ::
           {:ok, create_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2682,6 +2694,7 @@ defmodule AWS.LicenseManager do
   @spec delete_grant(map(), delete_grant_request(), list()) ::
           {:ok, delete_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_grant_errors()}
   def delete_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2695,6 +2708,7 @@ defmodule AWS.LicenseManager do
   @spec delete_license(map(), delete_license_request(), list()) ::
           {:ok, delete_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_license_errors()}
   def delete_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2710,6 +2724,7 @@ defmodule AWS.LicenseManager do
   @spec delete_license_configuration(map(), delete_license_configuration_request(), list()) ::
           {:ok, delete_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_license_configuration_errors()}
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2732,6 +2747,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, delete_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_license_manager_report_generator_errors()}
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2747,6 +2763,7 @@ defmodule AWS.LicenseManager do
   @spec delete_token(map(), delete_token_request(), list()) ::
           {:ok, delete_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_token_errors()}
   def delete_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2760,6 +2777,7 @@ defmodule AWS.LicenseManager do
   @spec extend_license_consumption(map(), extend_license_consumption_request(), list()) ::
           {:ok, extend_license_consumption_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, extend_license_consumption_errors()}
   def extend_license_consumption(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2776,6 +2794,7 @@ defmodule AWS.LicenseManager do
   @spec get_access_token(map(), get_access_token_request(), list()) ::
           {:ok, get_access_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2789,6 +2808,7 @@ defmodule AWS.LicenseManager do
   @spec get_grant(map(), get_grant_request(), list()) ::
           {:ok, get_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_grant_errors()}
   def get_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2802,6 +2822,7 @@ defmodule AWS.LicenseManager do
   @spec get_license(map(), get_license_request(), list()) ::
           {:ok, get_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_errors()}
   def get_license(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2815,6 +2836,7 @@ defmodule AWS.LicenseManager do
   @spec get_license_configuration(map(), get_license_configuration_request(), list()) ::
           {:ok, get_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_configuration_errors()}
   def get_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2828,6 +2850,7 @@ defmodule AWS.LicenseManager do
   @spec get_license_conversion_task(map(), get_license_conversion_task_request(), list()) ::
           {:ok, get_license_conversion_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_conversion_task_errors()}
   def get_license_conversion_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2845,6 +2868,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, get_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_manager_report_generator_errors()}
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2858,6 +2882,7 @@ defmodule AWS.LicenseManager do
   @spec get_license_usage(map(), get_license_usage_request(), list()) ::
           {:ok, get_license_usage_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_usage_errors()}
   def get_license_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2871,6 +2896,7 @@ defmodule AWS.LicenseManager do
   @spec get_service_settings(map(), get_service_settings_request(), list()) ::
           {:ok, get_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2893,6 +2919,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_associations_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_associations_for_license_configuration_errors()}
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2906,6 +2933,7 @@ defmodule AWS.LicenseManager do
   @spec list_distributed_grants(map(), list_distributed_grants_request(), list()) ::
           {:ok, list_distributed_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_distributed_grants_errors()}
   def list_distributed_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2923,6 +2951,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_failures_for_license_configuration_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_failures_for_license_configuration_operations_errors()}
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2942,6 +2971,7 @@ defmodule AWS.LicenseManager do
   @spec list_license_configurations(map(), list_license_configurations_request(), list()) ::
           {:ok, list_license_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_configurations_errors()}
   def list_license_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2955,6 +2985,7 @@ defmodule AWS.LicenseManager do
   @spec list_license_conversion_tasks(map(), list_license_conversion_tasks_request(), list()) ::
           {:ok, list_license_conversion_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_conversion_tasks_errors()}
   def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2972,6 +3003,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_license_manager_report_generators_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_manager_report_generators_errors()}
   def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2989,6 +3021,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_specifications_for_resource_errors()}
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3002,6 +3035,7 @@ defmodule AWS.LicenseManager do
   @spec list_license_versions(map(), list_license_versions_request(), list()) ::
           {:ok, list_license_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_versions_errors()}
   def list_license_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3015,6 +3049,7 @@ defmodule AWS.LicenseManager do
   @spec list_licenses(map(), list_licenses_request(), list()) ::
           {:ok, list_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_licenses_errors()}
   def list_licenses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3033,6 +3068,7 @@ defmodule AWS.LicenseManager do
   @spec list_received_grants(map(), list_received_grants_request(), list()) ::
           {:ok, list_received_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_received_grants_errors()}
   def list_received_grants(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3050,6 +3086,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_received_grants_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_received_grants_for_organization_errors()}
   def list_received_grants_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3063,6 +3100,7 @@ defmodule AWS.LicenseManager do
   @spec list_received_licenses(map(), list_received_licenses_request(), list()) ::
           {:ok, list_received_licenses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_received_licenses_errors()}
   def list_received_licenses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3080,6 +3118,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_received_licenses_for_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_received_licenses_for_organization_errors()}
   def list_received_licenses_for_organization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3093,6 +3132,7 @@ defmodule AWS.LicenseManager do
   @spec list_resource_inventory(map(), list_resource_inventory_request(), list()) ::
           {:ok, list_resource_inventory_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_inventory_errors()}
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3106,6 +3146,7 @@ defmodule AWS.LicenseManager do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3119,6 +3160,7 @@ defmodule AWS.LicenseManager do
   @spec list_tokens(map(), list_tokens_request(), list()) ::
           {:ok, list_tokens_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tokens_errors()}
   def list_tokens(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3140,6 +3182,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, list_usage_for_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_usage_for_license_configuration_errors()}
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3153,6 +3196,7 @@ defmodule AWS.LicenseManager do
   @spec reject_grant(map(), reject_grant_request(), list()) ::
           {:ok, reject_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_grant_errors()}
   def reject_grant(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3166,6 +3210,7 @@ defmodule AWS.LicenseManager do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3179,6 +3224,7 @@ defmodule AWS.LicenseManager do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3192,6 +3238,7 @@ defmodule AWS.LicenseManager do
   @spec update_license_configuration(map(), update_license_configuration_request(), list()) ::
           {:ok, update_license_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_license_configuration_errors()}
   def update_license_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3212,6 +3259,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, update_license_manager_report_generator_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_license_manager_report_generator_errors()}
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3235,6 +3283,7 @@ defmodule AWS.LicenseManager do
         ) ::
           {:ok, update_license_specifications_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_license_specifications_for_resource_errors()}
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3248,6 +3297,7 @@ defmodule AWS.LicenseManager do
   @spec update_service_settings(map(), update_service_settings_request(), list()) ::
           {:ok, update_service_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()

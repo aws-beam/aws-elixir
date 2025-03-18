@@ -627,6 +627,7 @@ defmodule AWS.RDSData do
   @spec batch_execute_statement(map(), batch_execute_statement_request(), list()) ::
           {:ok, batch_execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/BatchExecute"
@@ -667,6 +668,7 @@ defmodule AWS.RDSData do
   @spec begin_transaction(map(), begin_transaction_request(), list()) ::
           {:ok, begin_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, begin_transaction_errors()}
   def begin_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/BeginTransaction"
@@ -696,6 +698,7 @@ defmodule AWS.RDSData do
   @spec commit_transaction(map(), commit_transaction_request(), list()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, commit_transaction_errors()}
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
@@ -729,6 +732,7 @@ defmodule AWS.RDSData do
   @spec execute_sql(map(), execute_sql_request(), list()) ::
           {:ok, execute_sql_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_sql_errors()}
   def execute_sql(%Client{} = client, input, options \\ []) do
     url_path = "/ExecuteSql"
@@ -764,6 +768,7 @@ defmodule AWS.RDSData do
   @spec execute_statement(map(), execute_statement_request(), list()) ::
           {:ok, execute_statement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
     url_path = "/Execute"
@@ -794,6 +799,7 @@ defmodule AWS.RDSData do
   @spec rollback_transaction(map(), rollback_transaction_request(), list()) ::
           {:ok, rollback_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, rollback_transaction_errors()}
   def rollback_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/RollbackTransaction"

@@ -1432,6 +1432,7 @@ defmodule AWS.VoiceID do
   @spec associate_fraudster(map(), associate_fraudster_request(), list()) ::
           {:ok, associate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_fraudster_errors()}
   def associate_fraudster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1450,6 +1451,7 @@ defmodule AWS.VoiceID do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1463,6 +1465,7 @@ defmodule AWS.VoiceID do
   @spec create_watchlist(map(), create_watchlist_request(), list()) ::
           {:ok, create_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_watchlist_errors()}
   def create_watchlist(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1476,6 +1479,7 @@ defmodule AWS.VoiceID do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1491,6 +1495,7 @@ defmodule AWS.VoiceID do
   @spec delete_fraudster(map(), delete_fraudster_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fraudster_errors()}
   def delete_fraudster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1504,6 +1509,7 @@ defmodule AWS.VoiceID do
   @spec delete_speaker(map(), delete_speaker_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_speaker_errors()}
   def delete_speaker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1523,6 +1529,7 @@ defmodule AWS.VoiceID do
   @spec delete_watchlist(map(), delete_watchlist_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_watchlist_errors()}
   def delete_watchlist(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1536,6 +1543,7 @@ defmodule AWS.VoiceID do
   @spec describe_domain(map(), describe_domain_request(), list()) ::
           {:ok, describe_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1549,6 +1557,7 @@ defmodule AWS.VoiceID do
   @spec describe_fraudster(map(), describe_fraudster_request(), list()) ::
           {:ok, describe_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fraudster_errors()}
   def describe_fraudster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1566,6 +1575,7 @@ defmodule AWS.VoiceID do
         ) ::
           {:ok, describe_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_fraudster_registration_job_errors()}
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1579,6 +1589,7 @@ defmodule AWS.VoiceID do
   @spec describe_speaker(map(), describe_speaker_request(), list()) ::
           {:ok, describe_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_speaker_errors()}
   def describe_speaker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1592,6 +1603,7 @@ defmodule AWS.VoiceID do
   @spec describe_speaker_enrollment_job(map(), describe_speaker_enrollment_job_request(), list()) ::
           {:ok, describe_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_speaker_enrollment_job_errors()}
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1605,6 +1617,7 @@ defmodule AWS.VoiceID do
   @spec describe_watchlist(map(), describe_watchlist_request(), list()) ::
           {:ok, describe_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_watchlist_errors()}
   def describe_watchlist(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1623,6 +1636,7 @@ defmodule AWS.VoiceID do
   @spec disassociate_fraudster(map(), disassociate_fraudster_request(), list()) ::
           {:ok, disassociate_fraudster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_fraudster_errors()}
   def disassociate_fraudster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1637,6 +1651,7 @@ defmodule AWS.VoiceID do
   @spec evaluate_session(map(), evaluate_session_request(), list()) ::
           {:ok, evaluate_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_session_errors()}
   def evaluate_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1650,6 +1665,7 @@ defmodule AWS.VoiceID do
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1671,6 +1687,7 @@ defmodule AWS.VoiceID do
         ) ::
           {:ok, list_fraudster_registration_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fraudster_registration_jobs_errors()}
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1684,6 +1701,7 @@ defmodule AWS.VoiceID do
   @spec list_fraudsters(map(), list_fraudsters_request(), list()) ::
           {:ok, list_fraudsters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fraudsters_errors()}
   def list_fraudsters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1701,6 +1719,7 @@ defmodule AWS.VoiceID do
   @spec list_speaker_enrollment_jobs(map(), list_speaker_enrollment_jobs_request(), list()) ::
           {:ok, list_speaker_enrollment_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_speaker_enrollment_jobs_errors()}
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1714,6 +1733,7 @@ defmodule AWS.VoiceID do
   @spec list_speakers(map(), list_speakers_request(), list()) ::
           {:ok, list_speakers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_speakers_errors()}
   def list_speakers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1727,6 +1747,7 @@ defmodule AWS.VoiceID do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1740,6 +1761,7 @@ defmodule AWS.VoiceID do
   @spec list_watchlists(map(), list_watchlists_request(), list()) ::
           {:ok, list_watchlists_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_watchlists_errors()}
   def list_watchlists(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1763,6 +1785,7 @@ defmodule AWS.VoiceID do
   @spec opt_out_speaker(map(), opt_out_speaker_request(), list()) ::
           {:ok, opt_out_speaker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, opt_out_speaker_errors()}
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1780,6 +1803,7 @@ defmodule AWS.VoiceID do
         ) ::
           {:ok, start_fraudster_registration_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_fraudster_registration_job_errors()}
   def start_fraudster_registration_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1793,6 +1817,7 @@ defmodule AWS.VoiceID do
   @spec start_speaker_enrollment_job(map(), start_speaker_enrollment_job_request(), list()) ::
           {:ok, start_speaker_enrollment_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_speaker_enrollment_job_errors()}
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1806,6 +1831,7 @@ defmodule AWS.VoiceID do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1819,6 +1845,7 @@ defmodule AWS.VoiceID do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1837,6 +1864,7 @@ defmodule AWS.VoiceID do
   @spec update_domain(map(), update_domain_request(), list()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1852,6 +1880,7 @@ defmodule AWS.VoiceID do
   @spec update_watchlist(map(), update_watchlist_request(), list()) ::
           {:ok, update_watchlist_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_watchlist_errors()}
   def update_watchlist(%Client{} = client, input, options \\ []) do
     meta = metadata()

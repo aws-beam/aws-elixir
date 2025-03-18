@@ -489,6 +489,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, create_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_slack_channel_configuration_errors()}
   def create_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/create-slack-channel-configuration"
@@ -521,6 +522,7 @@ defmodule AWS.SupportApp do
   @spec delete_account_alias(map(), delete_account_alias_request(), list()) ::
           {:ok, delete_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_alias_errors()}
   def delete_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-account-alias"
@@ -556,6 +558,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, delete_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slack_channel_configuration_errors()}
   def delete_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-slack-channel-configuration"
@@ -591,6 +594,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, delete_slack_workspace_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slack_workspace_configuration_errors()}
   def delete_slack_workspace_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/delete-slack-workspace-configuration"
@@ -623,6 +627,7 @@ defmodule AWS.SupportApp do
   @spec get_account_alias(map(), get_account_alias_request(), list()) ::
           {:ok, get_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_alias_errors()}
   def get_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/get-account-alias"
@@ -655,6 +660,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, list_slack_channel_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_slack_channel_configurations_errors()}
   def list_slack_channel_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/control/list-slack-channel-configurations"
@@ -687,6 +693,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, list_slack_workspace_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_slack_workspace_configurations_errors()}
   def list_slack_workspace_configurations(%Client{} = client, input, options \\ []) do
     url_path = "/control/list-slack-workspace-configurations"
@@ -720,6 +727,7 @@ defmodule AWS.SupportApp do
   @spec put_account_alias(map(), put_account_alias_request(), list()) ::
           {:ok, put_account_alias_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_alias_errors()}
   def put_account_alias(%Client{} = client, input, options \\ []) do
     url_path = "/control/put-account-alias"
@@ -789,6 +797,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, register_slack_workspace_for_organization_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_slack_workspace_for_organization_errors()}
   def register_slack_workspace_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/control/register-slack-workspace-for-organization"
@@ -822,6 +831,7 @@ defmodule AWS.SupportApp do
         ) ::
           {:ok, update_slack_channel_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_slack_channel_configuration_errors()}
   def update_slack_channel_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/control/update-slack-channel-configuration"

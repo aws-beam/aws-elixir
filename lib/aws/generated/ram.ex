@@ -1782,6 +1782,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, accept_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_resource_share_invitation_errors()}
   def accept_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/acceptresourceshareinvitation"
@@ -1816,6 +1817,7 @@ defmodule AWS.RAM do
   @spec associate_resource_share(map(), associate_resource_share_request(), list()) ::
           {:ok, associate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_share_errors()}
   def associate_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourceshare"
@@ -1856,6 +1858,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, associate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_resource_share_permission_errors()}
   def associate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/associateresourcesharepermission"
@@ -1887,6 +1890,7 @@ defmodule AWS.RAM do
   @spec create_permission(map(), create_permission_request(), list()) ::
           {:ok, create_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_permission_errors()}
   def create_permission(%Client{} = client, input, options \\ []) do
     url_path = "/createpermission"
@@ -1926,6 +1930,7 @@ defmodule AWS.RAM do
   @spec create_permission_version(map(), create_permission_version_request(), list()) ::
           {:ok, create_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_permission_version_errors()}
   def create_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/createpermissionversion"
@@ -1965,6 +1970,7 @@ defmodule AWS.RAM do
   @spec create_resource_share(map(), create_resource_share_request(), list()) ::
           {:ok, create_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_share_errors()}
   def create_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/createresourceshare"
@@ -1999,6 +2005,7 @@ defmodule AWS.RAM do
   @spec delete_permission(map(), delete_permission_request(), list()) ::
           {:ok, delete_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_errors()}
   def delete_permission(%Client{} = client, input, options \\ []) do
     url_path = "/deletepermission"
@@ -2040,6 +2047,7 @@ defmodule AWS.RAM do
   @spec delete_permission_version(map(), delete_permission_version_request(), list()) ::
           {:ok, delete_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_permission_version_errors()}
   def delete_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/deletepermissionversion"
@@ -2079,6 +2087,7 @@ defmodule AWS.RAM do
   @spec delete_resource_share(map(), delete_resource_share_request(), list()) ::
           {:ok, delete_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_share_errors()}
   def delete_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/deleteresourceshare"
@@ -2115,6 +2124,7 @@ defmodule AWS.RAM do
   @spec disassociate_resource_share(map(), disassociate_resource_share_request(), list()) ::
           {:ok, disassociate_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_share_errors()}
   def disassociate_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateresourceshare"
@@ -2152,6 +2162,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, disassociate_resource_share_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_resource_share_permission_errors()}
   def disassociate_resource_share_permission(%Client{} = client, input, options \\ []) do
     url_path = "/disassociateresourcesharepermission"
@@ -2202,6 +2213,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, enable_sharing_with_aws_organization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_sharing_with_aws_organization_errors()}
   def enable_sharing_with_aws_organization(%Client{} = client, input, options \\ []) do
     url_path = "/enablesharingwithawsorganization"
@@ -2230,6 +2242,7 @@ defmodule AWS.RAM do
   @spec get_permission(map(), get_permission_request(), list()) ::
           {:ok, get_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_permission_errors()}
   def get_permission(%Client{} = client, input, options \\ []) do
     url_path = "/getpermission"
@@ -2260,6 +2273,7 @@ defmodule AWS.RAM do
   @spec get_resource_policies(map(), get_resource_policies_request(), list()) ::
           {:ok, get_resource_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/getresourcepolicies"
@@ -2290,6 +2304,7 @@ defmodule AWS.RAM do
   @spec get_resource_share_associations(map(), get_resource_share_associations_request(), list()) ::
           {:ok, get_resource_share_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_share_associations_errors()}
   def get_resource_share_associations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareassociations"
@@ -2318,6 +2333,7 @@ defmodule AWS.RAM do
   @spec get_resource_share_invitations(map(), get_resource_share_invitations_request(), list()) ::
           {:ok, get_resource_share_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_share_invitations_errors()}
   def get_resource_share_invitations(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshareinvitations"
@@ -2347,6 +2363,7 @@ defmodule AWS.RAM do
   @spec get_resource_shares(map(), get_resource_shares_request(), list()) ::
           {:ok, get_resource_shares_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_shares_errors()}
   def get_resource_shares(%Client{} = client, input, options \\ []) do
     url_path = "/getresourceshares"
@@ -2384,6 +2401,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, list_pending_invitation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pending_invitation_resources_errors()}
   def list_pending_invitation_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listpendinginvitationresources"
@@ -2417,6 +2435,7 @@ defmodule AWS.RAM do
   @spec list_permission_associations(map(), list_permission_associations_request(), list()) ::
           {:ok, list_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_associations_errors()}
   def list_permission_associations(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissionassociations"
@@ -2445,6 +2464,7 @@ defmodule AWS.RAM do
   @spec list_permission_versions(map(), list_permission_versions_request(), list()) ::
           {:ok, list_permission_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permission_versions_errors()}
   def list_permission_versions(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissionversions"
@@ -2474,6 +2494,7 @@ defmodule AWS.RAM do
   @spec list_permissions(map(), list_permissions_request(), list()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permissions_errors()}
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listpermissions"
@@ -2504,6 +2525,7 @@ defmodule AWS.RAM do
   @spec list_principals(map(), list_principals_request(), list()) ::
           {:ok, list_principals_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_principals_errors()}
   def list_principals(%Client{} = client, input, options \\ []) do
     url_path = "/listprincipals"
@@ -2537,6 +2559,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, list_replace_permission_associations_work_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_replace_permission_associations_work_errors()}
   def list_replace_permission_associations_work(%Client{} = client, input, options \\ []) do
     url_path = "/listreplacepermissionassociationswork"
@@ -2565,6 +2588,7 @@ defmodule AWS.RAM do
   @spec list_resource_share_permissions(map(), list_resource_share_permissions_request(), list()) ::
           {:ok, list_resource_share_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_share_permissions_errors()}
   def list_resource_share_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcesharepermissions"
@@ -2593,6 +2617,7 @@ defmodule AWS.RAM do
   @spec list_resource_types(map(), list_resource_types_request(), list()) ::
           {:ok, list_resource_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_types_errors()}
   def list_resource_types(%Client{} = client, input, options \\ []) do
     url_path = "/listresourcetypes"
@@ -2623,6 +2648,7 @@ defmodule AWS.RAM do
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/listresources"
@@ -2694,6 +2720,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, promote_permission_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_permission_created_from_policy_errors()}
   def promote_permission_created_from_policy(%Client{} = client, input, options \\ []) do
     url_path = "/promotepermissioncreatedfrompolicy"
@@ -2747,6 +2774,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, promote_resource_share_created_from_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_resource_share_created_from_policy_errors()}
   def promote_resource_share_created_from_policy(%Client{} = client, input, options \\ []) do
     url_path = "/promoteresourcesharecreatedfrompolicy"
@@ -2785,6 +2813,7 @@ defmodule AWS.RAM do
         ) ::
           {:ok, reject_resource_share_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_resource_share_invitation_errors()}
   def reject_resource_share_invitation(%Client{} = client, input, options \\ []) do
     url_path = "/rejectresourceshareinvitation"
@@ -2834,6 +2863,7 @@ defmodule AWS.RAM do
   @spec replace_permission_associations(map(), replace_permission_associations_request(), list()) ::
           {:ok, replace_permission_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, replace_permission_associations_errors()}
   def replace_permission_associations(%Client{} = client, input, options \\ []) do
     url_path = "/replacepermissionassociations"
@@ -2867,6 +2897,7 @@ defmodule AWS.RAM do
   @spec set_default_permission_version(map(), set_default_permission_version_request(), list()) ::
           {:ok, set_default_permission_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_default_permission_version_errors()}
   def set_default_permission_version(%Client{} = client, input, options \\ []) do
     url_path = "/setdefaultpermissionversion"
@@ -2903,6 +2934,7 @@ defmodule AWS.RAM do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tagresource"
@@ -2932,6 +2964,7 @@ defmodule AWS.RAM do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagresource"
@@ -2960,6 +2993,7 @@ defmodule AWS.RAM do
   @spec update_resource_share(map(), update_resource_share_request(), list()) ::
           {:ok, update_resource_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_share_errors()}
   def update_resource_share(%Client{} = client, input, options \\ []) do
     url_path = "/updateresourceshare"

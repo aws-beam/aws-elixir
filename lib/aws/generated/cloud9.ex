@@ -681,6 +681,7 @@ defmodule AWS.Cloud9 do
   @spec create_environment_ec2(map(), create_environment_ec2_request(), list()) ::
           {:ok, create_environment_ec2_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_ec2_errors()}
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -698,6 +699,7 @@ defmodule AWS.Cloud9 do
   @spec create_environment_membership(map(), create_environment_membership_request(), list()) ::
           {:ok, create_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_environment_membership_errors()}
   def create_environment_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -718,6 +720,7 @@ defmodule AWS.Cloud9 do
   @spec delete_environment(map(), delete_environment_request(), list()) ::
           {:ok, delete_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -735,6 +738,7 @@ defmodule AWS.Cloud9 do
   @spec delete_environment_membership(map(), delete_environment_membership_request(), list()) ::
           {:ok, delete_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_environment_membership_errors()}
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -757,6 +761,7 @@ defmodule AWS.Cloud9 do
         ) ::
           {:ok, describe_environment_memberships_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_environment_memberships_errors()}
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -774,6 +779,7 @@ defmodule AWS.Cloud9 do
   @spec describe_environment_status(map(), describe_environment_status_request(), list()) ::
           {:ok, describe_environment_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_environment_status_errors()}
   def describe_environment_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -791,6 +797,7 @@ defmodule AWS.Cloud9 do
   @spec describe_environments(map(), describe_environments_request(), list()) ::
           {:ok, describe_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_environments_errors()}
   def describe_environments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -812,6 +819,7 @@ defmodule AWS.Cloud9 do
   @spec list_environments(map(), list_environments_request(), list()) ::
           {:ok, list_environments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -829,6 +837,7 @@ defmodule AWS.Cloud9 do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -849,6 +858,7 @@ defmodule AWS.Cloud9 do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -866,6 +876,7 @@ defmodule AWS.Cloud9 do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -883,6 +894,7 @@ defmodule AWS.Cloud9 do
   @spec update_environment(map(), update_environment_request(), list()) ::
           {:ok, update_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -901,6 +913,7 @@ defmodule AWS.Cloud9 do
   @spec update_environment_membership(map(), update_environment_membership_request(), list()) ::
           {:ok, update_environment_membership_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_environment_membership_errors()}
   def update_environment_membership(%Client{} = client, input, options \\ []) do
     meta = metadata()

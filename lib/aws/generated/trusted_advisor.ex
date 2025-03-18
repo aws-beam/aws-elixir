@@ -683,6 +683,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, batch_update_recommendation_resource_exclusion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_recommendation_resource_exclusion_errors()}
   def batch_update_recommendation_resource_exclusion(%Client{} = client, input, options \\ []) do
     url_path = "/v1/batch-update-recommendation-resource-exclusion"
@@ -714,6 +715,7 @@ defmodule AWS.TrustedAdvisor do
   @spec get_organization_recommendation(map(), String.t(), list()) ::
           {:ok, get_organization_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_organization_recommendation_errors()}
   def get_organization_recommendation(
         %Client{} = client,
@@ -737,6 +739,7 @@ defmodule AWS.TrustedAdvisor do
   @spec get_recommendation(map(), String.t(), list()) ::
           {:ok, get_recommendation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, recommendation_identifier, options \\ []) do
     url_path = "/v1/recommendations/#{AWS.Util.encode_uri(recommendation_identifier)}"
@@ -763,6 +766,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_checks_errors()}
   def list_checks(
         %Client{} = client,
@@ -842,6 +846,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_organization_recommendation_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_recommendation_accounts_errors()}
   def list_organization_recommendation_accounts(
         %Client{} = client,
@@ -902,6 +907,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_organization_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_recommendation_resources_errors()}
   def list_organization_recommendation_resources(
         %Client{} = client,
@@ -989,6 +995,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_organization_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_recommendations_errors()}
   def list_organization_recommendations(
         %Client{} = client,
@@ -1098,6 +1105,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_recommendation_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendation_resources_errors()}
   def list_recommendation_resources(
         %Client{} = client,
@@ -1172,6 +1180,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(
         %Client{} = client,
@@ -1280,6 +1289,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_organization_recommendation_lifecycle_errors()}
   def update_organization_recommendation_lifecycle(
         %Client{} = client,
@@ -1322,6 +1332,7 @@ defmodule AWS.TrustedAdvisor do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_recommendation_lifecycle_errors()}
   def update_recommendation_lifecycle(
         %Client{} = client,

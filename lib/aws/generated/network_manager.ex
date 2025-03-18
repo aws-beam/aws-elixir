@@ -3947,6 +3947,7 @@ defmodule AWS.NetworkManager do
   @spec accept_attachment(map(), String.t(), accept_attachment_request(), list()) ::
           {:ok, accept_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_attachment_errors()}
   def accept_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/accept"
@@ -3982,6 +3983,7 @@ defmodule AWS.NetworkManager do
   @spec associate_connect_peer(map(), String.t(), associate_connect_peer_request(), list()) ::
           {:ok, associate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_connect_peer_errors()}
   def associate_connect_peer(%Client{} = client, global_network_id, input, options \\ []) do
     url_path =
@@ -4035,6 +4037,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, associate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_customer_gateway_errors()}
   def associate_customer_gateway(%Client{} = client, global_network_id, input, options \\ []) do
     url_path =
@@ -4069,6 +4072,7 @@ defmodule AWS.NetworkManager do
   @spec associate_link(map(), String.t(), associate_link_request(), list()) ::
           {:ok, associate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_link_errors()}
   def associate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
@@ -4112,6 +4116,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, associate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_transit_gateway_connect_peer_errors()}
   def associate_transit_gateway_connect_peer(
         %Client{} = client,
@@ -4155,6 +4160,7 @@ defmodule AWS.NetworkManager do
   @spec create_connect_attachment(map(), create_connect_attachment_request(), list()) ::
           {:ok, create_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connect_attachment_errors()}
   def create_connect_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/connect-attachments"
@@ -4187,6 +4193,7 @@ defmodule AWS.NetworkManager do
   @spec create_connect_peer(map(), create_connect_peer_request(), list()) ::
           {:ok, create_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connect_peer_errors()}
   def create_connect_peer(%Client{} = client, input, options \\ []) do
     url_path = "/connect-peers"
@@ -4219,6 +4226,7 @@ defmodule AWS.NetworkManager do
   @spec create_connection(map(), String.t(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
@@ -4248,6 +4256,7 @@ defmodule AWS.NetworkManager do
   @spec create_core_network(map(), create_core_network_request(), list()) ::
           {:ok, create_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_core_network_errors()}
   def create_core_network(%Client{} = client, input, options \\ []) do
     url_path = "/core-networks"
@@ -4280,6 +4289,7 @@ defmodule AWS.NetworkManager do
   @spec create_device(map(), String.t(), create_device_request(), list()) ::
           {:ok, create_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_errors()}
   def create_device(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/devices"
@@ -4312,6 +4322,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, create_direct_connect_gateway_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_direct_connect_gateway_attachment_errors()}
   def create_direct_connect_gateway_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/direct-connect-gateway-attachments"
@@ -4340,6 +4351,7 @@ defmodule AWS.NetworkManager do
   @spec create_global_network(map(), create_global_network_request(), list()) ::
           {:ok, create_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_global_network_errors()}
   def create_global_network(%Client{} = client, input, options \\ []) do
     url_path = "/global-networks"
@@ -4368,6 +4380,7 @@ defmodule AWS.NetworkManager do
   @spec create_link(map(), String.t(), create_link_request(), list()) ::
           {:ok, create_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_link_errors()}
   def create_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/links"
@@ -4396,6 +4409,7 @@ defmodule AWS.NetworkManager do
   @spec create_site(map(), String.t(), create_site_request(), list()) ::
           {:ok, create_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_site_errors()}
   def create_site(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/sites"
@@ -4429,6 +4443,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, create_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_site_to_site_vpn_attachment_errors()}
   def create_site_to_site_vpn_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/site-to-site-vpn-attachments"
@@ -4457,6 +4472,7 @@ defmodule AWS.NetworkManager do
   @spec create_transit_gateway_peering(map(), create_transit_gateway_peering_request(), list()) ::
           {:ok, create_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_transit_gateway_peering_errors()}
   def create_transit_gateway_peering(%Client{} = client, input, options \\ []) do
     url_path = "/transit-gateway-peerings"
@@ -4489,6 +4505,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, create_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_transit_gateway_route_table_attachment_errors()}
   def create_transit_gateway_route_table_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments"
@@ -4517,6 +4534,7 @@ defmodule AWS.NetworkManager do
   @spec create_vpc_attachment(map(), create_vpc_attachment_request(), list()) ::
           {:ok, create_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_attachment_errors()}
   def create_vpc_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/vpc-attachments"
@@ -4547,6 +4565,7 @@ defmodule AWS.NetworkManager do
   @spec delete_attachment(map(), String.t(), delete_attachment_request(), list()) ::
           {:ok, delete_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attachment_errors()}
   def delete_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -4575,6 +4594,7 @@ defmodule AWS.NetworkManager do
   @spec delete_connect_peer(map(), String.t(), delete_connect_peer_request(), list()) ::
           {:ok, delete_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connect_peer_errors()}
   def delete_connect_peer(%Client{} = client, connect_peer_id, input, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
@@ -4603,6 +4623,7 @@ defmodule AWS.NetworkManager do
   @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(
         %Client{} = client,
@@ -4641,6 +4662,7 @@ defmodule AWS.NetworkManager do
   @spec delete_core_network(map(), String.t(), delete_core_network_request(), list()) ::
           {:ok, delete_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_core_network_errors()}
   def delete_core_network(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
@@ -4677,6 +4699,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, delete_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_core_network_policy_version_errors()}
   def delete_core_network_policy_version(
         %Client{} = client,
@@ -4716,6 +4739,7 @@ defmodule AWS.NetworkManager do
   @spec delete_device(map(), String.t(), String.t(), delete_device_request(), list()) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_errors()}
   def delete_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
@@ -4750,6 +4774,7 @@ defmodule AWS.NetworkManager do
   @spec delete_global_network(map(), String.t(), delete_global_network_request(), list()) ::
           {:ok, delete_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_global_network_errors()}
   def delete_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
@@ -4781,6 +4806,7 @@ defmodule AWS.NetworkManager do
   @spec delete_link(map(), String.t(), String.t(), delete_link_request(), list()) ::
           {:ok, delete_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_link_errors()}
   def delete_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
     url_path =
@@ -4811,6 +4837,7 @@ defmodule AWS.NetworkManager do
   @spec delete_peering(map(), String.t(), delete_peering_request(), list()) ::
           {:ok, delete_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_peering_errors()}
   def delete_peering(%Client{} = client, peering_id, input, options \\ []) do
     url_path = "/peerings/#{AWS.Util.encode_uri(peering_id)}"
@@ -4841,6 +4868,7 @@ defmodule AWS.NetworkManager do
   @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4871,6 +4899,7 @@ defmodule AWS.NetworkManager do
   @spec delete_site(map(), String.t(), String.t(), delete_site_request(), list()) ::
           {:ok, delete_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_site_errors()}
   def delete_site(%Client{} = client, global_network_id, site_id, input, options \\ []) do
     url_path =
@@ -4911,6 +4940,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, deregister_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_transit_gateway_errors()}
   def deregister_transit_gateway(
         %Client{} = client,
@@ -4959,6 +4989,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, describe_global_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_networks_errors()}
   def describe_global_networks(
         %Client{} = client,
@@ -5009,6 +5040,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, disassociate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_connect_peer_errors()}
   def disassociate_connect_peer(
         %Client{} = client,
@@ -5051,6 +5083,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, disassociate_customer_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_customer_gateway_errors()}
   def disassociate_customer_gateway(
         %Client{} = client,
@@ -5090,6 +5123,7 @@ defmodule AWS.NetworkManager do
   @spec disassociate_link(map(), String.t(), disassociate_link_request(), list()) ::
           {:ok, disassociate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_link_errors()}
   def disassociate_link(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/link-associations"
@@ -5130,6 +5164,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, disassociate_transit_gateway_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_transit_gateway_connect_peer_errors()}
   def disassociate_transit_gateway_connect_peer(
         %Client{} = client,
@@ -5174,6 +5209,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, execute_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_core_network_change_set_errors()}
   def execute_core_network_change_set(
         %Client{} = client,
@@ -5210,6 +5246,7 @@ defmodule AWS.NetworkManager do
   @spec get_connect_attachment(map(), String.t(), list()) ::
           {:ok, get_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connect_attachment_errors()}
   def get_connect_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/connect-attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -5227,6 +5264,7 @@ defmodule AWS.NetworkManager do
   @spec get_connect_peer(map(), String.t(), list()) ::
           {:ok, get_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connect_peer_errors()}
   def get_connect_peer(%Client{} = client, connect_peer_id, options \\ []) do
     url_path = "/connect-peers/#{AWS.Util.encode_uri(connect_peer_id)}"
@@ -5251,6 +5289,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connect_peer_associations_errors()}
   def get_connect_peer_associations(
         %Client{} = client,
@@ -5306,6 +5345,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_connections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connections_errors()}
   def get_connections(
         %Client{} = client,
@@ -5359,6 +5399,7 @@ defmodule AWS.NetworkManager do
   @spec get_core_network(map(), String.t(), list()) ::
           {:ok, get_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_network_errors()}
   def get_core_network(%Client{} = client, core_network_id, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
@@ -5383,6 +5424,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_core_network_change_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_network_change_events_errors()}
   def get_core_network_change_events(
         %Client{} = client,
@@ -5431,6 +5473,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_core_network_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_network_change_set_errors()}
   def get_core_network_change_set(
         %Client{} = client,
@@ -5474,6 +5517,7 @@ defmodule AWS.NetworkManager do
   @spec get_core_network_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_network_policy_errors()}
   def get_core_network_policy(
         %Client{} = client,
@@ -5519,6 +5563,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_customer_gateway_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_customer_gateway_associations_errors()}
   def get_customer_gateway_associations(
         %Client{} = client,
@@ -5574,6 +5619,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_devices_errors()}
   def get_devices(
         %Client{} = client,
@@ -5628,6 +5674,7 @@ defmodule AWS.NetworkManager do
   @spec get_direct_connect_gateway_attachment(map(), String.t(), list()) ::
           {:ok, get_direct_connect_gateway_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_direct_connect_gateway_attachment_errors()}
   def get_direct_connect_gateway_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/direct-connect-gateway-attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -5656,6 +5703,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_link_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_link_associations_errors()}
   def get_link_associations(
         %Client{} = client,
@@ -5722,6 +5770,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_links_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_links_errors()}
   def get_links(
         %Client{} = client,
@@ -5799,6 +5848,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_network_resource_counts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_resource_counts_errors()}
   def get_network_resource_counts(
         %Client{} = client,
@@ -5856,6 +5906,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_network_resource_relationships_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_resource_relationships_errors()}
   def get_network_resource_relationships(
         %Client{} = client,
@@ -5958,6 +6009,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_network_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_resources_errors()}
   def get_network_resources(
         %Client{} = client,
@@ -6043,6 +6095,7 @@ defmodule AWS.NetworkManager do
   @spec get_network_routes(map(), String.t(), get_network_routes_request(), list()) ::
           {:ok, get_network_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_routes_errors()}
   def get_network_routes(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/network-routes"
@@ -6083,6 +6136,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_network_telemetry_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_telemetry_errors()}
   def get_network_telemetry(
         %Client{} = client,
@@ -6168,6 +6222,7 @@ defmodule AWS.NetworkManager do
   @spec get_resource_policy(map(), String.t(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6185,6 +6240,7 @@ defmodule AWS.NetworkManager do
   @spec get_route_analysis(map(), String.t(), String.t(), list()) ::
           {:ok, get_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_route_analysis_errors()}
   def get_route_analysis(%Client{} = client, global_network_id, route_analysis_id, options \\ []) do
     url_path =
@@ -6204,6 +6260,7 @@ defmodule AWS.NetworkManager do
   @spec get_site_to_site_vpn_attachment(map(), String.t(), list()) ::
           {:ok, get_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_site_to_site_vpn_attachment_errors()}
   def get_site_to_site_vpn_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/site-to-site-vpn-attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -6221,6 +6278,7 @@ defmodule AWS.NetworkManager do
   @spec get_sites(map(), String.t(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sites_errors()}
   def get_sites(
         %Client{} = client,
@@ -6274,6 +6332,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transit_gateway_connect_peer_associations_errors()}
   def get_transit_gateway_connect_peer_associations(
         %Client{} = client,
@@ -6321,6 +6380,7 @@ defmodule AWS.NetworkManager do
   @spec get_transit_gateway_peering(map(), String.t(), list()) ::
           {:ok, get_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transit_gateway_peering_errors()}
   def get_transit_gateway_peering(%Client{} = client, peering_id, options \\ []) do
     url_path = "/transit-gateway-peerings/#{AWS.Util.encode_uri(peering_id)}"
@@ -6346,6 +6406,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transit_gateway_registrations_errors()}
   def get_transit_gateway_registrations(
         %Client{} = client,
@@ -6393,6 +6454,7 @@ defmodule AWS.NetworkManager do
   @spec get_transit_gateway_route_table_attachment(map(), String.t(), list()) ::
           {:ok, get_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transit_gateway_route_table_attachment_errors()}
   def get_transit_gateway_route_table_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/transit-gateway-route-table-attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -6410,6 +6472,7 @@ defmodule AWS.NetworkManager do
   @spec get_vpc_attachment(map(), String.t(), list()) ::
           {:ok, get_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vpc_attachment_errors()}
   def get_vpc_attachment(%Client{} = client, attachment_id, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"
@@ -6436,6 +6499,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, list_attachments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attachments_errors()}
   def list_attachments(
         %Client{} = client,
@@ -6511,6 +6575,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, list_connect_peers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connect_peers_errors()}
   def list_connect_peers(
         %Client{} = client,
@@ -6569,6 +6634,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, list_core_network_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_core_network_policy_versions_errors()}
   def list_core_network_policy_versions(
         %Client{} = client,
@@ -6608,6 +6674,7 @@ defmodule AWS.NetworkManager do
   @spec list_core_networks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_core_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_core_networks_errors()}
   def list_core_networks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/core-networks"
@@ -6640,6 +6707,7 @@ defmodule AWS.NetworkManager do
   @spec list_organization_service_access_status(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_organization_service_access_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_organization_service_access_status(
         %Client{} = client,
         max_results \\ nil,
@@ -6684,6 +6752,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, list_peerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_peerings_errors()}
   def list_peerings(
         %Client{} = client,
@@ -6752,6 +6821,7 @@ defmodule AWS.NetworkManager do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6772,6 +6842,7 @@ defmodule AWS.NetworkManager do
   @spec put_core_network_policy(map(), String.t(), put_core_network_policy_request(), list()) ::
           {:ok, put_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_core_network_policy_errors()}
   def put_core_network_policy(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}/core-network-policy"
@@ -6800,6 +6871,7 @@ defmodule AWS.NetworkManager do
   @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
@@ -6836,6 +6908,7 @@ defmodule AWS.NetworkManager do
   @spec register_transit_gateway(map(), String.t(), register_transit_gateway_request(), list()) ::
           {:ok, register_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_transit_gateway_errors()}
   def register_transit_gateway(%Client{} = client, global_network_id, input, options \\ []) do
     url_path =
@@ -6866,6 +6939,7 @@ defmodule AWS.NetworkManager do
   @spec reject_attachment(map(), String.t(), reject_attachment_request(), list()) ::
           {:ok, reject_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_attachment_errors()}
   def reject_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/reject"
@@ -6904,6 +6978,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, restore_core_network_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_core_network_policy_version_errors()}
   def restore_core_network_policy_version(
         %Client{} = client,
@@ -6946,6 +7021,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, start_organization_service_access_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_organization_service_access_update_errors()}
   def start_organization_service_access_update(%Client{} = client, input, options \\ []) do
     url_path = "/organizations/service-access"
@@ -6977,6 +7053,7 @@ defmodule AWS.NetworkManager do
   @spec start_route_analysis(map(), String.t(), start_route_analysis_request(), list()) ::
           {:ok, start_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_route_analysis_errors()}
   def start_route_analysis(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/route-analyses"
@@ -7005,6 +7082,7 @@ defmodule AWS.NetworkManager do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7033,6 +7111,7 @@ defmodule AWS.NetworkManager do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -7069,6 +7148,7 @@ defmodule AWS.NetworkManager do
   @spec update_connection(map(), String.t(), String.t(), update_connection_request(), list()) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(
         %Client{} = client,
@@ -7105,6 +7185,7 @@ defmodule AWS.NetworkManager do
   @spec update_core_network(map(), String.t(), update_core_network_request(), list()) ::
           {:ok, update_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_core_network_errors()}
   def update_core_network(%Client{} = client, core_network_id, input, options \\ []) do
     url_path = "/core-networks/#{AWS.Util.encode_uri(core_network_id)}"
@@ -7136,6 +7217,7 @@ defmodule AWS.NetworkManager do
   @spec update_device(map(), String.t(), String.t(), update_device_request(), list()) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_errors()}
   def update_device(%Client{} = client, device_id, global_network_id, input, options \\ []) do
     url_path =
@@ -7172,6 +7254,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, update_direct_connect_gateway_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_direct_connect_gateway_attachment_errors()}
   def update_direct_connect_gateway_attachment(
         %Client{} = client,
@@ -7208,6 +7291,7 @@ defmodule AWS.NetworkManager do
   @spec update_global_network(map(), String.t(), update_global_network_request(), list()) ::
           {:ok, update_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_global_network_errors()}
   def update_global_network(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}"
@@ -7239,6 +7323,7 @@ defmodule AWS.NetworkManager do
   @spec update_link(map(), String.t(), String.t(), update_link_request(), list()) ::
           {:ok, update_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_link_errors()}
   def update_link(%Client{} = client, global_network_id, link_id, input, options \\ []) do
     url_path =
@@ -7275,6 +7360,7 @@ defmodule AWS.NetworkManager do
         ) ::
           {:ok, update_network_resource_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_resource_metadata_errors()}
   def update_network_resource_metadata(
         %Client{} = client,
@@ -7314,6 +7400,7 @@ defmodule AWS.NetworkManager do
   @spec update_site(map(), String.t(), String.t(), update_site_request(), list()) ::
           {:ok, update_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_site_errors()}
   def update_site(%Client{} = client, global_network_id, site_id, input, options \\ []) do
     url_path =
@@ -7344,6 +7431,7 @@ defmodule AWS.NetworkManager do
   @spec update_vpc_attachment(map(), String.t(), update_vpc_attachment_request(), list()) ::
           {:ok, update_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_attachment_errors()}
   def update_vpc_attachment(%Client{} = client, attachment_id, input, options \\ []) do
     url_path = "/vpc-attachments/#{AWS.Util.encode_uri(attachment_id)}"

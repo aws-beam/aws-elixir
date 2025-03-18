@@ -2735,6 +2735,7 @@ defmodule AWS.LakeFormation do
   @spec add_l_f_tags_to_resource(map(), add_l_f_tags_to_resource_request(), list()) ::
           {:ok, add_l_f_tags_to_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_l_f_tags_to_resource_errors()}
   def add_l_f_tags_to_resource(%Client{} = client, input, options \\ []) do
     url_path = "/AddLFTagsToResource"
@@ -2778,6 +2779,7 @@ defmodule AWS.LakeFormation do
   @spec assume_decorated_role_with_saml(map(), assume_decorated_role_with_saml_request(), list()) ::
           {:ok, assume_decorated_role_with_saml_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_decorated_role_with_saml_errors()}
   def assume_decorated_role_with_saml(%Client{} = client, input, options \\ []) do
     url_path = "/AssumeDecoratedRoleWithSAML"
@@ -2806,6 +2808,7 @@ defmodule AWS.LakeFormation do
   @spec batch_grant_permissions(map(), batch_grant_permissions_request(), list()) ::
           {:ok, batch_grant_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_grant_permissions_errors()}
   def batch_grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGrantPermissions"
@@ -2834,6 +2837,7 @@ defmodule AWS.LakeFormation do
   @spec batch_revoke_permissions(map(), batch_revoke_permissions_request(), list()) ::
           {:ok, batch_revoke_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_revoke_permissions_errors()}
   def batch_revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchRevokePermissions"
@@ -2864,6 +2868,7 @@ defmodule AWS.LakeFormation do
   @spec cancel_transaction(map(), cancel_transaction_request(), list()) ::
           {:ok, cancel_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_transaction_errors()}
   def cancel_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CancelTransaction"
@@ -2895,6 +2900,7 @@ defmodule AWS.LakeFormation do
   @spec commit_transaction(map(), commit_transaction_request(), list()) ::
           {:ok, commit_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, commit_transaction_errors()}
   def commit_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/CommitTransaction"
@@ -2924,6 +2930,7 @@ defmodule AWS.LakeFormation do
   @spec create_data_cells_filter(map(), create_data_cells_filter_request(), list()) ::
           {:ok, create_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_cells_filter_errors()}
   def create_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/CreateDataCellsFilter"
@@ -2952,6 +2959,7 @@ defmodule AWS.LakeFormation do
   @spec create_l_f_tag(map(), create_l_f_tag_request(), list()) ::
           {:ok, create_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_l_f_tag_errors()}
   def create_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLFTag"
@@ -2992,6 +3000,7 @@ defmodule AWS.LakeFormation do
   @spec create_l_f_tag_expression(map(), create_l_f_tag_expression_request(), list()) ::
           {:ok, create_l_f_tag_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_l_f_tag_expression_errors()}
   def create_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLFTagExpression"
@@ -3025,6 +3034,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, create_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lake_formation_identity_center_configuration_errors()}
   def create_lake_formation_identity_center_configuration(
         %Client{} = client,
@@ -3058,6 +3068,7 @@ defmodule AWS.LakeFormation do
   @spec create_lake_formation_opt_in(map(), create_lake_formation_opt_in_request(), list()) ::
           {:ok, create_lake_formation_opt_in_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lake_formation_opt_in_errors()}
   def create_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/CreateLakeFormationOptIn"
@@ -3086,6 +3097,7 @@ defmodule AWS.LakeFormation do
   @spec delete_data_cells_filter(map(), delete_data_cells_filter_request(), list()) ::
           {:ok, delete_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_cells_filter_errors()}
   def delete_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteDataCellsFilter"
@@ -3120,6 +3132,7 @@ defmodule AWS.LakeFormation do
   @spec delete_l_f_tag(map(), delete_l_f_tag_request(), list()) ::
           {:ok, delete_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_l_f_tag_errors()}
   def delete_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTag"
@@ -3153,6 +3166,7 @@ defmodule AWS.LakeFormation do
   @spec delete_l_f_tag_expression(map(), delete_l_f_tag_expression_request(), list()) ::
           {:ok, delete_l_f_tag_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_l_f_tag_expression_errors()}
   def delete_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLFTagExpression"
@@ -3185,6 +3199,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, delete_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lake_formation_identity_center_configuration_errors()}
   def delete_lake_formation_identity_center_configuration(
         %Client{} = client,
@@ -3218,6 +3233,7 @@ defmodule AWS.LakeFormation do
   @spec delete_lake_formation_opt_in(map(), delete_lake_formation_opt_in_request(), list()) ::
           {:ok, delete_lake_formation_opt_in_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lake_formation_opt_in_errors()}
   def delete_lake_formation_opt_in(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteLakeFormationOptIn"
@@ -3256,6 +3272,7 @@ defmodule AWS.LakeFormation do
   @spec delete_objects_on_cancel(map(), delete_objects_on_cancel_request(), list()) ::
           {:ok, delete_objects_on_cancel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_objects_on_cancel_errors()}
   def delete_objects_on_cancel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteObjectsOnCancel"
@@ -3287,6 +3304,7 @@ defmodule AWS.LakeFormation do
   @spec deregister_resource(map(), deregister_resource_request(), list()) ::
           {:ok, deregister_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_resource_errors()}
   def deregister_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DeregisterResource"
@@ -3319,6 +3337,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, describe_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lake_formation_identity_center_configuration_errors()}
   def describe_lake_formation_identity_center_configuration(
         %Client{} = client,
@@ -3352,6 +3371,7 @@ defmodule AWS.LakeFormation do
   @spec describe_resource(map(), describe_resource_request(), list()) ::
           {:ok, describe_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_errors()}
   def describe_resource(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeResource"
@@ -3380,6 +3400,7 @@ defmodule AWS.LakeFormation do
   @spec describe_transaction(map(), describe_transaction_request(), list()) ::
           {:ok, describe_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_transaction_errors()}
   def describe_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/DescribeTransaction"
@@ -3412,6 +3433,7 @@ defmodule AWS.LakeFormation do
   @spec extend_transaction(map(), extend_transaction_request(), list()) ::
           {:ok, extend_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, extend_transaction_errors()}
   def extend_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/ExtendTransaction"
@@ -3440,6 +3462,7 @@ defmodule AWS.LakeFormation do
   @spec get_data_cells_filter(map(), get_data_cells_filter_request(), list()) ::
           {:ok, get_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_cells_filter_errors()}
   def get_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataCellsFilter"
@@ -3468,6 +3491,7 @@ defmodule AWS.LakeFormation do
   @spec get_data_lake_principal(map(), get_data_lake_principal_request(), list()) ::
           {:ok, get_data_lake_principal_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_principal_errors()}
   def get_data_lake_principal(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataLakePrincipal"
@@ -3497,6 +3521,7 @@ defmodule AWS.LakeFormation do
   @spec get_data_lake_settings(map(), get_data_lake_settings_request(), list()) ::
           {:ok, get_data_lake_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_lake_settings_errors()}
   def get_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/GetDataLakeSettings"
@@ -3534,6 +3559,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, get_effective_permissions_for_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_effective_permissions_for_path_errors()}
   def get_effective_permissions_for_path(%Client{} = client, input, options \\ []) do
     url_path = "/GetEffectivePermissionsForPath"
@@ -3562,6 +3588,7 @@ defmodule AWS.LakeFormation do
   @spec get_l_f_tag(map(), get_l_f_tag_request(), list()) ::
           {:ok, get_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_l_f_tag_errors()}
   def get_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/GetLFTag"
@@ -3593,6 +3620,7 @@ defmodule AWS.LakeFormation do
   @spec get_l_f_tag_expression(map(), get_l_f_tag_expression_request(), list()) ::
           {:ok, get_l_f_tag_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_l_f_tag_expression_errors()}
   def get_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/GetLFTagExpression"
@@ -3625,6 +3653,7 @@ defmodule AWS.LakeFormation do
   @spec get_query_state(map(), get_query_state_request(), list()) ::
           {:ok, get_query_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_state_errors()}
   def get_query_state(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryState"
@@ -3653,6 +3682,7 @@ defmodule AWS.LakeFormation do
   @spec get_query_statistics(map(), get_query_statistics_request(), list()) ::
           {:ok, get_query_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_statistics_errors()}
   def get_query_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/GetQueryStatistics"
@@ -3681,6 +3711,7 @@ defmodule AWS.LakeFormation do
   @spec get_resource_l_f_tags(map(), get_resource_l_f_tags_request(), list()) ::
           {:ok, get_resource_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_l_f_tags_errors()}
   def get_resource_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/GetResourceLFTags"
@@ -3711,6 +3742,7 @@ defmodule AWS.LakeFormation do
   @spec get_table_objects(map(), get_table_objects_request(), list()) ::
           {:ok, get_table_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_table_objects_errors()}
   def get_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/GetTableObjects"
@@ -3747,6 +3779,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, get_temporary_glue_partition_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_temporary_glue_partition_credentials_errors()}
   def get_temporary_glue_partition_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGluePartitionCredentials"
@@ -3787,6 +3820,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, get_temporary_glue_table_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_temporary_glue_table_credentials_errors()}
   def get_temporary_glue_table_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryGlueTableCredentials"
@@ -3817,6 +3851,7 @@ defmodule AWS.LakeFormation do
   @spec get_work_unit_results(map(), get_work_unit_results_request(), list()) ::
           {:ok, get_work_unit_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_work_unit_results_errors()}
   def get_work_unit_results(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnitResults"
@@ -3845,6 +3880,7 @@ defmodule AWS.LakeFormation do
   @spec get_work_units(map(), get_work_units_request(), list()) ::
           {:ok, get_work_units_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_work_units_errors()}
   def get_work_units(%Client{} = client, input, options \\ []) do
     url_path = "/GetWorkUnits"
@@ -3877,6 +3913,7 @@ defmodule AWS.LakeFormation do
   @spec grant_permissions(map(), grant_permissions_request(), list()) ::
           {:ok, grant_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, grant_permissions_errors()}
   def grant_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/GrantPermissions"
@@ -3905,6 +3942,7 @@ defmodule AWS.LakeFormation do
   @spec list_data_cells_filter(map(), list_data_cells_filter_request(), list()) ::
           {:ok, list_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_cells_filter_errors()}
   def list_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/ListDataCellsFilter"
@@ -3937,6 +3975,7 @@ defmodule AWS.LakeFormation do
   @spec list_l_f_tag_expressions(map(), list_l_f_tag_expressions_request(), list()) ::
           {:ok, list_l_f_tag_expressions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_l_f_tag_expressions_errors()}
   def list_l_f_tag_expressions(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTagExpressions"
@@ -3965,6 +4004,7 @@ defmodule AWS.LakeFormation do
   @spec list_l_f_tags(map(), list_l_f_tags_request(), list()) ::
           {:ok, list_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_l_f_tags_errors()}
   def list_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/ListLFTags"
@@ -3994,6 +4034,7 @@ defmodule AWS.LakeFormation do
   @spec list_lake_formation_opt_ins(map(), list_lake_formation_opt_ins_request(), list()) ::
           {:ok, list_lake_formation_opt_ins_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lake_formation_opt_ins_errors()}
   def list_lake_formation_opt_ins(%Client{} = client, input, options \\ []) do
     url_path = "/ListLakeFormationOptIns"
@@ -4031,6 +4072,7 @@ defmodule AWS.LakeFormation do
   @spec list_permissions(map(), list_permissions_request(), list()) ::
           {:ok, list_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_permissions_errors()}
   def list_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/ListPermissions"
@@ -4059,6 +4101,7 @@ defmodule AWS.LakeFormation do
   @spec list_resources(map(), list_resources_request(), list()) ::
           {:ok, list_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
     url_path = "/ListResources"
@@ -4088,6 +4131,7 @@ defmodule AWS.LakeFormation do
   @spec list_table_storage_optimizers(map(), list_table_storage_optimizers_request(), list()) ::
           {:ok, list_table_storage_optimizers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_table_storage_optimizers_errors()}
   def list_table_storage_optimizers(%Client{} = client, input, options \\ []) do
     url_path = "/ListTableStorageOptimizers"
@@ -4122,6 +4166,7 @@ defmodule AWS.LakeFormation do
   @spec list_transactions(map(), list_transactions_request(), list()) ::
           {:ok, list_transactions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_transactions_errors()}
   def list_transactions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTransactions"
@@ -4157,6 +4202,7 @@ defmodule AWS.LakeFormation do
   @spec put_data_lake_settings(map(), put_data_lake_settings_request(), list()) ::
           {:ok, put_data_lake_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_data_lake_settings_errors()}
   def put_data_lake_settings(%Client{} = client, input, options \\ []) do
     url_path = "/PutDataLakeSettings"
@@ -4206,6 +4252,7 @@ defmodule AWS.LakeFormation do
   @spec register_resource(map(), register_resource_request(), list()) ::
           {:ok, register_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_resource_errors()}
   def register_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RegisterResource"
@@ -4237,6 +4284,7 @@ defmodule AWS.LakeFormation do
   @spec remove_l_f_tags_from_resource(map(), remove_l_f_tags_from_resource_request(), list()) ::
           {:ok, remove_l_f_tags_from_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_l_f_tags_from_resource_errors()}
   def remove_l_f_tags_from_resource(%Client{} = client, input, options \\ []) do
     url_path = "/RemoveLFTagsFromResource"
@@ -4266,6 +4314,7 @@ defmodule AWS.LakeFormation do
   @spec revoke_permissions(map(), revoke_permissions_request(), list()) ::
           {:ok, revoke_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_permissions_errors()}
   def revoke_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/RevokePermissions"
@@ -4299,6 +4348,7 @@ defmodule AWS.LakeFormation do
   @spec search_databases_by_l_f_tags(map(), search_databases_by_l_f_tags_request(), list()) ::
           {:ok, search_databases_by_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_databases_by_l_f_tags_errors()}
   def search_databases_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchDatabasesByLFTags"
@@ -4332,6 +4382,7 @@ defmodule AWS.LakeFormation do
   @spec search_tables_by_l_f_tags(map(), search_tables_by_l_f_tags_request(), list()) ::
           {:ok, search_tables_by_l_f_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_tables_by_l_f_tags_errors()}
   def search_tables_by_l_f_tags(%Client{} = client, input, options \\ []) do
     url_path = "/SearchTablesByLFTags"
@@ -4364,6 +4415,7 @@ defmodule AWS.LakeFormation do
   @spec start_query_planning(map(), start_query_planning_request(), list()) ::
           {:ok, start_query_planning_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_query_planning_errors()}
   def start_query_planning(%Client{} = client, input, options \\ []) do
     url_path = "/StartQueryPlanning"
@@ -4394,6 +4446,7 @@ defmodule AWS.LakeFormation do
   @spec start_transaction(map(), start_transaction_request(), list()) ::
           {:ok, start_transaction_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_transaction_errors()}
   def start_transaction(%Client{} = client, input, options \\ []) do
     url_path = "/StartTransaction"
@@ -4422,6 +4475,7 @@ defmodule AWS.LakeFormation do
   @spec update_data_cells_filter(map(), update_data_cells_filter_request(), list()) ::
           {:ok, update_data_cells_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_cells_filter_errors()}
   def update_data_cells_filter(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateDataCellsFilter"
@@ -4456,6 +4510,7 @@ defmodule AWS.LakeFormation do
   @spec update_l_f_tag(map(), update_l_f_tag_request(), list()) ::
           {:ok, update_l_f_tag_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_l_f_tag_errors()}
   def update_l_f_tag(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTag"
@@ -4489,6 +4544,7 @@ defmodule AWS.LakeFormation do
   @spec update_l_f_tag_expression(map(), update_l_f_tag_expression_request(), list()) ::
           {:ok, update_l_f_tag_expression_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_l_f_tag_expression_errors()}
   def update_l_f_tag_expression(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateLFTagExpression"
@@ -4521,6 +4577,7 @@ defmodule AWS.LakeFormation do
         ) ::
           {:ok, update_lake_formation_identity_center_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lake_formation_identity_center_configuration_errors()}
   def update_lake_formation_identity_center_configuration(
         %Client{} = client,
@@ -4554,6 +4611,7 @@ defmodule AWS.LakeFormation do
   @spec update_resource(map(), update_resource_request(), list()) ::
           {:ok, update_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateResource"
@@ -4583,6 +4641,7 @@ defmodule AWS.LakeFormation do
   @spec update_table_objects(map(), update_table_objects_request(), list()) ::
           {:ok, update_table_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_objects_errors()}
   def update_table_objects(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableObjects"
@@ -4611,6 +4670,7 @@ defmodule AWS.LakeFormation do
   @spec update_table_storage_optimizer(map(), update_table_storage_optimizer_request(), list()) ::
           {:ok, update_table_storage_optimizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_table_storage_optimizer_errors()}
   def update_table_storage_optimizer(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTableStorageOptimizer"

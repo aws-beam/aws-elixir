@@ -2334,6 +2334,7 @@ defmodule AWS.DevOpsGuru do
   @spec add_notification_channel(map(), add_notification_channel_request(), list()) ::
           {:ok, add_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_notification_channel_errors()}
   def add_notification_channel(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -2363,6 +2364,7 @@ defmodule AWS.DevOpsGuru do
   @spec delete_insight(map(), String.t(), delete_insight_request(), list()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_insight_errors()}
   def delete_insight(%Client{} = client, id, input, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_uri(id)}"
@@ -2396,6 +2398,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_account_health(map(), list()) ::
           {:ok, describe_account_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_health_errors()}
   def describe_account_health(%Client{} = client, options \\ []) do
     url_path = "/accounts/health"
@@ -2417,6 +2420,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_account_overview(map(), describe_account_overview_request(), list()) ::
           {:ok, describe_account_overview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_overview_errors()}
   def describe_account_overview(%Client{} = client, input, options \\ []) do
     url_path = "/accounts/overview"
@@ -2445,6 +2449,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_anomaly(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_anomaly_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_anomaly_errors()}
   def describe_anomaly(%Client{} = client, id, account_id \\ nil, options \\ []) do
     url_path = "/anomalies/#{AWS.Util.encode_uri(id)}"
@@ -2476,6 +2481,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_event_sources_config(map(), describe_event_sources_config_request(), list()) ::
           {:ok, describe_event_sources_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_sources_config_errors()}
   def describe_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"
@@ -2505,6 +2511,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_feedback(map(), describe_feedback_request(), list()) ::
           {:ok, describe_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_feedback_errors()}
   def describe_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
@@ -2533,6 +2540,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_insight(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_insight_errors()}
   def describe_insight(%Client{} = client, id, account_id \\ nil, options \\ []) do
     url_path = "/insights/#{AWS.Util.encode_uri(id)}"
@@ -2559,6 +2567,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_organization_health(map(), describe_organization_health_request(), list()) ::
           {:ok, describe_organization_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_health_errors()}
   def describe_organization_health(%Client{} = client, input, options \\ []) do
     url_path = "/organization/health"
@@ -2590,6 +2599,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_organization_overview(map(), describe_organization_overview_request(), list()) ::
           {:ok, describe_organization_overview_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_overview_errors()}
   def describe_organization_overview(%Client{} = client, input, options \\ []) do
     url_path = "/organization/overview"
@@ -2626,6 +2636,7 @@ defmodule AWS.DevOpsGuru do
         ) ::
           {:ok, describe_organization_resource_collection_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_organization_resource_collection_health_errors()}
   def describe_organization_resource_collection_health(%Client{} = client, input, options \\ []) do
     url_path = "/organization/health/resource-collection"
@@ -2665,6 +2676,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_resource_collection_health(map(), String.t(), String.t() | nil, list()) ::
           {:ok, describe_resource_collection_health_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_collection_health_errors()}
   def describe_resource_collection_health(
         %Client{} = client,
@@ -2700,6 +2712,7 @@ defmodule AWS.DevOpsGuru do
   @spec describe_service_integration(map(), list()) ::
           {:ok, describe_service_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_integration_errors()}
   def describe_service_integration(%Client{} = client, options \\ []) do
     url_path = "/service-integrations"
@@ -2724,6 +2737,7 @@ defmodule AWS.DevOpsGuru do
   @spec get_cost_estimation(map(), String.t() | nil, list()) ::
           {:ok, get_cost_estimation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cost_estimation_errors()}
   def get_cost_estimation(%Client{} = client, next_token \\ nil, options \\ []) do
     url_path = "/cost-estimation"
@@ -2757,6 +2771,7 @@ defmodule AWS.DevOpsGuru do
   @spec get_resource_collection(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_resource_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_collection_errors()}
   def get_resource_collection(
         %Client{} = client,
@@ -2793,6 +2808,7 @@ defmodule AWS.DevOpsGuru do
         ) ::
           {:ok, list_anomalies_for_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomalies_for_insight_errors()}
   def list_anomalies_for_insight(%Client{} = client, insight_id, input, options \\ []) do
     url_path = "/anomalies/insight/#{AWS.Util.encode_uri(insight_id)}"
@@ -2822,6 +2838,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_anomalous_log_groups(map(), list_anomalous_log_groups_request(), list()) ::
           {:ok, list_anomalous_log_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_anomalous_log_groups_errors()}
   def list_anomalous_log_groups(%Client{} = client, input, options \\ []) do
     url_path = "/list-log-anomalies"
@@ -2853,6 +2870,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_events(map(), list_events_request(), list()) ::
           {:ok, list_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_events_errors()}
   def list_events(%Client{} = client, input, options \\ []) do
     url_path = "/events"
@@ -2885,6 +2903,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_insights(map(), list_insights_request(), list()) ::
           {:ok, list_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_insights_errors()}
   def list_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights"
@@ -2915,6 +2934,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_monitored_resources(map(), list_monitored_resources_request(), list()) ::
           {:ok, list_monitored_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitored_resources_errors()}
   def list_monitored_resources(%Client{} = client, input, options \\ []) do
     url_path = "/monitoredResources"
@@ -2950,6 +2970,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_notification_channels(map(), list_notification_channels_request(), list()) ::
           {:ok, list_notification_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_channels_errors()}
   def list_notification_channels(%Client{} = client, input, options \\ []) do
     url_path = "/channels"
@@ -2978,6 +2999,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_organization_insights(map(), list_organization_insights_request(), list()) ::
           {:ok, list_organization_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_organization_insights_errors()}
   def list_organization_insights(%Client{} = client, input, options \\ []) do
     url_path = "/organization/insights"
@@ -3009,6 +3031,7 @@ defmodule AWS.DevOpsGuru do
   @spec list_recommendations(map(), list_recommendations_request(), list()) ::
           {:ok, list_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
     url_path = "/recommendations"
@@ -3037,6 +3060,7 @@ defmodule AWS.DevOpsGuru do
   @spec put_feedback(map(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_feedback_errors()}
   def put_feedback(%Client{} = client, input, options \\ []) do
     url_path = "/feedback"
@@ -3075,6 +3099,7 @@ defmodule AWS.DevOpsGuru do
         ) ::
           {:ok, remove_notification_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_notification_channel_errors()}
   def remove_notification_channel(%Client{} = client, id, input, options \\ []) do
     url_path = "/channels/#{AWS.Util.encode_uri(id)}"
@@ -3113,6 +3138,7 @@ defmodule AWS.DevOpsGuru do
   @spec search_insights(map(), search_insights_request(), list()) ::
           {:ok, search_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_insights_errors()}
   def search_insights(%Client{} = client, input, options \\ []) do
     url_path = "/insights/search"
@@ -3151,6 +3177,7 @@ defmodule AWS.DevOpsGuru do
   @spec search_organization_insights(map(), search_organization_insights_request(), list()) ::
           {:ok, search_organization_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_organization_insights_errors()}
   def search_organization_insights(%Client{} = client, input, options \\ []) do
     url_path = "/organization/insights/search"
@@ -3181,6 +3208,7 @@ defmodule AWS.DevOpsGuru do
   @spec start_cost_estimation(map(), start_cost_estimation_request(), list()) ::
           {:ok, start_cost_estimation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_cost_estimation_errors()}
   def start_cost_estimation(%Client{} = client, input, options \\ []) do
     url_path = "/cost-estimation"
@@ -3216,6 +3244,7 @@ defmodule AWS.DevOpsGuru do
   @spec update_event_sources_config(map(), update_event_sources_config_request(), list()) ::
           {:ok, update_event_sources_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_sources_config_errors()}
   def update_event_sources_config(%Client{} = client, input, options \\ []) do
     url_path = "/event-sources"
@@ -3253,6 +3282,7 @@ defmodule AWS.DevOpsGuru do
   @spec update_resource_collection(map(), update_resource_collection_request(), list()) ::
           {:ok, update_resource_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_collection_errors()}
   def update_resource_collection(%Client{} = client, input, options \\ []) do
     url_path = "/resource-collections"
@@ -3287,6 +3317,7 @@ defmodule AWS.DevOpsGuru do
   @spec update_service_integration(map(), update_service_integration_request(), list()) ::
           {:ok, update_service_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_integration_errors()}
   def update_service_integration(%Client{} = client, input, options \\ []) do
     url_path = "/service-integrations"

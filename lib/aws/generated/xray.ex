@@ -2042,6 +2042,7 @@ defmodule AWS.XRay do
   @spec batch_get_traces(map(), batch_get_traces_request(), list()) ::
           {:ok, batch_get_traces_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_traces_errors()}
   def batch_get_traces(%Client{} = client, input, options \\ []) do
     url_path = "/Traces"
@@ -2074,6 +2075,7 @@ defmodule AWS.XRay do
   @spec cancel_trace_retrieval(map(), cancel_trace_retrieval_request(), list()) ::
           {:ok, cancel_trace_retrieval_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_trace_retrieval_errors()}
   def cancel_trace_retrieval(%Client{} = client, input, options \\ []) do
     url_path = "/CancelTraceRetrieval"
@@ -2102,6 +2104,7 @@ defmodule AWS.XRay do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/CreateGroup"
@@ -2143,6 +2146,7 @@ defmodule AWS.XRay do
   @spec create_sampling_rule(map(), create_sampling_rule_request(), list()) ::
           {:ok, create_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sampling_rule_errors()}
   def create_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/CreateSamplingRule"
@@ -2171,6 +2175,7 @@ defmodule AWS.XRay do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, delete_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteGroup"
@@ -2199,6 +2204,7 @@ defmodule AWS.XRay do
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
           {:ok, delete_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteResourcePolicy"
@@ -2227,6 +2233,7 @@ defmodule AWS.XRay do
   @spec delete_sampling_rule(map(), delete_sampling_rule_request(), list()) ::
           {:ok, delete_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sampling_rule_errors()}
   def delete_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSamplingRule"
@@ -2255,6 +2262,7 @@ defmodule AWS.XRay do
   @spec get_encryption_config(map(), get_encryption_config_request(), list()) ::
           {:ok, get_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_encryption_config_errors()}
   def get_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/EncryptionConfig"
@@ -2283,6 +2291,7 @@ defmodule AWS.XRay do
   @spec get_group(map(), get_group_request(), list()) ::
           {:ok, get_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     url_path = "/GetGroup"
@@ -2311,6 +2320,7 @@ defmodule AWS.XRay do
   @spec get_groups(map(), get_groups_request(), list()) ::
           {:ok, get_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_groups_errors()}
   def get_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups"
@@ -2344,6 +2354,7 @@ defmodule AWS.XRay do
   @spec get_indexing_rules(map(), get_indexing_rules_request(), list()) ::
           {:ok, get_indexing_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_indexing_rules_errors()}
   def get_indexing_rules(%Client{} = client, input, options \\ []) do
     url_path = "/GetIndexingRules"
@@ -2377,6 +2388,7 @@ defmodule AWS.XRay do
   @spec get_insight(map(), get_insight_request(), list()) ::
           {:ok, get_insight_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_errors()}
   def get_insight(%Client{} = client, input, options \\ []) do
     url_path = "/Insight"
@@ -2411,6 +2423,7 @@ defmodule AWS.XRay do
   @spec get_insight_events(map(), get_insight_events_request(), list()) ::
           {:ok, get_insight_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_events_errors()}
   def get_insight_events(%Client{} = client, input, options \\ []) do
     url_path = "/InsightEvents"
@@ -2443,6 +2456,7 @@ defmodule AWS.XRay do
   @spec get_insight_impact_graph(map(), get_insight_impact_graph_request(), list()) ::
           {:ok, get_insight_impact_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_impact_graph_errors()}
   def get_insight_impact_graph(%Client{} = client, input, options \\ []) do
     url_path = "/InsightImpactGraph"
@@ -2472,6 +2486,7 @@ defmodule AWS.XRay do
   @spec get_insight_summaries(map(), get_insight_summaries_request(), list()) ::
           {:ok, get_insight_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_summaries_errors()}
   def get_insight_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/InsightSummaries"
@@ -2520,6 +2535,7 @@ defmodule AWS.XRay do
   @spec get_retrieved_traces_graph(map(), get_retrieved_traces_graph_request(), list()) ::
           {:ok, get_retrieved_traces_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_retrieved_traces_graph_errors()}
   def get_retrieved_traces_graph(%Client{} = client, input, options \\ []) do
     url_path = "/GetRetrievedTracesGraph"
@@ -2548,6 +2564,7 @@ defmodule AWS.XRay do
   @spec get_sampling_rules(map(), get_sampling_rules_request(), list()) ::
           {:ok, get_sampling_rules_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sampling_rules_errors()}
   def get_sampling_rules(%Client{} = client, input, options \\ []) do
     url_path = "/GetSamplingRules"
@@ -2580,6 +2597,7 @@ defmodule AWS.XRay do
         ) ::
           {:ok, get_sampling_statistic_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sampling_statistic_summaries_errors()}
   def get_sampling_statistic_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/SamplingStatisticSummaries"
@@ -2609,6 +2627,7 @@ defmodule AWS.XRay do
   @spec get_sampling_targets(map(), get_sampling_targets_request(), list()) ::
           {:ok, get_sampling_targets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sampling_targets_errors()}
   def get_sampling_targets(%Client{} = client, input, options \\ []) do
     url_path = "/SamplingTargets"
@@ -2645,6 +2664,7 @@ defmodule AWS.XRay do
   @spec get_service_graph(map(), get_service_graph_request(), list()) ::
           {:ok, get_service_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_graph_errors()}
   def get_service_graph(%Client{} = client, input, options \\ []) do
     url_path = "/ServiceGraph"
@@ -2678,6 +2698,7 @@ defmodule AWS.XRay do
         ) ::
           {:ok, get_time_series_service_statistics_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_time_series_service_statistics_errors()}
   def get_time_series_service_statistics(%Client{} = client, input, options \\ []) do
     url_path = "/TimeSeriesServiceStatistics"
@@ -2706,6 +2727,7 @@ defmodule AWS.XRay do
   @spec get_trace_graph(map(), get_trace_graph_request(), list()) ::
           {:ok, get_trace_graph_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trace_graph_errors()}
   def get_trace_graph(%Client{} = client, input, options \\ []) do
     url_path = "/TraceGraph"
@@ -2741,6 +2763,7 @@ defmodule AWS.XRay do
   @spec get_trace_segment_destination(map(), get_trace_segment_destination_request(), list()) ::
           {:ok, get_trace_segment_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trace_segment_destination_errors()}
   def get_trace_segment_destination(%Client{} = client, input, options \\ []) do
     url_path = "/GetTraceSegmentDestination"
@@ -2792,6 +2815,7 @@ defmodule AWS.XRay do
   @spec get_trace_summaries(map(), get_trace_summaries_request(), list()) ::
           {:ok, get_trace_summaries_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trace_summaries_errors()}
   def get_trace_summaries(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSummaries"
@@ -2820,6 +2844,7 @@ defmodule AWS.XRay do
   @spec list_resource_policies(map(), list_resource_policies_request(), list()) ::
           {:ok, list_resource_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_policies_errors()}
   def list_resource_policies(%Client{} = client, input, options \\ []) do
     url_path = "/ListResourcePolicies"
@@ -2868,6 +2893,7 @@ defmodule AWS.XRay do
   @spec list_retrieved_traces(map(), list_retrieved_traces_request(), list()) ::
           {:ok, list_retrieved_traces_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_retrieved_traces_errors()}
   def list_retrieved_traces(%Client{} = client, input, options \\ []) do
     url_path = "/ListRetrievedTraces"
@@ -2897,6 +2923,7 @@ defmodule AWS.XRay do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     url_path = "/ListTagsForResource"
@@ -2925,6 +2952,7 @@ defmodule AWS.XRay do
   @spec put_encryption_config(map(), put_encryption_config_request(), list()) ::
           {:ok, put_encryption_config_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_encryption_config_errors()}
   def put_encryption_config(%Client{} = client, input, options \\ []) do
     url_path = "/PutEncryptionConfig"
@@ -2962,6 +2990,7 @@ defmodule AWS.XRay do
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
@@ -2990,6 +3019,7 @@ defmodule AWS.XRay do
   @spec put_telemetry_records(map(), put_telemetry_records_request(), list()) ::
           {:ok, put_telemetry_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_telemetry_records_errors()}
   def put_telemetry_records(%Client{} = client, input, options \\ []) do
     url_path = "/TelemetryRecords"
@@ -3099,6 +3129,7 @@ defmodule AWS.XRay do
   @spec put_trace_segments(map(), put_trace_segments_request(), list()) ::
           {:ok, put_trace_segments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_trace_segments_errors()}
   def put_trace_segments(%Client{} = client, input, options \\ []) do
     url_path = "/TraceSegments"
@@ -3144,6 +3175,7 @@ defmodule AWS.XRay do
   @spec start_trace_retrieval(map(), start_trace_retrieval_request(), list()) ::
           {:ok, start_trace_retrieval_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_trace_retrieval_errors()}
   def start_trace_retrieval(%Client{} = client, input, options \\ []) do
     url_path = "/StartTraceRetrieval"
@@ -3172,6 +3204,7 @@ defmodule AWS.XRay do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/TagResource"
@@ -3203,6 +3236,7 @@ defmodule AWS.XRay do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/UntagResource"
@@ -3231,6 +3265,7 @@ defmodule AWS.XRay do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateGroup"
@@ -3263,6 +3298,7 @@ defmodule AWS.XRay do
   @spec update_indexing_rule(map(), update_indexing_rule_request(), list()) ::
           {:ok, update_indexing_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_indexing_rule_errors()}
   def update_indexing_rule(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIndexingRule"
@@ -3291,6 +3327,7 @@ defmodule AWS.XRay do
   @spec update_sampling_rule(map(), update_sampling_rule_request(), list()) ::
           {:ok, update_sampling_rule_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_sampling_rule_errors()}
   def update_sampling_rule(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateSamplingRule"
@@ -3327,6 +3364,7 @@ defmodule AWS.XRay do
         ) ::
           {:ok, update_trace_segment_destination_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_trace_segment_destination_errors()}
   def update_trace_segment_destination(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateTraceSegmentDestination"

@@ -3133,6 +3133,7 @@ defmodule AWS.AppSync do
   @spec associate_api(map(), String.t(), associate_api_request(), list()) ::
           {:ok, associate_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_api_errors()}
   def associate_api(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
@@ -3168,6 +3169,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, associate_merged_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_merged_graphql_api_errors()}
   def associate_merged_graphql_api(
         %Client{} = client,
@@ -3210,6 +3212,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, associate_source_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_source_graphql_api_errors()}
   def associate_source_graphql_api(
         %Client{} = client,
@@ -3250,6 +3253,7 @@ defmodule AWS.AppSync do
   @spec create_api(map(), create_api_request(), list()) ::
           {:ok, create_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_errors()}
   def create_api(%Client{} = client, input, options \\ []) do
     url_path = "/v2/apis"
@@ -3278,6 +3282,7 @@ defmodule AWS.AppSync do
   @spec create_api_cache(map(), String.t(), create_api_cache_request(), list()) ::
           {:ok, create_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_cache_errors()}
   def create_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
@@ -3306,6 +3311,7 @@ defmodule AWS.AppSync do
   @spec create_api_key(map(), String.t(), create_api_key_request(), list()) ::
           {:ok, create_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_api_key_errors()}
   def create_api_key(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys"
@@ -3334,6 +3340,7 @@ defmodule AWS.AppSync do
   @spec create_channel_namespace(map(), String.t(), create_channel_namespace_request(), list()) ::
           {:ok, create_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_namespace_errors()}
   def create_channel_namespace(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}/channelNamespaces"
@@ -3362,6 +3369,7 @@ defmodule AWS.AppSync do
   @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources"
@@ -3390,6 +3398,7 @@ defmodule AWS.AppSync do
   @spec create_domain_name(map(), create_domain_name_request(), list()) ::
           {:ok, create_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_name_errors()}
   def create_domain_name(%Client{} = client, input, options \\ []) do
     url_path = "/v1/domainnames"
@@ -3422,6 +3431,7 @@ defmodule AWS.AppSync do
   @spec create_function(map(), String.t(), create_function_request(), list()) ::
           {:ok, create_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_function_errors()}
   def create_function(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/functions"
@@ -3450,6 +3460,7 @@ defmodule AWS.AppSync do
   @spec create_graphql_api(map(), create_graphql_api_request(), list()) ::
           {:ok, create_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_graphql_api_errors()}
   def create_graphql_api(%Client{} = client, input, options \\ []) do
     url_path = "/v1/apis"
@@ -3482,6 +3493,7 @@ defmodule AWS.AppSync do
   @spec create_resolver(map(), String.t(), String.t(), create_resolver_request(), list()) ::
           {:ok, create_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resolver_errors()}
   def create_resolver(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path =
@@ -3512,6 +3524,7 @@ defmodule AWS.AppSync do
   @spec create_type(map(), String.t(), create_type_request(), list()) ::
           {:ok, create_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_type_errors()}
   def create_type(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types"
@@ -3540,6 +3553,7 @@ defmodule AWS.AppSync do
   @spec delete_api(map(), String.t(), delete_api_request(), list()) ::
           {:ok, delete_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_errors()}
   def delete_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -3568,6 +3582,7 @@ defmodule AWS.AppSync do
   @spec delete_api_cache(map(), String.t(), delete_api_cache_request(), list()) ::
           {:ok, delete_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_cache_errors()}
   def delete_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
@@ -3596,6 +3611,7 @@ defmodule AWS.AppSync do
   @spec delete_api_key(map(), String.t(), String.t(), delete_api_key_request(), list()) ::
           {:ok, delete_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_api_key_errors()}
   def delete_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
@@ -3630,6 +3646,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, delete_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_namespace_errors()}
   def delete_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
     url_path =
@@ -3660,6 +3677,7 @@ defmodule AWS.AppSync do
   @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, api_id, name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
@@ -3688,6 +3706,7 @@ defmodule AWS.AppSync do
   @spec delete_domain_name(map(), String.t(), delete_domain_name_request(), list()) ::
           {:ok, delete_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_name_errors()}
   def delete_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -3716,6 +3735,7 @@ defmodule AWS.AppSync do
   @spec delete_function(map(), String.t(), String.t(), delete_function_request(), list()) ::
           {:ok, delete_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_function_errors()}
   def delete_function(%Client{} = client, api_id, function_id, input, options \\ []) do
     url_path =
@@ -3746,6 +3766,7 @@ defmodule AWS.AppSync do
   @spec delete_graphql_api(map(), String.t(), delete_graphql_api_request(), list()) ::
           {:ok, delete_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_graphql_api_errors()}
   def delete_graphql_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -3781,6 +3802,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, delete_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resolver_errors()}
   def delete_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
@@ -3811,6 +3833,7 @@ defmodule AWS.AppSync do
   @spec delete_type(map(), String.t(), String.t(), delete_type_request(), list()) ::
           {:ok, delete_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_type_errors()}
   def delete_type(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
@@ -3839,6 +3862,7 @@ defmodule AWS.AppSync do
   @spec disassociate_api(map(), String.t(), disassociate_api_request(), list()) ::
           {:ok, disassociate_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_api_errors()}
   def disassociate_api(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
@@ -3875,6 +3899,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, disassociate_merged_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_merged_graphql_api_errors()}
   def disassociate_merged_graphql_api(
         %Client{} = client,
@@ -3919,6 +3944,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, disassociate_source_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_source_graphql_api_errors()}
   def disassociate_source_graphql_api(
         %Client{} = client,
@@ -3965,6 +3991,7 @@ defmodule AWS.AppSync do
   @spec evaluate_code(map(), evaluate_code_request(), list()) ::
           {:ok, evaluate_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_code_errors()}
   def evaluate_code(%Client{} = client, input, options \\ []) do
     url_path = "/v1/dataplane-evaluatecode"
@@ -4006,6 +4033,7 @@ defmodule AWS.AppSync do
   @spec evaluate_mapping_template(map(), evaluate_mapping_template_request(), list()) ::
           {:ok, evaluate_mapping_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, evaluate_mapping_template_errors()}
   def evaluate_mapping_template(%Client{} = client, input, options \\ []) do
     url_path = "/v1/dataplane-evaluatetemplate"
@@ -4034,6 +4062,7 @@ defmodule AWS.AppSync do
   @spec flush_api_cache(map(), String.t(), flush_api_cache_request(), list()) ::
           {:ok, flush_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, flush_api_cache_errors()}
   def flush_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/FlushCache"
@@ -4062,6 +4091,7 @@ defmodule AWS.AppSync do
   @spec get_api(map(), String.t(), list()) ::
           {:ok, get_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_errors()}
   def get_api(%Client{} = client, api_id, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -4079,6 +4109,7 @@ defmodule AWS.AppSync do
   @spec get_api_association(map(), String.t(), list()) ::
           {:ok, get_api_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_association_errors()}
   def get_api_association(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}/apiassociation"
@@ -4096,6 +4127,7 @@ defmodule AWS.AppSync do
   @spec get_api_cache(map(), String.t(), list()) ::
           {:ok, get_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_api_cache_errors()}
   def get_api_cache(%Client{} = client, api_id, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches"
@@ -4113,6 +4145,7 @@ defmodule AWS.AppSync do
   @spec get_channel_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, get_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_channel_namespace_errors()}
   def get_channel_namespace(%Client{} = client, api_id, name, options \\ []) do
     url_path =
@@ -4132,6 +4165,7 @@ defmodule AWS.AppSync do
   @spec get_data_source(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, api_id, name, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
@@ -4161,6 +4195,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, get_data_source_introspection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_introspection_errors()}
   def get_data_source_introspection(
         %Client{} = client,
@@ -4206,6 +4241,7 @@ defmodule AWS.AppSync do
   @spec get_domain_name(map(), String.t(), list()) ::
           {:ok, get_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_name_errors()}
   def get_domain_name(%Client{} = client, domain_name, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -4223,6 +4259,7 @@ defmodule AWS.AppSync do
   @spec get_function(map(), String.t(), String.t(), list()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_function_errors()}
   def get_function(%Client{} = client, api_id, function_id, options \\ []) do
     url_path =
@@ -4242,6 +4279,7 @@ defmodule AWS.AppSync do
   @spec get_graphql_api(map(), String.t(), list()) ::
           {:ok, get_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_graphql_api_errors()}
   def get_graphql_api(%Client{} = client, api_id, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -4261,6 +4299,7 @@ defmodule AWS.AppSync do
   @spec get_graphql_api_environment_variables(map(), String.t(), list()) ::
           {:ok, get_graphql_api_environment_variables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_graphql_api_environment_variables_errors()}
   def get_graphql_api_environment_variables(%Client{} = client, api_id, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/environmentVariables"
@@ -4278,6 +4317,7 @@ defmodule AWS.AppSync do
   @spec get_introspection_schema(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_introspection_schema_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_introspection_schema_errors()}
   def get_introspection_schema(
         %Client{} = client,
@@ -4315,6 +4355,7 @@ defmodule AWS.AppSync do
   @spec get_resolver(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resolver_errors()}
   def get_resolver(%Client{} = client, api_id, field_name, type_name, options \\ []) do
     url_path =
@@ -4334,6 +4375,7 @@ defmodule AWS.AppSync do
   @spec get_schema_creation_status(map(), String.t(), list()) ::
           {:ok, get_schema_creation_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_creation_status_errors()}
   def get_schema_creation_status(%Client{} = client, api_id, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
@@ -4351,6 +4393,7 @@ defmodule AWS.AppSync do
   @spec get_source_api_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_source_api_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_source_api_association_errors()}
   def get_source_api_association(
         %Client{} = client,
@@ -4375,6 +4418,7 @@ defmodule AWS.AppSync do
   @spec get_type(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_type_errors()}
   def get_type(%Client{} = client, api_id, type_name, format, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"
@@ -4406,6 +4450,7 @@ defmodule AWS.AppSync do
   @spec list_api_keys(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_api_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_api_keys_errors()}
   def list_api_keys(
         %Client{} = client,
@@ -4446,6 +4491,7 @@ defmodule AWS.AppSync do
   @spec list_apis(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_apis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apis_errors()}
   def list_apis(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v2/apis"
@@ -4480,6 +4526,7 @@ defmodule AWS.AppSync do
   @spec list_channel_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channel_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_namespaces_errors()}
   def list_channel_namespaces(
         %Client{} = client,
@@ -4517,6 +4564,7 @@ defmodule AWS.AppSync do
   @spec list_data_sources(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(
         %Client{} = client,
@@ -4554,6 +4602,7 @@ defmodule AWS.AppSync do
   @spec list_domain_names(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_domain_names_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/domainnames"
@@ -4585,6 +4634,7 @@ defmodule AWS.AppSync do
   @spec list_functions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_functions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_functions_errors()}
   def list_functions(
         %Client{} = client,
@@ -4629,6 +4679,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, list_graphql_apis_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_graphql_apis_errors()}
   def list_graphql_apis(
         %Client{} = client,
@@ -4681,6 +4732,7 @@ defmodule AWS.AppSync do
   @spec list_resolvers(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_resolvers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolvers_errors()}
   def list_resolvers(
         %Client{} = client,
@@ -4728,6 +4780,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, list_resolvers_by_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resolvers_by_function_errors()}
   def list_resolvers_by_function(
         %Client{} = client,
@@ -4774,6 +4827,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, list_source_api_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_source_api_associations_errors()}
   def list_source_api_associations(
         %Client{} = client,
@@ -4811,6 +4865,7 @@ defmodule AWS.AppSync do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4828,6 +4883,7 @@ defmodule AWS.AppSync do
   @spec list_types(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(
         %Client{} = client,
@@ -4881,6 +4937,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, list_types_by_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_types_by_association_errors()}
   def list_types_by_association(
         %Client{} = client,
@@ -4983,6 +5040,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, put_graphql_api_environment_variables_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_graphql_api_environment_variables_errors()}
   def put_graphql_api_environment_variables(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/environmentVariables"
@@ -5014,6 +5072,7 @@ defmodule AWS.AppSync do
   @spec start_data_source_introspection(map(), start_data_source_introspection_request(), list()) ::
           {:ok, start_data_source_introspection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_data_source_introspection_errors()}
   def start_data_source_introspection(%Client{} = client, input, options \\ []) do
     url_path = "/v1/datasources/introspections"
@@ -5045,6 +5104,7 @@ defmodule AWS.AppSync do
   @spec start_schema_creation(map(), String.t(), start_schema_creation_request(), list()) ::
           {:ok, start_schema_creation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_schema_creation_errors()}
   def start_schema_creation(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/schemacreation"
@@ -5076,6 +5136,7 @@ defmodule AWS.AppSync do
   @spec start_schema_merge(map(), String.t(), String.t(), start_schema_merge_request(), list()) ::
           {:ok, start_schema_merge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_schema_merge_errors()}
   def start_schema_merge(
         %Client{} = client,
@@ -5112,6 +5173,7 @@ defmodule AWS.AppSync do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5140,6 +5202,7 @@ defmodule AWS.AppSync do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/v1/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -5173,6 +5236,7 @@ defmodule AWS.AppSync do
   @spec update_api(map(), String.t(), update_api_request(), list()) ::
           {:ok, update_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_errors()}
   def update_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v2/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -5201,6 +5265,7 @@ defmodule AWS.AppSync do
   @spec update_api_cache(map(), String.t(), update_api_cache_request(), list()) ::
           {:ok, update_api_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_cache_errors()}
   def update_api_cache(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/ApiCaches/update"
@@ -5231,6 +5296,7 @@ defmodule AWS.AppSync do
   @spec update_api_key(map(), String.t(), String.t(), update_api_key_request(), list()) ::
           {:ok, update_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_api_key_errors()}
   def update_api_key(%Client{} = client, api_id, id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/apikeys/#{AWS.Util.encode_uri(id)}"
@@ -5265,6 +5331,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, update_channel_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_namespace_errors()}
   def update_channel_namespace(%Client{} = client, api_id, name, input, options \\ []) do
     url_path =
@@ -5295,6 +5362,7 @@ defmodule AWS.AppSync do
   @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, api_id, name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/datasources/#{AWS.Util.encode_uri(name)}"
@@ -5323,6 +5391,7 @@ defmodule AWS.AppSync do
   @spec update_domain_name(map(), String.t(), update_domain_name_request(), list()) ::
           {:ok, update_domain_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_name_errors()}
   def update_domain_name(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/v1/domainnames/#{AWS.Util.encode_uri(domain_name)}"
@@ -5351,6 +5420,7 @@ defmodule AWS.AppSync do
   @spec update_function(map(), String.t(), String.t(), update_function_request(), list()) ::
           {:ok, update_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_function_errors()}
   def update_function(%Client{} = client, api_id, function_id, input, options \\ []) do
     url_path =
@@ -5381,6 +5451,7 @@ defmodule AWS.AppSync do
   @spec update_graphql_api(map(), String.t(), update_graphql_api_request(), list()) ::
           {:ok, update_graphql_api_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_graphql_api_errors()}
   def update_graphql_api(%Client{} = client, api_id, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}"
@@ -5416,6 +5487,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, update_resolver_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resolver_errors()}
   def update_resolver(%Client{} = client, api_id, field_name, type_name, input, options \\ []) do
     url_path =
@@ -5453,6 +5525,7 @@ defmodule AWS.AppSync do
         ) ::
           {:ok, update_source_api_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_source_api_association_errors()}
   def update_source_api_association(
         %Client{} = client,
@@ -5489,6 +5562,7 @@ defmodule AWS.AppSync do
   @spec update_type(map(), String.t(), String.t(), update_type_request(), list()) ::
           {:ok, update_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_type_errors()}
   def update_type(%Client{} = client, api_id, type_name, input, options \\ []) do
     url_path = "/v1/apis/#{AWS.Util.encode_uri(api_id)}/types/#{AWS.Util.encode_uri(type_name)}"

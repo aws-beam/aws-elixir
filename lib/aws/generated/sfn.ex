@@ -2445,6 +2445,7 @@ defmodule AWS.SFN do
   @spec create_activity(map(), create_activity_input(), list()) ::
           {:ok, create_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_activity_errors()}
   def create_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2489,6 +2490,7 @@ defmodule AWS.SFN do
   @spec create_state_machine(map(), create_state_machine_input(), list()) ::
           {:ok, create_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_state_machine_errors()}
   def create_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2549,6 +2551,7 @@ defmodule AWS.SFN do
   @spec create_state_machine_alias(map(), create_state_machine_alias_input(), list()) ::
           {:ok, create_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_state_machine_alias_errors()}
   def create_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2562,6 +2565,7 @@ defmodule AWS.SFN do
   @spec delete_activity(map(), delete_activity_input(), list()) ::
           {:ok, delete_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_activity_errors()}
   def delete_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2609,6 +2613,7 @@ defmodule AWS.SFN do
   @spec delete_state_machine(map(), delete_state_machine_input(), list()) ::
           {:ok, delete_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_state_machine_errors()}
   def delete_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2647,6 +2652,7 @@ defmodule AWS.SFN do
   @spec delete_state_machine_alias(map(), delete_state_machine_alias_input(), list()) ::
           {:ok, delete_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_state_machine_alias_errors()}
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2680,6 +2686,7 @@ defmodule AWS.SFN do
   @spec delete_state_machine_version(map(), delete_state_machine_version_input(), list()) ::
           {:ok, delete_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_state_machine_version_errors()}
   def delete_state_machine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2696,6 +2703,7 @@ defmodule AWS.SFN do
   @spec describe_activity(map(), describe_activity_input(), list()) ::
           {:ok, describe_activity_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_activity_errors()}
   def describe_activity(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2727,6 +2735,7 @@ defmodule AWS.SFN do
   @spec describe_execution(map(), describe_execution_input(), list()) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2746,6 +2755,7 @@ defmodule AWS.SFN do
   @spec describe_map_run(map(), describe_map_run_input(), list()) ::
           {:ok, describe_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_map_run_errors()}
   def describe_map_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2794,6 +2804,7 @@ defmodule AWS.SFN do
   @spec describe_state_machine(map(), describe_state_machine_input(), list()) ::
           {:ok, describe_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_state_machine_errors()}
   def describe_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2826,6 +2837,7 @@ defmodule AWS.SFN do
   @spec describe_state_machine_alias(map(), describe_state_machine_alias_input(), list()) ::
           {:ok, describe_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_state_machine_alias_errors()}
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2855,6 +2867,7 @@ defmodule AWS.SFN do
         ) ::
           {:ok, describe_state_machine_for_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_state_machine_for_execution_errors()}
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2890,6 +2903,7 @@ defmodule AWS.SFN do
   @spec get_activity_task(map(), get_activity_task_input(), list()) ::
           {:ok, get_activity_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_activity_task_errors()}
   def get_activity_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2916,6 +2930,7 @@ defmodule AWS.SFN do
   @spec get_execution_history(map(), get_execution_history_input(), list()) ::
           {:ok, get_execution_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_execution_history_errors()}
   def get_execution_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2938,6 +2953,7 @@ defmodule AWS.SFN do
   @spec list_activities(map(), list_activities_input(), list()) ::
           {:ok, list_activities_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_activities_errors()}
   def list_activities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2976,6 +2992,7 @@ defmodule AWS.SFN do
   @spec list_executions(map(), list_executions_input(), list()) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2992,6 +3009,7 @@ defmodule AWS.SFN do
   @spec list_map_runs(map(), list_map_runs_input(), list()) ::
           {:ok, list_map_runs_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_map_runs_errors()}
   def list_map_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3036,6 +3054,7 @@ defmodule AWS.SFN do
   @spec list_state_machine_aliases(map(), list_state_machine_aliases_input(), list()) ::
           {:ok, list_state_machine_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_state_machine_aliases_errors()}
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3069,6 +3088,7 @@ defmodule AWS.SFN do
   @spec list_state_machine_versions(map(), list_state_machine_versions_input(), list()) ::
           {:ok, list_state_machine_versions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_state_machine_versions_errors()}
   def list_state_machine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3091,6 +3111,7 @@ defmodule AWS.SFN do
   @spec list_state_machines(map(), list_state_machines_input(), list()) ::
           {:ok, list_state_machines_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_state_machines_errors()}
   def list_state_machines(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3107,6 +3128,7 @@ defmodule AWS.SFN do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3150,6 +3172,7 @@ defmodule AWS.SFN do
   @spec publish_state_machine_version(map(), publish_state_machine_version_input(), list()) ::
           {:ok, publish_state_machine_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_state_machine_version_errors()}
   def publish_state_machine_version(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3214,6 +3237,7 @@ defmodule AWS.SFN do
   @spec redrive_execution(map(), redrive_execution_input(), list()) ::
           {:ok, redrive_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, redrive_execution_errors()}
   def redrive_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3237,6 +3261,7 @@ defmodule AWS.SFN do
   @spec send_task_failure(map(), send_task_failure_input(), list()) ::
           {:ok, send_task_failure_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_task_failure_errors()}
   def send_task_failure(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3273,6 +3298,7 @@ defmodule AWS.SFN do
   @spec send_task_heartbeat(map(), send_task_heartbeat_input(), list()) ::
           {:ok, send_task_heartbeat_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_task_heartbeat_errors()}
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3290,6 +3316,7 @@ defmodule AWS.SFN do
   @spec send_task_success(map(), send_task_success_input(), list()) ::
           {:ok, send_task_success_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_task_success_errors()}
   def send_task_success(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3350,6 +3377,7 @@ defmodule AWS.SFN do
   @spec start_execution(map(), start_execution_input(), list()) ::
           {:ok, start_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_execution_errors()}
   def start_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3376,6 +3404,7 @@ defmodule AWS.SFN do
   @spec start_sync_execution(map(), start_sync_execution_input(), list()) ::
           {:ok, start_sync_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_sync_execution_errors()}
   def start_sync_execution(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "sync-")
@@ -3398,6 +3427,7 @@ defmodule AWS.SFN do
   @spec stop_execution(map(), stop_execution_input(), list()) ::
           {:ok, stop_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_execution_errors()}
   def stop_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3419,6 +3449,7 @@ defmodule AWS.SFN do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3490,6 +3521,7 @@ defmodule AWS.SFN do
   @spec test_state(map(), test_state_input(), list()) ::
           {:ok, test_state_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_state_errors()}
   def test_state(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "sync-")
@@ -3503,6 +3535,7 @@ defmodule AWS.SFN do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3517,6 +3550,7 @@ defmodule AWS.SFN do
   @spec update_map_run(map(), update_map_run_input(), list()) ::
           {:ok, update_map_run_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_map_run_errors()}
   def update_map_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3584,6 +3618,7 @@ defmodule AWS.SFN do
   @spec update_state_machine(map(), update_state_machine_input(), list()) ::
           {:ok, update_state_machine_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_state_machine_errors()}
   def update_state_machine(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3631,6 +3666,7 @@ defmodule AWS.SFN do
   @spec update_state_machine_alias(map(), update_state_machine_alias_input(), list()) ::
           {:ok, update_state_machine_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_state_machine_alias_errors()}
   def update_state_machine_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3688,6 +3724,7 @@ defmodule AWS.SFN do
         ) ::
           {:ok, validate_state_machine_definition_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, validate_state_machine_definition_errors()}
   def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()

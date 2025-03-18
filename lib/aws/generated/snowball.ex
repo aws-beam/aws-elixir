@@ -1384,6 +1384,7 @@ defmodule AWS.Snowball do
   @spec cancel_cluster(map(), cancel_cluster_request(), list()) ::
           {:ok, cancel_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_cluster_errors()}
   def cancel_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1402,6 +1403,7 @@ defmodule AWS.Snowball do
   @spec cancel_job(map(), cancel_job_request(), list()) ::
           {:ok, cancel_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1424,6 +1426,7 @@ defmodule AWS.Snowball do
   @spec create_address(map(), create_address_request(), list()) ::
           {:ok, create_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_address_errors()}
   def create_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1441,6 +1444,7 @@ defmodule AWS.Snowball do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1572,6 +1576,7 @@ defmodule AWS.Snowball do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1589,6 +1594,7 @@ defmodule AWS.Snowball do
   @spec create_long_term_pricing(map(), create_long_term_pricing_request(), list()) ::
           {:ok, create_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_long_term_pricing_errors()}
   def create_long_term_pricing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1603,6 +1609,7 @@ defmodule AWS.Snowball do
   @spec create_return_shipping_label(map(), create_return_shipping_label_request(), list()) ::
           {:ok, create_return_shipping_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_return_shipping_label_errors()}
   def create_return_shipping_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1617,6 +1624,7 @@ defmodule AWS.Snowball do
   @spec describe_address(map(), describe_address_request(), list()) ::
           {:ok, describe_address_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_address_errors()}
   def describe_address(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1635,6 +1643,7 @@ defmodule AWS.Snowball do
   @spec describe_addresses(map(), describe_addresses_request(), list()) ::
           {:ok, describe_addresses_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_addresses_errors()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1650,6 +1659,7 @@ defmodule AWS.Snowball do
   @spec describe_cluster(map(), describe_cluster_request(), list()) ::
           {:ok, describe_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1665,6 +1675,7 @@ defmodule AWS.Snowball do
   @spec describe_job(map(), describe_job_request(), list()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1679,6 +1690,7 @@ defmodule AWS.Snowball do
   @spec describe_return_shipping_label(map(), describe_return_shipping_label_request(), list()) ::
           {:ok, describe_return_shipping_label_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_return_shipping_label_errors()}
   def describe_return_shipping_label(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1720,6 +1732,7 @@ defmodule AWS.Snowball do
   @spec get_job_manifest(map(), get_job_manifest_request(), list()) ::
           {:ok, get_job_manifest_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_manifest_errors()}
   def get_job_manifest(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1753,6 +1766,7 @@ defmodule AWS.Snowball do
   @spec get_job_unlock_code(map(), get_job_unlock_code_request(), list()) ::
           {:ok, get_job_unlock_code_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_unlock_code_errors()}
   def get_job_unlock_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1773,6 +1787,7 @@ defmodule AWS.Snowball do
   @spec get_snowball_usage(map(), get_snowball_usage_request(), list()) ::
           {:ok, get_snowball_usage_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_snowball_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1787,6 +1802,7 @@ defmodule AWS.Snowball do
   @spec get_software_updates(map(), get_software_updates_request(), list()) ::
           {:ok, get_software_updates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_software_updates_errors()}
   def get_software_updates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1804,6 +1820,7 @@ defmodule AWS.Snowball do
   @spec list_cluster_jobs(map(), list_cluster_jobs_request(), list()) ::
           {:ok, list_cluster_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cluster_jobs_errors()}
   def list_cluster_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1821,6 +1838,7 @@ defmodule AWS.Snowball do
   @spec list_clusters(map(), list_clusters_request(), list()) ::
           {:ok, list_clusters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1844,6 +1862,7 @@ defmodule AWS.Snowball do
   @spec list_compatible_images(map(), list_compatible_images_request(), list()) ::
           {:ok, list_compatible_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_compatible_images_errors()}
   def list_compatible_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1865,6 +1884,7 @@ defmodule AWS.Snowball do
   @spec list_jobs(map(), list_jobs_request(), list()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1878,6 +1898,7 @@ defmodule AWS.Snowball do
   @spec list_long_term_pricing(map(), list_long_term_pricing_request(), list()) ::
           {:ok, list_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_long_term_pricing_errors()}
   def list_long_term_pricing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1891,6 +1912,7 @@ defmodule AWS.Snowball do
   @spec list_pickup_locations(map(), list_pickup_locations_request(), list()) ::
           {:ok, list_pickup_locations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pickup_locations_errors()}
   def list_pickup_locations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1908,6 +1930,7 @@ defmodule AWS.Snowball do
   @spec list_service_versions(map(), list_service_versions_request(), list()) ::
           {:ok, list_service_versions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_versions_errors()}
   def list_service_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1927,6 +1950,7 @@ defmodule AWS.Snowball do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1944,6 +1968,7 @@ defmodule AWS.Snowball do
   @spec update_job(map(), update_job_request(), list()) ::
           {:ok, update_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1957,6 +1982,7 @@ defmodule AWS.Snowball do
   @spec update_job_shipment_state(map(), update_job_shipment_state_request(), list()) ::
           {:ok, update_job_shipment_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_shipment_state_errors()}
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1970,6 +1996,7 @@ defmodule AWS.Snowball do
   @spec update_long_term_pricing(map(), update_long_term_pricing_request(), list()) ::
           {:ok, update_long_term_pricing_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_long_term_pricing_errors()}
   def update_long_term_pricing(%Client{} = client, input, options \\ []) do
     meta = metadata()

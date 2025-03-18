@@ -1847,6 +1847,7 @@ defmodule AWS.Wisdom do
   @spec create_assistant(map(), create_assistant_request(), list()) ::
           {:ok, create_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assistant_errors()}
   def create_assistant(%Client{} = client, input, options \\ []) do
     url_path = "/assistants"
@@ -1886,6 +1887,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, create_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_assistant_association_errors()}
   def create_assistant_association(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/associations"
@@ -1919,6 +1921,7 @@ defmodule AWS.Wisdom do
   @spec create_content(map(), String.t(), create_content_request(), list()) ::
           {:ok, create_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_content_errors()}
   def create_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/contents"
@@ -1974,6 +1977,7 @@ defmodule AWS.Wisdom do
   @spec create_knowledge_base(map(), create_knowledge_base_request(), list()) ::
           {:ok, create_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_knowledge_base_errors()}
   def create_knowledge_base(%Client{} = client, input, options \\ []) do
     url_path = "/knowledgeBases"
@@ -2002,6 +2006,7 @@ defmodule AWS.Wisdom do
   @spec create_quick_response(map(), String.t(), create_quick_response_request(), list()) ::
           {:ok, create_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_quick_response_errors()}
   def create_quick_response(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/quickResponses"
@@ -2035,6 +2040,7 @@ defmodule AWS.Wisdom do
   @spec create_session(map(), String.t(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/sessions"
@@ -2063,6 +2069,7 @@ defmodule AWS.Wisdom do
   @spec delete_assistant(map(), String.t(), delete_assistant_request(), list()) ::
           {:ok, delete_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assistant_errors()}
   def delete_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
@@ -2097,6 +2104,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, delete_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_assistant_association_errors()}
   def delete_assistant_association(
         %Client{} = client,
@@ -2133,6 +2141,7 @@ defmodule AWS.Wisdom do
   @spec delete_content(map(), String.t(), String.t(), delete_content_request(), list()) ::
           {:ok, delete_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_content_errors()}
   def delete_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
     url_path =
@@ -2163,6 +2172,7 @@ defmodule AWS.Wisdom do
   @spec delete_import_job(map(), String.t(), String.t(), delete_import_job_request(), list()) ::
           {:ok, delete_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_import_job_errors()}
   def delete_import_job(
         %Client{} = client,
@@ -2210,6 +2220,7 @@ defmodule AWS.Wisdom do
   @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_knowledge_base_errors()}
   def delete_knowledge_base(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -2244,6 +2255,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, delete_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_quick_response_errors()}
   def delete_quick_response(
         %Client{} = client,
@@ -2280,6 +2292,7 @@ defmodule AWS.Wisdom do
   @spec get_assistant(map(), String.t(), list()) ::
           {:ok, get_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assistant_errors()}
   def get_assistant(%Client{} = client, assistant_id, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}"
@@ -2297,6 +2310,7 @@ defmodule AWS.Wisdom do
   @spec get_assistant_association(map(), String.t(), String.t(), list()) ::
           {:ok, get_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assistant_association_errors()}
   def get_assistant_association(
         %Client{} = client,
@@ -2321,6 +2335,7 @@ defmodule AWS.Wisdom do
   @spec get_content(map(), String.t(), String.t(), list()) ::
           {:ok, get_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_errors()}
   def get_content(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -2340,6 +2355,7 @@ defmodule AWS.Wisdom do
   @spec get_content_summary(map(), String.t(), String.t(), list()) ::
           {:ok, get_content_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_content_summary_errors()}
   def get_content_summary(%Client{} = client, content_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -2359,6 +2375,7 @@ defmodule AWS.Wisdom do
   @spec get_import_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_job_errors()}
   def get_import_job(%Client{} = client, import_job_id, knowledge_base_id, options \\ []) do
     url_path =
@@ -2378,6 +2395,7 @@ defmodule AWS.Wisdom do
   @spec get_knowledge_base(map(), String.t(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_knowledge_base_errors()}
   def get_knowledge_base(%Client{} = client, knowledge_base_id, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}"
@@ -2395,6 +2413,7 @@ defmodule AWS.Wisdom do
   @spec get_quick_response(map(), String.t(), String.t(), list()) ::
           {:ok, get_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_quick_response_errors()}
   def get_quick_response(%Client{} = client, knowledge_base_id, quick_response_id, options \\ []) do
     url_path =
@@ -2429,6 +2448,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, get_recommendations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_recommendations_errors()}
   def get_recommendations(
         %Client{} = client,
@@ -2469,6 +2489,7 @@ defmodule AWS.Wisdom do
   @spec get_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, assistant_id, session_id, options \\ []) do
     url_path =
@@ -2488,6 +2509,7 @@ defmodule AWS.Wisdom do
   @spec list_assistant_associations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assistant_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assistant_associations_errors()}
   def list_assistant_associations(
         %Client{} = client,
@@ -2525,6 +2547,7 @@ defmodule AWS.Wisdom do
   @spec list_assistants(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_assistants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assistants_errors()}
   def list_assistants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/assistants"
@@ -2556,6 +2579,7 @@ defmodule AWS.Wisdom do
   @spec list_contents(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_contents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_contents_errors()}
   def list_contents(
         %Client{} = client,
@@ -2593,6 +2617,7 @@ defmodule AWS.Wisdom do
   @spec list_import_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_import_jobs_errors()}
   def list_import_jobs(
         %Client{} = client,
@@ -2630,6 +2655,7 @@ defmodule AWS.Wisdom do
   @spec list_knowledge_bases(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_knowledge_bases_errors()}
   def list_knowledge_bases(
         %Client{} = client,
@@ -2666,6 +2692,7 @@ defmodule AWS.Wisdom do
   @spec list_quick_responses(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_quick_responses_errors()}
   def list_quick_responses(
         %Client{} = client,
@@ -2703,6 +2730,7 @@ defmodule AWS.Wisdom do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2733,6 +2761,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, notify_recommendations_received_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_recommendations_received_errors()}
   def notify_recommendations_received(
         %Client{} = client,
@@ -2773,6 +2802,7 @@ defmodule AWS.Wisdom do
   @spec query_assistant(map(), String.t(), query_assistant_request(), list()) ::
           {:ok, query_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, query_assistant_errors()}
   def query_assistant(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/query"
@@ -2806,6 +2836,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, remove_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_knowledge_base_template_uri_errors()}
   def remove_knowledge_base_template_uri(
         %Client{} = client,
@@ -2842,6 +2873,7 @@ defmodule AWS.Wisdom do
   @spec search_content(map(), String.t(), search_content_request(), list()) ::
           {:ok, search_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_content_errors()}
   def search_content(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search"
@@ -2876,6 +2908,7 @@ defmodule AWS.Wisdom do
   @spec search_quick_responses(map(), String.t(), search_quick_responses_request(), list()) ::
           {:ok, search_quick_responses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_quick_responses_errors()}
   def search_quick_responses(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/search/quickResponses"
@@ -2910,6 +2943,7 @@ defmodule AWS.Wisdom do
   @spec search_sessions(map(), String.t(), search_sessions_request(), list()) ::
           {:ok, search_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_sessions_errors()}
   def search_sessions(%Client{} = client, assistant_id, input, options \\ []) do
     url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/searchSessions"
@@ -2953,6 +2987,7 @@ defmodule AWS.Wisdom do
   @spec start_content_upload(map(), String.t(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_content_upload_errors()}
   def start_content_upload(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/upload"
@@ -2992,6 +3027,7 @@ defmodule AWS.Wisdom do
   @spec start_import_job(map(), String.t(), start_import_job_request(), list()) ::
           {:ok, start_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_job_errors()}
   def start_import_job(%Client{} = client, knowledge_base_id, input, options \\ []) do
     url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/importJobs"
@@ -3020,6 +3056,7 @@ defmodule AWS.Wisdom do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3048,6 +3085,7 @@ defmodule AWS.Wisdom do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3081,6 +3119,7 @@ defmodule AWS.Wisdom do
   @spec update_content(map(), String.t(), String.t(), update_content_request(), list()) ::
           {:ok, update_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_content_errors()}
   def update_content(%Client{} = client, content_id, knowledge_base_id, input, options \\ []) do
     url_path =
@@ -3123,6 +3162,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, update_knowledge_base_template_uri_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_knowledge_base_template_uri_errors()}
   def update_knowledge_base_template_uri(
         %Client{} = client,
@@ -3162,6 +3202,7 @@ defmodule AWS.Wisdom do
         ) ::
           {:ok, update_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_quick_response_errors()}
   def update_quick_response(
         %Client{} = client,

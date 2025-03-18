@@ -3256,6 +3256,7 @@ defmodule AWS.DeviceFarm do
   @spec create_device_pool(map(), create_device_pool_request(), list()) ::
           {:ok, create_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_device_pool_errors()}
   def create_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3270,6 +3271,7 @@ defmodule AWS.DeviceFarm do
   @spec create_instance_profile(map(), create_instance_profile_request(), list()) ::
           {:ok, create_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3283,6 +3285,7 @@ defmodule AWS.DeviceFarm do
   @spec create_network_profile(map(), create_network_profile_request(), list()) ::
           {:ok, create_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_profile_errors()}
   def create_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3296,6 +3299,7 @@ defmodule AWS.DeviceFarm do
   @spec create_project(map(), create_project_request(), list()) ::
           {:ok, create_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3309,6 +3313,7 @@ defmodule AWS.DeviceFarm do
   @spec create_remote_access_session(map(), create_remote_access_session_request(), list()) ::
           {:ok, create_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_remote_access_session_errors()}
   def create_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3325,6 +3330,7 @@ defmodule AWS.DeviceFarm do
   @spec create_test_grid_project(map(), create_test_grid_project_request(), list()) ::
           {:ok, create_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_grid_project_errors()}
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3340,6 +3346,7 @@ defmodule AWS.DeviceFarm do
   @spec create_test_grid_url(map(), create_test_grid_url_request(), list()) ::
           {:ok, create_test_grid_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_test_grid_url_errors()}
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3353,6 +3360,7 @@ defmodule AWS.DeviceFarm do
   @spec create_upload(map(), create_upload_request(), list()) ::
           {:ok, create_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_upload_errors()}
   def create_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3368,6 +3376,7 @@ defmodule AWS.DeviceFarm do
   @spec create_vpce_configuration(map(), create_vpce_configuration_request(), list()) ::
           {:ok, create_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpce_configuration_errors()}
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3384,6 +3393,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_device_pool(map(), delete_device_pool_request(), list()) ::
           {:ok, delete_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_device_pool_errors()}
   def delete_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3397,6 +3407,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_instance_profile(map(), delete_instance_profile_request(), list()) ::
           {:ok, delete_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3410,6 +3421,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_network_profile(map(), delete_network_profile_request(), list()) ::
           {:ok, delete_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_profile_errors()}
   def delete_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3425,6 +3437,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_project(map(), delete_project_request(), list()) ::
           {:ok, delete_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3438,6 +3451,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_remote_access_session(map(), delete_remote_access_session_request(), list()) ::
           {:ok, delete_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_remote_access_session_errors()}
   def delete_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3453,6 +3467,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_run(map(), delete_run_request(), list()) ::
           {:ok, delete_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_run_errors()}
   def delete_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3470,6 +3485,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_test_grid_project(map(), delete_test_grid_project_request(), list()) ::
           {:ok, delete_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_test_grid_project_errors()}
   def delete_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3483,6 +3499,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_upload(map(), delete_upload_request(), list()) ::
           {:ok, delete_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_upload_errors()}
   def delete_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3496,6 +3513,7 @@ defmodule AWS.DeviceFarm do
   @spec delete_vpce_configuration(map(), delete_vpce_configuration_request(), list()) ::
           {:ok, delete_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpce_configuration_errors()}
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3511,6 +3529,7 @@ defmodule AWS.DeviceFarm do
   @spec get_account_settings(map(), get_account_settings_request(), list()) ::
           {:ok, get_account_settings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3524,6 +3543,7 @@ defmodule AWS.DeviceFarm do
   @spec get_device(map(), get_device_request(), list()) ::
           {:ok, get_device_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3538,6 +3558,7 @@ defmodule AWS.DeviceFarm do
   @spec get_device_instance(map(), get_device_instance_request(), list()) ::
           {:ok, get_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_instance_errors()}
   def get_device_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3551,6 +3572,7 @@ defmodule AWS.DeviceFarm do
   @spec get_device_pool(map(), get_device_pool_request(), list()) ::
           {:ok, get_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_pool_errors()}
   def get_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3564,6 +3586,7 @@ defmodule AWS.DeviceFarm do
   @spec get_device_pool_compatibility(map(), get_device_pool_compatibility_request(), list()) ::
           {:ok, get_device_pool_compatibility_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_pool_compatibility_errors()}
   def get_device_pool_compatibility(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3577,6 +3600,7 @@ defmodule AWS.DeviceFarm do
   @spec get_instance_profile(map(), get_instance_profile_request(), list()) ::
           {:ok, get_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3590,6 +3614,7 @@ defmodule AWS.DeviceFarm do
   @spec get_job(map(), get_job_request(), list()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3603,6 +3628,7 @@ defmodule AWS.DeviceFarm do
   @spec get_network_profile(map(), get_network_profile_request(), list()) ::
           {:ok, get_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_profile_errors()}
   def get_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3625,6 +3651,7 @@ defmodule AWS.DeviceFarm do
   @spec get_offering_status(map(), get_offering_status_request(), list()) ::
           {:ok, get_offering_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_offering_status_errors()}
   def get_offering_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3638,6 +3665,7 @@ defmodule AWS.DeviceFarm do
   @spec get_project(map(), get_project_request(), list()) ::
           {:ok, get_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3651,6 +3679,7 @@ defmodule AWS.DeviceFarm do
   @spec get_remote_access_session(map(), get_remote_access_session_request(), list()) ::
           {:ok, get_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_remote_access_session_errors()}
   def get_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3664,6 +3693,7 @@ defmodule AWS.DeviceFarm do
   @spec get_run(map(), get_run_request(), list()) ::
           {:ok, get_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_run_errors()}
   def get_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3677,6 +3707,7 @@ defmodule AWS.DeviceFarm do
   @spec get_suite(map(), get_suite_request(), list()) ::
           {:ok, get_suite_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_suite_errors()}
   def get_suite(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3690,6 +3721,7 @@ defmodule AWS.DeviceFarm do
   @spec get_test(map(), get_test_request(), list()) ::
           {:ok, get_test_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_errors()}
   def get_test(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3703,6 +3735,7 @@ defmodule AWS.DeviceFarm do
   @spec get_test_grid_project(map(), get_test_grid_project_request(), list()) ::
           {:ok, get_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_grid_project_errors()}
   def get_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3726,6 +3759,7 @@ defmodule AWS.DeviceFarm do
   @spec get_test_grid_session(map(), get_test_grid_session_request(), list()) ::
           {:ok, get_test_grid_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_test_grid_session_errors()}
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3739,6 +3773,7 @@ defmodule AWS.DeviceFarm do
   @spec get_upload(map(), get_upload_request(), list()) ::
           {:ok, get_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upload_errors()}
   def get_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3754,6 +3789,7 @@ defmodule AWS.DeviceFarm do
   @spec get_vpce_configuration(map(), get_vpce_configuration_request(), list()) ::
           {:ok, get_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_vpce_configuration_errors()}
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3776,6 +3812,7 @@ defmodule AWS.DeviceFarm do
         ) ::
           {:ok, install_to_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, install_to_remote_access_session_errors()}
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3789,6 +3826,7 @@ defmodule AWS.DeviceFarm do
   @spec list_artifacts(map(), list_artifacts_request(), list()) ::
           {:ok, list_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3804,6 +3842,7 @@ defmodule AWS.DeviceFarm do
   @spec list_device_instances(map(), list_device_instances_request(), list()) ::
           {:ok, list_device_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_instances_errors()}
   def list_device_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3817,6 +3856,7 @@ defmodule AWS.DeviceFarm do
   @spec list_device_pools(map(), list_device_pools_request(), list()) ::
           {:ok, list_device_pools_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_pools_errors()}
   def list_device_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3830,6 +3870,7 @@ defmodule AWS.DeviceFarm do
   @spec list_devices(map(), list_devices_request(), list()) ::
           {:ok, list_devices_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3843,6 +3884,7 @@ defmodule AWS.DeviceFarm do
   @spec list_instance_profiles(map(), list_instance_profiles_request(), list()) ::
           {:ok, list_instance_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3856,6 +3898,7 @@ defmodule AWS.DeviceFarm do
   @spec list_jobs(map(), list_jobs_request(), list()) ::
           {:ok, list_jobs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3869,6 +3912,7 @@ defmodule AWS.DeviceFarm do
   @spec list_network_profiles(map(), list_network_profiles_request(), list()) ::
           {:ok, list_network_profiles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_network_profiles_errors()}
   def list_network_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3889,6 +3933,7 @@ defmodule AWS.DeviceFarm do
   @spec list_offering_promotions(map(), list_offering_promotions_request(), list()) ::
           {:ok, list_offering_promotions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_offering_promotions_errors()}
   def list_offering_promotions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3911,6 +3956,7 @@ defmodule AWS.DeviceFarm do
   @spec list_offering_transactions(map(), list_offering_transactions_request(), list()) ::
           {:ok, list_offering_transactions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_offering_transactions_errors()}
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3933,6 +3979,7 @@ defmodule AWS.DeviceFarm do
   @spec list_offerings(map(), list_offerings_request(), list()) ::
           {:ok, list_offerings_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_offerings_errors()}
   def list_offerings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3946,6 +3993,7 @@ defmodule AWS.DeviceFarm do
   @spec list_projects(map(), list_projects_request(), list()) ::
           {:ok, list_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3959,6 +4007,7 @@ defmodule AWS.DeviceFarm do
   @spec list_remote_access_sessions(map(), list_remote_access_sessions_request(), list()) ::
           {:ok, list_remote_access_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_remote_access_sessions_errors()}
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3972,6 +4021,7 @@ defmodule AWS.DeviceFarm do
   @spec list_runs(map(), list_runs_request(), list()) ::
           {:ok, list_runs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_runs_errors()}
   def list_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3985,6 +4035,7 @@ defmodule AWS.DeviceFarm do
   @spec list_samples(map(), list_samples_request(), list()) ::
           {:ok, list_samples_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_samples_errors()}
   def list_samples(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3998,6 +4049,7 @@ defmodule AWS.DeviceFarm do
   @spec list_suites(map(), list_suites_request(), list()) ::
           {:ok, list_suites_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_suites_errors()}
   def list_suites(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4011,6 +4063,7 @@ defmodule AWS.DeviceFarm do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4024,6 +4077,7 @@ defmodule AWS.DeviceFarm do
   @spec list_test_grid_projects(map(), list_test_grid_projects_request(), list()) ::
           {:ok, list_test_grid_projects_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_grid_projects_errors()}
   def list_test_grid_projects(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4037,6 +4091,7 @@ defmodule AWS.DeviceFarm do
   @spec list_test_grid_session_actions(map(), list_test_grid_session_actions_request(), list()) ::
           {:ok, list_test_grid_session_actions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_grid_session_actions_errors()}
   def list_test_grid_session_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4054,6 +4109,7 @@ defmodule AWS.DeviceFarm do
         ) ::
           {:ok, list_test_grid_session_artifacts_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_grid_session_artifacts_errors()}
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4067,6 +4123,7 @@ defmodule AWS.DeviceFarm do
   @spec list_test_grid_sessions(map(), list_test_grid_sessions_request(), list()) ::
           {:ok, list_test_grid_sessions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_test_grid_sessions_errors()}
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4080,6 +4137,7 @@ defmodule AWS.DeviceFarm do
   @spec list_tests(map(), list_tests_request(), list()) ::
           {:ok, list_tests_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tests_errors()}
   def list_tests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4105,6 +4163,7 @@ defmodule AWS.DeviceFarm do
   @spec list_unique_problems(map(), list_unique_problems_request(), list()) ::
           {:ok, list_unique_problems_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_unique_problems_errors()}
   def list_unique_problems(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4118,6 +4177,7 @@ defmodule AWS.DeviceFarm do
   @spec list_uploads(map(), list_uploads_request(), list()) ::
           {:ok, list_uploads_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_uploads_errors()}
   def list_uploads(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4132,6 +4192,7 @@ defmodule AWS.DeviceFarm do
   @spec list_vpce_configurations(map(), list_vpce_configurations_request(), list()) ::
           {:ok, list_vpce_configurations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpce_configurations_errors()}
   def list_vpce_configurations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4153,6 +4214,7 @@ defmodule AWS.DeviceFarm do
   @spec purchase_offering(map(), purchase_offering_request(), list()) ::
           {:ok, purchase_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4173,6 +4235,7 @@ defmodule AWS.DeviceFarm do
   @spec renew_offering(map(), renew_offering_request(), list()) ::
           {:ok, renew_offering_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, renew_offering_errors()}
   def renew_offering(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4186,6 +4249,7 @@ defmodule AWS.DeviceFarm do
   @spec schedule_run(map(), schedule_run_request(), list()) ::
           {:ok, schedule_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, schedule_run_errors()}
   def schedule_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4206,6 +4270,7 @@ defmodule AWS.DeviceFarm do
   @spec stop_job(map(), stop_job_request(), list()) ::
           {:ok, stop_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_job_errors()}
   def stop_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4219,6 +4284,7 @@ defmodule AWS.DeviceFarm do
   @spec stop_remote_access_session(map(), stop_remote_access_session_request(), list()) ::
           {:ok, stop_remote_access_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_remote_access_session_errors()}
   def stop_remote_access_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4239,6 +4305,7 @@ defmodule AWS.DeviceFarm do
   @spec stop_run(map(), stop_run_request(), list()) ::
           {:ok, stop_run_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_run_errors()}
   def stop_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4257,6 +4324,7 @@ defmodule AWS.DeviceFarm do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4270,6 +4338,7 @@ defmodule AWS.DeviceFarm do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4283,6 +4352,7 @@ defmodule AWS.DeviceFarm do
   @spec update_device_instance(map(), update_device_instance_request(), list()) ::
           {:ok, update_device_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_instance_errors()}
   def update_device_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4301,6 +4371,7 @@ defmodule AWS.DeviceFarm do
   @spec update_device_pool(map(), update_device_pool_request(), list()) ::
           {:ok, update_device_pool_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_pool_errors()}
   def update_device_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4314,6 +4385,7 @@ defmodule AWS.DeviceFarm do
   @spec update_instance_profile(map(), update_instance_profile_request(), list()) ::
           {:ok, update_instance_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_profile_errors()}
   def update_instance_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4327,6 +4399,7 @@ defmodule AWS.DeviceFarm do
   @spec update_network_profile(map(), update_network_profile_request(), list()) ::
           {:ok, update_network_profile_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_profile_errors()}
   def update_network_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4341,6 +4414,7 @@ defmodule AWS.DeviceFarm do
   @spec update_project(map(), update_project_request(), list()) ::
           {:ok, update_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4354,6 +4428,7 @@ defmodule AWS.DeviceFarm do
   @spec update_test_grid_project(map(), update_test_grid_project_request(), list()) ::
           {:ok, update_test_grid_project_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_test_grid_project_errors()}
   def update_test_grid_project(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4367,6 +4442,7 @@ defmodule AWS.DeviceFarm do
   @spec update_upload(map(), update_upload_request(), list()) ::
           {:ok, update_upload_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_upload_errors()}
   def update_upload(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4381,6 +4457,7 @@ defmodule AWS.DeviceFarm do
   @spec update_vpce_configuration(map(), update_vpce_configuration_request(), list()) ::
           {:ok, update_vpce_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpce_configuration_errors()}
   def update_vpce_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()

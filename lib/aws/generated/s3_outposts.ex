@@ -328,6 +328,7 @@ defmodule AWS.S3Outposts do
   @spec create_endpoint(map(), create_endpoint_request(), list()) ::
           {:ok, create_endpoint_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/CreateEndpoint"
@@ -368,6 +369,7 @@ defmodule AWS.S3Outposts do
   @spec delete_endpoint(map(), delete_endpoint_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/S3Outposts/DeleteEndpoint"
@@ -412,6 +414,7 @@ defmodule AWS.S3Outposts do
   @spec list_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_endpoints_errors()}
   def list_endpoints(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/S3Outposts/ListEndpoints"
@@ -448,6 +451,7 @@ defmodule AWS.S3Outposts do
   @spec list_outposts_with_s3(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_outposts_with_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_outposts_with_s3_errors()}
   def list_outposts_with_s3(
         %Client{} = client,
@@ -495,6 +499,7 @@ defmodule AWS.S3Outposts do
   @spec list_shared_endpoints(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_shared_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_shared_endpoints_errors()}
   def list_shared_endpoints(
         %Client{} = client,

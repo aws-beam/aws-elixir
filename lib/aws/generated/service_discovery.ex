@@ -1486,6 +1486,7 @@ defmodule AWS.ServiceDiscovery do
   @spec create_http_namespace(map(), create_http_namespace_request(), list()) ::
           {:ok, create_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_http_namespace_errors()}
   def create_http_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1513,6 +1514,7 @@ defmodule AWS.ServiceDiscovery do
   @spec create_private_dns_namespace(map(), create_private_dns_namespace_request(), list()) ::
           {:ok, create_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_private_dns_namespace_errors()}
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1543,6 +1545,7 @@ defmodule AWS.ServiceDiscovery do
   @spec create_public_dns_namespace(map(), create_public_dns_namespace_request(), list()) ::
           {:ok, create_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_public_dns_namespace_errors()}
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1596,6 +1599,7 @@ defmodule AWS.ServiceDiscovery do
   @spec create_service(map(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1612,6 +1616,7 @@ defmodule AWS.ServiceDiscovery do
   @spec delete_namespace(map(), delete_namespace_request(), list()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1628,6 +1633,7 @@ defmodule AWS.ServiceDiscovery do
   @spec delete_service(map(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1641,6 +1647,7 @@ defmodule AWS.ServiceDiscovery do
   @spec delete_service_attributes(map(), delete_service_attributes_request(), list()) ::
           {:ok, delete_service_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_attributes_errors()}
   def delete_service_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1656,6 +1663,7 @@ defmodule AWS.ServiceDiscovery do
   @spec deregister_instance(map(), deregister_instance_request(), list()) ::
           {:ok, deregister_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1677,6 +1685,7 @@ defmodule AWS.ServiceDiscovery do
   @spec discover_instances(map(), discover_instances_request(), list()) ::
           {:ok, discover_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, discover_instances_errors()}
   def discover_instances(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "data-")
@@ -1690,6 +1699,7 @@ defmodule AWS.ServiceDiscovery do
   @spec discover_instances_revision(map(), discover_instances_revision_request(), list()) ::
           {:ok, discover_instances_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, discover_instances_revision_errors()}
   def discover_instances_revision(%Client{} = client, input, options \\ []) do
     meta = metadata() |> Map.put_new(:host_prefix, "data-")
@@ -1703,6 +1713,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_instance(map(), get_instance_request(), list()) ::
           {:ok, get_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1721,6 +1732,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_instances_health_status(map(), get_instances_health_status_request(), list()) ::
           {:ok, get_instances_health_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instances_health_status_errors()}
   def get_instances_health_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1734,6 +1746,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_namespace(map(), get_namespace_request(), list()) ::
           {:ok, get_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1752,6 +1765,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_operation(map(), get_operation_request(), list()) ::
           {:ok, get_operation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1765,6 +1779,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_service(map(), get_service_request(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1778,6 +1793,7 @@ defmodule AWS.ServiceDiscovery do
   @spec get_service_attributes(map(), get_service_attributes_request(), list()) ::
           {:ok, get_service_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_attributes_errors()}
   def get_service_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1792,6 +1808,7 @@ defmodule AWS.ServiceDiscovery do
   @spec list_instances(map(), list_instances_request(), list()) ::
           {:ok, list_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1806,6 +1823,7 @@ defmodule AWS.ServiceDiscovery do
   @spec list_namespaces(map(), list_namespaces_request(), list()) ::
           {:ok, list_namespaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1819,6 +1837,7 @@ defmodule AWS.ServiceDiscovery do
   @spec list_operations(map(), list_operations_request(), list()) ::
           {:ok, list_operations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1834,6 +1853,7 @@ defmodule AWS.ServiceDiscovery do
   @spec list_services(map(), list_services_request(), list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1847,6 +1867,7 @@ defmodule AWS.ServiceDiscovery do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1906,6 +1927,7 @@ defmodule AWS.ServiceDiscovery do
   @spec register_instance(map(), register_instance_request(), list()) ::
           {:ok, register_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1919,6 +1941,7 @@ defmodule AWS.ServiceDiscovery do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1932,6 +1955,7 @@ defmodule AWS.ServiceDiscovery do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1946,6 +1970,7 @@ defmodule AWS.ServiceDiscovery do
   @spec update_http_namespace(map(), update_http_namespace_request(), list()) ::
           {:ok, update_http_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_http_namespace_errors()}
   def update_http_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1974,6 +1999,7 @@ defmodule AWS.ServiceDiscovery do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_custom_health_status_errors()}
   def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1988,6 +2014,7 @@ defmodule AWS.ServiceDiscovery do
   @spec update_private_dns_namespace(map(), update_private_dns_namespace_request(), list()) ::
           {:ok, update_private_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_private_dns_namespace_errors()}
   def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2002,6 +2029,7 @@ defmodule AWS.ServiceDiscovery do
   @spec update_public_dns_namespace(map(), update_public_dns_namespace_request(), list()) ::
           {:ok, update_public_dns_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_public_dns_namespace_errors()}
   def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2038,6 +2066,7 @@ defmodule AWS.ServiceDiscovery do
   @spec update_service(map(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2051,6 +2080,7 @@ defmodule AWS.ServiceDiscovery do
   @spec update_service_attributes(map(), update_service_attributes_request(), list()) ::
           {:ok, update_service_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_attributes_errors()}
   def update_service_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()

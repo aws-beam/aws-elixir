@@ -5615,6 +5615,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec add_custom_attributes(map(), add_custom_attributes_request(), list()) ::
           {:ok, add_custom_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_custom_attributes_errors()}
   def add_custom_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5647,6 +5648,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_add_user_to_group(map(), admin_add_user_to_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_add_user_to_group_errors()}
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5686,6 +5688,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_confirm_sign_up(map(), admin_confirm_sign_up_request(), list()) ::
           {:ok, admin_confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_confirm_sign_up_errors()}
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5761,6 +5764,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_create_user(map(), admin_create_user_request(), list()) ::
           {:ok, admin_create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_create_user_errors()}
   def admin_create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5789,6 +5793,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_delete_user(map(), admin_delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_delete_user_errors()}
   def admin_delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5822,6 +5827,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_delete_user_attributes(map(), admin_delete_user_attributes_request(), list()) ::
           {:ok, admin_delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_delete_user_attributes_errors()}
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5888,6 +5894,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_disable_provider_for_user(map(), admin_disable_provider_for_user_request(), list()) ::
           {:ok, admin_disable_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_disable_provider_for_user_errors()}
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5920,6 +5927,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_disable_user(map(), admin_disable_user_request(), list()) ::
           {:ok, admin_disable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_disable_user_errors()}
   def admin_disable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5949,6 +5957,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_enable_user(map(), admin_enable_user_request(), list()) ::
           {:ok, admin_enable_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_enable_user_errors()}
   def admin_enable_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5983,6 +5992,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_forget_device(map(), admin_forget_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_forget_device_errors()}
   def admin_forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6014,6 +6024,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_get_device(map(), admin_get_device_request(), list()) ::
           {:ok, admin_get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_get_device_errors()}
   def admin_get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6049,6 +6060,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_get_user(map(), admin_get_user_request(), list()) ::
           {:ok, admin_get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_get_user_errors()}
   def admin_get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6111,6 +6123,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_initiate_auth(map(), admin_initiate_auth_request(), list()) ::
           {:ok, admin_initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_initiate_auth_errors()}
   def admin_initiate_auth(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6156,6 +6169,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_link_provider_for_user(map(), admin_link_provider_for_user_request(), list()) ::
           {:ok, admin_link_provider_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_link_provider_for_user_errors()}
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6192,6 +6206,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_devices(map(), admin_list_devices_request(), list()) ::
           {:ok, admin_list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_list_devices_errors()}
   def admin_list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6225,6 +6240,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_groups_for_user(map(), admin_list_groups_for_user_request(), list()) ::
           {:ok, admin_list_groups_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_list_groups_for_user_errors()}
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6257,6 +6273,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_list_user_auth_events(map(), admin_list_user_auth_events_request(), list()) ::
           {:ok, admin_list_user_auth_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_list_user_auth_events_errors()}
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6291,6 +6308,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_remove_user_from_group(map(), admin_remove_user_from_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_remove_user_from_group_errors()}
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6352,6 +6370,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_reset_user_password(map(), admin_reset_user_password_request(), list()) ::
           {:ok, admin_reset_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_reset_user_password_errors()}
   def admin_reset_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6418,6 +6437,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_respond_to_auth_challenge(map(), admin_respond_to_auth_challenge_request(), list()) ::
           {:ok, admin_respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_respond_to_auth_challenge_errors()}
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6455,6 +6475,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_mfa_preference(map(), admin_set_user_mfa_preference_request(), list()) ::
           {:ok, admin_set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_set_user_mfa_preference_errors()}
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6522,6 +6543,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_password(map(), admin_set_user_password_request(), list()) ::
           {:ok, admin_set_user_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_set_user_password_errors()}
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6555,6 +6577,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_set_user_settings(map(), admin_set_user_settings_request(), list()) ::
           {:ok, admin_set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_set_user_settings_errors()}
   def admin_set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6603,6 +6626,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, admin_update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_update_auth_event_feedback_errors()}
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6641,6 +6665,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_update_device_status(map(), admin_update_device_status_request(), list()) ::
           {:ok, admin_update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_update_device_status_errors()}
   def admin_update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6707,6 +6732,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_update_user_attributes(map(), admin_update_user_attributes_request(), list()) ::
           {:ok, admin_update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_update_user_attributes_errors()}
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6770,6 +6796,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec admin_user_global_sign_out(map(), admin_user_global_sign_out_request(), list()) ::
           {:ok, admin_user_global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, admin_user_global_sign_out_errors()}
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6803,6 +6830,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec associate_software_token(map(), associate_software_token_request(), list()) ::
           {:ok, associate_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_software_token_errors()}
   def associate_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6827,6 +6855,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec change_password(map(), change_password_request(), list()) ::
           {:ok, change_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6844,6 +6873,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec complete_web_authn_registration(map(), complete_web_authn_registration_request(), list()) ::
           {:ok, complete_web_authn_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_web_authn_registration_errors()}
   def complete_web_authn_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6875,6 +6905,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_device(map(), confirm_device_request(), list()) ::
           {:ok, confirm_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_device_errors()}
   def confirm_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6898,6 +6929,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_forgot_password(map(), confirm_forgot_password_request(), list()) ::
           {:ok, confirm_forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_forgot_password_errors()}
   def confirm_forgot_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6935,6 +6967,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec confirm_sign_up(map(), confirm_sign_up_request(), list()) ::
           {:ok, confirm_sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_sign_up_errors()}
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -6966,6 +6999,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7000,6 +7034,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_identity_provider(map(), create_identity_provider_request(), list()) ::
           {:ok, create_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7051,6 +7086,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_managed_login_branding(map(), create_managed_login_branding_request(), list()) ::
           {:ok, create_managed_login_branding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_managed_login_branding_errors()}
   def create_managed_login_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7084,6 +7120,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_resource_server(map(), create_resource_server_request(), list()) ::
           {:ok, create_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_resource_server_errors()}
   def create_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7116,6 +7153,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_import_job(map(), create_user_import_job_request(), list()) ::
           {:ok, create_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_import_job_errors()}
   def create_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7176,6 +7214,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool(map(), create_user_pool_request(), list()) ::
           {:ok, create_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_pool_errors()}
   def create_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7216,6 +7255,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool_client(map(), create_user_pool_client_request(), list()) ::
           {:ok, create_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_pool_client_errors()}
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7263,6 +7303,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec create_user_pool_domain(map(), create_user_pool_domain_request(), list()) ::
           {:ok, create_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_pool_domain_errors()}
   def create_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7298,6 +7339,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7331,6 +7373,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_identity_provider(map(), delete_identity_provider_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7365,6 +7408,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_managed_login_branding(map(), delete_managed_login_branding_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_managed_login_branding_errors()}
   def delete_managed_login_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7399,6 +7443,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_resource_server(map(), delete_resource_server_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_resource_server_errors()}
   def delete_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7426,6 +7471,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7454,6 +7500,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_attributes(map(), delete_user_attributes_request(), list()) ::
           {:ok, delete_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_attributes_errors()}
   def delete_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7485,6 +7532,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool(map(), delete_user_pool_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_pool_errors()}
   def delete_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7501,6 +7549,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool_client(map(), delete_user_pool_client_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_pool_client_errors()}
   def delete_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7519,6 +7568,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_user_pool_domain(map(), delete_user_pool_domain_request(), list()) ::
           {:ok, delete_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_pool_domain_errors()}
   def delete_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7545,6 +7595,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec delete_web_authn_credential(map(), delete_web_authn_credential_request(), list()) ::
           {:ok, delete_web_authn_credential_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_web_authn_credential_errors()}
   def delete_web_authn_credential(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7559,6 +7610,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_identity_provider(map(), describe_identity_provider_request(), list()) ::
           {:ok, describe_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_identity_provider_errors()}
   def describe_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7574,6 +7626,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_managed_login_branding(map(), describe_managed_login_branding_request(), list()) ::
           {:ok, describe_managed_login_branding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_managed_login_branding_errors()}
   def describe_managed_login_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7593,6 +7646,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, describe_managed_login_branding_by_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_managed_login_branding_by_client_errors()}
   def describe_managed_login_branding_by_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7608,6 +7662,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_resource_server(map(), describe_resource_server_request(), list()) ::
           {:ok, describe_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_resource_server_errors()}
   def describe_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7628,6 +7683,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_risk_configuration(map(), describe_risk_configuration_request(), list()) ::
           {:ok, describe_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_risk_configuration_errors()}
   def describe_risk_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7643,6 +7699,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_import_job(map(), describe_user_import_job_request(), list()) ::
           {:ok, describe_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_import_job_errors()}
   def describe_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7675,6 +7732,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool(map(), describe_user_pool_request(), list()) ::
           {:ok, describe_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_pool_errors()}
   def describe_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7709,6 +7767,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool_client(map(), describe_user_pool_client_request(), list()) ::
           {:ok, describe_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_pool_client_errors()}
   def describe_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7738,6 +7797,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec describe_user_pool_domain(map(), describe_user_pool_domain_request(), list()) ::
           {:ok, describe_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_pool_domain_errors()}
   def describe_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7766,6 +7826,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec forget_device(map(), forget_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, forget_device_errors()}
   def forget_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7822,6 +7883,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec forgot_password(map(), forgot_password_request(), list()) ::
           {:ok, forgot_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, forgot_password_errors()}
   def forgot_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7859,6 +7921,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_csv_header(map(), get_csv_header_request(), list()) ::
           {:ok, get_csv_header_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_csv_header_errors()}
   def get_csv_header(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7888,6 +7951,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_device(map(), get_device_request(), list()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7919,6 +7983,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_group(map(), get_group_request(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7940,6 +8005,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, get_identity_provider_by_identifier_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_identity_provider_by_identifier_errors()}
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7972,6 +8038,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_log_delivery_configuration(map(), get_log_delivery_configuration_request(), list()) ::
           {:ok, get_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_log_delivery_configuration_errors()}
   def get_log_delivery_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8009,6 +8076,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_signing_certificate(map(), get_signing_certificate_request(), list()) ::
           {:ok, get_signing_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signing_certificate_errors()}
   def get_signing_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8030,6 +8098,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_ui_customization(map(), get_ui_customization_request(), list()) ::
           {:ok, get_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ui_customization_errors()}
   def get_ui_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8054,6 +8123,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_user(map(), get_user_request(), list()) ::
           {:ok, get_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8110,6 +8180,7 @@ defmodule AWS.CognitoIdentityProvider do
         ) ::
           {:ok, get_user_attribute_verification_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_attribute_verification_code_errors()}
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8144,6 +8215,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_user_auth_factors(map(), get_user_auth_factors_request(), list()) ::
           {:ok, get_user_auth_factors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_auth_factors_errors()}
   def get_user_auth_factors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8191,6 +8263,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec get_user_pool_mfa_config(map(), get_user_pool_mfa_config_request(), list()) ::
           {:ok, get_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_user_pool_mfa_config_errors()}
   def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8250,6 +8323,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec global_sign_out(map(), global_sign_out_request(), list()) ::
           {:ok, global_sign_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, global_sign_out_errors()}
   def global_sign_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8305,6 +8379,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec initiate_auth(map(), initiate_auth_request(), list()) ::
           {:ok, initiate_auth_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, initiate_auth_errors()}
   def initiate_auth(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8334,6 +8409,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_devices(map(), list_devices_request(), list()) ::
           {:ok, list_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8362,6 +8438,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8393,6 +8470,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_identity_providers(map(), list_identity_providers_request(), list()) ::
           {:ok, list_identity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_identity_providers_errors()}
   def list_identity_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8424,6 +8502,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_resource_servers(map(), list_resource_servers_request(), list()) ::
           {:ok, list_resource_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_servers_errors()}
   def list_resource_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8440,6 +8519,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8474,6 +8554,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_import_jobs(map(), list_user_import_jobs_request(), list()) ::
           {:ok, list_user_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_import_jobs_errors()}
   def list_user_import_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8506,6 +8587,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_pool_clients(map(), list_user_pool_clients_request(), list()) ::
           {:ok, list_user_pool_clients_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_pool_clients_errors()}
   def list_user_pool_clients(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8534,6 +8616,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_user_pools(map(), list_user_pools_request(), list()) ::
           {:ok, list_user_pools_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_user_pools_errors()}
   def list_user_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8563,6 +8646,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8594,6 +8678,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_users_in_group(map(), list_users_in_group_request(), list()) ::
           {:ok, list_users_in_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_in_group_errors()}
   def list_users_in_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8619,6 +8704,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec list_web_authn_credentials(map(), list_web_authn_credentials_request(), list()) ::
           {:ok, list_web_authn_credentials_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_web_authn_credentials_errors()}
   def list_web_authn_credentials(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8674,6 +8760,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec resend_confirmation_code(map(), resend_confirmation_code_request(), list()) ::
           {:ok, resend_confirmation_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resend_confirmation_code_errors()}
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8733,6 +8820,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec respond_to_auth_challenge(map(), respond_to_auth_challenge_request(), list()) ::
           {:ok, respond_to_auth_challenge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, respond_to_auth_challenge_errors()}
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8760,6 +8848,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec revoke_token(map(), revoke_token_request(), list()) ::
           {:ok, revoke_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_token_errors()}
   def revoke_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8779,6 +8868,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_log_delivery_configuration(map(), set_log_delivery_configuration_request(), list()) ::
           {:ok, set_log_delivery_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_log_delivery_configuration_errors()}
   def set_log_delivery_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8818,6 +8908,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_risk_configuration(map(), set_risk_configuration_request(), list()) ::
           {:ok, set_risk_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_risk_configuration_errors()}
   def set_risk_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8856,6 +8947,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_ui_customization(map(), set_ui_customization_request(), list()) ::
           {:ok, set_ui_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_ui_customization_errors()}
   def set_ui_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8897,6 +8989,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_mfa_preference(map(), set_user_mfa_preference_request(), list()) ::
           {:ok, set_user_mfa_preference_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_user_mfa_preference_errors()}
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8940,6 +9033,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_pool_mfa_config(map(), set_user_pool_mfa_config_request(), list()) ::
           {:ok, set_user_pool_mfa_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_user_pool_mfa_config_errors()}
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8969,6 +9063,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec set_user_settings(map(), set_user_settings_request(), list()) ::
           {:ok, set_user_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_user_settings_errors()}
   def set_user_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9025,6 +9120,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec sign_up(map(), sign_up_request(), list()) ::
           {:ok, sign_up_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, sign_up_errors()}
   def sign_up(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9043,6 +9139,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec start_user_import_job(map(), start_user_import_job_request(), list()) ::
           {:ok, start_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_user_import_job_errors()}
   def start_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9066,6 +9163,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec start_web_authn_registration(map(), start_web_authn_registration_request(), list()) ::
           {:ok, start_web_authn_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_web_authn_registration_errors()}
   def start_web_authn_registration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9083,6 +9181,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec stop_user_import_job(map(), stop_user_import_job_request(), list()) ::
           {:ok, stop_user_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_user_import_job_errors()}
   def stop_user_import_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9120,6 +9219,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9133,6 +9233,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9174,6 +9275,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_auth_event_feedback(map(), update_auth_event_feedback_request(), list()) ::
           {:ok, update_auth_event_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_auth_event_feedback_errors()}
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9208,6 +9310,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_device_status(map(), update_device_status_request(), list()) ::
           {:ok, update_device_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_device_status_errors()}
   def update_device_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9240,6 +9343,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9274,6 +9378,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_identity_provider(map(), update_identity_provider_request(), list()) ::
           {:ok, update_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9318,6 +9423,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_managed_login_branding(map(), update_managed_login_branding_request(), list()) ::
           {:ok, update_managed_login_branding_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_managed_login_branding_errors()}
   def update_managed_login_branding(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9352,6 +9458,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_resource_server(map(), update_resource_server_request(), list()) ::
           {:ok, update_resource_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_resource_server_errors()}
   def update_resource_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9408,6 +9515,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_attributes(map(), update_user_attributes_request(), list()) ::
           {:ok, update_user_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_attributes_errors()}
   def update_user_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9470,6 +9578,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool(map(), update_user_pool_request(), list()) ::
           {:ok, update_user_pool_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_pool_errors()}
   def update_user_pool(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9514,6 +9623,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool_client(map(), update_user_pool_client_request(), list()) ::
           {:ok, update_user_pool_client_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_pool_client_errors()}
   def update_user_pool_client(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9572,6 +9682,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec update_user_pool_domain(map(), update_user_pool_domain_request(), list()) ::
           {:ok, update_user_pool_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_pool_domain_errors()}
   def update_user_pool_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9599,6 +9710,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec verify_software_token(map(), verify_software_token_request(), list()) ::
           {:ok, verify_software_token_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_software_token_errors()}
   def verify_software_token(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9633,6 +9745,7 @@ defmodule AWS.CognitoIdentityProvider do
   @spec verify_user_attribute(map(), verify_user_attribute_request(), list()) ::
           {:ok, verify_user_attribute_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_user_attribute_errors()}
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()

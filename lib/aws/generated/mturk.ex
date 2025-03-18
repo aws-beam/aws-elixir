@@ -1375,6 +1375,7 @@ defmodule AWS.MTurk do
   @spec accept_qualification_request(map(), accept_qualification_request_request(), list()) ::
           {:ok, accept_qualification_request_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_qualification_request_errors()}
   def accept_qualification_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1413,6 +1414,7 @@ defmodule AWS.MTurk do
   @spec approve_assignment(map(), approve_assignment_request(), list()) ::
           {:ok, approve_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, approve_assignment_errors()}
   def approve_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1450,6 +1452,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, associate_qualification_with_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_qualification_with_worker_errors()}
   def associate_qualification_with_worker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1487,6 +1490,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, create_additional_assignments_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_additional_assignments_for_hit_errors()}
   def create_additional_assignments_for_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1526,6 +1530,7 @@ defmodule AWS.MTurk do
   @spec create_hit(map(), create_hit_request(), list()) ::
           {:ok, create_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hit_errors()}
   def create_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1546,6 +1551,7 @@ defmodule AWS.MTurk do
   @spec create_hit_type(map(), create_hit_type_request(), list()) ::
           {:ok, create_hit_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hit_type_errors()}
   def create_hit_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1574,6 +1580,7 @@ defmodule AWS.MTurk do
   @spec create_hit_with_hit_type(map(), create_hit_with_hit_type_request(), list()) ::
           {:ok, create_hit_with_hit_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hit_with_hit_type_errors()}
   def create_hit_with_hit_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1592,6 +1599,7 @@ defmodule AWS.MTurk do
   @spec create_qualification_type(map(), create_qualification_type_request(), list()) ::
           {:ok, create_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_qualification_type_errors()}
   def create_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1609,6 +1617,7 @@ defmodule AWS.MTurk do
   @spec create_worker_block(map(), create_worker_block_request(), list()) ::
           {:ok, create_worker_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_worker_block_errors()}
   def create_worker_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1651,6 +1660,7 @@ defmodule AWS.MTurk do
   @spec delete_hit(map(), delete_hit_request(), list()) ::
           {:ok, delete_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hit_errors()}
   def delete_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1681,6 +1691,7 @@ defmodule AWS.MTurk do
   @spec delete_qualification_type(map(), delete_qualification_type_request(), list()) ::
           {:ok, delete_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_qualification_type_errors()}
   def delete_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1700,6 +1711,7 @@ defmodule AWS.MTurk do
   @spec delete_worker_block(map(), delete_worker_block_request(), list()) ::
           {:ok, delete_worker_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_worker_block_errors()}
   def delete_worker_block(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1722,6 +1734,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, disassociate_qualification_from_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_qualification_from_worker_errors()}
   def disassociate_qualification_from_worker(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1742,6 +1755,7 @@ defmodule AWS.MTurk do
   @spec get_account_balance(map(), get_account_balance_request(), list()) ::
           {:ok, get_account_balance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_balance_errors()}
   def get_account_balance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1756,6 +1770,7 @@ defmodule AWS.MTurk do
   @spec get_assignment(map(), get_assignment_request(), list()) ::
           {:ok, get_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_assignment_errors()}
   def get_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1786,6 +1801,7 @@ defmodule AWS.MTurk do
   @spec get_file_upload_url(map(), get_file_upload_url_request(), list()) ::
           {:ok, get_file_upload_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_file_upload_url_errors()}
   def get_file_upload_url(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1800,6 +1816,7 @@ defmodule AWS.MTurk do
   @spec get_hit(map(), get_hit_request(), list()) ::
           {:ok, get_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hit_errors()}
   def get_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1825,6 +1842,7 @@ defmodule AWS.MTurk do
   @spec get_qualification_score(map(), get_qualification_score_request(), list()) ::
           {:ok, get_qualification_score_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_qualification_score_errors()}
   def get_qualification_score(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1840,6 +1858,7 @@ defmodule AWS.MTurk do
   @spec get_qualification_type(map(), get_qualification_type_request(), list()) ::
           {:ok, get_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_qualification_type_errors()}
   def get_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1880,6 +1899,7 @@ defmodule AWS.MTurk do
   @spec list_assignments_for_hit(map(), list_assignments_for_hit_request(), list()) ::
           {:ok, list_assignments_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_assignments_for_hit_errors()}
   def list_assignments_for_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1897,6 +1917,7 @@ defmodule AWS.MTurk do
   @spec list_bonus_payments(map(), list_bonus_payments_request(), list()) ::
           {:ok, list_bonus_payments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bonus_payments_errors()}
   def list_bonus_payments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1917,6 +1938,7 @@ defmodule AWS.MTurk do
   @spec list_hits(map(), list_hits_request(), list()) ::
           {:ok, list_hits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hits_errors()}
   def list_hits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1939,6 +1961,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, list_hits_for_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hits_for_qualification_type_errors()}
   def list_hits_for_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1960,6 +1983,7 @@ defmodule AWS.MTurk do
   @spec list_qualification_requests(map(), list_qualification_requests_request(), list()) ::
           {:ok, list_qualification_requests_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_qualification_requests_errors()}
   def list_qualification_requests(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1977,6 +2001,7 @@ defmodule AWS.MTurk do
   @spec list_qualification_types(map(), list_qualification_types_request(), list()) ::
           {:ok, list_qualification_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_qualification_types_errors()}
   def list_qualification_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2002,6 +2027,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, list_review_policy_results_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_review_policy_results_for_hit_errors()}
   def list_review_policy_results_for_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2018,6 +2044,7 @@ defmodule AWS.MTurk do
   @spec list_reviewable_hits(map(), list_reviewable_hits_request(), list()) ::
           {:ok, list_reviewable_hits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reviewable_hits_errors()}
   def list_reviewable_hits(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2032,6 +2059,7 @@ defmodule AWS.MTurk do
   @spec list_worker_blocks(map(), list_worker_blocks_request(), list()) ::
           {:ok, list_worker_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_worker_blocks_errors()}
   def list_worker_blocks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2051,6 +2079,7 @@ defmodule AWS.MTurk do
         ) ::
           {:ok, list_workers_with_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workers_with_qualification_type_errors()}
   def list_workers_with_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2074,6 +2103,7 @@ defmodule AWS.MTurk do
   @spec notify_workers(map(), notify_workers_request(), list()) ::
           {:ok, notify_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_workers_errors()}
   def notify_workers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2096,6 +2126,7 @@ defmodule AWS.MTurk do
   @spec reject_assignment(map(), reject_assignment_request(), list()) ::
           {:ok, reject_assignment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_assignment_errors()}
   def reject_assignment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2115,6 +2146,7 @@ defmodule AWS.MTurk do
   @spec reject_qualification_request(map(), reject_qualification_request_request(), list()) ::
           {:ok, reject_qualification_request_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_qualification_request_errors()}
   def reject_qualification_request(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2141,6 +2173,7 @@ defmodule AWS.MTurk do
   @spec send_bonus(map(), send_bonus_request(), list()) ::
           {:ok, send_bonus_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_bonus_errors()}
   def send_bonus(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2163,6 +2196,7 @@ defmodule AWS.MTurk do
   @spec send_test_event_notification(map(), send_test_event_notification_request(), list()) ::
           {:ok, send_test_event_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_test_event_notification_errors()}
   def send_test_event_notification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2180,6 +2214,7 @@ defmodule AWS.MTurk do
   @spec update_expiration_for_hit(map(), update_expiration_for_hit_request(), list()) ::
           {:ok, update_expiration_for_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_expiration_for_hit_errors()}
   def update_expiration_for_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2197,6 +2232,7 @@ defmodule AWS.MTurk do
   @spec update_hit_review_status(map(), update_hit_review_status_request(), list()) ::
           {:ok, update_hit_review_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hit_review_status_errors()}
   def update_hit_review_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2218,6 +2254,7 @@ defmodule AWS.MTurk do
   @spec update_hit_type_of_hit(map(), update_hit_type_of_hit_request(), list()) ::
           {:ok, update_hit_type_of_hit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hit_type_of_hit_errors()}
   def update_hit_type_of_hit(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2247,6 +2284,7 @@ defmodule AWS.MTurk do
   @spec update_notification_settings(map(), update_notification_settings_request(), list()) ::
           {:ok, update_notification_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_settings_errors()}
   def update_notification_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2299,6 +2337,7 @@ defmodule AWS.MTurk do
   @spec update_qualification_type(map(), update_qualification_type_request(), list()) ::
           {:ok, update_qualification_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_qualification_type_errors()}
   def update_qualification_type(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -3075,6 +3075,7 @@ defmodule AWS.Transfer do
   @spec create_access(map(), create_access_request(), list()) ::
           {:ok, create_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_errors()}
   def create_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3103,6 +3104,7 @@ defmodule AWS.Transfer do
   @spec create_agreement(map(), create_agreement_request(), list()) ::
           {:ok, create_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_agreement_errors()}
   def create_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3126,6 +3128,7 @@ defmodule AWS.Transfer do
   @spec create_connector(map(), create_connector_request(), list()) ::
           {:ok, create_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3139,6 +3142,7 @@ defmodule AWS.Transfer do
   @spec create_profile(map(), create_profile_request(), list()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3160,6 +3164,7 @@ defmodule AWS.Transfer do
   @spec create_server(map(), create_server_request(), list()) ::
           {:ok, create_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_server_errors()}
   def create_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3182,6 +3187,7 @@ defmodule AWS.Transfer do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3196,6 +3202,7 @@ defmodule AWS.Transfer do
   @spec create_web_app(map(), create_web_app_request(), list()) ::
           {:ok, create_web_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_web_app_errors()}
   def create_web_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3215,6 +3222,7 @@ defmodule AWS.Transfer do
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3229,6 +3237,7 @@ defmodule AWS.Transfer do
   @spec delete_access(map(), delete_access_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_errors()}
   def delete_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3242,6 +3251,7 @@ defmodule AWS.Transfer do
   @spec delete_agreement(map(), delete_agreement_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_agreement_errors()}
   def delete_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3256,6 +3266,7 @@ defmodule AWS.Transfer do
   @spec delete_certificate(map(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3269,6 +3280,7 @@ defmodule AWS.Transfer do
   @spec delete_connector(map(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3282,6 +3294,7 @@ defmodule AWS.Transfer do
   @spec delete_host_key(map(), delete_host_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_host_key_errors()}
   def delete_host_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3295,6 +3308,7 @@ defmodule AWS.Transfer do
   @spec delete_profile(map(), delete_profile_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3310,6 +3324,7 @@ defmodule AWS.Transfer do
   @spec delete_server(map(), delete_server_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_server_errors()}
   def delete_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3323,6 +3338,7 @@ defmodule AWS.Transfer do
   @spec delete_ssh_public_key(map(), delete_ssh_public_key_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ssh_public_key_errors()}
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3341,6 +3357,7 @@ defmodule AWS.Transfer do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3354,6 +3371,7 @@ defmodule AWS.Transfer do
   @spec delete_web_app(map(), delete_web_app_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_web_app_errors()}
   def delete_web_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3368,6 +3386,7 @@ defmodule AWS.Transfer do
   @spec delete_web_app_customization(map(), delete_web_app_customization_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_web_app_customization_errors()}
   def delete_web_app_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3381,6 +3400,7 @@ defmodule AWS.Transfer do
   @spec delete_workflow(map(), delete_workflow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3401,6 +3421,7 @@ defmodule AWS.Transfer do
   @spec describe_access(map(), describe_access_request(), list()) ::
           {:ok, describe_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_access_errors()}
   def describe_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3414,6 +3435,7 @@ defmodule AWS.Transfer do
   @spec describe_agreement(map(), describe_agreement_request(), list()) ::
           {:ok, describe_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3427,6 +3449,7 @@ defmodule AWS.Transfer do
   @spec describe_certificate(map(), describe_certificate_request(), list()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3440,6 +3463,7 @@ defmodule AWS.Transfer do
   @spec describe_connector(map(), describe_connector_request(), list()) ::
           {:ok, describe_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_connector_errors()}
   def describe_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3460,6 +3484,7 @@ defmodule AWS.Transfer do
   @spec describe_execution(map(), describe_execution_request(), list()) ::
           {:ok, describe_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3474,6 +3499,7 @@ defmodule AWS.Transfer do
   @spec describe_host_key(map(), describe_host_key_request(), list()) ::
           {:ok, describe_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_host_key_errors()}
   def describe_host_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3487,6 +3513,7 @@ defmodule AWS.Transfer do
   @spec describe_profile(map(), describe_profile_request(), list()) ::
           {:ok, describe_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_profile_errors()}
   def describe_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3507,6 +3534,7 @@ defmodule AWS.Transfer do
   @spec describe_security_policy(map(), describe_security_policy_request(), list()) ::
           {:ok, describe_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_security_policy_errors()}
   def describe_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3526,6 +3554,7 @@ defmodule AWS.Transfer do
   @spec describe_server(map(), describe_server_request(), list()) ::
           {:ok, describe_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_server_errors()}
   def describe_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3545,6 +3574,7 @@ defmodule AWS.Transfer do
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3558,6 +3588,7 @@ defmodule AWS.Transfer do
   @spec describe_web_app(map(), describe_web_app_request(), list()) ::
           {:ok, describe_web_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_web_app_errors()}
   def describe_web_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3571,6 +3602,7 @@ defmodule AWS.Transfer do
   @spec describe_web_app_customization(map(), describe_web_app_customization_request(), list()) ::
           {:ok, describe_web_app_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_web_app_customization_errors()}
   def describe_web_app_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3584,6 +3616,7 @@ defmodule AWS.Transfer do
   @spec describe_workflow(map(), describe_workflow_request(), list()) ::
           {:ok, describe_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workflow_errors()}
   def describe_workflow(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3600,6 +3633,7 @@ defmodule AWS.Transfer do
   @spec import_certificate(map(), import_certificate_request(), list()) ::
           {:ok, import_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3614,6 +3648,7 @@ defmodule AWS.Transfer do
   @spec import_host_key(map(), import_host_key_request(), list()) ::
           {:ok, import_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_host_key_errors()}
   def import_host_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3632,6 +3667,7 @@ defmodule AWS.Transfer do
   @spec import_ssh_public_key(map(), import_ssh_public_key_request(), list()) ::
           {:ok, import_ssh_public_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_ssh_public_key_errors()}
   def import_ssh_public_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3645,6 +3681,7 @@ defmodule AWS.Transfer do
   @spec list_accesses(map(), list_accesses_request(), list()) ::
           {:ok, list_accesses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accesses_errors()}
   def list_accesses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3665,6 +3702,7 @@ defmodule AWS.Transfer do
   @spec list_agreements(map(), list_agreements_request(), list()) ::
           {:ok, list_agreements_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_agreements_errors()}
   def list_agreements(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3686,6 +3724,7 @@ defmodule AWS.Transfer do
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3699,6 +3738,7 @@ defmodule AWS.Transfer do
   @spec list_connectors(map(), list_connectors_request(), list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3715,6 +3755,7 @@ defmodule AWS.Transfer do
   @spec list_executions(map(), list_executions_request(), list()) ::
           {:ok, list_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3736,6 +3777,7 @@ defmodule AWS.Transfer do
   @spec list_file_transfer_results(map(), list_file_transfer_results_request(), list()) ::
           {:ok, list_file_transfer_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_file_transfer_results_errors()}
   def list_file_transfer_results(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3750,6 +3792,7 @@ defmodule AWS.Transfer do
   @spec list_host_keys(map(), list_host_keys_request(), list()) ::
           {:ok, list_host_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_host_keys_errors()}
   def list_host_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3769,6 +3812,7 @@ defmodule AWS.Transfer do
   @spec list_profiles(map(), list_profiles_request(), list()) ::
           {:ok, list_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3789,6 +3833,7 @@ defmodule AWS.Transfer do
   @spec list_security_policies(map(), list_security_policies_request(), list()) ::
           {:ok, list_security_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3804,6 +3849,7 @@ defmodule AWS.Transfer do
   @spec list_servers(map(), list_servers_request(), list()) ::
           {:ok, list_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_servers_errors()}
   def list_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3821,6 +3867,7 @@ defmodule AWS.Transfer do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3836,6 +3883,7 @@ defmodule AWS.Transfer do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3850,6 +3898,7 @@ defmodule AWS.Transfer do
   @spec list_web_apps(map(), list_web_apps_request(), list()) ::
           {:ok, list_web_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_web_apps_errors()}
   def list_web_apps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3864,6 +3913,7 @@ defmodule AWS.Transfer do
   @spec list_workflows(map(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3881,6 +3931,7 @@ defmodule AWS.Transfer do
   @spec send_workflow_step_state(map(), send_workflow_step_state_request(), list()) ::
           {:ok, send_workflow_step_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_workflow_step_state_errors()}
   def send_workflow_step_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3951,6 +4002,7 @@ defmodule AWS.Transfer do
   @spec start_directory_listing(map(), start_directory_listing_request(), list()) ::
           {:ok, start_directory_listing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_directory_listing_errors()}
   def start_directory_listing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3989,6 +4041,7 @@ defmodule AWS.Transfer do
   @spec start_file_transfer(map(), start_file_transfer_request(), list()) ::
           {:ok, start_file_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_file_transfer_errors()}
   def start_file_transfer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4013,6 +4066,7 @@ defmodule AWS.Transfer do
   @spec start_server(map(), start_server_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_server_errors()}
   def start_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4043,6 +4097,7 @@ defmodule AWS.Transfer do
   @spec stop_server(map(), stop_server_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_server_errors()}
   def stop_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4061,6 +4116,7 @@ defmodule AWS.Transfer do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4079,6 +4135,7 @@ defmodule AWS.Transfer do
   @spec test_connection(map(), test_connection_request(), list()) ::
           {:ok, test_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4149,6 +4206,7 @@ defmodule AWS.Transfer do
   @spec test_identity_provider(map(), test_identity_provider_request(), list()) ::
           {:ok, test_identity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_identity_provider_errors()}
   def test_identity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4168,6 +4226,7 @@ defmodule AWS.Transfer do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4182,6 +4241,7 @@ defmodule AWS.Transfer do
   @spec update_access(map(), update_access_request(), list()) ::
           {:ok, update_access_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_errors()}
   def update_access(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4207,6 +4267,7 @@ defmodule AWS.Transfer do
   @spec update_agreement(map(), update_agreement_request(), list()) ::
           {:ok, update_agreement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_agreement_errors()}
   def update_agreement(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4220,6 +4281,7 @@ defmodule AWS.Transfer do
   @spec update_certificate(map(), update_certificate_request(), list()) ::
           {:ok, update_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_certificate_errors()}
   def update_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4237,6 +4299,7 @@ defmodule AWS.Transfer do
   @spec update_connector(map(), update_connector_request(), list()) ::
           {:ok, update_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connector_errors()}
   def update_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4251,6 +4314,7 @@ defmodule AWS.Transfer do
   @spec update_host_key(map(), update_host_key_request(), list()) ::
           {:ok, update_host_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_host_key_errors()}
   def update_host_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4269,6 +4333,7 @@ defmodule AWS.Transfer do
   @spec update_profile(map(), update_profile_request(), list()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4287,6 +4352,7 @@ defmodule AWS.Transfer do
   @spec update_server(map(), update_server_request(), list()) ::
           {:ok, update_server_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_server_errors()}
   def update_server(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4322,6 +4388,7 @@ defmodule AWS.Transfer do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4338,6 +4405,7 @@ defmodule AWS.Transfer do
   @spec update_web_app(map(), update_web_app_request(), list()) ::
           {:ok, update_web_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_web_app_errors()}
   def update_web_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4353,6 +4421,7 @@ defmodule AWS.Transfer do
   @spec update_web_app_customization(map(), update_web_app_customization_request(), list()) ::
           {:ok, update_web_app_customization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_web_app_customization_errors()}
   def update_web_app_customization(%Client{} = client, input, options \\ []) do
     meta = metadata()

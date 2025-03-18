@@ -623,6 +623,7 @@ defmodule AWS.ConnectParticipant do
         ) ::
           {:ok, cancel_participant_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_participant_authentication_errors()}
   def cancel_participant_authentication(%Client{} = client, input, options \\ []) do
     url_path = "/participant/cancel-authentication"
@@ -669,6 +670,7 @@ defmodule AWS.ConnectParticipant do
   @spec complete_attachment_upload(map(), complete_attachment_upload_request(), list()) ::
           {:ok, complete_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, complete_attachment_upload_errors()}
   def complete_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/complete-attachment-upload"
@@ -746,6 +748,7 @@ defmodule AWS.ConnectParticipant do
   @spec create_participant_connection(map(), create_participant_connection_request(), list()) ::
           {:ok, create_participant_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_participant_connection_errors()}
   def create_participant_connection(%Client{} = client, input, options \\ []) do
     url_path = "/participant/connection"
@@ -782,6 +785,7 @@ defmodule AWS.ConnectParticipant do
   @spec describe_view(map(), String.t(), String.t(), list()) ::
           {:ok, describe_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_view_errors()}
   def describe_view(%Client{} = client, view_token, connection_token, options \\ []) do
     url_path = "/participant/views/#{AWS.Util.encode_uri(view_token)}"
@@ -814,6 +818,7 @@ defmodule AWS.ConnectParticipant do
   @spec disconnect_participant(map(), disconnect_participant_request(), list()) ::
           {:ok, disconnect_participant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disconnect_participant_errors()}
   def disconnect_participant(%Client{} = client, input, options \\ []) do
     url_path = "/participant/disconnect"
@@ -858,6 +863,7 @@ defmodule AWS.ConnectParticipant do
   @spec get_attachment(map(), get_attachment_request(), list()) ::
           {:ok, get_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_attachment_errors()}
   def get_attachment(%Client{} = client, input, options \\ []) do
     url_path = "/participant/attachment"
@@ -903,6 +909,7 @@ defmodule AWS.ConnectParticipant do
   @spec get_authentication_url(map(), get_authentication_url_request(), list()) ::
           {:ok, get_authentication_url_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_authentication_url_errors()}
   def get_authentication_url(%Client{} = client, input, options \\ []) do
     url_path = "/participant/authentication-url"
@@ -974,6 +981,7 @@ defmodule AWS.ConnectParticipant do
   @spec get_transcript(map(), get_transcript_request(), list()) ::
           {:ok, get_transcript_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_transcript_errors()}
   def get_transcript(%Client{} = client, input, options \\ []) do
     url_path = "/participant/transcript"
@@ -1029,6 +1037,7 @@ defmodule AWS.ConnectParticipant do
   @spec send_event(map(), send_event_request(), list()) ::
           {:ok, send_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
     url_path = "/participant/event"
@@ -1070,6 +1079,7 @@ defmodule AWS.ConnectParticipant do
   @spec send_message(map(), send_message_request(), list()) ::
           {:ok, send_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
     url_path = "/participant/message"
@@ -1113,6 +1123,7 @@ defmodule AWS.ConnectParticipant do
   @spec start_attachment_upload(map(), start_attachment_upload_request(), list()) ::
           {:ok, start_attachment_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_attachment_upload_errors()}
   def start_attachment_upload(%Client{} = client, input, options \\ []) do
     url_path = "/participant/start-attachment-upload"

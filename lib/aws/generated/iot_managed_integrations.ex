@@ -2328,6 +2328,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_credential_locker(map(), create_credential_locker_request(), list()) ::
           {:ok, create_credential_locker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_credential_locker_errors()}
   def create_credential_locker(%Client{} = client, input, options \\ []) do
     url_path = "/credential-lockers"
@@ -2359,6 +2360,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_destination(map(), create_destination_request(), list()) ::
           {:ok, create_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_destination_errors()}
   def create_destination(%Client{} = client, input, options \\ []) do
     url_path = "/destinations"
@@ -2388,6 +2390,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_event_log_configuration(map(), create_event_log_configuration_request(), list()) ::
           {:ok, create_event_log_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_log_configuration_errors()}
   def create_event_log_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/event-log-configurations"
@@ -2419,6 +2422,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_managed_thing(map(), create_managed_thing_request(), list()) ::
           {:ok, create_managed_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_managed_thing_errors()}
   def create_managed_thing(%Client{} = client, input, options \\ []) do
     url_path = "/managed-things"
@@ -2454,6 +2458,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, create_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_notification_configuration_errors()}
   def create_notification_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/notification-configurations"
@@ -2482,6 +2487,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_ota_task(map(), create_ota_task_request(), list()) ::
           {:ok, create_ota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ota_task_errors()}
   def create_ota_task(%Client{} = client, input, options \\ []) do
     url_path = "/ota-tasks"
@@ -2510,6 +2516,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_ota_task_configuration(map(), create_ota_task_configuration_request(), list()) ::
           {:ok, create_ota_task_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ota_task_configuration_errors()}
   def create_ota_task_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/ota-task-configurations"
@@ -2543,6 +2550,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec create_provisioning_profile(map(), create_provisioning_profile_request(), list()) ::
           {:ok, create_provisioning_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_provisioning_profile_errors()}
   def create_provisioning_profile(%Client{} = client, input, options \\ []) do
     url_path = "/provisioning-profiles"
@@ -2574,6 +2582,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec delete_credential_locker(map(), String.t(), delete_credential_locker_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_credential_locker_errors()}
   def delete_credential_locker(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/credential-lockers/#{AWS.Util.encode_uri(identifier)}"
@@ -2602,6 +2611,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec delete_destination(map(), String.t(), delete_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_destination_errors()}
   def delete_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -2635,6 +2645,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_log_configuration_errors()}
   def delete_event_log_configuration(%Client{} = client, id, input, options \\ []) do
     url_path = "/event-log-configurations/#{AWS.Util.encode_uri(id)}"
@@ -2667,6 +2678,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec delete_managed_thing(map(), String.t(), delete_managed_thing_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_managed_thing_errors()}
   def delete_managed_thing(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/managed-things/#{AWS.Util.encode_uri(identifier)}"
@@ -2705,6 +2717,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, event_type, input, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(event_type)}"
@@ -2733,6 +2746,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec delete_ota_task(map(), String.t(), delete_ota_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ota_task_errors()}
   def delete_ota_task(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/ota-tasks/#{AWS.Util.encode_uri(identifier)}"
@@ -2766,6 +2780,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ota_task_configuration_errors()}
   def delete_ota_task_configuration(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/ota-task-configurations/#{AWS.Util.encode_uri(identifier)}"
@@ -2799,6 +2814,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_provisioning_profile_errors()}
   def delete_provisioning_profile(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/provisioning-profiles/#{AWS.Util.encode_uri(identifier)}"
@@ -2827,6 +2843,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_credential_locker(map(), String.t(), list()) ::
           {:ok, get_credential_locker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_credential_locker_errors()}
   def get_credential_locker(%Client{} = client, identifier, options \\ []) do
     url_path = "/credential-lockers/#{AWS.Util.encode_uri(identifier)}"
@@ -2844,6 +2861,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_custom_endpoint(map(), list()) ::
           {:ok, get_custom_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_custom_endpoint_errors()}
   def get_custom_endpoint(%Client{} = client, options \\ []) do
     url_path = "/custom-endpoint"
@@ -2866,6 +2884,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_default_encryption_configuration(map(), list()) ::
           {:ok, get_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_default_encryption_configuration_errors()}
   def get_default_encryption_configuration(%Client{} = client, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -2883,6 +2902,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_destination(map(), String.t(), list()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_destination_errors()}
   def get_destination(%Client{} = client, name, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -2900,6 +2920,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_device_discovery(map(), String.t(), list()) ::
           {:ok, get_device_discovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_discovery_errors()}
   def get_device_discovery(%Client{} = client, identifier, options \\ []) do
     url_path = "/device-discoveries/#{AWS.Util.encode_uri(identifier)}"
@@ -2917,6 +2938,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_event_log_configuration(map(), String.t(), list()) ::
           {:ok, get_event_log_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_log_configuration_errors()}
   def get_event_log_configuration(%Client{} = client, id, options \\ []) do
     url_path = "/event-log-configurations/#{AWS.Util.encode_uri(id)}"
@@ -2934,6 +2956,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_hub_configuration(map(), list()) ::
           {:ok, get_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hub_configuration_errors()}
   def get_hub_configuration(%Client{} = client, options \\ []) do
     url_path = "/hub-configuration"
@@ -2951,6 +2974,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_managed_thing(map(), String.t(), list()) ::
           {:ok, get_managed_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_thing_errors()}
   def get_managed_thing(%Client{} = client, identifier, options \\ []) do
     url_path = "/managed-things/#{AWS.Util.encode_uri(identifier)}"
@@ -2968,6 +2992,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_managed_thing_capabilities(map(), String.t(), list()) ::
           {:ok, get_managed_thing_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_thing_capabilities_errors()}
   def get_managed_thing_capabilities(%Client{} = client, identifier, options \\ []) do
     url_path = "/managed-things-capabilities/#{AWS.Util.encode_uri(identifier)}"
@@ -2990,6 +3015,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, get_managed_thing_connectivity_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_thing_connectivity_data_errors()}
   def get_managed_thing_connectivity_data(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/managed-things-connectivity-data/#{AWS.Util.encode_uri(identifier)}"
@@ -3018,6 +3044,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_managed_thing_meta_data(map(), String.t(), list()) ::
           {:ok, get_managed_thing_meta_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_thing_meta_data_errors()}
   def get_managed_thing_meta_data(%Client{} = client, identifier, options \\ []) do
     url_path = "/managed-things-metadata/#{AWS.Util.encode_uri(identifier)}"
@@ -3035,6 +3062,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_managed_thing_state(map(), String.t(), list()) ::
           {:ok, get_managed_thing_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_managed_thing_state_errors()}
   def get_managed_thing_state(%Client{} = client, managed_thing_id, options \\ []) do
     url_path = "/managed-thing-states/#{AWS.Util.encode_uri(managed_thing_id)}"
@@ -3052,6 +3080,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_notification_configuration(map(), String.t(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_notification_configuration_errors()}
   def get_notification_configuration(%Client{} = client, event_type, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(event_type)}"
@@ -3069,6 +3098,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_ota_task(map(), String.t(), list()) ::
           {:ok, get_ota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ota_task_errors()}
   def get_ota_task(%Client{} = client, identifier, options \\ []) do
     url_path = "/ota-tasks/#{AWS.Util.encode_uri(identifier)}"
@@ -3086,6 +3116,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_ota_task_configuration(map(), String.t(), list()) ::
           {:ok, get_ota_task_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ota_task_configuration_errors()}
   def get_ota_task_configuration(%Client{} = client, identifier, options \\ []) do
     url_path = "/ota-task-configurations/#{AWS.Util.encode_uri(identifier)}"
@@ -3103,6 +3134,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_provisioning_profile(map(), String.t(), list()) ::
           {:ok, get_provisioning_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_provisioning_profile_errors()}
   def get_provisioning_profile(%Client{} = client, identifier, options \\ []) do
     url_path = "/provisioning-profiles/#{AWS.Util.encode_uri(identifier)}"
@@ -3122,6 +3154,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_runtime_log_configuration(map(), String.t(), list()) ::
           {:ok, get_runtime_log_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_runtime_log_configuration_errors()}
   def get_runtime_log_configuration(%Client{} = client, managed_thing_id, options \\ []) do
     url_path = "/runtime-log-configurations/#{AWS.Util.encode_uri(managed_thing_id)}"
@@ -3139,6 +3172,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec get_schema_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schema_version_errors()}
   def get_schema_version(
         %Client{} = client,
@@ -3171,6 +3205,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_credential_lockers(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_credential_lockers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_credential_lockers_errors()}
   def list_credential_lockers(
         %Client{} = client,
@@ -3207,6 +3242,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_destinations_errors()}
   def list_destinations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/destinations"
@@ -3238,6 +3274,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_event_log_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_event_log_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_log_configurations_errors()}
   def list_event_log_configurations(
         %Client{} = client,
@@ -3282,6 +3319,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, list_managed_thing_schemas_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_thing_schemas_errors()}
   def list_managed_thing_schemas(
         %Client{} = client,
@@ -3347,6 +3385,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, list_managed_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_things_errors()}
   def list_managed_things(
         %Client{} = client,
@@ -3439,6 +3478,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_notification_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_notification_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_notification_configurations_errors()}
   def list_notification_configurations(
         %Client{} = client,
@@ -3475,6 +3515,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_ota_task_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ota_task_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ota_task_configurations_errors()}
   def list_ota_task_configurations(
         %Client{} = client,
@@ -3511,6 +3552,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_ota_task_executions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ota_task_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ota_task_executions_errors()}
   def list_ota_task_executions(
         %Client{} = client,
@@ -3548,6 +3590,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_ota_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ota_tasks_errors()}
   def list_ota_tasks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/ota-tasks"
@@ -3579,6 +3622,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec list_provisioning_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_provisioning_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_provisioning_profiles_errors()}
   def list_provisioning_profiles(
         %Client{} = client,
@@ -3625,6 +3669,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, list_schema_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(
         %Client{} = client,
@@ -3702,6 +3747,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, put_default_encryption_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_default_encryption_configuration_errors()}
   def put_default_encryption_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/configuration/account/encryption"
@@ -3730,6 +3776,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec put_hub_configuration(map(), put_hub_configuration_request(), list()) ::
           {:ok, put_hub_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_hub_configuration_errors()}
   def put_hub_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/hub-configuration"
@@ -3765,6 +3812,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_runtime_log_configuration_errors()}
   def put_runtime_log_configuration(%Client{} = client, managed_thing_id, input, options \\ []) do
     url_path = "/runtime-log-configurations/#{AWS.Util.encode_uri(managed_thing_id)}"
@@ -3797,6 +3845,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec register_custom_endpoint(map(), register_custom_endpoint_request(), list()) ::
           {:ok, register_custom_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_custom_endpoint_errors()}
   def register_custom_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/custom-endpoint"
@@ -3832,6 +3881,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_runtime_log_configuration_errors()}
   def reset_runtime_log_configuration(%Client{} = client, managed_thing_id, input, options \\ []) do
     url_path = "/runtime-log-configurations/#{AWS.Util.encode_uri(managed_thing_id)}"
@@ -3865,6 +3915,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, send_managed_thing_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_managed_thing_command_errors()}
   def send_managed_thing_command(%Client{} = client, managed_thing_id, input, options \\ []) do
     url_path = "/managed-things-command/#{AWS.Util.encode_uri(managed_thing_id)}"
@@ -3898,6 +3949,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec start_device_discovery(map(), start_device_discovery_request(), list()) ::
           {:ok, start_device_discovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_device_discovery_errors()}
   def start_device_discovery(%Client{} = client, input, options \\ []) do
     url_path = "/device-discoveries"
@@ -3926,6 +3978,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec update_destination(map(), String.t(), update_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, name, input, options \\ []) do
     url_path = "/destinations/#{AWS.Util.encode_uri(name)}"
@@ -3959,6 +4012,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_log_configuration_errors()}
   def update_event_log_configuration(%Client{} = client, id, input, options \\ []) do
     url_path = "/event-log-configurations/#{AWS.Util.encode_uri(id)}"
@@ -3987,6 +4041,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec update_managed_thing(map(), String.t(), update_managed_thing_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_managed_thing_errors()}
   def update_managed_thing(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/managed-things/#{AWS.Util.encode_uri(identifier)}"
@@ -4020,6 +4075,7 @@ defmodule AWS.IoTManagedIntegrations do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_notification_configuration_errors()}
   def update_notification_configuration(%Client{} = client, event_type, input, options \\ []) do
     url_path = "/notification-configurations/#{AWS.Util.encode_uri(event_type)}"
@@ -4048,6 +4104,7 @@ defmodule AWS.IoTManagedIntegrations do
   @spec update_ota_task(map(), String.t(), update_ota_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ota_task_errors()}
   def update_ota_task(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/ota-tasks/#{AWS.Util.encode_uri(identifier)}"

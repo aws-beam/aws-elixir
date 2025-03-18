@@ -3338,6 +3338,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, activate_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, activate_key_signing_key_errors()}
   def activate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =
@@ -3405,6 +3406,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, associate_vpc_with_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_vpc_with_hosted_zone_errors()}
   def associate_vpc_with_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/associatevpc"
@@ -3461,6 +3463,7 @@ defmodule AWS.Route53 do
   @spec change_cidr_collection(map(), String.t(), change_cidr_collection_request(), list()) ::
           {:ok, change_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_cidr_collection_errors()}
   def change_cidr_collection(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
@@ -3604,6 +3607,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, change_resource_record_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_resource_record_sets_errors()}
   def change_resource_record_sets(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrset"
@@ -3641,6 +3645,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, change_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, change_tags_for_resource_errors()}
   def change_tags_for_resource(
         %Client{} = client,
@@ -3677,6 +3682,7 @@ defmodule AWS.Route53 do
   @spec create_cidr_collection(map(), create_cidr_collection_request(), list()) ::
           {:ok, create_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cidr_collection_errors()}
   def create_cidr_collection(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection"
@@ -3750,6 +3756,7 @@ defmodule AWS.Route53 do
   @spec create_health_check(map(), create_health_check_request(), list()) ::
           {:ok, create_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_health_check_errors()}
   def create_health_check(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
@@ -3856,6 +3863,7 @@ defmodule AWS.Route53 do
   @spec create_hosted_zone(map(), create_hosted_zone_request(), list()) ::
           {:ok, create_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_hosted_zone_errors()}
   def create_hosted_zone(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone"
@@ -3894,6 +3902,7 @@ defmodule AWS.Route53 do
   @spec create_key_signing_key(map(), create_key_signing_key_request(), list()) ::
           {:ok, create_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_key_signing_key_errors()}
   def create_key_signing_key(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/keysigningkey"
@@ -4105,6 +4114,7 @@ defmodule AWS.Route53 do
   @spec create_query_logging_config(map(), create_query_logging_config_request(), list()) ::
           {:ok, create_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_query_logging_config_errors()}
   def create_query_logging_config(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig"
@@ -4203,6 +4213,7 @@ defmodule AWS.Route53 do
   @spec create_reusable_delegation_set(map(), create_reusable_delegation_set_request(), list()) ::
           {:ok, create_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_reusable_delegation_set_errors()}
   def create_reusable_delegation_set(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/delegationset"
@@ -4241,6 +4252,7 @@ defmodule AWS.Route53 do
   @spec create_traffic_policy(map(), create_traffic_policy_request(), list()) ::
           {:ok, create_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_traffic_policy_errors()}
   def create_traffic_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy"
@@ -4294,6 +4306,7 @@ defmodule AWS.Route53 do
   @spec create_traffic_policy_instance(map(), create_traffic_policy_instance_request(), list()) ::
           {:ok, create_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_traffic_policy_instance_errors()}
   def create_traffic_policy_instance(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance"
@@ -4347,6 +4360,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, create_traffic_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_traffic_policy_version_errors()}
   def create_traffic_policy_version(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicy/#{AWS.Util.encode_uri(id)}"
@@ -4401,6 +4415,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, create_vpc_association_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_association_authorization_errors()}
   def create_vpc_association_authorization(
         %Client{} = client,
@@ -4445,6 +4460,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, deactivate_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deactivate_key_signing_key_errors()}
   def deactivate_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =
@@ -4478,6 +4494,7 @@ defmodule AWS.Route53 do
   @spec delete_cidr_collection(map(), String.t(), delete_cidr_collection_request(), list()) ::
           {:ok, delete_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cidr_collection_errors()}
   def delete_cidr_collection(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/cidrcollection/#{AWS.Util.encode_uri(id)}"
@@ -4526,6 +4543,7 @@ defmodule AWS.Route53 do
   @spec delete_health_check(map(), String.t(), delete_health_check_request(), list()) ::
           {:ok, delete_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_health_check_errors()}
   def delete_health_check(%Client{} = client, health_check_id, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
@@ -4616,6 +4634,7 @@ defmodule AWS.Route53 do
   @spec delete_hosted_zone(map(), String.t(), delete_hosted_zone_request(), list()) ::
           {:ok, delete_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_hosted_zone_errors()}
   def delete_hosted_zone(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
@@ -4663,6 +4682,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_key_signing_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_key_signing_key_errors()}
   def delete_key_signing_key(%Client{} = client, hosted_zone_id, name, input, options \\ []) do
     url_path =
@@ -4706,6 +4726,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_query_logging_config_errors()}
   def delete_query_logging_config(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
@@ -4749,6 +4770,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_reusable_delegation_set_errors()}
   def delete_reusable_delegation_set(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
@@ -4801,6 +4823,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_traffic_policy_errors()}
   def delete_traffic_policy(%Client{} = client, id, version, input, options \\ []) do
     url_path =
@@ -4841,6 +4864,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_traffic_policy_instance_errors()}
   def delete_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
@@ -4888,6 +4912,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, delete_vpc_association_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_association_authorization_errors()}
   def delete_vpc_association_authorization(
         %Client{} = client,
@@ -4931,6 +4956,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, disable_hosted_zone_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_hosted_zone_dns_sec_errors()}
   def disable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disable-dnssec"
@@ -5015,6 +5041,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, disassociate_vpc_from_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_vpc_from_hosted_zone_errors()}
   def disassociate_vpc_from_hosted_zone(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/disassociatevpc"
@@ -5048,6 +5075,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, enable_hosted_zone_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_hosted_zone_dns_sec_errors()}
   def enable_hosted_zone_dns_sec(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/enable-dnssec"
@@ -5091,6 +5119,7 @@ defmodule AWS.Route53 do
   @spec get_account_limit(map(), String.t(), list()) ::
           {:ok, get_account_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_limit_errors()}
   def get_account_limit(%Client{} = client, type, options \\ []) do
     url_path = "/2013-04-01/accountlimit/#{AWS.Util.encode_uri(type)}"
@@ -5123,6 +5152,7 @@ defmodule AWS.Route53 do
   @spec get_change(map(), String.t(), list()) ::
           {:ok, get_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_change_errors()}
   def get_change(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/change/#{AWS.Util.encode_uri(id)}"
@@ -5149,6 +5179,7 @@ defmodule AWS.Route53 do
   @spec get_checker_ip_ranges(map(), list()) ::
           {:ok, get_checker_ip_ranges_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_checker_ip_ranges(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/checkeripranges"
     headers = []
@@ -5167,6 +5198,7 @@ defmodule AWS.Route53 do
   @spec get_dns_sec(map(), String.t(), list()) ::
           {:ok, get_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dns_sec_errors()}
   def get_dns_sec(%Client{} = client, hosted_zone_id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/dnssec"
@@ -5219,6 +5251,7 @@ defmodule AWS.Route53 do
   @spec get_geo_location(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_geo_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_geo_location_errors()}
   def get_geo_location(
         %Client{} = client,
@@ -5263,6 +5296,7 @@ defmodule AWS.Route53 do
   @spec get_health_check(map(), String.t(), list()) ::
           {:ok, get_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_health_check_errors()}
   def get_health_check(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
@@ -5281,6 +5315,7 @@ defmodule AWS.Route53 do
   @spec get_health_check_count(map(), list()) ::
           {:ok, get_health_check_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_health_check_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/healthcheckcount"
     headers = []
@@ -5297,6 +5332,7 @@ defmodule AWS.Route53 do
   @spec get_health_check_last_failure_reason(map(), String.t(), list()) ::
           {:ok, get_health_check_last_failure_reason_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_health_check_last_failure_reason_errors()}
   def get_health_check_last_failure_reason(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/lastfailurereason"
@@ -5318,6 +5354,7 @@ defmodule AWS.Route53 do
   @spec get_health_check_status(map(), String.t(), list()) ::
           {:ok, get_health_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_health_check_status_errors()}
   def get_health_check_status(%Client{} = client, health_check_id, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}/status"
@@ -5343,6 +5380,7 @@ defmodule AWS.Route53 do
   @spec get_hosted_zone(map(), String.t(), list()) ::
           {:ok, get_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hosted_zone_errors()}
   def get_hosted_zone(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
@@ -5361,6 +5399,7 @@ defmodule AWS.Route53 do
   @spec get_hosted_zone_count(map(), list()) ::
           {:ok, get_hosted_zone_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hosted_zone_count_errors()}
   def get_hosted_zone_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/hostedzonecount"
@@ -5386,6 +5425,7 @@ defmodule AWS.Route53 do
   @spec get_hosted_zone_limit(map(), String.t(), String.t(), list()) ::
           {:ok, get_hosted_zone_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hosted_zone_limit_errors()}
   def get_hosted_zone_limit(%Client{} = client, hosted_zone_id, type, options \\ []) do
     url_path =
@@ -5409,6 +5449,7 @@ defmodule AWS.Route53 do
   @spec get_query_logging_config(map(), String.t(), list()) ::
           {:ok, get_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_query_logging_config_errors()}
   def get_query_logging_config(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/queryloggingconfig/#{AWS.Util.encode_uri(id)}"
@@ -5428,6 +5469,7 @@ defmodule AWS.Route53 do
   @spec get_reusable_delegation_set(map(), String.t(), list()) ::
           {:ok, get_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reusable_delegation_set_errors()}
   def get_reusable_delegation_set(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/delegationset/#{AWS.Util.encode_uri(id)}"
@@ -5453,6 +5495,7 @@ defmodule AWS.Route53 do
   @spec get_reusable_delegation_set_limit(map(), String.t(), String.t(), list()) ::
           {:ok, get_reusable_delegation_set_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_reusable_delegation_set_limit_errors()}
   def get_reusable_delegation_set_limit(
         %Client{} = client,
@@ -5481,6 +5524,7 @@ defmodule AWS.Route53 do
   @spec get_traffic_policy(map(), String.t(), String.t(), list()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_traffic_policy_errors()}
   def get_traffic_policy(%Client{} = client, id, version, options \\ []) do
     url_path =
@@ -5510,6 +5554,7 @@ defmodule AWS.Route53 do
   @spec get_traffic_policy_instance(map(), String.t(), list()) ::
           {:ok, get_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_traffic_policy_instance_errors()}
   def get_traffic_policy_instance(%Client{} = client, id, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"
@@ -5528,6 +5573,7 @@ defmodule AWS.Route53 do
   @spec get_traffic_policy_instance_count(map(), list()) ::
           {:ok, get_traffic_policy_instance_count_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_traffic_policy_instance_count(%Client{} = client, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstancecount"
     headers = []
@@ -5551,6 +5597,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_cidr_blocks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cidr_blocks_errors()}
   def list_cidr_blocks(
         %Client{} = client,
@@ -5597,6 +5644,7 @@ defmodule AWS.Route53 do
   @spec list_cidr_collections(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cidr_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cidr_collections_errors()}
   def list_cidr_collections(
         %Client{} = client,
@@ -5635,6 +5683,7 @@ defmodule AWS.Route53 do
   @spec list_cidr_locations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_cidr_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cidr_locations_errors()}
   def list_cidr_locations(
         %Client{} = client,
@@ -5695,6 +5744,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_geo_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_geo_locations_errors()}
   def list_geo_locations(
         %Client{} = client,
@@ -5748,6 +5798,7 @@ defmodule AWS.Route53 do
   @spec list_health_checks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_health_checks_errors()}
   def list_health_checks(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
@@ -5796,6 +5847,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_hosted_zones_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hosted_zones_errors()}
   def list_hosted_zones(
         %Client{} = client,
@@ -5917,6 +5969,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_hosted_zones_by_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hosted_zones_by_name_errors()}
   def list_hosted_zones_by_name(
         %Client{} = client,
@@ -6017,6 +6070,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_hosted_zones_by_vpc_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_hosted_zones_by_vpc_errors()}
   def list_hosted_zones_by_vpc(
         %Client{} = client,
@@ -6086,6 +6140,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_query_logging_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_query_logging_configs_errors()}
   def list_query_logging_configs(
         %Client{} = client,
@@ -6212,6 +6267,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_resource_record_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_resource_record_sets_errors()}
   def list_resource_record_sets(
         %Client{} = client,
@@ -6267,6 +6323,7 @@ defmodule AWS.Route53 do
   @spec list_reusable_delegation_sets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_reusable_delegation_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reusable_delegation_sets_errors()}
   def list_reusable_delegation_sets(
         %Client{} = client,
@@ -6306,6 +6363,7 @@ defmodule AWS.Route53 do
   @spec list_tags_for_resource(map(), String.t(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_id, resource_type, options \\ []) do
     url_path =
@@ -6328,6 +6386,7 @@ defmodule AWS.Route53 do
   @spec list_tags_for_resources(map(), String.t(), list_tags_for_resources_request(), list()) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resources_errors()}
   def list_tags_for_resources(%Client{} = client, resource_type, input, options \\ []) do
     url_path = "/2013-04-01/tags/#{AWS.Util.encode_uri(resource_type)}"
@@ -6365,6 +6424,7 @@ defmodule AWS.Route53 do
   @spec list_traffic_policies(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policies_errors()}
   def list_traffic_policies(
         %Client{} = client,
@@ -6420,6 +6480,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_traffic_policy_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policy_instances_errors()}
   def list_traffic_policy_instances(
         %Client{} = client,
@@ -6493,6 +6554,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_traffic_policy_instances_by_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policy_instances_by_hosted_zone_errors()}
   def list_traffic_policy_instances_by_hosted_zone(
         %Client{} = client,
@@ -6567,6 +6629,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_traffic_policy_instances_by_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policy_instances_by_policy_errors()}
   def list_traffic_policy_instances_by_policy(
         %Client{} = client,
@@ -6644,6 +6707,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_traffic_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_traffic_policy_versions_errors()}
   def list_traffic_policy_versions(
         %Client{} = client,
@@ -6693,6 +6757,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, list_vpc_association_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_association_authorizations_errors()}
   def list_vpc_association_authorizations(
         %Client{} = client,
@@ -6753,6 +6818,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, test_dns_answer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_dns_answer_errors()}
   def test_dns_answer(
         %Client{} = client,
@@ -6828,6 +6894,7 @@ defmodule AWS.Route53 do
   @spec update_health_check(map(), String.t(), update_health_check_request(), list()) ::
           {:ok, update_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_health_check_errors()}
   def update_health_check(%Client{} = client, health_check_id, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck/#{AWS.Util.encode_uri(health_check_id)}"
@@ -6861,6 +6928,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, update_hosted_zone_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_hosted_zone_comment_errors()}
   def update_hosted_zone_comment(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(id)}"
@@ -6895,6 +6963,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, update_traffic_policy_comment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_traffic_policy_comment_errors()}
   def update_traffic_policy_comment(%Client{} = client, id, version, input, options \\ []) do
     url_path =
@@ -6964,6 +7033,7 @@ defmodule AWS.Route53 do
         ) ::
           {:ok, update_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_traffic_policy_instance_errors()}
   def update_traffic_policy_instance(%Client{} = client, id, input, options \\ []) do
     url_path = "/2013-04-01/trafficpolicyinstance/#{AWS.Util.encode_uri(id)}"

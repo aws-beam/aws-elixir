@@ -1739,6 +1739,7 @@ defmodule AWS.QApps do
   @spec associate_library_item_review(map(), associate_library_item_review_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_library_item_review_errors()}
   def associate_library_item_review(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.associateItemRating"
@@ -1780,6 +1781,7 @@ defmodule AWS.QApps do
   @spec associate_q_app_with_user(map(), associate_q_app_with_user_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_q_app_with_user_errors()}
   def associate_q_app_with_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.install"
@@ -1818,6 +1820,7 @@ defmodule AWS.QApps do
   @spec batch_create_category(map(), batch_create_category_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_create_category_errors()}
   def batch_create_category(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.createCategories"
@@ -1856,6 +1859,7 @@ defmodule AWS.QApps do
   @spec batch_delete_category(map(), batch_delete_category_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_category_errors()}
   def batch_delete_category(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.deleteCategories"
@@ -1894,6 +1898,7 @@ defmodule AWS.QApps do
   @spec batch_update_category(map(), batch_update_category_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_category_errors()}
   def batch_update_category(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.updateCategories"
@@ -1930,6 +1935,7 @@ defmodule AWS.QApps do
   @spec create_library_item(map(), create_library_item_input(), list()) ::
           {:ok, create_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_library_item_errors()}
   def create_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.createItem"
@@ -1970,6 +1976,7 @@ defmodule AWS.QApps do
   @spec create_presigned_url(map(), create_presigned_url_input(), list()) ::
           {:ok, create_presigned_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_presigned_url_errors()}
   def create_presigned_url(%Client{} = client, input, options \\ []) do
     url_path = "/apps.createPresignedUrl"
@@ -2009,6 +2016,7 @@ defmodule AWS.QApps do
   @spec create_q_app(map(), create_q_app_input(), list()) ::
           {:ok, create_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_q_app_errors()}
   def create_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.create"
@@ -2045,6 +2053,7 @@ defmodule AWS.QApps do
   @spec delete_library_item(map(), delete_library_item_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_library_item_errors()}
   def delete_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.deleteItem"
@@ -2082,6 +2091,7 @@ defmodule AWS.QApps do
   @spec delete_q_app(map(), delete_q_app_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_q_app_errors()}
   def delete_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.delete"
@@ -2117,6 +2127,7 @@ defmodule AWS.QApps do
   @spec describe_q_app_permissions(map(), String.t(), String.t(), list()) ::
           {:ok, describe_q_app_permissions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_q_app_permissions_errors()}
   def describe_q_app_permissions(%Client{} = client, app_id, instance_id, options \\ []) do
     url_path = "/apps.describeQAppPermissions"
@@ -2149,6 +2160,7 @@ defmodule AWS.QApps do
   @spec disassociate_library_item_review(map(), disassociate_library_item_review_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_library_item_review_errors()}
   def disassociate_library_item_review(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.disassociateItemRating"
@@ -2183,6 +2195,7 @@ defmodule AWS.QApps do
   @spec disassociate_q_app_from_user(map(), disassociate_q_app_from_user_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_q_app_from_user_errors()}
   def disassociate_q_app_from_user(%Client{} = client, input, options \\ []) do
     url_path = "/apps.uninstall"
@@ -2217,6 +2230,7 @@ defmodule AWS.QApps do
   @spec export_q_app_session_data(map(), export_q_app_session_data_input(), list()) ::
           {:ok, export_q_app_session_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_q_app_session_data_errors()}
   def export_q_app_session_data(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.exportQAppSessionData"
@@ -2253,6 +2267,7 @@ defmodule AWS.QApps do
   @spec get_library_item(map(), String.t() | nil, String.t(), String.t(), list()) ::
           {:ok, get_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_library_item_errors()}
   def get_library_item(
         %Client{} = client,
@@ -2300,6 +2315,7 @@ defmodule AWS.QApps do
   @spec get_q_app(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, get_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_q_app_errors()}
   def get_q_app(%Client{} = client, app_id, app_version \\ nil, instance_id, options \\ []) do
     url_path = "/apps.get"
@@ -2340,6 +2356,7 @@ defmodule AWS.QApps do
   @spec get_q_app_session(map(), String.t(), String.t(), list()) ::
           {:ok, get_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_q_app_session_errors()}
   def get_q_app_session(%Client{} = client, session_id, instance_id, options \\ []) do
     url_path = "/runtime.getQAppSession"
@@ -2372,6 +2389,7 @@ defmodule AWS.QApps do
   @spec get_q_app_session_metadata(map(), String.t(), String.t(), list()) ::
           {:ok, get_q_app_session_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_q_app_session_metadata_errors()}
   def get_q_app_session_metadata(%Client{} = client, session_id, instance_id, options \\ []) do
     url_path = "/runtime.getQAppSessionMetadata"
@@ -2410,6 +2428,7 @@ defmodule AWS.QApps do
   @spec import_document(map(), import_document_input(), list()) ::
           {:ok, import_document_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_document_errors()}
   def import_document(%Client{} = client, input, options \\ []) do
     url_path = "/apps.importDocument"
@@ -2447,6 +2466,7 @@ defmodule AWS.QApps do
   @spec list_categories(map(), String.t(), list()) ::
           {:ok, list_categories_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_categories_errors()}
   def list_categories(%Client{} = client, instance_id, options \\ []) do
     url_path = "/catalog.listCategories"
@@ -2481,6 +2501,7 @@ defmodule AWS.QApps do
         ) ::
           {:ok, list_library_items_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_library_items_errors()}
   def list_library_items(
         %Client{} = client,
@@ -2534,6 +2555,7 @@ defmodule AWS.QApps do
   @spec list_q_app_session_data(map(), String.t(), String.t(), list()) ::
           {:ok, list_q_app_session_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_q_app_session_data_errors()}
   def list_q_app_session_data(%Client{} = client, session_id, instance_id, options \\ []) do
     url_path = "/runtime.listQAppSessionData"
@@ -2571,6 +2593,7 @@ defmodule AWS.QApps do
   @spec list_q_apps(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_q_apps_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_q_apps_errors()}
   def list_q_apps(%Client{} = client, limit \\ nil, next_token \\ nil, instance_id, options \\ []) do
     url_path = "/apps.list"
@@ -2610,6 +2633,7 @@ defmodule AWS.QApps do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2631,6 +2655,7 @@ defmodule AWS.QApps do
   @spec predict_q_app(map(), predict_q_app_input(), list()) ::
           {:ok, predict_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, predict_q_app_errors()}
   def predict_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.predictQApp"
@@ -2670,6 +2695,7 @@ defmodule AWS.QApps do
   @spec start_q_app_session(map(), start_q_app_session_input(), list()) ::
           {:ok, start_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_q_app_session_errors()}
   def start_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.startQAppSession"
@@ -2709,6 +2735,7 @@ defmodule AWS.QApps do
   @spec stop_q_app_session(map(), stop_q_app_session_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_q_app_session_errors()}
   def stop_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.deleteMiniAppRun"
@@ -2743,6 +2770,7 @@ defmodule AWS.QApps do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2771,6 +2799,7 @@ defmodule AWS.QApps do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2804,6 +2833,7 @@ defmodule AWS.QApps do
   @spec update_library_item(map(), update_library_item_input(), list()) ::
           {:ok, update_library_item_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_library_item_errors()}
   def update_library_item(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.updateItem"
@@ -2838,6 +2868,7 @@ defmodule AWS.QApps do
   @spec update_library_item_metadata(map(), update_library_item_metadata_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_library_item_metadata_errors()}
   def update_library_item_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/catalog.updateItemMetadata"
@@ -2874,6 +2905,7 @@ defmodule AWS.QApps do
   @spec update_q_app(map(), update_q_app_input(), list()) ::
           {:ok, update_q_app_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_q_app_errors()}
   def update_q_app(%Client{} = client, input, options \\ []) do
     url_path = "/apps.update"
@@ -2909,6 +2941,7 @@ defmodule AWS.QApps do
   @spec update_q_app_permissions(map(), update_q_app_permissions_input(), list()) ::
           {:ok, update_q_app_permissions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_q_app_permissions_errors()}
   def update_q_app_permissions(%Client{} = client, input, options \\ []) do
     url_path = "/apps.updateQAppPermissions"
@@ -2950,6 +2983,7 @@ defmodule AWS.QApps do
   @spec update_q_app_session(map(), update_q_app_session_input(), list()) ::
           {:ok, update_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_q_app_session_errors()}
   def update_q_app_session(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.updateQAppSession"
@@ -2985,6 +3019,7 @@ defmodule AWS.QApps do
   @spec update_q_app_session_metadata(map(), update_q_app_session_metadata_input(), list()) ::
           {:ok, update_q_app_session_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_q_app_session_metadata_errors()}
   def update_q_app_session_metadata(%Client{} = client, input, options \\ []) do
     url_path = "/runtime.updateQAppSessionMetadata"

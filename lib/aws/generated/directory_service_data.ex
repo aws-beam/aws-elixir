@@ -872,6 +872,7 @@ defmodule AWS.DirectoryServiceData do
   @spec add_group_member(map(), add_group_member_request(), list()) ::
           {:ok, add_group_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_group_member_errors()}
   def add_group_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/AddGroupMember"
@@ -905,6 +906,7 @@ defmodule AWS.DirectoryServiceData do
   @spec create_group(map(), create_group_request(), list()) ::
           {:ok, create_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/CreateGroup"
@@ -938,6 +940,7 @@ defmodule AWS.DirectoryServiceData do
   @spec create_user(map(), create_user_request(), list()) ::
           {:ok, create_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/CreateUser"
@@ -971,6 +974,7 @@ defmodule AWS.DirectoryServiceData do
   @spec delete_group(map(), delete_group_request(), list()) ::
           {:ok, delete_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/DeleteGroup"
@@ -1004,6 +1008,7 @@ defmodule AWS.DirectoryServiceData do
   @spec delete_user(map(), delete_user_request(), list()) ::
           {:ok, delete_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DeleteUser"
@@ -1037,6 +1042,7 @@ defmodule AWS.DirectoryServiceData do
   @spec describe_group(map(), describe_group_request(), list()) ::
           {:ok, describe_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/DescribeGroup"
@@ -1070,6 +1076,7 @@ defmodule AWS.DirectoryServiceData do
   @spec describe_user(map(), describe_user_request(), list()) ::
           {:ok, describe_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DescribeUser"
@@ -1108,6 +1115,7 @@ defmodule AWS.DirectoryServiceData do
   @spec disable_user(map(), disable_user_request(), list()) ::
           {:ok, disable_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_user_errors()}
   def disable_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/DisableUser"
@@ -1149,6 +1157,7 @@ defmodule AWS.DirectoryServiceData do
   @spec list_group_members(map(), list_group_members_request(), list()) ::
           {:ok, list_group_members_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_group_members_errors()}
   def list_group_members(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/ListGroupMembers"
@@ -1190,6 +1199,7 @@ defmodule AWS.DirectoryServiceData do
   @spec list_groups(map(), list_groups_request(), list()) ::
           {:ok, list_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/ListGroups"
@@ -1232,6 +1242,7 @@ defmodule AWS.DirectoryServiceData do
   @spec list_groups_for_member(map(), list_groups_for_member_request(), list()) ::
           {:ok, list_groups_for_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_groups_for_member_errors()}
   def list_groups_for_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/ListGroupsForMember"
@@ -1273,6 +1284,7 @@ defmodule AWS.DirectoryServiceData do
   @spec list_users(map(), list_users_request(), list()) ::
           {:ok, list_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
     url_path = "/Users/ListUsers"
@@ -1306,6 +1318,7 @@ defmodule AWS.DirectoryServiceData do
   @spec remove_group_member(map(), remove_group_member_request(), list()) ::
           {:ok, remove_group_member_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_group_member_errors()}
   def remove_group_member(%Client{} = client, input, options \\ []) do
     url_path = "/GroupMemberships/RemoveGroupMember"
@@ -1351,6 +1364,7 @@ defmodule AWS.DirectoryServiceData do
   @spec search_groups(map(), search_groups_request(), list()) ::
           {:ok, search_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_groups_errors()}
   def search_groups(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/SearchGroups"
@@ -1396,6 +1410,7 @@ defmodule AWS.DirectoryServiceData do
   @spec search_users(map(), search_users_request(), list()) ::
           {:ok, search_users_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_users_errors()}
   def search_users(%Client{} = client, input, options \\ []) do
     url_path = "/Users/SearchUsers"
@@ -1429,6 +1444,7 @@ defmodule AWS.DirectoryServiceData do
   @spec update_group(map(), update_group_request(), list()) ::
           {:ok, update_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
     url_path = "/Groups/UpdateGroup"
@@ -1462,6 +1478,7 @@ defmodule AWS.DirectoryServiceData do
   @spec update_user(map(), update_user_request(), list()) ::
           {:ok, update_user_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
     url_path = "/Users/UpdateUser"

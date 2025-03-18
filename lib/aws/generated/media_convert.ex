@@ -4331,6 +4331,7 @@ defmodule AWS.MediaConvert do
   @spec associate_certificate(map(), associate_certificate_request(), list()) ::
           {:ok, associate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_certificate_errors()}
   def associate_certificate(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/certificates"
@@ -4361,6 +4362,7 @@ defmodule AWS.MediaConvert do
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
@@ -4392,6 +4394,7 @@ defmodule AWS.MediaConvert do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/jobs"
@@ -4423,6 +4426,7 @@ defmodule AWS.MediaConvert do
   @spec create_job_template(map(), create_job_template_request(), list()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_template_errors()}
   def create_job_template(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates"
@@ -4454,6 +4458,7 @@ defmodule AWS.MediaConvert do
   @spec create_preset(map(), create_preset_request(), list()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_preset_errors()}
   def create_preset(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/presets"
@@ -4485,6 +4490,7 @@ defmodule AWS.MediaConvert do
   @spec create_queue(map(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/queues"
@@ -4513,6 +4519,7 @@ defmodule AWS.MediaConvert do
   @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_job_template_errors()}
   def delete_job_template(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
@@ -4541,6 +4548,7 @@ defmodule AWS.MediaConvert do
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, delete_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/policy"
@@ -4569,6 +4577,7 @@ defmodule AWS.MediaConvert do
   @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_preset_errors()}
   def delete_preset(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
@@ -4597,6 +4606,7 @@ defmodule AWS.MediaConvert do
   @spec delete_queue(map(), String.t(), delete_queue_request(), list()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
@@ -4629,6 +4639,7 @@ defmodule AWS.MediaConvert do
   @spec describe_endpoints(map(), describe_endpoints_request(), list()) ::
           {:ok, describe_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/endpoints"
@@ -4659,6 +4670,7 @@ defmodule AWS.MediaConvert do
   @spec disassociate_certificate(map(), String.t(), disassociate_certificate_request(), list()) ::
           {:ok, disassociate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_certificate_errors()}
   def disassociate_certificate(%Client{} = client, arn, input, options \\ []) do
     url_path = "/2017-08-29/certificates/#{AWS.Util.encode_uri(arn)}"
@@ -4687,6 +4699,7 @@ defmodule AWS.MediaConvert do
   @spec get_job(map(), String.t(), list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, id, options \\ []) do
     url_path = "/2017-08-29/jobs/#{AWS.Util.encode_uri(id)}"
@@ -4704,6 +4717,7 @@ defmodule AWS.MediaConvert do
   @spec get_job_template(map(), String.t(), list()) ::
           {:ok, get_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_template_errors()}
   def get_job_template(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
@@ -4721,6 +4735,7 @@ defmodule AWS.MediaConvert do
   @spec get_policy(map(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, options \\ []) do
     url_path = "/2017-08-29/policy"
@@ -4738,6 +4753,7 @@ defmodule AWS.MediaConvert do
   @spec get_preset(map(), String.t(), list()) ::
           {:ok, get_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_preset_errors()}
   def get_preset(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
@@ -4755,6 +4771,7 @@ defmodule AWS.MediaConvert do
   @spec get_queue(map(), String.t(), list()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, name, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"
@@ -4783,6 +4800,7 @@ defmodule AWS.MediaConvert do
         ) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_templates_errors()}
   def list_job_templates(
         %Client{} = client,
@@ -4855,6 +4873,7 @@ defmodule AWS.MediaConvert do
         ) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -4926,6 +4945,7 @@ defmodule AWS.MediaConvert do
         ) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_presets_errors()}
   def list_presets(
         %Client{} = client,
@@ -4996,6 +5016,7 @@ defmodule AWS.MediaConvert do
         ) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(
         %Client{} = client,
@@ -5048,6 +5069,7 @@ defmodule AWS.MediaConvert do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, arn, options \\ []) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
@@ -5066,6 +5088,7 @@ defmodule AWS.MediaConvert do
   @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_versions_errors()}
   def list_versions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2017-08-29/versions"
@@ -5098,6 +5121,7 @@ defmodule AWS.MediaConvert do
   @spec probe(map(), probe_request(), list()) ::
           {:ok, probe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, probe_errors()}
   def probe(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/probe"
@@ -5129,6 +5153,7 @@ defmodule AWS.MediaConvert do
   @spec put_policy(map(), put_policy_request(), list()) ::
           {:ok, put_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/policy"
@@ -5171,6 +5196,7 @@ defmodule AWS.MediaConvert do
         ) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_jobs_errors()}
   def search_jobs(
         %Client{} = client,
@@ -5242,6 +5268,7 @@ defmodule AWS.MediaConvert do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/2017-08-29/tags"
@@ -5273,6 +5300,7 @@ defmodule AWS.MediaConvert do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, arn, input, options \\ []) do
     url_path = "/2017-08-29/tags/#{AWS.Util.encode_uri(arn)}"
@@ -5301,6 +5329,7 @@ defmodule AWS.MediaConvert do
   @spec update_job_template(map(), String.t(), update_job_template_request(), list()) ::
           {:ok, update_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_template_errors()}
   def update_job_template(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/jobTemplates/#{AWS.Util.encode_uri(name)}"
@@ -5329,6 +5358,7 @@ defmodule AWS.MediaConvert do
   @spec update_preset(map(), String.t(), update_preset_request(), list()) ::
           {:ok, update_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_preset_errors()}
   def update_preset(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/presets/#{AWS.Util.encode_uri(name)}"
@@ -5357,6 +5387,7 @@ defmodule AWS.MediaConvert do
   @spec update_queue(map(), String.t(), update_queue_request(), list()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, name, input, options \\ []) do
     url_path = "/2017-08-29/queues/#{AWS.Util.encode_uri(name)}"

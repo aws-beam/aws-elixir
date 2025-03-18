@@ -853,6 +853,7 @@ defmodule AWS.Braket do
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, job_arn, input, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}/cancel"
@@ -881,6 +882,7 @@ defmodule AWS.Braket do
   @spec cancel_quantum_task(map(), String.t(), cancel_quantum_task_request(), list()) ::
           {:ok, cancel_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_quantum_task_errors()}
   def cancel_quantum_task(%Client{} = client, quantum_task_arn, input, options \\ []) do
     url_path = "/quantum-task/#{AWS.Util.encode_uri(quantum_task_arn)}/cancel"
@@ -909,6 +911,7 @@ defmodule AWS.Braket do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/job"
@@ -937,6 +940,7 @@ defmodule AWS.Braket do
   @spec create_quantum_task(map(), create_quantum_task_request(), list()) ::
           {:ok, create_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_quantum_task_errors()}
   def create_quantum_task(%Client{} = client, input, options \\ []) do
     url_path = "/quantum-task"
@@ -978,6 +982,7 @@ defmodule AWS.Braket do
   @spec get_device(map(), String.t(), list()) ::
           {:ok, get_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, device_arn, options \\ []) do
     url_path = "/device/#{AWS.Util.encode_uri(device_arn)}"
@@ -995,6 +1000,7 @@ defmodule AWS.Braket do
   @spec get_job(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, job_arn, additional_attribute_names \\ nil, options \\ []) do
     url_path = "/job/#{AWS.Util.encode_uri(job_arn)}"
@@ -1019,6 +1025,7 @@ defmodule AWS.Braket do
   @spec get_quantum_task(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_quantum_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_quantum_task_errors()}
   def get_quantum_task(
         %Client{} = client,
@@ -1048,6 +1055,7 @@ defmodule AWS.Braket do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1065,6 +1073,7 @@ defmodule AWS.Braket do
   @spec search_devices(map(), search_devices_request(), list()) ::
           {:ok, search_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_devices_errors()}
   def search_devices(%Client{} = client, input, options \\ []) do
     url_path = "/devices"
@@ -1093,6 +1102,7 @@ defmodule AWS.Braket do
   @spec search_jobs(map(), search_jobs_request(), list()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_jobs_errors()}
   def search_jobs(%Client{} = client, input, options \\ []) do
     url_path = "/jobs"
@@ -1121,6 +1131,7 @@ defmodule AWS.Braket do
   @spec search_quantum_tasks(map(), search_quantum_tasks_request(), list()) ::
           {:ok, search_quantum_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_quantum_tasks_errors()}
   def search_quantum_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/quantum-tasks"
@@ -1149,6 +1160,7 @@ defmodule AWS.Braket do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1177,6 +1189,7 @@ defmodule AWS.Braket do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

@@ -1215,6 +1215,7 @@ defmodule AWS.BedrockRuntime do
   @spec apply_guardrail(map(), String.t(), String.t(), apply_guardrail_request(), list()) ::
           {:ok, apply_guardrail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_guardrail_errors()}
   def apply_guardrail(
         %Client{} = client,
@@ -1301,6 +1302,7 @@ defmodule AWS.BedrockRuntime do
   @spec converse(map(), String.t(), converse_request(), list()) ::
           {:ok, converse_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, converse_errors()}
   def converse(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse"
@@ -1387,6 +1389,7 @@ defmodule AWS.BedrockRuntime do
   @spec converse_stream(map(), String.t(), converse_stream_request(), list()) ::
           {:ok, converse_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, converse_stream_errors()}
   def converse_stream(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/converse-stream"
@@ -1415,6 +1418,7 @@ defmodule AWS.BedrockRuntime do
   @spec get_async_invoke(map(), String.t(), list()) ::
           {:ok, get_async_invoke_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_async_invoke_errors()}
   def get_async_invoke(%Client{} = client, invocation_arn, options \\ []) do
     url_path = "/async-invoke/#{AWS.Util.encode_uri(invocation_arn)}"
@@ -1454,6 +1458,7 @@ defmodule AWS.BedrockRuntime do
   @spec invoke_model(map(), String.t(), invoke_model_request(), list()) ::
           {:ok, invoke_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_model_errors()}
   def invoke_model(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke"
@@ -1538,6 +1543,7 @@ defmodule AWS.BedrockRuntime do
         ) ::
           {:ok, invoke_model_with_response_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, invoke_model_with_response_stream_errors()}
   def invoke_model_with_response_stream(%Client{} = client, model_id, input, options \\ []) do
     url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke-with-response-stream"
@@ -1597,6 +1603,7 @@ defmodule AWS.BedrockRuntime do
         ) ::
           {:ok, list_async_invokes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_async_invokes_errors()}
   def list_async_invokes(
         %Client{} = client,
@@ -1684,6 +1691,7 @@ defmodule AWS.BedrockRuntime do
   @spec start_async_invoke(map(), start_async_invoke_request(), list()) ::
           {:ok, start_async_invoke_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_async_invoke_errors()}
   def start_async_invoke(%Client{} = client, input, options \\ []) do
     url_path = "/async-invoke"

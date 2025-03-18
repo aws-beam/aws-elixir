@@ -931,6 +931,7 @@ defmodule AWS.Support do
   @spec add_attachments_to_set(map(), add_attachments_to_set_request(), list()) ::
           {:ok, add_attachments_to_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_attachments_to_set_errors()}
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -963,6 +964,7 @@ defmodule AWS.Support do
   @spec add_communication_to_case(map(), add_communication_to_case_request(), list()) ::
           {:ok, add_communication_to_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_communication_to_case_errors()}
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1014,6 +1016,7 @@ defmodule AWS.Support do
   @spec create_case(map(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1047,6 +1050,7 @@ defmodule AWS.Support do
   @spec describe_attachment(map(), describe_attachment_request(), list()) ::
           {:ok, describe_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_attachment_errors()}
   def describe_attachment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1093,6 +1097,7 @@ defmodule AWS.Support do
   @spec describe_cases(map(), describe_cases_request(), list()) ::
           {:ok, describe_cases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cases_errors()}
   def describe_cases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1132,6 +1137,7 @@ defmodule AWS.Support do
   @spec describe_communications(map(), describe_communications_request(), list()) ::
           {:ok, describe_communications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_communications_errors()}
   def describe_communications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1162,6 +1168,7 @@ defmodule AWS.Support do
   @spec describe_create_case_options(map(), describe_create_case_options_request(), list()) ::
           {:ok, describe_create_case_options_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_create_case_options_errors()}
   def describe_create_case_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1201,6 +1208,7 @@ defmodule AWS.Support do
   @spec describe_services(map(), describe_services_request(), list()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1230,6 +1238,7 @@ defmodule AWS.Support do
   @spec describe_severity_levels(map(), describe_severity_levels_request(), list()) ::
           {:ok, describe_severity_levels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_severity_levels_errors()}
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1259,6 +1268,7 @@ defmodule AWS.Support do
   @spec describe_supported_languages(map(), describe_supported_languages_request(), list()) ::
           {:ok, describe_supported_languages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_supported_languages_errors()}
   def describe_supported_languages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1306,6 +1316,7 @@ defmodule AWS.Support do
         ) ::
           {:ok, describe_trusted_advisor_check_refresh_statuses_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusted_advisor_check_refresh_statuses_errors()}
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1386,6 +1397,7 @@ defmodule AWS.Support do
         ) ::
           {:ok, describe_trusted_advisor_check_result_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusted_advisor_check_result_errors()}
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1430,6 +1442,7 @@ defmodule AWS.Support do
         ) ::
           {:ok, describe_trusted_advisor_check_summaries_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusted_advisor_check_summaries_errors()}
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1474,6 +1487,7 @@ defmodule AWS.Support do
   @spec describe_trusted_advisor_checks(map(), describe_trusted_advisor_checks_request(), list()) ::
           {:ok, describe_trusted_advisor_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trusted_advisor_checks_errors()}
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1517,6 +1531,7 @@ defmodule AWS.Support do
   @spec refresh_trusted_advisor_check(map(), refresh_trusted_advisor_check_request(), list()) ::
           {:ok, refresh_trusted_advisor_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, refresh_trusted_advisor_check_errors()}
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1545,6 +1560,7 @@ defmodule AWS.Support do
   @spec resolve_case(map(), resolve_case_request(), list()) ::
           {:ok, resolve_case_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resolve_case_errors()}
   def resolve_case(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -3020,6 +3020,7 @@ defmodule AWS.MediaConnect do
   @spec add_bridge_outputs(map(), String.t(), add_bridge_outputs_request(), list()) ::
           {:ok, add_bridge_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_bridge_outputs_errors()}
   def add_bridge_outputs(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/outputs"
@@ -3048,6 +3049,7 @@ defmodule AWS.MediaConnect do
   @spec add_bridge_sources(map(), String.t(), add_bridge_sources_request(), list()) ::
           {:ok, add_bridge_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_bridge_sources_errors()}
   def add_bridge_sources(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/sources"
@@ -3079,6 +3081,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_media_streams(map(), String.t(), add_flow_media_streams_request(), list()) ::
           {:ok, add_flow_media_streams_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_flow_media_streams_errors()}
   def add_flow_media_streams(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/mediaStreams"
@@ -3109,6 +3112,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_outputs(map(), String.t(), add_flow_outputs_request(), list()) ::
           {:ok, add_flow_outputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_flow_outputs_errors()}
   def add_flow_outputs(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/outputs"
@@ -3137,6 +3141,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_sources(map(), String.t(), add_flow_sources_request(), list()) ::
           {:ok, add_flow_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_flow_sources_errors()}
   def add_flow_sources(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source"
@@ -3165,6 +3170,7 @@ defmodule AWS.MediaConnect do
   @spec add_flow_vpc_interfaces(map(), String.t(), add_flow_vpc_interfaces_request(), list()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_flow_vpc_interfaces_errors()}
   def add_flow_vpc_interfaces(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/vpcInterfaces"
@@ -3195,6 +3201,7 @@ defmodule AWS.MediaConnect do
   @spec create_bridge(map(), create_bridge_request(), list()) ::
           {:ok, create_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bridge_errors()}
   def create_bridge(%Client{} = client, input, options \\ []) do
     url_path = "/v1/bridges"
@@ -3226,6 +3233,7 @@ defmodule AWS.MediaConnect do
   @spec create_flow(map(), create_flow_request(), list()) ::
           {:ok, create_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_errors()}
   def create_flow(%Client{} = client, input, options \\ []) do
     url_path = "/v1/flows"
@@ -3256,6 +3264,7 @@ defmodule AWS.MediaConnect do
   @spec create_gateway(map(), create_gateway_request(), list()) ::
           {:ok, create_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_gateway_errors()}
   def create_gateway(%Client{} = client, input, options \\ []) do
     url_path = "/v1/gateways"
@@ -3286,6 +3295,7 @@ defmodule AWS.MediaConnect do
   @spec delete_bridge(map(), String.t(), delete_bridge_request(), list()) ::
           {:ok, delete_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bridge_errors()}
   def delete_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
@@ -3316,6 +3326,7 @@ defmodule AWS.MediaConnect do
   @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_errors()}
   def delete_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
@@ -3347,6 +3358,7 @@ defmodule AWS.MediaConnect do
   @spec delete_gateway(map(), String.t(), delete_gateway_request(), list()) ::
           {:ok, delete_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, gateway_arn, input, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
@@ -3384,6 +3396,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, deregister_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_gateway_instance_errors()}
   def deregister_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
@@ -3417,6 +3430,7 @@ defmodule AWS.MediaConnect do
   @spec describe_bridge(map(), String.t(), list()) ::
           {:ok, describe_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_bridge_errors()}
   def describe_bridge(%Client{} = client, bridge_arn, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
@@ -3437,6 +3451,7 @@ defmodule AWS.MediaConnect do
   @spec describe_flow(map(), String.t(), list()) ::
           {:ok, describe_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_errors()}
   def describe_flow(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
@@ -3457,6 +3472,7 @@ defmodule AWS.MediaConnect do
   @spec describe_flow_source_metadata(map(), String.t(), list()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_source_metadata_errors()}
   def describe_flow_source_metadata(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-metadata"
@@ -3474,6 +3490,7 @@ defmodule AWS.MediaConnect do
   @spec describe_flow_source_thumbnail(map(), String.t(), list()) ::
           {:ok, describe_flow_source_thumbnail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_flow_source_thumbnail_errors()}
   def describe_flow_source_thumbnail(%Client{} = client, flow_arn, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/source-thumbnail"
@@ -3494,6 +3511,7 @@ defmodule AWS.MediaConnect do
   @spec describe_gateway(map(), String.t(), list()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_errors()}
   def describe_gateway(%Client{} = client, gateway_arn, options \\ []) do
     url_path = "/v1/gateways/#{AWS.Util.encode_uri(gateway_arn)}"
@@ -3511,6 +3529,7 @@ defmodule AWS.MediaConnect do
   @spec describe_gateway_instance(map(), String.t(), list()) ::
           {:ok, describe_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_gateway_instance_errors()}
   def describe_gateway_instance(%Client{} = client, gateway_instance_arn, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"
@@ -3531,6 +3550,7 @@ defmodule AWS.MediaConnect do
   @spec describe_offering(map(), String.t(), list()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_offering_errors()}
   def describe_offering(%Client{} = client, offering_arn, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
@@ -3552,6 +3572,7 @@ defmodule AWS.MediaConnect do
   @spec describe_reservation(map(), String.t(), list()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_arn, options \\ []) do
     url_path = "/v1/reservations/#{AWS.Util.encode_uri(reservation_arn)}"
@@ -3569,6 +3590,7 @@ defmodule AWS.MediaConnect do
   @spec grant_flow_entitlements(map(), String.t(), grant_flow_entitlements_request(), list()) ::
           {:ok, grant_flow_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, grant_flow_entitlements_errors()}
   def grant_flow_entitlements(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}/entitlements"
@@ -3600,6 +3622,7 @@ defmodule AWS.MediaConnect do
   @spec list_bridges(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_bridges_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_bridges_errors()}
   def list_bridges(
         %Client{} = client,
@@ -3646,6 +3669,7 @@ defmodule AWS.MediaConnect do
   @spec list_entitlements(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_entitlements_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entitlements_errors()}
   def list_entitlements(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/entitlements"
@@ -3679,6 +3703,7 @@ defmodule AWS.MediaConnect do
   @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flows_errors()}
   def list_flows(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/flows"
@@ -3720,6 +3745,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, list_gateway_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gateway_instances_errors()}
   def list_gateway_instances(
         %Client{} = client,
@@ -3766,6 +3792,7 @@ defmodule AWS.MediaConnect do
   @spec list_gateways(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/gateways"
@@ -3802,6 +3829,7 @@ defmodule AWS.MediaConnect do
   @spec list_offerings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_offerings_errors()}
   def list_offerings(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/offerings"
@@ -3836,6 +3864,7 @@ defmodule AWS.MediaConnect do
   @spec list_reservations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reservations_errors()}
   def list_reservations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/reservations"
@@ -3867,6 +3896,7 @@ defmodule AWS.MediaConnect do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3886,6 +3916,7 @@ defmodule AWS.MediaConnect do
   @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
@@ -3920,6 +3951,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_bridge_output_errors()}
   def remove_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
     url_path =
@@ -3956,6 +3988,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_bridge_source_errors()}
   def remove_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
     url_path =
@@ -3995,6 +4028,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_flow_media_stream_errors()}
   def remove_flow_media_stream(
         %Client{} = client,
@@ -4036,6 +4070,7 @@ defmodule AWS.MediaConnect do
   @spec remove_flow_output(map(), String.t(), String.t(), remove_flow_output_request(), list()) ::
           {:ok, remove_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_flow_output_errors()}
   def remove_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
     url_path =
@@ -4068,6 +4103,7 @@ defmodule AWS.MediaConnect do
   @spec remove_flow_source(map(), String.t(), String.t(), remove_flow_source_request(), list()) ::
           {:ok, remove_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_flow_source_errors()}
   def remove_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
     url_path =
@@ -4109,6 +4145,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, remove_flow_vpc_interface_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_flow_vpc_interface_errors()}
   def remove_flow_vpc_interface(
         %Client{} = client,
@@ -4154,6 +4191,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, revoke_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_flow_entitlement_errors()}
   def revoke_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
     url_path =
@@ -4184,6 +4222,7 @@ defmodule AWS.MediaConnect do
   @spec start_flow(map(), String.t(), start_flow_request(), list()) ::
           {:ok, start_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_flow_errors()}
   def start_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/start/#{AWS.Util.encode_uri(flow_arn)}"
@@ -4212,6 +4251,7 @@ defmodule AWS.MediaConnect do
   @spec stop_flow(map(), String.t(), stop_flow_request(), list()) ::
           {:ok, stop_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_flow_errors()}
   def stop_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/stop/#{AWS.Util.encode_uri(flow_arn)}"
@@ -4244,6 +4284,7 @@ defmodule AWS.MediaConnect do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4272,6 +4313,7 @@ defmodule AWS.MediaConnect do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -4305,6 +4347,7 @@ defmodule AWS.MediaConnect do
   @spec update_bridge(map(), String.t(), update_bridge_request(), list()) ::
           {:ok, update_bridge_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bridge_errors()}
   def update_bridge(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}"
@@ -4339,6 +4382,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_bridge_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bridge_output_errors()}
   def update_bridge_output(%Client{} = client, bridge_arn, output_name, input, options \\ []) do
     url_path =
@@ -4375,6 +4419,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_bridge_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bridge_source_errors()}
   def update_bridge_source(%Client{} = client, bridge_arn, source_name, input, options \\ []) do
     url_path =
@@ -4405,6 +4450,7 @@ defmodule AWS.MediaConnect do
   @spec update_bridge_state(map(), String.t(), update_bridge_state_request(), list()) ::
           {:ok, update_bridge_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bridge_state_errors()}
   def update_bridge_state(%Client{} = client, bridge_arn, input, options \\ []) do
     url_path = "/v1/bridges/#{AWS.Util.encode_uri(bridge_arn)}/state"
@@ -4433,6 +4479,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_errors()}
   def update_flow(%Client{} = client, flow_arn, input, options \\ []) do
     url_path = "/v1/flows/#{AWS.Util.encode_uri(flow_arn)}"
@@ -4470,6 +4517,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_flow_entitlement_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_entitlement_errors()}
   def update_flow_entitlement(%Client{} = client, entitlement_arn, flow_arn, input, options \\ []) do
     url_path =
@@ -4506,6 +4554,7 @@ defmodule AWS.MediaConnect do
         ) ::
           {:ok, update_flow_media_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_media_stream_errors()}
   def update_flow_media_stream(
         %Client{} = client,
@@ -4542,6 +4591,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow_output(map(), String.t(), String.t(), update_flow_output_request(), list()) ::
           {:ok, update_flow_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_output_errors()}
   def update_flow_output(%Client{} = client, flow_arn, output_arn, input, options \\ []) do
     url_path =
@@ -4572,6 +4622,7 @@ defmodule AWS.MediaConnect do
   @spec update_flow_source(map(), String.t(), String.t(), update_flow_source_request(), list()) ::
           {:ok, update_flow_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_source_errors()}
   def update_flow_source(%Client{} = client, flow_arn, source_arn, input, options \\ []) do
     url_path =
@@ -4602,6 +4653,7 @@ defmodule AWS.MediaConnect do
   @spec update_gateway_instance(map(), String.t(), update_gateway_instance_request(), list()) ::
           {:ok, update_gateway_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_gateway_instance_errors()}
   def update_gateway_instance(%Client{} = client, gateway_instance_arn, input, options \\ []) do
     url_path = "/v1/gateway-instances/#{AWS.Util.encode_uri(gateway_instance_arn)}"

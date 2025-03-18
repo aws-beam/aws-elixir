@@ -1091,6 +1091,7 @@ defmodule AWS.PaymentCryptography do
   @spec create_alias(map(), create_alias_input(), list()) ::
           {:ok, create_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1144,6 +1145,7 @@ defmodule AWS.PaymentCryptography do
   @spec create_key(map(), create_key_input(), list()) ::
           {:ok, create_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1185,6 +1187,7 @@ defmodule AWS.PaymentCryptography do
   @spec delete_alias(map(), delete_alias_input(), list()) ::
           {:ok, delete_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1231,6 +1234,7 @@ defmodule AWS.PaymentCryptography do
   @spec delete_key(map(), delete_key_input(), list()) ::
           {:ok, delete_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_key_errors()}
   def delete_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1431,6 +1435,7 @@ defmodule AWS.PaymentCryptography do
   @spec export_key(map(), export_key_input(), list()) ::
           {:ok, export_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_key_errors()}
   def export_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1465,6 +1470,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_alias(map(), get_alias_input(), list()) ::
           {:ok, get_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_alias_errors()}
   def get_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1496,6 +1502,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_key(map(), get_key_input(), list()) ::
           {:ok, get_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_errors()}
   def get_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1529,6 +1536,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_parameters_for_export(map(), get_parameters_for_export_input(), list()) ::
           {:ok, get_parameters_for_export_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameters_for_export_errors()}
   def get_parameters_for_export(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1562,6 +1570,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_parameters_for_import(map(), get_parameters_for_import_input(), list()) ::
           {:ok, get_parameters_for_import_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1586,6 +1595,7 @@ defmodule AWS.PaymentCryptography do
   @spec get_public_key_certificate(map(), get_public_key_certificate_input(), list()) ::
           {:ok, get_public_key_certificate_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_public_key_certificate_errors()}
   def get_public_key_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1795,6 +1805,7 @@ defmodule AWS.PaymentCryptography do
   @spec import_key(map(), import_key_input(), list()) ::
           {:ok, import_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_key_errors()}
   def import_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1840,6 +1851,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_aliases(map(), list_aliases_input(), list()) ::
           {:ok, list_aliases_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1880,6 +1892,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_keys(map(), list_keys_input(), list()) ::
           {:ok, list_keys_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1914,6 +1927,7 @@ defmodule AWS.PaymentCryptography do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1952,6 +1966,7 @@ defmodule AWS.PaymentCryptography do
   @spec restore_key(map(), restore_key_input(), list()) ::
           {:ok, restore_key_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_key_errors()}
   def restore_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1975,6 +1990,7 @@ defmodule AWS.PaymentCryptography do
   @spec start_key_usage(map(), start_key_usage_input(), list()) ::
           {:ok, start_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_key_usage_errors()}
   def start_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2006,6 +2022,7 @@ defmodule AWS.PaymentCryptography do
   @spec stop_key_usage(map(), stop_key_usage_input(), list()) ::
           {:ok, stop_key_usage_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_key_usage_errors()}
   def stop_key_usage(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2041,6 +2058,7 @@ defmodule AWS.PaymentCryptography do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2070,6 +2088,7 @@ defmodule AWS.PaymentCryptography do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2110,6 +2129,7 @@ defmodule AWS.PaymentCryptography do
   @spec update_alias(map(), update_alias_input(), list()) ::
           {:ok, update_alias_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
     meta = metadata()

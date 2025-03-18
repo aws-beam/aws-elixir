@@ -1294,6 +1294,7 @@ defmodule AWS.MachineLearning do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1324,6 +1325,7 @@ defmodule AWS.MachineLearning do
   @spec create_batch_prediction(map(), create_batch_prediction_input(), list()) ::
           {:ok, create_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_batch_prediction_errors()}
   def create_batch_prediction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1354,6 +1356,7 @@ defmodule AWS.MachineLearning do
   @spec create_data_source_from_rds(map(), create_data_source_from_rds_input(), list()) ::
           {:ok, create_data_source_from_rds_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_from_rds_errors()}
   def create_data_source_from_rds(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1408,6 +1411,7 @@ defmodule AWS.MachineLearning do
   @spec create_data_source_from_redshift(map(), create_data_source_from_redshift_input(), list()) ::
           {:ok, create_data_source_from_redshift_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_from_redshift_errors()}
   def create_data_source_from_redshift(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1459,6 +1463,7 @@ defmodule AWS.MachineLearning do
   @spec create_data_source_from_s3(map(), create_data_source_from_s3_input(), list()) ::
           {:ok, create_data_source_from_s3_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_source_from_s3_errors()}
   def create_data_source_from_s3(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1491,6 +1496,7 @@ defmodule AWS.MachineLearning do
   @spec create_evaluation(map(), create_evaluation_input(), list()) ::
           {:ok, create_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_evaluation_errors()}
   def create_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1523,6 +1529,7 @@ defmodule AWS.MachineLearning do
   @spec create_ml_model(map(), create_ml_model_input(), list()) ::
           {:ok, create_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ml_model_errors()}
   def create_ml_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1539,6 +1546,7 @@ defmodule AWS.MachineLearning do
   @spec create_realtime_endpoint(map(), create_realtime_endpoint_input(), list()) ::
           {:ok, create_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_realtime_endpoint_errors()}
   def create_realtime_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1559,6 +1567,7 @@ defmodule AWS.MachineLearning do
   @spec delete_batch_prediction(map(), delete_batch_prediction_input(), list()) ::
           {:ok, delete_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_batch_prediction_errors()}
   def delete_batch_prediction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1577,6 +1586,7 @@ defmodule AWS.MachineLearning do
   @spec delete_data_source(map(), delete_data_source_input(), list()) ::
           {:ok, delete_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1596,6 +1606,7 @@ defmodule AWS.MachineLearning do
   @spec delete_evaluation(map(), delete_evaluation_input(), list()) ::
           {:ok, delete_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_evaluation_errors()}
   def delete_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1615,6 +1626,7 @@ defmodule AWS.MachineLearning do
   @spec delete_ml_model(map(), delete_ml_model_input(), list()) ::
           {:ok, delete_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ml_model_errors()}
   def delete_ml_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1628,6 +1640,7 @@ defmodule AWS.MachineLearning do
   @spec delete_realtime_endpoint(map(), delete_realtime_endpoint_input(), list()) ::
           {:ok, delete_realtime_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_realtime_endpoint_errors()}
   def delete_realtime_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1645,6 +1658,7 @@ defmodule AWS.MachineLearning do
   @spec delete_tags(map(), delete_tags_input(), list()) ::
           {:ok, delete_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1659,6 +1673,7 @@ defmodule AWS.MachineLearning do
   @spec describe_batch_predictions(map(), describe_batch_predictions_input(), list()) ::
           {:ok, describe_batch_predictions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_batch_predictions_errors()}
   def describe_batch_predictions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1672,6 +1687,7 @@ defmodule AWS.MachineLearning do
   @spec describe_data_sources(map(), describe_data_sources_input(), list()) ::
           {:ok, describe_data_sources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_data_sources_errors()}
   def describe_data_sources(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1686,6 +1702,7 @@ defmodule AWS.MachineLearning do
   @spec describe_evaluations(map(), describe_evaluations_input(), list()) ::
           {:ok, describe_evaluations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_evaluations_errors()}
   def describe_evaluations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1699,6 +1716,7 @@ defmodule AWS.MachineLearning do
   @spec describe_ml_models(map(), describe_ml_models_input(), list()) ::
           {:ok, describe_ml_models_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ml_models_errors()}
   def describe_ml_models(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1712,6 +1730,7 @@ defmodule AWS.MachineLearning do
   @spec describe_tags(map(), describe_tags_input(), list()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1727,6 +1746,7 @@ defmodule AWS.MachineLearning do
   @spec get_batch_prediction(map(), get_batch_prediction_input(), list()) ::
           {:ok, get_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_batch_prediction_errors()}
   def get_batch_prediction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1745,6 +1765,7 @@ defmodule AWS.MachineLearning do
   @spec get_data_source(map(), get_data_source_input(), list()) ::
           {:ok, get_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1759,6 +1780,7 @@ defmodule AWS.MachineLearning do
   @spec get_evaluation(map(), get_evaluation_input(), list()) ::
           {:ok, get_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_evaluation_errors()}
   def get_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1775,6 +1797,7 @@ defmodule AWS.MachineLearning do
   @spec get_ml_model(map(), get_ml_model_input(), list()) ::
           {:ok, get_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ml_model_errors()}
   def get_ml_model(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1791,6 +1814,7 @@ defmodule AWS.MachineLearning do
   @spec predict(map(), predict_input(), list()) ::
           {:ok, predict_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, predict_errors()}
   def predict(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1807,6 +1831,7 @@ defmodule AWS.MachineLearning do
   @spec update_batch_prediction(map(), update_batch_prediction_input(), list()) ::
           {:ok, update_batch_prediction_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_batch_prediction_errors()}
   def update_batch_prediction(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1823,6 +1848,7 @@ defmodule AWS.MachineLearning do
   @spec update_data_source(map(), update_data_source_input(), list()) ::
           {:ok, update_data_source_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1839,6 +1865,7 @@ defmodule AWS.MachineLearning do
   @spec update_evaluation(map(), update_evaluation_input(), list()) ::
           {:ok, update_evaluation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_evaluation_errors()}
   def update_evaluation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1855,6 +1882,7 @@ defmodule AWS.MachineLearning do
   @spec update_ml_model(map(), update_ml_model_input(), list()) ::
           {:ok, update_ml_model_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ml_model_errors()}
   def update_ml_model(%Client{} = client, input, options \\ []) do
     meta = metadata()

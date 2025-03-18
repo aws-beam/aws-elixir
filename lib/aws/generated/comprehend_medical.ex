@@ -1273,6 +1273,7 @@ defmodule AWS.ComprehendMedical do
         ) ::
           {:ok, describe_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_entities_detection_v2_job_errors()}
   def describe_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1289,6 +1290,7 @@ defmodule AWS.ComprehendMedical do
   @spec describe_icd10_cm_inference_job(map(), describe_icd10_cm_inference_job_request(), list()) ::
           {:ok, describe_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_icd10_cm_inference_job_errors()}
   def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1305,6 +1307,7 @@ defmodule AWS.ComprehendMedical do
   @spec describe_phi_detection_job(map(), describe_phi_detection_job_request(), list()) ::
           {:ok, describe_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_phi_detection_job_errors()}
   def describe_phi_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1321,6 +1324,7 @@ defmodule AWS.ComprehendMedical do
   @spec describe_rx_norm_inference_job(map(), describe_rx_norm_inference_job_request(), list()) ::
           {:ok, describe_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rx_norm_inference_job_errors()}
   def describe_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1341,6 +1345,7 @@ defmodule AWS.ComprehendMedical do
         ) ::
           {:ok, describe_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_s_n_o_m_e_d_c_t_inference_job_errors()}
   def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1362,6 +1367,7 @@ defmodule AWS.ComprehendMedical do
   @spec detect_entities(map(), detect_entities_request(), list()) ::
           {:ok, detect_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_entities_errors()}
   def detect_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1392,6 +1398,7 @@ defmodule AWS.ComprehendMedical do
   @spec detect_entities_v2(map(), detect_entities_v2_request(), list()) ::
           {:ok, detect_entities_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_entities_v2_errors()}
   def detect_entities_v2(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1410,6 +1417,7 @@ defmodule AWS.ComprehendMedical do
   @spec detect_phi(map(), detect_phi_request(), list()) ::
           {:ok, detect_phi_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detect_phi_errors()}
   def detect_phi(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1430,6 +1438,7 @@ defmodule AWS.ComprehendMedical do
   @spec infer_icd10_cm(map(), infer_icd10_cm_request(), list()) ::
           {:ok, infer_icd10_cm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, infer_icd10_cm_errors()}
   def infer_icd10_cm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1449,6 +1458,7 @@ defmodule AWS.ComprehendMedical do
   @spec infer_rx_norm(map(), infer_rx_norm_request(), list()) ::
           {:ok, infer_rx_norm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, infer_rx_norm_errors()}
   def infer_rx_norm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1465,6 +1475,7 @@ defmodule AWS.ComprehendMedical do
   @spec infer_s_n_o_m_e_d_c_t(map(), infer_s_n_o_m_e_d_c_t_request(), list()) ::
           {:ok, infer_s_n_o_m_e_d_c_t_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, infer_s_n_o_m_e_d_c_t_errors()}
   def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1478,6 +1489,7 @@ defmodule AWS.ComprehendMedical do
   @spec list_entities_detection_v2_jobs(map(), list_entities_detection_v2_jobs_request(), list()) ::
           {:ok, list_entities_detection_v2_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_entities_detection_v2_jobs_errors()}
   def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1491,6 +1503,7 @@ defmodule AWS.ComprehendMedical do
   @spec list_icd10_cm_inference_jobs(map(), list_icd10_cm_inference_jobs_request(), list()) ::
           {:ok, list_icd10_cm_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_icd10_cm_inference_jobs_errors()}
   def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1505,6 +1518,7 @@ defmodule AWS.ComprehendMedical do
   @spec list_phi_detection_jobs(map(), list_phi_detection_jobs_request(), list()) ::
           {:ok, list_phi_detection_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phi_detection_jobs_errors()}
   def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1518,6 +1532,7 @@ defmodule AWS.ComprehendMedical do
   @spec list_rx_norm_inference_jobs(map(), list_rx_norm_inference_jobs_request(), list()) ::
           {:ok, list_rx_norm_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_rx_norm_inference_jobs_errors()}
   def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1536,6 +1551,7 @@ defmodule AWS.ComprehendMedical do
         ) ::
           {:ok, list_s_n_o_m_e_d_c_t_inference_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_s_n_o_m_e_d_c_t_inference_jobs_errors()}
   def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1553,6 +1569,7 @@ defmodule AWS.ComprehendMedical do
   @spec start_entities_detection_v2_job(map(), start_entities_detection_v2_job_request(), list()) ::
           {:ok, start_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_entities_detection_v2_job_errors()}
   def start_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1571,6 +1588,7 @@ defmodule AWS.ComprehendMedical do
   @spec start_icd10_cm_inference_job(map(), start_icd10_cm_inference_job_request(), list()) ::
           {:ok, start_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_icd10_cm_inference_job_errors()}
   def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1587,6 +1605,7 @@ defmodule AWS.ComprehendMedical do
   @spec start_phi_detection_job(map(), start_phi_detection_job_request(), list()) ::
           {:ok, start_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_phi_detection_job_errors()}
   def start_phi_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1605,6 +1624,7 @@ defmodule AWS.ComprehendMedical do
   @spec start_rx_norm_inference_job(map(), start_rx_norm_inference_job_request(), list()) ::
           {:ok, start_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_rx_norm_inference_job_errors()}
   def start_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1626,6 +1646,7 @@ defmodule AWS.ComprehendMedical do
         ) ::
           {:ok, start_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_s_n_o_m_e_d_c_t_inference_job_errors()}
   def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1639,6 +1660,7 @@ defmodule AWS.ComprehendMedical do
   @spec stop_entities_detection_v2_job(map(), stop_entities_detection_v2_job_request(), list()) ::
           {:ok, stop_entities_detection_v2_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_entities_detection_v2_job_errors()}
   def stop_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1652,6 +1674,7 @@ defmodule AWS.ComprehendMedical do
   @spec stop_icd10_cm_inference_job(map(), stop_icd10_cm_inference_job_request(), list()) ::
           {:ok, stop_icd10_cm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_icd10_cm_inference_job_errors()}
   def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1665,6 +1688,7 @@ defmodule AWS.ComprehendMedical do
   @spec stop_phi_detection_job(map(), stop_phi_detection_job_request(), list()) ::
           {:ok, stop_phi_detection_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_phi_detection_job_errors()}
   def stop_phi_detection_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1678,6 +1702,7 @@ defmodule AWS.ComprehendMedical do
   @spec stop_rx_norm_inference_job(map(), stop_rx_norm_inference_job_request(), list()) ::
           {:ok, stop_rx_norm_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_rx_norm_inference_job_errors()}
   def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1696,6 +1721,7 @@ defmodule AWS.ComprehendMedical do
         ) ::
           {:ok, stop_s_n_o_m_e_d_c_t_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_s_n_o_m_e_d_c_t_inference_job_errors()}
   def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
     meta = metadata()

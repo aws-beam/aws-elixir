@@ -2220,6 +2220,7 @@ defmodule AWS.DataExchange do
   @spec accept_data_grant(map(), String.t(), accept_data_grant_request(), list()) ::
           {:ok, accept_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_data_grant_errors()}
   def accept_data_grant(%Client{} = client, data_grant_arn, input, options \\ []) do
     url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_arn)}/accept"
@@ -2251,6 +2252,7 @@ defmodule AWS.DataExchange do
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2279,6 +2281,7 @@ defmodule AWS.DataExchange do
   @spec create_data_grant(map(), create_data_grant_request(), list()) ::
           {:ok, create_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_grant_errors()}
   def create_data_grant(%Client{} = client, input, options \\ []) do
     url_path = "/v1/data-grants"
@@ -2307,6 +2310,7 @@ defmodule AWS.DataExchange do
   @spec create_data_set(map(), create_data_set_request(), list()) ::
           {:ok, create_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_data_set_errors()}
   def create_data_set(%Client{} = client, input, options \\ []) do
     url_path = "/v1/data-sets"
@@ -2335,6 +2339,7 @@ defmodule AWS.DataExchange do
   @spec create_event_action(map(), create_event_action_request(), list()) ::
           {:ok, create_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_action_errors()}
   def create_event_action(%Client{} = client, input, options \\ []) do
     url_path = "/v1/event-actions"
@@ -2363,6 +2368,7 @@ defmodule AWS.DataExchange do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/jobs"
@@ -2391,6 +2397,7 @@ defmodule AWS.DataExchange do
   @spec create_revision(map(), String.t(), create_revision_request(), list()) ::
           {:ok, create_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_revision_errors()}
   def create_revision(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/revisions"
@@ -2419,6 +2426,7 @@ defmodule AWS.DataExchange do
   @spec delete_asset(map(), String.t(), String.t(), String.t(), delete_asset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_asset_errors()}
   def delete_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
@@ -2449,6 +2457,7 @@ defmodule AWS.DataExchange do
   @spec delete_data_grant(map(), String.t(), delete_data_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_grant_errors()}
   def delete_data_grant(%Client{} = client, data_grant_id, input, options \\ []) do
     url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_id)}"
@@ -2477,6 +2486,7 @@ defmodule AWS.DataExchange do
   @spec delete_data_set(map(), String.t(), delete_data_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_data_set_errors()}
   def delete_data_set(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -2505,6 +2515,7 @@ defmodule AWS.DataExchange do
   @spec delete_event_action(map(), String.t(), delete_event_action_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_action_errors()}
   def delete_event_action(%Client{} = client, event_action_id, input, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
@@ -2533,6 +2544,7 @@ defmodule AWS.DataExchange do
   @spec delete_revision(map(), String.t(), String.t(), delete_revision_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_revision_errors()}
   def delete_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
     url_path =
@@ -2563,6 +2575,7 @@ defmodule AWS.DataExchange do
   @spec get_asset(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_asset_errors()}
   def get_asset(%Client{} = client, asset_id, data_set_id, revision_id, options \\ []) do
     url_path =
@@ -2582,6 +2595,7 @@ defmodule AWS.DataExchange do
   @spec get_data_grant(map(), String.t(), list()) ::
           {:ok, get_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_grant_errors()}
   def get_data_grant(%Client{} = client, data_grant_id, options \\ []) do
     url_path = "/v1/data-grants/#{AWS.Util.encode_uri(data_grant_id)}"
@@ -2599,6 +2613,7 @@ defmodule AWS.DataExchange do
   @spec get_data_set(map(), String.t(), list()) ::
           {:ok, get_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_set_errors()}
   def get_data_set(%Client{} = client, data_set_id, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -2616,6 +2631,7 @@ defmodule AWS.DataExchange do
   @spec get_event_action(map(), String.t(), list()) ::
           {:ok, get_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_action_errors()}
   def get_event_action(%Client{} = client, event_action_id, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
@@ -2633,6 +2649,7 @@ defmodule AWS.DataExchange do
   @spec get_job(map(), String.t(), list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, job_id, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -2650,6 +2667,7 @@ defmodule AWS.DataExchange do
   @spec get_received_data_grant(map(), String.t(), list()) ::
           {:ok, get_received_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_received_data_grant_errors()}
   def get_received_data_grant(%Client{} = client, data_grant_arn, options \\ []) do
     url_path = "/v1/received-data-grants/#{AWS.Util.encode_uri(data_grant_arn)}"
@@ -2667,6 +2685,7 @@ defmodule AWS.DataExchange do
   @spec get_revision(map(), String.t(), String.t(), list()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_revision_errors()}
   def get_revision(%Client{} = client, data_set_id, revision_id, options \\ []) do
     url_path =
@@ -2686,6 +2705,7 @@ defmodule AWS.DataExchange do
   @spec list_data_grants(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_grants_errors()}
   def list_data_grants(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/data-grants"
@@ -2718,6 +2738,7 @@ defmodule AWS.DataExchange do
   @spec list_data_set_revisions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_set_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_set_revisions_errors()}
   def list_data_set_revisions(
         %Client{} = client,
@@ -2759,6 +2780,7 @@ defmodule AWS.DataExchange do
   @spec list_data_sets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_data_sets_errors()}
   def list_data_sets(
         %Client{} = client,
@@ -2803,6 +2825,7 @@ defmodule AWS.DataExchange do
   @spec list_event_actions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_event_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_actions_errors()}
   def list_event_actions(
         %Client{} = client,
@@ -2854,6 +2877,7 @@ defmodule AWS.DataExchange do
         ) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -2912,6 +2936,7 @@ defmodule AWS.DataExchange do
         ) ::
           {:ok, list_received_data_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_received_data_grants_errors()}
   def list_received_data_grants(
         %Client{} = client,
@@ -2964,6 +2989,7 @@ defmodule AWS.DataExchange do
         ) ::
           {:ok, list_revision_assets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_revision_assets_errors()}
   def list_revision_assets(
         %Client{} = client,
@@ -3004,6 +3030,7 @@ defmodule AWS.DataExchange do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3020,6 +3047,7 @@ defmodule AWS.DataExchange do
   @spec revoke_revision(map(), String.t(), String.t(), revoke_revision_request(), list()) ::
           {:ok, revoke_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, revoke_revision_errors()}
   def revoke_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
     url_path =
@@ -3053,6 +3081,7 @@ defmodule AWS.DataExchange do
   @spec send_api_asset(map(), send_api_asset_request(), list()) ::
           {:ok, send_api_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_api_asset_errors()}
   def send_api_asset(%Client{} = client, input, options \\ []) do
     url_path = "/v1"
@@ -3119,6 +3148,7 @@ defmodule AWS.DataExchange do
         ) ::
           {:ok, send_data_set_notification_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_data_set_notification_errors()}
   def send_data_set_notification(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}/notification"
@@ -3147,6 +3177,7 @@ defmodule AWS.DataExchange do
   @spec start_job(map(), String.t(), start_job_request(), list()) ::
           {:ok, start_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_job_errors()}
   def start_job(%Client{} = client, job_id, input, options \\ []) do
     url_path = "/v1/jobs/#{AWS.Util.encode_uri(job_id)}"
@@ -3175,6 +3206,7 @@ defmodule AWS.DataExchange do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3202,6 +3234,7 @@ defmodule AWS.DataExchange do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
     headers = []
@@ -3234,6 +3267,7 @@ defmodule AWS.DataExchange do
   @spec update_asset(map(), String.t(), String.t(), String.t(), update_asset_request(), list()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_asset_errors()}
   def update_asset(%Client{} = client, asset_id, data_set_id, revision_id, input, options \\ []) do
     url_path =
@@ -3264,6 +3298,7 @@ defmodule AWS.DataExchange do
   @spec update_data_set(map(), String.t(), update_data_set_request(), list()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_data_set_errors()}
   def update_data_set(%Client{} = client, data_set_id, input, options \\ []) do
     url_path = "/v1/data-sets/#{AWS.Util.encode_uri(data_set_id)}"
@@ -3292,6 +3327,7 @@ defmodule AWS.DataExchange do
   @spec update_event_action(map(), String.t(), update_event_action_request(), list()) ::
           {:ok, update_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_action_errors()}
   def update_event_action(%Client{} = client, event_action_id, input, options \\ []) do
     url_path = "/v1/event-actions/#{AWS.Util.encode_uri(event_action_id)}"
@@ -3320,6 +3356,7 @@ defmodule AWS.DataExchange do
   @spec update_revision(map(), String.t(), String.t(), update_revision_request(), list()) ::
           {:ok, update_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_revision_errors()}
   def update_revision(%Client{} = client, data_set_id, revision_id, input, options \\ []) do
     url_path =

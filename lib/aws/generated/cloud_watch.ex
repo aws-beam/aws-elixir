@@ -1812,6 +1812,7 @@ defmodule AWS.CloudWatch do
   @spec delete_alarms(map(), delete_alarms_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alarms_errors()}
   def delete_alarms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1831,6 +1832,7 @@ defmodule AWS.CloudWatch do
   @spec delete_anomaly_detector(map(), delete_anomaly_detector_input(), list()) ::
           {:ok, delete_anomaly_detector_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1847,6 +1849,7 @@ defmodule AWS.CloudWatch do
   @spec delete_dashboards(map(), delete_dashboards_input(), list()) ::
           {:ok, delete_dashboards_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_dashboards_errors()}
   def delete_dashboards(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1864,6 +1867,7 @@ defmodule AWS.CloudWatch do
   @spec delete_insight_rules(map(), delete_insight_rules_input(), list()) ::
           {:ok, delete_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_insight_rules_errors()}
   def delete_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1877,6 +1881,7 @@ defmodule AWS.CloudWatch do
   @spec delete_metric_stream(map(), delete_metric_stream_input(), list()) ::
           {:ok, delete_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_metric_stream_errors()}
   def delete_metric_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1903,6 +1908,7 @@ defmodule AWS.CloudWatch do
   @spec describe_alarm_history(map(), describe_alarm_history_input(), list()) ::
           {:ok, describe_alarm_history_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alarm_history_errors()}
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1924,6 +1930,7 @@ defmodule AWS.CloudWatch do
   @spec describe_alarms(map(), describe_alarms_input(), list()) ::
           {:ok, describe_alarms_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_alarms_errors()}
   def describe_alarms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1945,6 +1952,7 @@ defmodule AWS.CloudWatch do
   @spec describe_alarms_for_metric(map(), describe_alarms_for_metric_input(), list()) ::
           {:ok, describe_alarms_for_metric_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -1966,6 +1974,7 @@ defmodule AWS.CloudWatch do
   @spec describe_anomaly_detectors(map(), describe_anomaly_detectors_input(), list()) ::
           {:ok, describe_anomaly_detectors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_anomaly_detectors_errors()}
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1982,6 +1991,7 @@ defmodule AWS.CloudWatch do
   @spec describe_insight_rules(map(), describe_insight_rules_input(), list()) ::
           {:ok, describe_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_insight_rules_errors()}
   def describe_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1998,6 +2008,7 @@ defmodule AWS.CloudWatch do
   @spec disable_alarm_actions(map(), disable_alarm_actions_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def disable_alarm_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2013,6 +2024,7 @@ defmodule AWS.CloudWatch do
   @spec disable_insight_rules(map(), disable_insight_rules_input(), list()) ::
           {:ok, disable_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_insight_rules_errors()}
   def disable_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2026,6 +2038,7 @@ defmodule AWS.CloudWatch do
   @spec enable_alarm_actions(map(), enable_alarm_actions_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def enable_alarm_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2041,6 +2054,7 @@ defmodule AWS.CloudWatch do
   @spec enable_insight_rules(map(), enable_insight_rules_input(), list()) ::
           {:ok, enable_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_insight_rules_errors()}
   def enable_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2058,6 +2072,7 @@ defmodule AWS.CloudWatch do
   @spec get_dashboard(map(), get_dashboard_input(), list()) ::
           {:ok, get_dashboard_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2119,6 +2134,7 @@ defmodule AWS.CloudWatch do
   @spec get_insight_rule_report(map(), get_insight_rule_report_input(), list()) ::
           {:ok, get_insight_rule_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_insight_rule_report_errors()}
   def get_insight_rule_report(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2220,6 +2236,7 @@ defmodule AWS.CloudWatch do
   @spec get_metric_data(map(), get_metric_data_input(), list()) ::
           {:ok, get_metric_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_data_errors()}
   def get_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2307,6 +2324,7 @@ defmodule AWS.CloudWatch do
   @spec get_metric_statistics(map(), get_metric_statistics_input(), list()) ::
           {:ok, get_metric_statistics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_statistics_errors()}
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2320,6 +2338,7 @@ defmodule AWS.CloudWatch do
   @spec get_metric_stream(map(), get_metric_stream_input(), list()) ::
           {:ok, get_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_metric_stream_errors()}
   def get_metric_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2354,6 +2373,7 @@ defmodule AWS.CloudWatch do
   @spec get_metric_widget_image(map(), get_metric_widget_image_input(), list()) ::
           {:ok, get_metric_widget_image_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def get_metric_widget_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -2375,6 +2395,7 @@ defmodule AWS.CloudWatch do
   @spec list_dashboards(map(), list_dashboards_input(), list()) ::
           {:ok, list_dashboards_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2390,6 +2411,7 @@ defmodule AWS.CloudWatch do
   @spec list_managed_insight_rules(map(), list_managed_insight_rules_input(), list()) ::
           {:ok, list_managed_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_managed_insight_rules_errors()}
   def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2403,6 +2425,7 @@ defmodule AWS.CloudWatch do
   @spec list_metric_streams(map(), list_metric_streams_input(), list()) ::
           {:ok, list_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metric_streams_errors()}
   def list_metric_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2440,6 +2463,7 @@ defmodule AWS.CloudWatch do
   @spec list_metrics(map(), list_metrics_input(), list()) ::
           {:ok, list_metrics_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metrics_errors()}
   def list_metrics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2456,6 +2480,7 @@ defmodule AWS.CloudWatch do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2480,6 +2505,7 @@ defmodule AWS.CloudWatch do
   @spec put_anomaly_detector(map(), put_anomaly_detector_input(), list()) ::
           {:ok, put_anomaly_detector_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_anomaly_detector_errors()}
   def put_anomaly_detector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2566,6 +2592,7 @@ defmodule AWS.CloudWatch do
   @spec put_composite_alarm(map(), put_composite_alarm_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_composite_alarm_errors()}
   def put_composite_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2604,6 +2631,7 @@ defmodule AWS.CloudWatch do
   @spec put_dashboard(map(), put_dashboard_input(), list()) ::
           {:ok, put_dashboard_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_dashboard_errors()}
   def put_dashboard(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2627,6 +2655,7 @@ defmodule AWS.CloudWatch do
   @spec put_insight_rule(map(), put_insight_rule_input(), list()) ::
           {:ok, put_insight_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_insight_rule_errors()}
   def put_insight_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2650,6 +2679,7 @@ defmodule AWS.CloudWatch do
   @spec put_managed_insight_rules(map(), put_managed_insight_rules_input(), list()) ::
           {:ok, put_managed_insight_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_managed_insight_rules_errors()}
   def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2725,6 +2755,7 @@ defmodule AWS.CloudWatch do
   @spec put_metric_alarm(map(), put_metric_alarm_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metric_alarm_errors()}
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2814,6 +2845,7 @@ defmodule AWS.CloudWatch do
   @spec put_metric_data(map(), put_metric_data_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metric_data_errors()}
   def put_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2869,6 +2901,7 @@ defmodule AWS.CloudWatch do
   @spec put_metric_stream(map(), put_metric_stream_input(), list()) ::
           {:ok, put_metric_stream_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metric_stream_errors()}
   def put_metric_stream(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2909,6 +2942,7 @@ defmodule AWS.CloudWatch do
   @spec set_alarm_state(map(), set_alarm_state_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_alarm_state_errors()}
   def set_alarm_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2922,6 +2956,7 @@ defmodule AWS.CloudWatch do
   @spec start_metric_streams(map(), start_metric_streams_input(), list()) ::
           {:ok, start_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_metric_streams_errors()}
   def start_metric_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2935,6 +2970,7 @@ defmodule AWS.CloudWatch do
   @spec stop_metric_streams(map(), stop_metric_streams_input(), list()) ::
           {:ok, stop_metric_streams_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_metric_streams_errors()}
   def stop_metric_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2971,6 +3007,7 @@ defmodule AWS.CloudWatch do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2984,6 +3021,7 @@ defmodule AWS.CloudWatch do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

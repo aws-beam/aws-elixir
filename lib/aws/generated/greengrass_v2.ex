@@ -1552,6 +1552,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, associate_service_role_to_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_service_role_to_account_errors()}
   def associate_service_role_to_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -1603,6 +1604,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, batch_associate_client_device_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_associate_client_device_with_core_device_errors()}
   def batch_associate_client_device_with_core_device(
         %Client{} = client,
@@ -1648,6 +1650,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, batch_disassociate_client_device_from_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_disassociate_client_device_from_core_device_errors()}
   def batch_disassociate_client_device_from_core_device(
         %Client{} = client,
@@ -1688,6 +1691,7 @@ defmodule AWS.GreengrassV2 do
   @spec cancel_deployment(map(), String.t(), cancel_deployment_request(), list()) ::
           {:ok, cancel_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_deployment_errors()}
   def cancel_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}/cancel"
@@ -1758,6 +1762,7 @@ defmodule AWS.GreengrassV2 do
   @spec create_component_version(map(), create_component_version_request(), list()) ::
           {:ok, create_component_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_component_version_errors()}
   def create_component_version(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/createComponentVersion"
@@ -1807,6 +1812,7 @@ defmodule AWS.GreengrassV2 do
   @spec create_deployment(map(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/deployments"
@@ -1843,6 +1849,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_component(map(), String.t(), delete_component_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, arn, input, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
@@ -1879,6 +1886,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_core_device(map(), String.t(), delete_core_device_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_core_device_errors()}
   def delete_core_device(%Client{} = client, core_device_thing_name, input, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -1917,6 +1925,7 @@ defmodule AWS.GreengrassV2 do
   @spec delete_deployment(map(), String.t(), delete_deployment_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, deployment_id, input, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -1945,6 +1954,7 @@ defmodule AWS.GreengrassV2 do
   @spec describe_component(map(), String.t(), list()) ::
           {:ok, describe_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_component_errors()}
   def describe_component(%Client{} = client, arn, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}/metadata"
@@ -1973,6 +1983,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, disassociate_service_role_from_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_service_role_from_account_errors()}
   def disassociate_service_role_from_account(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -2001,6 +2012,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_component(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_component_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, arn, recipe_output_format \\ nil, options \\ []) do
     url_path = "/greengrass/v2/components/#{AWS.Util.encode_uri(arn)}"
@@ -2037,6 +2049,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, get_component_version_artifact_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_component_version_artifact_errors()}
   def get_component_version_artifact(
         %Client{} = client,
@@ -2087,6 +2100,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_connectivity_info(map(), String.t(), list()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connectivity_info_errors()}
   def get_connectivity_info(%Client{} = client, thing_name, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"
@@ -2133,6 +2147,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_core_device(map(), String.t(), list()) ::
           {:ok, get_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_core_device_errors()}
   def get_core_device(%Client{} = client, core_device_thing_name, options \\ []) do
     url_path = "/greengrass/v2/coreDevices/#{AWS.Util.encode_uri(core_device_thing_name)}"
@@ -2152,6 +2167,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_deployment(map(), String.t(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, deployment_id, options \\ []) do
     url_path = "/greengrass/v2/deployments/#{AWS.Util.encode_uri(deployment_id)}"
@@ -2176,6 +2192,7 @@ defmodule AWS.GreengrassV2 do
   @spec get_service_role_for_account(map(), list()) ::
           {:ok, get_service_role_for_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_role_for_account_errors()}
   def get_service_role_for_account(%Client{} = client, options \\ []) do
     url_path = "/greengrass/servicerole"
@@ -2200,6 +2217,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_client_devices_associated_with_core_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_client_devices_associated_with_core_device_errors()}
   def list_client_devices_associated_with_core_device(
         %Client{} = client,
@@ -2242,6 +2260,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_component_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_component_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_component_versions_errors()}
   def list_component_versions(
         %Client{} = client,
@@ -2282,6 +2301,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_components(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(
         %Client{} = client,
@@ -2371,6 +2391,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_core_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_core_devices_errors()}
   def list_core_devices(
         %Client{} = client,
@@ -2439,6 +2460,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(
         %Client{} = client,
@@ -2500,6 +2522,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_effective_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_effective_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_effective_deployments_errors()}
   def list_effective_deployments(
         %Client{} = client,
@@ -2581,6 +2604,7 @@ defmodule AWS.GreengrassV2 do
         ) ::
           {:ok, list_installed_components_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_installed_components_errors()}
   def list_installed_components(
         %Client{} = client,
@@ -2628,6 +2652,7 @@ defmodule AWS.GreengrassV2 do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2668,6 +2693,7 @@ defmodule AWS.GreengrassV2 do
   @spec resolve_component_candidates(map(), resolve_component_candidates_request(), list()) ::
           {:ok, resolve_component_candidates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, resolve_component_candidates_errors()}
   def resolve_component_candidates(%Client{} = client, input, options \\ []) do
     url_path = "/greengrass/v2/resolveComponentCandidates"
@@ -2699,6 +2725,7 @@ defmodule AWS.GreengrassV2 do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2727,6 +2754,7 @@ defmodule AWS.GreengrassV2 do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2769,6 +2797,7 @@ defmodule AWS.GreengrassV2 do
   @spec update_connectivity_info(map(), String.t(), update_connectivity_info_request(), list()) ::
           {:ok, update_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_connectivity_info_errors()}
   def update_connectivity_info(%Client{} = client, thing_name, input, options \\ []) do
     url_path = "/greengrass/things/#{AWS.Util.encode_uri(thing_name)}/connectivityInfo"

@@ -171,6 +171,19 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      batch_update_exclusion_windows_error() :: %{
+        "ErrorCode" => String.t(),
+        "ErrorMessage" => String.t(),
+        "SloId" => String.t()
+      }
+
+  """
+  @type batch_update_exclusion_windows_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_level_objective_budget_report_error() :: %{
         "Arn" => String.t(),
         "ErrorCode" => String.t(),
@@ -319,6 +332,18 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      batch_update_exclusion_windows_output() :: %{
+        "Errors" => list(batch_update_exclusion_windows_error()()),
+        "SloIds" => list([String.t()]())
+      }
+
+  """
+  @type batch_update_exclusion_windows_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       goal() :: %{
         "AttainmentGoal" => float(),
         "Interval" => list(),
@@ -414,6 +439,18 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_level_objective_exclusion_windows_output() :: %{
+        "ExclusionWindows" => list(exclusion_window()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_service_level_objective_exclusion_windows_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -579,6 +616,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      recurrence_rule() :: %{
+        "Expression" => String.t()
+      }
+
+  """
+  @type recurrence_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_service_dependents_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -589,6 +637,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type list_service_dependents_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_exclusion_windows_input() :: %{
+        optional("AddExclusionWindows") => list(exclusion_window()()),
+        optional("RemoveExclusionWindows") => list(exclusion_window()()),
+        required("SloIds") => list([String.t()]())
+      }
+
+  """
+  @type batch_update_exclusion_windows_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -718,6 +779,30 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      list_service_level_objective_exclusion_windows_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_service_level_objective_exclusion_windows_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      window() :: %{
+        "Duration" => integer(),
+        "DurationUnit" => list(any())
+      }
+
+  """
+  @type window() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t()
       }
@@ -833,6 +918,20 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      exclusion_window() :: %{
+        "Reason" => String.t(),
+        "RecurrenceRule" => recurrence_rule(),
+        "StartTime" => [non_neg_integer()],
+        "Window" => window()
+      }
+
+  """
+  @type exclusion_window() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_services_input() :: %{
         optional("AwsAccountId") => String.t(),
         optional("IncludeLinkedAccounts") => [boolean()],
@@ -861,6 +960,9 @@ defmodule AWS.ApplicationSignals do
   @type batch_get_service_level_objective_budget_report_errors() ::
           throttling_exception() | validation_exception()
 
+  @type batch_update_exclusion_windows_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
+
   @type create_service_level_objective_errors() ::
           throttling_exception()
           | validation_exception()
@@ -879,6 +981,9 @@ defmodule AWS.ApplicationSignals do
   @type list_service_dependencies_errors() :: throttling_exception() | validation_exception()
 
   @type list_service_dependents_errors() :: throttling_exception() | validation_exception()
+
+  @type list_service_level_objective_exclusion_windows_errors() ::
+          throttling_exception() | validation_exception() | resource_not_found_exception()
 
   @type list_service_level_objectives_errors() :: throttling_exception() | validation_exception()
 
@@ -944,6 +1049,7 @@ defmodule AWS.ApplicationSignals do
         ) ::
           {:ok, batch_get_service_level_objective_budget_report_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_service_level_objective_budget_report_errors()}
   def batch_get_service_level_objective_budget_report(%Client{} = client, input, options \\ []) do
     url_path = "/budget-report"
@@ -957,6 +1063,36 @@ defmodule AWS.ApplicationSignals do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Add or remove time window exclusions for one or more Service Level Objectives
+  (SLOs).
+  """
+  @spec batch_update_exclusion_windows(map(), batch_update_exclusion_windows_input(), list()) ::
+          {:ok, batch_update_exclusion_windows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_exclusion_windows_errors()}
+  def batch_update_exclusion_windows(%Client{} = client, input, options \\ []) do
+    url_path = "/exclusion-windows"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1076,6 +1212,7 @@ defmodule AWS.ApplicationSignals do
   @spec create_service_level_objective(map(), create_service_level_objective_input(), list()) ::
           {:ok, create_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_level_objective_errors()}
   def create_service_level_objective(%Client{} = client, input, options \\ []) do
     url_path = "/slo"
@@ -1109,6 +1246,7 @@ defmodule AWS.ApplicationSignals do
         ) ::
           {:ok, delete_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_level_objective_errors()}
   def delete_service_level_objective(%Client{} = client, id, input, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"
@@ -1137,6 +1275,7 @@ defmodule AWS.ApplicationSignals do
   @spec get_service(map(), get_service_input(), list()) ::
           {:ok, get_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
     url_path = "/service"
@@ -1171,6 +1310,7 @@ defmodule AWS.ApplicationSignals do
   @spec get_service_level_objective(map(), String.t(), list()) ::
           {:ok, get_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_service_level_objective_errors()}
   def get_service_level_objective(%Client{} = client, id, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"
@@ -1193,6 +1333,7 @@ defmodule AWS.ApplicationSignals do
   @spec list_service_dependencies(map(), list_service_dependencies_input(), list()) ::
           {:ok, list_service_dependencies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_dependencies_errors()}
   def list_service_dependencies(%Client{} = client, input, options \\ []) do
     url_path = "/service-dependencies"
@@ -1234,6 +1375,7 @@ defmodule AWS.ApplicationSignals do
   @spec list_service_dependents(map(), list_service_dependents_input(), list()) ::
           {:ok, list_service_dependents_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_dependents_errors()}
   def list_service_dependents(%Client{} = client, input, options \\ []) do
     url_path = "/service-dependents"
@@ -1265,11 +1407,56 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
+  Retrieves all exclusion windows configured for a specific SLO.
+  """
+  @spec list_service_level_objective_exclusion_windows(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_service_level_objective_exclusion_windows_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_service_level_objective_exclusion_windows_errors()}
+  def list_service_level_objective_exclusion_windows(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/slo/#{AWS.Util.encode_uri(id)}/exclusion-windows"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of SLOs created in this account.
   """
   @spec list_service_level_objectives(map(), list_service_level_objectives_input(), list()) ::
           {:ok, list_service_level_objectives_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_level_objectives_errors()}
   def list_service_level_objectives(%Client{} = client, input, options \\ []) do
     url_path = "/slos"
@@ -1311,6 +1498,7 @@ defmodule AWS.ApplicationSignals do
   @spec list_service_operations(map(), list_service_operations_input(), list()) ::
           {:ok, list_service_operations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_operations_errors()}
   def list_service_operations(%Client{} = client, input, options \\ []) do
     url_path = "/service-operations"
@@ -1360,6 +1548,7 @@ defmodule AWS.ApplicationSignals do
         ) ::
           {:ok, list_services_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(
         %Client{} = client,
@@ -1430,6 +1619,7 @@ defmodule AWS.ApplicationSignals do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags"
@@ -1495,6 +1685,7 @@ defmodule AWS.ApplicationSignals do
   @spec start_discovery(map(), start_discovery_input(), list()) ::
           {:ok, start_discovery_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_discovery_errors()}
   def start_discovery(%Client{} = client, input, options \\ []) do
     url_path = "/start-discovery"
@@ -1541,6 +1732,7 @@ defmodule AWS.ApplicationSignals do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/tag-resource"
@@ -1569,6 +1761,7 @@ defmodule AWS.ApplicationSignals do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untag-resource"
@@ -1608,6 +1801,7 @@ defmodule AWS.ApplicationSignals do
         ) ::
           {:ok, update_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_level_objective_errors()}
   def update_service_level_objective(%Client{} = client, id, input, options \\ []) do
     url_path = "/slo/#{AWS.Util.encode_uri(id)}"

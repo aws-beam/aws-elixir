@@ -1484,6 +1484,7 @@ defmodule AWS.ManagedBlockchain do
   @spec create_accessor(map(), create_accessor_input(), list()) ::
           {:ok, create_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_accessor_errors()}
   def create_accessor(%Client{} = client, input, options \\ []) do
     url_path = "/accessors"
@@ -1514,6 +1515,7 @@ defmodule AWS.ManagedBlockchain do
   @spec create_member(map(), String.t(), create_member_input(), list()) ::
           {:ok, create_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_member_errors()}
   def create_member(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/members"
@@ -1544,6 +1546,7 @@ defmodule AWS.ManagedBlockchain do
   @spec create_network(map(), create_network_input(), list()) ::
           {:ok, create_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_errors()}
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/networks"
@@ -1574,6 +1577,7 @@ defmodule AWS.ManagedBlockchain do
   @spec create_node(map(), String.t(), create_node_input(), list()) ::
           {:ok, create_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_node_errors()}
   def create_node(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/nodes"
@@ -1607,6 +1611,7 @@ defmodule AWS.ManagedBlockchain do
   @spec create_proposal(map(), String.t(), create_proposal_input(), list()) ::
           {:ok, create_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_proposal_errors()}
   def create_proposal(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}/proposals"
@@ -1646,6 +1651,7 @@ defmodule AWS.ManagedBlockchain do
   @spec delete_accessor(map(), String.t(), delete_accessor_input(), list()) ::
           {:ok, delete_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_accessor_errors()}
   def delete_accessor(%Client{} = client, accessor_id, input, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
@@ -1684,6 +1690,7 @@ defmodule AWS.ManagedBlockchain do
   @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_member_errors()}
   def delete_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path =
@@ -1718,6 +1725,7 @@ defmodule AWS.ManagedBlockchain do
   @spec delete_node(map(), String.t(), String.t(), delete_node_input(), list()) ::
           {:ok, delete_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_node_errors()}
   def delete_node(%Client{} = client, network_id, node_id, input, options \\ []) do
     url_path =
@@ -1756,6 +1764,7 @@ defmodule AWS.ManagedBlockchain do
   @spec get_accessor(map(), String.t(), list()) ::
           {:ok, get_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_accessor_errors()}
   def get_accessor(%Client{} = client, accessor_id, options \\ []) do
     url_path = "/accessors/#{AWS.Util.encode_uri(accessor_id)}"
@@ -1775,6 +1784,7 @@ defmodule AWS.ManagedBlockchain do
   @spec get_member(map(), String.t(), String.t(), list()) ::
           {:ok, get_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_member_errors()}
   def get_member(%Client{} = client, member_id, network_id, options \\ []) do
     url_path =
@@ -1796,6 +1806,7 @@ defmodule AWS.ManagedBlockchain do
   @spec get_network(map(), String.t(), list()) ::
           {:ok, get_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_network_errors()}
   def get_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/networks/#{AWS.Util.encode_uri(network_id)}"
@@ -1815,6 +1826,7 @@ defmodule AWS.ManagedBlockchain do
   @spec get_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_node_errors()}
   def get_node(%Client{} = client, network_id, node_id, member_id \\ nil, options \\ []) do
     url_path =
@@ -1843,6 +1855,7 @@ defmodule AWS.ManagedBlockchain do
   @spec get_proposal(map(), String.t(), String.t(), list()) ::
           {:ok, get_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_proposal_errors()}
   def get_proposal(%Client{} = client, network_id, proposal_id, options \\ []) do
     url_path =
@@ -1865,6 +1878,7 @@ defmodule AWS.ManagedBlockchain do
   @spec list_accessors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_accessors_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_accessors_errors()}
   def list_accessors(
         %Client{} = client,
@@ -1911,6 +1925,7 @@ defmodule AWS.ManagedBlockchain do
   @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_invitations_errors()}
   def list_invitations(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/invitations"
@@ -1954,6 +1969,7 @@ defmodule AWS.ManagedBlockchain do
         ) ::
           {:ok, list_members_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_members_errors()}
   def list_members(
         %Client{} = client,
@@ -2026,6 +2042,7 @@ defmodule AWS.ManagedBlockchain do
         ) ::
           {:ok, list_networks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_networks_errors()}
   def list_networks(
         %Client{} = client,
@@ -2096,6 +2113,7 @@ defmodule AWS.ManagedBlockchain do
         ) ::
           {:ok, list_nodes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(
         %Client{} = client,
@@ -2159,6 +2177,7 @@ defmodule AWS.ManagedBlockchain do
         ) ::
           {:ok, list_proposal_votes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_proposal_votes_errors()}
   def list_proposal_votes(
         %Client{} = client,
@@ -2201,6 +2220,7 @@ defmodule AWS.ManagedBlockchain do
   @spec list_proposals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_proposals_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_proposals_errors()}
   def list_proposals(
         %Client{} = client,
@@ -2244,6 +2264,7 @@ defmodule AWS.ManagedBlockchain do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2266,6 +2287,7 @@ defmodule AWS.ManagedBlockchain do
   @spec reject_invitation(map(), String.t(), reject_invitation_input(), list()) ::
           {:ok, reject_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_invitation_errors()}
   def reject_invitation(%Client{} = client, invitation_id, input, options \\ []) do
     url_path = "/invitations/#{AWS.Util.encode_uri(invitation_id)}"
@@ -2307,6 +2329,7 @@ defmodule AWS.ManagedBlockchain do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2339,6 +2362,7 @@ defmodule AWS.ManagedBlockchain do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -2374,6 +2398,7 @@ defmodule AWS.ManagedBlockchain do
   @spec update_member(map(), String.t(), String.t(), update_member_input(), list()) ::
           {:ok, update_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_member_errors()}
   def update_member(%Client{} = client, member_id, network_id, input, options \\ []) do
     url_path =
@@ -2406,6 +2431,7 @@ defmodule AWS.ManagedBlockchain do
   @spec update_node(map(), String.t(), String.t(), update_node_input(), list()) ::
           {:ok, update_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_node_errors()}
   def update_node(%Client{} = client, network_id, node_id, input, options \\ []) do
     url_path =
@@ -2441,6 +2467,7 @@ defmodule AWS.ManagedBlockchain do
   @spec vote_on_proposal(map(), String.t(), String.t(), vote_on_proposal_input(), list()) ::
           {:ok, vote_on_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, vote_on_proposal_errors()}
   def vote_on_proposal(%Client{} = client, network_id, proposal_id, input, options \\ []) do
     url_path =

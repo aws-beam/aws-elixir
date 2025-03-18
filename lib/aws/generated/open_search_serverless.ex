@@ -1723,6 +1723,7 @@ defmodule AWS.OpenSearchServerless do
   @spec batch_get_collection(map(), batch_get_collection_request(), list()) ::
           {:ok, batch_get_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_collection_errors()}
   def batch_get_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1743,6 +1744,7 @@ defmodule AWS.OpenSearchServerless do
         ) ::
           {:ok, batch_get_effective_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_effective_lifecycle_policy_errors()}
   def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1758,6 +1760,7 @@ defmodule AWS.OpenSearchServerless do
   @spec batch_get_lifecycle_policy(map(), batch_get_lifecycle_policy_request(), list()) ::
           {:ok, batch_get_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_lifecycle_policy_errors()}
   def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1775,6 +1778,7 @@ defmodule AWS.OpenSearchServerless do
   @spec batch_get_vpc_endpoint(map(), batch_get_vpc_endpoint_request(), list()) ::
           {:ok, batch_get_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_vpc_endpoint_errors()}
   def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1794,6 +1798,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_access_policy(map(), create_access_policy_request(), list()) ::
           {:ok, create_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_policy_errors()}
   def create_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1810,6 +1815,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_collection(map(), create_collection_request(), list()) ::
           {:ok, create_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1827,6 +1833,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_lifecycle_policy(map(), create_lifecycle_policy_request(), list()) ::
           {:ok, create_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1844,6 +1851,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_security_config(map(), create_security_config_request(), list()) ::
           {:ok, create_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_config_errors()}
   def create_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1868,6 +1876,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_security_policy(map(), create_security_policy_request(), list()) ::
           {:ok, create_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_security_policy_errors()}
   def create_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1884,6 +1893,7 @@ defmodule AWS.OpenSearchServerless do
   @spec create_vpc_endpoint(map(), create_vpc_endpoint_request(), list()) ::
           {:ok, create_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1900,6 +1910,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_access_policy(map(), delete_access_policy_request(), list()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_policy_errors()}
   def delete_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1916,6 +1927,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_collection(map(), delete_collection_request(), list()) ::
           {:ok, delete_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1931,6 +1943,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_lifecycle_policy(map(), delete_lifecycle_policy_request(), list()) ::
           {:ok, delete_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1948,6 +1961,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_security_config(map(), delete_security_config_request(), list()) ::
           {:ok, delete_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_security_config_errors()}
   def delete_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1961,6 +1975,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_security_policy(map(), delete_security_policy_request(), list()) ::
           {:ok, delete_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_security_policy_errors()}
   def delete_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1977,6 +1992,7 @@ defmodule AWS.OpenSearchServerless do
   @spec delete_vpc_endpoint(map(), delete_vpc_endpoint_request(), list()) ::
           {:ok, delete_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1993,6 +2009,7 @@ defmodule AWS.OpenSearchServerless do
   @spec get_access_policy(map(), get_access_policy_request(), list()) ::
           {:ok, get_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_access_policy_errors()}
   def get_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2006,6 +2023,7 @@ defmodule AWS.OpenSearchServerless do
   @spec get_account_settings(map(), get_account_settings_request(), list()) ::
           {:ok, get_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2021,6 +2039,7 @@ defmodule AWS.OpenSearchServerless do
   @spec get_policies_stats(map(), get_policies_stats_request(), list()) ::
           {:ok, get_policies_stats_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_policies_stats_errors()}
   def get_policies_stats(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2038,6 +2057,7 @@ defmodule AWS.OpenSearchServerless do
   @spec get_security_config(map(), get_security_config_request(), list()) ::
           {:ok, get_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_security_config_errors()}
   def get_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2056,6 +2076,7 @@ defmodule AWS.OpenSearchServerless do
   @spec get_security_policy(map(), get_security_policy_request(), list()) ::
           {:ok, get_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_security_policy_errors()}
   def get_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2069,6 +2090,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_access_policies(map(), list_access_policies_request(), list()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2089,6 +2111,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_collections(map(), list_collections_request(), list()) ::
           {:ok, list_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2104,6 +2127,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_lifecycle_policies(map(), list_lifecycle_policies_request(), list()) ::
           {:ok, list_lifecycle_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_lifecycle_policies_errors()}
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2122,6 +2146,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_security_configs(map(), list_security_configs_request(), list()) ::
           {:ok, list_security_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_configs_errors()}
   def list_security_configs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2135,6 +2160,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_security_policies(map(), list_security_policies_request(), list()) ::
           {:ok, list_security_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2150,6 +2176,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2168,6 +2195,7 @@ defmodule AWS.OpenSearchServerless do
   @spec list_vpc_endpoints(map(), list_vpc_endpoints_request(), list()) ::
           {:ok, list_vpc_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2183,6 +2211,7 @@ defmodule AWS.OpenSearchServerless do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2198,6 +2227,7 @@ defmodule AWS.OpenSearchServerless do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2214,6 +2244,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_access_policy(map(), update_access_policy_request(), list()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_access_policy_errors()}
   def update_access_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2231,6 +2262,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_account_settings(map(), update_account_settings_request(), list()) ::
           {:ok, update_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2244,6 +2276,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_collection(map(), update_collection_request(), list()) ::
           {:ok, update_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_collection_errors()}
   def update_collection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2259,6 +2292,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_lifecycle_policy(map(), update_lifecycle_policy_request(), list()) ::
           {:ok, update_lifecycle_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2276,6 +2310,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_security_config(map(), update_security_config_request(), list()) ::
           {:ok, update_security_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_config_errors()}
   def update_security_config(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2294,6 +2329,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_security_policy(map(), update_security_policy_request(), list()) ::
           {:ok, update_security_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_security_policy_errors()}
   def update_security_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2310,6 +2346,7 @@ defmodule AWS.OpenSearchServerless do
   @spec update_vpc_endpoint(map(), update_vpc_endpoint_request(), list()) ::
           {:ok, update_vpc_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -1729,6 +1729,7 @@ defmodule AWS.SNS do
   @spec add_permission(map(), add_permission_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1753,6 +1754,7 @@ defmodule AWS.SNS do
         ) ::
           {:ok, check_if_phone_number_is_opted_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, check_if_phone_number_is_opted_out_errors()}
   def check_if_phone_number_is_opted_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1774,6 +1776,7 @@ defmodule AWS.SNS do
   @spec confirm_subscription(map(), confirm_subscription_input(), list()) ::
           {:ok, confirm_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, confirm_subscription_errors()}
   def confirm_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1859,6 +1862,7 @@ defmodule AWS.SNS do
   @spec create_platform_application(map(), create_platform_application_input(), list()) ::
           {:ok, create_platform_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_platform_application_errors()}
   def create_platform_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1888,6 +1892,7 @@ defmodule AWS.SNS do
   @spec create_platform_endpoint(map(), create_platform_endpoint_input(), list()) ::
           {:ok, create_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_platform_endpoint_errors()}
   def create_platform_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1916,6 +1921,7 @@ defmodule AWS.SNS do
   @spec create_sms_sandbox_phone_number(map(), create_sms_sandbox_phone_number_input(), list()) ::
           {:ok, create_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_sms_sandbox_phone_number_errors()}
   def create_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1937,6 +1943,7 @@ defmodule AWS.SNS do
   @spec create_topic(map(), create_topic_input(), list()) ::
           {:ok, create_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_topic_errors()}
   def create_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1957,6 +1964,7 @@ defmodule AWS.SNS do
   @spec delete_endpoint(map(), delete_endpoint_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1975,6 +1983,7 @@ defmodule AWS.SNS do
   @spec delete_platform_application(map(), delete_platform_application_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_platform_application_errors()}
   def delete_platform_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2003,6 +2012,7 @@ defmodule AWS.SNS do
   @spec delete_sms_sandbox_phone_number(map(), delete_sms_sandbox_phone_number_input(), list()) ::
           {:ok, delete_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_sms_sandbox_phone_number_errors()}
   def delete_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2022,6 +2032,7 @@ defmodule AWS.SNS do
   @spec delete_topic(map(), delete_topic_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_topic_errors()}
   def delete_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2036,6 +2047,7 @@ defmodule AWS.SNS do
   @spec get_data_protection_policy(map(), get_data_protection_policy_input(), list()) ::
           {:ok, get_data_protection_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2053,6 +2065,7 @@ defmodule AWS.SNS do
   @spec get_endpoint_attributes(map(), get_endpoint_attributes_input(), list()) ::
           {:ok, get_endpoint_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_endpoint_attributes_errors()}
   def get_endpoint_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2075,6 +2088,7 @@ defmodule AWS.SNS do
         ) ::
           {:ok, get_platform_application_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_platform_application_attributes_errors()}
   def get_platform_application_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2091,6 +2105,7 @@ defmodule AWS.SNS do
   @spec get_sms_attributes(map(), get_sms_attributes_input(), list()) ::
           {:ok, get_sms_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sms_attributes_errors()}
   def get_sms_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2119,6 +2134,7 @@ defmodule AWS.SNS do
   @spec get_sms_sandbox_account_status(map(), get_sms_sandbox_account_status_input(), list()) ::
           {:ok, get_sms_sandbox_account_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sms_sandbox_account_status_errors()}
   def get_sms_sandbox_account_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2132,6 +2148,7 @@ defmodule AWS.SNS do
   @spec get_subscription_attributes(map(), get_subscription_attributes_input(), list()) ::
           {:ok, get_subscription_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_subscription_attributes_errors()}
   def get_subscription_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2148,6 +2165,7 @@ defmodule AWS.SNS do
   @spec get_topic_attributes(map(), get_topic_attributes_input(), list()) ::
           {:ok, get_topic_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_topic_attributes_errors()}
   def get_topic_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2179,6 +2197,7 @@ defmodule AWS.SNS do
         ) ::
           {:ok, list_endpoints_by_platform_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_endpoints_by_platform_application_errors()}
   def list_endpoints_by_platform_application(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2197,6 +2216,7 @@ defmodule AWS.SNS do
   @spec list_origination_numbers(map(), list_origination_numbers_request(), list()) ::
           {:ok, list_origination_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_origination_numbers_errors()}
   def list_origination_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2219,6 +2239,7 @@ defmodule AWS.SNS do
   @spec list_phone_numbers_opted_out(map(), list_phone_numbers_opted_out_input(), list()) ::
           {:ok, list_phone_numbers_opted_out_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_phone_numbers_opted_out_errors()}
   def list_phone_numbers_opted_out(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2246,6 +2267,7 @@ defmodule AWS.SNS do
   @spec list_platform_applications(map(), list_platform_applications_input(), list()) ::
           {:ok, list_platform_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_platform_applications_errors()}
   def list_platform_applications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2274,6 +2296,7 @@ defmodule AWS.SNS do
   @spec list_sms_sandbox_phone_numbers(map(), list_sms_sandbox_phone_numbers_input(), list()) ::
           {:ok, list_sms_sandbox_phone_numbers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sms_sandbox_phone_numbers_errors()}
   def list_sms_sandbox_phone_numbers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2294,6 +2317,7 @@ defmodule AWS.SNS do
   @spec list_subscriptions(map(), list_subscriptions_input(), list()) ::
           {:ok, list_subscriptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscriptions_errors()}
   def list_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2314,6 +2338,7 @@ defmodule AWS.SNS do
   @spec list_subscriptions_by_topic(map(), list_subscriptions_by_topic_input(), list()) ::
           {:ok, list_subscriptions_by_topic_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_subscriptions_by_topic_errors()}
   def list_subscriptions_by_topic(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2330,6 +2355,7 @@ defmodule AWS.SNS do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2350,6 +2376,7 @@ defmodule AWS.SNS do
   @spec list_topics(map(), list_topics_input(), list()) ::
           {:ok, list_topics_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_topics_errors()}
   def list_topics(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2367,6 +2394,7 @@ defmodule AWS.SNS do
   @spec opt_in_phone_number(map(), opt_in_phone_number_input(), list()) ::
           {:ok, opt_in_phone_number_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, opt_in_phone_number_errors()}
   def opt_in_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2404,6 +2432,7 @@ defmodule AWS.SNS do
   @spec publish(map(), publish_input(), list()) ::
           {:ok, publish_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_errors()}
   def publish(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2453,6 +2482,7 @@ defmodule AWS.SNS do
   @spec publish_batch(map(), publish_batch_input(), list()) ::
           {:ok, publish_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, publish_batch_errors()}
   def publish_batch(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2468,6 +2498,7 @@ defmodule AWS.SNS do
   @spec put_data_protection_policy(map(), put_data_protection_policy_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2485,6 +2516,7 @@ defmodule AWS.SNS do
   @spec remove_permission(map(), remove_permission_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2502,6 +2534,7 @@ defmodule AWS.SNS do
   @spec set_endpoint_attributes(map(), set_endpoint_attributes_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_endpoint_attributes_errors()}
   def set_endpoint_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2527,6 +2560,7 @@ defmodule AWS.SNS do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_platform_application_attributes_errors()}
   def set_platform_application_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2551,6 +2585,7 @@ defmodule AWS.SNS do
   @spec set_sms_attributes(map(), set_sms_attributes_input(), list()) ::
           {:ok, set_sms_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_sms_attributes_errors()}
   def set_sms_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2565,6 +2600,7 @@ defmodule AWS.SNS do
   @spec set_subscription_attributes(map(), set_subscription_attributes_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_subscription_attributes_errors()}
   def set_subscription_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2582,6 +2618,7 @@ defmodule AWS.SNS do
   @spec set_topic_attributes(map(), set_topic_attributes_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_topic_attributes_errors()}
   def set_topic_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2605,6 +2642,7 @@ defmodule AWS.SNS do
   @spec subscribe(map(), subscribe_input(), list()) ::
           {:ok, subscribe_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, subscribe_errors()}
   def subscribe(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2642,6 +2680,7 @@ defmodule AWS.SNS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2673,6 +2712,7 @@ defmodule AWS.SNS do
   @spec unsubscribe(map(), unsubscribe_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unsubscribe_errors()}
   def unsubscribe(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2689,6 +2729,7 @@ defmodule AWS.SNS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2717,6 +2758,7 @@ defmodule AWS.SNS do
   @spec verify_sms_sandbox_phone_number(map(), verify_sms_sandbox_phone_number_input(), list()) ::
           {:ok, verify_sms_sandbox_phone_number_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, verify_sms_sandbox_phone_number_errors()}
   def verify_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
     meta = metadata()

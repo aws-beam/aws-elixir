@@ -3991,6 +3991,7 @@ defmodule AWS.ECS do
   @spec create_capacity_provider(map(), create_capacity_provider_request(), list()) ::
           {:ok, create_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_capacity_provider_errors()}
   def create_capacity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4022,6 +4023,7 @@ defmodule AWS.ECS do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4161,6 +4163,7 @@ defmodule AWS.ECS do
   @spec create_service(map(), create_service_request(), list()) ::
           {:ok, create_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4188,6 +4191,7 @@ defmodule AWS.ECS do
   @spec create_task_set(map(), create_task_set_request(), list()) ::
           {:ok, create_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_task_set_errors()}
   def create_task_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4202,6 +4206,7 @@ defmodule AWS.ECS do
   @spec delete_account_setting(map(), delete_account_setting_request(), list()) ::
           {:ok, delete_account_setting_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_account_setting_errors()}
   def delete_account_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4215,6 +4220,7 @@ defmodule AWS.ECS do
   @spec delete_attributes(map(), delete_attributes_request(), list()) ::
           {:ok, delete_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_attributes_errors()}
   def delete_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4251,6 +4257,7 @@ defmodule AWS.ECS do
   @spec delete_capacity_provider(map(), delete_capacity_provider_request(), list()) ::
           {:ok, delete_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_capacity_provider_errors()}
   def delete_capacity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4276,6 +4283,7 @@ defmodule AWS.ECS do
   @spec delete_cluster(map(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4316,6 +4324,7 @@ defmodule AWS.ECS do
   @spec delete_service(map(), delete_service_request(), list()) ::
           {:ok, delete_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4359,6 +4368,7 @@ defmodule AWS.ECS do
   @spec delete_task_definitions(map(), delete_task_definitions_request(), list()) ::
           {:ok, delete_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_task_definitions_errors()}
   def delete_task_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4377,6 +4387,7 @@ defmodule AWS.ECS do
   @spec delete_task_set(map(), delete_task_set_request(), list()) ::
           {:ok, delete_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_task_set_errors()}
   def delete_task_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4410,6 +4421,7 @@ defmodule AWS.ECS do
   @spec deregister_container_instance(map(), deregister_container_instance_request(), list()) ::
           {:ok, deregister_container_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_container_instance_errors()}
   def deregister_container_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4447,6 +4459,7 @@ defmodule AWS.ECS do
   @spec deregister_task_definition(map(), deregister_task_definition_request(), list()) ::
           {:ok, deregister_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_task_definition_errors()}
   def deregister_task_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4460,6 +4473,7 @@ defmodule AWS.ECS do
   @spec describe_capacity_providers(map(), describe_capacity_providers_request(), list()) ::
           {:ok, describe_capacity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_capacity_providers_errors()}
   def describe_capacity_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4477,6 +4491,7 @@ defmodule AWS.ECS do
   @spec describe_clusters(map(), describe_clusters_request(), list()) ::
           {:ok, describe_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4493,6 +4508,7 @@ defmodule AWS.ECS do
   @spec describe_container_instances(map(), describe_container_instances_request(), list()) ::
           {:ok, describe_container_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_container_instances_errors()}
   def describe_container_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4510,6 +4526,7 @@ defmodule AWS.ECS do
   @spec describe_service_deployments(map(), describe_service_deployments_request(), list()) ::
           {:ok, describe_service_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_deployments_errors()}
   def describe_service_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4532,6 +4549,7 @@ defmodule AWS.ECS do
   @spec describe_service_revisions(map(), describe_service_revisions_request(), list()) ::
           {:ok, describe_service_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_service_revisions_errors()}
   def describe_service_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4545,6 +4563,7 @@ defmodule AWS.ECS do
   @spec describe_services(map(), describe_services_request(), list()) ::
           {:ok, describe_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4566,6 +4585,7 @@ defmodule AWS.ECS do
   @spec describe_task_definition(map(), describe_task_definition_request(), list()) ::
           {:ok, describe_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_task_definition_errors()}
   def describe_task_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4584,6 +4604,7 @@ defmodule AWS.ECS do
   @spec describe_task_sets(map(), describe_task_sets_request(), list()) ::
           {:ok, describe_task_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_task_sets_errors()}
   def describe_task_sets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4604,6 +4625,7 @@ defmodule AWS.ECS do
   @spec describe_tasks(map(), describe_tasks_request(), list()) ::
           {:ok, describe_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tasks_errors()}
   def describe_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4621,6 +4643,7 @@ defmodule AWS.ECS do
   @spec discover_poll_endpoint(map(), discover_poll_endpoint_request(), list()) ::
           {:ok, discover_poll_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, discover_poll_endpoint_errors()}
   def discover_poll_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4645,6 +4668,7 @@ defmodule AWS.ECS do
   @spec execute_command(map(), execute_command_request(), list()) ::
           {:ok, execute_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, execute_command_errors()}
   def execute_command(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4658,6 +4682,7 @@ defmodule AWS.ECS do
   @spec get_task_protection(map(), get_task_protection_request(), list()) ::
           {:ok, get_task_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_task_protection_errors()}
   def get_task_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4671,6 +4696,7 @@ defmodule AWS.ECS do
   @spec list_account_settings(map(), list_account_settings_request(), list()) ::
           {:ok, list_account_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_account_settings_errors()}
   def list_account_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4695,6 +4721,7 @@ defmodule AWS.ECS do
   @spec list_attributes(map(), list_attributes_request(), list()) ::
           {:ok, list_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_attributes_errors()}
   def list_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4708,6 +4735,7 @@ defmodule AWS.ECS do
   @spec list_clusters(map(), list_clusters_request(), list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4727,6 +4755,7 @@ defmodule AWS.ECS do
   @spec list_container_instances(map(), list_container_instances_request(), list()) ::
           {:ok, list_container_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_container_instances_errors()}
   def list_container_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4750,6 +4779,7 @@ defmodule AWS.ECS do
   @spec list_service_deployments(map(), list_service_deployments_request(), list()) ::
           {:ok, list_service_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_service_deployments_errors()}
   def list_service_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4766,6 +4796,7 @@ defmodule AWS.ECS do
   @spec list_services(map(), list_services_request(), list()) ::
           {:ok, list_services_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4787,6 +4818,7 @@ defmodule AWS.ECS do
   @spec list_services_by_namespace(map(), list_services_by_namespace_request(), list()) ::
           {:ok, list_services_by_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_services_by_namespace_errors()}
   def list_services_by_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4800,6 +4832,7 @@ defmodule AWS.ECS do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4822,6 +4855,7 @@ defmodule AWS.ECS do
   @spec list_task_definition_families(map(), list_task_definition_families_request(), list()) ::
           {:ok, list_task_definition_families_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_task_definition_families_errors()}
   def list_task_definition_families(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4839,6 +4873,7 @@ defmodule AWS.ECS do
   @spec list_task_definitions(map(), list_task_definitions_request(), list()) ::
           {:ok, list_task_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_task_definitions_errors()}
   def list_task_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4859,6 +4894,7 @@ defmodule AWS.ECS do
   @spec list_tasks(map(), list_tasks_request(), list()) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4881,6 +4917,7 @@ defmodule AWS.ECS do
   @spec put_account_setting(map(), put_account_setting_request(), list()) ::
           {:ok, put_account_setting_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_setting_errors()}
   def put_account_setting(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4898,6 +4935,7 @@ defmodule AWS.ECS do
   @spec put_account_setting_default(map(), put_account_setting_default_request(), list()) ::
           {:ok, put_account_setting_default_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_setting_default_errors()}
   def put_account_setting_default(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4919,6 +4957,7 @@ defmodule AWS.ECS do
   @spec put_attributes(map(), put_attributes_request(), list()) ::
           {:ok, put_attributes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_attributes_errors()}
   def put_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4957,6 +4996,7 @@ defmodule AWS.ECS do
   @spec put_cluster_capacity_providers(map(), put_cluster_capacity_providers_request(), list()) ::
           {:ok, put_cluster_capacity_providers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_cluster_capacity_providers_errors()}
   def put_cluster_capacity_providers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4976,6 +5016,7 @@ defmodule AWS.ECS do
   @spec register_container_instance(map(), register_container_instance_request(), list()) ::
           {:ok, register_container_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_container_instance_errors()}
   def register_container_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5014,6 +5055,7 @@ defmodule AWS.ECS do
   @spec register_task_definition(map(), register_task_definition_request(), list()) ::
           {:ok, register_task_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_task_definition_errors()}
   def register_task_definition(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5073,6 +5115,7 @@ defmodule AWS.ECS do
   @spec run_task(map(), run_task_request(), list()) ::
           {:ok, run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, run_task_errors()}
   def run_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5102,6 +5145,7 @@ defmodule AWS.ECS do
   @spec start_task(map(), start_task_request(), list()) ::
           {:ok, start_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_task_errors()}
   def start_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5143,6 +5187,7 @@ defmodule AWS.ECS do
   @spec stop_task(map(), stop_task_request(), list()) ::
           {:ok, stop_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_task_errors()}
   def stop_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5160,6 +5205,7 @@ defmodule AWS.ECS do
   @spec submit_attachment_state_changes(map(), submit_attachment_state_changes_request(), list()) ::
           {:ok, submit_attachment_state_changes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_attachment_state_changes_errors()}
   def submit_attachment_state_changes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5177,6 +5223,7 @@ defmodule AWS.ECS do
   @spec submit_container_state_change(map(), submit_container_state_change_request(), list()) ::
           {:ok, submit_container_state_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_container_state_change_errors()}
   def submit_container_state_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5194,6 +5241,7 @@ defmodule AWS.ECS do
   @spec submit_task_state_change(map(), submit_task_state_change_request(), list()) ::
           {:ok, submit_task_state_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, submit_task_state_change_errors()}
   def submit_task_state_change(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5213,6 +5261,7 @@ defmodule AWS.ECS do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5226,6 +5275,7 @@ defmodule AWS.ECS do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5239,6 +5289,7 @@ defmodule AWS.ECS do
   @spec update_capacity_provider(map(), update_capacity_provider_request(), list()) ::
           {:ok, update_capacity_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_capacity_provider_errors()}
   def update_capacity_provider(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5252,6 +5303,7 @@ defmodule AWS.ECS do
   @spec update_cluster(map(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5265,6 +5317,7 @@ defmodule AWS.ECS do
   @spec update_cluster_settings(map(), update_cluster_settings_request(), list()) ::
           {:ok, update_cluster_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_settings_errors()}
   def update_cluster_settings(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5304,6 +5357,7 @@ defmodule AWS.ECS do
   @spec update_container_agent(map(), update_container_agent_request(), list()) ::
           {:ok, update_container_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_container_agent_errors()}
   def update_container_agent(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5377,6 +5431,7 @@ defmodule AWS.ECS do
         ) ::
           {:ok, update_container_instances_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_container_instances_state_errors()}
   def update_container_instances_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5551,6 +5606,7 @@ defmodule AWS.ECS do
   @spec update_service(map(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5571,6 +5627,7 @@ defmodule AWS.ECS do
   @spec update_service_primary_task_set(map(), update_service_primary_task_set_request(), list()) ::
           {:ok, update_service_primary_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_service_primary_task_set_errors()}
   def update_service_primary_task_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5616,6 +5673,7 @@ defmodule AWS.ECS do
   @spec update_task_protection(map(), update_task_protection_request(), list()) ::
           {:ok, update_task_protection_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_protection_errors()}
   def update_task_protection(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5633,6 +5691,7 @@ defmodule AWS.ECS do
   @spec update_task_set(map(), update_task_set_request(), list()) ::
           {:ok, update_task_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_set_errors()}
   def update_task_set(%Client{} = client, input, options \\ []) do
     meta = metadata()

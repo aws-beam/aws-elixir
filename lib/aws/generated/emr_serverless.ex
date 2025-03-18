@@ -984,6 +984,7 @@ defmodule AWS.EMRServerless do
   @spec cancel_job_run(map(), String.t(), String.t(), cancel_job_run_request(), list()) ::
           {:ok, cancel_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_run_errors()}
   def cancel_job_run(%Client{} = client, application_id, job_run_id, input, options \\ []) do
     url_path =
@@ -1014,6 +1015,7 @@ defmodule AWS.EMRServerless do
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
@@ -1045,6 +1047,7 @@ defmodule AWS.EMRServerless do
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -1073,6 +1076,7 @@ defmodule AWS.EMRServerless do
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, application_id, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"
@@ -1109,6 +1113,7 @@ defmodule AWS.EMRServerless do
         ) ::
           {:ok, get_dashboard_for_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dashboard_for_job_run_errors()}
   def get_dashboard_for_job_run(
         %Client{} = client,
@@ -1149,6 +1154,7 @@ defmodule AWS.EMRServerless do
   @spec get_job_run(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, application_id, job_run_id, attempt \\ nil, options \\ []) do
     url_path =
@@ -1175,6 +1181,7 @@ defmodule AWS.EMRServerless do
   @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(
         %Client{} = client,
@@ -1226,6 +1233,7 @@ defmodule AWS.EMRServerless do
         ) ::
           {:ok, list_job_run_attempts_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_run_attempts_errors()}
   def list_job_run_attempts(
         %Client{} = client,
@@ -1276,6 +1284,7 @@ defmodule AWS.EMRServerless do
         ) ::
           {:ok, list_job_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_runs_errors()}
   def list_job_runs(
         %Client{} = client,
@@ -1345,6 +1354,7 @@ defmodule AWS.EMRServerless do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1362,6 +1372,7 @@ defmodule AWS.EMRServerless do
   @spec start_application(map(), String.t(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/start"
@@ -1390,6 +1401,7 @@ defmodule AWS.EMRServerless do
   @spec start_job_run(map(), String.t(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/jobruns"
@@ -1421,6 +1433,7 @@ defmodule AWS.EMRServerless do
   @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/stop"
@@ -1458,6 +1471,7 @@ defmodule AWS.EMRServerless do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1486,6 +1500,7 @@ defmodule AWS.EMRServerless do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1522,6 +1537,7 @@ defmodule AWS.EMRServerless do
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}"

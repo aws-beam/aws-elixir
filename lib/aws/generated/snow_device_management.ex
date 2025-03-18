@@ -691,6 +691,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec cancel_task(map(), String.t(), cancel_task_input(), list()) ::
           {:ok, cancel_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_task_errors()}
   def cancel_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}/cancel"
@@ -719,6 +720,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec create_task(map(), create_task_input(), list()) ::
           {:ok, create_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_task_errors()}
   def create_task(%Client{} = client, input, options \\ []) do
     url_path = "/task"
@@ -749,6 +751,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec describe_device(map(), String.t(), describe_device_input(), list()) ::
           {:ok, describe_device_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/describe"
@@ -781,6 +784,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec describe_device_ec2_instances(map(), String.t(), describe_device_ec2_input(), list()) ::
           {:ok, describe_device_ec2_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_device_ec2_instances_errors()}
   def describe_device_ec2_instances(%Client{} = client, managed_device_id, input, options \\ []) do
     url_path = "/managed-device/#{AWS.Util.encode_uri(managed_device_id)}/resources/ec2/describe"
@@ -809,6 +813,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec describe_execution(map(), String.t(), String.t(), describe_execution_input(), list()) ::
           {:ok, describe_execution_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, managed_device_id, task_id, input, options \\ []) do
     url_path =
@@ -839,6 +844,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec describe_task(map(), String.t(), describe_task_input(), list()) ::
           {:ok, describe_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_task_errors()}
   def describe_task(%Client{} = client, task_id, input, options \\ []) do
     url_path = "/task/#{AWS.Util.encode_uri(task_id)}"
@@ -876,6 +882,7 @@ defmodule AWS.SnowDeviceManagement do
         ) ::
           {:ok, list_device_resources_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_device_resources_errors()}
   def list_device_resources(
         %Client{} = client,
@@ -923,6 +930,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec list_devices(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_devices_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(
         %Client{} = client,
@@ -974,6 +982,7 @@ defmodule AWS.SnowDeviceManagement do
         ) ::
           {:ok, list_executions_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(
         %Client{} = client,
@@ -1026,6 +1035,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1043,6 +1053,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec list_tasks(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_tasks_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(
         %Client{} = client,
@@ -1087,6 +1098,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1115,6 +1127,7 @@ defmodule AWS.SnowDeviceManagement do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

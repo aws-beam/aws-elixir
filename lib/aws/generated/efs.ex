@@ -1380,6 +1380,7 @@ defmodule AWS.EFS do
   @spec create_access_point(map(), create_access_point_request(), list()) ::
           {:ok, access_point_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_access_point_errors()}
   def create_access_point(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/access-points"
@@ -1486,6 +1487,7 @@ defmodule AWS.EFS do
   @spec create_file_system(map(), create_file_system_request(), list()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_file_system_errors()}
   def create_file_system(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/file-systems"
@@ -1686,6 +1688,7 @@ defmodule AWS.EFS do
   @spec create_mount_target(map(), create_mount_target_request(), list()) ::
           {:ok, mount_target_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_mount_target_errors()}
   def create_mount_target(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets"
@@ -1751,6 +1754,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, replication_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_configuration_errors()}
   def create_replication_configuration(
         %Client{} = client,
@@ -1802,6 +1806,7 @@ defmodule AWS.EFS do
   @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/create-tags/#{AWS.Util.encode_uri(file_system_id)}"
@@ -1838,6 +1843,7 @@ defmodule AWS.EFS do
   @spec delete_access_point(map(), String.t(), delete_access_point_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_access_point_errors()}
   def delete_access_point(%Client{} = client, access_point_id, input, options \\ []) do
     url_path = "/2015-02-01/access-points/#{AWS.Util.encode_uri(access_point_id)}"
@@ -1895,6 +1901,7 @@ defmodule AWS.EFS do
   @spec delete_file_system(map(), String.t(), delete_file_system_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_system_errors()}
   def delete_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
@@ -1931,6 +1938,7 @@ defmodule AWS.EFS do
   @spec delete_file_system_policy(map(), String.t(), delete_file_system_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_file_system_policy_errors()}
   def delete_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
@@ -1993,6 +2001,7 @@ defmodule AWS.EFS do
   @spec delete_mount_target(map(), String.t(), delete_mount_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_mount_target_errors()}
   def delete_mount_target(%Client{} = client, mount_target_id, input, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}"
@@ -2035,6 +2044,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_configuration_errors()}
   def delete_replication_configuration(
         %Client{} = client,
@@ -2089,6 +2099,7 @@ defmodule AWS.EFS do
   @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/delete-tags/#{AWS.Util.encode_uri(file_system_id)}"
@@ -2133,6 +2144,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, describe_access_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_access_points_errors()}
   def describe_access_points(
         %Client{} = client,
@@ -2187,6 +2199,7 @@ defmodule AWS.EFS do
   @spec describe_account_preferences(map(), list()) ::
           {:ok, describe_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_preferences_errors()}
   def describe_account_preferences(%Client{} = client, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
@@ -2204,6 +2217,7 @@ defmodule AWS.EFS do
   @spec describe_backup_policy(map(), String.t(), list()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_backup_policy_errors()}
   def describe_backup_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
@@ -2225,6 +2239,7 @@ defmodule AWS.EFS do
   @spec describe_file_system_policy(map(), String.t(), list()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_system_policy_errors()}
   def describe_file_system_policy(%Client{} = client, file_system_id, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
@@ -2281,6 +2296,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, describe_file_systems_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_file_systems_errors()}
   def describe_file_systems(
         %Client{} = client,
@@ -2342,6 +2358,7 @@ defmodule AWS.EFS do
   @spec describe_lifecycle_configuration(map(), String.t(), list()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_lifecycle_configuration_errors()}
   def describe_lifecycle_configuration(%Client{} = client, file_system_id, options \\ []) do
     url_path =
@@ -2378,6 +2395,7 @@ defmodule AWS.EFS do
   @spec describe_mount_target_security_groups(map(), String.t(), list()) ::
           {:ok, describe_mount_target_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mount_target_security_groups_errors()}
   def describe_mount_target_security_groups(%Client{} = client, mount_target_id, options \\ []) do
     url_path = "/2015-02-01/mount-targets/#{AWS.Util.encode_uri(mount_target_id)}/security-groups"
@@ -2414,6 +2432,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, describe_mount_targets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_mount_targets_errors()}
   def describe_mount_targets(
         %Client{} = client,
@@ -2485,6 +2504,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, describe_replication_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_replication_configurations_errors()}
   def describe_replication_configurations(
         %Client{} = client,
@@ -2542,6 +2562,7 @@ defmodule AWS.EFS do
   @spec describe_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(
         %Client{} = client,
@@ -2585,6 +2606,7 @@ defmodule AWS.EFS do
   @spec list_tags_for_resource(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(
         %Client{} = client,
@@ -2649,6 +2671,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_mount_target_security_groups_errors()}
   def modify_mount_target_security_groups(
         %Client{} = client,
@@ -2699,6 +2722,7 @@ defmodule AWS.EFS do
   @spec put_account_preferences(map(), put_account_preferences_request(), list()) ::
           {:ok, put_account_preferences_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_account_preferences_errors()}
   def put_account_preferences(%Client{} = client, input, options \\ []) do
     url_path = "/2015-02-01/account-preferences"
@@ -2729,6 +2753,7 @@ defmodule AWS.EFS do
   @spec put_backup_policy(map(), String.t(), put_backup_policy_request(), list()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_backup_policy_errors()}
   def put_backup_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/backup-policy"
@@ -2776,6 +2801,7 @@ defmodule AWS.EFS do
   @spec put_file_system_policy(map(), String.t(), put_file_system_policy_request(), list()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_file_system_policy_errors()}
   def put_file_system_policy(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/policy"
@@ -2881,6 +2907,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_lifecycle_configuration_errors()}
   def put_lifecycle_configuration(%Client{} = client, file_system_id, input, options \\ []) do
     url_path =
@@ -2917,6 +2944,7 @@ defmodule AWS.EFS do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
@@ -2951,6 +2979,7 @@ defmodule AWS.EFS do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_id, input, options \\ []) do
     url_path = "/2015-02-01/resource-tags/#{AWS.Util.encode_uri(resource_id)}"
@@ -2986,6 +3015,7 @@ defmodule AWS.EFS do
   @spec update_file_system(map(), String.t(), update_file_system_request(), list()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_file_system_errors()}
   def update_file_system(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}"
@@ -3022,6 +3052,7 @@ defmodule AWS.EFS do
         ) ::
           {:ok, file_system_protection_description(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_file_system_protection_errors()}
   def update_file_system_protection(%Client{} = client, file_system_id, input, options \\ []) do
     url_path = "/2015-02-01/file-systems/#{AWS.Util.encode_uri(file_system_id)}/protection"

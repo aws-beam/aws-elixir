@@ -397,6 +397,7 @@ defmodule AWS.Route53RecoveryCluster do
   @spec get_routing_control_state(map(), get_routing_control_state_request(), list()) ::
           {:ok, get_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_routing_control_state_errors()}
   def get_routing_control_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -449,6 +450,7 @@ defmodule AWS.Route53RecoveryCluster do
   @spec list_routing_controls(map(), list_routing_controls_request(), list()) ::
           {:ok, list_routing_controls_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_routing_controls_errors()}
   def list_routing_controls(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -507,6 +509,7 @@ defmodule AWS.Route53RecoveryCluster do
   @spec update_routing_control_state(map(), update_routing_control_state_request(), list()) ::
           {:ok, update_routing_control_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_control_state_errors()}
   def update_routing_control_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -564,6 +567,7 @@ defmodule AWS.Route53RecoveryCluster do
   @spec update_routing_control_states(map(), update_routing_control_states_request(), list()) ::
           {:ok, update_routing_control_states_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_routing_control_states_errors()}
   def update_routing_control_states(%Client{} = client, input, options \\ []) do
     meta = metadata()

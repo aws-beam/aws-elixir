@@ -735,6 +735,7 @@ defmodule AWS.Scheduler do
   @spec create_schedule(map(), String.t(), create_schedule_input(), list()) ::
           {:ok, create_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schedule_errors()}
   def create_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
@@ -763,6 +764,7 @@ defmodule AWS.Scheduler do
   @spec create_schedule_group(map(), String.t(), create_schedule_group_input(), list()) ::
           {:ok, create_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_schedule_group_errors()}
   def create_schedule_group(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
@@ -791,6 +793,7 @@ defmodule AWS.Scheduler do
   @spec delete_schedule(map(), String.t(), delete_schedule_input(), list()) ::
           {:ok, delete_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schedule_errors()}
   def delete_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
@@ -835,6 +838,7 @@ defmodule AWS.Scheduler do
   @spec delete_schedule_group(map(), String.t(), delete_schedule_group_input(), list()) ::
           {:ok, delete_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schedule_group_errors()}
   def delete_schedule_group(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
@@ -868,6 +872,7 @@ defmodule AWS.Scheduler do
   @spec get_schedule(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schedule_errors()}
   def get_schedule(%Client{} = client, name, group_name \\ nil, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"
@@ -892,6 +897,7 @@ defmodule AWS.Scheduler do
   @spec get_schedule_group(map(), String.t(), list()) ::
           {:ok, get_schedule_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_schedule_group_errors()}
   def get_schedule_group(%Client{} = client, name, options \\ []) do
     url_path = "/schedule-groups/#{AWS.Util.encode_uri(name)}"
@@ -909,6 +915,7 @@ defmodule AWS.Scheduler do
   @spec list_schedule_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_schedule_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schedule_groups_errors()}
   def list_schedule_groups(
         %Client{} = client,
@@ -961,6 +968,7 @@ defmodule AWS.Scheduler do
         ) ::
           {:ok, list_schedules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_schedules_errors()}
   def list_schedules(
         %Client{} = client,
@@ -1021,6 +1029,7 @@ defmodule AWS.Scheduler do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1041,6 +1050,7 @@ defmodule AWS.Scheduler do
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1070,6 +1080,7 @@ defmodule AWS.Scheduler do
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1114,6 +1125,7 @@ defmodule AWS.Scheduler do
   @spec update_schedule(map(), String.t(), update_schedule_input(), list()) ::
           {:ok, update_schedule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_schedule_errors()}
   def update_schedule(%Client{} = client, name, input, options \\ []) do
     url_path = "/schedules/#{AWS.Util.encode_uri(name)}"

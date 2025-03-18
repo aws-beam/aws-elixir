@@ -8684,6 +8684,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, accept_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, accept_input_device_transfer_errors()}
   def accept_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/accept"
@@ -8712,6 +8713,7 @@ defmodule AWS.MediaLive do
   @spec batch_delete(map(), batch_delete_request(), list()) ::
           {:ok, batch_delete_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_errors()}
   def batch_delete(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/delete"
@@ -8740,6 +8742,7 @@ defmodule AWS.MediaLive do
   @spec batch_start(map(), batch_start_request(), list()) ::
           {:ok, batch_start_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_start_errors()}
   def batch_start(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/start"
@@ -8768,6 +8771,7 @@ defmodule AWS.MediaLive do
   @spec batch_stop(map(), batch_stop_request(), list()) ::
           {:ok, batch_stop_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_stop_errors()}
   def batch_stop(%Client{} = client, input, options \\ []) do
     url_path = "/prod/batch/stop"
@@ -8796,6 +8800,7 @@ defmodule AWS.MediaLive do
   @spec batch_update_schedule(map(), String.t(), batch_update_schedule_request(), list()) ::
           {:ok, batch_update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_update_schedule_errors()}
   def batch_update_schedule(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
@@ -8829,6 +8834,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, cancel_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_input_device_transfer_errors()}
   def cancel_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/cancel"
@@ -8860,6 +8866,7 @@ defmodule AWS.MediaLive do
   @spec claim_device(map(), claim_device_request(), list()) ::
           {:ok, claim_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, claim_device_errors()}
   def claim_device(%Client{} = client, input, options \\ []) do
     url_path = "/prod/claimDevice"
@@ -8888,6 +8895,7 @@ defmodule AWS.MediaLive do
   @spec create_channel(map(), create_channel_request(), list()) ::
           {:ok, create_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
     url_path = "/prod/channels"
@@ -8928,6 +8936,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_channel_placement_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_channel_placement_group_errors()}
   def create_channel_placement_group(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/channelplacementgroups"
@@ -8961,6 +8970,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cloud_watch_alarm_template_errors()}
   def create_cloud_watch_alarm_template(%Client{} = client, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates"
@@ -8994,6 +9004,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cloud_watch_alarm_template_group_errors()}
   def create_cloud_watch_alarm_template_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups"
@@ -9022,6 +9033,7 @@ defmodule AWS.MediaLive do
   @spec create_cluster(map(), create_cluster_request(), list()) ::
           {:ok, create_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
     url_path = "/prod/clusters"
@@ -9055,6 +9067,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_bridge_rule_template_errors()}
   def create_event_bridge_rule_template(%Client{} = client, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates"
@@ -9089,6 +9102,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_bridge_rule_template_group_errors()}
   def create_event_bridge_rule_template_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups"
@@ -9117,6 +9131,7 @@ defmodule AWS.MediaLive do
   @spec create_input(map(), create_input_request(), list()) ::
           {:ok, create_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_input_errors()}
   def create_input(%Client{} = client, input, options \\ []) do
     url_path = "/prod/inputs"
@@ -9145,6 +9160,7 @@ defmodule AWS.MediaLive do
   @spec create_input_security_group(map(), create_input_security_group_request(), list()) ::
           {:ok, create_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_input_security_group_errors()}
   def create_input_security_group(%Client{} = client, input, options \\ []) do
     url_path = "/prod/inputSecurityGroups"
@@ -9173,6 +9189,7 @@ defmodule AWS.MediaLive do
   @spec create_multiplex(map(), create_multiplex_request(), list()) ::
           {:ok, create_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multiplex_errors()}
   def create_multiplex(%Client{} = client, input, options \\ []) do
     url_path = "/prod/multiplexes"
@@ -9201,6 +9218,7 @@ defmodule AWS.MediaLive do
   @spec create_multiplex_program(map(), String.t(), create_multiplex_program_request(), list()) ::
           {:ok, create_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_multiplex_program_errors()}
   def create_multiplex_program(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/programs"
@@ -9233,6 +9251,7 @@ defmodule AWS.MediaLive do
   @spec create_network(map(), create_network_request(), list()) ::
           {:ok, create_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_network_errors()}
   def create_network(%Client{} = client, input, options \\ []) do
     url_path = "/prod/networks"
@@ -9264,6 +9283,7 @@ defmodule AWS.MediaLive do
   @spec create_node(map(), String.t(), create_node_request(), list()) ::
           {:ok, create_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_node_errors()}
   def create_node(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodes"
@@ -9303,6 +9323,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, create_node_registration_script_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_node_registration_script_errors()}
   def create_node_registration_script(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}/nodeRegistrationScript"
@@ -9331,6 +9352,7 @@ defmodule AWS.MediaLive do
   @spec create_partner_input(map(), String.t(), create_partner_input_request(), list()) ::
           {:ok, create_partner_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_partner_input_errors()}
   def create_partner_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}/partners"
@@ -9362,6 +9384,7 @@ defmodule AWS.MediaLive do
   @spec create_signal_map(map(), create_signal_map_request(), list()) ::
           {:ok, create_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_signal_map_errors()}
   def create_signal_map(%Client{} = client, input, options \\ []) do
     url_path = "/prod/signal-maps"
@@ -9390,6 +9413,7 @@ defmodule AWS.MediaLive do
   @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -9420,6 +9444,7 @@ defmodule AWS.MediaLive do
   @spec delete_channel(map(), String.t(), delete_channel_request(), list()) ::
           {:ok, delete_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
@@ -9454,6 +9479,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, delete_channel_placement_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_channel_placement_group_errors()}
   def delete_channel_placement_group(
         %Client{} = client,
@@ -9495,6 +9521,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cloud_watch_alarm_template_errors()}
   def delete_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -9531,6 +9558,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cloud_watch_alarm_template_group_errors()}
   def delete_cloud_watch_alarm_template_group(
         %Client{} = client,
@@ -9566,6 +9594,7 @@ defmodule AWS.MediaLive do
   @spec delete_cluster(map(), String.t(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
@@ -9599,6 +9628,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_bridge_rule_template_errors()}
   def delete_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -9635,6 +9665,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_bridge_rule_template_group_errors()}
   def delete_event_bridge_rule_template_group(
         %Client{} = client,
@@ -9668,6 +9699,7 @@ defmodule AWS.MediaLive do
   @spec delete_input(map(), String.t(), delete_input_request(), list()) ::
           {:ok, delete_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_input_errors()}
   def delete_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
@@ -9701,6 +9733,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, delete_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_input_security_group_errors()}
   def delete_input_security_group(
         %Client{} = client,
@@ -9736,6 +9769,7 @@ defmodule AWS.MediaLive do
   @spec delete_multiplex(map(), String.t(), delete_multiplex_request(), list()) ::
           {:ok, delete_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multiplex_errors()}
   def delete_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
@@ -9770,6 +9804,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, delete_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_multiplex_program_errors()}
   def delete_multiplex_program(
         %Client{} = client,
@@ -9808,6 +9843,7 @@ defmodule AWS.MediaLive do
   @spec delete_network(map(), String.t(), delete_network_request(), list()) ::
           {:ok, delete_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_network_errors()}
   def delete_network(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
@@ -9838,6 +9874,7 @@ defmodule AWS.MediaLive do
   @spec delete_node(map(), String.t(), String.t(), delete_node_request(), list()) ::
           {:ok, delete_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_node_errors()}
   def delete_node(%Client{} = client, cluster_id, node_id, input, options \\ []) do
     url_path =
@@ -9868,6 +9905,7 @@ defmodule AWS.MediaLive do
   @spec delete_reservation(map(), String.t(), delete_reservation_request(), list()) ::
           {:ok, delete_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_reservation_errors()}
   def delete_reservation(%Client{} = client, reservation_id, input, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
@@ -9896,6 +9934,7 @@ defmodule AWS.MediaLive do
   @spec delete_schedule(map(), String.t(), delete_schedule_request(), list()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_schedule_errors()}
   def delete_schedule(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/schedule"
@@ -9924,6 +9963,7 @@ defmodule AWS.MediaLive do
   @spec delete_signal_map(map(), String.t(), delete_signal_map_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_signal_map_errors()}
   def delete_signal_map(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
@@ -9952,6 +9992,7 @@ defmodule AWS.MediaLive do
   @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -9985,6 +10026,7 @@ defmodule AWS.MediaLive do
   @spec describe_account_configuration(map(), list()) ::
           {:ok, describe_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_account_configuration_errors()}
   def describe_account_configuration(%Client{} = client, options \\ []) do
     url_path = "/prod/accountConfiguration"
@@ -10002,6 +10044,7 @@ defmodule AWS.MediaLive do
   @spec describe_channel(map(), String.t(), list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_errors()}
   def describe_channel(%Client{} = client, channel_id, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
@@ -10019,6 +10062,7 @@ defmodule AWS.MediaLive do
   @spec describe_channel_placement_group(map(), String.t(), String.t(), list()) ::
           {:ok, describe_channel_placement_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_channel_placement_group_errors()}
   def describe_channel_placement_group(
         %Client{} = client,
@@ -10043,6 +10087,7 @@ defmodule AWS.MediaLive do
   @spec describe_cluster(map(), String.t(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, cluster_id, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
@@ -10060,6 +10105,7 @@ defmodule AWS.MediaLive do
   @spec describe_input(map(), String.t(), list()) ::
           {:ok, describe_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_input_errors()}
   def describe_input(%Client{} = client, input_id, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
@@ -10077,6 +10123,7 @@ defmodule AWS.MediaLive do
   @spec describe_input_device(map(), String.t(), list()) ::
           {:ok, describe_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_input_device_errors()}
   def describe_input_device(%Client{} = client, input_device_id, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
@@ -10094,6 +10141,7 @@ defmodule AWS.MediaLive do
   @spec describe_input_device_thumbnail(map(), String.t(), String.t(), list()) ::
           {:ok, describe_input_device_thumbnail_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_input_device_thumbnail_errors()}
   def describe_input_device_thumbnail(%Client{} = client, input_device_id, accept, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/thumbnailData"
@@ -10131,6 +10179,7 @@ defmodule AWS.MediaLive do
   @spec describe_input_security_group(map(), String.t(), list()) ::
           {:ok, describe_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_input_security_group_errors()}
   def describe_input_security_group(%Client{} = client, input_security_group_id, options \\ []) do
     url_path = "/prod/inputSecurityGroups/#{AWS.Util.encode_uri(input_security_group_id)}"
@@ -10148,6 +10197,7 @@ defmodule AWS.MediaLive do
   @spec describe_multiplex(map(), String.t(), list()) ::
           {:ok, describe_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_multiplex_errors()}
   def describe_multiplex(%Client{} = client, multiplex_id, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
@@ -10165,6 +10215,7 @@ defmodule AWS.MediaLive do
   @spec describe_multiplex_program(map(), String.t(), String.t(), list()) ::
           {:ok, describe_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_multiplex_program_errors()}
   def describe_multiplex_program(%Client{} = client, multiplex_id, program_name, options \\ []) do
     url_path =
@@ -10184,6 +10235,7 @@ defmodule AWS.MediaLive do
   @spec describe_network(map(), String.t(), list()) ::
           {:ok, describe_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_network_errors()}
   def describe_network(%Client{} = client, network_id, options \\ []) do
     url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
@@ -10201,6 +10253,7 @@ defmodule AWS.MediaLive do
   @spec describe_node(map(), String.t(), String.t(), list()) ::
           {:ok, describe_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_node_errors()}
   def describe_node(%Client{} = client, cluster_id, node_id, options \\ []) do
     url_path =
@@ -10220,6 +10273,7 @@ defmodule AWS.MediaLive do
   @spec describe_offering(map(), String.t(), list()) ::
           {:ok, describe_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_offering_errors()}
   def describe_offering(%Client{} = client, offering_id, options \\ []) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}"
@@ -10237,6 +10291,7 @@ defmodule AWS.MediaLive do
   @spec describe_reservation(map(), String.t(), list()) ::
           {:ok, describe_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_reservation_errors()}
   def describe_reservation(%Client{} = client, reservation_id, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
@@ -10254,6 +10309,7 @@ defmodule AWS.MediaLive do
   @spec describe_schedule(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_schedule_errors()}
   def describe_schedule(
         %Client{} = client,
@@ -10291,6 +10347,7 @@ defmodule AWS.MediaLive do
   @spec describe_thumbnails(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, describe_thumbnails_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_thumbnails_errors()}
   def describe_thumbnails(
         %Client{} = client,
@@ -10328,6 +10385,7 @@ defmodule AWS.MediaLive do
   @spec get_cloud_watch_alarm_template(map(), String.t(), list()) ::
           {:ok, get_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cloud_watch_alarm_template_errors()}
   def get_cloud_watch_alarm_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -10345,6 +10403,7 @@ defmodule AWS.MediaLive do
   @spec get_cloud_watch_alarm_template_group(map(), String.t(), list()) ::
           {:ok, get_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cloud_watch_alarm_template_group_errors()}
   def get_cloud_watch_alarm_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-template-groups/#{AWS.Util.encode_uri(identifier)}"
@@ -10362,6 +10421,7 @@ defmodule AWS.MediaLive do
   @spec get_event_bridge_rule_template(map(), String.t(), list()) ::
           {:ok, get_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_bridge_rule_template_errors()}
   def get_event_bridge_rule_template(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -10379,6 +10439,7 @@ defmodule AWS.MediaLive do
   @spec get_event_bridge_rule_template_group(map(), String.t(), list()) ::
           {:ok, get_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_event_bridge_rule_template_group_errors()}
   def get_event_bridge_rule_template_group(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/eventbridge-rule-template-groups/#{AWS.Util.encode_uri(identifier)}"
@@ -10396,6 +10457,7 @@ defmodule AWS.MediaLive do
   @spec get_signal_map(map(), String.t(), list()) ::
           {:ok, get_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_signal_map_errors()}
   def get_signal_map(%Client{} = client, identifier, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
@@ -10419,6 +10481,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_channel_placement_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channel_placement_groups_errors()}
   def list_channel_placement_groups(
         %Client{} = client,
@@ -10456,6 +10519,7 @@ defmodule AWS.MediaLive do
   @spec list_channels(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/channels"
@@ -10494,6 +10558,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_cloud_watch_alarm_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cloud_watch_alarm_template_groups_errors()}
   def list_cloud_watch_alarm_template_groups(
         %Client{} = client,
@@ -10554,6 +10619,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_cloud_watch_alarm_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_cloud_watch_alarm_templates_errors()}
   def list_cloud_watch_alarm_templates(
         %Client{} = client,
@@ -10614,6 +10680,7 @@ defmodule AWS.MediaLive do
   @spec list_clusters(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/clusters"
@@ -10651,6 +10718,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_event_bridge_rule_template_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_bridge_rule_template_groups_errors()}
   def list_event_bridge_rule_template_groups(
         %Client{} = client,
@@ -10702,6 +10770,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_event_bridge_rule_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_event_bridge_rule_templates_errors()}
   def list_event_bridge_rule_templates(
         %Client{} = client,
@@ -10757,6 +10826,7 @@ defmodule AWS.MediaLive do
   @spec list_input_device_transfers(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
           {:ok, list_input_device_transfers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_input_device_transfers_errors()}
   def list_input_device_transfers(
         %Client{} = client,
@@ -10801,6 +10871,7 @@ defmodule AWS.MediaLive do
   @spec list_input_devices(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_input_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_input_devices_errors()}
   def list_input_devices(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/inputDevices"
@@ -10832,6 +10903,7 @@ defmodule AWS.MediaLive do
   @spec list_input_security_groups(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_input_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_input_security_groups_errors()}
   def list_input_security_groups(
         %Client{} = client,
@@ -10868,6 +10940,7 @@ defmodule AWS.MediaLive do
   @spec list_inputs(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_inputs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_inputs_errors()}
   def list_inputs(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/inputs"
@@ -10899,6 +10972,7 @@ defmodule AWS.MediaLive do
   @spec list_multiplex_programs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_multiplex_programs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multiplex_programs_errors()}
   def list_multiplex_programs(
         %Client{} = client,
@@ -10936,6 +11010,7 @@ defmodule AWS.MediaLive do
   @spec list_multiplexes(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_multiplexes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_multiplexes_errors()}
   def list_multiplexes(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/multiplexes"
@@ -10967,6 +11042,7 @@ defmodule AWS.MediaLive do
   @spec list_networks(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_networks_errors()}
   def list_networks(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/prod/networks"
@@ -10998,6 +11074,7 @@ defmodule AWS.MediaLive do
   @spec list_nodes(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_nodes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(
         %Client{} = client,
@@ -11050,6 +11127,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_offerings_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_offerings_errors()}
   def list_offerings(
         %Client{} = client,
@@ -11179,6 +11257,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_reservations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_reservations_errors()}
   def list_reservations(
         %Client{} = client,
@@ -11286,6 +11365,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, list_signal_maps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_signal_maps_errors()}
   def list_signal_maps(
         %Client{} = client,
@@ -11344,6 +11424,7 @@ defmodule AWS.MediaLive do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/prod/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -11362,6 +11443,7 @@ defmodule AWS.MediaLive do
   @spec list_versions(map(), list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_versions_errors()}
   def list_versions(%Client{} = client, options \\ []) do
     url_path = "/prod/versions"
@@ -11379,6 +11461,7 @@ defmodule AWS.MediaLive do
   @spec purchase_offering(map(), String.t(), purchase_offering_request(), list()) ::
           {:ok, purchase_offering_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, offering_id, input, options \\ []) do
     url_path = "/prod/offerings/#{AWS.Util.encode_uri(offering_id)}/purchase"
@@ -11411,6 +11494,7 @@ defmodule AWS.MediaLive do
   @spec reboot_input_device(map(), String.t(), reboot_input_device_request(), list()) ::
           {:ok, reboot_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_input_device_errors()}
   def reboot_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reboot"
@@ -11444,6 +11528,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, reject_input_device_transfer_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reject_input_device_transfer_errors()}
   def reject_input_device_transfer(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/reject"
@@ -11472,6 +11557,7 @@ defmodule AWS.MediaLive do
   @spec restart_channel_pipelines(map(), String.t(), restart_channel_pipelines_request(), list()) ::
           {:ok, restart_channel_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restart_channel_pipelines_errors()}
   def restart_channel_pipelines(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/restartChannelPipelines"
@@ -11500,6 +11586,7 @@ defmodule AWS.MediaLive do
   @spec start_channel(map(), String.t(), start_channel_request(), list()) ::
           {:ok, start_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_channel_errors()}
   def start_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/start"
@@ -11533,6 +11620,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, start_delete_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_delete_monitor_deployment_errors()}
   def start_delete_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
@@ -11564,6 +11652,7 @@ defmodule AWS.MediaLive do
   @spec start_input_device(map(), String.t(), start_input_device_request(), list()) ::
           {:ok, start_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_input_device_errors()}
   def start_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/start"
@@ -11605,6 +11694,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, start_input_device_maintenance_window_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_input_device_maintenance_window_errors()}
   def start_input_device_maintenance_window(
         %Client{} = client,
@@ -11640,6 +11730,7 @@ defmodule AWS.MediaLive do
   @spec start_monitor_deployment(map(), String.t(), start_monitor_deployment_request(), list()) ::
           {:ok, start_monitor_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_monitor_deployment_errors()}
   def start_monitor_deployment(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}/monitor-deployment"
@@ -11671,6 +11762,7 @@ defmodule AWS.MediaLive do
   @spec start_multiplex(map(), String.t(), start_multiplex_request(), list()) ::
           {:ok, start_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_multiplex_errors()}
   def start_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/start"
@@ -11701,6 +11793,7 @@ defmodule AWS.MediaLive do
   @spec start_update_signal_map(map(), String.t(), start_update_signal_map_request(), list()) ::
           {:ok, start_update_signal_map_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_update_signal_map_errors()}
   def start_update_signal_map(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/signal-maps/#{AWS.Util.encode_uri(identifier)}"
@@ -11729,6 +11822,7 @@ defmodule AWS.MediaLive do
   @spec stop_channel(map(), String.t(), stop_channel_request(), list()) ::
           {:ok, stop_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_channel_errors()}
   def stop_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/stop"
@@ -11760,6 +11854,7 @@ defmodule AWS.MediaLive do
   @spec stop_input_device(map(), String.t(), stop_input_device_request(), list()) ::
           {:ok, stop_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_input_device_errors()}
   def stop_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/stop"
@@ -11790,6 +11885,7 @@ defmodule AWS.MediaLive do
   @spec stop_multiplex(map(), String.t(), stop_multiplex_request(), list()) ::
           {:ok, stop_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_multiplex_errors()}
   def stop_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}/stop"
@@ -11821,6 +11917,7 @@ defmodule AWS.MediaLive do
   @spec transfer_input_device(map(), String.t(), transfer_input_device_request(), list()) ::
           {:ok, transfer_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, transfer_input_device_errors()}
   def transfer_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}/transfer"
@@ -11849,6 +11946,7 @@ defmodule AWS.MediaLive do
   @spec update_account_configuration(map(), update_account_configuration_request(), list()) ::
           {:ok, update_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_account_configuration_errors()}
   def update_account_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/prod/accountConfiguration"
@@ -11877,6 +11975,7 @@ defmodule AWS.MediaLive do
   @spec update_channel(map(), String.t(), update_channel_request(), list()) ::
           {:ok, update_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}"
@@ -11905,6 +12004,7 @@ defmodule AWS.MediaLive do
   @spec update_channel_class(map(), String.t(), update_channel_class_request(), list()) ::
           {:ok, update_channel_class_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_class_errors()}
   def update_channel_class(%Client{} = client, channel_id, input, options \\ []) do
     url_path = "/prod/channels/#{AWS.Util.encode_uri(channel_id)}/channelClass"
@@ -11939,6 +12039,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_channel_placement_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_channel_placement_group_errors()}
   def update_channel_placement_group(
         %Client{} = client,
@@ -11980,6 +12081,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_cloud_watch_alarm_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cloud_watch_alarm_template_errors()}
   def update_cloud_watch_alarm_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/cloudwatch-alarm-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -12013,6 +12115,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_cloud_watch_alarm_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cloud_watch_alarm_template_group_errors()}
   def update_cloud_watch_alarm_template_group(
         %Client{} = client,
@@ -12046,6 +12149,7 @@ defmodule AWS.MediaLive do
   @spec update_cluster(map(), String.t(), update_cluster_request(), list()) ::
           {:ok, update_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, cluster_id, input, options \\ []) do
     url_path = "/prod/clusters/#{AWS.Util.encode_uri(cluster_id)}"
@@ -12079,6 +12183,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_event_bridge_rule_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_bridge_rule_template_errors()}
   def update_event_bridge_rule_template(%Client{} = client, identifier, input, options \\ []) do
     url_path = "/prod/eventbridge-rule-templates/#{AWS.Util.encode_uri(identifier)}"
@@ -12112,6 +12217,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_event_bridge_rule_template_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_event_bridge_rule_template_group_errors()}
   def update_event_bridge_rule_template_group(
         %Client{} = client,
@@ -12145,6 +12251,7 @@ defmodule AWS.MediaLive do
   @spec update_input(map(), String.t(), update_input_request(), list()) ::
           {:ok, update_input_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_input_errors()}
   def update_input(%Client{} = client, input_id, input, options \\ []) do
     url_path = "/prod/inputs/#{AWS.Util.encode_uri(input_id)}"
@@ -12173,6 +12280,7 @@ defmodule AWS.MediaLive do
   @spec update_input_device(map(), String.t(), update_input_device_request(), list()) ::
           {:ok, update_input_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_input_device_errors()}
   def update_input_device(%Client{} = client, input_device_id, input, options \\ []) do
     url_path = "/prod/inputDevices/#{AWS.Util.encode_uri(input_device_id)}"
@@ -12206,6 +12314,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_input_security_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_input_security_group_errors()}
   def update_input_security_group(
         %Client{} = client,
@@ -12239,6 +12348,7 @@ defmodule AWS.MediaLive do
   @spec update_multiplex(map(), String.t(), update_multiplex_request(), list()) ::
           {:ok, update_multiplex_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_multiplex_errors()}
   def update_multiplex(%Client{} = client, multiplex_id, input, options \\ []) do
     url_path = "/prod/multiplexes/#{AWS.Util.encode_uri(multiplex_id)}"
@@ -12273,6 +12383,7 @@ defmodule AWS.MediaLive do
         ) ::
           {:ok, update_multiplex_program_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_multiplex_program_errors()}
   def update_multiplex_program(
         %Client{} = client,
@@ -12309,6 +12420,7 @@ defmodule AWS.MediaLive do
   @spec update_network(map(), String.t(), update_network_request(), list()) ::
           {:ok, update_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_network_errors()}
   def update_network(%Client{} = client, network_id, input, options \\ []) do
     url_path = "/prod/networks/#{AWS.Util.encode_uri(network_id)}"
@@ -12337,6 +12449,7 @@ defmodule AWS.MediaLive do
   @spec update_node(map(), String.t(), String.t(), update_node_request(), list()) ::
           {:ok, update_node_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_node_errors()}
   def update_node(%Client{} = client, cluster_id, node_id, input, options \\ []) do
     url_path =
@@ -12367,6 +12480,7 @@ defmodule AWS.MediaLive do
   @spec update_node_state(map(), String.t(), String.t(), update_node_state_request(), list()) ::
           {:ok, update_node_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_node_state_errors()}
   def update_node_state(%Client{} = client, cluster_id, node_id, input, options \\ []) do
     url_path =
@@ -12397,6 +12511,7 @@ defmodule AWS.MediaLive do
   @spec update_reservation(map(), String.t(), update_reservation_request(), list()) ::
           {:ok, update_reservation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_reservation_errors()}
   def update_reservation(%Client{} = client, reservation_id, input, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"

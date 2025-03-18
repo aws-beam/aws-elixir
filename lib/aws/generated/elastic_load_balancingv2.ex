@@ -2896,6 +2896,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec add_listener_certificates(map(), add_listener_certificates_input(), list()) ::
           {:ok, add_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_listener_certificates_errors()}
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2918,6 +2919,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec add_tags(map(), add_tags_input(), list()) ::
           {:ok, add_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2931,6 +2933,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec add_trust_store_revocations(map(), add_trust_store_revocations_input(), list()) ::
           {:ok, add_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_trust_store_revocations_errors()}
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2967,6 +2970,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec create_listener(map(), create_listener_input(), list()) ::
           {:ok, create_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3000,6 +3004,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec create_load_balancer(map(), create_load_balancer_input(), list()) ::
           {:ok, create_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3026,6 +3031,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec create_rule(map(), create_rule_input(), list()) ::
           {:ok, create_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3061,6 +3067,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec create_target_group(map(), create_target_group_input(), list()) ::
           {:ok, create_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3074,6 +3081,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec create_trust_store(map(), create_trust_store_input(), list()) ::
           {:ok, create_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3091,6 +3099,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec delete_listener(map(), delete_listener_input(), list()) ::
           {:ok, delete_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3118,6 +3127,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec delete_load_balancer(map(), delete_load_balancer_input(), list()) ::
           {:ok, delete_load_balancer_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3133,6 +3143,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec delete_rule(map(), delete_rule_input(), list()) ::
           {:ok, delete_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3150,6 +3161,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         ) ::
           {:ok, delete_shared_trust_store_association_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_shared_trust_store_association_errors()}
   def delete_shared_trust_store_association(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3171,6 +3183,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec delete_target_group(map(), delete_target_group_input(), list()) ::
           {:ok, delete_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3184,6 +3197,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec delete_trust_store(map(), delete_trust_store_input(), list()) ::
           {:ok, delete_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3232,6 +3246,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec deregister_targets(map(), deregister_targets_input(), list()) ::
           {:ok, deregister_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3264,6 +3279,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_account_limits(map(), describe_account_limits_input(), list()) ::
           {:ok, describe_account_limits_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -3276,6 +3292,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_capacity_reservation(map(), describe_capacity_reservation_input(), list()) ::
           {:ok, describe_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_capacity_reservation_errors()}
   def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3289,6 +3306,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_listener_attributes(map(), describe_listener_attributes_input(), list()) ::
           {:ok, describe_listener_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_listener_attributes_errors()}
   def describe_listener_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3315,6 +3333,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_listener_certificates(map(), describe_listener_certificates_input(), list()) ::
           {:ok, describe_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_listener_certificates_errors()}
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3333,6 +3352,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_listeners(map(), describe_listeners_input(), list()) ::
           {:ok, describe_listeners_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_listeners_errors()}
   def describe_listeners(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3372,6 +3392,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         ) ::
           {:ok, describe_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3385,6 +3406,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_load_balancers(map(), describe_load_balancers_input(), list()) ::
           {:ok, describe_load_balancers_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3401,6 +3423,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_rules(map(), describe_rules_input(), list()) ::
           {:ok, describe_rules_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_rules_errors()}
   def describe_rules(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3419,6 +3442,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_ssl_policies(map(), describe_ssl_policies_input(), list()) ::
           {:ok, describe_ssl_policies_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_ssl_policies_errors()}
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3437,6 +3461,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_tags(map(), describe_tags_input(), list()) ::
           {:ok, describe_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3470,6 +3495,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_target_group_attributes(map(), describe_target_group_attributes_input(), list()) ::
           {:ok, describe_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_target_group_attributes_errors()}
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3490,6 +3516,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_target_groups(map(), describe_target_groups_input(), list()) ::
           {:ok, describe_target_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_target_groups_errors()}
   def describe_target_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3503,6 +3530,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_target_health(map(), describe_target_health_input(), list()) ::
           {:ok, describe_target_health_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_target_health_errors()}
   def describe_target_health(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3520,6 +3548,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         ) ::
           {:ok, describe_trust_store_associations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trust_store_associations_errors()}
   def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3534,6 +3563,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_trust_store_revocations(map(), describe_trust_store_revocations_input(), list()) ::
           {:ok, describe_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trust_store_revocations_errors()}
   def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3547,6 +3577,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec describe_trust_stores(map(), describe_trust_stores_input(), list()) ::
           {:ok, describe_trust_stores_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_trust_stores_errors()}
   def describe_trust_stores(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3560,6 +3591,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3580,6 +3612,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         ) ::
           {:ok, get_trust_store_ca_certificates_bundle_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3600,6 +3633,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         ) ::
           {:ok, get_trust_store_revocation_content_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_trust_store_revocation_content_errors()}
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3617,6 +3651,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_capacity_reservation(map(), modify_capacity_reservation_input(), list()) ::
           {:ok, modify_capacity_reservation_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_capacity_reservation_errors()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3630,6 +3665,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_ip_pools(map(), modify_ip_pools_input(), list()) ::
           {:ok, modify_ip_pools_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_ip_pools_errors()}
   def modify_ip_pools(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3658,6 +3694,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_listener(map(), modify_listener_input(), list()) ::
           {:ok, modify_listener_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_listener_errors()}
   def modify_listener(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3671,6 +3708,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_listener_attributes(map(), modify_listener_attributes_input(), list()) ::
           {:ok, modify_listener_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_listener_attributes_errors()}
   def modify_listener_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3690,6 +3728,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_load_balancer_attributes(map(), modify_load_balancer_attributes_input(), list()) ::
           {:ok, modify_load_balancer_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3712,6 +3751,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_rule(map(), modify_rule_input(), list()) ::
           {:ok, modify_rule_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_rule_errors()}
   def modify_rule(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3727,6 +3767,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_target_group(map(), modify_target_group_input(), list()) ::
           {:ok, modify_target_group_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_target_group_errors()}
   def modify_target_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3740,6 +3781,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_target_group_attributes(map(), modify_target_group_attributes_input(), list()) ::
           {:ok, modify_target_group_attributes_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_target_group_attributes_errors()}
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3753,6 +3795,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec modify_trust_store(map(), modify_trust_store_input(), list()) ::
           {:ok, modify_trust_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_trust_store_errors()}
   def modify_trust_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3783,6 +3826,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec register_targets(map(), register_targets_input(), list()) ::
           {:ok, register_targets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3798,6 +3842,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec remove_listener_certificates(map(), remove_listener_certificates_input(), list()) ::
           {:ok, remove_listener_certificates_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_listener_certificates_errors()}
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3816,6 +3861,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec remove_tags(map(), remove_tags_input(), list()) ::
           {:ok, remove_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3829,6 +3875,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec remove_trust_store_revocations(map(), remove_trust_store_revocations_input(), list()) ::
           {:ok, remove_trust_store_revocations_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_trust_store_revocations_errors()}
   def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3843,6 +3890,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec set_ip_address_type(map(), set_ip_address_type_input(), list()) ::
           {:ok, set_ip_address_type_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3860,6 +3908,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec set_rule_priorities(map(), set_rule_priorities_input(), list()) ::
           {:ok, set_rule_priorities_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_rule_priorities_errors()}
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3884,6 +3933,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec set_security_groups(map(), set_security_groups_input(), list()) ::
           {:ok, set_security_groups_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_security_groups_errors()}
   def set_security_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3907,6 +3957,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @spec set_subnets(map(), set_subnets_input(), list()) ::
           {:ok, set_subnets_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_subnets_errors()}
   def set_subnets(%Client{} = client, input, options \\ []) do
     meta = metadata()

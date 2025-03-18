@@ -522,6 +522,7 @@ defmodule AWS.LexRuntime do
         ) ::
           {:ok, delete_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
@@ -553,6 +554,7 @@ defmodule AWS.LexRuntime do
   @spec get_session(map(), String.t(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(
         %Client{} = client,
@@ -660,6 +662,7 @@ defmodule AWS.LexRuntime do
   @spec post_content(map(), String.t(), String.t(), String.t(), post_content_request(), list()) ::
           {:ok, post_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_content_errors()}
   def post_content(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
@@ -796,6 +799,7 @@ defmodule AWS.LexRuntime do
   @spec post_text(map(), String.t(), String.t(), String.t(), post_text_request(), list()) ::
           {:ok, post_text_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, post_text_errors()}
   def post_text(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =
@@ -832,6 +836,7 @@ defmodule AWS.LexRuntime do
   @spec put_session(map(), String.t(), String.t(), String.t(), put_session_request(), list()) ::
           {:ok, put_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_session_errors()}
   def put_session(%Client{} = client, bot_alias, bot_name, user_id, input, options \\ []) do
     url_path =

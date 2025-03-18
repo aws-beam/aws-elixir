@@ -330,6 +330,7 @@ defmodule AWS.CloudSearchDomain do
         ) ::
           {:ok, search_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_errors()}
   def search(
         %Client{} = client,
@@ -479,6 +480,7 @@ defmodule AWS.CloudSearchDomain do
   @spec suggest(map(), String.t(), String.t() | nil, String.t(), list()) ::
           {:ok, suggest_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, suggest_errors()}
   def suggest(%Client{} = client, query, size \\ nil, suggester, options \\ []) do
     url_path = "/2013-01-01/suggest?format=sdk&pretty=true"
@@ -539,6 +541,7 @@ defmodule AWS.CloudSearchDomain do
   @spec upload_documents(map(), upload_documents_request(), list()) ::
           {:ok, upload_documents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_documents_errors()}
   def upload_documents(%Client{} = client, input, options \\ []) do
     url_path = "/2013-01-01/documents/batch?format=sdk"

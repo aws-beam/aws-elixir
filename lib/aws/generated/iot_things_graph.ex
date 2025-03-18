@@ -1380,6 +1380,7 @@ defmodule AWS.IoTThingsGraph do
   @spec associate_entity_to_thing(map(), associate_entity_to_thing_request(), list()) ::
           {:ok, associate_entity_to_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_entity_to_thing_errors()}
   def associate_entity_to_thing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1400,6 +1401,7 @@ defmodule AWS.IoTThingsGraph do
   @spec create_flow_template(map(), create_flow_template_request(), list()) ::
           {:ok, create_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_flow_template_errors()}
   def create_flow_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1433,6 +1435,7 @@ defmodule AWS.IoTThingsGraph do
   @spec create_system_instance(map(), create_system_instance_request(), list()) ::
           {:ok, create_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_system_instance_errors()}
   def create_system_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1450,6 +1453,7 @@ defmodule AWS.IoTThingsGraph do
   @spec create_system_template(map(), create_system_template_request(), list()) ::
           {:ok, create_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_system_template_errors()}
   def create_system_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1468,6 +1472,7 @@ defmodule AWS.IoTThingsGraph do
   @spec delete_flow_template(map(), delete_flow_template_request(), list()) ::
           {:ok, delete_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_flow_template_errors()}
   def delete_flow_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1486,6 +1491,7 @@ defmodule AWS.IoTThingsGraph do
   @spec delete_namespace(map(), delete_namespace_request(), list()) ::
           {:ok, delete_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1505,6 +1511,7 @@ defmodule AWS.IoTThingsGraph do
   @spec delete_system_instance(map(), delete_system_instance_request(), list()) ::
           {:ok, delete_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_system_instance_errors()}
   def delete_system_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1522,6 +1529,7 @@ defmodule AWS.IoTThingsGraph do
   @spec delete_system_template(map(), delete_system_template_request(), list()) ::
           {:ok, delete_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_system_template_errors()}
   def delete_system_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1552,6 +1560,7 @@ defmodule AWS.IoTThingsGraph do
   @spec deploy_system_instance(map(), deploy_system_instance_request(), list()) ::
           {:ok, deploy_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deploy_system_instance_errors()}
   def deploy_system_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1568,6 +1577,7 @@ defmodule AWS.IoTThingsGraph do
   @spec deprecate_flow_template(map(), deprecate_flow_template_request(), list()) ::
           {:ok, deprecate_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_flow_template_errors()}
   def deprecate_flow_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1581,6 +1591,7 @@ defmodule AWS.IoTThingsGraph do
   @spec deprecate_system_template(map(), deprecate_system_template_request(), list()) ::
           {:ok, deprecate_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_system_template_errors()}
   def deprecate_system_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1595,6 +1606,7 @@ defmodule AWS.IoTThingsGraph do
   @spec describe_namespace(map(), describe_namespace_request(), list()) ::
           {:ok, describe_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_namespace_errors()}
   def describe_namespace(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1612,6 +1624,7 @@ defmodule AWS.IoTThingsGraph do
   @spec dissociate_entity_from_thing(map(), dissociate_entity_from_thing_request(), list()) ::
           {:ok, dissociate_entity_from_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, dissociate_entity_from_thing_errors()}
   def dissociate_entity_from_thing(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1657,6 +1670,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_entities(map(), get_entities_request(), list()) ::
           {:ok, get_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_entities_errors()}
   def get_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1671,6 +1685,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_flow_template(map(), get_flow_template_request(), list()) ::
           {:ok, get_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_template_errors()}
   def get_flow_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1688,6 +1703,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_flow_template_revisions(map(), get_flow_template_revisions_request(), list()) ::
           {:ok, get_flow_template_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_flow_template_revisions_errors()}
   def get_flow_template_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1701,6 +1717,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_namespace_deletion_status(map(), get_namespace_deletion_status_request(), list()) ::
           {:ok, get_namespace_deletion_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_namespace_deletion_status_errors()}
   def get_namespace_deletion_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1714,6 +1731,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_system_instance(map(), get_system_instance_request(), list()) ::
           {:ok, get_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_system_instance_errors()}
   def get_system_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1727,6 +1745,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_system_template(map(), get_system_template_request(), list()) ::
           {:ok, get_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_system_template_errors()}
   def get_system_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1745,6 +1764,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_system_template_revisions(map(), get_system_template_revisions_request(), list()) ::
           {:ok, get_system_template_revisions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_system_template_revisions_errors()}
   def get_system_template_revisions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1758,6 +1778,7 @@ defmodule AWS.IoTThingsGraph do
   @spec get_upload_status(map(), get_upload_status_request(), list()) ::
           {:ok, get_upload_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_upload_status_errors()}
   def get_upload_status(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1772,6 +1793,7 @@ defmodule AWS.IoTThingsGraph do
   @spec list_flow_execution_messages(map(), list_flow_execution_messages_request(), list()) ::
           {:ok, list_flow_execution_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_flow_execution_messages_errors()}
   def list_flow_execution_messages(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1785,6 +1807,7 @@ defmodule AWS.IoTThingsGraph do
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1801,6 +1824,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_entities(map(), search_entities_request(), list()) ::
           {:ok, search_entities_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_entities_errors()}
   def search_entities(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1814,6 +1838,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_flow_executions(map(), search_flow_executions_request(), list()) ::
           {:ok, search_flow_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_flow_executions_errors()}
   def search_flow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1827,6 +1852,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_flow_templates(map(), search_flow_templates_request(), list()) ::
           {:ok, search_flow_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_flow_templates_errors()}
   def search_flow_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1840,6 +1866,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_system_instances(map(), search_system_instances_request(), list()) ::
           {:ok, search_system_instances_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_system_instances_errors()}
   def search_system_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1856,6 +1883,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_system_templates(map(), search_system_templates_request(), list()) ::
           {:ok, search_system_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_system_templates_errors()}
   def search_system_templates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1879,6 +1907,7 @@ defmodule AWS.IoTThingsGraph do
   @spec search_things(map(), search_things_request(), list()) ::
           {:ok, search_things_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_things_errors()}
   def search_things(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1892,6 +1921,7 @@ defmodule AWS.IoTThingsGraph do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1905,6 +1935,7 @@ defmodule AWS.IoTThingsGraph do
   @spec undeploy_system_instance(map(), undeploy_system_instance_request(), list()) ::
           {:ok, undeploy_system_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, undeploy_system_instance_errors()}
   def undeploy_system_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1918,6 +1949,7 @@ defmodule AWS.IoTThingsGraph do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1937,6 +1969,7 @@ defmodule AWS.IoTThingsGraph do
   @spec update_flow_template(map(), update_flow_template_request(), list()) ::
           {:ok, update_flow_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_flow_template_errors()}
   def update_flow_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1953,6 +1986,7 @@ defmodule AWS.IoTThingsGraph do
   @spec update_system_template(map(), update_system_template_request(), list()) ::
           {:ok, update_system_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_system_template_errors()}
   def update_system_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1991,6 +2025,7 @@ defmodule AWS.IoTThingsGraph do
   @spec upload_entity_definitions(map(), upload_entity_definitions_request(), list()) ::
           {:ok, upload_entity_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, upload_entity_definitions_errors()}
   def upload_entity_definitions(%Client{} = client, input, options \\ []) do
     meta = metadata()

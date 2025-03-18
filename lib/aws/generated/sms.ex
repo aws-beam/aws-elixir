@@ -1657,6 +1657,7 @@ defmodule AWS.SMS do
   @spec create_app(map(), create_app_request(), list()) ::
           {:ok, create_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1675,6 +1676,7 @@ defmodule AWS.SMS do
   @spec create_replication_job(map(), create_replication_job_request(), list()) ::
           {:ok, create_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_replication_job_errors()}
   def create_replication_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1692,6 +1694,7 @@ defmodule AWS.SMS do
   @spec delete_app(map(), delete_app_request(), list()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1705,6 +1708,7 @@ defmodule AWS.SMS do
   @spec delete_app_launch_configuration(map(), delete_app_launch_configuration_request(), list()) ::
           {:ok, delete_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_launch_configuration_errors()}
   def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1722,6 +1726,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, delete_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_replication_configuration_errors()}
   def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1739,6 +1744,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, delete_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_validation_configuration_errors()}
   def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1758,6 +1764,7 @@ defmodule AWS.SMS do
   @spec delete_replication_job(map(), delete_replication_job_request(), list()) ::
           {:ok, delete_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_replication_job_errors()}
   def delete_replication_job(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1771,6 +1778,7 @@ defmodule AWS.SMS do
   @spec delete_server_catalog(map(), delete_server_catalog_request(), list()) ::
           {:ok, delete_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_server_catalog_errors()}
   def delete_server_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1787,6 +1795,7 @@ defmodule AWS.SMS do
   @spec disassociate_connector(map(), disassociate_connector_request(), list()) ::
           {:ok, disassociate_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_connector_errors()}
   def disassociate_connector(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1802,6 +1811,7 @@ defmodule AWS.SMS do
   @spec generate_change_set(map(), generate_change_set_request(), list()) ::
           {:ok, generate_change_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_change_set_errors()}
   def generate_change_set(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1817,6 +1827,7 @@ defmodule AWS.SMS do
   @spec generate_template(map(), generate_template_request(), list()) ::
           {:ok, generate_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, generate_template_errors()}
   def generate_template(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1830,6 +1841,7 @@ defmodule AWS.SMS do
   @spec get_app(map(), get_app_request(), list()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1844,6 +1856,7 @@ defmodule AWS.SMS do
   @spec get_app_launch_configuration(map(), get_app_launch_configuration_request(), list()) ::
           {:ok, get_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_launch_configuration_errors()}
   def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1863,6 +1876,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, get_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_replication_configuration_errors()}
   def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1880,6 +1894,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, get_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_validation_configuration_errors()}
   def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1893,6 +1908,7 @@ defmodule AWS.SMS do
   @spec get_app_validation_output(map(), get_app_validation_output_request(), list()) ::
           {:ok, get_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_validation_output_errors()}
   def get_app_validation_output(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1906,6 +1922,7 @@ defmodule AWS.SMS do
   @spec get_connectors(map(), get_connectors_request(), list()) ::
           {:ok, get_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_connectors_errors()}
   def get_connectors(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1919,6 +1936,7 @@ defmodule AWS.SMS do
   @spec get_replication_jobs(map(), get_replication_jobs_request(), list()) ::
           {:ok, get_replication_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_replication_jobs_errors()}
   def get_replication_jobs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1932,6 +1950,7 @@ defmodule AWS.SMS do
   @spec get_replication_runs(map(), get_replication_runs_request(), list()) ::
           {:ok, get_replication_runs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_replication_runs_errors()}
   def get_replication_runs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1948,6 +1967,7 @@ defmodule AWS.SMS do
   @spec get_servers(map(), get_servers_request(), list()) ::
           {:ok, get_servers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_servers_errors()}
   def get_servers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1961,6 +1981,7 @@ defmodule AWS.SMS do
   @spec import_app_catalog(map(), import_app_catalog_request(), list()) ::
           {:ok, import_app_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_app_catalog_errors()}
   def import_app_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1981,6 +2002,7 @@ defmodule AWS.SMS do
   @spec import_server_catalog(map(), import_server_catalog_request(), list()) ::
           {:ok, import_server_catalog_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_server_catalog_errors()}
   def import_server_catalog(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -1994,6 +2016,7 @@ defmodule AWS.SMS do
   @spec launch_app(map(), launch_app_request(), list()) ::
           {:ok, launch_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, launch_app_errors()}
   def launch_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2007,6 +2030,7 @@ defmodule AWS.SMS do
   @spec list_apps(map(), list_apps_request(), list()) ::
           {:ok, list_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2021,6 +2045,7 @@ defmodule AWS.SMS do
   @spec notify_app_validation_output(map(), notify_app_validation_output_request(), list()) ::
           {:ok, notify_app_validation_output_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, notify_app_validation_output_errors()}
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2034,6 +2059,7 @@ defmodule AWS.SMS do
   @spec put_app_launch_configuration(map(), put_app_launch_configuration_request(), list()) ::
           {:ok, put_app_launch_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_app_launch_configuration_errors()}
   def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2051,6 +2077,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, put_app_replication_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_app_replication_configuration_errors()}
   def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2068,6 +2095,7 @@ defmodule AWS.SMS do
         ) ::
           {:ok, put_app_validation_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_app_validation_configuration_errors()}
   def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2083,6 +2111,7 @@ defmodule AWS.SMS do
   @spec start_app_replication(map(), start_app_replication_request(), list()) ::
           {:ok, start_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_app_replication_errors()}
   def start_app_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2096,6 +2125,7 @@ defmodule AWS.SMS do
   @spec start_on_demand_app_replication(map(), start_on_demand_app_replication_request(), list()) ::
           {:ok, start_on_demand_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_on_demand_app_replication_errors()}
   def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2118,6 +2148,7 @@ defmodule AWS.SMS do
   @spec start_on_demand_replication_run(map(), start_on_demand_replication_run_request(), list()) ::
           {:ok, start_on_demand_replication_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_on_demand_replication_run_errors()}
   def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2133,6 +2164,7 @@ defmodule AWS.SMS do
   @spec stop_app_replication(map(), stop_app_replication_request(), list()) ::
           {:ok, stop_app_replication_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_app_replication_errors()}
   def stop_app_replication(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2146,6 +2178,7 @@ defmodule AWS.SMS do
   @spec terminate_app(map(), terminate_app_request(), list()) ::
           {:ok, terminate_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_app_errors()}
   def terminate_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2159,6 +2192,7 @@ defmodule AWS.SMS do
   @spec update_app(map(), update_app_request(), list()) ::
           {:ok, update_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2172,6 +2206,7 @@ defmodule AWS.SMS do
   @spec update_replication_job(map(), update_replication_job_request(), list()) ::
           {:ok, update_replication_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_replication_job_errors()}
   def update_replication_job(%Client{} = client, input, options \\ []) do
     meta = metadata()

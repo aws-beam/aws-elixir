@@ -1174,6 +1174,7 @@ defmodule AWS.TaxSettings do
   @spec batch_delete_tax_registration(map(), batch_delete_tax_registration_request(), list()) ::
           {:ok, batch_delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_delete_tax_registration_errors()}
   def batch_delete_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/BatchDeleteTaxRegistration"
@@ -1204,6 +1205,7 @@ defmodule AWS.TaxSettings do
   @spec batch_get_tax_exemptions(map(), batch_get_tax_exemptions_request(), list()) ::
           {:ok, batch_get_tax_exemptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_tax_exemptions_errors()}
   def batch_get_tax_exemptions(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetTaxExemptions"
@@ -1407,6 +1409,7 @@ defmodule AWS.TaxSettings do
   @spec batch_put_tax_registration(map(), batch_put_tax_registration_request(), list()) ::
           {:ok, batch_put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_put_tax_registration_errors()}
   def batch_put_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/BatchPutTaxRegistration"
@@ -1440,6 +1443,7 @@ defmodule AWS.TaxSettings do
         ) ::
           {:ok, delete_supplemental_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_supplemental_tax_registration_errors()}
   def delete_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteSupplementalTaxRegistration"
@@ -1472,6 +1476,7 @@ defmodule AWS.TaxSettings do
   @spec delete_tax_registration(map(), delete_tax_registration_request(), list()) ::
           {:ok, delete_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_tax_registration_errors()}
   def delete_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteTaxRegistration"
@@ -1502,6 +1507,7 @@ defmodule AWS.TaxSettings do
   @spec get_tax_exemption_types(map(), get_tax_exemption_types_request(), list()) ::
           {:ok, get_tax_exemption_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tax_exemption_types_errors()}
   def get_tax_exemption_types(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxExemptionTypes"
@@ -1530,6 +1536,7 @@ defmodule AWS.TaxSettings do
   @spec get_tax_inheritance(map(), get_tax_inheritance_request(), list()) ::
           {:ok, get_tax_inheritance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tax_inheritance_errors()}
   def get_tax_inheritance(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxInheritance"
@@ -1558,6 +1565,7 @@ defmodule AWS.TaxSettings do
   @spec get_tax_registration(map(), get_tax_registration_request(), list()) ::
           {:ok, get_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tax_registration_errors()}
   def get_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxRegistration"
@@ -1587,6 +1595,7 @@ defmodule AWS.TaxSettings do
   @spec get_tax_registration_document(map(), get_tax_registration_document_request(), list()) ::
           {:ok, get_tax_registration_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_tax_registration_document_errors()}
   def get_tax_registration_document(%Client{} = client, input, options \\ []) do
     url_path = "/GetTaxRegistrationDocument"
@@ -1620,6 +1629,7 @@ defmodule AWS.TaxSettings do
         ) ::
           {:ok, list_supplemental_tax_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_supplemental_tax_registrations_errors()}
   def list_supplemental_tax_registrations(%Client{} = client, input, options \\ []) do
     url_path = "/ListSupplementalTaxRegistrations"
@@ -1650,6 +1660,7 @@ defmodule AWS.TaxSettings do
   @spec list_tax_exemptions(map(), list_tax_exemptions_request(), list()) ::
           {:ok, list_tax_exemptions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tax_exemptions_errors()}
   def list_tax_exemptions(%Client{} = client, input, options \\ []) do
     url_path = "/ListTaxExemptions"
@@ -1683,6 +1694,7 @@ defmodule AWS.TaxSettings do
   @spec list_tax_registrations(map(), list_tax_registrations_request(), list()) ::
           {:ok, list_tax_registrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tax_registrations_errors()}
   def list_tax_registrations(%Client{} = client, input, options \\ []) do
     url_path = "/ListTaxRegistrations"
@@ -1716,6 +1728,7 @@ defmodule AWS.TaxSettings do
         ) ::
           {:ok, put_supplemental_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_supplemental_tax_registration_errors()}
   def put_supplemental_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/PutSupplementalTaxRegistration"
@@ -1747,6 +1760,7 @@ defmodule AWS.TaxSettings do
   @spec put_tax_exemption(map(), put_tax_exemption_request(), list()) ::
           {:ok, put_tax_exemption_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_tax_exemption_errors()}
   def put_tax_exemption(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxExemption"
@@ -1775,6 +1789,7 @@ defmodule AWS.TaxSettings do
   @spec put_tax_inheritance(map(), put_tax_inheritance_request(), list()) ::
           {:ok, put_tax_inheritance_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_tax_inheritance_errors()}
   def put_tax_inheritance(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxInheritance"
@@ -1977,6 +1992,7 @@ defmodule AWS.TaxSettings do
   @spec put_tax_registration(map(), put_tax_registration_request(), list()) ::
           {:ok, put_tax_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_tax_registration_errors()}
   def put_tax_registration(%Client{} = client, input, options \\ []) do
     url_path = "/PutTaxRegistration"

@@ -7219,6 +7219,7 @@ defmodule AWS.Lightsail do
   @spec allocate_static_ip(map(), allocate_static_ip_request(), list()) ::
           {:ok, allocate_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, allocate_static_ip_errors()}
   def allocate_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7253,6 +7254,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, attach_certificate_to_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_certificate_to_distribution_errors()}
   def attach_certificate_to_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7272,6 +7274,7 @@ defmodule AWS.Lightsail do
   @spec attach_disk(map(), attach_disk_request(), list()) ::
           {:ok, attach_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_disk_errors()}
   def attach_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7303,6 +7306,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, attach_instances_to_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_instances_to_load_balancer_errors()}
   def attach_instances_to_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7339,6 +7343,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, attach_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_load_balancer_tls_certificate_errors()}
   def attach_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7352,6 +7357,7 @@ defmodule AWS.Lightsail do
   @spec attach_static_ip(map(), attach_static_ip_request(), list()) ::
           {:ok, attach_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, attach_static_ip_errors()}
   def attach_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7369,6 +7375,7 @@ defmodule AWS.Lightsail do
   @spec close_instance_public_ports(map(), close_instance_public_ports_request(), list()) ::
           {:ok, close_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, close_instance_public_ports_errors()}
   def close_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7415,6 +7422,7 @@ defmodule AWS.Lightsail do
   @spec copy_snapshot(map(), copy_snapshot_request(), list()) ::
           {:ok, copy_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7436,6 +7444,7 @@ defmodule AWS.Lightsail do
   @spec create_bucket(map(), create_bucket_request(), list()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bucket_errors()}
   def create_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7467,6 +7476,7 @@ defmodule AWS.Lightsail do
   @spec create_bucket_access_key(map(), create_bucket_access_key_request(), list()) ::
           {:ok, create_bucket_access_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bucket_access_key_errors()}
   def create_bucket_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7495,6 +7505,7 @@ defmodule AWS.Lightsail do
   @spec create_certificate(map(), create_certificate_request(), list()) ::
           {:ok, create_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_certificate_errors()}
   def create_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7529,6 +7540,7 @@ defmodule AWS.Lightsail do
   @spec create_cloud_formation_stack(map(), create_cloud_formation_stack_request(), list()) ::
           {:ok, create_cloud_formation_stack_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_cloud_formation_stack_errors()}
   def create_cloud_formation_stack(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7551,6 +7563,7 @@ defmodule AWS.Lightsail do
   @spec create_contact_method(map(), create_contact_method_request(), list()) ::
           {:ok, create_contact_method_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_contact_method_errors()}
   def create_contact_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7570,6 +7583,7 @@ defmodule AWS.Lightsail do
   @spec create_container_service(map(), create_container_service_request(), list()) ::
           {:ok, create_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_service_errors()}
   def create_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7605,6 +7619,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_container_service_deployment_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_service_deployment_errors()}
   def create_container_service_deployment(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7652,6 +7667,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_container_service_registry_login_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_container_service_registry_login_errors()}
   def create_container_service_registry_login(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7670,6 +7686,7 @@ defmodule AWS.Lightsail do
   @spec create_disk(map(), create_disk_request(), list()) ::
           {:ok, create_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_disk_errors()}
   def create_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7698,6 +7715,7 @@ defmodule AWS.Lightsail do
   @spec create_disk_from_snapshot(map(), create_disk_from_snapshot_request(), list()) ::
           {:ok, create_disk_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_disk_from_snapshot_errors()}
   def create_disk_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7747,6 +7765,7 @@ defmodule AWS.Lightsail do
   @spec create_disk_snapshot(map(), create_disk_snapshot_request(), list()) ::
           {:ok, create_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_disk_snapshot_errors()}
   def create_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7766,6 +7785,7 @@ defmodule AWS.Lightsail do
   @spec create_distribution(map(), create_distribution_request(), list()) ::
           {:ok, create_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_distribution_errors()}
   def create_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7782,6 +7802,7 @@ defmodule AWS.Lightsail do
   @spec create_domain(map(), create_domain_request(), list()) ::
           {:ok, create_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7803,6 +7824,7 @@ defmodule AWS.Lightsail do
   @spec create_domain_entry(map(), create_domain_entry_request(), list()) ::
           {:ok, create_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_domain_entry_errors()}
   def create_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7829,6 +7851,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_g_ui_session_access_details_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_g_ui_session_access_details_errors()}
   def create_g_ui_session_access_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7847,6 +7870,7 @@ defmodule AWS.Lightsail do
   @spec create_instance_snapshot(map(), create_instance_snapshot_request(), list()) ::
           {:ok, create_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instance_snapshot_errors()}
   def create_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7863,6 +7887,7 @@ defmodule AWS.Lightsail do
   @spec create_instances(map(), create_instances_request(), list()) ::
           {:ok, create_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instances_errors()}
   def create_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7882,6 +7907,7 @@ defmodule AWS.Lightsail do
   @spec create_instances_from_snapshot(map(), create_instances_from_snapshot_request(), list()) ::
           {:ok, create_instances_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_instances_from_snapshot_errors()}
   def create_instances_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7906,6 +7932,7 @@ defmodule AWS.Lightsail do
   @spec create_key_pair(map(), create_key_pair_request(), list()) ::
           {:ok, create_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_key_pair_errors()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7932,6 +7959,7 @@ defmodule AWS.Lightsail do
   @spec create_load_balancer(map(), create_load_balancer_request(), list()) ::
           {:ok, create_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7961,6 +7989,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_load_balancer_tls_certificate_errors()}
   def create_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -7977,6 +8006,7 @@ defmodule AWS.Lightsail do
   @spec create_relational_database(map(), create_relational_database_request(), list()) ::
           {:ok, create_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_relational_database_errors()}
   def create_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8006,6 +8036,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_relational_database_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_relational_database_from_snapshot_errors()}
   def create_relational_database_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8030,6 +8061,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, create_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_relational_database_snapshot_errors()}
   def create_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8050,6 +8082,7 @@ defmodule AWS.Lightsail do
   @spec delete_alarm(map(), delete_alarm_request(), list()) ::
           {:ok, delete_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_alarm_errors()}
   def delete_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8065,6 +8098,7 @@ defmodule AWS.Lightsail do
   @spec delete_auto_snapshot(map(), delete_auto_snapshot_request(), list()) ::
           {:ok, delete_auto_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_auto_snapshot_errors()}
   def delete_auto_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8082,6 +8116,7 @@ defmodule AWS.Lightsail do
   @spec delete_bucket(map(), delete_bucket_request(), list()) ::
           {:ok, delete_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bucket_errors()}
   def delete_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8103,6 +8138,7 @@ defmodule AWS.Lightsail do
   @spec delete_bucket_access_key(map(), delete_bucket_access_key_request(), list()) ::
           {:ok, delete_bucket_access_key_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bucket_access_key_errors()}
   def delete_bucket_access_key(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8123,6 +8159,7 @@ defmodule AWS.Lightsail do
   @spec delete_certificate(map(), delete_certificate_request(), list()) ::
           {:ok, delete_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8145,6 +8182,7 @@ defmodule AWS.Lightsail do
   @spec delete_contact_method(map(), delete_contact_method_request(), list()) ::
           {:ok, delete_contact_method_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_contact_method_errors()}
   def delete_contact_method(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8159,6 +8197,7 @@ defmodule AWS.Lightsail do
   @spec delete_container_image(map(), delete_container_image_request(), list()) ::
           {:ok, delete_container_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_image_errors()}
   def delete_container_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8172,6 +8211,7 @@ defmodule AWS.Lightsail do
   @spec delete_container_service(map(), delete_container_service_request(), list()) ::
           {:ok, delete_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_container_service_errors()}
   def delete_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8194,6 +8234,7 @@ defmodule AWS.Lightsail do
   @spec delete_disk(map(), delete_disk_request(), list()) ::
           {:ok, delete_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_disk_errors()}
   def delete_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8222,6 +8263,7 @@ defmodule AWS.Lightsail do
   @spec delete_disk_snapshot(map(), delete_disk_snapshot_request(), list()) ::
           {:ok, delete_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_disk_snapshot_errors()}
   def delete_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8235,6 +8277,7 @@ defmodule AWS.Lightsail do
   @spec delete_distribution(map(), delete_distribution_request(), list()) ::
           {:ok, delete_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8253,6 +8296,7 @@ defmodule AWS.Lightsail do
   @spec delete_domain(map(), delete_domain_request(), list()) ::
           {:ok, delete_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8270,6 +8314,7 @@ defmodule AWS.Lightsail do
   @spec delete_domain_entry(map(), delete_domain_entry_request(), list()) ::
           {:ok, delete_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_domain_entry_errors()}
   def delete_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8288,6 +8333,7 @@ defmodule AWS.Lightsail do
   @spec delete_instance(map(), delete_instance_request(), list()) ::
           {:ok, delete_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8307,6 +8353,7 @@ defmodule AWS.Lightsail do
   @spec delete_instance_snapshot(map(), delete_instance_snapshot_request(), list()) ::
           {:ok, delete_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_instance_snapshot_errors()}
   def delete_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8335,6 +8382,7 @@ defmodule AWS.Lightsail do
   @spec delete_key_pair(map(), delete_key_pair_request(), list()) ::
           {:ok, delete_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_key_pair_errors()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8360,6 +8408,7 @@ defmodule AWS.Lightsail do
   @spec delete_known_host_keys(map(), delete_known_host_keys_request(), list()) ::
           {:ok, delete_known_host_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_known_host_keys_errors()}
   def delete_known_host_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8383,6 +8432,7 @@ defmodule AWS.Lightsail do
   @spec delete_load_balancer(map(), delete_load_balancer_request(), list()) ::
           {:ok, delete_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8410,6 +8460,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, delete_load_balancer_tls_certificate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_load_balancer_tls_certificate_errors()}
   def delete_load_balancer_tls_certificate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8428,6 +8479,7 @@ defmodule AWS.Lightsail do
   @spec delete_relational_database(map(), delete_relational_database_request(), list()) ::
           {:ok, delete_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_relational_database_errors()}
   def delete_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8450,6 +8502,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, delete_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_relational_database_snapshot_errors()}
   def delete_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8473,6 +8526,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, detach_certificate_from_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_certificate_from_distribution_errors()}
   def detach_certificate_from_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8495,6 +8549,7 @@ defmodule AWS.Lightsail do
   @spec detach_disk(map(), detach_disk_request(), list()) ::
           {:ok, detach_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_disk_errors()}
   def detach_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8526,6 +8581,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, detach_instances_from_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_instances_from_load_balancer_errors()}
   def detach_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8539,6 +8595,7 @@ defmodule AWS.Lightsail do
   @spec detach_static_ip(map(), detach_static_ip_request(), list()) ::
           {:ok, detach_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, detach_static_ip_errors()}
   def detach_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8554,6 +8611,7 @@ defmodule AWS.Lightsail do
   @spec disable_add_on(map(), disable_add_on_request(), list()) ::
           {:ok, disable_add_on_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disable_add_on_errors()}
   def disable_add_on(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8570,6 +8628,7 @@ defmodule AWS.Lightsail do
   @spec download_default_key_pair(map(), download_default_key_pair_request(), list()) ::
           {:ok, download_default_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, download_default_key_pair_errors()}
   def download_default_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8586,6 +8645,7 @@ defmodule AWS.Lightsail do
   @spec enable_add_on(map(), enable_add_on_request(), list()) ::
           {:ok, enable_add_on_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, enable_add_on_errors()}
   def enable_add_on(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8624,6 +8684,7 @@ defmodule AWS.Lightsail do
   @spec export_snapshot(map(), export_snapshot_request(), list()) ::
           {:ok, export_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, export_snapshot_errors()}
   def export_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8637,6 +8698,7 @@ defmodule AWS.Lightsail do
   @spec get_active_names(map(), get_active_names_request(), list()) ::
           {:ok, get_active_names_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_active_names_errors()}
   def get_active_names(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8662,6 +8724,7 @@ defmodule AWS.Lightsail do
   @spec get_alarms(map(), get_alarms_request(), list()) ::
           {:ok, get_alarms_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_alarms_errors()}
   def get_alarms(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8678,6 +8741,7 @@ defmodule AWS.Lightsail do
   @spec get_auto_snapshots(map(), get_auto_snapshots_request(), list()) ::
           {:ok, get_auto_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_auto_snapshots_errors()}
   def get_auto_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8706,6 +8770,7 @@ defmodule AWS.Lightsail do
   @spec get_blueprints(map(), get_blueprints_request(), list()) ::
           {:ok, get_blueprints_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_blueprints_errors()}
   def get_blueprints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8726,6 +8791,7 @@ defmodule AWS.Lightsail do
   @spec get_bucket_access_keys(map(), get_bucket_access_keys_request(), list()) ::
           {:ok, get_bucket_access_keys_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bucket_access_keys_errors()}
   def get_bucket_access_keys(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8748,6 +8814,7 @@ defmodule AWS.Lightsail do
   @spec get_bucket_bundles(map(), get_bucket_bundles_request(), list()) ::
           {:ok, get_bucket_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bucket_bundles_errors()}
   def get_bucket_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8767,6 +8834,7 @@ defmodule AWS.Lightsail do
   @spec get_bucket_metric_data(map(), get_bucket_metric_data_request(), list()) ::
           {:ok, get_bucket_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bucket_metric_data_errors()}
   def get_bucket_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8789,6 +8857,7 @@ defmodule AWS.Lightsail do
   @spec get_buckets(map(), get_buckets_request(), list()) ::
           {:ok, get_buckets_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_buckets_errors()}
   def get_buckets(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8813,6 +8882,7 @@ defmodule AWS.Lightsail do
   @spec get_bundles(map(), get_bundles_request(), list()) ::
           {:ok, get_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bundles_errors()}
   def get_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8831,6 +8901,7 @@ defmodule AWS.Lightsail do
   @spec get_certificates(map(), get_certificates_request(), list()) ::
           {:ok, get_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_certificates_errors()}
   def get_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8859,6 +8930,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_cloud_formation_stack_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cloud_formation_stack_records_errors()}
   def get_cloud_formation_stack_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8884,6 +8956,7 @@ defmodule AWS.Lightsail do
   @spec get_contact_methods(map(), get_contact_methods_request(), list()) ::
           {:ok, get_contact_methods_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_contact_methods_errors()}
   def get_contact_methods(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8899,6 +8972,7 @@ defmodule AWS.Lightsail do
   @spec get_container_api_metadata(map(), get_container_api_metadata_request(), list()) ::
           {:ok, get_container_api_metadata_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_api_metadata_errors()}
   def get_container_api_metadata(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8920,6 +8994,7 @@ defmodule AWS.Lightsail do
   @spec get_container_images(map(), get_container_images_request(), list()) ::
           {:ok, get_container_images_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_images_errors()}
   def get_container_images(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8947,6 +9022,7 @@ defmodule AWS.Lightsail do
   @spec get_container_log(map(), get_container_log_request(), list()) ::
           {:ok, get_container_log_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_log_errors()}
   def get_container_log(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -8979,6 +9055,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_container_service_deployments_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_service_deployments_errors()}
   def get_container_service_deployments(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9002,6 +9079,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_container_service_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_service_metric_data_errors()}
   def get_container_service_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9021,6 +9099,7 @@ defmodule AWS.Lightsail do
   @spec get_container_service_powers(map(), get_container_service_powers_request(), list()) ::
           {:ok, get_container_service_powers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_service_powers_errors()}
   def get_container_service_powers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9035,6 +9114,7 @@ defmodule AWS.Lightsail do
   @spec get_container_services(map(), get_container_services_request(), list()) ::
           {:ok, container_services_list_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_container_services_errors()}
   def get_container_services(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9051,6 +9131,7 @@ defmodule AWS.Lightsail do
   @spec get_cost_estimate(map(), get_cost_estimate_request(), list()) ::
           {:ok, get_cost_estimate_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_cost_estimate_errors()}
   def get_cost_estimate(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9064,6 +9145,7 @@ defmodule AWS.Lightsail do
   @spec get_disk(map(), get_disk_request(), list()) ::
           {:ok, get_disk_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_disk_errors()}
   def get_disk(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9077,6 +9159,7 @@ defmodule AWS.Lightsail do
   @spec get_disk_snapshot(map(), get_disk_snapshot_request(), list()) ::
           {:ok, get_disk_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_disk_snapshot_errors()}
   def get_disk_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9092,6 +9175,7 @@ defmodule AWS.Lightsail do
   @spec get_disk_snapshots(map(), get_disk_snapshots_request(), list()) ::
           {:ok, get_disk_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_disk_snapshots_errors()}
   def get_disk_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9106,6 +9190,7 @@ defmodule AWS.Lightsail do
   @spec get_disks(map(), get_disks_request(), list()) ::
           {:ok, get_disks_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_disks_errors()}
   def get_disks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9125,6 +9210,7 @@ defmodule AWS.Lightsail do
   @spec get_distribution_bundles(map(), get_distribution_bundles_request(), list()) ::
           {:ok, get_distribution_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_distribution_bundles_errors()}
   def get_distribution_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9144,6 +9230,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_distribution_latest_cache_reset_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_distribution_latest_cache_reset_errors()}
   def get_distribution_latest_cache_reset(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9165,6 +9252,7 @@ defmodule AWS.Lightsail do
   @spec get_distribution_metric_data(map(), get_distribution_metric_data_request(), list()) ::
           {:ok, get_distribution_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_distribution_metric_data_errors()}
   def get_distribution_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9180,6 +9268,7 @@ defmodule AWS.Lightsail do
   @spec get_distributions(map(), get_distributions_request(), list()) ::
           {:ok, get_distributions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_distributions_errors()}
   def get_distributions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9193,6 +9282,7 @@ defmodule AWS.Lightsail do
   @spec get_domain(map(), get_domain_request(), list()) ::
           {:ok, get_domain_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9206,6 +9296,7 @@ defmodule AWS.Lightsail do
   @spec get_domains(map(), get_domains_request(), list()) ::
           {:ok, get_domains_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_domains_errors()}
   def get_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9232,6 +9323,7 @@ defmodule AWS.Lightsail do
   @spec get_export_snapshot_records(map(), get_export_snapshot_records_request(), list()) ::
           {:ok, get_export_snapshot_records_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_snapshot_records_errors()}
   def get_export_snapshot_records(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9247,6 +9339,7 @@ defmodule AWS.Lightsail do
   @spec get_instance(map(), get_instance_request(), list()) ::
           {:ok, get_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9267,6 +9360,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_access_details(map(), get_instance_access_details_request(), list()) ::
           {:ok, get_instance_access_details_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_access_details_errors()}
   def get_instance_access_details(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9288,6 +9382,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_metric_data(map(), get_instance_metric_data_request(), list()) ::
           {:ok, get_instance_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_metric_data_errors()}
   def get_instance_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9303,6 +9398,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_port_states(map(), get_instance_port_states_request(), list()) ::
           {:ok, get_instance_port_states_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_port_states_errors()}
   def get_instance_port_states(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9316,6 +9412,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_snapshot(map(), get_instance_snapshot_request(), list()) ::
           {:ok, get_instance_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_snapshot_errors()}
   def get_instance_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9329,6 +9426,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_snapshots(map(), get_instance_snapshots_request(), list()) ::
           {:ok, get_instance_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_snapshots_errors()}
   def get_instance_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9344,6 +9442,7 @@ defmodule AWS.Lightsail do
   @spec get_instance_state(map(), get_instance_state_request(), list()) ::
           {:ok, get_instance_state_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instance_state_errors()}
   def get_instance_state(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9358,6 +9457,7 @@ defmodule AWS.Lightsail do
   @spec get_instances(map(), get_instances_request(), list()) ::
           {:ok, get_instances_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_instances_errors()}
   def get_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9371,6 +9471,7 @@ defmodule AWS.Lightsail do
   @spec get_key_pair(map(), get_key_pair_request(), list()) ::
           {:ok, get_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_pair_errors()}
   def get_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9384,6 +9485,7 @@ defmodule AWS.Lightsail do
   @spec get_key_pairs(map(), get_key_pairs_request(), list()) ::
           {:ok, get_key_pairs_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_key_pairs_errors()}
   def get_key_pairs(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9397,6 +9499,7 @@ defmodule AWS.Lightsail do
   @spec get_load_balancer(map(), get_load_balancer_request(), list()) ::
           {:ok, get_load_balancer_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_load_balancer_errors()}
   def get_load_balancer(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9416,6 +9519,7 @@ defmodule AWS.Lightsail do
   @spec get_load_balancer_metric_data(map(), get_load_balancer_metric_data_request(), list()) ::
           {:ok, get_load_balancer_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_load_balancer_metric_data_errors()}
   def get_load_balancer_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9441,6 +9545,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_load_balancer_tls_certificates_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_load_balancer_tls_certificates_errors()}
   def get_load_balancer_tls_certificates(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9459,6 +9564,7 @@ defmodule AWS.Lightsail do
   @spec get_load_balancer_tls_policies(map(), get_load_balancer_tls_policies_request(), list()) ::
           {:ok, get_load_balancer_tls_policies_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_load_balancer_tls_policies_errors()}
   def get_load_balancer_tls_policies(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9472,6 +9578,7 @@ defmodule AWS.Lightsail do
   @spec get_load_balancers(map(), get_load_balancers_request(), list()) ::
           {:ok, get_load_balancers_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_load_balancers_errors()}
   def get_load_balancers(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9488,6 +9595,7 @@ defmodule AWS.Lightsail do
   @spec get_operation(map(), get_operation_request(), list()) ::
           {:ok, get_operation_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9506,6 +9614,7 @@ defmodule AWS.Lightsail do
   @spec get_operations(map(), get_operations_request(), list()) ::
           {:ok, get_operations_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operations_errors()}
   def get_operations(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9519,6 +9628,7 @@ defmodule AWS.Lightsail do
   @spec get_operations_for_resource(map(), get_operations_for_resource_request(), list()) ::
           {:ok, get_operations_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_operations_for_resource_errors()}
   def get_operations_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9542,6 +9652,7 @@ defmodule AWS.Lightsail do
   @spec get_regions(map(), get_regions_request(), list()) ::
           {:ok, get_regions_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_regions_errors()}
   def get_regions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9555,6 +9666,7 @@ defmodule AWS.Lightsail do
   @spec get_relational_database(map(), get_relational_database_request(), list()) ::
           {:ok, get_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_errors()}
   def get_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9579,6 +9691,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_blueprints_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_blueprints_errors()}
   def get_relational_database_blueprints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9598,6 +9711,7 @@ defmodule AWS.Lightsail do
   @spec get_relational_database_bundles(map(), get_relational_database_bundles_request(), list()) ::
           {:ok, get_relational_database_bundles_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_bundles_errors()}
   def get_relational_database_bundles(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9611,6 +9725,7 @@ defmodule AWS.Lightsail do
   @spec get_relational_database_events(map(), get_relational_database_events_request(), list()) ::
           {:ok, get_relational_database_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_events_errors()}
   def get_relational_database_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9628,6 +9743,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_log_events_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_log_events_errors()}
   def get_relational_database_log_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9646,6 +9762,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_log_streams_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_log_streams_errors()}
   def get_relational_database_log_streams(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9669,6 +9786,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_master_user_password_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_master_user_password_errors()}
   def get_relational_database_master_user_password(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9693,6 +9811,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_metric_data_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_metric_data_errors()}
   def get_relational_database_metric_data(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9718,6 +9837,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_parameters_errors()}
   def get_relational_database_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9735,6 +9855,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_snapshot_errors()}
   def get_relational_database_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9752,6 +9873,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, get_relational_database_snapshots_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_database_snapshots_errors()}
   def get_relational_database_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9765,6 +9887,7 @@ defmodule AWS.Lightsail do
   @spec get_relational_databases(map(), get_relational_databases_request(), list()) ::
           {:ok, get_relational_databases_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_relational_databases_errors()}
   def get_relational_databases(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9779,6 +9902,7 @@ defmodule AWS.Lightsail do
   @spec get_setup_history(map(), get_setup_history_request(), list()) ::
           {:ok, get_setup_history_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_setup_history_errors()}
   def get_setup_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9792,6 +9916,7 @@ defmodule AWS.Lightsail do
   @spec get_static_ip(map(), get_static_ip_request(), list()) ::
           {:ok, get_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_static_ip_errors()}
   def get_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9805,6 +9930,7 @@ defmodule AWS.Lightsail do
   @spec get_static_ips(map(), get_static_ips_request(), list()) ::
           {:ok, get_static_ips_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_static_ips_errors()}
   def get_static_ips(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9818,6 +9944,7 @@ defmodule AWS.Lightsail do
   @spec import_key_pair(map(), import_key_pair_request(), list()) ::
           {:ok, import_key_pair_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, import_key_pair_errors()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9831,6 +9958,7 @@ defmodule AWS.Lightsail do
   @spec is_vpc_peered(map(), is_vpc_peered_request(), list()) ::
           {:ok, is_vpc_peered_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, is_vpc_peered_errors()}
   def is_vpc_peered(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9850,6 +9978,7 @@ defmodule AWS.Lightsail do
   @spec open_instance_public_ports(map(), open_instance_public_ports_request(), list()) ::
           {:ok, open_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, open_instance_public_ports_errors()}
   def open_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9863,6 +9992,7 @@ defmodule AWS.Lightsail do
   @spec peer_vpc(map(), peer_vpc_request(), list()) ::
           {:ok, peer_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, peer_vpc_errors()}
   def peer_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9893,6 +10023,7 @@ defmodule AWS.Lightsail do
   @spec put_alarm(map(), put_alarm_request(), list()) ::
           {:ok, put_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_alarm_errors()}
   def put_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9921,6 +10052,7 @@ defmodule AWS.Lightsail do
   @spec put_instance_public_ports(map(), put_instance_public_ports_request(), list()) ::
           {:ok, put_instance_public_ports_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_instance_public_ports_errors()}
   def put_instance_public_ports(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9939,6 +10071,7 @@ defmodule AWS.Lightsail do
   @spec reboot_instance(map(), reboot_instance_request(), list()) ::
           {:ok, reboot_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9957,6 +10090,7 @@ defmodule AWS.Lightsail do
   @spec reboot_relational_database(map(), reboot_relational_database_request(), list()) ::
           {:ok, reboot_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_relational_database_errors()}
   def reboot_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9977,6 +10111,7 @@ defmodule AWS.Lightsail do
   @spec register_container_image(map(), register_container_image_request(), list()) ::
           {:ok, register_container_image_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_container_image_errors()}
   def register_container_image(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -9990,6 +10125,7 @@ defmodule AWS.Lightsail do
   @spec release_static_ip(map(), release_static_ip_request(), list()) ::
           {:ok, release_static_ip_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, release_static_ip_errors()}
   def release_static_ip(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10009,6 +10145,7 @@ defmodule AWS.Lightsail do
   @spec reset_distribution_cache(map(), reset_distribution_cache_request(), list()) ::
           {:ok, reset_distribution_cache_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_distribution_cache_errors()}
   def reset_distribution_cache(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10049,6 +10186,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, send_contact_method_verification_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, send_contact_method_verification_errors()}
   def send_contact_method_verification(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10068,6 +10206,7 @@ defmodule AWS.Lightsail do
   @spec set_ip_address_type(map(), set_ip_address_type_request(), list()) ::
           {:ok, set_ip_address_type_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10086,6 +10225,7 @@ defmodule AWS.Lightsail do
   @spec set_resource_access_for_bucket(map(), set_resource_access_for_bucket_request(), list()) ::
           {:ok, set_resource_access_for_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, set_resource_access_for_bucket_errors()}
   def set_resource_access_for_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10106,6 +10246,7 @@ defmodule AWS.Lightsail do
   @spec setup_instance_https(map(), setup_instance_https_request(), list()) ::
           {:ok, setup_instance_https_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, setup_instance_https_errors()}
   def setup_instance_https(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10124,6 +10265,7 @@ defmodule AWS.Lightsail do
   @spec start_g_ui_session(map(), start_g_ui_session_request(), list()) ::
           {:ok, start_g_ui_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_g_ui_session_errors()}
   def start_g_ui_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10152,6 +10294,7 @@ defmodule AWS.Lightsail do
   @spec start_instance(map(), start_instance_request(), list()) ::
           {:ok, start_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10173,6 +10316,7 @@ defmodule AWS.Lightsail do
   @spec start_relational_database(map(), start_relational_database_request(), list()) ::
           {:ok, start_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_relational_database_errors()}
   def start_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10191,6 +10335,7 @@ defmodule AWS.Lightsail do
   @spec stop_g_ui_session(map(), stop_g_ui_session_request(), list()) ::
           {:ok, stop_g_ui_session_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_g_ui_session_errors()}
   def stop_g_ui_session(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10216,6 +10361,7 @@ defmodule AWS.Lightsail do
   @spec stop_instance(map(), stop_instance_request(), list()) ::
           {:ok, stop_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10241,6 +10387,7 @@ defmodule AWS.Lightsail do
   @spec stop_relational_database(map(), stop_relational_database_request(), list()) ::
           {:ok, stop_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_relational_database_errors()}
   def stop_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10265,6 +10412,7 @@ defmodule AWS.Lightsail do
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10291,6 +10439,7 @@ defmodule AWS.Lightsail do
   @spec test_alarm(map(), test_alarm_request(), list()) ::
           {:ok, test_alarm_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_alarm_errors()}
   def test_alarm(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10304,6 +10453,7 @@ defmodule AWS.Lightsail do
   @spec unpeer_vpc(map(), unpeer_vpc_request(), list()) ::
           {:ok, unpeer_vpc_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, unpeer_vpc_errors()}
   def unpeer_vpc(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10324,6 +10474,7 @@ defmodule AWS.Lightsail do
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10342,6 +10493,7 @@ defmodule AWS.Lightsail do
   @spec update_bucket(map(), update_bucket_request(), list()) ::
           {:ok, update_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bucket_errors()}
   def update_bucket(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10379,6 +10531,7 @@ defmodule AWS.Lightsail do
   @spec update_bucket_bundle(map(), update_bucket_bundle_request(), list()) ::
           {:ok, update_bucket_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_bucket_bundle_errors()}
   def update_bucket_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10394,6 +10547,7 @@ defmodule AWS.Lightsail do
   @spec update_container_service(map(), update_container_service_request(), list()) ::
           {:ok, update_container_service_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_container_service_errors()}
   def update_container_service(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10410,6 +10564,7 @@ defmodule AWS.Lightsail do
   @spec update_distribution(map(), update_distribution_request(), list()) ::
           {:ok, update_distribution_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_distribution_errors()}
   def update_distribution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10439,6 +10594,7 @@ defmodule AWS.Lightsail do
   @spec update_distribution_bundle(map(), update_distribution_bundle_request(), list()) ::
           {:ok, update_distribution_bundle_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_distribution_bundle_errors()}
   def update_distribution_bundle(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10456,6 +10612,7 @@ defmodule AWS.Lightsail do
   @spec update_domain_entry(map(), update_domain_entry_request(), list()) ::
           {:ok, update_domain_entry_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_domain_entry_errors()}
   def update_domain_entry(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10483,6 +10640,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, update_instance_metadata_options_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_instance_metadata_options_errors()}
   def update_instance_metadata_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10509,6 +10667,7 @@ defmodule AWS.Lightsail do
   @spec update_load_balancer_attribute(map(), update_load_balancer_attribute_request(), list()) ::
           {:ok, update_load_balancer_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_load_balancer_attribute_errors()}
   def update_load_balancer_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10531,6 +10690,7 @@ defmodule AWS.Lightsail do
   @spec update_relational_database(map(), update_relational_database_request(), list()) ::
           {:ok, update_relational_database_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_relational_database_errors()}
   def update_relational_database(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -10563,6 +10723,7 @@ defmodule AWS.Lightsail do
         ) ::
           {:ok, update_relational_database_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_relational_database_parameters_errors()}
   def update_relational_database_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()

@@ -1173,6 +1173,7 @@ defmodule AWS.AppFabric do
   @spec batch_get_user_access_tasks(map(), batch_get_user_access_tasks_request(), list()) ::
           {:ok, batch_get_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_user_access_tasks_errors()}
   def batch_get_user_access_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/useraccess/batchget"
@@ -1209,6 +1210,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, connect_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, connect_app_authorization_errors()}
   def connect_app_authorization(
         %Client{} = client,
@@ -1247,6 +1249,7 @@ defmodule AWS.AppFabric do
   @spec create_app_authorization(map(), String.t(), create_app_authorization_request(), list()) ::
           {:ok, create_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_authorization_errors()}
   def create_app_authorization(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/appauthorizations"
@@ -1275,6 +1278,7 @@ defmodule AWS.AppFabric do
   @spec create_app_bundle(map(), create_app_bundle_request(), list()) ::
           {:ok, create_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_app_bundle_errors()}
   def create_app_bundle(%Client{} = client, input, options \\ []) do
     url_path = "/appbundles"
@@ -1303,6 +1307,7 @@ defmodule AWS.AppFabric do
   @spec create_ingestion(map(), String.t(), create_ingestion_request(), list()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ingestion_errors()}
   def create_ingestion(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}/ingestions"
@@ -1339,6 +1344,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, create_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_ingestion_destination_errors()}
   def create_ingestion_destination(
         %Client{} = client,
@@ -1384,6 +1390,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, delete_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_authorization_errors()}
   def delete_app_authorization(
         %Client{} = client,
@@ -1423,6 +1430,7 @@ defmodule AWS.AppFabric do
   @spec delete_app_bundle(map(), String.t(), delete_app_bundle_request(), list()) ::
           {:ok, delete_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_app_bundle_errors()}
   def delete_app_bundle(%Client{} = client, app_bundle_identifier, input, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
@@ -1454,6 +1462,7 @@ defmodule AWS.AppFabric do
   @spec delete_ingestion(map(), String.t(), String.t(), delete_ingestion_request(), list()) ::
           {:ok, delete_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ingestion_errors()}
   def delete_ingestion(
         %Client{} = client,
@@ -1506,6 +1515,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, delete_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_ingestion_destination_errors()}
   def delete_ingestion_destination(
         %Client{} = client,
@@ -1543,6 +1553,7 @@ defmodule AWS.AppFabric do
   @spec get_app_authorization(map(), String.t(), String.t(), list()) ::
           {:ok, get_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_authorization_errors()}
   def get_app_authorization(
         %Client{} = client,
@@ -1567,6 +1578,7 @@ defmodule AWS.AppFabric do
   @spec get_app_bundle(map(), String.t(), list()) ::
           {:ok, get_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_app_bundle_errors()}
   def get_app_bundle(%Client{} = client, app_bundle_identifier, options \\ []) do
     url_path = "/appbundles/#{AWS.Util.encode_uri(app_bundle_identifier)}"
@@ -1584,6 +1596,7 @@ defmodule AWS.AppFabric do
   @spec get_ingestion(map(), String.t(), String.t(), list()) ::
           {:ok, get_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ingestion_errors()}
   def get_ingestion(
         %Client{} = client,
@@ -1608,6 +1621,7 @@ defmodule AWS.AppFabric do
   @spec get_ingestion_destination(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_ingestion_destination_errors()}
   def get_ingestion_destination(
         %Client{} = client,
@@ -1633,6 +1647,7 @@ defmodule AWS.AppFabric do
   @spec list_app_authorizations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_authorizations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_authorizations_errors()}
   def list_app_authorizations(
         %Client{} = client,
@@ -1670,6 +1685,7 @@ defmodule AWS.AppFabric do
   @spec list_app_bundles(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_app_bundles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_app_bundles_errors()}
   def list_app_bundles(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/appbundles"
@@ -1708,6 +1724,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, list_ingestion_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ingestion_destinations_errors()}
   def list_ingestion_destinations(
         %Client{} = client,
@@ -1748,6 +1765,7 @@ defmodule AWS.AppFabric do
   @spec list_ingestions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ingestions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_ingestions_errors()}
   def list_ingestions(
         %Client{} = client,
@@ -1785,6 +1803,7 @@ defmodule AWS.AppFabric do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1802,6 +1821,7 @@ defmodule AWS.AppFabric do
   @spec start_ingestion(map(), String.t(), String.t(), start_ingestion_request(), list()) ::
           {:ok, start_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_ingestion_errors()}
   def start_ingestion(
         %Client{} = client,
@@ -1841,6 +1861,7 @@ defmodule AWS.AppFabric do
   @spec start_user_access_tasks(map(), start_user_access_tasks_request(), list()) ::
           {:ok, start_user_access_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_user_access_tasks_errors()}
   def start_user_access_tasks(%Client{} = client, input, options \\ []) do
     url_path = "/useraccess/start"
@@ -1869,6 +1890,7 @@ defmodule AWS.AppFabric do
   @spec stop_ingestion(map(), String.t(), String.t(), stop_ingestion_request(), list()) ::
           {:ok, stop_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_ingestion_errors()}
   def stop_ingestion(
         %Client{} = client,
@@ -1905,6 +1927,7 @@ defmodule AWS.AppFabric do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1933,6 +1956,7 @@ defmodule AWS.AppFabric do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -1977,6 +2001,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, update_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_app_authorization_errors()}
   def update_app_authorization(
         %Client{} = client,
@@ -2022,6 +2047,7 @@ defmodule AWS.AppFabric do
         ) ::
           {:ok, update_ingestion_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_ingestion_destination_errors()}
   def update_ingestion_destination(
         %Client{} = client,

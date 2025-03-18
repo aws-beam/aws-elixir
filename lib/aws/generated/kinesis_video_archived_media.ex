@@ -513,6 +513,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec get_clip(map(), get_clip_input(), list()) ::
           {:ok, get_clip_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_clip_errors()}
   def get_clip(%Client{} = client, input, options \\ []) do
     url_path = "/getClip"
@@ -699,6 +700,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec get_dash_streaming_session_url(map(), get_dash_streaming_session_url_input(), list()) ::
           {:ok, get_dash_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_dash_streaming_session_url_errors()}
   def get_dash_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getDASHStreamingSessionURL"
@@ -923,6 +925,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec get_hls_streaming_session_url(map(), get_hls_streaming_session_url_input(), list()) ::
           {:ok, get_hls_streaming_session_url_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_hls_streaming_session_url_errors()}
   def get_hls_streaming_session_url(%Client{} = client, input, options \\ []) do
     url_path = "/getHLSStreamingSessionURL"
@@ -953,6 +956,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec get_images(map(), get_images_input(), list()) ::
           {:ok, get_images_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_images_errors()}
   def get_images(%Client{} = client, input, options \\ []) do
     url_path = "/getImages"
@@ -1014,6 +1018,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec get_media_for_fragment_list(map(), get_media_for_fragment_list_input(), list()) ::
           {:ok, get_media_for_fragment_list_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_media_for_fragment_list_errors()}
   def get_media_for_fragment_list(%Client{} = client, input, options \\ []) do
     url_path = "/getMediaForFragmentList"
@@ -1084,6 +1089,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   @spec list_fragments(map(), list_fragments_input(), list()) ::
           {:ok, list_fragments_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fragments_errors()}
   def list_fragments(%Client{} = client, input, options \\ []) do
     url_path = "/listFragments"

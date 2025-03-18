@@ -3704,6 +3704,7 @@ defmodule AWS.Neptune do
   @spec add_role_to_db_cluster(map(), add_role_to_db_cluster_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3721,6 +3722,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, add_source_identifier_to_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3739,6 +3741,7 @@ defmodule AWS.Neptune do
   @spec add_tags_to_resource(map(), add_tags_to_resource_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3757,6 +3760,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, apply_pending_maintenance_action_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3770,6 +3774,7 @@ defmodule AWS.Neptune do
   @spec copy_db_cluster_parameter_group(map(), copy_db_cluster_parameter_group_message(), list()) ::
           {:ok, copy_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3788,6 +3793,7 @@ defmodule AWS.Neptune do
   @spec copy_db_cluster_snapshot(map(), copy_db_cluster_snapshot_message(), list()) ::
           {:ok, copy_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3801,6 +3807,7 @@ defmodule AWS.Neptune do
   @spec copy_db_parameter_group(map(), copy_db_parameter_group_message(), list()) ::
           {:ok, copy_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3824,6 +3831,7 @@ defmodule AWS.Neptune do
   @spec create_db_cluster(map(), create_db_cluster_message(), list()) ::
           {:ok, create_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3838,6 +3846,7 @@ defmodule AWS.Neptune do
   @spec create_db_cluster_endpoint(map(), create_db_cluster_endpoint_message(), list()) ::
           {:ok, create_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3881,6 +3890,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, create_db_cluster_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3894,6 +3904,7 @@ defmodule AWS.Neptune do
   @spec create_db_cluster_snapshot(map(), create_db_cluster_snapshot_message(), list()) ::
           {:ok, create_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3907,6 +3918,7 @@ defmodule AWS.Neptune do
   @spec create_db_instance(map(), create_db_instance_message(), list()) ::
           {:ok, create_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3947,6 +3959,7 @@ defmodule AWS.Neptune do
   @spec create_db_parameter_group(map(), create_db_parameter_group_message(), list()) ::
           {:ok, create_db_parameter_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3963,6 +3976,7 @@ defmodule AWS.Neptune do
   @spec create_db_subnet_group(map(), create_db_subnet_group_message(), list()) ::
           {:ok, create_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4005,6 +4019,7 @@ defmodule AWS.Neptune do
   @spec create_event_subscription(map(), create_event_subscription_message(), list()) ::
           {:ok, create_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4028,6 +4043,7 @@ defmodule AWS.Neptune do
   @spec create_global_cluster(map(), create_global_cluster_message(), list()) ::
           {:ok, create_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4050,6 +4066,7 @@ defmodule AWS.Neptune do
   @spec delete_db_cluster(map(), delete_db_cluster_message(), list()) ::
           {:ok, delete_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4063,6 +4080,7 @@ defmodule AWS.Neptune do
   @spec delete_db_cluster_endpoint(map(), delete_db_cluster_endpoint_message(), list()) ::
           {:ok, delete_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4083,6 +4101,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4102,6 +4121,7 @@ defmodule AWS.Neptune do
   @spec delete_db_cluster_snapshot(map(), delete_db_cluster_snapshot_message(), list()) ::
           {:ok, delete_db_cluster_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4136,6 +4156,7 @@ defmodule AWS.Neptune do
   @spec delete_db_instance(map(), delete_db_instance_message(), list()) ::
           {:ok, delete_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4152,6 +4173,7 @@ defmodule AWS.Neptune do
   @spec delete_db_parameter_group(map(), delete_db_parameter_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4168,6 +4190,7 @@ defmodule AWS.Neptune do
   @spec delete_db_subnet_group(map(), delete_db_subnet_group_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4181,6 +4204,7 @@ defmodule AWS.Neptune do
   @spec delete_event_subscription(map(), delete_event_subscription_message(), list()) ::
           {:ok, delete_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4197,6 +4221,7 @@ defmodule AWS.Neptune do
   @spec delete_global_cluster(map(), delete_global_cluster_message(), list()) ::
           {:ok, delete_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4213,6 +4238,7 @@ defmodule AWS.Neptune do
   @spec describe_db_cluster_endpoints(map(), describe_db_cluster_endpoints_message(), list()) ::
           {:ok, db_cluster_endpoint_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4234,6 +4260,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, db_cluster_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4247,6 +4274,7 @@ defmodule AWS.Neptune do
   @spec describe_db_cluster_parameters(map(), describe_db_cluster_parameters_message(), list()) ::
           {:ok, db_cluster_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4279,6 +4307,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, describe_db_cluster_snapshot_attributes_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4295,6 +4324,7 @@ defmodule AWS.Neptune do
   @spec describe_db_cluster_snapshots(map(), describe_db_cluster_snapshots_message(), list()) ::
           {:ok, db_cluster_snapshot_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4312,6 +4342,7 @@ defmodule AWS.Neptune do
   @spec describe_db_clusters(map(), describe_db_clusters_message(), list()) ::
           {:ok, db_cluster_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4325,6 +4356,7 @@ defmodule AWS.Neptune do
   @spec describe_db_engine_versions(map(), describe_db_engine_versions_message(), list()) ::
           {:ok, db_engine_version_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4340,6 +4372,7 @@ defmodule AWS.Neptune do
   @spec describe_db_instances(map(), describe_db_instances_message(), list()) ::
           {:ok, db_instance_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4358,6 +4391,7 @@ defmodule AWS.Neptune do
   @spec describe_db_parameter_groups(map(), describe_db_parameter_groups_message(), list()) ::
           {:ok, db_parameter_groups_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4371,6 +4405,7 @@ defmodule AWS.Neptune do
   @spec describe_db_parameters(map(), describe_db_parameters_message(), list()) ::
           {:ok, db_parameter_group_details(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4389,6 +4424,7 @@ defmodule AWS.Neptune do
   @spec describe_db_subnet_groups(map(), describe_db_subnet_groups_message(), list()) ::
           {:ok, db_subnet_group_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4408,6 +4444,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, describe_engine_default_cluster_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4426,6 +4463,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, describe_engine_default_parameters_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4440,6 +4478,7 @@ defmodule AWS.Neptune do
   @spec describe_event_categories(map(), describe_event_categories_message(), list()) ::
           {:ok, event_categories_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4459,6 +4498,7 @@ defmodule AWS.Neptune do
   @spec describe_event_subscriptions(map(), describe_event_subscriptions_message(), list()) ::
           {:ok, event_subscriptions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4479,6 +4519,7 @@ defmodule AWS.Neptune do
   @spec describe_events(map(), describe_events_message(), list()) ::
           {:ok, events_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4494,6 +4535,7 @@ defmodule AWS.Neptune do
   @spec describe_global_clusters(map(), describe_global_clusters_message(), list()) ::
           {:ok, global_clusters_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4511,6 +4553,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, orderable_db_instance_options_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
     meta = metadata()
 
@@ -4529,6 +4572,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, pending_maintenance_actions_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4550,6 +4594,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, describe_valid_db_instance_modifications_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4577,6 +4622,7 @@ defmodule AWS.Neptune do
   @spec failover_db_cluster(map(), failover_db_cluster_message(), list()) ::
           {:ok, failover_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4603,6 +4649,7 @@ defmodule AWS.Neptune do
   @spec failover_global_cluster(map(), failover_global_cluster_message(), list()) ::
           {:ok, failover_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4616,6 +4663,7 @@ defmodule AWS.Neptune do
   @spec list_tags_for_resource(map(), list_tags_for_resource_message(), list()) ::
           {:ok, tag_list_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4632,6 +4680,7 @@ defmodule AWS.Neptune do
   @spec modify_db_cluster(map(), modify_db_cluster_message(), list()) ::
           {:ok, modify_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4645,6 +4694,7 @@ defmodule AWS.Neptune do
   @spec modify_db_cluster_endpoint(map(), modify_db_cluster_endpoint_message(), list()) ::
           {:ok, modify_db_cluster_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4689,6 +4739,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4728,6 +4779,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, modify_db_cluster_snapshot_attribute_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4747,6 +4799,7 @@ defmodule AWS.Neptune do
   @spec modify_db_instance(map(), modify_db_instance_message(), list()) ::
           {:ok, modify_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4785,6 +4838,7 @@ defmodule AWS.Neptune do
   @spec modify_db_parameter_group(map(), modify_db_parameter_group_message(), list()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4801,6 +4855,7 @@ defmodule AWS.Neptune do
   @spec modify_db_subnet_group(map(), modify_db_subnet_group_message(), list()) ::
           {:ok, modify_db_subnet_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4823,6 +4878,7 @@ defmodule AWS.Neptune do
   @spec modify_event_subscription(map(), modify_event_subscription_message(), list()) ::
           {:ok, modify_event_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4840,6 +4896,7 @@ defmodule AWS.Neptune do
   @spec modify_global_cluster(map(), modify_global_cluster_message(), list()) ::
           {:ok, modify_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4853,6 +4910,7 @@ defmodule AWS.Neptune do
   @spec promote_read_replica_db_cluster(map(), promote_read_replica_db_cluster_message(), list()) ::
           {:ok, promote_read_replica_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4876,6 +4934,7 @@ defmodule AWS.Neptune do
   @spec reboot_db_instance(map(), reboot_db_instance_message(), list()) ::
           {:ok, reboot_db_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4894,6 +4953,7 @@ defmodule AWS.Neptune do
   @spec remove_from_global_cluster(map(), remove_from_global_cluster_message(), list()) ::
           {:ok, remove_from_global_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4907,6 +4967,7 @@ defmodule AWS.Neptune do
   @spec remove_role_from_db_cluster(map(), remove_role_from_db_cluster_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4924,6 +4985,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, remove_source_identifier_from_subscription_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4937,6 +4999,7 @@ defmodule AWS.Neptune do
   @spec remove_tags_from_resource(map(), remove_tags_from_resource_message(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4966,6 +5029,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, db_cluster_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4989,6 +5053,7 @@ defmodule AWS.Neptune do
   @spec reset_db_parameter_group(map(), reset_db_parameter_group_message(), list()) ::
           {:ok, db_parameter_group_name_message(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5016,6 +5081,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, restore_db_cluster_from_snapshot_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5049,6 +5115,7 @@ defmodule AWS.Neptune do
         ) ::
           {:ok, restore_db_cluster_to_point_in_time_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5063,6 +5130,7 @@ defmodule AWS.Neptune do
   @spec start_db_cluster(map(), start_db_cluster_message(), list()) ::
           {:ok, start_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -5083,6 +5151,7 @@ defmodule AWS.Neptune do
   @spec stop_db_cluster(map(), stop_db_cluster_message(), list()) ::
           {:ok, stop_db_cluster_result(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
     meta = metadata()

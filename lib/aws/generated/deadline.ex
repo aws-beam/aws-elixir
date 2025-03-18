@@ -5283,6 +5283,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, associate_member_to_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_member_to_farm_errors()}
   def associate_member_to_farm(%Client{} = client, farm_id, principal_id, input, options \\ []) do
     url_path =
@@ -5320,6 +5321,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, associate_member_to_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_member_to_fleet_errors()}
   def associate_member_to_fleet(
         %Client{} = client,
@@ -5365,6 +5367,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, associate_member_to_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_member_to_job_errors()}
   def associate_member_to_job(
         %Client{} = client,
@@ -5410,6 +5413,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, associate_member_to_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, associate_member_to_queue_errors()}
   def associate_member_to_queue(
         %Client{} = client,
@@ -5450,6 +5454,7 @@ defmodule AWS.Deadline do
   @spec assume_fleet_role_for_read(map(), String.t(), String.t(), list()) ::
           {:ok, assume_fleet_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_fleet_role_for_read_errors()}
   def assume_fleet_role_for_read(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
@@ -5469,6 +5474,7 @@ defmodule AWS.Deadline do
   @spec assume_fleet_role_for_worker(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, assume_fleet_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_fleet_role_for_worker_errors()}
   def assume_fleet_role_for_worker(
         %Client{} = client,
@@ -5497,6 +5503,7 @@ defmodule AWS.Deadline do
   @spec assume_queue_role_for_read(map(), String.t(), String.t(), list()) ::
           {:ok, assume_queue_role_for_read_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_queue_role_for_read_errors()}
   def assume_queue_role_for_read(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
@@ -5516,6 +5523,7 @@ defmodule AWS.Deadline do
   @spec assume_queue_role_for_user(map(), String.t(), String.t(), list()) ::
           {:ok, assume_queue_role_for_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_queue_role_for_user_errors()}
   def assume_queue_role_for_user(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
@@ -5542,6 +5550,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, assume_queue_role_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, assume_queue_role_for_worker_errors()}
   def assume_queue_role_for_worker(
         %Client{} = client,
@@ -5582,6 +5591,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, batch_get_job_entity_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, batch_get_job_entity_errors()}
   def batch_get_job_entity(%Client{} = client, farm_id, fleet_id, worker_id, input, options \\ []) do
     url_path =
@@ -5619,6 +5629,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, copy_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, copy_job_template_errors()}
   def copy_job_template(%Client{} = client, farm_id, job_id, queue_id, input, options \\ []) do
     url_path =
@@ -5649,6 +5660,7 @@ defmodule AWS.Deadline do
   @spec create_budget(map(), String.t(), create_budget_request(), list()) ::
           {:ok, create_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/budgets"
@@ -5690,6 +5702,7 @@ defmodule AWS.Deadline do
   @spec create_farm(map(), create_farm_request(), list()) ::
           {:ok, create_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_farm_errors()}
   def create_farm(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/farms"
@@ -5729,6 +5742,7 @@ defmodule AWS.Deadline do
   @spec create_fleet(map(), String.t(), create_fleet_request(), list()) ::
           {:ok, create_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/fleets"
@@ -5766,6 +5780,7 @@ defmodule AWS.Deadline do
   @spec create_job(map(), String.t(), String.t(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
@@ -5802,6 +5817,7 @@ defmodule AWS.Deadline do
   @spec create_license_endpoint(map(), create_license_endpoint_request(), list()) ::
           {:ok, create_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_license_endpoint_errors()}
   def create_license_endpoint(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/license-endpoints"
@@ -5845,6 +5861,7 @@ defmodule AWS.Deadline do
   @spec create_limit(map(), String.t(), create_limit_request(), list()) ::
           {:ok, create_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_limit_errors()}
   def create_limit(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/limits"
@@ -5885,6 +5902,7 @@ defmodule AWS.Deadline do
   @spec create_monitor(map(), create_monitor_request(), list()) ::
           {:ok, create_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
     url_path = "/2023-10-12/monitors"
@@ -5922,6 +5940,7 @@ defmodule AWS.Deadline do
   @spec create_queue(map(), String.t(), create_queue_request(), list()) ::
           {:ok, create_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queues"
@@ -5962,6 +5981,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, create_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_environment_errors()}
   def create_queue_environment(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
@@ -6002,6 +6022,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, create_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_fleet_association_errors()}
   def create_queue_fleet_association(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-fleet-associations"
@@ -6041,6 +6062,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, create_queue_limit_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_queue_limit_association_errors()}
   def create_queue_limit_association(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/queue-limit-associations"
@@ -6071,6 +6093,7 @@ defmodule AWS.Deadline do
   @spec create_storage_profile(map(), String.t(), create_storage_profile_request(), list()) ::
           {:ok, create_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_storage_profile_errors()}
   def create_storage_profile(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/storage-profiles"
@@ -6112,6 +6135,7 @@ defmodule AWS.Deadline do
   @spec create_worker(map(), String.t(), String.t(), create_worker_request(), list()) ::
           {:ok, create_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_worker_errors()}
   def create_worker(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
@@ -6147,6 +6171,7 @@ defmodule AWS.Deadline do
   @spec delete_budget(map(), String.t(), String.t(), delete_budget_request(), list()) ::
           {:ok, delete_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_budget_errors()}
   def delete_budget(%Client{} = client, budget_id, farm_id, input, options \\ []) do
     url_path =
@@ -6177,6 +6202,7 @@ defmodule AWS.Deadline do
   @spec delete_farm(map(), String.t(), delete_farm_request(), list()) ::
           {:ok, delete_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_farm_errors()}
   def delete_farm(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
@@ -6205,6 +6231,7 @@ defmodule AWS.Deadline do
   @spec delete_fleet(map(), String.t(), String.t(), delete_fleet_request(), list()) ::
           {:ok, delete_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
@@ -6240,6 +6267,7 @@ defmodule AWS.Deadline do
   @spec delete_license_endpoint(map(), String.t(), delete_license_endpoint_request(), list()) ::
           {:ok, delete_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_license_endpoint_errors()}
   def delete_license_endpoint(%Client{} = client, license_endpoint_id, input, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
@@ -6272,6 +6300,7 @@ defmodule AWS.Deadline do
   @spec delete_limit(map(), String.t(), String.t(), delete_limit_request(), list()) ::
           {:ok, delete_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_limit_errors()}
   def delete_limit(%Client{} = client, farm_id, limit_id, input, options \\ []) do
     url_path =
@@ -6308,6 +6337,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, delete_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_metered_product_errors()}
   def delete_metered_product(
         %Client{} = client,
@@ -6347,6 +6377,7 @@ defmodule AWS.Deadline do
   @spec delete_monitor(map(), String.t(), delete_monitor_request(), list()) ::
           {:ok, delete_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, monitor_id, input, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
@@ -6379,6 +6410,7 @@ defmodule AWS.Deadline do
   @spec delete_queue(map(), String.t(), String.t(), delete_queue_request(), list()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
@@ -6416,6 +6448,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, delete_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_environment_errors()}
   def delete_queue_environment(
         %Client{} = client,
@@ -6460,6 +6493,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, delete_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_fleet_association_errors()}
   def delete_queue_fleet_association(
         %Client{} = client,
@@ -6511,6 +6545,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, delete_queue_limit_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_queue_limit_association_errors()}
   def delete_queue_limit_association(
         %Client{} = client,
@@ -6554,6 +6589,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, delete_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_storage_profile_errors()}
   def delete_storage_profile(
         %Client{} = client,
@@ -6590,6 +6626,7 @@ defmodule AWS.Deadline do
   @spec delete_worker(map(), String.t(), String.t(), String.t(), delete_worker_request(), list()) ::
           {:ok, delete_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_worker_errors()}
   def delete_worker(%Client{} = client, farm_id, fleet_id, worker_id, input, options \\ []) do
     url_path =
@@ -6626,6 +6663,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, disassociate_member_from_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_from_farm_errors()}
   def disassociate_member_from_farm(
         %Client{} = client,
@@ -6669,6 +6707,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, disassociate_member_from_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_from_fleet_errors()}
   def disassociate_member_from_fleet(
         %Client{} = client,
@@ -6714,6 +6753,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, disassociate_member_from_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_from_job_errors()}
   def disassociate_member_from_job(
         %Client{} = client,
@@ -6759,6 +6799,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, disassociate_member_from_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, disassociate_member_from_queue_errors()}
   def disassociate_member_from_queue(
         %Client{} = client,
@@ -6796,6 +6837,7 @@ defmodule AWS.Deadline do
   @spec get_budget(map(), String.t(), String.t(), list()) ::
           {:ok, get_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_budget_errors()}
   def get_budget(%Client{} = client, budget_id, farm_id, options \\ []) do
     url_path =
@@ -6815,6 +6857,7 @@ defmodule AWS.Deadline do
   @spec get_farm(map(), String.t(), list()) ::
           {:ok, get_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_farm_errors()}
   def get_farm(%Client{} = client, farm_id, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
@@ -6832,6 +6875,7 @@ defmodule AWS.Deadline do
   @spec get_fleet(map(), String.t(), String.t(), list()) ::
           {:ok, get_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_fleet_errors()}
   def get_fleet(%Client{} = client, farm_id, fleet_id, options \\ []) do
     url_path =
@@ -6851,6 +6895,7 @@ defmodule AWS.Deadline do
   @spec get_job(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, farm_id, job_id, queue_id, options \\ []) do
     url_path =
@@ -6870,6 +6915,7 @@ defmodule AWS.Deadline do
   @spec get_license_endpoint(map(), String.t(), list()) ::
           {:ok, get_license_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_license_endpoint_errors()}
   def get_license_endpoint(%Client{} = client, license_endpoint_id, options \\ []) do
     url_path = "/2023-10-12/license-endpoints/#{AWS.Util.encode_uri(license_endpoint_id)}"
@@ -6887,6 +6933,7 @@ defmodule AWS.Deadline do
   @spec get_limit(map(), String.t(), String.t(), list()) ::
           {:ok, get_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_limit_errors()}
   def get_limit(%Client{} = client, farm_id, limit_id, options \\ []) do
     url_path =
@@ -6906,6 +6953,7 @@ defmodule AWS.Deadline do
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_monitor_errors()}
   def get_monitor(%Client{} = client, monitor_id, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
@@ -6923,6 +6971,7 @@ defmodule AWS.Deadline do
   @spec get_queue(map(), String.t(), String.t(), list()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, farm_id, queue_id, options \\ []) do
     url_path =
@@ -6942,6 +6991,7 @@ defmodule AWS.Deadline do
   @spec get_queue_environment(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_environment_errors()}
   def get_queue_environment(
         %Client{} = client,
@@ -6967,6 +7017,7 @@ defmodule AWS.Deadline do
   @spec get_queue_fleet_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_fleet_association_errors()}
   def get_queue_fleet_association(%Client{} = client, farm_id, fleet_id, queue_id, options \\ []) do
     url_path =
@@ -6986,6 +7037,7 @@ defmodule AWS.Deadline do
   @spec get_queue_limit_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_queue_limit_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_queue_limit_association_errors()}
   def get_queue_limit_association(%Client{} = client, farm_id, limit_id, queue_id, options \\ []) do
     url_path =
@@ -7005,6 +7057,7 @@ defmodule AWS.Deadline do
   @spec get_session(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, farm_id, job_id, queue_id, session_id, options \\ []) do
     url_path =
@@ -7024,6 +7077,7 @@ defmodule AWS.Deadline do
   @spec get_session_action(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_session_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_session_action_errors()}
   def get_session_action(
         %Client{} = client,
@@ -7062,6 +7116,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, get_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_sessions_statistics_aggregation_errors()}
   def get_sessions_statistics_aggregation(
         %Client{} = client,
@@ -7107,6 +7162,7 @@ defmodule AWS.Deadline do
   @spec get_step(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_step_errors()}
   def get_step(%Client{} = client, farm_id, job_id, queue_id, step_id, options \\ []) do
     url_path =
@@ -7126,6 +7182,7 @@ defmodule AWS.Deadline do
   @spec get_storage_profile(map(), String.t(), String.t(), list()) ::
           {:ok, get_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_storage_profile_errors()}
   def get_storage_profile(%Client{} = client, farm_id, storage_profile_id, options \\ []) do
     url_path =
@@ -7145,6 +7202,7 @@ defmodule AWS.Deadline do
   @spec get_storage_profile_for_queue(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_storage_profile_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_storage_profile_for_queue_errors()}
   def get_storage_profile_for_queue(
         %Client{} = client,
@@ -7170,6 +7228,7 @@ defmodule AWS.Deadline do
   @spec get_task(map(), String.t(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_task_errors()}
   def get_task(%Client{} = client, farm_id, job_id, queue_id, step_id, task_id, options \\ []) do
     url_path =
@@ -7189,6 +7248,7 @@ defmodule AWS.Deadline do
   @spec get_worker(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_worker_errors()}
   def get_worker(%Client{} = client, farm_id, fleet_id, worker_id, options \\ []) do
     url_path =
@@ -7208,6 +7268,7 @@ defmodule AWS.Deadline do
   @spec list_available_metered_products(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_available_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_available_metered_products_errors()}
   def list_available_metered_products(
         %Client{} = client,
@@ -7251,6 +7312,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_budgets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_budgets_errors()}
   def list_budgets(
         %Client{} = client,
@@ -7296,6 +7358,7 @@ defmodule AWS.Deadline do
   @spec list_farm_members(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_farm_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_farm_members_errors()}
   def list_farm_members(
         %Client{} = client,
@@ -7333,6 +7396,7 @@ defmodule AWS.Deadline do
   @spec list_farms(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_farms_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_farms_errors()}
   def list_farms(
         %Client{} = client,
@@ -7384,6 +7448,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_fleet_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleet_members_errors()}
   def list_fleet_members(
         %Client{} = client,
@@ -7433,6 +7498,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_fleets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(
         %Client{} = client,
@@ -7502,6 +7568,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_job_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_members_errors()}
   def list_job_members(
         %Client{} = client,
@@ -7551,6 +7618,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_job_parameter_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_job_parameter_definitions_errors()}
   def list_job_parameter_definitions(
         %Client{} = client,
@@ -7600,6 +7668,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(
         %Client{} = client,
@@ -7648,6 +7717,7 @@ defmodule AWS.Deadline do
   @spec list_license_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_license_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_license_endpoints_errors()}
   def list_license_endpoints(
         %Client{} = client,
@@ -7684,6 +7754,7 @@ defmodule AWS.Deadline do
   @spec list_limits(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_limits_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_limits_errors()}
   def list_limits(
         %Client{} = client,
@@ -7721,6 +7792,7 @@ defmodule AWS.Deadline do
   @spec list_metered_products(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_metered_products_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_metered_products_errors()}
   def list_metered_products(
         %Client{} = client,
@@ -7760,6 +7832,7 @@ defmodule AWS.Deadline do
   @spec list_monitors(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_monitors_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/2023-10-12/monitors"
@@ -7798,6 +7871,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_queue_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_environments_errors()}
   def list_queue_environments(
         %Client{} = client,
@@ -7846,6 +7920,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_queue_fleet_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_fleet_associations_errors()}
   def list_queue_fleet_associations(
         %Client{} = client,
@@ -7907,6 +7982,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_queue_limit_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_limit_associations_errors()}
   def list_queue_limit_associations(
         %Client{} = client,
@@ -7967,6 +8043,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_queue_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queue_members_errors()}
   def list_queue_members(
         %Client{} = client,
@@ -8015,6 +8092,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_queues_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(
         %Client{} = client,
@@ -8078,6 +8156,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_session_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_session_actions_errors()}
   def list_session_actions(
         %Client{} = client,
@@ -8143,6 +8222,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(
         %Client{} = client,
@@ -8192,6 +8272,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_sessions_for_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_sessions_for_worker_errors()}
   def list_sessions_for_worker(
         %Client{} = client,
@@ -8242,6 +8323,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_step_consumers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_step_consumers_errors()}
   def list_step_consumers(
         %Client{} = client,
@@ -8293,6 +8375,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_step_dependencies_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_step_dependencies_errors()}
   def list_step_dependencies(
         %Client{} = client,
@@ -8343,6 +8426,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_steps_errors()}
   def list_steps(
         %Client{} = client,
@@ -8384,6 +8468,7 @@ defmodule AWS.Deadline do
   @spec list_storage_profiles(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_storage_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_storage_profiles_errors()}
   def list_storage_profiles(
         %Client{} = client,
@@ -8428,6 +8513,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_storage_profiles_for_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_storage_profiles_for_queue_errors()}
   def list_storage_profiles_for_queue(
         %Client{} = client,
@@ -8468,6 +8554,7 @@ defmodule AWS.Deadline do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8494,6 +8581,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, list_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(
         %Client{} = client,
@@ -8536,6 +8624,7 @@ defmodule AWS.Deadline do
   @spec list_workers(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workers_errors()}
   def list_workers(
         %Client{} = client,
@@ -8576,6 +8665,7 @@ defmodule AWS.Deadline do
   @spec put_metered_product(map(), String.t(), String.t(), put_metered_product_request(), list()) ::
           {:ok, put_metered_product_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_metered_product_errors()}
   def put_metered_product(
         %Client{} = client,
@@ -8612,6 +8702,7 @@ defmodule AWS.Deadline do
   @spec search_jobs(map(), String.t(), search_jobs_request(), list()) ::
           {:ok, search_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_jobs_errors()}
   def search_jobs(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/jobs"
@@ -8640,6 +8731,7 @@ defmodule AWS.Deadline do
   @spec search_steps(map(), String.t(), search_steps_request(), list()) ::
           {:ok, search_steps_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_steps_errors()}
   def search_steps(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/steps"
@@ -8668,6 +8760,7 @@ defmodule AWS.Deadline do
   @spec search_tasks(map(), String.t(), search_tasks_request(), list()) ::
           {:ok, search_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_tasks_errors()}
   def search_tasks(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/tasks"
@@ -8696,6 +8789,7 @@ defmodule AWS.Deadline do
   @spec search_workers(map(), String.t(), search_workers_request(), list()) ::
           {:ok, search_workers_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, search_workers_errors()}
   def search_workers(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/search/workers"
@@ -8737,6 +8831,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, start_sessions_statistics_aggregation_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_sessions_statistics_aggregation_errors()}
   def start_sessions_statistics_aggregation(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}/sessions-statistics-aggregation"
@@ -8765,6 +8860,7 @@ defmodule AWS.Deadline do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8793,6 +8889,7 @@ defmodule AWS.Deadline do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/2023-10-12/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -8826,6 +8923,7 @@ defmodule AWS.Deadline do
   @spec update_budget(map(), String.t(), String.t(), update_budget_request(), list()) ::
           {:ok, update_budget_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, budget_id, farm_id, input, options \\ []) do
     url_path =
@@ -8861,6 +8959,7 @@ defmodule AWS.Deadline do
   @spec update_farm(map(), String.t(), update_farm_request(), list()) ::
           {:ok, update_farm_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_farm_errors()}
   def update_farm(%Client{} = client, farm_id, input, options \\ []) do
     url_path = "/2023-10-12/farms/#{AWS.Util.encode_uri(farm_id)}"
@@ -8889,6 +8988,7 @@ defmodule AWS.Deadline do
   @spec update_fleet(map(), String.t(), String.t(), update_fleet_request(), list()) ::
           {:ok, update_fleet_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, farm_id, fleet_id, input, options \\ []) do
     url_path =
@@ -8931,6 +9031,7 @@ defmodule AWS.Deadline do
   @spec update_job(map(), String.t(), String.t(), String.t(), update_job_request(), list()) ::
           {:ok, update_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, farm_id, job_id, queue_id, input, options \\ []) do
     url_path =
@@ -8966,6 +9067,7 @@ defmodule AWS.Deadline do
   @spec update_limit(map(), String.t(), String.t(), update_limit_request(), list()) ::
           {:ok, update_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_limit_errors()}
   def update_limit(%Client{} = client, farm_id, limit_id, input, options \\ []) do
     url_path =
@@ -8999,6 +9101,7 @@ defmodule AWS.Deadline do
   @spec update_monitor(map(), String.t(), update_monitor_request(), list()) ::
           {:ok, update_monitor_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_id, input, options \\ []) do
     url_path = "/2023-10-12/monitors/#{AWS.Util.encode_uri(monitor_id)}"
@@ -9027,6 +9130,7 @@ defmodule AWS.Deadline do
   @spec update_queue(map(), String.t(), String.t(), update_queue_request(), list()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, farm_id, queue_id, input, options \\ []) do
     url_path =
@@ -9069,6 +9173,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_queue_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_environment_errors()}
   def update_queue_environment(
         %Client{} = client,
@@ -9118,6 +9223,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_queue_fleet_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_fleet_association_errors()}
   def update_queue_fleet_association(
         %Client{} = client,
@@ -9166,6 +9272,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_queue_limit_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_queue_limit_association_errors()}
   def update_queue_limit_association(
         %Client{} = client,
@@ -9211,6 +9318,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_session_errors()}
   def update_session(
         %Client{} = client,
@@ -9262,6 +9370,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_step_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_step_errors()}
   def update_step(%Client{} = client, farm_id, job_id, queue_id, step_id, input, options \\ []) do
     url_path =
@@ -9303,6 +9412,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_storage_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_storage_profile_errors()}
   def update_storage_profile(
         %Client{} = client,
@@ -9353,6 +9463,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_task_errors()}
   def update_task(
         %Client{} = client,
@@ -9397,6 +9508,7 @@ defmodule AWS.Deadline do
   @spec update_worker(map(), String.t(), String.t(), String.t(), update_worker_request(), list()) ::
           {:ok, update_worker_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_worker_errors()}
   def update_worker(%Client{} = client, farm_id, fleet_id, worker_id, input, options \\ []) do
     url_path =
@@ -9434,6 +9546,7 @@ defmodule AWS.Deadline do
         ) ::
           {:ok, update_worker_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_worker_schedule_errors()}
   def update_worker_schedule(
         %Client{} = client,

@@ -1918,6 +1918,7 @@ defmodule AWS.LexModelBuilding do
   @spec create_bot_version(map(), String.t(), create_bot_version_request(), list()) ::
           {:ok, create_bot_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_bot_version_errors()}
   def create_bot_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions"
@@ -1963,6 +1964,7 @@ defmodule AWS.LexModelBuilding do
   @spec create_intent_version(map(), String.t(), create_intent_version_request(), list()) ::
           {:ok, create_intent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_intent_version_errors()}
   def create_intent_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions"
@@ -2008,6 +2010,7 @@ defmodule AWS.LexModelBuilding do
   @spec create_slot_type_version(map(), String.t(), create_slot_type_version_request(), list()) ::
           {:ok, create_slot_type_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_slot_type_version_errors()}
   def create_slot_type_version(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions"
@@ -2058,6 +2061,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_bot(map(), String.t(), delete_bot_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_errors()}
   def delete_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}"
@@ -2095,6 +2099,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_bot_alias(map(), String.t(), String.t(), delete_bot_alias_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_alias_errors()}
   def delete_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -2134,6 +2139,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_channel_association_errors()}
   def delete_bot_channel_association(
         %Client{} = client,
@@ -2177,6 +2183,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_bot_version(map(), String.t(), String.t(), delete_bot_version_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_bot_version_errors()}
   def delete_bot_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
@@ -2224,6 +2231,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_intent(map(), String.t(), delete_intent_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_intent_errors()}
   def delete_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}"
@@ -2264,6 +2272,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_intent_version_errors()}
   def delete_intent_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
@@ -2311,6 +2320,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_slot_type(map(), String.t(), delete_slot_type_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slot_type_errors()}
   def delete_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}"
@@ -2351,6 +2361,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_slot_type_version_errors()}
   def delete_slot_type_version(%Client{} = client, name, version, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/version/#{AWS.Util.encode_uri(version)}"
@@ -2394,6 +2405,7 @@ defmodule AWS.LexModelBuilding do
   @spec delete_utterances(map(), String.t(), String.t(), delete_utterances_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_utterances_errors()}
   def delete_utterances(%Client{} = client, bot_name, user_id, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances/#{AWS.Util.encode_uri(user_id)}"
@@ -2428,6 +2440,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_bot(map(), String.t(), String.t(), list()) ::
           {:ok, get_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_errors()}
   def get_bot(%Client{} = client, name, version_or_alias, options \\ []) do
     url_path =
@@ -2453,6 +2466,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_bot_alias(map(), String.t(), String.t(), list()) ::
           {:ok, get_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_alias_errors()}
   def get_bot_alias(%Client{} = client, bot_name, name, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -2480,6 +2494,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, get_bot_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_aliases_errors()}
   def get_bot_aliases(
         %Client{} = client,
@@ -2529,6 +2544,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_bot_channel_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_bot_channel_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_channel_association_errors()}
   def get_bot_channel_association(%Client{} = client, bot_alias, bot_name, name, options \\ []) do
     url_path =
@@ -2561,6 +2577,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, get_bot_channel_associations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_channel_associations_errors()}
   def get_bot_channel_associations(
         %Client{} = client,
@@ -2622,6 +2639,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_bot_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_bot_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bot_versions_errors()}
   def get_bot_versions(
         %Client{} = client,
@@ -2672,6 +2690,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_bots(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_bots_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_bots_errors()}
   def get_bots(
         %Client{} = client,
@@ -2719,6 +2738,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_builtin_intent(map(), String.t(), list()) ::
           {:ok, get_builtin_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_builtin_intent_errors()}
   def get_builtin_intent(%Client{} = client, signature, options \\ []) do
     url_path = "/builtins/intents/#{AWS.Util.encode_uri(signature)}"
@@ -2747,6 +2767,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, get_builtin_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_builtin_intents_errors()}
   def get_builtin_intents(
         %Client{} = client,
@@ -2814,6 +2835,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, get_builtin_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_builtin_slot_types_errors()}
   def get_builtin_slot_types(
         %Client{} = client,
@@ -2866,6 +2888,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_export(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_export_errors()}
   def get_export(%Client{} = client, export_type, name, resource_type, version, options \\ []) do
     url_path = "/exports"
@@ -2912,6 +2935,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_import(map(), String.t(), list()) ::
           {:ok, get_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_import_errors()}
   def get_import(%Client{} = client, import_id, options \\ []) do
     url_path = "/imports/#{AWS.Util.encode_uri(import_id)}"
@@ -2935,6 +2959,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_intent(map(), String.t(), String.t(), list()) ::
           {:ok, get_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_intent_errors()}
   def get_intent(%Client{} = client, name, version, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
@@ -2965,6 +2990,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_intent_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_intent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_intent_versions_errors()}
   def get_intent_versions(
         %Client{} = client,
@@ -3015,6 +3041,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_intents(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_intents_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_intents_errors()}
   def get_intents(
         %Client{} = client,
@@ -3063,6 +3090,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_migration(map(), String.t(), list()) ::
           {:ok, get_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_migration_errors()}
   def get_migration(%Client{} = client, migration_id, options \\ []) do
     url_path = "/migrations/#{AWS.Util.encode_uri(migration_id)}"
@@ -3089,6 +3117,7 @@ defmodule AWS.LexModelBuilding do
         ) ::
           {:ok, get_migrations_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_migrations_errors()}
   def get_migrations(
         %Client{} = client,
@@ -3164,6 +3193,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_slot_type(map(), String.t(), String.t(), list()) ::
           {:ok, get_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_slot_type_errors()}
   def get_slot_type(%Client{} = client, name, version, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/#{AWS.Util.encode_uri(version)}"
@@ -3194,6 +3224,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_slot_type_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_slot_type_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_slot_type_versions_errors()}
   def get_slot_type_versions(
         %Client{} = client,
@@ -3244,6 +3275,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_slot_types(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_slot_types_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_slot_types_errors()}
   def get_slot_types(
         %Client{} = client,
@@ -3318,6 +3350,7 @@ defmodule AWS.LexModelBuilding do
   @spec get_utterances_view(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_utterances_view_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_utterances_view_errors()}
   def get_utterances_view(%Client{} = client, bot_name, bot_versions, status_type, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/utterances?view=aggregation"
@@ -3352,6 +3385,7 @@ defmodule AWS.LexModelBuilding do
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3388,6 +3422,7 @@ defmodule AWS.LexModelBuilding do
   @spec put_bot(map(), String.t(), put_bot_request(), list()) ::
           {:ok, put_bot_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_bot_errors()}
   def put_bot(%Client{} = client, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
@@ -3424,6 +3459,7 @@ defmodule AWS.LexModelBuilding do
   @spec put_bot_alias(map(), String.t(), String.t(), put_bot_alias_request(), list()) ::
           {:ok, put_bot_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_bot_alias_errors()}
   def put_bot_alias(%Client{} = client, bot_name, name, input, options \\ []) do
     url_path = "/bots/#{AWS.Util.encode_uri(bot_name)}/aliases/#{AWS.Util.encode_uri(name)}"
@@ -3510,6 +3546,7 @@ defmodule AWS.LexModelBuilding do
   @spec put_intent(map(), String.t(), put_intent_request(), list()) ::
           {:ok, put_intent_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_intent_errors()}
   def put_intent(%Client{} = client, name, input, options \\ []) do
     url_path = "/intents/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
@@ -3555,6 +3592,7 @@ defmodule AWS.LexModelBuilding do
   @spec put_slot_type(map(), String.t(), put_slot_type_request(), list()) ::
           {:ok, put_slot_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, put_slot_type_errors()}
   def put_slot_type(%Client{} = client, name, input, options \\ []) do
     url_path = "/slottypes/#{AWS.Util.encode_uri(name)}/versions/$LATEST"
@@ -3583,6 +3621,7 @@ defmodule AWS.LexModelBuilding do
   @spec start_import(map(), start_import_request(), list()) ::
           {:ok, start_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
     url_path = "/imports"
@@ -3617,6 +3656,7 @@ defmodule AWS.LexModelBuilding do
   @spec start_migration(map(), start_migration_request(), list()) ::
           {:ok, start_migration_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
     url_path = "/migrations"
@@ -3648,6 +3688,7 @@ defmodule AWS.LexModelBuilding do
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
@@ -3676,6 +3717,7 @@ defmodule AWS.LexModelBuilding do
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
     url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"

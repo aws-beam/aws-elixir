@@ -1139,6 +1139,7 @@ defmodule AWS.ElasticTranscoder do
   @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
@@ -1175,6 +1176,7 @@ defmodule AWS.ElasticTranscoder do
   @spec create_job(map(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/jobs"
@@ -1203,6 +1205,7 @@ defmodule AWS.ElasticTranscoder do
   @spec create_pipeline(map(), create_pipeline_request(), list()) ::
           {:ok, create_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/pipelines"
@@ -1253,6 +1256,7 @@ defmodule AWS.ElasticTranscoder do
   @spec create_preset(map(), create_preset_request(), list()) ::
           {:ok, create_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, create_preset_errors()}
   def create_preset(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/presets"
@@ -1286,6 +1290,7 @@ defmodule AWS.ElasticTranscoder do
   @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
@@ -1316,6 +1321,7 @@ defmodule AWS.ElasticTranscoder do
   @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_preset_errors()}
   def delete_preset(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
@@ -1349,6 +1355,7 @@ defmodule AWS.ElasticTranscoder do
   @spec list_jobs_by_pipeline(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_by_pipeline_errors()}
   def list_jobs_by_pipeline(
         %Client{} = client,
@@ -1389,6 +1396,7 @@ defmodule AWS.ElasticTranscoder do
   @spec list_jobs_by_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_jobs_by_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_jobs_by_status_errors()}
   def list_jobs_by_status(
         %Client{} = client,
@@ -1427,6 +1435,7 @@ defmodule AWS.ElasticTranscoder do
   @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, ascending \\ nil, page_token \\ nil, options \\ []) do
     url_path = "/2012-09-25/pipelines"
@@ -1460,6 +1469,7 @@ defmodule AWS.ElasticTranscoder do
   @spec list_presets(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_presets_errors()}
   def list_presets(%Client{} = client, ascending \\ nil, page_token \\ nil, options \\ []) do
     url_path = "/2012-09-25/presets"
@@ -1491,6 +1501,7 @@ defmodule AWS.ElasticTranscoder do
   @spec read_job(map(), String.t(), list()) ::
           {:ok, read_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, read_job_errors()}
   def read_job(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/jobs/#{AWS.Util.encode_uri(id)}"
@@ -1508,6 +1519,7 @@ defmodule AWS.ElasticTranscoder do
   @spec read_pipeline(map(), String.t(), list()) ::
           {:ok, read_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, read_pipeline_errors()}
   def read_pipeline(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
@@ -1525,6 +1537,7 @@ defmodule AWS.ElasticTranscoder do
   @spec read_preset(map(), String.t(), list()) ::
           {:ok, read_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, read_preset_errors()}
   def read_preset(%Client{} = client, id, options \\ []) do
     url_path = "/2012-09-25/presets/#{AWS.Util.encode_uri(id)}"
@@ -1551,6 +1564,7 @@ defmodule AWS.ElasticTranscoder do
   @spec test_role(map(), test_role_request(), list()) ::
           {:ok, test_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, test_role_errors()}
   def test_role(%Client{} = client, input, options \\ []) do
     url_path = "/2012-09-25/roleTests"
@@ -1584,6 +1598,7 @@ defmodule AWS.ElasticTranscoder do
   @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}"
@@ -1621,6 +1636,7 @@ defmodule AWS.ElasticTranscoder do
         ) ::
           {:ok, update_pipeline_notifications_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_notifications_errors()}
   def update_pipeline_notifications(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/notifications"
@@ -1659,6 +1675,7 @@ defmodule AWS.ElasticTranscoder do
   @spec update_pipeline_status(map(), String.t(), update_pipeline_status_request(), list()) ::
           {:ok, update_pipeline_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, update_pipeline_status_errors()}
   def update_pipeline_status(%Client{} = client, id, input, options \\ []) do
     url_path = "/2012-09-25/pipelines/#{AWS.Util.encode_uri(id)}/status"

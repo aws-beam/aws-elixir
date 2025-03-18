@@ -2837,6 +2837,7 @@ defmodule AWS.GeoRoutes do
   @spec calculate_isolines(map(), calculate_isolines_request(), list()) ::
           {:ok, calculate_isolines_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, calculate_isolines_errors()}
   def calculate_isolines(%Client{} = client, input, options \\ []) do
     url_path = "/isolines"
@@ -2882,6 +2883,7 @@ defmodule AWS.GeoRoutes do
   @spec calculate_route_matrix(map(), calculate_route_matrix_request(), list()) ::
           {:ok, calculate_route_matrix_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, calculate_route_matrix_errors()}
   def calculate_route_matrix(%Client{} = client, input, options \\ []) do
     url_path = "/route-matrix"
@@ -2924,6 +2926,7 @@ defmodule AWS.GeoRoutes do
   @spec calculate_routes(map(), calculate_routes_request(), list()) ::
           {:ok, calculate_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, calculate_routes_errors()}
   def calculate_routes(%Client{} = client, input, options \\ []) do
     url_path = "/routes"
@@ -2968,6 +2971,7 @@ defmodule AWS.GeoRoutes do
   @spec optimize_waypoints(map(), optimize_waypoints_request(), list()) ::
           {:ok, optimize_waypoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, optimize_waypoints_errors()}
   def optimize_waypoints(%Client{} = client, input, options \\ []) do
     url_path = "/optimize-waypoints"
@@ -3009,6 +3013,7 @@ defmodule AWS.GeoRoutes do
   @spec snap_to_roads(map(), snap_to_roads_request(), list()) ::
           {:ok, snap_to_roads_response(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, snap_to_roads_errors()}
   def snap_to_roads(%Client{} = client, input, options \\ []) do
     url_path = "/snap-to-roads"

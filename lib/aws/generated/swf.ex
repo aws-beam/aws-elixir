@@ -2389,6 +2389,7 @@ defmodule AWS.SWF do
   @spec count_closed_workflow_executions(map(), count_closed_workflow_executions_input(), list()) ::
           {:ok, workflow_execution_count(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, count_closed_workflow_executions_errors()}
   def count_closed_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2448,6 +2449,7 @@ defmodule AWS.SWF do
   @spec count_open_workflow_executions(map(), count_open_workflow_executions_input(), list()) ::
           {:ok, workflow_execution_count(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, count_open_workflow_executions_errors()}
   def count_open_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2493,6 +2495,7 @@ defmodule AWS.SWF do
   @spec count_pending_activity_tasks(map(), count_pending_activity_tasks_input(), list()) ::
           {:ok, pending_task_count(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, count_pending_activity_tasks_errors()}
   def count_pending_activity_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2538,6 +2541,7 @@ defmodule AWS.SWF do
   @spec count_pending_decision_tasks(map(), count_pending_decision_tasks_input(), list()) ::
           {:ok, pending_task_count(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, count_pending_decision_tasks_errors()}
   def count_pending_decision_tasks(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2592,6 +2596,7 @@ defmodule AWS.SWF do
   @spec delete_activity_type(map(), delete_activity_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_activity_type_errors()}
   def delete_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2646,6 +2651,7 @@ defmodule AWS.SWF do
   @spec delete_workflow_type(map(), delete_workflow_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, delete_workflow_type_errors()}
   def delete_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2700,6 +2706,7 @@ defmodule AWS.SWF do
   @spec deprecate_activity_type(map(), deprecate_activity_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_activity_type_errors()}
   def deprecate_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2750,6 +2757,7 @@ defmodule AWS.SWF do
   @spec deprecate_domain(map(), deprecate_domain_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_domain_errors()}
   def deprecate_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2809,6 +2817,7 @@ defmodule AWS.SWF do
   @spec deprecate_workflow_type(map(), deprecate_workflow_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, deprecate_workflow_type_errors()}
   def deprecate_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2863,6 +2872,7 @@ defmodule AWS.SWF do
   @spec describe_activity_type(map(), describe_activity_type_input(), list()) ::
           {:ok, activity_type_detail(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_activity_type_errors()}
   def describe_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2902,6 +2912,7 @@ defmodule AWS.SWF do
   @spec describe_domain(map(), describe_domain_input(), list()) ::
           {:ok, domain_detail(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2945,6 +2956,7 @@ defmodule AWS.SWF do
   @spec describe_workflow_execution(map(), describe_workflow_execution_input(), list()) ::
           {:ok, workflow_execution_detail(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workflow_execution_errors()}
   def describe_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -2999,6 +3011,7 @@ defmodule AWS.SWF do
   @spec describe_workflow_type(map(), describe_workflow_type_input(), list()) ::
           {:ok, workflow_type_detail(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, describe_workflow_type_errors()}
   def describe_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3044,6 +3057,7 @@ defmodule AWS.SWF do
   @spec get_workflow_execution_history(map(), get_workflow_execution_history_input(), list()) ::
           {:ok, history(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, get_workflow_execution_history_errors()}
   def get_workflow_execution_history(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3091,6 +3105,7 @@ defmodule AWS.SWF do
   @spec list_activity_types(map(), list_activity_types_input(), list()) ::
           {:ok, activity_type_infos(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_activity_types_errors()}
   def list_activity_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3153,6 +3168,7 @@ defmodule AWS.SWF do
   @spec list_closed_workflow_executions(map(), list_closed_workflow_executions_input(), list()) ::
           {:ok, workflow_execution_infos(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_closed_workflow_executions_errors()}
   def list_closed_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3201,6 +3217,7 @@ defmodule AWS.SWF do
   @spec list_domains(map(), list_domains_input(), list()) ::
           {:ok, domain_infos(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3262,6 +3279,7 @@ defmodule AWS.SWF do
   @spec list_open_workflow_executions(map(), list_open_workflow_executions_input(), list()) ::
           {:ok, workflow_execution_infos(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_open_workflow_executions_errors()}
   def list_open_workflow_executions(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3275,6 +3293,7 @@ defmodule AWS.SWF do
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3316,6 +3335,7 @@ defmodule AWS.SWF do
   @spec list_workflow_types(map(), list_workflow_types_input(), list()) ::
           {:ok, workflow_type_infos(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, list_workflow_types_errors()}
   def list_workflow_types(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3371,6 +3391,7 @@ defmodule AWS.SWF do
   @spec poll_for_activity_task(map(), poll_for_activity_task_input(), list()) ::
           {:ok, activity_task(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, poll_for_activity_task_errors()}
   def poll_for_activity_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3442,6 +3463,7 @@ defmodule AWS.SWF do
   @spec poll_for_decision_task(map(), poll_for_decision_task_input(), list()) ::
           {:ok, decision_task(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, poll_for_decision_task_errors()}
   def poll_for_decision_task(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3514,6 +3536,7 @@ defmodule AWS.SWF do
   @spec record_activity_task_heartbeat(map(), record_activity_task_heartbeat_input(), list()) ::
           {:ok, activity_task_status(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, record_activity_task_heartbeat_errors()}
   def record_activity_task_heartbeat(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3573,6 +3596,7 @@ defmodule AWS.SWF do
   @spec register_activity_type(map(), register_activity_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_activity_type_errors()}
   def register_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3612,6 +3636,7 @@ defmodule AWS.SWF do
   @spec register_domain(map(), register_domain_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3674,6 +3699,7 @@ defmodule AWS.SWF do
   @spec register_workflow_type(map(), register_workflow_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, register_workflow_type_errors()}
   def register_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3732,6 +3758,7 @@ defmodule AWS.SWF do
         ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, request_cancel_workflow_execution_errors()}
   def request_cancel_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3788,6 +3815,7 @@ defmodule AWS.SWF do
   @spec respond_activity_task_canceled(map(), respond_activity_task_canceled_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, respond_activity_task_canceled_errors()}
   def respond_activity_task_canceled(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3843,6 +3871,7 @@ defmodule AWS.SWF do
   @spec respond_activity_task_completed(map(), respond_activity_task_completed_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, respond_activity_task_completed_errors()}
   def respond_activity_task_completed(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3892,6 +3921,7 @@ defmodule AWS.SWF do
   @spec respond_activity_task_failed(map(), respond_activity_task_failed_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, respond_activity_task_failed_errors()}
   def respond_activity_task_failed(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3928,6 +3958,7 @@ defmodule AWS.SWF do
   @spec respond_decision_task_completed(map(), respond_decision_task_completed_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, respond_decision_task_completed_errors()}
   def respond_decision_task_completed(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -3980,6 +4011,7 @@ defmodule AWS.SWF do
   @spec signal_workflow_execution(map(), signal_workflow_execution_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, signal_workflow_execution_errors()}
   def signal_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4058,6 +4090,7 @@ defmodule AWS.SWF do
   @spec start_workflow_execution(map(), start_workflow_execution_input(), list()) ::
           {:ok, run(), any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, start_workflow_execution_errors()}
   def start_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4073,6 +4106,7 @@ defmodule AWS.SWF do
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4129,6 +4163,7 @@ defmodule AWS.SWF do
   @spec terminate_workflow_execution(map(), terminate_workflow_execution_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, terminate_workflow_execution_errors()}
   def terminate_workflow_execution(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4184,6 +4219,7 @@ defmodule AWS.SWF do
   @spec undeprecate_activity_type(map(), undeprecate_activity_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, undeprecate_activity_type_errors()}
   def undeprecate_activity_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4228,6 +4264,7 @@ defmodule AWS.SWF do
   @spec undeprecate_domain(map(), undeprecate_domain_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, undeprecate_domain_errors()}
   def undeprecate_domain(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4283,6 +4320,7 @@ defmodule AWS.SWF do
   @spec undeprecate_workflow_type(map(), undeprecate_workflow_type_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, undeprecate_workflow_type_errors()}
   def undeprecate_workflow_type(%Client{} = client, input, options \\ []) do
     meta = metadata()
@@ -4296,6 +4334,7 @@ defmodule AWS.SWF do
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     meta = metadata()

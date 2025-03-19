@@ -502,6 +502,7 @@ defmodule AWS.AppSync do
 
       create_domain_name_request() :: %{
         optional("description") => String.t(),
+        optional("tags") => map(),
         required("certificateArn") => String.t(),
         required("domainName") => String.t()
       }
@@ -1837,7 +1838,9 @@ defmodule AWS.AppSync do
         "certificateArn" => String.t(),
         "description" => String.t(),
         "domainName" => String.t(),
-        "hostedZoneId" => String.t()
+        "domainNameArn" => String.t(),
+        "hostedZoneId" => String.t(),
+        "tags" => map()
       }
 
   """

@@ -6229,6 +6229,8 @@ defmodule AWS.Route53 do
   name is greater than or equal to `Name`, and whose type is
   greater than or equal to `Type`.
 
+  Type is only used to sort between records with the same record Name.
+
   ## Resource record sets that are PENDING
 
   This action returns the most current version of the records. This includes

@@ -9,8 +9,8 @@ defmodule AWS.CleanRooms do
   join
   their data together in a secure collaboration workspace. In the collaboration,
   members who
-  can query and receive results can get insights into the collective datasets
-  without either
+  can run queries and jobs and receive results can get insights into the
+  collective datasets without either
   party getting access to the other party's raw data.
 
   To learn more about Clean Rooms concepts, procedures, and best practices, see
@@ -36,6 +36,7 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "id" => String.t(),
         "name" => String.t(),
+        "selectedAnalysisMethods" => list(list(any())()),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -75,6 +76,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_configured_audience_model_associations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_jobs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_protected_jobs_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -193,11 +207,13 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       create_membership_input() :: %{
+        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
         optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
+        optional("jobLogStatus") => list(any()),
         optional("paymentConfiguration") => membership_payment_configuration(),
         optional("tags") => map(),
         required("collaborationIdentifier") => String.t(),
-        required("queryLogStatus") => String.t()
+        required("queryLogStatus") => list(any())
       }
 
   """
@@ -243,6 +259,7 @@ defmodule AWS.CleanRooms do
 
       create_configured_table_input() :: %{
         optional("description") => String.t(),
+        optional("selectedAnalysisMethods") => list(list(any())()),
         optional("tags") => map(),
         required("allowedColumns") => list(String.t()()),
         required("analysisMethod") => list(any()),
@@ -259,6 +276,8 @@ defmodule AWS.CleanRooms do
 
       analysis_rule() :: %{
         "collaborationId" => String.t(),
+        "collaborationPolicy" => list(),
+        "consolidatedPolicy" => list(),
         "createTime" => [non_neg_integer()],
         "name" => String.t(),
         "policy" => list(),
@@ -279,6 +298,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_protected_query_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_artifacts() :: %{
+        "additionalArtifacts" => list(analysis_template_artifact()()),
+        "entryPoint" => analysis_template_artifact(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type analysis_template_artifacts() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -309,6 +341,7 @@ defmodule AWS.CleanRooms do
         "name" => String.t(),
         "schema" => analysis_schema(),
         "source" => list(),
+        "sourceMetadata" => list(),
         "updateTime" => [non_neg_integer()],
         "validations" => list(analysis_template_validation_status_detail()())
       }
@@ -335,6 +368,26 @@ defmodule AWS.CleanRooms do
 
   """
   @type protected_query_member_output_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job() :: %{
+        "createTime" => [non_neg_integer()],
+        "error" => protected_job_error(),
+        "id" => String.t(),
+        "jobParameters" => protected_job_parameters(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "result" => protected_job_result(),
+        "resultConfiguration" => protected_job_result_configuration_output(),
+        "statistics" => protected_job_statistics(),
+        "status" => list(any())
+      }
+
+  """
+  @type protected_job() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -503,6 +556,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_job_s3_output() :: %{
+        "location" => [String.t()]
+      }
+
+  """
+  @type protected_job_s3_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_id_namespace_association_input() :: %{}
 
   """
@@ -554,6 +618,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_memberships_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_error() :: %{
+        "code" => [String.t()],
+        "message" => [String.t()]
+      }
+
+  """
+  @type protected_job_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -744,6 +820,7 @@ defmodule AWS.CleanRooms do
         "dataEncryptionMetadata" => data_encryption_metadata(),
         "description" => String.t(),
         "id" => String.t(),
+        "jobLogStatus" => list(any()),
         "memberStatus" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
@@ -818,6 +895,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type analysis_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_receiver_configuration() :: %{
+        "analysisType" => list(any()),
+        "configurationDetails" => list()
+      }
+
+  """
+  @type protected_job_receiver_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -933,6 +1022,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_job_result_configuration_output() :: %{
+        "outputConfiguration" => list()
+      }
+
+  """
+  @type protected_job_result_configuration_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ml_member_abilities() :: %{
         "customMLMemberAbilities" => list(list(any())())
       }
@@ -950,6 +1050,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type job_compute_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1029,6 +1140,22 @@ defmodule AWS.CleanRooms do
 
   """
   @type delete_analysis_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidated_policy_list() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedJoinOperators" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()()),
+        "joinColumns" => list(String.t()()),
+        "listColumns" => list(String.t()())
+      }
+
+  """
+  @type consolidated_policy_list() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1165,6 +1292,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      billed_job_resource_utilization() :: %{
+        "units" => [float()]
+      }
+
+  """
+  @type billed_job_resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       privacy_budget_template_summary() :: %{
         "arn" => String.t(),
         "collaborationArn" => String.t(),
@@ -1266,6 +1404,23 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_configured_audience_model_associations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidated_policy_custom() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedAnalyses" => list(String.t()()),
+        "allowedAnalysisProviders" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()()),
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t()())
+      }
+
+  """
+  @type consolidated_policy_custom() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1381,6 +1536,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_job_result_configuration_input() :: %{
+        "outputConfiguration" => list()
+      }
+
+  """
+  @type protected_job_result_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       id_namespace_association_input_reference_properties() :: %{
         "idMappingWorkflowsSupported" => list([any()]()),
         "idNamespaceType" => list(any())
@@ -1415,12 +1581,35 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      protected_job_result() :: %{
+        "output" => list()
+      }
+
+  """
+  @type protected_job_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_configured_table_association_analysis_rule_input() :: %{
         required("analysisRulePolicy") => list()
       }
 
   """
   @type update_configured_table_association_analysis_rule_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_statistics() :: %{
+        "billedResourceUtilization" => billed_job_resource_utilization(),
+        "totalDurationInMillis" => [float()]
+      }
+
+  """
+  @type protected_job_statistics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1433,6 +1622,34 @@ defmodule AWS.CleanRooms do
 
   """
   @type batch_get_schema_analysis_rule_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_s3_output_configuration_input() :: %{
+        "bucket" => [String.t()],
+        "keyPrefix" => String.t()
+      }
+
+  """
+  @type protected_job_s3_output_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "id" => String.t(),
+        "membershipArn" => String.t(),
+        "membershipId" => String.t(),
+        "receiverConfigurations" => list(protected_job_receiver_configuration()()),
+        "status" => list(any())
+      }
+
+  """
+  @type protected_job_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1528,12 +1745,26 @@ defmodule AWS.CleanRooms do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "name" => String.t(),
+        "selectedAnalysisMethods" => list(list(any())()),
         "type" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
   @type schema_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_job_input() :: %{
+        optional("resultConfiguration") => protected_job_result_configuration_input(),
+        required("jobParameters") => protected_job_parameters(),
+        required("type") => list(any())
+      }
+
+  """
+  @type start_protected_job_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1624,6 +1855,28 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      hash() :: %{
+        "sha256" => [String.t()]
+      }
+
+  """
+  @type hash() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_single_member_output() :: %{
+        "accountId" => String.t()
+      }
+
+  """
+  @type protected_job_single_member_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_configured_audience_model_association_output() :: %{
         "collaborationConfiguredAudienceModelAssociation" => collaboration_configured_audience_model_association()
       }
@@ -1681,6 +1934,7 @@ defmodule AWS.CleanRooms do
         "partitionKeys" => list(column()()),
         "schemaStatusDetails" => list(schema_status_detail()()),
         "schemaTypeProperties" => list(),
+        "selectedAnalysisMethods" => list(list(any())()),
         "type" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
@@ -1707,6 +1961,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type differential_privacy_column() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_protected_job_result_configuration() :: %{
+        "outputConfiguration" => list(),
+        "roleArn" => String.t()
+      }
+
+  """
+  @type membership_protected_job_result_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1808,6 +2074,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type update_protected_job_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       membership_summary() :: %{
         "arn" => String.t(),
         "collaborationArn" => String.t(),
@@ -1875,6 +2152,29 @@ defmodule AWS.CleanRooms do
 
   """
   @type analysis_rule_id_mapping_table() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_direct_analysis_configuration_details() :: %{
+        "receiverAccountIds" => list(String.t()())
+      }
+
+  """
+  @type protected_job_direct_analysis_configuration_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucket" => [String.t()],
+        "key" => [String.t()]
+      }
+
+  """
+  @type s3_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2068,6 +2368,7 @@ defmodule AWS.CleanRooms do
         optional("creatorMLMemberAbilities") => ml_member_abilities(),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
+        optional("jobLogStatus") => list(any()),
         optional("tags") => map(),
         required("creatorDisplayName") => String.t(),
         required("creatorMemberAbilities") => list(list(any())()),
@@ -2233,6 +2534,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      analysis_template_artifact_metadata() :: %{
+        "additionalArtifactHashes" => list(hash()()),
+        "entryPointHash" => hash()
+      }
+
+  """
+  @type analysis_template_artifact_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_namespace_associations_output() :: %{
         "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()()),
         "nextToken" => String.t()
@@ -2240,6 +2553,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_id_namespace_associations_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_job_compute_payment_config() :: %{
+        "isResponsible" => [boolean()]
+      }
+
+  """
+  @type membership_job_compute_payment_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2260,6 +2584,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_schema_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_member_output_configuration_output() :: %{
+        "accountId" => String.t()
+      }
+
+  """
+  @type protected_job_member_output_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2424,6 +2759,7 @@ defmodule AWS.CleanRooms do
         "name" => String.t(),
         "schema" => analysis_schema(),
         "source" => list(),
+        "sourceMetadata" => list(),
         "updateTime" => [non_neg_integer()],
         "validations" => list(analysis_template_validation_status_detail()())
       }
@@ -2473,8 +2809,10 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       update_configured_table_input() :: %{
+        optional("analysisMethod") => list(any()),
         optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("name") => String.t(),
+        optional("selectedAnalysisMethods") => list(list(any())())
       }
 
   """
@@ -2535,6 +2873,15 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_protected_job_input() :: %{}
+
+  """
+  @type get_protected_job_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_collaborations_output() :: %{
         optional("nextToken") => String.t(),
         required("collaborationList") => list(collaboration_summary()())
@@ -2557,6 +2904,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_association_summary() :: %{
+        "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t(),
         "configuredTableId" => String.t(),
         "createTime" => [non_neg_integer()],
@@ -2683,6 +3031,29 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_protected_jobs_output() :: %{
+        "nextToken" => String.t(),
+        "protectedJobs" => list(protected_job_summary()())
+      }
+
+  """
+  @type list_protected_jobs_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type get_protected_job_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_schema_analysis_rule_output() :: %{
         required("analysisRule") => analysis_rule()
       }
@@ -2741,6 +3112,28 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_id_namespace_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_protected_job_input() :: %{
+        required("targetStatus") => list(any())
+      }
+
+  """
+  @type update_protected_job_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_member_output_configuration_input() :: %{
+        "accountId" => String.t()
+      }
+
+  """
+  @type protected_job_member_output_configuration_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2830,8 +3223,10 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       update_membership_input() :: %{
+        optional("defaultJobResultConfiguration") => membership_protected_job_result_configuration(),
         optional("defaultResultConfiguration") => membership_protected_query_result_configuration(),
-        optional("queryLogStatus") => String.t()
+        optional("jobLogStatus") => list(any()),
+        optional("queryLogStatus") => list(any())
       }
 
   """
@@ -2940,6 +3335,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       membership_payment_configuration() :: %{
+        "jobCompute" => membership_job_compute_payment_config(),
         "machineLearning" => membership_ml_payment_config(),
         "queryCompute" => membership_query_compute_payment_config()
       }
@@ -2955,6 +3351,26 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_membership_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidated_policy_aggregation() :: %{
+        "additionalAnalyses" => list(any()),
+        "aggregateColumns" => list(aggregate_column()()),
+        "allowedAdditionalAnalyses" => list(String.t()()),
+        "allowedJoinOperators" => list(String.t()()),
+        "allowedResultReceivers" => list(String.t()()),
+        "dimensionColumns" => list(String.t()()),
+        "joinColumns" => list(String.t()()),
+        "joinRequired" => String.t(),
+        "outputConstraints" => list(aggregation_constraint()()),
+        "scalarFunctions" => list(String.t()())
+      }
+
+  """
+  @type consolidated_policy_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3037,6 +3453,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       payment_configuration() :: %{
+        "jobCompute" => job_compute_payment_config(),
         "machineLearning" => ml_payment_config(),
         "queryCompute" => query_compute_payment_config()
       }
@@ -3057,6 +3474,7 @@ defmodule AWS.CleanRooms do
         "description" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
+        "selectedAnalysisMethods" => list(list(any())()),
         "tableReference" => list(),
         "updateTime" => [non_neg_integer()]
       }
@@ -3086,6 +3504,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type ml_payment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_s3_output_configuration_output() :: %{
+        "bucket" => [String.t()],
+        "keyPrefix" => String.t()
+      }
+
+  """
+  @type protected_job_s3_output_configuration_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3158,6 +3588,7 @@ defmodule AWS.CleanRooms do
       create_analysis_template_input() :: %{
         optional("analysisParameters") => list(analysis_parameter()()),
         optional("description") => String.t(),
+        optional("schema") => analysis_schema(),
         optional("tags") => map(),
         required("format") => list(any()),
         required("name") => String.t(),
@@ -3213,6 +3644,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type id_namespace_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protected_job_parameters() :: %{
+        "analysisTemplateArn" => String.t()
+      }
+
+  """
+  @type protected_job_parameters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3274,6 +3716,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type membership_model_training_payment_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_protected_job_output() :: %{
+        "protectedJob" => protected_job()
+      }
+
+  """
+  @type start_protected_job_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3357,12 +3810,14 @@ defmodule AWS.CleanRooms do
         "collaborationId" => String.t(),
         "collaborationName" => String.t(),
         "createTime" => [non_neg_integer()],
+        "defaultJobResultConfiguration" => membership_protected_job_result_configuration(),
         "defaultResultConfiguration" => membership_protected_query_result_configuration(),
         "id" => String.t(),
+        "jobLogStatus" => list(any()),
         "memberAbilities" => list(list(any())()),
         "mlMemberAbilities" => ml_member_abilities(),
         "paymentConfiguration" => membership_payment_configuration(),
-        "queryLogStatus" => String.t(),
+        "queryLogStatus" => list(any()),
         "status" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
@@ -3446,6 +3901,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type id_mapping_table_input_reference_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_template_artifact() :: %{
+        "location" => s3_location()
+      }
+
+  """
+  @type analysis_template_artifact() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3578,6 +4044,7 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3826,6 +4293,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_protected_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_protected_query_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3956,6 +4430,13 @@ defmodule AWS.CleanRooms do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_protected_jobs_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_protected_queries_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3986,6 +4467,14 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type start_protected_job_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type start_protected_query_errors() ::
@@ -4075,6 +4564,14 @@ defmodule AWS.CleanRooms do
           | conflict_exception()
 
   @type update_privacy_budget_template_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_protected_job_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5474,6 +5971,31 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Returns job processing metadata.
+  """
+  @spec get_protected_job(map(), String.t(), String.t(), list()) ::
+          {:ok, get_protected_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_protected_job_errors()}
+  def get_protected_job(
+        %Client{} = client,
+        membership_identifier,
+        protected_job_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedJobs/#{AWS.Util.encode_uri(protected_job_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns query processing metadata.
   """
   @spec get_protected_query(map(), String.t(), String.t(), list()) ::
@@ -6265,6 +6787,59 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Lists protected jobs, sorted by most recent job.
+  """
+  @spec list_protected_jobs(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_protected_jobs_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_protected_jobs_errors()}
+  def list_protected_jobs(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedJobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists protected queries, sorted by the most recent query.
   """
   @spec list_protected_queries(
@@ -6442,6 +7017,35 @@ defmodule AWS.CleanRooms do
           | {:error, preview_privacy_impact_errors()}
   def preview_privacy_impact(%Client{} = client, membership_identifier, input, options \\ []) do
     url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/previewprivacyimpact"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a protected job that is started by Clean Rooms.
+  """
+  @spec start_protected_job(map(), String.t(), start_protected_job_input(), list()) ::
+          {:ok, start_protected_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_protected_job_errors()}
+  def start_protected_job(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedJobs"
     headers = []
     custom_headers = []
     query_params = []
@@ -6973,6 +7577,43 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/privacybudgettemplates/#{AWS.Util.encode_uri(privacy_budget_template_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the processing of a currently running job.
+  """
+  @spec update_protected_job(map(), String.t(), String.t(), update_protected_job_input(), list()) ::
+          {:ok, update_protected_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_protected_job_errors()}
+  def update_protected_job(
+        %Client{} = client,
+        membership_identifier,
+        protected_job_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/protectedJobs/#{AWS.Util.encode_uri(protected_job_identifier)}"
 
     headers = []
     custom_headers = []

@@ -3,7 +3,36 @@
 
 defmodule AWS.MediaConnect do
   @moduledoc """
-  API for AWS Elemental MediaConnect
+  Welcome to the Elemental MediaConnect API reference.
+
+  MediaConnect is a service that lets you ingest live video content into the cloud
+  and distribute it to destinations all over the world, both inside and outside
+  the Amazon Web Services cloud. This API reference provides descriptions, syntax,
+  and usage examples
+  for each of the actions and data types that are supported by MediaConnect.
+
+  Use the following links to get started with the MediaConnect API:
+
+    *
+
+  [Actions](https://docs.aws.amazon.com/mediaconnect/latest/api/API_Operations.html): An
+  alphabetical list of all MediaConnect API operations.
+
+    *
+
+  [Data
+  types](https://docs.aws.amazon.com/mediaconnect/latest/api/API_Types.html): An
+  alphabetical list of all MediaConnect data types.
+
+    *
+
+  [Common parameters](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonParameters.html):
+  Parameters that all operations can use.
+
+    *
+
+  [Common errors](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonErrors.html):
+  Client and server errors that all operations can return.
   """
 
   alias AWS.Client
@@ -14,7 +43,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       deregister_gateway_instance_response() :: %{
-        "GatewayInstanceArn" => String.t(),
+        "GatewayInstanceArn" => [String.t()],
         "InstanceState" => list(any())
       }
 
@@ -27,6 +56,7 @@ defmodule AWS.MediaConnect do
 
       update_flow_request() :: %{
         optional("Maintenance") => update_maintenance(),
+        optional("NdiConfig") => ndi_config(),
         optional("SourceFailoverConfig") => update_failover_config(),
         optional("SourceMonitoringConfig") => monitoring_config()
       }
@@ -50,9 +80,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_flow_vpc_interface_response() :: %{
-        "FlowArn" => String.t(),
-        "NonDeletedNetworkInterfaceIds" => list(String.t()()),
-        "VpcInterfaceName" => String.t()
+        "FlowArn" => [String.t()],
+        "NonDeletedNetworkInterfaceIds" => list([String.t()]()),
+        "VpcInterfaceName" => [String.t()]
       }
 
   """
@@ -66,7 +96,7 @@ defmodule AWS.MediaConnect do
         "DestinationConfigurations" => list(destination_configuration_request()()),
         "EncodingName" => list(any()),
         "EncodingParameters" => encoding_parameters_request(),
-        "MediaStreamName" => String.t()
+        "MediaStreamName" => [String.t()]
       }
 
   """
@@ -77,7 +107,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_flow_sources_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Sources" => list(source()())
       }
 
@@ -89,9 +119,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       listed_entitlement() :: %{
-        "DataTransferSubscriberFeePercent" => integer(),
-        "EntitlementArn" => String.t(),
-        "EntitlementName" => String.t()
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "EntitlementArn" => [String.t()],
+        "EntitlementName" => [String.t()]
       }
 
   """
@@ -113,10 +143,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       transport_stream_program() :: %{
-        "PcrPid" => integer(),
-        "ProgramName" => String.t(),
-        "ProgramNumber" => integer(),
-        "ProgramPid" => integer(),
+        "PcrPid" => [integer()],
+        "ProgramName" => [String.t()],
+        "ProgramNumber" => [integer()],
+        "ProgramPid" => [integer()],
         "Streams" => list(transport_stream()())
       }
 
@@ -128,9 +158,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       describe_flow_source_metadata_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Messages" => list(message_detail()()),
-        "Timestamp" => non_neg_integer(),
+        "Timestamp" => [non_neg_integer()],
         "TransportMediaInfo" => transport_media_info()
       }
 
@@ -171,10 +201,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       fmtp_request() :: %{
-        "ChannelOrder" => String.t(),
+        "ChannelOrder" => [String.t()],
         "Colorimetry" => list(any()),
-        "ExactFramerate" => String.t(),
-        "Par" => String.t(),
+        "ExactFramerate" => [String.t()],
+        "Par" => [String.t()],
         "Range" => list(any()),
         "ScanMode" => list(any()),
         "Tcs" => list(any())
@@ -188,17 +218,19 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_flow_request() :: %{
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => [String.t()],
         optional("Entitlements") => list(grant_entitlement_request()()),
+        optional("FlowSize") => list(any()),
         optional("Maintenance") => add_maintenance(),
         optional("MediaStreams") => list(add_media_stream_request()()),
+        optional("NdiConfig") => ndi_config(),
         optional("Outputs") => list(add_output_request()()),
         optional("Source") => set_source_request(),
         optional("SourceFailoverConfig") => failover_config(),
         optional("SourceMonitoringConfig") => monitoring_config(),
         optional("Sources") => list(set_source_request()()),
         optional("VpcInterfaces") => list(vpc_interface_request()()),
-        required("Name") => String.t()
+        required("Name") => [String.t()]
       }
 
   """
@@ -221,7 +253,7 @@ defmodule AWS.MediaConnect do
 
       list_gateway_instances_response() :: %{
         "Instances" => list(listed_gateway_instance()()),
-        "NextToken" => String.t()
+        "NextToken" => [String.t()]
       }
 
   """
@@ -234,7 +266,7 @@ defmodule AWS.MediaConnect do
       media_stream_source_configuration_request() :: %{
         "EncodingName" => list(any()),
         "InputConfigurations" => list(input_configuration_request()()),
-        "MediaStreamName" => String.t()
+        "MediaStreamName" => [String.t()]
       }
 
   """
@@ -245,7 +277,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_egress_gateway_bridge_request() :: %{
-        optional("MaxBitrate") => integer()
+        "MaxBitrate" => [integer()]
       }
 
   """
@@ -256,7 +288,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_bridge_sources_response() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "Sources" => list(bridge_source()())
       }
 
@@ -280,7 +312,7 @@ defmodule AWS.MediaConnect do
 
       list_gateways_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -291,7 +323,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_flow_media_streams_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "MediaStreams" => list(media_stream()())
       }
 
@@ -303,7 +335,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_flow_outputs_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Outputs" => list(output()())
       }
 
@@ -315,7 +347,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_source_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Source" => source()
       }
 
@@ -327,7 +359,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -339,7 +371,7 @@ defmodule AWS.MediaConnect do
 
       list_reservations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -362,7 +394,7 @@ defmodule AWS.MediaConnect do
 
       list_offerings_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -373,9 +405,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       list_bridges_request() :: %{
-        optional("FilterArn") => String.t(),
+        optional("FilterArn") => [String.t()],
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -386,7 +418,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       interface_request() :: %{
-        "Name" => String.t()
+        "Name" => [String.t()]
       }
 
   """
@@ -397,10 +429,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bridge_flow_source() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-        "Name" => String.t(),
-        "OutputArn" => String.t()
+        "Name" => [String.t()],
+        "OutputArn" => [String.t()]
       }
 
   """
@@ -411,7 +443,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       list_offerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => [String.t()],
         "Offerings" => list(offering()())
       }
 
@@ -424,7 +456,7 @@ defmodule AWS.MediaConnect do
 
       frozen_frames() :: %{
         "State" => list(any()),
-        "ThresholdSeconds" => integer()
+        "ThresholdSeconds" => [integer()]
       }
 
   """
@@ -456,8 +488,8 @@ defmodule AWS.MediaConnect do
 
       update_maintenance() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceScheduledDate" => String.t(),
-        "MaintenanceStartHour" => String.t()
+        "MaintenanceScheduledDate" => [String.t()],
+        "MaintenanceStartHour" => [String.t()]
       }
 
   """
@@ -480,8 +512,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_ingress_gateway_bridge_request() :: %{
-        optional("MaxBitrate") => integer(),
-        optional("MaxOutputs") => integer()
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
       }
 
   """
@@ -492,7 +524,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       delete_gateway_response() :: %{
-        "GatewayArn" => String.t()
+        "GatewayArn" => [String.t()]
       }
 
   """
@@ -512,7 +544,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_flow420_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -523,11 +555,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       listed_flow() :: %{
-        "AvailabilityZone" => String.t(),
-        "Description" => String.t(),
-        "FlowArn" => String.t(),
+        "AvailabilityZone" => [String.t()],
+        "Description" => [String.t()],
+        "FlowArn" => [String.t()],
         "Maintenance" => maintenance(),
-        "Name" => String.t(),
+        "Name" => [String.t()],
         "SourceType" => list(any()),
         "Status" => list(any())
       }
@@ -540,11 +572,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       thumbnail_details() :: %{
-        "FlowArn" => String.t(),
-        "Thumbnail" => String.t(),
+        "FlowArn" => [String.t()],
+        "Thumbnail" => [String.t()],
         "ThumbnailMessages" => list(message_detail()()),
-        "Timecode" => String.t(),
-        "Timestamp" => non_neg_integer()
+        "Timecode" => [String.t()],
+        "Timestamp" => [non_neg_integer()]
       }
 
   """
@@ -567,13 +599,13 @@ defmodule AWS.MediaConnect do
 
       media_stream() :: %{
         "Attributes" => media_stream_attributes(),
-        "ClockRate" => integer(),
-        "Description" => String.t(),
-        "Fmt" => integer(),
-        "MediaStreamId" => integer(),
-        "MediaStreamName" => String.t(),
+        "ClockRate" => [integer()],
+        "Description" => [String.t()],
+        "Fmt" => [integer()],
+        "MediaStreamId" => [integer()],
+        "MediaStreamName" => [String.t()],
         "MediaStreamType" => list(any()),
-        "VideoFormat" => String.t()
+        "VideoFormat" => [String.t()]
       }
 
   """
@@ -595,7 +627,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       delete_flow_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Status" => list(any())
       }
 
@@ -607,8 +639,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_flow_media_stream_response() :: %{
-        "FlowArn" => String.t(),
-        "MediaStreamName" => String.t()
+        "FlowArn" => [String.t()],
+        "MediaStreamName" => [String.t()]
       }
 
   """
@@ -619,7 +651,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list([String.t()]())
       }
 
   """
@@ -630,7 +662,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -641,8 +673,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_bridge_source_response() :: %{
-        "BridgeArn" => String.t(),
-        "SourceName" => String.t()
+        "BridgeArn" => [String.t()],
+        "SourceName" => [String.t()]
       }
 
   """
@@ -653,7 +685,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_flow_source_request() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment()
       }
 
@@ -665,7 +697,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       encoding_parameters_request() :: %{
-        "CompressionFactor" => float(),
+        "CompressionFactor" => [float()],
         "EncoderProfile" => list(any())
       }
 
@@ -688,11 +720,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       gateway() :: %{
-        "EgressCidrBlocks" => list(String.t()()),
-        "GatewayArn" => String.t(),
+        "EgressCidrBlocks" => list([String.t()]()),
+        "GatewayArn" => [String.t()],
         "GatewayMessages" => list(message_detail()()),
         "GatewayState" => list(any()),
-        "Name" => String.t(),
+        "Name" => [String.t()],
         "Networks" => list(gateway_network()())
       }
 
@@ -705,10 +737,10 @@ defmodule AWS.MediaConnect do
 
       update_flow_media_stream_request() :: %{
         optional("Attributes") => media_stream_attributes_request(),
-        optional("ClockRate") => integer(),
-        optional("Description") => String.t(),
+        optional("ClockRate") => [integer()],
+        optional("Description") => [String.t()],
         optional("MediaStreamType") => list(any()),
-        optional("VideoFormat") => String.t()
+        optional("VideoFormat") => [String.t()]
       }
 
   """
@@ -720,12 +752,12 @@ defmodule AWS.MediaConnect do
 
       add_media_stream_request() :: %{
         "Attributes" => media_stream_attributes_request(),
-        "ClockRate" => integer(),
-        "Description" => String.t(),
-        "MediaStreamId" => integer(),
-        "MediaStreamName" => String.t(),
+        "ClockRate" => [integer()],
+        "Description" => [String.t()],
+        "MediaStreamId" => [integer()],
+        "MediaStreamName" => [String.t()],
         "MediaStreamType" => list(any()),
-        "VideoFormat" => String.t()
+        "VideoFormat" => [String.t()]
       }
 
   """
@@ -736,9 +768,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       ingress_gateway_bridge() :: %{
-        optional("InstanceId") => String.t(),
-        required("MaxBitrate") => integer(),
-        required("MaxOutputs") => integer()
+        "InstanceId" => [String.t()],
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
       }
 
   """
@@ -749,12 +781,12 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bridge_network_output() :: %{
-        "IpAddress" => String.t(),
-        "Name" => String.t(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "IpAddress" => [String.t()],
+        "Name" => [String.t()],
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any()),
-        "Ttl" => integer()
+        "Ttl" => [integer()]
       }
 
   """
@@ -765,9 +797,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       message_detail() :: %{
-        optional("ResourceName") => String.t(),
-        required("Code") => String.t(),
-        required("Message") => String.t()
+        "Code" => [String.t()],
+        "Message" => [String.t()],
+        "ResourceName" => [String.t()]
       }
 
   """
@@ -779,7 +811,7 @@ defmodule AWS.MediaConnect do
 
       media_stream_attributes_request() :: %{
         "Fmtp" => fmtp_request(),
-        "Lang" => String.t()
+        "Lang" => [String.t()]
       }
 
   """
@@ -790,7 +822,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_bridge420_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -801,8 +833,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       gateway_network() :: %{
-        "CidrBlock" => String.t(),
-        "Name" => String.t()
+        "CidrBlock" => [String.t()],
+        "Name" => [String.t()]
       }
 
   """
@@ -826,8 +858,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       egress_gateway_bridge() :: %{
-        optional("InstanceId") => String.t(),
-        required("MaxBitrate") => integer()
+        "InstanceId" => [String.t()],
+        "MaxBitrate" => [integer()]
       }
 
   """
@@ -839,23 +871,23 @@ defmodule AWS.MediaConnect do
 
       update_flow_source_request() :: %{
         optional("Decryption") => update_encryption(),
-        optional("Description") => String.t(),
-        optional("EntitlementArn") => String.t(),
+        optional("Description") => [String.t()],
+        optional("EntitlementArn") => [String.t()],
         optional("GatewayBridgeSource") => update_gateway_bridge_source_request(),
-        optional("IngestPort") => integer(),
-        optional("MaxBitrate") => integer(),
-        optional("MaxLatency") => integer(),
-        optional("MaxSyncBuffer") => integer(),
+        optional("IngestPort") => [integer()],
+        optional("MaxBitrate") => [integer()],
+        optional("MaxLatency") => [integer()],
+        optional("MaxSyncBuffer") => [integer()],
         optional("MediaStreamSourceConfigurations") => list(media_stream_source_configuration_request()()),
-        optional("MinLatency") => integer(),
+        optional("MinLatency") => [integer()],
         optional("Protocol") => list(any()),
-        optional("SenderControlPort") => integer(),
-        optional("SenderIpAddress") => String.t(),
-        optional("SourceListenerAddress") => String.t(),
-        optional("SourceListenerPort") => integer(),
-        optional("StreamId") => String.t(),
-        optional("VpcInterfaceName") => String.t(),
-        optional("WhitelistCidr") => String.t()
+        optional("SenderControlPort") => [integer()],
+        optional("SenderIpAddress") => [String.t()],
+        optional("SourceListenerAddress") => [String.t()],
+        optional("SourceListenerPort") => [integer()],
+        optional("StreamId") => [String.t()],
+        optional("VpcInterfaceName") => [String.t()],
+        optional("WhitelistCidr") => [String.t()]
       }
 
   """
@@ -867,7 +899,7 @@ defmodule AWS.MediaConnect do
 
       list_flows_response() :: %{
         "Flows" => list(listed_flow()()),
-        "NextToken" => String.t()
+        "NextToken" => [String.t()]
       }
 
   """
@@ -878,7 +910,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_egress_gateway_bridge_request() :: %{
-        required("MaxBitrate") => integer()
+        "MaxBitrate" => [integer()]
       }
 
   """
@@ -889,9 +921,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       listed_gateway() :: %{
-        "GatewayArn" => String.t(),
+        "GatewayArn" => [String.t()],
         "GatewayState" => list(any()),
-        "Name" => String.t()
+        "Name" => [String.t()]
       }
 
   """
@@ -902,7 +934,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_flow_outputs420_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -934,7 +966,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       delete_bridge_response() :: %{
-        "BridgeArn" => String.t()
+        "BridgeArn" => [String.t()]
       }
 
   """
@@ -945,7 +977,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -956,19 +988,21 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       transport() :: %{
-        "CidrAllowList" => list(String.t()()),
-        "MaxBitrate" => integer(),
-        "MaxLatency" => integer(),
-        "MaxSyncBuffer" => integer(),
-        "MinLatency" => integer(),
+        "CidrAllowList" => list([String.t()]()),
+        "MaxBitrate" => [integer()],
+        "MaxLatency" => [integer()],
+        "MaxSyncBuffer" => [integer()],
+        "MinLatency" => [integer()],
+        "NdiProgramName" => [String.t()],
+        "NdiSpeedHqQuality" => [integer()],
         "Protocol" => list(any()),
-        "RemoteId" => String.t(),
-        "SenderControlPort" => integer(),
-        "SenderIpAddress" => String.t(),
-        "SmoothingLatency" => integer(),
-        "SourceListenerAddress" => String.t(),
-        "SourceListenerPort" => integer(),
-        "StreamId" => String.t()
+        "RemoteId" => [String.t()],
+        "SenderControlPort" => [integer()],
+        "SenderIpAddress" => [String.t()],
+        "SmoothingLatency" => [integer()],
+        "SourceListenerAddress" => [String.t()],
+        "SourceListenerPort" => [integer()],
+        "StreamId" => [String.t()]
       }
 
   """
@@ -992,8 +1026,8 @@ defmodule AWS.MediaConnect do
         optional("IngressGatewayBridge") => add_ingress_gateway_bridge_request(),
         optional("Outputs") => list(add_bridge_output_request()()),
         optional("SourceFailoverConfig") => failover_config(),
-        required("Name") => String.t(),
-        required("PlacementArn") => String.t(),
+        required("Name") => [String.t()],
+        required("PlacementArn") => [String.t()],
         required("Sources") => list(add_bridge_source_request()())
       }
 
@@ -1017,9 +1051,9 @@ defmodule AWS.MediaConnect do
 
       maintenance() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceDeadline" => String.t(),
-        "MaintenanceScheduledDate" => String.t(),
-        "MaintenanceStartHour" => String.t()
+        "MaintenanceDeadline" => [String.t()],
+        "MaintenanceScheduledDate" => [String.t()],
+        "MaintenanceStartHour" => [String.t()]
       }
 
   """
@@ -1030,12 +1064,12 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       vpc_interface() :: %{
-        "Name" => String.t(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "Name" => [String.t()],
+        "NetworkInterfaceIds" => list([String.t()]()),
         "NetworkInterfaceType" => list(any()),
-        "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetId" => String.t()
+        "RoleArn" => [String.t()],
+        "SecurityGroupIds" => list([String.t()]()),
+        "SubnetId" => [String.t()]
       }
 
   """
@@ -1055,8 +1089,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_bridge_output_response() :: %{
-        "BridgeArn" => String.t(),
-        "OutputName" => String.t()
+        "BridgeArn" => [String.t()],
+        "OutputName" => [String.t()]
       }
 
   """
@@ -1067,10 +1101,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       fmtp() :: %{
-        "ChannelOrder" => String.t(),
+        "ChannelOrder" => [String.t()],
         "Colorimetry" => list(any()),
-        "ExactFramerate" => String.t(),
-        "Par" => String.t(),
+        "ExactFramerate" => [String.t()],
+        "Par" => [String.t()],
         "Range" => list(any()),
         "ScanMode" => list(any()),
         "Tcs" => list(any())
@@ -1084,7 +1118,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_gateway420_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -1095,7 +1129,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       source_priority() :: %{
-        "PrimarySource" => String.t()
+        "PrimarySource" => [String.t()]
       }
 
   """
@@ -1106,7 +1140,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       set_gateway_bridge_source_request() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
 
@@ -1119,7 +1153,7 @@ defmodule AWS.MediaConnect do
 
       silent_audio() :: %{
         "State" => list(any()),
-        "ThresholdSeconds" => integer()
+        "ThresholdSeconds" => [integer()]
       }
 
   """
@@ -1130,7 +1164,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -1141,11 +1175,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_bridge_network_source_request() :: %{
-        "MulticastIp" => String.t(),
+        "MulticastIp" => [String.t()],
         "MulticastSourceSettings" => multicast_source_settings(),
-        "Name" => String.t(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "Name" => [String.t()],
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any())
       }
 
@@ -1166,7 +1200,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       multicast_source_settings() :: %{
-        "MulticastSourceIp" => String.t()
+        "MulticastSourceIp" => [String.t()]
       }
 
   """
@@ -1177,7 +1211,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       start_flow_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Status" => list(any())
       }
 
@@ -1189,7 +1223,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       stop_flow_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Status" => list(any())
       }
 
@@ -1202,14 +1236,14 @@ defmodule AWS.MediaConnect do
 
       encryption() :: %{
         "Algorithm" => list(any()),
-        "ConstantInitializationVector" => String.t(),
-        "DeviceId" => String.t(),
+        "ConstantInitializationVector" => [String.t()],
+        "DeviceId" => [String.t()],
         "KeyType" => list(any()),
-        "Region" => String.t(),
-        "ResourceId" => String.t(),
-        "RoleArn" => String.t(),
-        "SecretArn" => String.t(),
-        "Url" => String.t()
+        "Region" => [String.t()],
+        "ResourceId" => [String.t()],
+        "RoleArn" => [String.t()],
+        "SecretArn" => [String.t()],
+        "Url" => [String.t()]
       }
 
   """
@@ -1220,14 +1254,14 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bridge() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "BridgeMessages" => list(message_detail()()),
         "BridgeState" => list(any()),
         "EgressGatewayBridge" => egress_gateway_bridge(),
         "IngressGatewayBridge" => ingress_gateway_bridge(),
-        "Name" => String.t(),
+        "Name" => [String.t()],
         "Outputs" => list(bridge_output()()),
-        "PlacementArn" => String.t(),
+        "PlacementArn" => [String.t()],
         "SourceFailoverConfig" => failover_config(),
         "Sources" => list(bridge_source()())
       }
@@ -1240,11 +1274,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_network_output_request() :: %{
-        "IpAddress" => String.t(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "IpAddress" => [String.t()],
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any()),
-        "Ttl" => integer()
+        "Ttl" => [integer()]
       }
 
   """
@@ -1255,7 +1289,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       grant_flow_entitlements420_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -1266,7 +1300,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       encoding_parameters() :: %{
-        "CompressionFactor" => float(),
+        "CompressionFactor" => [float()],
         "EncoderProfile" => list(any())
       }
 
@@ -1300,7 +1334,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       resource_specification() :: %{
-        "ReservedBitrate" => integer(),
+        "ReservedBitrate" => [integer()],
         "ResourceType" => list(any())
       }
 
@@ -1321,7 +1355,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_state_response() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "DesiredState" => list(any())
       }
 
@@ -1333,19 +1367,19 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       reservation() :: %{
-        "CurrencyCode" => String.t(),
-        "Duration" => integer(),
+        "CurrencyCode" => [String.t()],
+        "Duration" => [integer()],
         "DurationUnits" => list(any()),
-        "End" => String.t(),
-        "OfferingArn" => String.t(),
-        "OfferingDescription" => String.t(),
-        "PricePerUnit" => String.t(),
+        "End" => [String.t()],
+        "OfferingArn" => [String.t()],
+        "OfferingDescription" => [String.t()],
+        "PricePerUnit" => [String.t()],
         "PriceUnits" => list(any()),
-        "ReservationArn" => String.t(),
-        "ReservationName" => String.t(),
+        "ReservationArn" => [String.t()],
+        "ReservationName" => [String.t()],
         "ReservationState" => list(any()),
         "ResourceSpecification" => resource_specification(),
-        "Start" => String.t()
+        "Start" => [String.t()]
       }
 
   """
@@ -1356,7 +1390,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -1367,8 +1401,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       input_configuration() :: %{
-        "InputIp" => String.t(),
-        "InputPort" => integer(),
+        "InputIp" => [String.t()],
+        "InputPort" => [integer()],
         "Interface" => interface()
       }
 
@@ -1381,7 +1415,7 @@ defmodule AWS.MediaConnect do
 
       list_entitlements_response() :: %{
         "Entitlements" => list(listed_entitlement()()),
-        "NextToken" => String.t()
+        "NextToken" => [String.t()]
       }
 
   """
@@ -1404,7 +1438,7 @@ defmodule AWS.MediaConnect do
 
       media_stream_attributes() :: %{
         "Fmtp" => fmtp(),
-        "Lang" => String.t()
+        "Lang" => [String.t()]
       }
 
   """
@@ -1416,7 +1450,7 @@ defmodule AWS.MediaConnect do
 
       list_flows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -1427,7 +1461,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_source_response() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "Source" => bridge_source()
       }
 
@@ -1439,7 +1473,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_bridge_outputs_response() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "Outputs" => list(bridge_output()())
       }
 
@@ -1469,8 +1503,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_flow_source_response() :: %{
-        "FlowArn" => String.t(),
-        "SourceArn" => String.t()
+        "FlowArn" => [String.t()],
+        "SourceArn" => [String.t()]
       }
 
   """
@@ -1481,11 +1515,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bridge_network_source() :: %{
-        "MulticastIp" => String.t(),
+        "MulticastIp" => [String.t()],
         "MulticastSourceSettings" => multicast_source_settings(),
-        "Name" => String.t(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "Name" => [String.t()],
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any())
       }
 
@@ -1500,7 +1534,7 @@ defmodule AWS.MediaConnect do
         "DestinationConfigurations" => list(destination_configuration()()),
         "EncodingName" => list(any()),
         "EncodingParameters" => encoding_parameters(),
-        "MediaStreamName" => String.t()
+        "MediaStreamName" => [String.t()]
       }
 
   """
@@ -1511,8 +1545,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_ingress_gateway_bridge_request() :: %{
-        required("MaxBitrate") => integer(),
-        required("MaxOutputs") => integer()
+        "MaxBitrate" => [integer()],
+        "MaxOutputs" => [integer()]
       }
 
   """
@@ -1523,21 +1557,21 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       source() :: %{
-        "DataTransferSubscriberFeePercent" => integer(),
+        "DataTransferSubscriberFeePercent" => [integer()],
         "Decryption" => encryption(),
-        "Description" => String.t(),
-        "EntitlementArn" => String.t(),
+        "Description" => [String.t()],
+        "EntitlementArn" => [String.t()],
         "GatewayBridgeSource" => gateway_bridge_source(),
-        "IngestIp" => String.t(),
-        "IngestPort" => integer(),
+        "IngestIp" => [String.t()],
+        "IngestPort" => [integer()],
         "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()()),
-        "Name" => String.t(),
-        "SenderControlPort" => integer(),
-        "SenderIpAddress" => String.t(),
-        "SourceArn" => String.t(),
+        "Name" => [String.t()],
+        "SenderControlPort" => [integer()],
+        "SenderIpAddress" => [String.t()],
+        "SourceArn" => [String.t()],
         "Transport" => transport(),
-        "VpcInterfaceName" => String.t(),
-        "WhitelistCidr" => String.t()
+        "VpcInterfaceName" => [String.t()],
+        "WhitelistCidr" => [String.t()]
       }
 
   """
@@ -1548,9 +1582,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_bridge_flow_source_request() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "FlowVpcInterfaceAttachment" => vpc_interface_attachment(),
-        "Name" => String.t()
+        "Name" => [String.t()]
       }
 
   """
@@ -1562,7 +1596,7 @@ defmodule AWS.MediaConnect do
 
       update_gateway_instance_response() :: %{
         "BridgePlacement" => list(any()),
-        "GatewayInstanceArn" => String.t()
+        "GatewayInstanceArn" => [String.t()]
       }
 
   """
@@ -1574,7 +1608,7 @@ defmodule AWS.MediaConnect do
 
       update_failover_config() :: %{
         "FailoverMode" => list(any()),
-        "RecoveryWindow" => integer(),
+        "RecoveryWindow" => [integer()],
         "SourcePriority" => source_priority(),
         "State" => list(any())
       }
@@ -1587,8 +1621,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       remove_flow_output_response() :: %{
-        "FlowArn" => String.t(),
-        "OutputArn" => String.t()
+        "FlowArn" => [String.t()],
+        "OutputArn" => [String.t()]
       }
 
   """
@@ -1610,8 +1644,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_gateway_request() :: %{
-        required("EgressCidrBlocks") => list(String.t()()),
-        required("Name") => String.t(),
+        required("EgressCidrBlocks") => list([String.t()]()),
+        required("Name") => [String.t()],
         required("Networks") => list(gateway_network()())
       }
 
@@ -1624,7 +1658,7 @@ defmodule AWS.MediaConnect do
 
       grant_flow_entitlements_response() :: %{
         "Entitlements" => list(entitlement()()),
-        "FlowArn" => String.t()
+        "FlowArn" => [String.t()]
       }
 
   """
@@ -1647,7 +1681,7 @@ defmodule AWS.MediaConnect do
 
       add_maintenance() :: %{
         "MaintenanceDay" => list(any()),
-        "MaintenanceStartHour" => String.t()
+        "MaintenanceStartHour" => [String.t()]
       }
 
   """
@@ -1658,13 +1692,13 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       entitlement() :: %{
-        "DataTransferSubscriberFeePercent" => integer(),
-        "Description" => String.t(),
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t()],
         "Encryption" => encryption(),
-        "EntitlementArn" => String.t(),
+        "EntitlementArn" => [String.t()],
         "EntitlementStatus" => list(any()),
-        "Name" => String.t(),
-        "Subscribers" => list(String.t()())
+        "Name" => [String.t()],
+        "Subscribers" => list([String.t()]())
       }
 
   """
@@ -1676,14 +1710,14 @@ defmodule AWS.MediaConnect do
 
       update_encryption() :: %{
         "Algorithm" => list(any()),
-        "ConstantInitializationVector" => String.t(),
-        "DeviceId" => String.t(),
+        "ConstantInitializationVector" => [String.t()],
+        "DeviceId" => [String.t()],
         "KeyType" => list(any()),
-        "Region" => String.t(),
-        "ResourceId" => String.t(),
-        "RoleArn" => String.t(),
-        "SecretArn" => String.t(),
-        "Url" => String.t()
+        "Region" => [String.t()],
+        "ResourceId" => [String.t()],
+        "RoleArn" => [String.t()],
+        "SecretArn" => [String.t()],
+        "Url" => [String.t()]
       }
 
   """
@@ -1694,10 +1728,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_network_source_request() :: %{
-        "MulticastIp" => String.t(),
+        "MulticastIp" => [String.t()],
         "MulticastSourceSettings" => multicast_source_settings(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any())
       }
 
@@ -1708,8 +1742,21 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      ndi_config() :: %{
+        "MachineName" => [String.t()],
+        "NdiDiscoveryServers" => list(ndi_discovery_server_config()()),
+        "NdiState" => list(any())
+      }
+
+  """
+  @type ndi_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_reservations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => [String.t()],
         "Reservations" => list(reservation()())
       }
 
@@ -1721,7 +1768,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       input_configuration_request() :: %{
-        "InputPort" => integer(),
+        "InputPort" => [integer()],
         "Interface" => interface_request()
       }
 
@@ -1733,7 +1780,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       messages() :: %{
-        "Errors" => list(String.t()())
+        "Errors" => list([String.t()]())
       }
 
   """
@@ -1755,8 +1802,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       destination_configuration_request() :: %{
-        "DestinationIp" => String.t(),
-        "DestinationPort" => integer(),
+        "DestinationIp" => [String.t()],
+        "DestinationPort" => [integer()],
         "Interface" => interface_request()
       }
 
@@ -1768,7 +1815,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       interface() :: %{
-        "Name" => String.t()
+        "Name" => [String.t()]
       }
 
   """
@@ -1790,11 +1837,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       vpc_interface_request() :: %{
-        "Name" => String.t(),
+        "Name" => [String.t()],
         "NetworkInterfaceType" => list(any()),
-        "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetId" => String.t()
+        "RoleArn" => [String.t()],
+        "SecurityGroupIds" => list([String.t()]()),
+        "SubnetId" => [String.t()]
       }
 
   """
@@ -1824,7 +1871,7 @@ defmodule AWS.MediaConnect do
 
       list_entitlements_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -1853,7 +1900,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -1873,8 +1920,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       frame_resolution() :: %{
-        "FrameHeight" => integer(),
-        "FrameWidth" => integer()
+        "FrameHeight" => [integer()],
+        "FrameWidth" => [integer()]
       }
 
   """
@@ -1885,7 +1932,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       gateway_bridge_source() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
 
@@ -1942,9 +1989,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       list_gateway_instances_request() :: %{
-        optional("FilterArn") => String.t(),
+        optional("FilterArn") => [String.t()],
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => [String.t()]
       }
 
   """
@@ -1967,18 +2014,31 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       offering() :: %{
-        "CurrencyCode" => String.t(),
-        "Duration" => integer(),
+        "CurrencyCode" => [String.t()],
+        "Duration" => [integer()],
         "DurationUnits" => list(any()),
-        "OfferingArn" => String.t(),
-        "OfferingDescription" => String.t(),
-        "PricePerUnit" => String.t(),
+        "OfferingArn" => [String.t()],
+        "OfferingDescription" => [String.t()],
+        "PricePerUnit" => [String.t()],
         "PriceUnits" => list(any()),
         "ResourceSpecification" => resource_specification()
       }
 
   """
   @type offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ndi_discovery_server_config() :: %{
+        "DiscoveryServerAddress" => [String.t()],
+        "DiscoveryServerPort" => [integer()],
+        "VpcInterfaceAdapter" => [String.t()]
+      }
+
+  """
+  @type ndi_discovery_server_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2006,12 +2066,12 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       grant_entitlement_request() :: %{
-        "DataTransferSubscriberFeePercent" => integer(),
-        "Description" => String.t(),
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t()],
         "Encryption" => encryption(),
         "EntitlementStatus" => list(any()),
-        "Name" => String.t(),
-        "Subscribers" => list(String.t()())
+        "Name" => [String.t()],
+        "Subscribers" => list([String.t()]())
       }
 
   """
@@ -2033,21 +2093,23 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_output_request() :: %{
-        optional("CidrAllowList") => list(String.t()()),
-        optional("Description") => String.t(),
-        optional("Destination") => String.t(),
+        optional("CidrAllowList") => list([String.t()]()),
+        optional("Description") => [String.t()],
+        optional("Destination") => [String.t()],
         optional("Encryption") => update_encryption(),
-        optional("MaxLatency") => integer(),
+        optional("MaxLatency") => [integer()],
         optional("MediaStreamOutputConfigurations") => list(media_stream_output_configuration_request()()),
-        optional("MinLatency") => integer(),
+        optional("MinLatency") => [integer()],
+        optional("NdiProgramName") => [String.t()],
+        optional("NdiSpeedHqQuality") => [integer()],
         optional("OutputStatus") => list(any()),
-        optional("Port") => integer(),
+        optional("Port") => [integer()],
         optional("Protocol") => list(any()),
-        optional("RemoteId") => String.t(),
-        optional("SenderControlPort") => integer(),
-        optional("SenderIpAddress") => String.t(),
-        optional("SmoothingLatency") => integer(),
-        optional("StreamId") => String.t(),
+        optional("RemoteId") => [String.t()],
+        optional("SenderControlPort") => [integer()],
+        optional("SenderIpAddress") => [String.t()],
+        optional("SmoothingLatency") => [integer()],
+        optional("StreamId") => [String.t()],
         optional("VpcInterfaceAttachment") => vpc_interface_attachment()
       }
 
@@ -2061,12 +2123,12 @@ defmodule AWS.MediaConnect do
       gateway_instance() :: %{
         "BridgePlacement" => list(any()),
         "ConnectionStatus" => list(any()),
-        "GatewayArn" => String.t(),
-        "GatewayInstanceArn" => String.t(),
-        "InstanceId" => String.t(),
+        "GatewayArn" => [String.t()],
+        "GatewayInstanceArn" => [String.t()],
+        "InstanceId" => [String.t()],
         "InstanceMessages" => list(message_detail()()),
         "InstanceState" => list(any()),
-        "RunningBridgeCount" => integer()
+        "RunningBridgeCount" => [integer()]
       }
 
   """
@@ -2077,7 +2139,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_output_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "Output" => output()
       }
 
@@ -2089,7 +2151,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => [String.t()]
       }
 
   """
@@ -2111,7 +2173,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_gateway_bridge_source_request() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
 
@@ -2124,7 +2186,7 @@ defmodule AWS.MediaConnect do
 
       update_flow_entitlement_response() :: %{
         "Entitlement" => entitlement(),
-        "FlowArn" => String.t()
+        "FlowArn" => [String.t()]
       }
 
   """
@@ -2135,11 +2197,11 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       listed_bridge() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "BridgeState" => list(any()),
-        "BridgeType" => String.t(),
-        "Name" => String.t(),
-        "PlacementArn" => String.t()
+        "BridgeType" => [String.t()],
+        "Name" => [String.t()],
+        "PlacementArn" => [String.t()]
       }
 
   """
@@ -2161,14 +2223,14 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       transport_stream() :: %{
-        "Channels" => integer(),
-        "Codec" => String.t(),
-        "FrameRate" => String.t(),
+        "Channels" => [integer()],
+        "Codec" => [String.t()],
+        "FrameRate" => [String.t()],
         "FrameResolution" => frame_resolution(),
-        "Pid" => integer(),
-        "SampleRate" => integer(),
-        "SampleSize" => integer(),
-        "StreamType" => String.t()
+        "Pid" => [integer()],
+        "SampleRate" => [integer()],
+        "SampleSize" => [integer()],
+        "StreamType" => [String.t()]
       }
 
   """
@@ -2179,8 +2241,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       revoke_flow_entitlement_response() :: %{
-        "EntitlementArn" => String.t(),
-        "FlowArn" => String.t()
+        "EntitlementArn" => [String.t()],
+        "FlowArn" => [String.t()]
       }
 
   """
@@ -2191,9 +2253,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       bridge_flow_output() :: %{
-        "FlowArn" => String.t(),
-        "FlowSourceArn" => String.t(),
-        "Name" => String.t()
+        "FlowArn" => [String.t()],
+        "FlowSourceArn" => [String.t()],
+        "Name" => [String.t()]
       }
 
   """
@@ -2204,7 +2266,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_media_stream_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "MediaStream" => media_stream()
       }
 
@@ -2239,14 +2301,16 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       flow() :: %{
-        "AvailabilityZone" => String.t(),
-        "Description" => String.t(),
-        "EgressIp" => String.t(),
+        "AvailabilityZone" => [String.t()],
+        "Description" => [String.t()],
+        "EgressIp" => [String.t()],
         "Entitlements" => list(entitlement()()),
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
+        "FlowSize" => list(any()),
         "Maintenance" => maintenance(),
         "MediaStreams" => list(media_stream()()),
-        "Name" => String.t(),
+        "Name" => [String.t()],
+        "NdiConfig" => ndi_config(),
         "Outputs" => list(output()()),
         "Source" => source(),
         "SourceFailoverConfig" => failover_config(),
@@ -2265,24 +2329,24 @@ defmodule AWS.MediaConnect do
 
       set_source_request() :: %{
         "Decryption" => encryption(),
-        "Description" => String.t(),
-        "EntitlementArn" => String.t(),
+        "Description" => [String.t()],
+        "EntitlementArn" => [String.t()],
         "GatewayBridgeSource" => set_gateway_bridge_source_request(),
-        "IngestPort" => integer(),
-        "MaxBitrate" => integer(),
-        "MaxLatency" => integer(),
-        "MaxSyncBuffer" => integer(),
+        "IngestPort" => [integer()],
+        "MaxBitrate" => [integer()],
+        "MaxLatency" => [integer()],
+        "MaxSyncBuffer" => [integer()],
         "MediaStreamSourceConfigurations" => list(media_stream_source_configuration_request()()),
-        "MinLatency" => integer(),
-        "Name" => String.t(),
+        "MinLatency" => [integer()],
+        "Name" => [String.t()],
         "Protocol" => list(any()),
-        "SenderControlPort" => integer(),
-        "SenderIpAddress" => String.t(),
-        "SourceListenerAddress" => String.t(),
-        "SourceListenerPort" => integer(),
-        "StreamId" => String.t(),
-        "VpcInterfaceName" => String.t(),
-        "WhitelistCidr" => String.t()
+        "SenderControlPort" => [integer()],
+        "SenderIpAddress" => [String.t()],
+        "SourceListenerAddress" => [String.t()],
+        "SourceListenerPort" => [integer()],
+        "StreamId" => [String.t()],
+        "VpcInterfaceName" => [String.t()],
+        "WhitelistCidr" => [String.t()]
       }
 
   """
@@ -2293,9 +2357,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       listed_gateway_instance() :: %{
-        "GatewayArn" => String.t(),
-        "GatewayInstanceArn" => String.t(),
-        "InstanceId" => String.t(),
+        "GatewayArn" => [String.t()],
+        "GatewayInstanceArn" => [String.t()],
+        "InstanceId" => [String.t()],
         "InstanceState" => list(any())
       }
 
@@ -2308,7 +2372,7 @@ defmodule AWS.MediaConnect do
 
       list_gateways_response() :: %{
         "Gateways" => list(listed_gateway()()),
-        "NextToken" => String.t()
+        "NextToken" => [String.t()]
       }
 
   """
@@ -2319,7 +2383,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       deregister_gateway_instance_request() :: %{
-        optional("Force") => boolean()
+        optional("Force") => [boolean()]
       }
 
   """
@@ -2331,7 +2395,7 @@ defmodule AWS.MediaConnect do
 
       failover_config() :: %{
         "FailoverMode" => list(any()),
-        "RecoveryWindow" => integer(),
+        "RecoveryWindow" => [integer()],
         "SourcePriority" => source_priority(),
         "State" => list(any())
       }
@@ -2344,12 +2408,12 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_bridge_network_output_request() :: %{
-        "IpAddress" => String.t(),
-        "Name" => String.t(),
-        "NetworkName" => String.t(),
-        "Port" => integer(),
+        "IpAddress" => [String.t()],
+        "Name" => [String.t()],
+        "NetworkName" => [String.t()],
+        "Port" => [integer()],
         "Protocol" => list(any()),
-        "Ttl" => integer()
+        "Ttl" => [integer()]
       }
 
   """
@@ -2361,7 +2425,7 @@ defmodule AWS.MediaConnect do
 
       black_frames() :: %{
         "State" => list(any()),
-        "ThresholdSeconds" => integer()
+        "ThresholdSeconds" => [integer()]
       }
 
   """
@@ -2383,7 +2447,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_flow_vpc_interfaces_response() :: %{
-        "FlowArn" => String.t(),
+        "FlowArn" => [String.t()],
         "VpcInterfaces" => list(vpc_interface()())
       }
 
@@ -2396,7 +2460,7 @@ defmodule AWS.MediaConnect do
 
       list_bridges_response() :: %{
         "Bridges" => list(listed_bridge()()),
-        "NextToken" => String.t()
+        "NextToken" => [String.t()]
       }
 
   """
@@ -2425,10 +2489,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_flow_entitlement_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => [String.t()],
         optional("Encryption") => update_encryption(),
         optional("EntitlementStatus") => list(any()),
-        optional("Subscribers") => list(String.t()())
+        optional("Subscribers") => list([String.t()]())
       }
 
   """
@@ -2459,7 +2523,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       vpc_interface_attachment() :: %{
-        "VpcInterfaceName" => String.t()
+        "VpcInterfaceName" => [String.t()]
       }
 
   """
@@ -2470,20 +2534,20 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       output() :: %{
-        "BridgeArn" => String.t(),
-        "BridgePorts" => list(integer()()),
-        "DataTransferSubscriberFeePercent" => integer(),
-        "Description" => String.t(),
-        "Destination" => String.t(),
+        "BridgeArn" => [String.t()],
+        "BridgePorts" => list([integer()]()),
+        "DataTransferSubscriberFeePercent" => [integer()],
+        "Description" => [String.t()],
+        "Destination" => [String.t()],
         "Encryption" => encryption(),
-        "EntitlementArn" => String.t(),
-        "ListenerAddress" => String.t(),
-        "MediaLiveInputArn" => String.t(),
+        "EntitlementArn" => [String.t()],
+        "ListenerAddress" => [String.t()],
+        "MediaLiveInputArn" => [String.t()],
         "MediaStreamOutputConfigurations" => list(media_stream_output_configuration()()),
-        "Name" => String.t(),
-        "OutputArn" => String.t(),
+        "Name" => [String.t()],
+        "OutputArn" => [String.t()],
         "OutputStatus" => list(any()),
-        "Port" => integer(),
+        "Port" => [integer()],
         "Transport" => transport(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
@@ -2507,10 +2571,10 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       destination_configuration() :: %{
-        "DestinationIp" => String.t(),
-        "DestinationPort" => integer(),
+        "DestinationIp" => [String.t()],
+        "DestinationPort" => [integer()],
         "Interface" => interface(),
-        "OutboundIp" => String.t()
+        "OutboundIp" => [String.t()]
       }
 
   """
@@ -2521,8 +2585,8 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       purchase_offering_request() :: %{
-        required("ReservationName") => String.t(),
-        required("Start") => String.t()
+        required("ReservationName") => [String.t()],
+        required("Start") => [String.t()]
       }
 
   """
@@ -2533,7 +2597,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       update_bridge_output_response() :: %{
-        "BridgeArn" => String.t(),
+        "BridgeArn" => [String.t()],
         "Output" => bridge_output()
       }
 
@@ -2547,7 +2611,7 @@ defmodule AWS.MediaConnect do
       media_stream_source_configuration() :: %{
         "EncodingName" => list(any()),
         "InputConfigurations" => list(input_configuration()()),
-        "MediaStreamName" => String.t()
+        "MediaStreamName" => [String.t()]
       }
 
   """
@@ -2570,21 +2634,23 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       add_output_request() :: %{
-        "CidrAllowList" => list(String.t()()),
-        "Description" => String.t(),
-        "Destination" => String.t(),
+        "CidrAllowList" => list([String.t()]()),
+        "Description" => [String.t()],
+        "Destination" => [String.t()],
         "Encryption" => encryption(),
-        "MaxLatency" => integer(),
+        "MaxLatency" => [integer()],
         "MediaStreamOutputConfigurations" => list(media_stream_output_configuration_request()()),
-        "MinLatency" => integer(),
-        "Name" => String.t(),
+        "MinLatency" => [integer()],
+        "Name" => [String.t()],
+        "NdiProgramName" => [String.t()],
+        "NdiSpeedHqQuality" => [integer()],
         "OutputStatus" => list(any()),
-        "Port" => integer(),
+        "Port" => [integer()],
         "Protocol" => list(any()),
-        "RemoteId" => String.t(),
-        "SenderControlPort" => integer(),
-        "SmoothingLatency" => integer(),
-        "StreamId" => String.t(),
+        "RemoteId" => [String.t()],
+        "SenderControlPort" => [integer()],
+        "SmoothingLatency" => [integer()],
+        "StreamId" => [String.t()],
         "VpcInterfaceAttachment" => vpc_interface_attachment()
       }
 
@@ -3136,7 +3202,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds Sources to flow
+  Adds sources to a flow.
   """
   @spec add_flow_sources(map(), String.t(), add_flow_sources_request(), list()) ::
           {:ok, add_flow_sources_response(), any()}
@@ -3165,7 +3231,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Adds VPC interfaces to flow
+  Adds VPC interfaces to a flow.
   """
   @spec add_flow_vpc_interfaces(map(), String.t(), add_flow_vpc_interfaces_request(), list()) ::
           {:ok, add_flow_vpc_interfaces_response(), any()}
@@ -3259,7 +3325,7 @@ defmodule AWS.MediaConnect do
   @doc """
   Creates a new gateway.
 
-  The request must include at least one network (up to 4).
+  The request must include at least one network (up to four).
   """
   @spec create_gateway(map(), create_gateway_request(), list()) ::
           {:ok, create_gateway_response(), any()}
@@ -3445,8 +3511,9 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of a flow.
 
-  The response includes the flow ARN, name, and Availability Zone, as well as
-  details about the source, outputs, and entitlements.
+  The response includes the flow Amazon Resource Name (ARN),
+  name, and Availability Zone, as well as details about the source, outputs, and
+  entitlements.
   """
   @spec describe_flow(map(), String.t(), list()) ::
           {:ok, describe_flow_response(), any()}
@@ -3464,10 +3531,12 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays details of the flow's source stream.
 
-  The response contains information about the contents of the stream and its
-  programs.
+  The `DescribeFlowSourceMetadata` API is used to view information about the
+  flow's source transport stream and programs.
+
+  This API displays status messages about the flow's source as well as details
+  about the program's video, audio, and other data.
   """
   @spec describe_flow_source_metadata(map(), String.t(), list()) ::
           {:ok, describe_flow_source_metadata_response(), any()}
@@ -3485,7 +3554,8 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays the thumbnail details of a flow's source stream.
+
+  Describes the thumbnail for the flow source.
   """
   @spec describe_flow_source_thumbnail(map(), String.t(), list()) ::
           {:ok, describe_flow_source_thumbnail_response(), any()}
@@ -3505,8 +3575,8 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of a gateway.
 
-  The response includes the gateway ARN, name, and CIDR blocks, as well as details
-  about the networks.
+  The response includes the gateway Amazon Resource Name
+  (ARN), name, and CIDR blocks, as well as details about the networks.
   """
   @spec describe_gateway(map(), String.t(), list()) ::
           {:ok, describe_gateway_response(), any()}
@@ -3524,6 +3594,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+
   Displays the details of an instance.
   """
   @spec describe_gateway_instance(map(), String.t(), list()) ::
@@ -3615,7 +3686,8 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of bridges that are associated with this account and an
-  optionally specified Arn.
+  optionally
+  specified Amazon Resource Name (ARN).
 
   This request returns a paginated result.
   """
@@ -3730,7 +3802,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Displays a list of instances associated with the AWS account.
+  Displays a list of instances associated with the Amazon Web Services account.
 
   This request returns a paginated result. You can use the filterArn property to
   display only the instances associated with the selected Gateway Amazon Resource
@@ -3820,7 +3892,7 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all offerings that are available to this account in the
-  current AWS Region.
+  current Amazon Web Services Region.
 
   If you have an active reservation (which means you've purchased an offering that
   has already started and hasn't expired yet), your account isn't eligible for
@@ -3857,7 +3929,7 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of all reservations that have been purchased by this account in
-  the current AWS Region.
+  the current Amazon Web Services Region.
 
   This list includes all reservations in all states (such as active and expired).
   """
@@ -3891,7 +3963,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  List all tags on an AWS Elemental MediaConnect resource
+  List all tags on a MediaConnect resource.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4275,11 +4347,13 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Associates the specified tags to a resource with the specified resourceArn.
+  Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
-  are not changed. When a resource is deleted, the tags associated with that
-  resource are deleted as well.
+  are not
+  changed. When a resource is deleted, the tags associated with that resource are
+  deleted as
+  well.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4342,7 +4416,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Updates the bridge
+  Updates the bridge.
   """
   @spec update_bridge(map(), String.t(), update_bridge_request(), list()) ::
           {:ok, update_bridge_response(), any()}
@@ -4445,7 +4519,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Updates the bridge state
+  Updates the bridge state.
   """
   @spec update_bridge_state(map(), String.t(), update_bridge_state_request(), list()) ::
           {:ok, update_bridge_state_response(), any()}
@@ -4474,7 +4548,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Updates flow
+  Updates an existing flow.
   """
   @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
@@ -4503,10 +4577,11 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  You can change an entitlement's description, subscribers, and encryption.
+  Updates an entitlement.
 
-  If you change the subscribers, the service will remove the outputs that are are
-  used by the subscribers that are removed.
+  You can change an entitlement's description, subscribers, and encryption. If you
+  change the subscribers, the service will remove the outputs that are are used by
+  the subscribers that are removed.
   """
   @spec update_flow_entitlement(
           map(),
@@ -4648,7 +4723,7 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-  Updates the configuration of an existing Gateway Instance.
+  Updates an existing gateway instance.
   """
   @spec update_gateway_instance(map(), String.t(), update_gateway_instance_request(), list()) ::
           {:ok, update_gateway_instance_response(), any()}

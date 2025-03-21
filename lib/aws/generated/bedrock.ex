@@ -187,6 +187,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      evaluation_inference_config_summary() :: %{
+        "modelConfigSummary" => evaluation_model_config_summary(),
+        "ragConfigSummary" => evaluation_rag_config_summary()
+      }
+
+  """
+  @type evaluation_inference_config_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_model_invocation_job_response() :: %{
         "jobArn" => String.t()
       }
@@ -689,6 +701,18 @@ defmodule AWS.Bedrock do
 
   """
   @type marketplace_model_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_model_config_summary() :: %{
+        "bedrockModelIdentifiers" => list(String.t()()),
+        "precomputedInferenceSourceIdentifiers" => list(String.t()())
+      }
+
+  """
+  @type evaluation_model_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1401,6 +1425,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      evaluation_precomputed_inference_source() :: %{
+        "inferenceSourceIdentifier" => String.t()
+      }
+
+  """
+  @type evaluation_precomputed_inference_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_provisioned_model_throughput_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("commitmentDuration") => list(any()),
@@ -1855,6 +1890,18 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_contextual_grounding_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_rag_config_summary() :: %{
+        "bedrockKnowledgeBaseIdentifiers" => list(String.t()()),
+        "precomputedRagSourceIdentifiers" => list(String.t()())
+      }
+
+  """
+  @type evaluation_rag_config_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2494,6 +2541,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      evaluation_precomputed_retrieve_source_config() :: %{
+        "ragSourceIdentifier" => String.t()
+      }
+
+  """
+  @type evaluation_precomputed_retrieve_source_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_guardrails_request() :: %{
         optional("guardrailIdentifier") => String.t(),
         optional("maxResults") => integer(),
@@ -2673,6 +2731,7 @@ defmodule AWS.Bedrock do
         "creationTime" => non_neg_integer(),
         "evaluationTaskTypes" => list(list(any())()),
         "evaluatorModelIdentifiers" => list(String.t()()),
+        "inferenceConfigSummary" => evaluation_inference_config_summary(),
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "jobType" => list(any()),
@@ -2717,6 +2776,17 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_precomputed_retrieve_and_generate_source_config() :: %{
+        "ragSourceIdentifier" => String.t()
+      }
+
+  """
+  @type evaluation_precomputed_retrieve_and_generate_source_config() :: %{String.t() => any()}
 
   @typedoc """
 

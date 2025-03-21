@@ -1263,6 +1263,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       webhook() :: %{
+        "appId" => String.t(),
         "branchName" => String.t(),
         "createTime" => non_neg_integer(),
         "description" => String.t(),
@@ -2165,7 +2166,17 @@ defmodule AWS.Amplify do
   end
 
   @doc """
-  Returns a list of artifacts for a specified app, branch, and job.
+  Returns a list of end-to-end testing artifacts for a specified app, branch, and
+  job.
+
+  To return the build artifacts, use the
+  [GetJob](https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html) API.
+
+  For more information about Amplify testing support, see [Setting up end-to-end
+  Cypress tests for your Amplify
+  application](https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html)
+  in the *Amplify Hosting User
+  Guide*.
   """
   @spec list_artifacts(
           map(),

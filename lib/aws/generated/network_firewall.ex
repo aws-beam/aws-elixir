@@ -219,6 +219,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      flow_filter() :: %{
+        "DestinationAddress" => address(),
+        "DestinationPort" => String.t(),
+        "Protocols" => list(String.t()()),
+        "SourceAddress" => address(),
+        "SourcePort" => String.t()
+      }
+      
+  """
+  @type flow_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
         required("Tags") => list(tag()())
@@ -281,6 +296,51 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type list_rule_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_capture_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        optional("MinimumFlowAgeInSeconds") => integer(),
+        required("FirewallArn") => String.t(),
+        required("FlowFilters") => list(flow_filter()())
+      }
+      
+  """
+  @type start_flow_capture_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_flow_operation_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        required("FirewallArn") => String.t(),
+        required("FlowOperationId") => String.t()
+      }
+      
+  """
+  @type describe_flow_operation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_flow_operation_response() :: %{
+        "AvailabilityZone" => String.t(),
+        "FirewallArn" => String.t(),
+        "FlowOperation" => flow_operation(),
+        "FlowOperationId" => String.t(),
+        "FlowOperationStatus" => list(any()),
+        "FlowOperationType" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer(),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type describe_flow_operation_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -768,6 +828,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_flow_operations_response() :: %{
+        "FlowOperations" => list(flow_operation_metadata()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_flow_operations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -835,6 +907,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flow_operation_metadata() :: %{
+        "FlowOperationId" => String.t(),
+        "FlowOperationStatus" => list(any()),
+        "FlowOperationType" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type flow_operation_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -987,6 +1073,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_flow_operation_results_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FirewallArn") => String.t(),
+        required("FlowOperationId") => String.t()
+      }
+      
+  """
+  @type list_flow_operation_results_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stateful_rule() :: %{
         "Action" => list(any()),
         "Header" => header(),
@@ -1087,6 +1188,31 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      flow_operation() :: %{
+        "FlowFilters" => list(flow_filter()()),
+        "MinimumFlowAgeInSeconds" => integer()
+      }
+      
+  """
+  @type flow_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_capture_response() :: %{
+        "FirewallArn" => String.t(),
+        "FlowOperationId" => String.t(),
+        "FlowOperationStatus" => list(any())
+      }
+      
+  """
+  @type start_flow_capture_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_policy_change_protection_response() :: %{
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
@@ -1121,6 +1247,21 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type update_subnet_change_protection_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flow_operations_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        optional("FlowOperationType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("FirewallArn") => String.t()
+      }
+      
+  """
+  @type list_flow_operations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1216,6 +1357,33 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type list_t_l_s_inspection_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_flush_request() :: %{
+        optional("AvailabilityZone") => String.t(),
+        optional("MinimumFlowAgeInSeconds") => integer(),
+        required("FirewallArn") => String.t(),
+        required("FlowFilters") => list(flow_filter()())
+      }
+      
+  """
+  @type start_flow_flush_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_flush_response() :: %{
+        "FirewallArn" => String.t(),
+        "FlowOperationId" => String.t(),
+        "FlowOperationStatus" => list(any())
+      }
+      
+  """
+  @type start_flow_flush_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1755,6 +1923,24 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_flow_operation_results_response() :: %{
+        "AvailabilityZone" => String.t(),
+        "FirewallArn" => String.t(),
+        "FlowOperationId" => String.t(),
+        "FlowOperationStatus" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer(),
+        "Flows" => list(flow()()),
+        "NextToken" => String.t(),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type list_flow_operation_results_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_delete_protection_request() :: %{
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
@@ -1860,6 +2046,24 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flow() :: %{
+        "Age" => integer(),
+        "ByteCount" => float(),
+        "DestinationAddress" => address(),
+        "DestinationPort" => String.t(),
+        "PacketCount" => integer(),
+        "Protocol" => String.t(),
+        "SourceAddress" => address(),
+        "SourcePort" => String.t()
+      }
+      
+  """
+  @type flow() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2201,6 +2405,12 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type describe_flow_operation_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type describe_logging_configuration_errors() ::
           throttling_exception()
           | internal_server_error()
@@ -2257,6 +2467,18 @@ defmodule AWS.NetworkFirewall do
   @type list_firewalls_errors() ::
           throttling_exception() | internal_server_error() | invalid_request_exception()
 
+  @type list_flow_operation_results_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type list_flow_operations_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type list_rule_groups_errors() ::
           throttling_exception() | internal_server_error() | invalid_request_exception()
 
@@ -2277,6 +2499,18 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
 
   @type start_analysis_report_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type start_flow_capture_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type start_flow_flush_errors() ::
           throttling_exception()
           | internal_server_error()
           | invalid_request_exception()
@@ -2670,6 +2904,20 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Returns key information about a specific flow operation.
+  """
+  @spec describe_flow_operation(map(), describe_flow_operation_request(), list()) ::
+          {:ok, describe_flow_operation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_flow_operation_errors()}
+  def describe_flow_operation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFlowOperation", input, options)
+  end
+
+  @doc """
   Returns the logging configuration for the specified firewall.
   """
   @spec describe_logging_configuration(map(), describe_logging_configuration_request(), list()) ::
@@ -2840,6 +3088,53 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Returns the results of a specific flow operation.
+
+  Flow operations let you manage the flows tracked in the flow table, also known
+  as the firewall table.
+
+  A flow is network traffic that is monitored by a firewall, either by stateful or
+  stateless rules.
+  For traffic to be considered part of a flow, it must share Destination,
+  DestinationPort, Direction, Protocol, Source, and SourcePort.
+  """
+  @spec list_flow_operation_results(map(), list_flow_operation_results_request(), list()) ::
+          {:ok, list_flow_operation_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flow_operation_results_errors()}
+  def list_flow_operation_results(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFlowOperationResults", input, options)
+  end
+
+  @doc """
+  Returns a list of all flow operations ran in a specific firewall.
+
+  You can optionally narrow the request scope by specifying the operation type or
+  Availability Zone associated with a firewall's flow operations.
+
+  Flow operations let you manage the flows tracked in the flow table, also known
+  as the firewall table.
+
+  A flow is network traffic that is monitored by a firewall, either by stateful or
+  stateless rules.
+  For traffic to be considered part of a flow, it must share Destination,
+  DestinationPort, Direction, Protocol, Source, and SourcePort.
+  """
+  @spec list_flow_operations(map(), list_flow_operations_request(), list()) ::
+          {:ok, list_flow_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flow_operations_errors()}
+  def list_flow_operations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListFlowOperations", input, options)
+  end
+
+  @doc """
   Retrieves the metadata for the rule groups that you have defined.
 
   Depending on your
@@ -2963,6 +3258,60 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "StartAnalysisReport", input, options)
+  end
+
+  @doc """
+  Begins capturing the flows in a firewall, according to the filters you define.
+
+  Captures are similar, but not identical to snapshots. Capture operations provide
+  visibility into flows that are not closed and are tracked by a firewall's flow
+  table.
+  Unlike snapshots, captures are a time-boxed view.
+
+  A flow is network traffic that is monitored by a firewall, either by stateful or
+  stateless rules.
+  For traffic to be considered part of a flow, it must share Destination,
+  DestinationPort, Direction, Protocol, Source, and SourcePort.
+
+  To avoid encountering operation limits, you should avoid starting captures with
+  broad filters, like wide IP ranges.
+  Instead, we recommend you define more specific criteria with `FlowFilters`, like
+  narrow IP ranges, ports, or protocols.
+  """
+  @spec start_flow_capture(map(), start_flow_capture_request(), list()) ::
+          {:ok, start_flow_capture_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_flow_capture_errors()}
+  def start_flow_capture(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFlowCapture", input, options)
+  end
+
+  @doc """
+  Begins the flushing of traffic from the firewall, according to the filters you
+  define.
+
+  When the operation starts, impacted flows are temporarily marked as timed out
+  before the Suricata engine prunes,
+  or flushes, the flows from the firewall table.
+
+  While the flush completes, impacted flows are processed as midstream traffic.
+  This may result in a
+  temporary increase in midstream traffic metrics. We recommend that you double
+  check your stream exception policy
+  before you perform a flush operation.
+  """
+  @spec start_flow_flush(map(), start_flow_flush_request(), list()) ::
+          {:ok, start_flow_flush_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_flow_flush_errors()}
+  def start_flow_flush(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartFlowFlush", input, options)
   end
 
   @doc """

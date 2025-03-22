@@ -1389,6 +1389,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       single_sign_on() :: %{
+        "idcInstanceArn" => [String.t()],
         "type" => list(any()),
         "userAssignment" => list(any())
       }

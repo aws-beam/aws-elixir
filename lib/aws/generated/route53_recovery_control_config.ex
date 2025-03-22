@@ -253,6 +253,18 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   ## Example:
 
+      update_cluster_request() :: %{
+        required("ClusterArn") => String.t(),
+        required("NetworkType") => list(any())
+      }
+
+  """
+  @type update_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_routing_control_request() :: %{
         required("RoutingControlArn") => String.t(),
         required("RoutingControlName") => String.t()
@@ -276,6 +288,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       create_cluster_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("NetworkType") => list(any()),
         optional("Tags") => map(),
         required("ClusterName") => String.t()
       }
@@ -337,6 +350,7 @@ defmodule AWS.Route53RecoveryControlConfig do
         "ClusterArn" => String.t(),
         "ClusterEndpoints" => list(cluster_endpoint()()),
         "Name" => String.t(),
+        "NetworkType" => list(any()),
         "Owner" => String.t(),
         "Status" => list(any())
       }
@@ -789,6 +803,17 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @type create_safety_rule_response() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+
+  """
+  @type update_cluster_response() :: %{String.t() => any()}
+
   @type create_cluster_errors() ::
           throttling_exception()
           | validation_exception()
@@ -913,6 +938,14 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   @type untag_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
+
+  @type update_cluster_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_control_panel_errors() ::
           throttling_exception()
@@ -1600,6 +1633,37 @@ defmodule AWS.Route53RecoveryControlConfig do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing cluster.
+
+  You can only update the network type of a cluster.
+  """
+  @spec update_cluster(map(), update_cluster_request(), list()) ::
+          {:ok, update_cluster_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cluster_errors()}
+  def update_cluster(%Client{} = client, input, options \\ []) do
+    url_path = "/cluster"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

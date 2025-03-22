@@ -2096,6 +2096,7 @@ defmodule AWS.Bedrock do
 
       get_imported_model_response() :: %{
         "creationTime" => non_neg_integer(),
+        "customModelUnits" => custom_model_units(),
         "instructSupported" => boolean(),
         "jobArn" => String.t(),
         "jobName" => String.t(),
@@ -2352,6 +2353,18 @@ defmodule AWS.Bedrock do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_units() :: %{
+        "customModelUnitsPerModelCopy" => [integer()],
+        "customModelUnitsVersion" => String.t()
+      }
+
+  """
+  @type custom_model_units() :: %{String.t() => any()}
 
   @typedoc """
 

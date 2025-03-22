@@ -1529,9 +1529,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       search_training_plan_offerings_request() :: %{
-        optional("DurationHours") => float(),
         optional("EndTimeBefore") => non_neg_integer(),
         optional("StartTimeAfter") => non_neg_integer(),
+        required("DurationHours") => float(),
         required("InstanceCount") => integer(),
         required("InstanceType") => list(any()),
         required("TargetResources") => list(list(any())())

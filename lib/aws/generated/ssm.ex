@@ -237,6 +237,7 @@ defmodule AWS.SSM do
         optional("ApprovedPatches") => list(String.t()()),
         optional("ApprovedPatchesComplianceLevel") => list(any()),
         optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+        optional("AvailableSecurityUpdatesComplianceStatus") => list(any()),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("GlobalFilters") => patch_filter_group(),
@@ -1426,6 +1427,7 @@ defmodule AWS.SSM do
         optional("ApprovedPatches") => list(String.t()()),
         optional("ApprovedPatchesComplianceLevel") => list(any()),
         optional("ApprovedPatchesEnableNonSecurity") => boolean(),
+        optional("AvailableSecurityUpdatesComplianceStatus") => list(any()),
         optional("Description") => String.t(),
         optional("GlobalFilters") => patch_filter_group(),
         optional("Name") => String.t(),
@@ -2539,6 +2541,7 @@ defmodule AWS.SSM do
       
       describe_patch_group_state_result() :: %{
         "Instances" => integer(),
+        "InstancesWithAvailableSecurityUpdates" => integer(),
         "InstancesWithCriticalNonCompliantPatches" => integer(),
         "InstancesWithFailedPatches" => integer(),
         "InstancesWithInstalledOtherPatches" => integer(),
@@ -2696,6 +2699,7 @@ defmodule AWS.SSM do
   ## Example:
       
       instance_patch_state() :: %{
+        "AvailableSecurityUpdateCount" => integer(),
         "BaselineId" => String.t(),
         "CriticalNonCompliantCount" => integer(),
         "FailedCount" => integer(),
@@ -2979,6 +2983,7 @@ defmodule AWS.SSM do
         "ApprovedPatches" => list(String.t()()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "AvailableSecurityUpdatesComplianceStatus" => list(any()),
         "GlobalFilters" => patch_filter_group(),
         "OperatingSystem" => list(any()),
         "RejectedPatches" => list(String.t()()),
@@ -4474,6 +4479,7 @@ defmodule AWS.SSM do
         "ApprovedPatches" => list(String.t()()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "AvailableSecurityUpdatesComplianceStatus" => list(any()),
         "BaselineId" => String.t(),
         "CreatedDate" => non_neg_integer(),
         "Description" => String.t(),
@@ -7892,6 +7898,7 @@ defmodule AWS.SSM do
         "ApprovedPatches" => list(String.t()()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
+        "AvailableSecurityUpdatesComplianceStatus" => list(any()),
         "BaselineId" => String.t(),
         "CreatedDate" => non_neg_integer(),
         "Description" => String.t(),

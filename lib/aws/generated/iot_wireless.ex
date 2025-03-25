@@ -30,8 +30,13 @@ defmodule AWS.IoTWireless do
 
   To connect to the AWS IoT Wireless Service, use the Service endpoints as
   described in
-  [IoT Wireless Service endpoints](https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region)
-  in the *AWS General Reference*.
+  [IoT Wireless Service
+  endpoints](https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region).
+  You can use both IPv4 and IPv6 protocols to connect
+  to the endpoints and send requests to the AWS IoT Wireless service. For more
+  information,
+  see [Using IPv6 with AWS IoT
+  Wireless](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/wireless-ipv6-access.html).
   """
 
   alias AWS.Client
@@ -5714,8 +5719,8 @@ defmodule AWS.IoTWireless do
   @doc """
   Provisions a wireless gateway.
 
-  When provisioning a wireless gateway, you might run into duplication errors
-  for the following reasons.
+  When provisioning a wireless gateway, you might run into duplication errors for
+  the following reasons.
 
     
   If you specify a `GatewayEui` value that already exists.
@@ -5725,7 +5730,8 @@ defmodule AWS.IoTWireless do
   within the last 10 minutes.
 
   To avoid this error, make sure that you use unique identifiers and parameters
-  for each request within the specified time period.
+  for
+  each request within the specified time period.
   """
   @spec create_wireless_gateway(map(), create_wireless_gateway_request(), list()) ::
           {:ok, create_wireless_gateway_response(), any()}
@@ -5908,7 +5914,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Deletes a multicast group if it is not in use by a fuota task.
+  Deletes a multicast group if it is not in use by a FUOTA task.
   """
   @spec delete_multicast_group(map(), String.t(), delete_multicast_group_request(), list()) ::
           {:ok, delete_multicast_group_response(), any()}
@@ -6105,8 +6111,8 @@ defmodule AWS.IoTWireless do
   @doc """
   Deletes a wireless gateway.
 
-  When deleting a wireless gateway, you might run into duplication errors
-  for the following reasons.
+  When deleting a wireless gateway, you might run into duplication errors for the
+  following reasons.
 
     
   If you specify a `GatewayEui` value that already exists.
@@ -6116,7 +6122,8 @@ defmodule AWS.IoTWireless do
   within the last 10 minutes.
 
   To avoid this error, make sure that you use unique identifiers and parameters
-  for each request within the specified time period.
+  for
+  each request within the specified time period.
   """
   @spec delete_wireless_gateway(map(), String.t(), delete_wireless_gateway_request(), list()) ::
           {:ok, delete_wireless_gateway_response(), any()}
@@ -6303,7 +6310,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Disassociates a multicast group from a fuota task.
+  Disassociates a multicast group from a FUOTA task.
   """
   @spec disassociate_multicast_group_from_fuota_task(
           map(),
@@ -6608,9 +6615,10 @@ defmodule AWS.IoTWireless do
   @doc """
   Returns current default log levels or log levels by resource types.
 
-  Based on resource
-  types, log levels can be for wireless device log options or wireless gateway log
-  options.
+  Based on the
+  resource type, log levels can be returned for wireless device, wireless gateway,
+  or
+  FUOTA task log options.
   """
   @spec get_log_levels_by_resource_types(map(), list()) ::
           {:ok, get_log_levels_by_resource_types_response(), any()}
@@ -6893,11 +6901,8 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Fetches the log-level override, if any, for a given resource-ID and
-  resource-type.
-
-  It
-  can be used for a wireless device, wireless gateway or fuota task.
+  Fetches the log-level override, if any, for a given resource ID and resource
+  type..
   """
   @spec get_resource_log_level(map(), String.t(), String.t(), list()) ::
           {:ok, get_resource_log_level_response(), any()}
@@ -7429,7 +7434,7 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  List all multicast groups associated with a fuota task.
+  List all multicast groups associated with a FUOTA task.
   """
   @spec list_multicast_groups_by_fuota_task(
           map(),
@@ -7984,12 +7989,10 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Sets the log-level override for a resource-ID and resource-type.
+  Sets the log-level override for a resource ID and resource type.
 
-  This option can be
-  specified for a wireless gateway or a wireless device. A limit of 200 log level
-  override
-  can be set per account.
+  A limit of 200 log
+  level override can be set per account.
   """
   @spec put_resource_log_level(map(), String.t(), put_resource_log_level_request(), list()) ::
           {:ok, put_resource_log_level_response(), any()}
@@ -8024,7 +8027,7 @@ defmodule AWS.IoTWireless do
 
   @doc """
   Removes the log-level overrides for all resources; wireless devices, wireless
-  gateways, and fuota tasks.
+  gateways, and FUOTA tasks.
   """
   @spec reset_all_resource_log_levels(map(), reset_all_resource_log_levels_request(), list()) ::
           {:ok, reset_all_resource_log_levels_response(), any()}
@@ -8053,10 +8056,10 @@ defmodule AWS.IoTWireless do
   end
 
   @doc """
-  Removes the log-level override, if any, for a specific resource-ID and
-  resource-type.
+  Removes the log-level override, if any, for a specific resource ID and resource
+  type.
 
-  It can be used for a wireless device, a wireless gateway, or a fuota task.
+  It can be used for a wireless device, a wireless gateway, or a FUOTA task.
   """
   @spec reset_resource_log_level(map(), String.t(), reset_resource_log_level_request(), list()) ::
           {:ok, reset_resource_log_level_response(), any()}
@@ -8561,7 +8564,7 @@ defmodule AWS.IoTWireless do
   Set default log level, or log levels by resource types.
 
   This can be for wireless
-  device log options or wireless gateways log options and is used to control the
+  device, wireless gateway, or FUOTA task log options, and is used to control the
   log
   messages that'll be displayed in CloudWatch.
   """

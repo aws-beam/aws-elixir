@@ -1010,7 +1010,8 @@ defmodule AWS.PCS do
   @type register_compute_node_group_instance_errors() ::
           access_denied_exception() | internal_server_exception()
 
-  @type tag_resource_errors() :: resource_not_found_exception()
+  @type tag_resource_errors() ::
+          service_quota_exceeded_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() :: resource_not_found_exception()
 

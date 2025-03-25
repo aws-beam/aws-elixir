@@ -7254,7 +7254,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Removes the AI Agent that is set for use by defafult on an Amazon Q in Connect
+  Removes the AI Agent that is set for use by default on an Amazon Q in Connect
   Assistant.
   """
   @spec remove_assistant_a_i_agent(
@@ -7812,7 +7812,7 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-  Updates the AI Agent that is set for use by defafult on an Amazon Q in Connect
+  Updates the AI Agent that is set for use by default on an Amazon Q in Connect
   Assistant.
   """
   @spec update_assistant_a_i_agent(

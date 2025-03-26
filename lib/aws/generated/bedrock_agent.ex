@@ -399,6 +399,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      open_search_managed_cluster_field_mapping() :: %{
+        "metadataField" => String.t(),
+        "textField" => String.t(),
+        "vectorField" => String.t()
+      }
+
+  """
+  @type open_search_managed_cluster_field_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agents_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -2244,6 +2257,7 @@ defmodule AWS.BedrockAgent do
       storage_configuration() :: %{
         "mongoDbAtlasConfiguration" => mongo_db_atlas_configuration(),
         "neptuneAnalyticsConfiguration" => neptune_analytics_configuration(),
+        "opensearchManagedClusterConfiguration" => open_search_managed_cluster_configuration(),
         "opensearchServerlessConfiguration" => open_search_serverless_configuration(),
         "pineconeConfiguration" => pinecone_configuration(),
         "rdsConfiguration" => rds_configuration(),
@@ -3118,6 +3132,20 @@ defmodule AWS.BedrockAgent do
 
   """
   @type enrichment_strategy_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_search_managed_cluster_configuration() :: %{
+        "domainArn" => String.t(),
+        "domainEndpoint" => String.t(),
+        "fieldMapping" => open_search_managed_cluster_field_mapping(),
+        "vectorIndexName" => String.t()
+      }
+
+  """
+  @type open_search_managed_cluster_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -734,6 +734,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      invalid_state_exception() :: %{
+        "clusterName" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_cluster_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("tags") => map(),
@@ -2183,6 +2195,18 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      throttling_exception() :: %{
+        "clusterName" => String.t(),
+        "message" => String.t()
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connector_config_response() :: %{
         "activationCode" => String.t(),
         "activationExpiry" => non_neg_integer(),
@@ -2692,6 +2716,7 @@ defmodule AWS.EKS do
 
       update_cluster_version_request() :: %{
         optional("clientRequestToken") => String.t(),
+        optional("force") => boolean(),
         required("version") => String.t()
       }
 
@@ -2802,6 +2827,7 @@ defmodule AWS.EKS do
 
   @type associate_encryption_config_errors() ::
           server_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -2810,6 +2836,7 @@ defmodule AWS.EKS do
 
   @type associate_identity_provider_config_errors() ::
           server_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -2998,6 +3025,7 @@ defmodule AWS.EKS do
 
   @type disassociate_identity_provider_config_errors() ::
           server_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -3104,6 +3132,7 @@ defmodule AWS.EKS do
 
   @type update_cluster_config_errors() ::
           server_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -3112,10 +3141,12 @@ defmodule AWS.EKS do
 
   @type update_cluster_version_errors() ::
           server_exception()
+          | throttling_exception()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | client_exception()
+          | invalid_state_exception()
           | resource_in_use_exception()
 
   @type update_eks_anywhere_subscription_errors() ::

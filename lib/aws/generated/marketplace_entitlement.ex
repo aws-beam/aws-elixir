@@ -32,6 +32,7 @@ defmodule AWS.MarketplaceEntitlement do
   ## Example:
       
       entitlement() :: %{
+        "CustomerAWSAccountId" => String.t(),
         "CustomerIdentifier" => String.t(),
         "Dimension" => String.t(),
         "ExpirationDate" => non_neg_integer(),
@@ -140,7 +141,13 @@ defmodule AWS.MarketplaceEntitlement do
   GetEntitlements retrieves entitlement values for a given product.
 
   The results can be
-  filtered based on customer identifier or product dimensions.
+  filtered based on customer identifier, AWS account ID, or product dimensions.
+
+  The `CustomerIdentifier` parameter is on path for deprecation. Use
+  `CustomerAWSAccountID` instead.
+
+  These parameters are mutually exclusive. You can't specify both
+  `CustomerIdentifier` and `CustomerAWSAccountID` in the same request.
   """
   @spec get_entitlements(map(), get_entitlements_request(), list()) ::
           {:ok, get_entitlements_result(), any()}

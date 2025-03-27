@@ -923,6 +923,7 @@ defmodule AWS.DirectConnect do
       
       create_direct_connect_gateway_request() :: %{
         optional("amazonSideAsn") => float(),
+        optional("tags") => list(tag()()),
         required("directConnectGatewayName") => String.t()
       }
       
@@ -1526,7 +1527,8 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayName" => String.t(),
         "directConnectGatewayState" => list(any()),
         "ownerAccount" => String.t(),
-        "stateChangeError" => String.t()
+        "stateChangeError" => String.t(),
+        "tags" => list(tag()())
       }
       
   """
@@ -3068,6 +3070,18 @@ defmodule AWS.DirectConnect do
 
   The response contains the association between the Direct Connect gateway and
   transit gateway.
+
+    *
+  A Direct Connect gateway and a virtual private gateway
+
+  The response contains the association between the Direct Connect gateway and
+  virtual private gateway.
+
+    *
+  A Direct Connect gateway association to a Cloud WAN core network
+
+  The response contains the Cloud WAN core network ID that the Direct Connect
+  gateway is associated to.
   """
   @spec describe_direct_connect_gateway_associations(
           map(),

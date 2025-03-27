@@ -128,7 +128,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       configure_logs_for_playback_configuration_response() :: %{
+        optional("AdsInteractionLog") => ads_interaction_log(),
         optional("EnabledLoggingStrategies") => list(list(any())()),
+        optional("ManifestServiceInteractionLog") => manifest_service_interaction_log(),
         optional("PlaybackConfigurationName") => String.t(),
         required("PercentEnabled") => integer()
       }
@@ -361,7 +363,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       configure_logs_for_playback_configuration_request() :: %{
+        "AdsInteractionLog" => ads_interaction_log(),
         "EnabledLoggingStrategies" => list(list(any())()),
+        "ManifestServiceInteractionLog" => manifest_service_interaction_log(),
         "PercentEnabled" => integer(),
         "PlaybackConfigurationName" => String.t()
       }
@@ -949,10 +953,33 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      ads_interaction_log() :: %{
+        "ExcludeEventTypes" => list(list(any())()),
+        "PublishOptInEventTypes" => list(list(any())())
+      }
+
+  """
+  @type ads_interaction_log() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_prefetch_schedule_response() :: %{}
 
   """
   @type delete_prefetch_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      manifest_service_interaction_log() :: %{
+        "ExcludeEventTypes" => list(list(any())())
+      }
+
+  """
+  @type manifest_service_interaction_log() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1680,7 +1707,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       log_configuration() :: %{
+        "AdsInteractionLog" => ads_interaction_log(),
         "EnabledLoggingStrategies" => list(list(any())()),
+        "ManifestServiceInteractionLog" => manifest_service_interaction_log(),
         "PercentEnabled" => integer()
       }
 

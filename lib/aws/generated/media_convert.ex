@@ -3534,6 +3534,7 @@ defmodule AWS.MediaConvert do
 
       automated_abr_settings() :: %{
         "MaxAbrBitrate" => integer(),
+        "MaxQualityLevel" => float(),
         "MaxRenditions" => integer(),
         "MinAbrBitrate" => integer(),
         "Rules" => list(automated_abr_rule()())
@@ -5117,8 +5118,12 @@ defmodule AWS.MediaConvert do
   end
 
   @doc """
-  The Probe operation analyzes the provided media file and returns comprehensive
-  metadata about its container format, tracks, and any encountered errors.
+  Use Probe to obtain detailed information about your input media files.
+
+  Probe returns a JSON that includes container, codec, frame rate, resolution,
+  track count, audio layout, captions, and more. You can use this information to
+  learn more about your media files, or to help make decisions while automating
+  your transcoding workflow.
   """
   @spec probe(map(), probe_request(), list()) ::
           {:ok, probe_response(), any()}

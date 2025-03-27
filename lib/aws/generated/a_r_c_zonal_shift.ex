@@ -4,7 +4,7 @@
 defmodule AWS.ARCZonalShift do
   @moduledoc """
   Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon
-  Route 53 Application Recovery Controller (Route 53 ARC).
+  Route 53 Application Recovery Controller (ARC).
 
   You can start a zonal shift to move traffic for a load balancer resource away
   from an Availability Zone to
@@ -16,8 +16,8 @@ defmodule AWS.ARCZonalShift do
 
   You can also configure zonal autoshift for supported load balancer resources.
   Zonal autoshift
-  is a capability in Route 53 ARC where you authorize Amazon Web Services to shift
-  away application resource
+  is a capability in ARC where you authorize Amazon Web Services to shift away
+  application resource
   traffic from an Availability Zone during events, on your behalf, to help reduce
   your time to recovery.
   Amazon Web Services starts an autoshift when internal telemetry indicates that
@@ -53,8 +53,8 @@ defmodule AWS.ARCZonalShift do
   the loss of an
   Availability Zone.
 
-  Be aware that Route 53 ARC does not inspect the health of individual resources.
-  Amazon Web Services only starts an
+  Be aware that ARC does not inspect the health of individual resources. Amazon
+  Web Services only starts an
   autoshift when Amazon Web Services telemetry detects that there is an
   Availability Zone impairment that could
   potentially impact customers. In some cases, resources might be shifted away
@@ -218,6 +218,7 @@ defmodule AWS.ARCZonalShift do
         "expiryTime" => non_neg_integer(),
         "practiceRunOutcome" => list(any()),
         "resourceIdentifier" => String.t(),
+        "shiftType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
         "zonalShiftId" => String.t()
@@ -284,6 +285,7 @@ defmodule AWS.ARCZonalShift do
         "expiryTime" => non_neg_integer(),
         "practiceRunOutcome" => list(any()),
         "resourceIdentifier" => String.t(),
+        "shiftType" => list(any()),
         "startTime" => non_neg_integer(),
         "zonalShiftId" => String.t()
       }
@@ -460,7 +462,7 @@ defmodule AWS.ARCZonalShift do
 
       validation_exception() :: %{
         "message" => [String.t()],
-        "reason" => String.t()
+        "reason" => list(any())
       }
 
   """
@@ -696,8 +698,8 @@ defmodule AWS.ARCZonalShift do
   *outcome alarm*, to monitor application health during practice runs and,
   optionally, a *blocking alarm*, to block practice runs from starting.
 
-  When a resource has a practice run configuration, Route 53 ARC starts zonal
-  shifts for the resource
+  When a resource has a practice run configuration, ARC starts zonal shifts for
+  the resource
   weekly, to shift traffic for practice runs. Practice runs help you to ensure
   that
   shifting away traffic from an Availability Zone during an autoshift is safe for
@@ -785,24 +787,12 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Returns the status of autoshift observer notification.
+  Returns the status of the autoshift observer notification.
 
-  Autoshift observer
-  notification enables you to be notified, through Amazon EventBridge, when
-  there is an autoshift event for zonal autoshift.
-
-  If the status is `ENABLED`,
-  Route 53 ARC includes all autoshift events when you use the EventBridge pattern
-  `Autoshift In Progress`. When the status is `DISABLED`,
-  Route 53 ARC includes only autoshift events for autoshifts when one or more of
-  your
-  resources is included in the autoshift.
-
-  For more information, see
-  [
-  Notifications for practice runs and
-  autoshifts](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  Autoshift observer notifications notify you through Amazon EventBridge when
+  there is an autoshift event for zonal autoshift. The status can be `ENABLED` or
+  `DISABLED`. When `ENABLED`, a notification is sent when an autoshift is
+  triggered. When `DISABLED`, notifications are not sent.
   """
   @spec get_autoshift_observer_notification_status(map(), list()) ::
           {:ok, get_autoshift_observer_notification_status_response(), any()}
@@ -825,12 +815,8 @@ defmodule AWS.ARCZonalShift do
   Region.
 
   Resources that are registered for
-  zonal shifts are managed resources in Route 53 ARC. You can start zonal shifts
-  and configure zonal autoshift for managed resources.
-
-  At this time, you can only start a zonal shift or configure zonal autoshift for
-  Network Load Balancers and Application Load Balancers with cross-zone load
-  balancing turned off.
+  zonal shifts are managed resources in ARC. You can start zonal shifts and
+  configure zonal autoshift for managed resources.
   """
   @spec get_managed_resource(map(), String.t(), list()) ::
           {:ok, get_managed_resource_response(), any()}
@@ -848,7 +834,7 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Returns a list of autoshifts for an Amazon Web Services Region.
+  Returns the autoshifts for an Amazon Web Services Region.
 
   By default, the call returns
   only `ACTIVE` autoshifts. Optionally, you can specify the `status` parameter to
@@ -948,11 +934,10 @@ defmodule AWS.ARCZonalShift do
   Services Region.
 
   `ListZonalShifts` returns customer-initiated zonal shifts, as well as practice
-  run zonal shifts that Route 53 ARC started on
+  run zonal shifts that ARC started on
   your behalf for zonal autoshift.
 
-  The `ListZonalShifts` operation does not list autoshifts. For more information
-  about listing
+  For more information about listing
   autoshifts, see
   [">ListAutoshifts](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html).
   """
@@ -1020,9 +1005,9 @@ defmodule AWS.ARCZonalShift do
   bad code deployment or from an Amazon Web Services
   infrastructure failure in a single Availability Zone.
 
-  You can start a zonal shift in Route 53 ARC only for managed
+  You can start a zonal shift in ARC only for managed
   resources in your Amazon Web Services account in an Amazon Web Services Region.
-  Resources are automatically registered with Route 53 ARC
+  Resources are automatically registered with ARC
   by Amazon Web Services services.
 
   At this time, you can only start a zonal shift for Network Load Balancers and
@@ -1030,8 +1015,8 @@ defmodule AWS.ARCZonalShift do
 
   When you start a zonal shift, traffic for the resource is no longer routed to
   the Availability Zone. The
-  zonal shift is created immediately in Route 53 ARC. However, it can take a short
-  time, typically up to a few minutes,
+  zonal shift is created immediately in ARC. However, it can take a short time,
+  typically up to a few minutes,
   for existing, in-progress connections in the Availability Zone to complete.
 
   For more information, see [Zonal shift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html)
@@ -1071,10 +1056,9 @@ defmodule AWS.ARCZonalShift do
   there is an autoshift event for zonal autoshift.
 
   If the status is `ENABLED`,
-  Route 53 ARC includes all autoshift events when you use the EventBridge pattern
+  ARC includes all autoshift events when you use the EventBridge pattern
   `Autoshift In Progress`. When the status is `DISABLED`,
-  Route 53 ARC includes only autoshift events for autoshifts when one or more of
-  your
+  ARC includes only autoshift events for autoshifts when one or more of your
   resources is included in the autoshift.
 
   For more information, see

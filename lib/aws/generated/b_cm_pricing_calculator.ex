@@ -690,7 +690,8 @@ defmodule AWS.BCMPricingCalculator do
       
       get_preferences_response() :: %{
         "managementAccountRateTypeSelections" => list(list(any())()),
-        "memberAccountRateTypeSelections" => list(list(any())())
+        "memberAccountRateTypeSelections" => list(list(any())()),
+        "standaloneAccountRateTypeSelections" => list(list(any())())
       }
       
   """
@@ -907,7 +908,8 @@ defmodule AWS.BCMPricingCalculator do
       
       update_preferences_request() :: %{
         optional("managementAccountRateTypeSelections") => list(list(any())()),
-        optional("memberAccountRateTypeSelections") => list(list(any())())
+        optional("memberAccountRateTypeSelections") => list(list(any())()),
+        optional("standaloneAccountRateTypeSelections") => list(list(any())())
       }
       
   """
@@ -952,7 +954,8 @@ defmodule AWS.BCMPricingCalculator do
       
       update_preferences_response() :: %{
         "managementAccountRateTypeSelections" => list(list(any())()),
-        "memberAccountRateTypeSelections" => list(list(any())())
+        "memberAccountRateTypeSelections" => list(list(any())()),
+        "standaloneAccountRateTypeSelections" => list(list(any())())
       }
       
   """
@@ -2312,8 +2315,7 @@ defmodule AWS.BCMPricingCalculator do
 
   @doc """
 
-  Retrieves the current preferences for the Amazon Web Services Cost Explorer
-  service.
+  Retrieves the current preferences for Pricing Calculator.
   """
   @spec get_preferences(map(), get_preferences_request(), list()) ::
           {:ok, get_preferences_response(), any()}
@@ -2590,7 +2592,7 @@ defmodule AWS.BCMPricingCalculator do
 
   @doc """
 
-  Updates the preferences for the Amazon Web Services Cost Explorer service.
+  Updates the preferences for Pricing Calculator.
   """
   @spec update_preferences(map(), update_preferences_request(), list()) ::
           {:ok, update_preferences_response(), any()}

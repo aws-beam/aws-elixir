@@ -1226,6 +1226,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_app_request() :: %{
+        optional("RecoveryMode") => boolean(),
         optional("ResourceSpec") => resource_spec(),
         optional("SpaceName") => String.t(),
         optional("Tags") => list(tag()()),
@@ -4438,6 +4439,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t(),
         "LastHealthCheckTimestamp" => non_neg_integer(),
         "LastUserActivityTimestamp" => non_neg_integer(),
+        "RecoveryMode" => boolean(),
         "ResourceSpec" => resource_spec(),
         "SpaceName" => String.t(),
         "Status" => list(any()),

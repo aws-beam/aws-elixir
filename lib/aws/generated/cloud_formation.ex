@@ -10,26 +10,26 @@ defmodule AWS.CloudFormation do
   repeatedly.
 
   You can use CloudFormation to leverage Amazon Web Services products, such as
-  Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple
-  Notification Service,
-  Elastic Load Balancing, and Amazon EC2 Auto Scaling to build highly reliable,
-  highly
-  scalable, cost-effective applications without creating or configuring the
-  underlying Amazon Web Services
+  Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
+  Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto
+  Scaling to build highly reliable, highly scalable, cost-effective
+  applications without creating or configuring the underlying Amazon Web Services
   infrastructure.
 
   With CloudFormation, you declare all your resources and dependencies in a
-  template file. The template defines a
-  collection of resources as a single unit called a stack. CloudFormation creates
-  and deletes all member resources of the stack
-  together and manages all dependencies between the resources for you.
+  template file. The
+  template defines a collection of resources as a single unit called a stack.
+  CloudFormation creates
+  and deletes all member resources of the stack together and manages all
+  dependencies between the
+  resources for you.
 
   For more information about CloudFormation, see the [CloudFormation product page](http://aws.amazon.com/cloudformation/).
 
   CloudFormation makes use of other Amazon Web Services products. If you need
-  additional technical information about a
-  specific Amazon Web Services product, you can find the product's technical
-  documentation at [docs.aws.amazon.com](https://docs.aws.amazon.com/).
+  additional technical information
+  about a specific Amazon Web Services product, you can find the product's
+  technical documentation at [docs.aws.amazon.com](https://docs.aws.amazon.com/).
   """
 
   alias AWS.Client
@@ -1033,7 +1033,8 @@ defmodule AWS.CloudFormation do
       
       list_resource_scans_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t(),
+        optional("ScanTypeFilter") => list(any())
       }
       
   """
@@ -1050,6 +1051,7 @@ defmodule AWS.CloudFormation do
         "ResourceTypes" => list(String.t()()),
         "ResourcesRead" => integer(),
         "ResourcesScanned" => integer(),
+        "ScanFilters" => list(scan_filter()()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusReason" => String.t()
@@ -1473,6 +1475,17 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_drift_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_filter() :: %{
+        "Types" => list(String.t()())
+      }
+      
+  """
+  @type scan_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2851,6 +2864,7 @@ defmodule AWS.CloudFormation do
         "EndTime" => non_neg_integer(),
         "PercentageCompleted" => float(),
         "ResourceScanId" => String.t(),
+        "ScanType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusReason" => String.t()
@@ -2922,7 +2936,8 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       start_resource_scan_input() :: %{
-        optional("ClientRequestToken") => String.t()
+        optional("ClientRequestToken") => String.t(),
+        optional("ScanFilters") => list(scan_filter()())
       }
       
   """
@@ -4146,9 +4161,10 @@ defmodule AWS.CloudFormation do
 
   Depending on the cause of
   the failure, you can manually [fix the error](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed)
-  and continue the rollback. By continuing the rollback, you can
-  return your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state), and
-  then try to update the stack again.
+  and continue the rollback. By continuing the rollback, you can return
+  your stack to a working state (the `UPDATE_ROLLBACK_COMPLETE` state), and then
+  try
+  to update the stack again.
 
   A stack goes into the `UPDATE_ROLLBACK_FAILED` state when CloudFormation can't
   roll
@@ -4284,7 +4300,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Creates a refactor across multiple stacks, with the list of stacks and resources
-  that are affected.
+  that are
+  affected.
   """
   @spec create_stack_refactor(map(), create_stack_refactor_input(), list()) ::
           {:ok, create_stack_refactor_output(), any()}
@@ -5217,7 +5234,8 @@ defmodule AWS.CloudFormation do
   Fn::ImportValue](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html)
   function.
 
-  For more information, see [Get exported outputs from a deployed CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
+  For more information, see [Get exported outputs from a deployed CloudFormation
+  stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html).
   """
   @spec list_exports(map(), list_exports_input(), list()) ::
           {:ok, list_exports_output(), any()}
@@ -5244,7 +5262,8 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summaries of invoked Hooks when a change set or Cloud Control API
-  operation target is provided.
+  operation target is
+  provided.
   """
   @spec list_hook_results(map(), list_hook_results_input(), list()) ::
           {:ok, list_hook_results_output(), any()}
@@ -5499,13 +5518,13 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the summary information for stacks whose status matches the specified
-  StackStatusFilter.
+  `StackStatusFilter`.
 
-  Summary information for stacks that have been deleted is kept for 90 days
-  after the stack is deleted. If no StackStatusFilter is specified, summary
-  information for all
-  stacks is returned (including existing stacks and stacks that have been
-  deleted).
+  Summary information for stacks that have been deleted is
+  kept for 90 days after the stack is deleted. If no `StackStatusFilter` is
+  specified, summary information for all stacks is returned (including existing
+  stacks and
+  stacks that have been deleted).
   """
   @spec list_stacks(map(), list_stacks_input(), list()) ::
           {:ok, list_stacks_output(), any()}
@@ -5983,7 +6002,7 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
-  Updates the stack set, and associated stack instances in the specified accounts
+  Updates the stack set and associated stack instances in the specified accounts
   and
   Amazon Web Services Regions.
 

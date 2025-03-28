@@ -174,6 +174,7 @@ defmodule AWS.Batch do
 
       container_properties() :: %{
         "command" => list(String.t()()),
+        "enableExecuteCommand" => boolean(),
         "environment" => list(key_value_pair()()),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
@@ -728,6 +729,7 @@ defmodule AWS.Batch do
 
       ecs_task_properties() :: %{
         "containers" => list(task_container_properties()()),
+        "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "ipcMode" => String.t(),
@@ -752,6 +754,7 @@ defmodule AWS.Batch do
         "environment" => list(key_value_pair()()),
         "essential" => boolean(),
         "exitCode" => integer(),
+        "firelensConfiguration" => firelens_configuration(),
         "image" => String.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
@@ -960,6 +963,7 @@ defmodule AWS.Batch do
       ecs_task_details() :: %{
         "containerInstanceArn" => String.t(),
         "containers" => list(task_container_details()()),
+        "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "ipcMode" => String.t(),
@@ -1367,6 +1371,7 @@ defmodule AWS.Batch do
       container_detail() :: %{
         "command" => list(String.t()()),
         "containerInstanceArn" => String.t(),
+        "enableExecuteCommand" => boolean(),
         "environment" => list(key_value_pair()()),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
@@ -2118,6 +2123,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      firelens_configuration() :: %{
+        "options" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type firelens_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       job_state_time_limit_action() :: %{
         "action" => list(any()),
         "maxTimeSeconds" => integer(),
@@ -2279,6 +2296,7 @@ defmodule AWS.Batch do
         "dependsOn" => list(task_container_dependency()()),
         "environment" => list(key_value_pair()()),
         "essential" => boolean(),
+        "firelensConfiguration" => firelens_configuration(),
         "image" => String.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
@@ -3245,8 +3263,8 @@ defmodule AWS.Batch do
   parameters in a `resourceRequirements` object that's included in the
   `containerOverrides` parameter.
 
-  Job queues with a scheduling policy are limited to 500 active fair share
-  identifiers at
+  Job queues with a scheduling policy are limited to 500 active share identifiers
+  at
   a time.
 
   Jobs that run on Fargate resources can't be guaranteed to run for more than 14

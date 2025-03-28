@@ -94,6 +94,17 @@ defmodule AWS.SSOOIDC do
 
   ## Example:
 
+      aws_additional_details() :: %{
+        "identityContext" => String.t()
+      }
+
+  """
+  @type aws_additional_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_token_request() :: %{
         optional("code") => String.t(),
         optional("codeVerifier") => String.t(),
@@ -151,6 +162,7 @@ defmodule AWS.SSOOIDC do
 
       create_token_with_iam_response() :: %{
         "accessToken" => String.t(),
+        "awsAdditionalDetails" => aws_additional_details(),
         "expiresIn" => integer(),
         "idToken" => String.t(),
         "issuedTokenType" => String.t(),

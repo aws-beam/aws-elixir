@@ -757,6 +757,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_trace_node_action_event() :: %{
+        "nodeName" => String.t(),
+        "operationName" => [String.t()],
+        "requestId" => [String.t()],
+        "serviceName" => [String.t()],
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_trace_node_action_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_input() :: %{
         "format" => list(any()),
         "source" => list()
@@ -3557,21 +3572,6 @@ defmodule AWS.BedrockAgentRuntime do
   helps you follow the agent's reasoning process that led it to the information it
   processed, the actions it took, and the final result it yielded. For more
   information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
-
-    *
-  To stream agent responses, make sure that only orchestration prompt is enabled.
-  Agent streaming is not supported for the following steps:
-
-      *
-
-  `Pre-processing`
-
-      *
-
-  `Post-processing`
-
-      *
-  Agent with 1 Knowledge base and `User Input` not enabled
 
     *
   End a conversation by setting `endSession` to `true`.

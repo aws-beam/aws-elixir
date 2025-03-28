@@ -28,10 +28,10 @@ defmodule AWS.GameLift do
   FlexMatch for matchmaking.
 
     *
-  Managed hosting with Realtime Servers -- With Amazon GameLift Realtime Servers,
-  you can quickly configure
-  and set up ready-to-go game servers for your game. Realtime Servers provides a
-  game server
+  Managed hosting with Amazon GameLift Realtime -- With Amazon GameLift Amazon
+  GameLift Realtime, you can quickly configure
+  and set up ready-to-go game servers for your game. Amazon GameLift Realtime
+  provides a game server
   framework with core Amazon GameLift infrastructure already built in. Then use
   the full
   range of Amazon GameLift managed hosting features, including FlexMatch, for your
@@ -6058,47 +6058,89 @@ defmodule AWS.GameLift do
   Creates a placement queue that processes requests for new game sessions.
 
   A queue uses
-  FleetIQ algorithms to determine the best placement locations and find an
-  available game
-  server there, then prompts the game server process to start a new game session.
+  FleetIQ algorithms to locate the best available placement locations for a new
+  game
+  session, and then prompts the game server process to start a new game session.
 
   A game session queue is configured with a set of destinations (Amazon GameLift
   fleets or
-  aliases), which determine the locations where the queue can place new game
-  sessions.
-  These destinations can span multiple fleet types (Spot and On-Demand), instance
-  types,
-  and Amazon Web Services Regions. If the queue includes multi-location fleets,
-  the queue is able to
-  place game sessions in all of a fleet's remote locations. You can opt to filter
-  out
-  individual locations if needed.
+  aliases) that determine where the queue can place new game sessions. These
+  destinations
+  can span multiple Amazon Web Services Regions, can use different instance types,
+  and can include both
+  Spot and On-Demand fleets. If the queue includes multi-location fleets, the
+  queue can
+  place game sessions in any of a fleet's remote locations.
 
-  The queue configuration also determines how FleetIQ selects the best available
-  placement
-  for a new game session. Before searching for an available game server, FleetIQ
-  first
-  prioritizes the queue's destinations and locations, with the best placement
-  locations on
-  top. You can set up the queue to use the FleetIQ default prioritization or
-  provide an
-  alternate set of priorities.
+  You can configure a queue to determine how it selects the best available
+  placement for
+  a new game session. Queues can prioritize placement decisions based on a
+  combination of
+  location, hosting cost, and player latency. You can set up the queue to use the
+  default
+  prioritization or provide alternate instructions using
+  `PriorityConfiguration`.
 
-  To create a new queue, provide a name, timeout value, and a list of
-  destinations.
-  Optionally, specify a sort configuration and/or a filter, and define a set of
-  latency
-  cap policies. You can also include the ARN for an Amazon Simple Notification
-  Service
-  (SNS) topic to receive notifications of game session placement activity.
-  Notifications
-  using SNS or CloudWatch events is the preferred way to track placement activity.
+  ## Request options
 
-  If successful, a new `GameSessionQueue` object is returned with an assigned
-  queue ARN. New game session requests, which are submitted to queue with
+  Use this operation to make these common types of requests.
+
+    *
+  Create a queue with the minimum required parameters.
+
+      *
+
+  `Name`
+
+      *
+
+  `Destinations` (This parameter isn't required, but a queue
+  can't make placements without at least one destination.)
+
+    *
+  Create a queue with placement notification. Queues that have high placement
+  activity must use a notification system, such as with Amazon Simple Notification
+  Service (Amazon SNS) or Amazon CloudWatch.
+
+      *
+  Required parameters `Name` and
+  `Destinations`
+
+      *
+
+  `NotificationTarget`
+
+    *
+  Create a queue with custom prioritization settings. These custom settings
+  replace the default prioritization configuration for a queue.
+
+      *
+  Required parameters `Name` and
+  `Destinations`
+
+      *
+
+  `PriorityConfiguration`
+
+    *
+  Create a queue with special rules for processing player latency data.
+
+      *
+  Required parameters `Name` and
+  `Destinations`
+
+      *
+
+  `PlayerLatencyPolicies`
+
+  ## Results
+
+  If successful, this operation returns a new `GameSessionQueue` object with
+  an assigned queue ARN. Use the queue's name or ARN when submitting new game
+  session
+  requests with
   [StartGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html) or
-  [StartMatchmaking](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html),
-  reference a queue's name or ARN.
+  [StartMatchmaking](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html).
 
   ## Learn more
 
@@ -6315,13 +6357,13 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Creates a new script record for your Realtime Servers script.
+  Creates a new script record for your Amazon GameLift Realtime script.
 
   Realtime scripts are JavaScript that
   provide configuration settings and optional custom game logic for your game. The
   script
-  is deployed when you create a Realtime Servers fleet to host your game sessions.
-  Script logic is
+  is deployed when you create a Amazon GameLift Realtime fleet to host your game
+  sessions. Script logic is
   executed during an active game session.
 
   To create a new script record, specify a script name and provide the script
@@ -6354,7 +6396,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Amazon GameLift Realtime Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+  [Amazon GameLift Amazon GameLift Realtime](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
 
   [Set Up a Role for Amazon GameLift Access](https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html)
 
@@ -6865,7 +6907,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Amazon GameLift Realtime Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+  [Amazon GameLift Amazon GameLift Realtime](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
 
   ## Related actions
 
@@ -6932,14 +6974,14 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Removes a compute resource from an Amazon GameLift Anywhere fleet.
+  Removes a compute resource from an Anywhere fleet.
 
-  Deregistered computes can no longer host game sessions through Amazon GameLift.
-
-  For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent
-  handles all compute registry tasks for you. For an Anywhere fleet that doesn't
-  use the
-  Agent, call this operation to deregister fleet computes.
+  Deregistered computes can no longer
+  host game sessions through Amazon GameLift. Use this operation with an Anywhere
+  fleet that
+  doesn't use the Amazon GameLift Agent For Anywhere fleets with the Agent, the
+  Agent handles all
+  compute registry tasks for you.
 
   To deregister a compute, call this operation from the compute that's being
   deregistered and specify the compute name and the fleet ID.
@@ -7037,14 +7079,34 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Retrieves properties for a compute resource in an Amazon GameLift fleet.
+  Retrieves properties for a specific compute resource in an Amazon GameLift
+  fleet.
 
-  To get a list of all
-  computes in a fleet, call
-  [https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html).
+  You can list
+  all computes in a fleet by calling
+  [ListCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html).
 
-  To request information on a specific compute, provide the fleet ID and compute
-  name.
+  ## Request options
+
+  Provide the fleet ID and compute name. The compute name varies depending on the
+  type
+  of fleet.
+
+    *
+  For a compute in a managed EC2 fleet, provide an instance ID. Each instance in
+  the fleet is a compute.
+
+    *
+  For a compute in a managed container fleet, provide a compute name. In a
+  container fleet, each game server container group on a fleet instance is
+  assigned a compute name.
+
+    *
+  For a compute in an Anywhere fleet, provide a registered compute name.
+  Anywhere fleet computes are created when you register a hosting resource with
+  the fleet.
+
+  ## Results
 
   If successful, this operation returns details for the requested compute
   resource.
@@ -7052,12 +7114,12 @@ defmodule AWS.GameLift do
   information:
 
     *
-  For managed EC2 fleets, this operation returns information about the EC2
+  For a managed EC2 fleet, this operation returns information about the EC2
   instance.
 
     *
-  For Anywhere fleets, this operation returns information about the
-  registered compute.
+  For an Anywhere fleet, this operation returns information about the registered
+  compute.
   """
   @spec describe_compute(map(), describe_compute_input(), list()) ::
           {:ok, describe_compute_output(), any()}
@@ -8145,7 +8207,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Amazon GameLift Realtime Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+  [Amazon GameLift Amazon GameLift Realtime](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
 
   ## Related actions
 
@@ -8229,7 +8291,18 @@ defmodule AWS.GameLift do
 
   ## Request options
 
-  To request access to a compute, specify the compute name and the fleet ID.
+  Provide the fleet ID and compute name. The compute name varies depending on the
+  type
+  of fleet.
+
+    *
+  For a compute in a managed EC2 fleet, provide an instance ID. Each instance in
+  the fleet is a compute.
+
+    *
+  For a compute in a managed container fleet, provide a compute name. In a
+  container fleet, each game server container group on a fleet instance is
+  assigned a compute name.
 
   ## Results
 
@@ -8447,7 +8520,7 @@ defmodule AWS.GameLift do
   Use the pagination
   parameters to retrieve results in a set of sequential pages.
 
-  ## Request options:
+  ## Request options
 
     *
   Retrieve a list of all computes in a fleet. Specify a fleet ID.
@@ -8456,20 +8529,21 @@ defmodule AWS.GameLift do
   Retrieve a list of all computes in a specific fleet location. Specify a fleet
   ID and location.
 
-  ## Results:
+  ## Results
 
   If successful, this operation returns information on a set of computes.
   Depending on
   the type of fleet, the result includes the following information:
 
     *
-  For managed EC2 fleets (compute type `EC2`), this operation returns
-  information about the EC2 instance. Compute names are EC2 instance IDs.
+  For a managed EC2 fleet (compute type `EC2`), this operation
+  returns information about the EC2 instance. Compute names are EC2 instance
+  IDs.
 
     *
-  For Anywhere fleets (compute type `ANYWHERE`), this operation
-  returns compute names and details as provided when the compute was registered
-  with `RegisterCompute`. This includes
+  For an Anywhere fleet (compute type `ANYWHERE`), this operation
+  returns compute names and details from when the compute was registered with
+  `RegisterCompute`. This includes
   `GameLiftServiceSdkEndpoint` or
   `GameLiftAgentEndpoint`.
   """
@@ -8504,8 +8578,8 @@ defmodule AWS.GameLift do
   container group definition name or ARN value.
 
     *
-  To get a list of all Realtime Servers fleets with a specific configuration
-  script,
+  To get a list of all Amazon GameLift Realtime fleets with a specific
+  configuration script,
   provide the script ID.
 
   Use the pagination parameters to retrieve results as a set of sequential pages.
@@ -8673,8 +8747,8 @@ defmodule AWS.GameLift do
   the build ID.
 
     *
-  To get a list of all Realtime Servers fleets with a specific configuration
-  script,
+  To get a list of all Amazon GameLift Realtime fleets with a specific
+  configuration script,
   provide the script ID.
 
   Use the pagination parameters to retrieve results as a set of sequential pages.
@@ -8759,7 +8833,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Amazon GameLift Realtime Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+  [Amazon GameLift Amazon GameLift Realtime](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
 
   ## Related actions
 
@@ -9257,55 +9331,76 @@ defmodule AWS.GameLift do
   Makes a request to start a new game session using a game session queue.
 
   When
-  processing a placement request in a queue, Amazon GameLift finds the best
-  possible available
-  resource to host the game session and prompts the resource to start the game
-  session.
+  processing a placement request, Amazon GameLift looks for the best possible
+  available resource to
+  host the game session, based on how the queue is configured to prioritize
+  factors such
+  as resource cost, latency, and location. After selecting an available resource,
+  Amazon GameLift
+  prompts the resource to start a game session. A placement request can include a
+  list of
+  players to create a set of player sessions. The request can also include
+  information to
+  pass to the new game session, such as to specify a game map or other options.
 
   ## Request options
 
-  Call this API with the following minimum parameters:
-  *GameSessionQueueName*,
-  *MaximumPlayerSessionCount*, and
-  *PlacementID*. You can also include game session data (data formatted
-  as strings) or game properties (data formatted as key-value pairs) to pass to
-  the new
-  game session.
+  Use this operation to make the following types of requests.
 
     *
-  You can change how Amazon GameLift chooses a hosting resource for the new game
-  session.
-  Prioritizing resources for game session placements is defined when you configure
-  a game session queue. You can use the default prioritization process or specify
-  a custom process by providing a [
-  PriorityConfiguration](https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html)
-  when you create or update a queue.
+  Request a placement using the queue's default prioritization process (see the
+  default prioritization described in
+  [PriorityConfiguration](https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html)). Include these required parameters:
 
       *
-  Prioritize based on resource cost and location, using the queue's
-  configured priority settings. Call this API with the minimum
-  parameters.
+
+  `GameSessionQueueName`
 
       *
-  Prioritize based on latency. Include a set of values for
-  *PlayerLatencies*. You can provide latency data
-  with or without player session data. This option instructs Amazon GameLift to
-  reorder the queue's prioritized locations list based on the latency
-  data. If latency data is provided for multiple players, Amazon GameLift
-  calculates each location's average latency for all players and reorders
-  to find the lowest latency across all players. Don't include latency
-  data if you're providing a custom list of locations.
+
+  `MaximumPlayerSessionCount`
+
+      *
+
+  `PlacementID`
+
+    *
+  Request a placement and prioritize based on latency. Include these
+  parameters:
+
+      *
+  Required parameters `GameSessionQueueName`,
+  `MaximumPlayerSessionCount`,
+  `PlacementID`.
+
+      *
+
+  `PlayerLatencies`. Include a set of latency values for
+  destinations in the queue. When a request includes latency data, Amazon GameLift
+  automatically reorder the queue's locations priority list based on
+  lowest available latency values. If a request includes latency data for
+  multiple players, Amazon GameLift calculates each location's average latency for
+  all players and reorders to find the lowest latency across all
+  players.
+
+      *
+  Don't include `PriorityConfigurationOverride`.
 
       *
   Prioritize based on a custom list of locations. If you're using a
   queue that's configured to prioritize location first (see
-  [PriorityConfiguration](https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html) for game session queues), use the
-  *PriorityConfigurationOverride* parameter to
-  substitute a different location list for this placement request. When
-  prioritizing placements by location, Amazon GameLift searches each location in
-  prioritized order to find an available hosting resource for the new game
-  session. You can choose whether to use the override list for the first
-  placement attempt only or for all attempts.
+  [PriorityConfiguration](https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html)
+  for game session queues), you can
+  optionally use the *PriorityConfigurationOverride*
+  parameter to substitute a different location priority list for this
+  placement request. Amazon GameLift searches each location on the priority
+  override list to find an available hosting resource for the new game
+  session. Specify a fallback strategy to use in the event that Amazon GameLift
+  fails to place the game session in any of the locations on the override
+  list.
+
+    *
+  Request a placement and prioritized based on a custom list of locations.
 
     *
   You can request new player sessions for a group of players. Include the
@@ -9315,19 +9410,21 @@ defmodule AWS.GameLift do
 
   ## Result
 
-  If successful, this request generates a new game session placement request and
-  adds it
-  to the game session queue for Amazon GameLift to process in turn. You can track
-  the status of
-  individual placement requests by calling
-  [DescribeGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html).
-  A new game session is running if the status
-  is `FULFILLED` and the request returns the game session connection
-  information (IP address and port). If you include player session data, Amazon
-  GameLift creates a
-  player session for each player ID in the request.
+  If successful, this operation generates a new game session placement request and
+  adds
+  it to the game session queue for processing. You can track the status of
+  individual
+  placement requests by calling
+  [DescribeGameSessionPlacement](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html)
+  or by monitoring queue notifications. When the
+  request status is `FULFILLED`, a new game session has started and the
+  placement request is updated with connection information for the game session
+  (IP
+  address and port). If the request included player session data, Amazon GameLift
+  creates a player
+  session for each player ID in the request.
 
-  The request results in a `BadRequestException` in the following
+  The request results in a `InvalidRequestException` in the following
   situations:
 
     *
@@ -9336,7 +9433,7 @@ defmodule AWS.GameLift do
 
     *
   If the request includes the *PriorityConfigurationOverride*
-  parameter and designates a queue doesn't prioritize locations.
+  parameter and specifies a queue that doesn't prioritize locations.
 
   Amazon GameLift continues to retry each placement request until it reaches the
   queue's timeout
@@ -9530,12 +9627,22 @@ defmodule AWS.GameLift do
   end
 
   @doc """
-  Cancels a game session placement that is in `PENDING` status.
+  Cancels a game session placement that's in `PENDING` status.
 
   To stop a
-  placement, provide the placement ID values. If successful, the placement is
-  moved to
-  `CANCELLED` status.
+  placement, provide the placement ID value.
+
+  Results
+
+  If successful, this operation removes the placement request from the queue and
+  moves
+  the `GameSessionPlacement` to `CANCELLED` status.
+
+  This operation results in an `InvalidRequestExecption` (400) error if a
+  game session has already been created for this placement. You can clean up an
+  unneeded
+  game session by calling
+  [TerminateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession).
   """
   @spec stop_game_session_placement(map(), stop_game_session_placement_input(), list()) ::
           {:ok, stop_game_session_placement_output(), any()}
@@ -10322,7 +10429,7 @@ defmodule AWS.GameLift do
 
   ## Learn more
 
-  [Amazon GameLift Realtime Servers](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
+  [Amazon GameLift Amazon GameLift Realtime](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html)
 
   ## Related actions
 

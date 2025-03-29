@@ -263,6 +263,24 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      export_diffie_hellman_tr31_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "DerivationData" => list(),
+        "DeriveKeyAlgorithm" => list(any()),
+        "KeyBlockHeaders" => key_block_headers(),
+        "KeyDerivationFunction" => list(any()),
+        "KeyDerivationHashAlgorithm" => list(any()),
+        "PrivateKeyIdentifier" => String.t(),
+        "PublicKeyCertificate" => String.t()
+      }
+      
+  """
+  @type export_diffie_hellman_tr31_key_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_key_usage_output() :: %{
         "Key" => key()
       }
@@ -383,6 +401,7 @@ defmodule AWS.PaymentCryptography do
   ## Example:
       
       create_key_input() :: %{
+        optional("DeriveKeyUsage") => String.t(),
         optional("Enabled") => [boolean()],
         optional("KeyCheckValueAlgorithm") => String.t(),
         optional("Tags") => list(tag()()),
@@ -560,6 +579,24 @@ defmodule AWS.PaymentCryptography do
 
   ## Example:
       
+      import_diffie_hellman_tr31_key_block() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t(),
+        "DerivationData" => list(),
+        "DeriveKeyAlgorithm" => list(any()),
+        "KeyDerivationFunction" => list(any()),
+        "KeyDerivationHashAlgorithm" => list(any()),
+        "PrivateKeyIdentifier" => String.t(),
+        "PublicKeyCertificate" => String.t(),
+        "WrappedKeyBlock" => String.t()
+      }
+      
+  """
+  @type import_diffie_hellman_tr31_key_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_public_key_certificate_input() :: %{
         required("KeyIdentifier") => String.t()
       }
@@ -706,6 +743,7 @@ defmodule AWS.PaymentCryptography do
         "CreateTimestamp" => non_neg_integer(),
         "DeletePendingTimestamp" => non_neg_integer(),
         "DeleteTimestamp" => non_neg_integer(),
+        "DeriveKeyUsage" => String.t(),
         "Enabled" => [boolean()],
         "Exportable" => [boolean()],
         "KeyArn" => String.t(),
@@ -1628,12 +1666,6 @@ defmodule AWS.PaymentCryptography do
   and unwrap, you can exchange both 3DES and AES-128 keys. The keys are imported
   in a WrappedKeyCryptogram format and you will need to specify the key attributes
   during import.
-
-  You can also import a *root public key certificate*, used to sign other public
-  key certificates, or a *trusted public key certificate* under an already
-  established root public key certificate.
-
-  ## To import a public root key certificate
 
   You can also import a *root public key certificate*, used to sign other public
   key certificates, or a *trusted public key certificate* under an already

@@ -12732,6 +12732,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      total_hits() :: %{
+        "Relation" => list(any()),
+        "Value" => float()
+      }
+      
+  """
+  @type total_hits() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       f_sx_lustre_file_system_config() :: %{
         "FileSystemId" => String.t(),
         "FileSystemPath" => String.t()
@@ -13380,6 +13392,7 @@ defmodule AWS.SageMaker do
       transform_resources() :: %{
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
+        "TransformAmiVersion" => String.t(),
         "VolumeKmsKeyId" => String.t()
       }
       
@@ -15051,7 +15064,8 @@ defmodule AWS.SageMaker do
       
       search_response() :: %{
         "NextToken" => String.t(),
-        "Results" => list(search_record()())
+        "Results" => list(search_record()()),
+        "TotalHits" => total_hits()
       }
       
   """
@@ -20677,8 +20691,8 @@ defmodule AWS.SageMaker do
 
     *
 
-  `TransformResources` - Identifies the ML compute instances for the
-  transform job.
+  `TransformResources` - Identifies the ML compute instances and AMI
+  image versions for the transform job.
 
   For more information about how batch transformation works, see [Batch
   Transform](https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html).
@@ -23042,7 +23056,8 @@ defmodule AWS.SageMaker do
 
   It returns
   suggestions of possible matches for the property name to use in `Search`
-  queries. Provides suggestions for `HyperParameters`, `Tags`, and
+  queries.
+  Provides suggestions for `HyperParameters`, `Tags`, and
   `Metrics`.
   """
   @spec get_search_suggestions(map(), get_search_suggestions_request(), list()) ::
@@ -24381,15 +24396,16 @@ defmodule AWS.SageMaker do
   @doc """
   Finds SageMaker resources that match a search query.
 
-  Matching resources are returned
-  as a list of `SearchRecord` objects in the response. You can sort the search
-  results by any resource property in a ascending or descending order.
+  Matching resources are returned as a list
+  of `SearchRecord` objects in the response. You can sort the search results by
+  any
+  resource property in a ascending or descending order.
 
   You can query against the following value types: numeric, text, Boolean, and
   timestamp.
 
-  The Search API may provide access to otherwise restricted data. See [Amazon SageMaker
-  API Permissions: Actions, Permissions, and Resources
+  The Search API may provide access to otherwise restricted data. See [Amazon SageMaker API
+  Permissions: Actions, Permissions, and Resources
   Reference](https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html)
   for more
   information.

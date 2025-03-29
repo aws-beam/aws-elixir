@@ -734,6 +734,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       project_cache() :: %{
+        "cacheNamespace" => String.t(),
         "location" => String.t(),
         "modes" => list(list(any())()),
         "type" => list(any())

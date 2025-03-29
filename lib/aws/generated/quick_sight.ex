@@ -503,6 +503,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      refresh_failure_email_alert() :: %{
+        "AlertStatus" => list(any())
+      }
+
+  """
+  @type refresh_failure_email_alert() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter_list_control() :: %{
         "CascadingControlConfiguration" => cascading_control_configuration(),
         "DisplayOptions" => list_control_display_options(),
@@ -606,6 +617,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_stories_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type data_stories_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       template_alias() :: %{
         "AliasName" => String.t(),
         "Arn" => String.t(),
@@ -664,6 +686,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       data_set_refresh_properties() :: %{
+        "FailureConfiguration" => refresh_failure_configuration(),
         "RefreshConfiguration" => refresh_configuration()
       }
 
@@ -2004,7 +2027,8 @@ defmodule AWS.QuickSight do
       table_field_options() :: %{
         "Order" => list(String.t()()),
         "PinnedFieldOptions" => table_pinned_field_options(),
-        "SelectedFieldOptions" => list(table_field_option()())
+        "SelectedFieldOptions" => list(table_field_option()()),
+        "TransposedTableOptions" => list(transposed_table_option()())
       }
 
   """
@@ -2399,7 +2423,8 @@ defmodule AWS.QuickSight do
         "PerformanceConfiguration" => performance_configuration(),
         "PhysicalTableMap" => map(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
-        "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration()
+        "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration(),
+        "UseAs" => list(any())
       }
 
   """
@@ -2863,6 +2888,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      amazon_q_in_quick_sight_dashboard_configurations() :: %{
+        "ExecutiveSummary" => executive_summary_configurations()
+      }
+
+  """
+  @type amazon_q_in_quick_sight_dashboard_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_bundle_import_source_description() :: %{
         "Body" => String.t(),
         "S3Uri" => String.t()
@@ -3222,6 +3258,17 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_refresh_schedule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recent_snapshots_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type recent_snapshots_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5905,6 +5952,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      refresh_failure_configuration() :: %{
+        "EmailAlert" => refresh_failure_email_alert()
+      }
+
+  """
+  @type refresh_failure_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       mapped_data_set_parameter() :: %{
         "DataSetIdentifier" => String.t(),
         "DataSetParameterName" => String.t()
@@ -6644,6 +6702,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      data_q_a_enabled_option() :: %{
+        "AvailabilityStatus" => list(any())
+      }
+
+  """
+  @type data_q_a_enabled_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_analyses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -6956,6 +7025,7 @@ defmodule AWS.QuickSight do
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         optional("Tags") => list(tag()()),
+        optional("UseAs") => list(any()),
         required("DataSetId") => String.t(),
         required("ImportMode") => list(any()),
         required("Name") => String.t(),
@@ -6970,9 +7040,13 @@ defmodule AWS.QuickSight do
   ## Example:
 
       registered_user_dashboard_feature_configurations() :: %{
+        "AmazonQInQuickSight" => amazon_q_in_quick_sight_dashboard_configurations(),
         "Bookmarks" => bookmarks_configurations(),
+        "RecentSnapshots" => recent_snapshots_configurations(),
+        "Schedules" => schedules_configurations(),
         "SharedView" => shared_view_configurations(),
-        "StatePersistence" => state_persistence_configurations()
+        "StatePersistence" => state_persistence_configurations(),
+        "ThresholdAlerts" => threshold_alerts_configurations()
       }
 
   """
@@ -7862,6 +7936,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      executive_summary_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type executive_summary_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       plugin_visual_options() :: %{
         "VisualProperties" => list(plugin_visual_property()())
       }
@@ -8414,7 +8499,8 @@ defmodule AWS.QuickSight do
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
-        "RowLevelPermissionTagConfigurationApplied" => boolean()
+        "RowLevelPermissionTagConfigurationApplied" => boolean(),
+        "UseAs" => list(any())
       }
 
   """
@@ -8653,6 +8739,17 @@ defmodule AWS.QuickSight do
 
   """
   @type template_source_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      threshold_alerts_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type threshold_alerts_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10211,6 +10308,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      transposed_table_option() :: %{
+        "ColumnIndex" => integer(),
+        "ColumnType" => list(any()),
+        "ColumnWidth" => String.t()
+      }
+
+  """
+  @type transposed_table_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_default_q_business_application_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
@@ -11194,6 +11304,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      generative_authoring_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type generative_authoring_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_topic_reviewed_answer() :: %{
         "AnswerId" => String.t(),
         "DatasetArn" => String.t(),
@@ -11476,8 +11597,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       registered_user_console_feature_configurations() :: %{
+        "AmazonQInQuickSight" => amazon_q_in_quick_sight_console_configurations(),
+        "RecentSnapshots" => recent_snapshots_configurations(),
+        "Schedules" => schedules_configurations(),
         "SharedView" => shared_view_configurations(),
-        "StatePersistence" => state_persistence_configurations()
+        "StatePersistence" => state_persistence_configurations(),
+        "ThresholdAlerts" => threshold_alerts_configurations()
       }
 
   """
@@ -11799,6 +11924,7 @@ defmodule AWS.QuickSight do
         "DataPointDrillUpDownOption" => data_point_drill_up_down_option(),
         "DataPointMenuLabelOption" => data_point_menu_label_option(),
         "DataPointTooltipOption" => data_point_tooltip_option(),
+        "DataQAEnabledOption" => data_q_a_enabled_option(),
         "ExportToCSVOption" => export_to_csv_option(),
         "ExportWithHiddenFieldsOption" => export_with_hidden_fields_option(),
         "SheetControlsOption" => sheet_controls_option(),
@@ -12592,6 +12718,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_options() :: %{
+        "ExcludedDataSetArns" => list(String.t()()),
+        "QBusinessInsightsStatus" => list(any()),
         "Timezone" => String.t(),
         "WeekStart" => list(any())
       }
@@ -16182,6 +16310,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      schedules_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type schedules_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       precondition_not_met_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -16409,6 +16548,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      amazon_q_in_quick_sight_console_configurations() :: %{
+        "DataQnA" => data_qn_a_configurations(),
+        "DataStories" => data_stories_configurations(),
+        "ExecutiveSummary" => executive_summary_configurations(),
+        "GenerativeAuthoring" => generative_authoring_configurations()
+      }
+
+  """
+  @type amazon_q_in_quick_sight_console_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       comparative_order() :: %{
         "SpecifedOrder" => list(String.t()()),
         "TreatUndefinedSpecifiedValues" => list(any()),
@@ -16516,7 +16669,8 @@ defmodule AWS.QuickSight do
       oracle_parameters() :: %{
         "Database" => String.t(),
         "Host" => String.t(),
-        "Port" => integer()
+        "Port" => integer(),
+        "UseServiceName" => boolean()
       }
 
   """
@@ -17180,6 +17334,7 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_data_set_override_parameters() :: %{
         "DataSetId" => String.t(),
+        "DataSetRefreshProperties" => data_set_refresh_properties(),
         "Name" => String.t()
       }
 
@@ -17356,6 +17511,17 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_quick_sight_q_search_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_qn_a_configurations() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type data_qn_a_configurations() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -20174,7 +20340,7 @@ defmodule AWS.QuickSight do
   account. By default, there is a
   limit of 100 namespaces per Amazon Web Services account. To increase your limit,
   create a ticket with
-  Amazon Web Services Support.
+  Amazon Web ServicesSupport.
   """
   @spec create_namespace(map(), String.t(), create_namespace_request(), list()) ::
           {:ok, create_namespace_response(), any()}
@@ -25238,6 +25404,21 @@ defmodule AWS.QuickSight do
 
   @doc """
   Predicts existing visuals or generates new visuals to answer a given query.
+
+  This API uses [trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation.html)
+  to ensure that an end user is authenticated and receives the embed URL that is
+  specific to that user. The IAM Identity Center application that the user has
+  logged into needs to have [trusted Identity Propagation enabled for Amazon QuickSight](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-using-customermanagedapps-specify-trusted-apps.html)
+  with the scope value set to `quicksight:read`. Before you use this action, make
+  sure that you have configured the relevant Amazon QuickSight resource and
+  permissions.
+
+  We recommend enabling the `QSearchStatus` API to unlock the full potential of
+  `PredictQnA`. When `QSearchStatus` is enabled, it first checks the specified
+  dashboard for any existing visuals that match the question. If no matching
+  visuals are found, `PredictQnA` uses generative Q&A to provide an answer. To
+  update the `QSearchStatus`, see
+  [UpdateQuickSightQSearchConfiguration](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateQuickSightQSearchConfiguration.html).
   """
   @spec predict_q_a_results(map(), String.t(), predict_q_a_results_request(), list()) ::
           {:ok, predict_q_a_results_response(), any()}

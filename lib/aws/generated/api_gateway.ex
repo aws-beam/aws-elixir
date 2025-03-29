@@ -44,6 +44,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       endpoint_configuration() :: %{
+        "ipAddressType" => list(any()),
         "types" => list(list(any())()),
         "vpcEndpointIds" => list(String.t()())
       }

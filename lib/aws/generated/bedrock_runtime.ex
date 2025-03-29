@@ -873,6 +873,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_usage() :: %{
+        "contentPolicyImageUnits" => integer(),
         "contentPolicyUnits" => integer(),
         "contextualGroundingPolicyUnits" => integer(),
         "sensitiveInformationPolicyFreeUnits" => integer(),

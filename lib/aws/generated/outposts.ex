@@ -33,6 +33,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       get_outpost_supported_instance_types_input() :: %{
+        optional("AssetId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OrderId") => String.t()
@@ -668,6 +669,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       start_capacity_task_output() :: %{
+        "AssetId" => String.t(),
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
@@ -702,6 +704,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       start_capacity_task_input() :: %{
+        optional("AssetId") => String.t(),
         optional("DryRun") => boolean(),
         optional("InstancesToExclude") => instances_to_exclude(),
         optional("OrderId") => String.t(),
@@ -1120,6 +1123,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       capacity_task_summary() :: %{
+        "AssetId" => String.t(),
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
@@ -1214,6 +1218,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       get_capacity_task_output() :: %{
+        "AssetId" => String.t(),
         "CapacityTaskId" => String.t(),
         "CapacityTaskStatus" => list(any()),
         "CompletionDate" => non_neg_integer(),
@@ -1822,6 +1827,7 @@ defmodule AWS.Outposts do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, get_outpost_supported_instance_types_output(), any()}
@@ -1831,6 +1837,7 @@ defmodule AWS.Outposts do
   def get_outpost_supported_instance_types(
         %Client{} = client,
         outpost_identifier,
+        asset_id \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         order_id \\ nil,
@@ -1857,6 +1864,13 @@ defmodule AWS.Outposts do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(asset_id) do
+        [{"AssetId", asset_id} | query_params]
       else
         query_params
       end

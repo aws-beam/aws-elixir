@@ -634,6 +634,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      cache_point_block() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type cache_point_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
@@ -849,6 +860,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       token_usage() :: %{
+        "cacheReadInputTokens" => [integer()],
+        "cacheWriteInputTokens" => [integer()],
         "inputTokens" => [integer()],
         "outputTokens" => [integer()],
         "totalTokens" => [integer()]

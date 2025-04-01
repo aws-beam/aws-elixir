@@ -909,6 +909,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_route_server_peer_result() :: %{
+        "RouteServerPeer" => route_server_peer()
+      }
+      
+  """
+  @type create_route_server_peer_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_coip_pool_result() :: %{
         "CoipPool" => coip_pool()
       }
@@ -954,6 +965,18 @@ defmodule AWS.EC2 do
       
   """
   @type detach_network_interface_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_route_servers_result() :: %{
+        "NextToken" => String.t(),
+        "RouteServers" => list(route_server()())
+      }
+      
+  """
+  @type describe_route_servers_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1571,6 +1594,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_route_server_associations_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t()
+      }
+      
+  """
+  @type get_route_server_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_transit_gateway_connect_peer_request() :: %{
         optional("DryRun") => boolean(),
         required("TransitGatewayConnectPeerId") => String.t()
@@ -1971,6 +2006,21 @@ defmodule AWS.EC2 do
       
   """
   @type get_managed_prefix_list_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_route_server_peer_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("BgpOptions") => route_server_bgp_options_request(),
+        required("PeerAddress") => String.t(),
+        required("RouteServerEndpointId") => String.t()
+      }
+      
+  """
+  @type create_route_server_peer_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2483,6 +2533,17 @@ defmodule AWS.EC2 do
       
   """
   @type unsuccessful_item_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_route_server_endpoint_result() :: %{
+        "RouteServerEndpoint" => route_server_endpoint()
+      }
+      
+  """
+  @type delete_route_server_endpoint_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4086,6 +4147,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_route_server_associations_result() :: %{
+        "RouteServerAssociations" => list(route_server_association()())
+      }
+      
+  """
+  @type get_route_server_associations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_bundle_task_request() :: %{
         optional("DryRun") => boolean(),
         required("BundleId") => String.t()
@@ -4116,6 +4188,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_images_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_route_server_result() :: %{
+        "RouteServerAssociation" => route_server_association()
+      }
+      
+  """
+  @type associate_route_server_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4494,6 +4577,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server_endpoint() :: %{
+        "EniAddress" => String.t(),
+        "EniId" => String.t(),
+        "FailureReason" => String.t(),
+        "RouteServerEndpointId" => String.t(),
+        "RouteServerId" => String.t(),
+        "State" => list(any()),
+        "SubnetId" => String.t(),
+        "Tags" => list(tag()()),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type route_server_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_local_gateway_route_table_result() :: %{
         "LocalGatewayRouteTable" => local_gateway_route_table()
       }
@@ -4694,6 +4796,18 @@ defmodule AWS.EC2 do
       
   """
   @type purchase_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_route_server_endpoint_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerEndpointId") => String.t()
+      }
+      
+  """
+  @type delete_route_server_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5288,6 +5402,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_route_server_endpoint_result() :: %{
+        "RouteServerEndpoint" => route_server_endpoint()
+      }
+      
+  """
+  @type create_route_server_endpoint_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       import_image_request() :: %{
         optional("Architecture") => String.t(),
         optional("BootMode") => list(any()),
@@ -5588,6 +5713,21 @@ defmodule AWS.EC2 do
       
   """
   @type disassociate_security_group_vpc_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_route_server_endpoints_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RouteServerEndpointIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_route_server_endpoints_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6177,6 +6317,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_route_server_result() :: %{
+        "RouteServer" => route_server()
+      }
+      
+  """
+  @type modify_route_server_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_route_server_propagation_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t(),
+        required("RouteTableId") => String.t()
+      }
+      
+  """
+  @type disable_route_server_propagation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ipam_pool_cidr_failure_reason() :: %{
         "Code" => list(any()),
         "Message" => String.t()
@@ -6471,6 +6635,21 @@ defmodule AWS.EC2 do
       
   """
   @type delete_vpc_endpoint_connection_notifications_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_route_servers_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RouteServerIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_route_servers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7548,6 +7727,19 @@ defmodule AWS.EC2 do
       
   """
   @type delete_verified_access_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_route_server_propagation_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t(),
+        required("RouteTableId") => String.t()
+      }
+      
+  """
+  @type enable_route_server_propagation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8892,6 +9084,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_route_server_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("PersistRoutes") => list(any()),
+        optional("PersistRoutesDuration") => float(),
+        optional("SnsNotificationsEnabled") => boolean(),
+        required("RouteServerId") => String.t()
+      }
+      
+  """
+  @type modify_route_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_classic_link_instances_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -9296,6 +9503,18 @@ defmodule AWS.EC2 do
       
   """
   @type transit_gateway_route_table_propagation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_route_server_endpoints_result() :: %{
+        "NextToken" => String.t(),
+        "RouteServerEndpoints" => list(route_server_endpoint()())
+      }
+      
+  """
+  @type describe_route_server_endpoints_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10595,6 +10814,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server_association() :: %{
+        "RouteServerId" => String.t(),
+        "State" => list(any()),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type route_server_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_image_request() :: %{
         optional("DryRun") => boolean(),
         required("ImageId") => String.t()
@@ -10755,6 +10987,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disable_route_server_propagation_result() :: %{
+        "RouteServerPropagation" => route_server_propagation()
+      }
+      
+  """
+  @type disable_route_server_propagation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_verified_access_trust_provider_device_options() :: %{
         "PublicSigningKeyUrl" => String.t(),
         "TenantId" => String.t()
@@ -10858,6 +11101,17 @@ defmodule AWS.EC2 do
       
   """
   @type get_vpn_connection_device_sample_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_route_server_result() :: %{
+        "RouteServerAssociation" => route_server_association()
+      }
+      
+  """
+  @type disassociate_route_server_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11043,6 +11297,18 @@ defmodule AWS.EC2 do
       
   """
   @type vpc_ipv6_cidr_block_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_server_bgp_options_request() :: %{
+        "PeerAsn" => float(),
+        "PeerLivenessDetection" => list(any())
+      }
+      
+  """
+  @type route_server_bgp_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11928,6 +12194,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_route_server_propagations_result() :: %{
+        "RouteServerPropagations" => list(route_server_propagation()())
+      }
+      
+  """
+  @type get_route_server_propagations_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_transit_gateway_multicast_domain_request() :: %{
         optional("DryRun") => boolean(),
         required("SubnetIds") => list(String.t()()),
@@ -12192,6 +12469,17 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_enclave_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_server_bfd_status() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type route_server_bfd_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12736,6 +13024,19 @@ defmodule AWS.EC2 do
       
   """
   @type instance_credit_specification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_route_server_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t(),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type associate_route_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15597,6 +15898,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_route_server_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t()
+      }
+      
+  """
+  @type delete_route_server_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_stale_security_groups_request() :: %{
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
@@ -15802,6 +16115,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_route_server_peers_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("RouteServerPeerIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_route_server_peers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_verified_access_trust_providers_result() :: %{
         "NextToken" => String.t(),
         "VerifiedAccessTrustProviders" => list(verified_access_trust_provider()())
@@ -15993,6 +16321,18 @@ defmodule AWS.EC2 do
       
   """
   @type ipam_discovered_public_address() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_server_bgp_options() :: %{
+        "PeerAsn" => float(),
+        "PeerLivenessDetection" => list(any())
+      }
+      
+  """
+  @type route_server_bgp_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17392,6 +17732,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_route_server_result() :: %{
+        "RouteServer" => route_server()
+      }
+      
+  """
+  @type create_route_server_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_private_dns_name_options_result() :: %{
         "Return" => boolean()
       }
@@ -17522,6 +17873,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server_bgp_status() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type route_server_bgp_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_flow_logs_result() :: %{
         "FlowLogs" => list(flow_log()()),
         "NextToken" => String.t()
@@ -17601,6 +17963,24 @@ defmodule AWS.EC2 do
       
   """
   @type get_verified_access_group_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_server_route() :: %{
+        "AsPaths" => list(String.t()()),
+        "Med" => integer(),
+        "NextHopIp" => String.t(),
+        "Prefix" => String.t(),
+        "RouteInstallationDetails" => list(route_server_route_installation_detail()()),
+        "RouteServerEndpointId" => String.t(),
+        "RouteServerPeerId" => String.t(),
+        "RouteStatus" => list(any())
+      }
+      
+  """
+  @type route_server_route() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18830,6 +19210,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_route_server_routing_database_result() :: %{
+        "AreRoutesPersisted" => boolean(),
+        "NextToken" => String.t(),
+        "Routes" => list(route_server_route()())
+      }
+      
+  """
+  @type get_route_server_routing_database_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_vpc_endpoint_service_private_dns_verification_request() :: %{
         optional("DryRun") => boolean(),
         required("ServiceId") => String.t()
@@ -18837,6 +19230,17 @@ defmodule AWS.EC2 do
       
   """
   @type start_vpc_endpoint_service_private_dns_verification_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_route_server_peer_result() :: %{
+        "RouteServerPeer" => route_server_peer()
+      }
+      
+  """
+  @type delete_route_server_peer_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -19946,6 +20350,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server() :: %{
+        "AmazonSideAsn" => float(),
+        "PersistRoutesDuration" => float(),
+        "PersistRoutesState" => list(any()),
+        "RouteServerId" => String.t(),
+        "SnsNotificationsEnabled" => boolean(),
+        "SnsTopicArn" => String.t(),
+        "State" => list(any()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type route_server() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reserved_instances_listing() :: %{
         "ClientToken" => String.t(),
         "CreateDate" => non_neg_integer(),
@@ -20408,6 +20830,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      enable_route_server_propagation_result() :: %{
+        "RouteServerPropagation" => route_server_propagation()
+      }
+      
+  """
+  @type enable_route_server_propagation_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_local_gateway_route_table_virtual_interface_group_associations_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -20845,6 +21278,19 @@ defmodule AWS.EC2 do
       
   """
   @type instance_event_window_disassociation_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route_server_route_installation_detail() :: %{
+        "RouteInstallationStatus" => list(any()),
+        "RouteInstallationStatusReason" => String.t(),
+        "RouteTableId" => String.t()
+      }
+      
+  """
+  @type route_server_route_installation_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -21757,6 +22203,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server_peer() :: %{
+        "BfdStatus" => route_server_bfd_status(),
+        "BgpOptions" => route_server_bgp_options(),
+        "BgpStatus" => route_server_bgp_status(),
+        "EndpointEniAddress" => String.t(),
+        "EndpointEniId" => String.t(),
+        "FailureReason" => String.t(),
+        "PeerAddress" => String.t(),
+        "RouteServerEndpointId" => String.t(),
+        "RouteServerId" => String.t(),
+        "RouteServerPeerId" => String.t(),
+        "State" => list(any()),
+        "SubnetId" => String.t(),
+        "Tags" => list(tag()()),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type route_server_peer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_transit_gateway_multicast_group_members_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupIpAddress") => String.t(),
@@ -21956,6 +22426,17 @@ defmodule AWS.EC2 do
       
   """
   @type dns_options_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_route_server_result() :: %{
+        "RouteServer" => route_server()
+      }
+      
+  """
+  @type delete_route_server_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -22629,6 +23110,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      route_server_propagation() :: %{
+        "RouteServerId" => String.t(),
+        "RouteTableId" => String.t(),
+        "State" => list(any())
+      }
+      
+  """
+  @type route_server_propagation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_client_vpn_connections_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -22692,6 +23186,18 @@ defmodule AWS.EC2 do
       
   """
   @type start_network_insights_analysis_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_route_server_peers_result() :: %{
+        "NextToken" => String.t(),
+        "RouteServerPeers" => list(route_server_peer()())
+      }
+      
+  """
+  @type describe_route_server_peers_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -22980,6 +23486,21 @@ defmodule AWS.EC2 do
       
   """
   @type disable_serial_console_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_route_server_endpoint_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("RouteServerId") => String.t(),
+        required("SubnetId") => String.t()
+      }
+      
+  """
+  @type create_route_server_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24390,6 +24911,23 @@ defmodule AWS.EC2 do
       
   """
   @type describe_import_snapshot_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_route_server_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("PersistRoutes") => list(any()),
+        optional("PersistRoutesDuration") => float(),
+        optional("SnsNotificationsEnabled") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("AmazonSideAsn") => float()
+      }
+      
+  """
+  @type create_route_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -26290,6 +26828,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_route_server_propagations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("RouteTableId") => String.t(),
+        required("RouteServerId") => String.t()
+      }
+      
+  """
+  @type get_route_server_propagations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_ipam_pool_request() :: %{
         optional("AddAllocationResourceTags") => list(request_ipam_resource_tag()()),
         optional("AllocationDefaultNetmaskLength") => integer(),
@@ -26361,6 +26912,19 @@ defmodule AWS.EC2 do
       
   """
   @type terminate_instances_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_route_server_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerId") => String.t(),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type disassociate_route_server_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -27676,6 +28240,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_route_server_peer_request() :: %{
+        optional("DryRun") => boolean(),
+        required("RouteServerPeerId") => String.t()
+      }
+      
+  """
+  @type delete_route_server_peer_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_spot_capacity_rebalance() :: %{
         "ReplacementStrategy" => list(any()),
         "TerminationDelay" => integer()
@@ -28359,6 +28935,21 @@ defmodule AWS.EC2 do
       
   """
   @type attribute_boolean_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_route_server_routing_database_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("RouteServerId") => String.t()
+      }
+      
+  """
+  @type get_route_server_routing_database_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -29418,6 +30009,26 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateNatGatewayAddress", input, options)
+  end
+
+  @doc """
+  Associates a route server with a VPC to enable dynamic route updates.
+
+  A route server association is the connection established between a route server
+  and a VPC. This is a fundamental configuration step that enables the route
+  server to work with appliances in your VPC.
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec associate_route_server(map(), associate_route_server_request(), list()) ::
+          {:ok, associate_route_server_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def associate_route_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateRouteServer", input, options)
   end
 
   @doc """
@@ -31465,6 +32076,87 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a new route server to manage dynamic routing in a VPC.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec create_route_server(map(), create_route_server_request(), list()) ::
+          {:ok, create_route_server_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_route_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRouteServer", input, options)
+  end
+
+  @doc """
+  Creates a new endpoint for a route server in a specified subnet.
+
+  A route server endpoint is an Amazon Web Services-managed component inside a
+  subnet that facilitates BGP (Border Gateway Protocol) connections between your
+  route server and your BGP peers. Create two endpoints per subnet for redundancy.
+  """
+  @spec create_route_server_endpoint(map(), create_route_server_endpoint_request(), list()) ::
+          {:ok, create_route_server_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_route_server_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRouteServerEndpoint", input, options)
+  end
+
+  @doc """
+  Creates a new BGP peer for a specified route server endpoint.
+
+  A route server peer is a network appliance or function deployed in Amazon Web
+  Services, such as firewall appliances and other network security functions, that
+  meet these requirements:
+
+    *
+  Have an elastic network interface in the VPC
+
+    *
+  Support BGP (Border Gateway Protocol)
+
+    *
+  Can initiate BGP sessions
+  """
+  @spec create_route_server_peer(map(), create_route_server_peer_request(), list()) ::
+          {:ok, create_route_server_peer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_route_server_peer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateRouteServerPeer", input, options)
+  end
+
+  @doc """
   Creates a route table for the specified VPC.
 
   After you create a route table, you can add routes and associate the table with
@@ -33206,6 +33898,87 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DeleteRoute", input, options)
+  end
+
+  @doc """
+  Deletes the specified route server.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec delete_route_server(map(), delete_route_server_request(), list()) ::
+          {:ok, delete_route_server_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_route_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRouteServer", input, options)
+  end
+
+  @doc """
+  Deletes the specified route server endpoint.
+
+  A route server endpoint is an Amazon Web Services-managed component inside a
+  subnet that facilitates BGP (Border Gateway Protocol) connections between your
+  route server and your BGP peers. Create two endpoints per subnet for redundancy.
+  """
+  @spec delete_route_server_endpoint(map(), delete_route_server_endpoint_request(), list()) ::
+          {:ok, delete_route_server_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_route_server_endpoint(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRouteServerEndpoint", input, options)
+  end
+
+  @doc """
+  Deletes the specified BGP peer from a route server.
+
+  A route server peer is a network appliance or function deployed in Amazon Web
+  Services, such as firewall appliances and other network security functions, that
+  meet these requirements:
+
+    *
+  Have an elastic network interface in the VPC
+
+    *
+  Support BGP (Border Gateway Protocol)
+
+    *
+  Can initiate BGP sessions
+  """
+  @spec delete_route_server_peer(map(), delete_route_server_peer_request(), list()) ::
+          {:ok, delete_route_server_peer_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_route_server_peer(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteRouteServerPeer", input, options)
   end
 
   @doc """
@@ -36302,6 +37075,93 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes one or more route server endpoints.
+
+  A route server endpoint is an Amazon Web Services-managed component inside a
+  subnet that facilitates BGP (Border Gateway Protocol) connections between your
+  route server and your BGP peers. Create two endpoints per subnet for redundancy.
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec describe_route_server_endpoints(map(), describe_route_server_endpoints_request(), list()) ::
+          {:ok, describe_route_server_endpoints_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_route_server_endpoints(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRouteServerEndpoints", input, options)
+  end
+
+  @doc """
+  Describes one or more route server peers.
+
+  A route server peer is a network appliance or function deployed in Amazon Web
+  Services, such as firewall appliances and other network security functions, that
+  meet these requirements:
+
+    *
+  Have an elastic network interface in the VPC
+
+    *
+  Support BGP (Border Gateway Protocol)
+
+    *
+  Can initiate BGP sessions
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec describe_route_server_peers(map(), describe_route_server_peers_request(), list()) ::
+          {:ok, describe_route_server_peers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_route_server_peers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRouteServerPeers", input, options)
+  end
+
+  @doc """
+  Describes one or more route servers.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec describe_route_servers(map(), describe_route_servers_request(), list()) ::
+          {:ok, describe_route_servers_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_route_servers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRouteServers", input, options)
+  end
+
+  @doc """
   Describes your route tables.
 
   The default is to describe all your route tables.
@@ -38000,6 +38860,52 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Disables route propagation from a route server to a specified route table.
+
+  When enabled, route server propagation installs the routes in the FIB on the
+  route table you've specified. Route server supports IPv4 and IPv6 route
+  propagation.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec disable_route_server_propagation(
+          map(),
+          disable_route_server_propagation_request(),
+          list()
+        ) ::
+          {:ok, disable_route_server_propagation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_route_server_propagation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisableRouteServerPropagation", input, options)
+  end
+
+  @doc """
   Disables access to the EC2 serial console of all instances for your account.
 
   By default,
@@ -38357,6 +39263,26 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DisassociateNatGatewayAddress", input, options)
+  end
+
+  @doc """
+  Disassociates a route server from a VPC.
+
+  A route server association is the connection established between a route server
+  and a VPC. This is a fundamental configuration step that enables the route
+  server to work with appliances in your VPC.
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec disassociate_route_server(map(), disassociate_route_server_request(), list()) ::
+          {:ok, disassociate_route_server_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disassociate_route_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateRouteServer", input, options)
   end
 
   @doc """
@@ -38838,6 +39764,26 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Defines which route tables the route server can update with routes.
+
+  When enabled, route server propagation installs the routes in the FIB on the
+  route table you've specified. Route server supports IPv4 and IPv6 route
+  propagation.
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec enable_route_server_propagation(map(), enable_route_server_propagation_request(), list()) ::
+          {:ok, enable_route_server_propagation_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_route_server_propagation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "EnableRouteServerPropagation", input, options)
   end
 
   @doc """
@@ -39861,6 +40807,111 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "GetReservedInstancesExchangeQuote", input, options)
+  end
+
+  @doc """
+  Gets information about the associations for the specified route server.
+
+  A route server association is the connection established between a route server
+  and a VPC. This is a fundamental configuration step that enables the route
+  server to work with appliances in your VPC.
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec get_route_server_associations(map(), get_route_server_associations_request(), list()) ::
+          {:ok, get_route_server_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_route_server_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRouteServerAssociations", input, options)
+  end
+
+  @doc """
+  Gets information about the route propagations for the specified route server.
+
+  When enabled, route server propagation installs the routes in the FIB on the
+  route table you've specified. Route server supports IPv4 and IPv6 route
+  propagation.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+  """
+  @spec get_route_server_propagations(map(), get_route_server_propagations_request(), list()) ::
+          {:ok, get_route_server_propagations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_route_server_propagations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRouteServerPropagations", input, options)
+  end
+
+  @doc """
+  Gets the routing database for the specified route server.
+
+  The [Routing Information Base (RIB)](https://en.wikipedia.org/wiki/Routing_table) serves as a database that
+  stores all the routing information and network topology data collected by a
+  router or routing system, such as routes learned from BGP peers. The RIB is
+  constantly updated as new routing information is received or existing routes
+  change. This ensures that the route server always has the most current view of
+  the network topology and can make optimal routing decisions.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+  """
+  @spec get_route_server_routing_database(
+          map(),
+          get_route_server_routing_database_request(),
+          list()
+        ) ::
+          {:ok, get_route_server_routing_database_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_route_server_routing_database(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetRouteServerRoutingDatabase", input, options)
   end
 
   @doc """
@@ -41323,6 +42374,44 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "ModifyReservedInstances", input, options)
+  end
+
+  @doc """
+  Modifies the configuration of an existing route server.
+
+  Amazon VPC Route Server simplifies routing for traffic between workloads that
+  are deployed within a VPC and its internet gateways. With this feature, VPC
+  Route Server dynamically updates VPC and gateway route tables with your
+  preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those
+  workloads. This enables you to automatically reroute traffic within a VPC, which
+  increases the manageability of VPC routing and interoperability with third-party
+  workloads.
+
+  Route server supports the follow route table types:
+
+    *
+  VPC route tables
+
+    *
+  Subnet route tables
+
+    *
+  Internet gateway route tables
+
+  Route server does not support route tables associated with virtual private
+  gateways. To propagate routes into a transit gateway route table, use [Transit Gateway Connect](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html).
+
+  For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the
+  *Amazon VPC User Guide*.
+  """
+  @spec modify_route_server(map(), modify_route_server_request(), list()) ::
+          {:ok, modify_route_server_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_route_server(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyRouteServer", input, options)
   end
 
   @doc """

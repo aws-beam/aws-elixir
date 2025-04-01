@@ -773,6 +773,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       search_term_filter_expression() :: %{
+        "matchType" => list(any()),
         "searchTerm" => String.t()
       }
 

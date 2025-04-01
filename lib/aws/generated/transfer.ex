@@ -853,6 +853,7 @@ defmodule AWS.Transfer do
       create_web_app_request() :: %{
         optional("AccessEndpoint") => String.t(),
         optional("Tags") => list(tag()()),
+        optional("WebAppEndpointPolicy") => list(any()),
         optional("WebAppUnits") => list(),
         required("IdentityProviderDetails") => list()
       }
@@ -2318,6 +2319,7 @@ defmodule AWS.Transfer do
         "DescribedIdentityProviderDetails" => list(),
         "Tags" => list(tag()()),
         "WebAppEndpoint" => String.t(),
+        "WebAppEndpointPolicy" => list(any()),
         "WebAppId" => String.t(),
         "WebAppUnits" => list()
       }

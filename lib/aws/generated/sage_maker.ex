@@ -6819,6 +6819,7 @@ defmodule AWS.SageMaker do
       create_notebook_instance_lifecycle_config_input() :: %{
         optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
         optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+        optional("Tags") => list(tag()()),
         required("NotebookInstanceLifecycleConfigName") => String.t()
       }
       

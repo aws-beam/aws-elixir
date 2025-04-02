@@ -1067,6 +1067,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       update_collaboration_input() :: %{
+        optional("analyticsEngine") => list(any()),
         optional("description") => String.t(),
         optional("name") => String.t()
       }

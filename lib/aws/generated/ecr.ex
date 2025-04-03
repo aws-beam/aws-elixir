@@ -2998,16 +2998,12 @@ defmodule AWS.ECR do
   @doc """
   Returns metadata about the images in a repository.
 
-  Beginning with Docker version 1.9, the Docker client compresses image layers
-  before pushing them to a V2 Docker registry. The output of the
-
-  ```
-  docker
-  images
-  ```
-
-  command shows the uncompressed image size, so it may return a
-  larger image size than the image sizes returned by `DescribeImages`.
+  Starting with Docker version 1.9, the Docker client compresses image layers
+  before
+  pushing them to a V2 Docker registry. The output of the `docker images`
+  command shows the uncompressed image size. Therefore, Docker might return a
+  larger
+  image than the image shown in the Amazon Web Services Management Console.
   """
   @spec describe_images(map(), describe_images_request(), list()) ::
           {:ok, describe_images_response(), any()}

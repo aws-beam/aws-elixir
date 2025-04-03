@@ -1543,6 +1543,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      smpte2110_receiver_group() :: %{
+        "SdpSettings" => smpte2110_receiver_group_sdp_settings()
+      }
+
+  """
+  @type smpte2110_receiver_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_node_summary() :: %{
         "Arn" => String.t(),
         "ChannelPlacementGroups" => list(String.t()()),
@@ -1579,6 +1590,17 @@ defmodule AWS.MediaLive do
 
   """
   @type update_node_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      smpte2110_receiver_group_settings() :: %{
+        "Smpte2110ReceiverGroups" => list(smpte2110_receiver_group()())
+      }
+
+  """
+  @type smpte2110_receiver_group_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2668,6 +2690,7 @@ defmodule AWS.MediaLive do
         optional("Name") => String.t(),
         optional("RequestId") => String.t(),
         optional("RoleArn") => String.t(),
+        optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()()),
         optional("SrtSettings") => srt_settings_request(),
         optional("Tags") => map(),
@@ -2886,6 +2909,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
+        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()()),
         "SrtSettings" => srt_settings(),
         "State" => list(any()),
@@ -2951,6 +2975,7 @@ defmodule AWS.MediaLive do
         optional("MulticastSettings") => multicast_settings_update_request(),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
+        optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()()),
         optional("SrtSettings") => srt_settings_request()
       }
@@ -3690,6 +3715,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "SecurityGroups" => list(String.t()()),
+        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()()),
         "SrtSettings" => srt_settings(),
         "State" => list(any()),
@@ -5567,6 +5593,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      smpte2110_receiver_group_sdp_settings() :: %{
+        "AncillarySdps" => list(input_sdp_location()()),
+        "AudioSdps" => list(input_sdp_location()()),
+        "VideoSdp" => input_sdp_location()
+      }
+
+  """
+  @type smpte2110_receiver_group_sdp_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cmaf_ingest_group_settings() :: %{
         "Destination" => output_location_ref(),
         "Id3Behavior" => list(any()),
@@ -7056,6 +7095,18 @@ defmodule AWS.MediaLive do
 
   """
   @type list_channels_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_sdp_location() :: %{
+        "MediaIndex" => integer(),
+        "SdpUrl" => String.t()
+      }
+
+  """
+  @type input_sdp_location() :: %{String.t() => any()}
 
   @typedoc """
 

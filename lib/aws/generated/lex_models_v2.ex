@@ -467,6 +467,7 @@ defmodule AWS.LexModelsV2 do
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()()),
         optional("parentIntentSignature") => String.t(),
+        optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
         optional("sampleUtterances") => list(sample_utterance()()),
         optional("slotPriorities") => list(slot_priority()()),
@@ -592,6 +593,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type agent_turn_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_log_settings() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type error_log_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1124,6 +1136,7 @@ defmodule AWS.LexModelsV2 do
         "botName" => String.t(),
         "botTags" => map(),
         "dataPrivacy" => data_privacy(),
+        "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
         "roleArn" => String.t(),
         "testBotAliasTags" => map()
@@ -2110,6 +2123,7 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t(),
         "outputContexts" => list(output_context()()),
         "parentIntentSignature" => String.t(),
+        "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance()()),
         "slotPriorities" => list(slot_priority()())
@@ -2631,6 +2645,7 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
         "description" => String.t(),
+        "errorLogSettings" => error_log_settings(),
         "failureReasons" => list(String.t()()),
         "idleSessionTTLInSeconds" => integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
@@ -2890,6 +2905,7 @@ defmodule AWS.LexModelsV2 do
         optional("kendraConfiguration") => kendra_configuration(),
         optional("outputContexts") => list(output_context()()),
         optional("parentIntentSignature") => String.t(),
+        optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
         optional("sampleUtterances") => list(sample_utterance()()),
         required("intentName") => String.t()
@@ -3458,6 +3474,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type slot_capture_setting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      q_in_connect_intent_configuration() :: %{
+        "qInConnectAssistantConfiguration" => q_in_connect_assistant_configuration()
+      }
+
+  """
+  @type q_in_connect_intent_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4664,6 +4691,7 @@ defmodule AWS.LexModelsV2 do
         optional("botMembers") => list(bot_member()()),
         optional("botType") => list(any()),
         optional("description") => String.t(),
+        optional("errorLogSettings") => error_log_settings(),
         required("botName") => String.t(),
         required("dataPrivacy") => data_privacy(),
         required("idleSessionTTLInSeconds") => integer(),
@@ -4967,6 +4995,7 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t(),
         "outputContexts" => list(output_context()()),
         "parentIntentSignature" => String.t(),
+        "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance()())
       }
@@ -5043,6 +5072,7 @@ defmodule AWS.LexModelsV2 do
         optional("botTags") => map(),
         optional("botType") => list(any()),
         optional("description") => String.t(),
+        optional("errorLogSettings") => error_log_settings(),
         optional("testBotAliasTags") => map(),
         required("botName") => String.t(),
         required("dataPrivacy") => data_privacy(),
@@ -5255,6 +5285,7 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
         "description" => String.t(),
+        "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
         "roleArn" => String.t(),
         "testBotAliasTags" => map()
@@ -5425,6 +5456,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type code_hook_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      q_in_connect_assistant_configuration() :: %{
+        "assistantArn" => String.t()
+      }
+
+  """
+  @type q_in_connect_assistant_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5888,6 +5930,7 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
         "description" => String.t(),
+        "errorLogSettings" => error_log_settings(),
         "idleSessionTTLInSeconds" => integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "roleArn" => String.t()
@@ -6038,6 +6081,7 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t(),
         "outputContexts" => list(output_context()()),
         "parentIntentSignature" => String.t(),
+        "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
         "sampleUtterances" => list(sample_utterance()()),
         "slotPriorities" => list(slot_priority()())

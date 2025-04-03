@@ -201,7 +201,10 @@ defmodule AWS.ApplicationSignals do
       service_level_objective_summary() :: %{
         "Arn" => String.t(),
         "CreatedTime" => [non_neg_integer()],
+        "DependencyConfig" => dependency_config(),
+        "EvaluationType" => list(any()),
         "KeyAttributes" => map(),
+        "MetricSourceType" => list(any()),
         "Name" => String.t(),
         "OperationName" => String.t()
       }
@@ -223,6 +226,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       service_level_indicator_metric_config() :: %{
+        "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()()),
         "MetricType" => list(any()),
@@ -239,9 +243,11 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       list_service_level_objectives_input() :: %{
+        optional("DependencyConfig") => dependency_config(),
         optional("IncludeLinkedAccounts") => [boolean()],
         optional("KeyAttributes") => map(),
         optional("MaxResults") => integer(),
+        optional("MetricSourceTypes") => list(list(any())()),
         optional("NextToken") => String.t(),
         optional("OperationName") => String.t(),
         optional("SloOwnerAwsAccountId") => String.t()
@@ -308,6 +314,7 @@ defmodule AWS.ApplicationSignals do
         "EvaluationType" => list(any()),
         "Goal" => goal(),
         "LastUpdatedTime" => [non_neg_integer()],
+        "MetricSourceType" => list(any()),
         "Name" => String.t(),
         "RequestBasedSli" => request_based_service_level_indicator(),
         "Sli" => service_level_indicator()
@@ -371,6 +378,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       service_level_indicator_metric() :: %{
+        "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()()),
         "MetricType" => list(any()),
@@ -385,6 +393,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       request_based_service_level_indicator_metric_config() :: %{
+        "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
@@ -727,6 +736,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       request_based_service_level_indicator_metric() :: %{
+        "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
@@ -765,6 +775,18 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type update_service_level_objective_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_config() :: %{
+        "DependencyKeyAttributes" => map(),
+        "DependencyOperationName" => String.t()
+      }
+
+  """
+  @type dependency_config() :: %{String.t() => any()}
 
   @typedoc """
 

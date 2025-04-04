@@ -762,6 +762,23 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      attachment() :: %{
+        "ContentDescription" => String.t(),
+        "ContentDisposition" => list(any()),
+        "ContentId" => String.t(),
+        "ContentTransferEncoding" => list(any()),
+        "ContentType" => String.t(),
+        "FileName" => String.t(),
+        "RawContent" => binary()
+      }
+
+  """
+  @type attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_account_details_request() :: %{
         optional("AdditionalContactEmailAddresses") => list(String.t()()),
         optional("ContactLanguage") => list(any()),
@@ -3102,6 +3119,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       template() :: %{
+        "Attachments" => list(attachment()()),
         "Headers" => list(message_header()()),
         "TemplateArn" => String.t(),
         "TemplateContent" => email_template_content(),
@@ -3602,6 +3620,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       message() :: %{
+        "Attachments" => list(attachment()()),
         "Body" => body(),
         "Headers" => list(message_header()()),
         "Subject" => content()

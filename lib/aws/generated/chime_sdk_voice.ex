@@ -1595,6 +1595,7 @@ defmodule AWS.ChimeSDKVoice do
 
       phone_number_order() :: %{
         "CreatedTimestamp" => non_neg_integer(),
+        "FocDate" => non_neg_integer(),
         "OrderType" => list(any()),
         "OrderedPhoneNumbers" => list(ordered_phone_number()()),
         "PhoneNumberOrderId" => String.t(),
@@ -3599,6 +3600,7 @@ defmodule AWS.ChimeSDKVoice do
 
   @type validate_e911_address_errors() ::
           bad_request_exception()
+          | access_denied_exception()
           | service_unavailable_exception()
           | not_found_exception()
           | throttled_client_exception()

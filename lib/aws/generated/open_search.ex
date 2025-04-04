@@ -4570,7 +4570,10 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Creates an OpenSearch Application.
+  Creates an OpenSearch UI application.
+
+  For more information, see [Using the OpenSearch user interface in Amazon OpenSearch
+  Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html).
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -4725,7 +4728,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Deletes an existing OpenSearch Application.
+  Deletes a specified OpenSearch application.
   """
   @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
@@ -5539,7 +5542,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Check the configuration and status of an existing OpenSearch Application.
+  Retrieves the configuration and status of an existing OpenSearch application.
   """
   @spec get_application(map(), String.t(), list()) ::
           {:ok, get_application_response(), any()}
@@ -5761,7 +5764,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  List all OpenSearch Applications under your account.
+  Lists all OpenSearch applications under your account.
   """
   @spec list_applications(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
@@ -6505,7 +6508,7 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
-  Update the OpenSearch Application.
+  Updates the configuration and settings of an existing OpenSearch application.
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}

@@ -687,6 +687,7 @@ defmodule AWS.MailManager do
         "IngressPointId" => String.t(),
         "IngressPointName" => String.t(),
         "LastUpdatedTimestamp" => [non_neg_integer()],
+        "NetworkConfiguration" => list(),
         "RuleSetId" => String.t(),
         "Status" => list(any()),
         "TrafficPolicyId" => String.t(),
@@ -934,6 +935,17 @@ defmodule AWS.MailManager do
 
   ## Example:
       
+      public_network_configuration() :: %{
+        "IpType" => list(any())
+      }
+      
+  """
+  @type public_network_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_address_list_import_job_response() :: %{
         "JobId" => String.t(),
         "PreSignedUrl" => String.t()
@@ -1056,6 +1068,17 @@ defmodule AWS.MailManager do
       
   """
   @type list_relays_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_network_configuration() :: %{
+        "VpcEndpointId" => String.t()
+      }
+      
+  """
+  @type private_network_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1286,6 +1309,19 @@ defmodule AWS.MailManager do
       
   """
   @type update_traffic_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingress_ipv6_expression() :: %{
+        "Evaluate" => list(),
+        "Operator" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type ingress_ipv6_expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1817,6 +1853,7 @@ defmodule AWS.MailManager do
       create_ingress_point_request() :: %{
         optional("ClientToken") => String.t(),
         optional("IngressPointConfiguration") => list(),
+        optional("NetworkConfiguration") => list(),
         optional("Tags") => list(tag()()),
         required("IngressPointName") => String.t(),
         required("RuleSetId") => String.t(),

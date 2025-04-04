@@ -4250,6 +4250,7 @@ defmodule AWS.BedrockAgent do
         "endpoint" => String.t(),
         "endpointServiceName" => String.t(),
         "fieldMapping" => mongo_db_atlas_field_mapping(),
+        "textIndexName" => String.t(),
         "vectorIndexName" => String.t()
       }
 
@@ -4354,6 +4355,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       rds_field_mapping() :: %{
+        "customMetadataField" => String.t(),
         "metadataField" => String.t(),
         "primaryKeyField" => String.t(),
         "textField" => String.t(),

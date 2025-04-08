@@ -65,6 +65,17 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      batch_get_sandboxes_input() :: %{
+        required("ids") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_sandboxes_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_fleet_output() :: %{}
       
   """
@@ -78,6 +89,20 @@ defmodule AWS.CodeBuild do
       
   """
   @type list_curated_environment_images_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_command_executions_for_sandbox_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any()),
+        required("sandboxId") => String.t()
+      }
+      
+  """
+  @type list_command_executions_for_sandbox_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -158,6 +183,29 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      command_execution() :: %{
+        "command" => String.t(),
+        "endTime" => non_neg_integer(),
+        "exitCode" => String.t(),
+        "id" => String.t(),
+        "logs" => logs_location(),
+        "sandboxArn" => String.t(),
+        "sandboxId" => String.t(),
+        "standardErrContent" => String.t(),
+        "standardOutputContent" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t(),
+        "submitTime" => non_neg_integer(),
+        "type" => list(any())
+      }
+      
+  """
+  @type command_execution() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_build_batch_input() :: %{
         required("id") => String.t()
       }
@@ -169,10 +217,33 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      batch_get_command_executions_output() :: %{
+        "commandExecutions" => list(command_execution()()),
+        "commandExecutionsNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_command_executions_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_webhook_output() :: %{}
       
   """
   @type delete_webhook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_sandbox_output() :: %{
+        "sandbox" => sandbox()
+      }
+      
+  """
+  @type stop_sandbox_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -196,6 +267,17 @@ defmodule AWS.CodeBuild do
       
   """
   @type list_build_batches_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sandbox_connection_input() :: %{
+        required("sandboxId") => String.t()
+      }
+      
+  """
+  @type start_sandbox_connection_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -498,6 +580,22 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      sandbox_session_phase() :: %{
+        "contexts" => list(phase_context()()),
+        "durationInSeconds" => float(),
+        "endTime" => non_neg_integer(),
+        "phaseStatus" => list(any()),
+        "phaseType" => String.t(),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type sandbox_session_phase() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_report_group_output() :: %{
         "reportGroup" => report_group()
       }
@@ -666,6 +764,17 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      account_suspended_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type account_suspended_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       report_export_config() :: %{
         "exportConfigType" => list(any()),
         "s3Destination" => s3_report_export_config()
@@ -742,6 +851,29 @@ defmodule AWS.CodeBuild do
       
   """
   @type project_cache() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_command_execution_output() :: %{
+        "commandExecution" => command_execution()
+      }
+      
+  """
+  @type start_command_execution_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_command_executions_for_sandbox_output() :: %{
+        "commandExecutions" => list(command_execution()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_command_executions_for_sandbox_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -877,6 +1009,19 @@ defmodule AWS.CodeBuild do
       
   """
   @type create_webhook_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_command_execution_input() :: %{
+        optional("type") => list(any()),
+        required("command") => String.t(),
+        required("sandboxId") => String.t()
+      }
+      
+  """
+  @type start_command_execution_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1140,6 +1285,17 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      start_sandbox_output() :: %{
+        "sandbox" => sandbox()
+      }
+      
+  """
+  @type start_sandbox_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       project_build_batch_config() :: %{
         "batchReportMode" => list(any()),
         "combineArtifacts" => boolean(),
@@ -1184,6 +1340,17 @@ defmodule AWS.CodeBuild do
       
   """
   @type invalidate_project_cache_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sandbox_connection_output() :: %{
+        "ssmSession" => s_smsession()
+      }
+      
+  """
+  @type start_sandbox_connection_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1377,6 +1544,17 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      stop_sandbox_input() :: %{
+        required("id") => String.t()
+      }
+      
+  """
+  @type stop_sandbox_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_report_input() :: %{
         required("arn") => String.t()
       }
@@ -1553,6 +1731,36 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      sandbox() :: %{
+        "arn" => String.t(),
+        "currentSession" => sandbox_session(),
+        "encryptionKey" => String.t(),
+        "endTime" => non_neg_integer(),
+        "environment" => project_environment(),
+        "fileSystemLocations" => list(project_file_system_location()()),
+        "id" => String.t(),
+        "logConfig" => logs_config(),
+        "projectName" => String.t(),
+        "queuedTimeoutInMinutes" => integer(),
+        "requestTime" => non_neg_integer(),
+        "secondarySourceVersions" => list(project_source_version()()),
+        "secondarySources" => list(project_source()()),
+        "serviceRole" => String.t(),
+        "source" => project_source(),
+        "sourceVersion" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t(),
+        "timeoutInMinutes" => integer(),
+        "vpcConfig" => vpc_config()
+      }
+      
+  """
+  @type sandbox() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       logs_location() :: %{
         "cloudWatchLogs" => cloud_watch_logs_config(),
         "cloudWatchLogsArn" => String.t(),
@@ -1601,6 +1809,18 @@ defmodule AWS.CodeBuild do
       
   """
   @type scope_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_command_executions_input() :: %{
+        required("commandExecutionIds") => list(String.t()()),
+        required("sandboxId") => String.t()
+      }
+      
+  """
+  @type batch_get_command_executions_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1679,6 +1899,18 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      list_sandboxes_for_project_output() :: %{
+        "ids" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_sandboxes_for_project_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resolved_artifact() :: %{
         "identifier" => String.t(),
         "location" => String.t(),
@@ -1731,6 +1963,31 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      s_smsession() :: %{
+        "sessionId" => String.t(),
+        "streamUrl" => String.t(),
+        "tokenValue" => String.t()
+      }
+      
+  """
+  @type s_smsession() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_output() :: %{
+        "ids" => list(String.t()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_sandboxes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_build_batches_input() :: %{
         optional("filter") => build_batch_filter(),
         optional("maxResults") => integer(),
@@ -1763,6 +2020,18 @@ defmodule AWS.CodeBuild do
       
   """
   @type get_resource_policy_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sandbox_input() :: %{
+        optional("idempotencyToken") => String.t(),
+        optional("projectName") => String.t()
+      }
+      
+  """
+  @type start_sandbox_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1838,6 +2107,20 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      list_sandboxes_for_project_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any()),
+        required("projectName") => String.t()
+      }
+      
+  """
+  @type list_sandboxes_for_project_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       scaling_configuration_input() :: %{
         "maxCapacity" => integer(),
         "scalingType" => list(any()),
@@ -1877,6 +2160,19 @@ defmodule AWS.CodeBuild do
       
   """
   @type delete_project_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_sandboxes_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2042,6 +2338,37 @@ defmodule AWS.CodeBuild do
       
   """
   @type environment_language() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_sandboxes_output() :: %{
+        "sandboxes" => list(sandbox()()),
+        "sandboxesNotFound" => list(String.t()())
+      }
+      
+  """
+  @type batch_get_sandboxes_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sandbox_session() :: %{
+        "currentPhase" => String.t(),
+        "endTime" => non_neg_integer(),
+        "id" => String.t(),
+        "logs" => logs_location(),
+        "networkInterface" => network_interface(),
+        "phases" => list(sandbox_session_phase()()),
+        "resolvedSourceVersion" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t()
+      }
+      
+  """
+  @type sandbox_session() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2381,6 +2708,8 @@ defmodule AWS.CodeBuild do
 
   @type batch_get_builds_errors() :: invalid_input_exception()
 
+  @type batch_get_command_executions_errors() :: invalid_input_exception()
+
   @type batch_get_fleets_errors() :: invalid_input_exception()
 
   @type batch_get_projects_errors() :: invalid_input_exception()
@@ -2388,6 +2717,8 @@ defmodule AWS.CodeBuild do
   @type batch_get_report_groups_errors() :: invalid_input_exception()
 
   @type batch_get_reports_errors() :: invalid_input_exception()
+
+  @type batch_get_sandboxes_errors() :: invalid_input_exception()
 
   @type create_fleet_errors() ::
           resource_already_exists_exception()
@@ -2455,6 +2786,9 @@ defmodule AWS.CodeBuild do
   @type list_builds_for_project_errors() ::
           invalid_input_exception() | resource_not_found_exception()
 
+  @type list_command_executions_for_sandbox_errors() ::
+          invalid_input_exception() | resource_not_found_exception()
+
   @type list_fleets_errors() :: invalid_input_exception()
 
   @type list_projects_errors() :: invalid_input_exception()
@@ -2464,6 +2798,11 @@ defmodule AWS.CodeBuild do
   @type list_reports_errors() :: invalid_input_exception()
 
   @type list_reports_for_report_group_errors() ::
+          invalid_input_exception() | resource_not_found_exception()
+
+  @type list_sandboxes_errors() :: invalid_input_exception()
+
+  @type list_sandboxes_for_project_errors() ::
           invalid_input_exception() | resource_not_found_exception()
 
   @type list_shared_projects_errors() :: invalid_input_exception()
@@ -2488,9 +2827,22 @@ defmodule AWS.CodeBuild do
 
   @type start_build_batch_errors() :: invalid_input_exception() | resource_not_found_exception()
 
+  @type start_command_execution_errors() ::
+          invalid_input_exception() | resource_not_found_exception()
+
+  @type start_sandbox_errors() ::
+          invalid_input_exception()
+          | resource_not_found_exception()
+          | account_suspended_exception()
+
+  @type start_sandbox_connection_errors() ::
+          invalid_input_exception() | resource_not_found_exception()
+
   @type stop_build_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type stop_build_batch_errors() :: invalid_input_exception() | resource_not_found_exception()
+
+  @type stop_sandbox_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type update_fleet_errors() ::
           invalid_input_exception()
@@ -2566,6 +2918,20 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Gets information about the command executions.
+  """
+  @spec batch_get_command_executions(map(), batch_get_command_executions_input(), list()) ::
+          {:ok, batch_get_command_executions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_command_executions_errors()}
+  def batch_get_command_executions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetCommandExecutions", input, options)
+  end
+
+  @doc """
   Gets information about one or more compute fleets.
   """
   @spec batch_get_fleets(map(), batch_get_fleets_input(), list()) ::
@@ -2621,6 +2987,20 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
+  end
+
+  @doc """
+  Gets information about the sandbox status.
+  """
+  @spec batch_get_sandboxes(map(), batch_get_sandboxes_input(), list()) ::
+          {:ok, batch_get_sandboxes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_sandboxes_errors()}
+  def batch_get_sandboxes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "BatchGetSandboxes", input, options)
   end
 
   @doc """
@@ -2967,6 +3347,24 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Gets a list of command executions for a sandbox.
+  """
+  @spec list_command_executions_for_sandbox(
+          map(),
+          list_command_executions_for_sandbox_input(),
+          list()
+        ) ::
+          {:ok, list_command_executions_for_sandbox_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_command_executions_for_sandbox_errors()}
+  def list_command_executions_for_sandbox(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListCommandExecutionsForSandbox", input, options)
+  end
+
+  @doc """
   Gets information about Docker images that are managed by CodeBuild.
   """
   @spec list_curated_environment_images(map(), list_curated_environment_images_input(), list()) ::
@@ -3055,6 +3453,34 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "ListReportsForReportGroup", input, options)
+  end
+
+  @doc """
+  Gets a list of sandboxes.
+  """
+  @spec list_sandboxes(map(), list_sandboxes_input(), list()) ::
+          {:ok, list_sandboxes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sandboxes_errors()}
+  def list_sandboxes(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSandboxes", input, options)
+  end
+
+  @doc """
+  Gets a list of sandboxes for a given project.
+  """
+  @spec list_sandboxes_for_project(map(), list_sandboxes_for_project_input(), list()) ::
+          {:ok, list_sandboxes_for_project_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sandboxes_for_project_errors()}
+  def list_sandboxes_for_project(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListSandboxesForProject", input, options)
   end
 
   @doc """
@@ -3183,6 +3609,48 @@ defmodule AWS.CodeBuild do
   end
 
   @doc """
+  Starts a command execution.
+  """
+  @spec start_command_execution(map(), start_command_execution_input(), list()) ::
+          {:ok, start_command_execution_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_command_execution_errors()}
+  def start_command_execution(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartCommandExecution", input, options)
+  end
+
+  @doc """
+  Starts a sandbox.
+  """
+  @spec start_sandbox(map(), start_sandbox_input(), list()) ::
+          {:ok, start_sandbox_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_sandbox_errors()}
+  def start_sandbox(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSandbox", input, options)
+  end
+
+  @doc """
+  Starts a sandbox connection.
+  """
+  @spec start_sandbox_connection(map(), start_sandbox_connection_input(), list()) ::
+          {:ok, start_sandbox_connection_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_sandbox_connection_errors()}
+  def start_sandbox_connection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSandboxConnection", input, options)
+  end
+
+  @doc """
   Attempts to stop running a build.
   """
   @spec stop_build(map(), stop_build_input(), list()) ::
@@ -3208,6 +3676,20 @@ defmodule AWS.CodeBuild do
     meta = metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
+  end
+
+  @doc """
+  Stops a sandbox.
+  """
+  @spec stop_sandbox(map(), stop_sandbox_input(), list()) ::
+          {:ok, stop_sandbox_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_sandbox_errors()}
+  def stop_sandbox(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopSandbox", input, options)
   end
 
   @doc """

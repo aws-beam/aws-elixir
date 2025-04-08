@@ -619,6 +619,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      sdi_source_mapping() :: %{
+        "CardNumber" => integer(),
+        "ChannelNumber" => integer(),
+        "SdiSource" => String.t()
+      }
+
+  """
+  @type sdi_source_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audio_only_hls_settings() :: %{
         "AudioGroupId" => String.t(),
         "AudioOnlyImage" => input_location(),
@@ -1370,6 +1383,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type create_sdi_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_channel_placement_group_response() :: %{
         "Arn" => String.t(),
         "Channels" => list(String.t()()),
@@ -1565,6 +1589,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -1585,6 +1610,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -2013,6 +2039,23 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      sdi_source() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sdi_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_channel_placement_group_request() :: %{}
 
   """
@@ -2059,6 +2102,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -2137,6 +2181,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -2293,6 +2338,15 @@ defmodule AWS.MediaLive do
 
   """
   @type video_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sdi_source_request() :: %{}
+
+  """
+  @type delete_sdi_source_request() :: %{}
 
   @typedoc """
 
@@ -2690,6 +2744,7 @@ defmodule AWS.MediaLive do
         optional("Name") => String.t(),
         optional("RequestId") => String.t(),
         optional("RoleArn") => String.t(),
+        optional("SdiSources") => list(String.t()()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()()),
         optional("SrtSettings") => srt_settings_request(),
@@ -2908,6 +2963,7 @@ defmodule AWS.MediaLive do
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
+        "SdiSources" => list(String.t()()),
         "SecurityGroups" => list(String.t()()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()()),
@@ -2975,6 +3031,7 @@ defmodule AWS.MediaLive do
         optional("MulticastSettings") => multicast_settings_update_request(),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
+        optional("SdiSources") => list(String.t()()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
         optional("Sources") => list(input_source_request()()),
         optional("SrtSettings") => srt_settings_request()
@@ -3539,6 +3596,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      list_sdi_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_sdi_sources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       scte20_plus_embedded_destination_settings() :: %{}
 
   """
@@ -3714,6 +3783,7 @@ defmodule AWS.MediaLive do
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
+        "SdiSources" => list(String.t()()),
         "SecurityGroups" => list(String.t()()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
         "Sources" => list(input_source()()),
@@ -4128,6 +4198,17 @@ defmodule AWS.MediaLive do
 
   """
   @type archive_cdn_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type delete_sdi_source_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4681,6 +4762,19 @@ defmodule AWS.MediaLive do
 
   """
   @type describe_input_device_thumbnail_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sdi_source_request() :: %{
+        optional("Mode") => list(any()),
+        optional("Name") => String.t(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type update_sdi_source_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5282,6 +5376,21 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      create_sdi_source_request() :: %{
+        optional("Mode") => list(any()),
+        optional("Name") => String.t(),
+        optional("RequestId") => String.t(),
+        optional("Tags") => map(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type create_sdi_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dolby_vision81_settings() :: %{}
 
   """
@@ -5526,6 +5635,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -5573,6 +5683,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      update_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type update_sdi_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multiplex() :: %{
         "Arn" => String.t(),
         "AvailabilityZones" => list(String.t()()),
@@ -5588,6 +5709,15 @@ defmodule AWS.MediaLive do
 
   """
   @type multiplex() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_sdi_source_request() :: %{}
+
+  """
+  @type describe_sdi_source_request() :: %{}
 
   @typedoc """
 
@@ -5684,6 +5814,7 @@ defmodule AWS.MediaLive do
         "Name" => String.t(),
         "NodeInterfaceMappings" => list(node_interface_mapping()()),
         "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()()),
         "State" => list(any())
       }
 
@@ -5767,6 +5898,23 @@ defmodule AWS.MediaLive do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sdi_source_summary() :: %{
+        "Arn" => String.t(),
+        "Id" => String.t(),
+        "Inputs" => list(String.t()()),
+        "Mode" => list(any()),
+        "Name" => String.t(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sdi_source_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6511,12 +6659,37 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      sdi_source_mapping_update_request() :: %{
+        "CardNumber" => integer(),
+        "ChannelNumber" => integer(),
+        "SdiSource" => String.t()
+      }
+
+  """
+  @type sdi_source_mapping_update_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_schedule_action_delete_request() :: %{
         "ActionNames" => list(String.t()())
       }
 
   """
   @type batch_schedule_action_delete_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sdi_sources_response() :: %{
+        "NextToken" => String.t(),
+        "SdiSources" => list(sdi_source_summary()())
+      }
+
+  """
+  @type list_sdi_sources_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7137,6 +7310,17 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      describe_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type describe_sdi_source_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_watch_alarm_template_summary() :: %{
         "Arn" => String.t(),
         "ComparisonOperator" => list(any()),
@@ -7239,7 +7423,8 @@ defmodule AWS.MediaLive do
 
       update_node_request() :: %{
         optional("Name") => String.t(),
-        optional("Role") => list(any())
+        optional("Role") => list(any()),
+        optional("SdiSourceMappings") => list(sdi_source_mapping_update_request()())
       }
 
   """
@@ -7890,6 +8075,15 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type create_sdi_source_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type create_signal_map_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -8044,6 +8238,16 @@ defmodule AWS.MediaLive do
           | forbidden_exception()
           | bad_gateway_exception()
 
+  @type delete_sdi_source_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
   @type delete_signal_map_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -8184,6 +8388,15 @@ defmodule AWS.MediaLive do
           | bad_gateway_exception()
 
   @type describe_schedule_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type describe_sdi_source_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
@@ -8364,6 +8577,14 @@ defmodule AWS.MediaLive do
           | bad_gateway_exception()
 
   @type list_reservations_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type list_sdi_sources_errors() ::
           bad_request_exception()
           | gateway_timeout_exception()
           | internal_server_error_exception()
@@ -8701,6 +8922,15 @@ defmodule AWS.MediaLive do
           | gateway_timeout_exception()
           | internal_server_error_exception()
           | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+          | bad_gateway_exception()
+
+  @type update_sdi_source_errors() ::
+          bad_request_exception()
+          | gateway_timeout_exception()
+          | internal_server_error_exception()
           | conflict_exception()
           | too_many_requests_exception()
           | forbidden_exception()
@@ -9427,6 +9657,40 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Create an SdiSource for each video source that uses the SDI protocol.
+
+  You will reference the SdiSource when you create an SDI input in MediaLive. You
+  will also reference it in an SdiSourceMapping, in order to create a connection
+  between the logical SdiSource and the physical SDI card and port that the
+  physical SDI source uses.
+  """
+  @spec create_sdi_source(map(), create_sdi_source_request(), list()) ::
+          {:ok, create_sdi_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_sdi_source_errors()}
+  def create_sdi_source(%Client{} = client, input, options \\ []) do
+    url_path = "/prod/sdiSources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Initiates the creation of a new signal map.
 
   Will discover a new mediaResourceMap based on the provided
@@ -10009,6 +10273,38 @@ defmodule AWS.MediaLive do
   end
 
   @doc """
+  Delete an SdiSource.
+
+  The SdiSource must not be part of any SidSourceMapping and must not be attached
+  to any input.
+  """
+  @spec delete_sdi_source(map(), String.t(), delete_sdi_source_request(), list()) ::
+          {:ok, delete_sdi_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_sdi_source_errors()}
+  def delete_sdi_source(%Client{} = client, sdi_source_id, input, options \\ []) do
+    url_path = "/prod/sdiSources/#{AWS.Util.encode_uri(sdi_source_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes the specified signal map.
   """
   @spec delete_signal_map(map(), String.t(), delete_signal_map_request(), list()) ::
@@ -10386,6 +10682,24 @@ defmodule AWS.MediaLive do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets details about a SdiSource.
+  """
+  @spec describe_sdi_source(map(), String.t(), list()) ::
+          {:ok, describe_sdi_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_sdi_source_errors()}
+  def describe_sdi_source(%Client{} = client, sdi_source_id, options \\ []) do
+    url_path = "/prod/sdiSources/#{AWS.Util.encode_uri(sdi_source_id)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -11394,6 +11708,38 @@ defmodule AWS.MediaLive do
     query_params =
       if !is_nil(channel_class) do
         [{"channelClass", channel_class} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all the SdiSources in the AWS account.
+  """
+  @spec list_sdi_sources(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_sdi_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sdi_sources_errors()}
+  def list_sdi_sources(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/prod/sdiSources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -12566,6 +12912,35 @@ defmodule AWS.MediaLive do
           | {:error, update_reservation_errors()}
   def update_reservation(%Client{} = client, reservation_id, input, options \\ []) do
     url_path = "/prod/reservations/#{AWS.Util.encode_uri(reservation_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Change some of the settings in an SdiSource.
+  """
+  @spec update_sdi_source(map(), String.t(), update_sdi_source_request(), list()) ::
+          {:ok, update_sdi_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_sdi_source_errors()}
+  def update_sdi_source(%Client{} = client, sdi_source_id, input, options \\ []) do
+    url_path = "/prod/sdiSources/#{AWS.Util.encode_uri(sdi_source_id)}"
     headers = []
     custom_headers = []
     query_params = []

@@ -655,6 +655,19 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      event_parameters() :: %{
+        "eventType" => String.t(),
+        "eventValueThreshold" => float(),
+        "weight" => float()
+      }
+      
+  """
+  @type event_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_filter_response() :: %{
         "filterArn" => String.t()
       }
@@ -1590,6 +1603,17 @@ defmodule AWS.Personalize do
 
   ## Example:
       
+      events_config() :: %{
+        "eventParametersList" => list(event_parameters()())
+      }
+      
+  """
+  @type events_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       integer_hyper_parameter_range() :: %{
         "maxValue" => integer(),
         "minValue" => integer(),
@@ -1970,7 +1994,8 @@ defmodule AWS.Personalize do
   ## Example:
       
       solution_update_config() :: %{
-        "autoTrainingConfig" => auto_training_config()
+        "autoTrainingConfig" => auto_training_config(),
+        "eventsConfig" => events_config()
       }
       
   """
@@ -2255,6 +2280,7 @@ defmodule AWS.Personalize do
         "autoMLConfig" => auto_ml_config(),
         "autoTrainingConfig" => auto_training_config(),
         "eventValueThreshold" => String.t(),
+        "eventsConfig" => events_config(),
         "featureTransformationParameters" => map(),
         "hpoConfig" => h_p_o_config(),
         "optimizationObjective" => optimization_objective(),
@@ -3998,8 +4024,9 @@ defmodule AWS.Personalize do
 
   You can't delete a dataset if an associated
   `DatasetImportJob` or `SolutionVersion` is in the
-  CREATE PENDING or IN PROGRESS state. For more information on datasets, see
-  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html).
+  CREATE PENDING or IN PROGRESS state. For more information about deleting
+  datasets,
+  see [Deleting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/delete-dataset.html).
   """
   @spec delete_dataset(map(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}

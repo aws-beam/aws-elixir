@@ -62,6 +62,7 @@ defmodule AWS.BedrockRuntime do
 
       apply_guardrail_response() :: %{
         "action" => list(any()),
+        "actionReason" => [String.t()],
         "assessments" => list(guardrail_assessment()()),
         "guardrailCoverage" => guardrail_coverage(),
         "outputs" => list(guardrail_output_content()()),
@@ -139,6 +140,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       apply_guardrail_request() :: %{
+        optional("outputScope") => list(any()),
         required("content") => list(list()()),
         required("source") => list(any())
       }
@@ -171,6 +173,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_trace_assessment() :: %{
+        "actionReason" => [String.t()],
         "inputAssessment" => map(),
         "modelOutput" => list(String.t()()),
         "outputAssessments" => map()
@@ -208,6 +211,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_managed_word() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "match" => [String.t()],
         "type" => list(any())
       }
@@ -342,6 +346,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_custom_word() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "match" => [String.t()]
       }
 
@@ -550,6 +555,7 @@ defmodule AWS.BedrockRuntime do
       guardrail_content_filter() :: %{
         "action" => list(any()),
         "confidence" => list(any()),
+        "detected" => [boolean()],
         "filterStrength" => list(any()),
         "type" => list(any())
       }
@@ -586,6 +592,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_contextual_grounding_filter() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "score" => [float()],
         "threshold" => [float()],
         "type" => list(any())
@@ -982,6 +989,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_regex_filter() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "match" => [String.t()],
         "name" => [String.t()],
         "regex" => [String.t()]
@@ -1019,6 +1027,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_pii_entity_filter() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "match" => [String.t()],
         "type" => list(any())
       }
@@ -1078,6 +1087,7 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_topic() :: %{
         "action" => list(any()),
+        "detected" => [boolean()],
         "name" => [String.t()],
         "type" => list(any())
       }

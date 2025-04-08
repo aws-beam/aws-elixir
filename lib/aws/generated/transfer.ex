@@ -515,6 +515,17 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      start_remote_delete_response() :: %{
+        "DeleteId" => String.t()
+      }
+      
+  """
+  @type start_remote_delete_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_web_app_customization_request() :: %{
         required("WebAppId") => String.t()
       }
@@ -1146,6 +1157,18 @@ defmodule AWS.Transfer do
       
   """
   @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remote_delete_request() :: %{
+        required("ConnectorId") => String.t(),
+        required("DeletePath") => String.t()
+      }
+      
+  """
+  @type start_remote_delete_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1933,6 +1956,19 @@ defmodule AWS.Transfer do
 
   ## Example:
       
+      start_remote_move_request() :: %{
+        required("ConnectorId") => String.t(),
+        required("SourcePath") => String.t(),
+        required("TargetPath") => String.t()
+      }
+      
+  """
+  @type start_remote_move_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       efs_file_location() :: %{
         "FileSystemId" => String.t(),
         "Path" => String.t()
@@ -2213,6 +2249,17 @@ defmodule AWS.Transfer do
       
   """
   @type listed_certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_remote_move_response() :: %{
+        "MoveId" => String.t()
+      }
+      
+  """
+  @type start_remote_move_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2930,6 +2977,20 @@ defmodule AWS.Transfer do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type start_remote_delete_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type start_remote_move_errors() ::
+          throttling_exception()
+          | internal_service_error()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type start_server_errors() ::
           throttling_exception()
           | internal_service_error()
@@ -3631,6 +3692,12 @@ defmodule AWS.Transfer do
   (AS2)
   profiles and partner
   profiles.
+
+  You can import both the certificate and its chain in the `Certificate`
+  parameter.
+
+  If you use the `Certificate` parameter to upload both the certificate and its
+  chain, don't use the `CertificateChain` parameter.
   """
   @spec import_certificate(map(), import_certificate_request(), list()) ::
           {:ok, import_certificate_response(), any()}
@@ -4049,6 +4116,34 @@ defmodule AWS.Transfer do
     meta = metadata()
 
     Request.request_post(client, meta, "StartFileTransfer", input, options)
+  end
+
+  @doc """
+  Deletes a file or directory on the remote SFTP server.
+  """
+  @spec start_remote_delete(map(), start_remote_delete_request(), list()) ::
+          {:ok, start_remote_delete_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_remote_delete_errors()}
+  def start_remote_delete(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRemoteDelete", input, options)
+  end
+
+  @doc """
+  Moves or renames a file or directory on the remote SFTP server.
+  """
+  @spec start_remote_move(map(), start_remote_move_request(), list()) ::
+          {:ok, start_remote_move_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_remote_move_errors()}
+  def start_remote_move(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartRemoteMove", input, options)
   end
 
   @doc """

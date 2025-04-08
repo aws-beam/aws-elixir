@@ -513,7 +513,11 @@ defmodule AWS.Bedrock do
       guardrail_topic_config() :: %{
         "definition" => String.t(),
         "examples" => list(String.t()()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "name" => String.t(),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 
@@ -616,6 +620,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_contextual_grounding_filter_config() :: %{
+        "action" => list(any()),
+        "enabled" => [boolean()],
         "threshold" => [float()],
         "type" => list(any())
       }
@@ -927,6 +933,10 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_managed_words_config() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 
@@ -938,6 +948,10 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_word() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "text" => [String.t()]
       }
 
@@ -1165,8 +1179,12 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_filter_config() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "inputModalities" => list(list(any())()),
         "inputStrength" => list(any()),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "outputModalities" => list(list(any())()),
         "outputStrength" => list(any()),
         "type" => list(any())
@@ -1262,8 +1280,12 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_filter() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "inputModalities" => list(list(any())()),
         "inputStrength" => list(any()),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "outputModalities" => list(list(any())()),
         "outputStrength" => list(any()),
         "type" => list(any())
@@ -1369,6 +1391,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_contextual_grounding_filter() :: %{
+        "action" => list(any()),
+        "enabled" => [boolean()],
         "threshold" => [float()],
         "type" => list(any())
       }
@@ -1393,6 +1417,10 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_managed_words() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 
@@ -1552,6 +1580,10 @@ defmodule AWS.Bedrock do
 
       guardrail_pii_entity() :: %{
         "action" => list(any()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 
@@ -1840,6 +1872,10 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_word_config() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "text" => [String.t()]
       }
 
@@ -2016,7 +2052,11 @@ defmodule AWS.Bedrock do
       guardrail_regex_config() :: %{
         "action" => list(any()),
         "description" => [String.t()],
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "name" => [String.t()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "pattern" => [String.t()]
       }
 
@@ -2325,6 +2365,10 @@ defmodule AWS.Bedrock do
 
       guardrail_pii_entity_config() :: %{
         "action" => list(any()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 
@@ -2624,7 +2668,11 @@ defmodule AWS.Bedrock do
       guardrail_regex() :: %{
         "action" => list(any()),
         "description" => [String.t()],
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "name" => [String.t()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "pattern" => [String.t()]
       }
 
@@ -2859,7 +2907,11 @@ defmodule AWS.Bedrock do
       guardrail_topic() :: %{
         "definition" => String.t(),
         "examples" => list(String.t()()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
         "name" => String.t(),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
         "type" => list(any())
       }
 

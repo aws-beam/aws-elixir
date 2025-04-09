@@ -108,6 +108,7 @@ defmodule AWS.TaxSettings do
         "spainAdditionalInfo" => spain_additional_info(),
         "turkeyAdditionalInfo" => turkey_additional_info(),
         "ukraineAdditionalInfo" => ukraine_additional_info(),
+        "uzbekistanAdditionalInfo" => uzbekistan_additional_info(),
         "vietnamAdditionalInfo" => vietnam_additional_info()
       }
 
@@ -403,6 +404,7 @@ defmodule AWS.TaxSettings do
         "spainAdditionalInfo" => spain_additional_info(),
         "turkeyAdditionalInfo" => turkey_additional_info(),
         "ukraineAdditionalInfo" => ukraine_additional_info(),
+        "uzbekistanAdditionalInfo" => uzbekistan_additional_info(),
         "vietnamAdditionalInfo" => vietnam_additional_info()
       }
 
@@ -703,6 +705,18 @@ defmodule AWS.TaxSettings do
 
   """
   @type canada_additional_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uzbekistan_additional_info() :: %{
+        "taxRegistrationNumberType" => list(any()),
+        "vatRegistrationNumber" => String.t()
+      }
+
+  """
+  @type uzbekistan_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 

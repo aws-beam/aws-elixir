@@ -13,6 +13,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      invoke_model_with_bidirectional_stream_response() :: %{
+        "body" => list()
+      }
+
+  """
+  @type invoke_model_with_bidirectional_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_async_invokes_response() :: %{
         "asyncInvokeSummaries" => list(async_invoke_summary()()),
         "nextToken" => String.t()
@@ -357,12 +368,34 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      bidirectional_input_payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type bidirectional_input_payload_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       message_start_event() :: %{
         "role" => list(any())
       }
 
   """
   @type message_start_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_model_with_bidirectional_stream_request() :: %{
+        required("body") => list()
+      }
+
+  """
+  @type invoke_model_with_bidirectional_stream_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -974,6 +1007,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      bidirectional_output_payload_part() :: %{
+        "bytes" => binary()
+      }
+
+  """
+  @type bidirectional_output_payload_part() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_configuration() :: %{
         "guardrailIdentifier" => String.t(),
         "guardrailVersion" => String.t(),
@@ -1175,6 +1219,19 @@ defmodule AWS.BedrockRuntime do
           throttling_exception()
           | validation_exception()
           | model_timeout_exception()
+          | access_denied_exception()
+          | model_error_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | model_not_ready_exception()
+
+  @type invoke_model_with_bidirectional_stream_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | model_timeout_exception()
+          | model_stream_error_exception()
           | access_denied_exception()
           | model_error_exception()
           | internal_server_exception()
@@ -1510,6 +1567,50 @@ defmodule AWS.BedrockRuntime do
           {"X-Amzn-Bedrock-PerformanceConfig-Latency", "performanceConfigLatency"}
         ]
       )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Invoke the specified Amazon Bedrock model to run inference using the
+  bidirectional stream.
+
+  The response is returned in a stream that remains open for 8 minutes. A single
+  session can contain multiple prompts and responses from the model. The prompts
+  to the model are provided as audio files and the model's responses are spoken
+  back to the user and transcribed.
+
+  It is possible for users to interrupt the model's response with a new prompt,
+  which will halt the response speech. The model will retain contextual awareness
+  of the conversation while pivoting to respond to the new prompt.
+  """
+  @spec invoke_model_with_bidirectional_stream(
+          map(),
+          String.t(),
+          invoke_model_with_bidirectional_stream_request(),
+          list()
+        ) ::
+          {:ok, invoke_model_with_bidirectional_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_model_with_bidirectional_stream_errors()}
+  def invoke_model_with_bidirectional_stream(%Client{} = client, model_id, input, options \\ []) do
+    url_path = "/model/#{AWS.Util.encode_uri(model_id)}/invoke-with-bidirectional-stream"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

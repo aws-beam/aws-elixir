@@ -1356,6 +1356,7 @@ defmodule AWS.IoTFleetWise do
         "modelManifestArn" => String.t(),
         "stateTemplatesToAdd" => list(state_template_association()()),
         "stateTemplatesToRemove" => list(String.t()()),
+        "stateTemplatesToUpdate" => list(state_template_association()()),
         "vehicleName" => String.t()
       }
       
@@ -1954,7 +1955,8 @@ defmodule AWS.IoTFleetWise do
         optional("decoderManifestArn") => String.t(),
         optional("modelManifestArn") => String.t(),
         optional("stateTemplatesToAdd") => list(state_template_association()()),
-        optional("stateTemplatesToRemove") => list(String.t()())
+        optional("stateTemplatesToRemove") => list(String.t()()),
+        optional("stateTemplatesToUpdate") => list(state_template_association()())
       }
       
   """
@@ -3901,6 +3903,10 @@ defmodule AWS.IoTFleetWise do
 
   @doc """
   Updates a vehicle.
+
+  Access to certain Amazon Web Services IoT FleetWise features is currently gated.
+  For more information, see [Amazon Web Services Region and feature availability](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html)
+  in the *Amazon Web Services IoT FleetWise Developer Guide*.
   """
   @spec update_vehicle(map(), update_vehicle_request(), list()) ::
           {:ok, update_vehicle_response(), any()}

@@ -148,6 +148,18 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      memory_db_reserved_instances() :: %{
+        "configuration" => memory_db_reserved_instances_configuration(),
+        "costCalculation" => reserved_instances_cost_calculation()
+      }
+      
+  """
+  @type memory_db_reserved_instances() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_enrollment_statuses_response() :: %{
         "includeMemberAccounts" => [boolean()],
         "items" => list(account_enrollment_status()()),
@@ -353,6 +365,25 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type update_enrollment_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamo_db_reserved_capacity_configuration() :: %{
+        "accountScope" => [String.t()],
+        "capacityUnits" => [String.t()],
+        "monthlyRecurringCost" => [String.t()],
+        "numberOfCapacityUnitsToPurchase" => [String.t()],
+        "paymentOption" => [String.t()],
+        "reservedInstancesRegion" => [String.t()],
+        "service" => [String.t()],
+        "term" => [String.t()],
+        "upfrontCost" => [String.t()]
+      }
+      
+  """
+  @type dynamo_db_reserved_capacity_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -571,6 +602,29 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      memory_db_reserved_instances_configuration() :: %{
+        "accountScope" => [String.t()],
+        "currentGeneration" => [String.t()],
+        "instanceFamily" => [String.t()],
+        "instanceType" => [String.t()],
+        "monthlyRecurringCost" => [String.t()],
+        "normalizedUnitsToPurchase" => [String.t()],
+        "numberOfInstancesToPurchase" => [String.t()],
+        "paymentOption" => [String.t()],
+        "reservedInstancesRegion" => [String.t()],
+        "service" => [String.t()],
+        "sizeFlexEligible" => [boolean()],
+        "term" => [String.t()],
+        "upfrontCost" => [String.t()]
+      }
+      
+  """
+  @type memory_db_reserved_instances_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -962,6 +1016,18 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type get_recommendation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamo_db_reserved_capacity() :: %{
+        "configuration" => dynamo_db_reserved_capacity_configuration(),
+        "costCalculation" => reserved_instances_cost_calculation()
+      }
+      
+  """
+  @type dynamo_db_reserved_capacity() :: %{String.t() => any()}
 
   @typedoc """
 

@@ -62,7 +62,7 @@ defmodule AWS.GroundStation do
         "componentType" => String.t(),
         "dataflowId" => String.t(),
         "packetsDropped" => [float()],
-        "status" => String.t()
+        "status" => list(any())
       }
 
   """
@@ -207,7 +207,7 @@ defmodule AWS.GroundStation do
 
       describe_contact_response() :: %{
         "contactId" => String.t(),
-        "contactStatus" => String.t(),
+        "contactStatus" => list(any()),
         "dataflowList" => list(dataflow_detail()()),
         "endTime" => [non_neg_integer()],
         "errorMessage" => [String.t()],
@@ -244,6 +244,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       register_agent_request() :: %{
+        optional("tags") => map(),
         required("agentDetails") => agent_details(),
         required("discoveryData") => discovery_data()
       }
@@ -256,7 +257,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       tracking_config() :: %{
-        "autotrack" => String.t()
+        "autotrack" => list(any())
       }
 
   """
@@ -281,7 +282,7 @@ defmodule AWS.GroundStation do
       spectrum_config() :: %{
         "bandwidth" => frequency_bandwidth(),
         "centerFrequency" => frequency(),
-        "polarization" => String.t()
+        "polarization" => list(any())
       }
 
   """
@@ -306,8 +307,8 @@ defmodule AWS.GroundStation do
       endpoint_details() :: %{
         "awsGroundStationAgentEndpoint" => aws_ground_station_agent_endpoint(),
         "endpoint" => dataflow_endpoint(),
-        "healthReasons" => list(String.t()()),
-        "healthStatus" => String.t(),
+        "healthReasons" => list(list(any())()),
+        "healthStatus" => list(any()),
         "securityDetails" => security_details()
       }
 
@@ -322,7 +323,7 @@ defmodule AWS.GroundStation do
         "configArn" => String.t(),
         "configData" => list(),
         "configId" => [String.t()],
-        "configType" => String.t(),
+        "configType" => list(any()),
         "name" => [String.t()],
         "tags" => map()
       }
@@ -341,7 +342,7 @@ defmodule AWS.GroundStation do
         "name" => String.t(),
         "priority" => integer(),
         "sourceS3Object" => s3_object(),
-        "status" => String.t()
+        "status" => list(any())
       }
 
   """
@@ -380,7 +381,7 @@ defmodule AWS.GroundStation do
         "ephemerisId" => String.t(),
         "epoch" => [non_neg_integer()],
         "name" => String.t(),
-        "source" => String.t()
+        "source" => list(any())
       }
 
   """
@@ -430,7 +431,7 @@ defmodule AWS.GroundStation do
       config_list_item() :: %{
         "configArn" => String.t(),
         "configId" => [String.t()],
-        "configType" => String.t(),
+        "configType" => list(any()),
         "name" => [String.t()]
       }
 
@@ -505,8 +506,8 @@ defmodule AWS.GroundStation do
   ## Example:
 
       aws_ground_station_agent_endpoint() :: %{
-        "agentStatus" => String.t(),
-        "auditResults" => String.t(),
+        "agentStatus" => list(any()),
+        "auditResults" => list(any()),
         "egressAddress" => connection_details(),
         "ingressAddress" => ranged_connection_details(),
         "name" => String.t()
@@ -558,7 +559,7 @@ defmodule AWS.GroundStation do
       config_id_response() :: %{
         "configArn" => String.t(),
         "configId" => [String.t()],
-        "configType" => String.t()
+        "configType" => list(any())
       }
 
   """
@@ -581,7 +582,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       frequency() :: %{
-        "units" => String.t(),
+        "units" => list(any()),
         "value" => [float()]
       }
 
@@ -663,7 +664,7 @@ defmodule AWS.GroundStation do
 
       contact_data() :: %{
         "contactId" => String.t(),
-        "contactStatus" => String.t(),
+        "contactStatus" => list(any()),
         "endTime" => [non_neg_integer()],
         "errorMessage" => [String.t()],
         "groundStation" => [String.t()],
@@ -773,7 +774,7 @@ defmodule AWS.GroundStation do
 
       aggregate_status() :: %{
         "signatureMap" => map(),
-        "status" => String.t()
+        "status" => list(any())
       }
 
   """
@@ -811,7 +812,7 @@ defmodule AWS.GroundStation do
         "address" => socket_address(),
         "mtu" => [integer()],
         "name" => String.t(),
-        "status" => String.t()
+        "status" => list(any())
       }
 
   """
@@ -916,7 +917,7 @@ defmodule AWS.GroundStation do
       source() :: %{
         "configDetails" => list(),
         "configId" => [String.t()],
-        "configType" => String.t(),
+        "configType" => list(any()),
         "dataflowSourceRegion" => [String.t()]
       }
 
@@ -935,7 +936,7 @@ defmodule AWS.GroundStation do
         "nextToken" => String.t(),
         "satelliteArn" => String.t(),
         "startTime" => [non_neg_integer()],
-        "statusList" => list(String.t()())
+        "statusList" => list(list(any())())
       }
 
   """
@@ -982,7 +983,7 @@ defmodule AWS.GroundStation do
 
       uplink_spectrum_config() :: %{
         "centerFrequency" => frequency(),
-        "polarization" => String.t()
+        "polarization" => list(any())
       }
 
   """
@@ -1103,7 +1104,7 @@ defmodule AWS.GroundStation do
       destination() :: %{
         "configDetails" => list(),
         "configId" => String.t(),
-        "configType" => String.t(),
+        "configType" => list(any()),
         "dataflowDestinationRegion" => [String.t()]
       }
 
@@ -1155,7 +1156,7 @@ defmodule AWS.GroundStation do
       list_ephemerides_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("statusList") => list(String.t()()),
+        optional("statusList") => list(list(any())()),
         required("endTime") => [non_neg_integer()],
         required("satelliteId") => String.t(),
         required("startTime") => [non_neg_integer()]
@@ -1205,7 +1206,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       frequency_bandwidth() :: %{
-        "units" => String.t(),
+        "units" => list(any()),
         "value" => [float()]
       }
 
@@ -1240,7 +1241,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       eirp() :: %{
-        "units" => String.t(),
+        "units" => list(any()),
         "value" => [float()]
       }
 
@@ -1314,11 +1315,11 @@ defmodule AWS.GroundStation do
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
         "ephemerisId" => String.t(),
-        "invalidReason" => String.t(),
+        "invalidReason" => list(any()),
         "name" => String.t(),
         "priority" => integer(),
         "satelliteId" => String.t(),
-        "status" => String.t(),
+        "status" => list(any()),
         "suppliedData" => list(),
         "tags" => map()
       }
@@ -1357,7 +1358,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       elevation() :: %{
-        "unit" => String.t(),
+        "unit" => list(any()),
         "value" => [float()]
       }
 

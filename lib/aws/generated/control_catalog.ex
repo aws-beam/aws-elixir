@@ -123,8 +123,12 @@ defmodule AWS.ControlCatalog do
 
       control_summary() :: %{
         "Arn" => String.t(),
+        "Behavior" => list(any()),
+        "CreateTime" => [non_neg_integer()],
         "Description" => [String.t()],
-        "Name" => [String.t()]
+        "Implementation" => implementation_summary(),
+        "Name" => [String.t()],
+        "Severity" => list(any())
       }
 
   """
@@ -174,11 +178,13 @@ defmodule AWS.ControlCatalog do
       get_control_response() :: %{
         "Arn" => String.t(),
         "Behavior" => list(any()),
+        "CreateTime" => [non_neg_integer()],
         "Description" => [String.t()],
         "Implementation" => implementation_details(),
         "Name" => [String.t()],
         "Parameters" => list(control_parameter()()),
-        "RegionConfiguration" => region_configuration()
+        "RegionConfiguration" => region_configuration(),
+        "Severity" => list(any())
       }
 
   """
@@ -189,11 +195,24 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       implementation_details() :: %{
+        "Identifier" => String.t(),
         "Type" => String.t()
       }
 
   """
   @type implementation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      implementation_summary() :: %{
+        "Identifier" => String.t(),
+        "Type" => String.t()
+      }
+
+  """
+  @type implementation_summary() :: %{String.t() => any()}
 
   @typedoc """
 

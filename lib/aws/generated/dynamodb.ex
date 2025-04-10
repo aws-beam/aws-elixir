@@ -4290,7 +4290,8 @@ defmodule AWS.DynamoDB do
 
   `LatestRestorableDateTime` is typically 5 minutes before the current time.
   You can restore your table to any point in time in the last 35 days. You can set
-  the recovery period to any value between 1 and 35 days.
+  the
+  recovery period to any value between 1 and 35 days.
 
   You can call `DescribeContinuousBackups` at a maximum rate of 10 times per
   second.
@@ -5144,9 +5145,10 @@ defmodule AWS.DynamoDB do
   `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
 
   You can restore your table to any point in time in the last 35 days. You can set
-  the recovery period to any value between 1 and 35 days. Any number of
-  users can execute up to 50 concurrent restores (any type of restore) in a given
-  account.
+  the
+  recovery period to any value between 1 and 35 days. Any number of users can
+  execute up
+  to 50 concurrent restores (any type of restore) in a given account.
 
   When you restore using point in time recovery, DynamoDB restores your table data
   to
@@ -5282,16 +5284,19 @@ defmodule AWS.DynamoDB do
     *
 
   `TagResource` is an asynchronous operation. If you issue a `ListTagsOfResource`
-  request immediately after a `TagResource` request, DynamoDB might return your
+  request immediately after a
+  `TagResource` request, DynamoDB might return your
   previous tag set, if there was one, or an empty tag set. This is because
-  `ListTagsOfResource` uses an eventually consistent query, and the metadata for
-  your tags or table might not be available at that moment. Wait for a few
-  seconds, and then try the `ListTagsOfResource` request again.
+  `ListTagsOfResource` uses an eventually consistent query, and the
+  metadata for your tags or table might not be available at that moment. Wait for
+  a few seconds, and then try the `ListTagsOfResource` request
+  again.
 
     *
-  The application or removal of tags using `TagResource` and `UntagResource` APIs
-  is eventually consistent. `ListTagsOfResource` API will only reflect the changes
-  after a few seconds.
+  The application or removal of tags using `TagResource` and
+  `UntagResource` APIs is eventually consistent.
+  `ListTagsOfResource` API will only reflect the changes after a
+  few seconds.
 
   For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
@@ -5448,16 +5453,19 @@ defmodule AWS.DynamoDB do
     *
 
   `UntagResource` is an asynchronous operation. If you issue a
-  `ListTagsOfResource` request immediately after an `UntagResource` request,
-  DynamoDB might return your previous tag set, if there was one, or an empty tag
-  set. This is because `ListTagsOfResource` uses an eventually consistent query,
-  and the metadata for your tags or table might not be available at that moment.
-  Wait for a few seconds, and then try the `ListTagsOfResource` request again.
+  `ListTagsOfResource` request immediately after an
+  `UntagResource` request, DynamoDB might return your
+  previous tag set, if there was one, or an empty tag set. This is because
+  `ListTagsOfResource` uses an eventually consistent query, and the
+  metadata for your tags or table might not be available at that moment. Wait for
+  a few seconds, and then try the `ListTagsOfResource` request
+  again.
 
     *
-  The application or removal of tags using `TagResource` and `UntagResource` APIs
-  is eventually consistent. `ListTagsOfResource` API will only reflect the changes
-  after a few seconds.
+  The application or removal of tags using `TagResource` and
+  `UntagResource` APIs is eventually consistent.
+  `ListTagsOfResource` API will only reflect the changes after a
+  few seconds.
 
   For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html)
   in the *Amazon DynamoDB Developer Guide*.
@@ -5490,7 +5498,8 @@ defmodule AWS.DynamoDB do
 
   `LatestRestorableDateTime` is typically 5 minutes before the current time.
   You can restore your table to any point in time in the last 35 days. You can set
-  the recovery period to any value between 1 and 35 days.
+  the
+  `RecoveryPeriodInDays` to any value between 1 and 35 days.
   """
   @spec update_continuous_backups(map(), update_continuous_backups_input(), list()) ::
           {:ok, update_continuous_backups_output(), any()}

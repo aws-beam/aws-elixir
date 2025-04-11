@@ -1474,6 +1474,7 @@ defmodule AWS.ElastiCache do
         "EngineVersion" => String.t(),
         "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
         "NumCacheNodes" => integer(),
+        "ScaleConfig" => scale_config(),
         "TransitEncryptionEnabled" => boolean(),
         "TransitEncryptionMode" => list(any())
       }
@@ -1921,6 +1922,18 @@ defmodule AWS.ElastiCache do
       
   """
   @type pending_log_delivery_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scale_config() :: %{
+        "ScaleIntervalMinutes" => integer(),
+        "ScalePercentage" => integer()
+      }
+      
+  """
+  @type scale_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3735,6 +3748,7 @@ defmodule AWS.ElastiCache do
         optional("NotificationTopicStatus") => String.t(),
         optional("NumCacheNodes") => integer(),
         optional("PreferredMaintenanceWindow") => String.t(),
+        optional("ScaleConfig") => scale_config(),
         optional("SecurityGroupIds") => list(String.t()()),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),

@@ -2069,6 +2069,7 @@ defmodule AWS.MediaLive do
         "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()()),
         "Codec" => list(any()),
         "ConfiguredInput" => list(any()),
+        "InputResolution" => String.t(),
         "LatencyMs" => integer(),
         "MaxBitrate" => integer(),
         "MediaconnectSettings" => input_device_media_connect_configurable_settings()
@@ -3237,6 +3238,7 @@ defmodule AWS.MediaLive do
         "DeviceState" => list(any()),
         "Framerate" => float(),
         "Height" => integer(),
+        "InputResolution" => String.t(),
         "LatencyMs" => integer(),
         "MaxBitrate" => integer(),
         "MediaconnectSettings" => input_device_media_connect_settings(),
@@ -5714,6 +5716,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      cmaf_ingest_caption_language_mapping() :: %{
+        "CaptionChannel" => integer(),
+        "LanguageCode" => String.t()
+      }
+
+  """
+  @type cmaf_ingest_caption_language_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_sdi_source_request() :: %{}
 
   """
@@ -5737,6 +5751,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       cmaf_ingest_group_settings() :: %{
+        "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()()),
         "Destination" => output_location_ref(),
         "Id3Behavior" => list(any()),
         "Id3NameModifier" => String.t(),
@@ -5748,7 +5763,10 @@ defmodule AWS.MediaLive do
         "Scte35Type" => list(any()),
         "SegmentLength" => integer(),
         "SegmentLengthUnits" => list(any()),
-        "SendDelayMs" => integer()
+        "SendDelayMs" => integer(),
+        "TimedMetadataId3Frame" => list(any()),
+        "TimedMetadataId3Period" => integer(),
+        "TimedMetadataPassthrough" => list(any())
       }
 
   """

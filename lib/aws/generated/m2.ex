@@ -129,6 +129,18 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      list_data_set_export_history_response() :: %{
+        "dataSetExportTasks" => list(data_set_export_task()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_set_export_history_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       file_batch_job_identifier() :: %{
         "fileName" => [String.t()],
         "folderPath" => [String.t()]
@@ -156,6 +168,9 @@ defmodule AWS.M2 do
       job_step() :: %{
         "procStepName" => [String.t()],
         "procStepNumber" => integer(),
+        "stepCheckpoint" => integer(),
+        "stepCheckpointStatus" => [String.t()],
+        "stepCheckpointTime" => non_neg_integer(),
         "stepCondCode" => [String.t()],
         "stepName" => [String.t()],
         "stepNumber" => integer(),
@@ -210,6 +225,8 @@ defmodule AWS.M2 do
       job_step_restart_marker() :: %{
         "fromProcStep" => [String.t()],
         "fromStep" => [String.t()],
+        "skip" => boolean(),
+        "stepCheckpoint" => integer(),
         "toProcStep" => [String.t()],
         "toStep" => [String.t()]
       }
@@ -243,6 +260,32 @@ defmodule AWS.M2 do
 
   """
   @type list_deployments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_set_export_history_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_set_export_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_set_export_task() :: %{
+        "status" => String.t(),
+        "statusReason" => [String.t()],
+        "summary" => data_set_export_summary(),
+        "taskId" => String.t()
+      }
+
+  """
+  @type data_set_export_task() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -617,6 +660,21 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      data_set_export_summary() :: %{
+        "failed" => integer(),
+        "inProgress" => integer(),
+        "pending" => integer(),
+        "succeeded" => integer(),
+        "total" => integer()
+      }
+
+  """
+  @type data_set_export_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_set_summary() :: %{
         "creationTime" => non_neg_integer(),
         "dataSetName" => String.t(),
@@ -775,6 +833,15 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      get_data_set_export_task_request() :: %{}
+
+  """
+  @type get_data_set_export_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_set_import_task_request() :: %{
         optional("clientToken") => String.t(),
         required("importConfig") => list()
@@ -907,6 +974,18 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      data_set_export_item() :: %{
+        "datasetName" => String.t(),
+        "externalLocation" => list()
+      }
+
+  """
+  @type data_set_export_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_application_request() :: %{}
 
   """
@@ -1005,6 +1084,19 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      create_data_set_export_task_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("kmsKeyId") => String.t(),
+        required("exportConfig") => list()
+      }
+
+  """
+  @type create_data_set_export_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_batch_job_execution_response() :: %{
         optional("batchJobIdentifier") => list(),
         optional("endTime") => non_neg_integer(),
@@ -1056,6 +1148,21 @@ defmodule AWS.M2 do
 
   """
   @type fsx_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_set_export_task_response() :: %{
+        "kmsKeyArn" => [String.t()],
+        "status" => String.t(),
+        "statusReason" => [String.t()],
+        "summary" => data_set_export_summary(),
+        "taskId" => String.t()
+      }
+
+  """
+  @type get_data_set_export_task_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1435,6 +1542,17 @@ defmodule AWS.M2 do
 
   ## Example:
 
+      create_data_set_export_task_response() :: %{
+        "taskId" => String.t()
+      }
+
+  """
+  @type create_data_set_export_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_job_execution_summary() :: %{
         "applicationId" => String.t(),
         "batchJobIdentifier" => list(),
@@ -1501,6 +1619,15 @@ defmodule AWS.M2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_data_set_export_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_data_set_import_task_errors() ::
@@ -1582,6 +1709,13 @@ defmodule AWS.M2 do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_data_set_export_task_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_set_import_task_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1640,6 +1774,13 @@ defmodule AWS.M2 do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type list_data_set_export_history_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_data_set_import_history_errors() ::
           throttling_exception()
@@ -1812,6 +1953,40 @@ defmodule AWS.M2 do
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
     url_path = "/applications"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a data set export task for a specific application.
+  """
+  @spec create_data_set_export_task(
+          map(),
+          String.t(),
+          create_data_set_export_task_request(),
+          list()
+        ) ::
+          {:ok, create_data_set_export_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_set_export_task_errors()}
+  def create_data_set_export_task(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-export-task"
     headers = []
     custom_headers = []
     query_params = []
@@ -2114,6 +2289,27 @@ defmodule AWS.M2 do
   def get_data_set_details(%Client{} = client, application_id, data_set_name, options \\ []) do
     url_path =
       "/applications/#{AWS.Util.encode_uri(application_id)}/datasets/#{AWS.Util.encode_uri(data_set_name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the status of a data set import task initiated with the
+  `CreateDataSetExportTask` operation.
+  """
+  @spec get_data_set_export_task(map(), String.t(), String.t(), list()) ::
+          {:ok, get_data_set_export_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_set_export_task_errors()}
+  def get_data_set_export_task(%Client{} = client, application_id, task_id, options \\ []) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-export-tasks/#{AWS.Util.encode_uri(task_id)}"
 
     headers = []
     query_params = []
@@ -2477,6 +2673,50 @@ defmodule AWS.M2 do
     query_params =
       if !is_nil(auth_secrets_manager_arn) do
         [{"authSecretsManagerArn", auth_secrets_manager_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the data set exports for the specified application.
+  """
+  @spec list_data_set_export_history(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_data_set_export_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_set_export_history_errors()}
+  def list_data_set_export_history(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/dataset-export-tasks"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end

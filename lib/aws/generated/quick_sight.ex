@@ -4009,6 +4009,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      visual_highlight_operation() :: %{
+        "Trigger" => list(any())
+      }
+
+  """
+  @type visual_highlight_operation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_asset_bundle_import_job_request() :: %{}
 
   """
@@ -4647,6 +4658,7 @@ defmodule AWS.QuickSight do
 
       sheet_definition() :: %{
         "ContentType" => list(any()),
+        "CustomActionDefaults" => visual_custom_action_defaults(),
         "Description" => String.t(),
         "FilterControls" => list(filter_control()()),
         "Images" => list(sheet_image()()),
@@ -12718,6 +12730,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_options() :: %{
+        "CustomActionDefaults" => visual_custom_action_defaults(),
         "ExcludedDataSetArns" => list(String.t()()),
         "QBusinessInsightsStatus" => list(any()),
         "Timezone" => String.t(),
@@ -13834,6 +13847,17 @@ defmodule AWS.QuickSight do
 
   """
   @type arc_axis_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visual_custom_action_defaults() :: %{
+        "highlightOperation" => visual_highlight_operation()
+      }
+
+  """
+  @type visual_custom_action_defaults() :: %{String.t() => any()}
 
   @typedoc """
 

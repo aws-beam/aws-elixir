@@ -411,6 +411,7 @@ defmodule AWS.QBusiness do
         "conversationId" => String.t(),
         "systemMessage" => String.t(),
         "systemMessageId" => String.t(),
+        "systemMessageType" => list(any()),
         "userMessageId" => String.t()
       }
 
@@ -2270,6 +2271,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      hallucination_reduction_configuration() :: %{
+        "hallucinationReductionControl" => list(any())
+      }
+
+  """
+  @type hallucination_reduction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_chat_controls_configuration_request() :: %{}
 
   """
@@ -2563,6 +2575,7 @@ defmodule AWS.QBusiness do
         optional("blockedPhrasesConfigurationUpdate") => blocked_phrases_configuration_update(),
         optional("clientToken") => String.t(),
         optional("creatorModeConfiguration") => creator_mode_configuration(),
+        optional("hallucinationReductionConfiguration") => hallucination_reduction_configuration(),
         optional("orchestrationConfiguration") => orchestration_configuration(),
         optional("responseScope") => list(any()),
         optional("topicConfigurationsToCreateOrUpdate") => list(topic_configuration()()),
@@ -2974,6 +2987,7 @@ defmodule AWS.QBusiness do
       get_chat_controls_configuration_response() :: %{
         "blockedPhrases" => blocked_phrases_configuration(),
         "creatorModeConfiguration" => applied_creator_mode_configuration(),
+        "hallucinationReductionConfiguration" => hallucination_reduction_configuration(),
         "nextToken" => String.t(),
         "orchestrationConfiguration" => applied_orchestration_configuration(),
         "responseScope" => list(any()),
@@ -4126,6 +4140,7 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_web_experience_errors() ::
           throttling_exception()

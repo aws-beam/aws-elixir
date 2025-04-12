@@ -290,6 +290,7 @@ defmodule AWS.VerifiedPermissions do
       
       create_policy_store_input() :: %{
         optional("clientToken") => String.t(),
+        optional("deletionProtection") => list(any()),
         optional("description") => String.t(),
         required("validationSettings") => validation_settings()
       }
@@ -449,6 +450,17 @@ defmodule AWS.VerifiedPermissions do
 
   ## Example:
       
+      invalid_state_exception() :: %{
+        "message" => [String.t()]
+      }
+      
+  """
+  @type invalid_state_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_policy_store_output() :: %{
         "arn" => String.t(),
         "createdDate" => non_neg_integer(),
@@ -588,6 +600,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_policy_store_input() :: %{
+        optional("deletionProtection") => list(any()),
         optional("description") => String.t(),
         required("policyStoreId") => String.t(),
         required("validationSettings") => validation_settings()
@@ -1136,6 +1149,7 @@ defmodule AWS.VerifiedPermissions do
       get_policy_store_output() :: %{
         "arn" => String.t(),
         "createdDate" => non_neg_integer(),
+        "deletionProtection" => list(any()),
         "description" => String.t(),
         "lastUpdatedDate" => non_neg_integer(),
         "policyStoreId" => String.t(),
@@ -1612,6 +1626,8 @@ defmodule AWS.VerifiedPermissions do
 
   @type delete_policy_errors() :: resource_not_found_exception() | conflict_exception()
 
+  @type delete_policy_store_errors() :: invalid_state_exception()
+
   @type delete_policy_template_errors() :: resource_not_found_exception() | conflict_exception()
 
   @type get_identity_source_errors() :: resource_not_found_exception()
@@ -1976,6 +1992,7 @@ defmodule AWS.VerifiedPermissions do
           {:ok, delete_policy_store_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
+          | {:error, delete_policy_store_errors()}
   def delete_policy_store(%Client{} = client, input, options \\ []) do
     meta = metadata()
 

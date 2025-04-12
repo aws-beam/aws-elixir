@@ -3833,6 +3833,9 @@ defmodule AWS.DynamoDB do
   For more information, see [Working with Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations)
   in the *Amazon DynamoDB Developer
   Guide*.
+
+  `BatchGetItem` will result in a `ValidationException` if the
+  same key is specified multiple times.
   """
   @spec batch_get_item(map(), batch_get_item_input(), list()) ::
           {:ok, batch_get_item_output(), any()}

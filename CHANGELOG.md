@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.5] - 2025-04-15
+- Allow option `sign_request?` to disable signing
+
 ## [v1.0.4] - 2024-12-09
 - Fix support for custom metadata
 

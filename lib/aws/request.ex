@@ -121,7 +121,15 @@ defmodule AWS.Request do
 
     headers = add_headers(additional_headers, headers)
 
-    headers = Signature.sign_v4(client, now(), http_method, url, headers, payload)
+    {sign_request?, options} = Keyword.pop(options, :sign_request?, true)
+    # Most requests require signatures, but this option allows it to
+    # be disabled.
+    headers =
+      if sign_request? do
+        Signature.sign_v4(client, now(), http_method, url, headers, payload)
+      else
+        headers
+      end
 
     {response_header_parameters, options} = Keyword.pop(options, :response_header_parameters)
 

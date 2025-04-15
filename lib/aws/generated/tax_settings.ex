@@ -97,6 +97,7 @@ defmodule AWS.TaxSettings do
         "georgiaAdditionalInfo" => georgia_additional_info(),
         "greeceAdditionalInfo" => greece_additional_info(),
         "indiaAdditionalInfo" => india_additional_info(),
+        "indonesiaAdditionalInfo" => indonesia_additional_info(),
         "israelAdditionalInfo" => israel_additional_info(),
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
@@ -393,6 +394,7 @@ defmodule AWS.TaxSettings do
         "estoniaAdditionalInfo" => estonia_additional_info(),
         "georgiaAdditionalInfo" => georgia_additional_info(),
         "greeceAdditionalInfo" => greece_additional_info(),
+        "indonesiaAdditionalInfo" => indonesia_additional_info(),
         "israelAdditionalInfo" => israel_additional_info(),
         "italyAdditionalInfo" => italy_additional_info(),
         "kenyaAdditionalInfo" => kenya_additional_info(),
@@ -446,6 +448,19 @@ defmodule AWS.TaxSettings do
 
   """
   @type tax_exemption_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      indonesia_additional_info() :: %{
+        "decisionNumber" => String.t(),
+        "ppnExceptionDesignationCode" => String.t(),
+        "taxRegistrationNumberType" => list(any())
+      }
+
+  """
+  @type indonesia_additional_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1276,6 +1291,43 @@ defmodule AWS.TaxSettings do
     *
   The valid `personType` values are `Physical Person` and `Business`.
 
+  ## Indonesia
+
+    *
+
+  `PutTaxRegistration`: The use of this operation to submit tax information is
+  subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+  consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
+  by you with the Directorate General of Taxes of Indonesia in accordance with the
+  Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
+
+    *
+
+  `BatchPutTaxRegistration`: The use of this operation to submit tax information
+  is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+  consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
+  by you with the Directorate General of Taxes of Indonesia in accordance with the
+  Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our
+  third-party partner PT Achilles Advanced Management (OnlinePajak).
+
+    *
+  You must specify the `taxRegistrationNumberType` in the
+  `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
+
+    *
+  If you specify `decisionNumber`, you must specify the
+  `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the
+  `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to
+  NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`,
+  `02`, `03`, `07`, or `08`.
+
+  For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must
+  be either `01`, `07`, or `08`.
+
+    *
+  If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber`
+  in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
+
   ## Kenya
 
     *
@@ -1858,6 +1910,43 @@ defmodule AWS.TaxSettings do
 
     *
   The valid `personType` values are `Physical Person` and `Business`.
+
+  ## Indonesia
+
+    *
+
+  `PutTaxRegistration`: The use of this operation to submit tax information is
+  subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+  consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
+  by you with the Directorate General of Taxes of Indonesia in accordance with the
+  Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.
+
+    *
+
+  `BatchPutTaxRegistration`: The use of this operation to submit tax information
+  is subject to the [Amazon Web Services service terms](http://aws.amazon.com/service-terms/). By submitting, you’re providing
+  consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided
+  by you with the Directorate General of Taxes of Indonesia in accordance with the
+  Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our
+  third-party partner PT Achilles Advanced Management (OnlinePajak).
+
+    *
+  You must specify the `taxRegistrationNumberType` in the
+  `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
+
+    *
+  If you specify `decisionNumber`, you must specify the
+  `ppnExceptionDesignationCode` in the `indonesiaAdditionalInfo` field of the
+  `additionalTaxInformation` object. If the `taxRegistrationNumberType` is set to
+  NPWP or NITKU, valid values for `ppnExceptionDesignationCode` are either `01`,
+  `02`, `03`, `07`, or `08`.
+
+  For other `taxRegistrationNumberType` values, `ppnExceptionDesignationCode` must
+  be either `01`, `07`, or `08`.
+
+    *
+  If `ppnExceptionDesignationCode` is `07`, you must specify the `decisionNumber`
+  in the `indonesiaAdditionalInfo` field of the `additionalTaxInformation` object.
 
   ## Kenya
 

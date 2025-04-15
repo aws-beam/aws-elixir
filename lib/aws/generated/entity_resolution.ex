@@ -675,7 +675,8 @@ defmodule AWS.EntityResolution do
         "totalMappedRecords" => [integer()],
         "totalMappedSourceRecords" => [integer()],
         "totalMappedTargetRecords" => [integer()],
-        "totalRecordsProcessed" => [integer()]
+        "totalRecordsProcessed" => [integer()],
+        "uniqueRecordsLoaded" => [integer()]
       }
 
   """
@@ -2241,7 +2242,12 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Returns the corresponding Match ID of a customer record if the record has been
-  processed.
+  processed in a
+  rule-based matching workflow or ML matching workflow.
+
+  You can call this API as a dry run of an incremental load on the rule-based
+  matching
+  workflow.
   """
   @spec get_match_id(map(), String.t(), get_match_id_input(), list()) ::
           {:ok, get_match_id_output(), any()}

@@ -101,7 +101,7 @@ defmodule AWS.Request do
         send_body_as_binary? ->
           Map.fetch!(input, "Body")
 
-        http_method in [:get, :head, :options] ->
+        http_method in [:get, :head, :options, :delete] ->
           ""
 
         true ->

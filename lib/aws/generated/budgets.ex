@@ -81,6 +81,19 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      expression_dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type expression_dimension_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("ResourceTags") => list(resource_tag()())
@@ -197,6 +210,19 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      tag_values() :: %{
+        "Key" => String.t(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type tag_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       action_threshold() :: %{
         "ActionThresholdType" => list(any()),
         "ActionThresholdValue" => float()
@@ -265,6 +291,7 @@ defmodule AWS.Budgets do
       describe_budgets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("ShowFilterExpression") => boolean(),
         required("AccountId") => String.t()
       }
       
@@ -641,6 +668,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budget_request() :: %{
+        optional("ShowFilterExpression") => boolean(),
         required("AccountId") => String.t(),
         required("BudgetName") => String.t()
       }
@@ -710,6 +738,19 @@ defmodule AWS.Budgets do
 
   ## Example:
       
+      cost_category_values() :: %{
+        "Key" => String.t(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type cost_category_values() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       budget() :: %{
         "AutoAdjustData" => auto_adjust_data(),
         "BudgetLimit" => spend(),
@@ -718,7 +759,9 @@ defmodule AWS.Budgets do
         "CalculatedSpend" => calculated_spend(),
         "CostFilters" => map(),
         "CostTypes" => cost_types(),
+        "FilterExpression" => expression(),
         "LastUpdatedTime" => non_neg_integer(),
+        "Metrics" => list(list(any())()),
         "PlannedBudgetLimits" => map(),
         "TimePeriod" => time_period(),
         "TimeUnit" => list(any())
@@ -888,6 +931,22 @@ defmodule AWS.Budgets do
       
   """
   @type definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "And" => list(expression()()),
+        "CostCategories" => cost_category_values(),
+        "Dimensions" => expression_dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression()()),
+        "Tags" => tag_values()
+      }
+      
+  """
+  @type expression() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1363,11 +1422,22 @@ defmodule AWS.Budgets do
   @doc """
   Creates a budget and, if included, notifications and subscribers.
 
-  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in the syntax
-  at one time. Use the syntax that matches your case. The Request Syntax section
-  shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`, see the
+  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in
+  the syntax at one time. Use the syntax that matches your use case. The Request
+  Syntax
+  section shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`,
+  see the
   [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples)
   section.
+
+  Similarly, only one set of filter and metric selections can be present in the
+  syntax
+  at one time. Either `FilterExpression` and `Metrics` or
+  `CostFilters` and `CostTypes`, not both or a different
+  combination. We recommend using `FilterExpression` and `Metrics`
+  as they provide more flexible and powerful filtering capabilities. The Request
+  Syntax
+  section shows the `FilterExpression`/`Metrics` syntax.
   """
   @spec create_budget(map(), create_budget_request(), list()) ::
           {:ok, create_budget_response(), any()}
@@ -1743,11 +1813,22 @@ defmodule AWS.Budgets do
   `calculatedSpend`. When you modify a budget, the `calculatedSpend` drops to zero
   until Amazon Web Services has new usage data to use for forecasting.
 
-  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in the syntax
-  at one time. Use the syntax that matches your case. The Request Syntax section
-  shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`, see the
+  Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in
+  the syntax at one time. Use the syntax that matches your case. The Request
+  Syntax
+  section shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`,
+  see the
   [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples)
   section.
+
+  Similarly, only one set of filter and metric selections can be present in the
+  syntax
+  at one time. Either `FilterExpression` and `Metrics` or
+  `CostFilters` and `CostTypes`, not both or a different
+  combination. We recommend using `FilterExpression` and `Metrics`
+  as they provide more flexible and powerful filtering capabilities. The Request
+  Syntax
+  section shows the `FilterExpression`/`Metrics` syntax.
   """
   @spec update_budget(map(), update_budget_request(), list()) ::
           {:ok, update_budget_response(), any()}

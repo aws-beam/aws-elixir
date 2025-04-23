@@ -133,6 +133,17 @@ defmodule AWS.QConnect do
 
   ## Example:
 
+      message_configuration() :: %{
+        "generateFillerMessage" => [boolean()]
+      }
+
+  """
+  @type message_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_a_i_agents_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -738,6 +749,19 @@ defmodule AWS.QConnect do
 
   """
   @type delete_knowledge_base_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      generative_chunk_data_details() :: %{
+        "completion" => String.t(),
+        "nextChunkToken" => String.t(),
+        "references" => list(data_summary()())
+      }
+
+  """
+  @type generative_chunk_data_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2070,6 +2094,7 @@ defmodule AWS.QConnect do
 
       get_recommendations_request() :: %{
         optional("maxResults") => integer(),
+        optional("nextChunkToken") => String.t(),
         optional("waitTimeSeconds") => integer()
       }
 
@@ -2515,6 +2540,7 @@ defmodule AWS.QConnect do
         "description" => String.t(),
         "integrationConfiguration" => session_integration_configuration(),
         "name" => String.t(),
+        "origin" => String.t(),
         "sessionArn" => String.t(),
         "sessionId" => String.t(),
         "tagFilter" => list(),
@@ -3437,6 +3463,7 @@ defmodule AWS.QConnect do
 
       send_message_request() :: %{
         optional("clientToken") => String.t(),
+        optional("configuration") => message_configuration(),
         optional("conversationContext") => conversation_context(),
         required("message") => message_input(),
         required("type") => String.t()
@@ -3780,6 +3807,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       send_message_response() :: %{
+        "configuration" => message_configuration(),
         "nextMessageToken" => String.t(),
         "requestMessageId" => String.t()
       }
@@ -4344,7 +4372,10 @@ defmodule AWS.QConnect do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type delete_content_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_content_association_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -6341,6 +6372,7 @@ defmodule AWS.QConnect do
           String.t(),
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, get_recommendations_response(), any()}
@@ -6352,6 +6384,7 @@ defmodule AWS.QConnect do
         assistant_id,
         session_id,
         max_results \\ nil,
+        next_chunk_token \\ nil,
         wait_time_seconds \\ nil,
         options \\ []
       ) do
@@ -6364,6 +6397,13 @@ defmodule AWS.QConnect do
     query_params =
       if !is_nil(wait_time_seconds) do
         [{"waitTimeSeconds", wait_time_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_chunk_token) do
+        [{"nextChunkToken", next_chunk_token} | query_params]
       else
         query_params
       end

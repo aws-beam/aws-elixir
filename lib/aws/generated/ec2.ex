@@ -4385,6 +4385,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      client_route_enforcement_options() :: %{
+        "Enforced" => boolean()
+      }
+      
+  """
+  @type client_route_enforcement_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       elastic_gpu_association() :: %{
         "ElasticGpuAssociationId" => String.t(),
         "ElasticGpuAssociationState" => String.t(),
@@ -6259,6 +6270,17 @@ defmodule AWS.EC2 do
       
   """
   @type neuron_device_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_route_enforcement_response_options() :: %{
+        "Enforced" => boolean()
+      }
+      
+  """
+  @type client_route_enforcement_response_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18935,6 +18957,7 @@ defmodule AWS.EC2 do
       modify_client_vpn_endpoint_request() :: %{
         optional("ClientConnectOptions") => client_connect_options(),
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
+        optional("ClientRouteEnforcementOptions") => client_route_enforcement_options(),
         optional("ConnectionLogOptions") => connection_log_options(),
         optional("Description") => String.t(),
         optional("DisconnectOnSessionTimeout") => boolean(),
@@ -19779,6 +19802,7 @@ defmodule AWS.EC2 do
         "ClientCidrBlock" => String.t(),
         "ClientConnectOptions" => client_connect_response_options(),
         "ClientLoginBannerOptions" => client_login_banner_response_options(),
+        "ClientRouteEnforcementOptions" => client_route_enforcement_response_options(),
         "ClientVpnEndpointId" => String.t(),
         "ConnectionLogOptions" => connection_log_response_options(),
         "CreationTime" => String.t(),
@@ -27121,6 +27145,7 @@ defmodule AWS.EC2 do
       create_client_vpn_endpoint_request() :: %{
         optional("ClientConnectOptions") => client_connect_options(),
         optional("ClientLoginBannerOptions") => client_login_banner_options(),
+        optional("ClientRouteEnforcementOptions") => client_route_enforcement_options(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DisconnectOnSessionTimeout") => boolean(),
@@ -38341,6 +38366,8 @@ defmodule AWS.EC2 do
   Describes the principals (service consumers) that are permitted to discover your
   VPC
   endpoint service.
+
+  Principal ARNs with path components aren't supported.
   """
   @spec describe_vpc_endpoint_service_permissions(
           map(),
@@ -43029,7 +43056,7 @@ defmodule AWS.EC2 do
   You can add or remove permissions
   for service consumers (Amazon Web Services accounts, users, and IAM roles) to
   connect to
-  your endpoint service.
+  your endpoint service. Principal ARNs with path components aren't supported.
 
   If you grant permissions to all principals, the service is public. Any users who
   know the name of a

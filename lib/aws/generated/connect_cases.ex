@@ -125,6 +125,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      sla_content() :: %{
+        "slaConfiguration" => sla_configuration()
+      }
+
+  """
+  @type sla_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_related_items_response() :: %{
         optional("nextToken") => String.t(),
         required("relatedItems") => list(search_related_items_response_item()())
@@ -766,6 +777,21 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      sla_input_configuration() :: %{
+        "fieldId" => String.t(),
+        "name" => String.t(),
+        "targetFieldValues" => list(list()()),
+        "targetSlaMinutes" => float(),
+        "type" => String.t()
+      }
+
+  """
+  @type sla_input_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_case_rule_response() :: %{}
 
   """
@@ -987,6 +1013,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      sla_filter() :: %{
+        "name" => String.t(),
+        "status" => String.t()
+      }
+
+  """
+  @type sla_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event_bridge_configuration() :: %{
         "enabled" => [boolean()],
         "includedData" => event_included_data()
@@ -1003,6 +1041,23 @@ defmodule AWS.ConnectCases do
 
   """
   @type delete_field_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sla_configuration() :: %{
+        "completionTime" => non_neg_integer(),
+        "fieldId" => String.t(),
+        "name" => String.t(),
+        "status" => String.t(),
+        "targetFieldValues" => list(list()()),
+        "targetTime" => non_neg_integer(),
+        "type" => String.t()
+      }
+
+  """
+  @type sla_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1753,6 +1808,7 @@ defmodule AWS.ConnectCases do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type search_cases_errors() ::
           throttling_exception()

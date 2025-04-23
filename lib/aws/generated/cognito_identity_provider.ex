@@ -1167,6 +1167,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      refresh_token_reuse_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type refresh_token_reuse_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       user_attribute_update_settings_type() :: %{
         "AttributesRequireVerificationBeforeUpdate" => list(list(any())())
       }
@@ -1261,6 +1272,7 @@ defmodule AWS.CognitoIdentityProvider do
         "LogoutURLs" => list(String.t()()),
         "PreventUserExistenceErrors" => list(any()),
         "ReadAttributes" => list(String.t()()),
+        "RefreshTokenRotation" => refresh_token_rotation_type(),
         "RefreshTokenValidity" => integer(),
         "SupportedIdentityProviders" => list(String.t()()),
         "TokenValidityUnits" => token_validity_units_type(),
@@ -2055,6 +2067,21 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_tokens_from_refresh_token_request() :: %{
+        optional("ClientMetadata") => map(),
+        optional("ClientSecret") => String.t(),
+        optional("DeviceKey") => String.t(),
+        required("ClientId") => String.t(),
+        required("RefreshToken") => String.t()
+      }
+      
+  """
+  @type get_tokens_from_refresh_token_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_user_pool_response() :: %{
         "UserPool" => user_pool_type()
       }
@@ -2164,6 +2191,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("LogoutURLs") => list(String.t()()),
         optional("PreventUserExistenceErrors") => list(any()),
         optional("ReadAttributes") => list(String.t()()),
+        optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
         optional("SupportedIdentityProviders") => list(String.t()()),
         optional("TokenValidityUnits") => token_validity_units_type(),
@@ -3017,6 +3045,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_tokens_from_refresh_token_response() :: %{
+        "AuthenticationResult" => authentication_result_type()
+      }
+      
+  """
+  @type get_tokens_from_refresh_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unsupported_identity_provider_exception() :: %{
         "message" => String.t()
       }
@@ -3572,6 +3611,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      refresh_token_rotation_type() :: %{
+        "Feature" => list(any()),
+        "RetryGracePeriodSeconds" => integer()
+      }
+      
+  """
+  @type refresh_token_rotation_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_user_import_job_response() :: %{
         "UserImportJob" => user_import_job_type()
       }
@@ -3651,6 +3702,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("LogoutURLs") => list(String.t()()),
         optional("PreventUserExistenceErrors") => list(any()),
         optional("ReadAttributes") => list(String.t()()),
+        optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
         optional("SupportedIdentityProviders") => list(String.t()()),
         optional("TokenValidityUnits") => token_validity_units_type(),
@@ -4574,6 +4626,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
           | invalid_email_role_access_policy_exception()
+          | unsupported_operation_exception()
           | user_not_confirmed_exception()
 
   @type admin_link_provider_for_user_errors() ::
@@ -4878,6 +4931,7 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | not_authorized_exception()
           | invalid_o_auth_flow_exception()
+          | feature_unavailable_in_tier_exception()
           | scope_does_not_exist_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
@@ -4885,6 +4939,7 @@ defmodule AWS.CognitoIdentityProvider do
   @type create_user_pool_domain_errors() ::
           internal_error_exception()
           | limit_exceeded_exception()
+          | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | feature_unavailable_in_tier_exception()
@@ -4961,6 +5016,7 @@ defmodule AWS.CognitoIdentityProvider do
 
   @type delete_user_pool_domain_errors() ::
           internal_error_exception()
+          | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
@@ -5110,6 +5166,19 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | resource_not_found_exception()
 
+  @type get_tokens_from_refresh_token_errors() ::
+          unexpected_lambda_exception()
+          | internal_error_exception()
+          | invalid_parameter_exception()
+          | not_authorized_exception()
+          | user_lambda_validation_exception()
+          | invalid_lambda_response_exception()
+          | user_not_found_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+          | refresh_token_reuse_exception()
+          | forbidden_exception()
+
   @type get_ui_customization_errors() ::
           internal_error_exception()
           | invalid_parameter_exception()
@@ -5191,6 +5260,7 @@ defmodule AWS.CognitoIdentityProvider do
           | too_many_requests_exception()
           | forbidden_exception()
           | invalid_email_role_access_policy_exception()
+          | unsupported_operation_exception()
           | user_not_confirmed_exception()
 
   @type list_devices_errors() ::
@@ -5532,12 +5602,14 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | not_authorized_exception()
           | invalid_o_auth_flow_exception()
+          | feature_unavailable_in_tier_exception()
           | scope_does_not_exist_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type update_user_pool_domain_errors() ::
           internal_error_exception()
+          | concurrent_modification_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | feature_unavailable_in_tier_exception()
@@ -8082,6 +8154,29 @@ defmodule AWS.CognitoIdentityProvider do
     meta = metadata()
 
     Request.request_post(client, meta, "GetSigningCertificate", input, options)
+  end
+
+  @doc """
+  Given a refresh token, issues new ID, access, and optionally refresh tokens for
+  the
+  user who owns the submitted token.
+
+  This operation issues a new refresh token and
+  invalidates the original refresh token after an optional grace period when
+  refresh token
+  rotation is enabled. If refresh token rotation is disabled, issues new ID and
+  access
+  tokens only.
+  """
+  @spec get_tokens_from_refresh_token(map(), get_tokens_from_refresh_token_request(), list()) ::
+          {:ok, get_tokens_from_refresh_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_tokens_from_refresh_token_errors()}
+  def get_tokens_from_refresh_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetTokensFromRefreshToken", input, options)
   end
 
   @doc """

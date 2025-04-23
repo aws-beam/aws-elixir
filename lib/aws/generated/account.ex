@@ -38,6 +38,7 @@ defmodule AWS.Account do
   ## Example:
 
       access_denied_exception() :: %{
+        "errorType" => [String.t()],
         "message" => [String.t()]
       }
 
@@ -64,6 +65,7 @@ defmodule AWS.Account do
   ## Example:
 
       conflict_exception() :: %{
+        "errorType" => [String.t()],
         "message" => [String.t()]
       }
 
@@ -127,6 +129,30 @@ defmodule AWS.Account do
 
   """
   @type enable_region_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_information_request() :: %{
+        optional("AccountId") => String.t()
+      }
+
+  """
+  @type get_account_information_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_information_response() :: %{
+        "AccountCreatedDate" => non_neg_integer(),
+        "AccountId" => String.t(),
+        "AccountName" => String.t()
+      }
+
+  """
+  @type get_account_information_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -224,6 +250,7 @@ defmodule AWS.Account do
   ## Example:
 
       internal_server_exception() :: %{
+        "errorType" => [String.t()],
         "message" => [String.t()]
       }
 
@@ -255,6 +282,18 @@ defmodule AWS.Account do
 
   """
   @type list_regions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_name_request() :: %{
+        optional("AccountId") => String.t(),
+        required("AccountName") => String.t()
+      }
+
+  """
+  @type put_account_name_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -301,6 +340,7 @@ defmodule AWS.Account do
   ## Example:
 
       resource_not_found_exception() :: %{
+        "errorType" => [String.t()],
         "message" => [String.t()]
       }
 
@@ -335,6 +375,7 @@ defmodule AWS.Account do
   ## Example:
 
       too_many_requests_exception() :: %{
+        "errorType" => [String.t()],
         "message" => [String.t()]
       }
 
@@ -395,6 +436,12 @@ defmodule AWS.Account do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_account_information_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_alternate_contact_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -423,6 +470,12 @@ defmodule AWS.Account do
           | access_denied_exception()
 
   @type list_regions_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_account_name_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | internal_server_exception()
@@ -466,8 +519,8 @@ defmodule AWS.Account do
 
   @doc """
   Accepts the request that originated from `StartPrimaryEmailUpdate` to update the
-  primary email address (also known
-  as the root user email address) for the specified account.
+  primary email address (also known as the root user email address) for the
+  specified account.
   """
   @spec accept_primary_email_update(map(), accept_primary_email_update_request(), list()) ::
           {:ok, accept_primary_email_update_response(), any()}
@@ -499,13 +552,12 @@ defmodule AWS.Account do
   Deletes the specified alternate contact from an Amazon Web Services account.
 
   For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [Access or updating the alternate contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
+  Before you can update the alternate contact information for an Amazon Web
+  Services account that is managed by Organizations, you must first enable
+  integration between Amazon Web Services Account Management and Organizations.
+  For more information, see [Enabling trusted access for Amazon Web Services Account
   Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
   """
   @spec delete_alternate_contact(map(), delete_alternate_contact_request(), list()) ::
@@ -596,17 +648,49 @@ defmodule AWS.Account do
   end
 
   @doc """
+  Retrieves information about the specified account including its account name,
+  account ID, and account creation date and time.
+
+  To use this API, an IAM user or role must have the
+  `account:GetAccountInformation` IAM permission.
+  """
+  @spec get_account_information(map(), get_account_information_request(), list()) ::
+          {:ok, get_account_information_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_information_errors()}
+  def get_account_information(%Client{} = client, input, options \\ []) do
+    url_path = "/getAccountInformation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves the specified alternate contact attached to an Amazon Web Services
   account.
 
   For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [Access or updating the alternate contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
+  Before you can update the alternate contact information for an Amazon Web
+  Services account that is managed by Organizations, you must first enable
+  integration between Amazon Web Services Account Management and Organizations.
+  For more information, see [Enabling trusted access for Amazon Web Services Account
   Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
   """
   @spec get_alternate_contact(map(), get_alternate_contact_request(), list()) ::
@@ -639,8 +723,7 @@ defmodule AWS.Account do
   Retrieves the primary contact information of an Amazon Web Services account.
 
   For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [Update the primary and alternate contact information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
   """
   @spec get_contact_information(map(), get_contact_information_request(), list()) ::
           {:ok, get_contact_information_response(), any()}
@@ -759,17 +842,48 @@ defmodule AWS.Account do
   end
 
   @doc """
+  Updates the account name of the specified account.
+
+  To use this API, IAM principals must have the `account:PutAccountName` IAM
+  permission.
+  """
+  @spec put_account_name(map(), put_account_name_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_name_errors()}
+  def put_account_name(%Client{} = client, input, options \\ []) do
+    url_path = "/putAccountName"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Modifies the specified alternate contact attached to an Amazon Web Services
   account.
 
   For complete details about how to use the alternate contact operations, see
-  [Access or updating the alternate
-  contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [Access or updating the alternate contacts](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
 
-  Before you can update the alternate contact information for an
-  Amazon Web Services account that is managed by Organizations, you must first
-  enable integration between Amazon Web Services Account Management
-  and Organizations. For more information, see [Enabling trusted access for Amazon Web Services Account
+  Before you can update the alternate contact information for an Amazon Web
+  Services account that is managed by Organizations, you must first enable
+  integration between Amazon Web Services Account Management and Organizations.
+  For more information, see [Enabling trusted access for Amazon Web Services Account
   Management](https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html).
   """
   @spec put_alternate_contact(map(), put_alternate_contact_request(), list()) ::
@@ -802,8 +916,7 @@ defmodule AWS.Account do
   Updates the primary contact information of an Amazon Web Services account.
 
   For complete details about how to use the primary contact operations, see
-  [Update the primary and alternate contact
-  information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
+  [Update the primary and alternate contact information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html).
   """
   @spec put_contact_information(map(), put_contact_information_request(), list()) ::
           {:ok, nil, any()}

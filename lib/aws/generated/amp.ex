@@ -63,6 +63,19 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      update_workspace_configuration_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("limitsPerLabelSet") => list(limits_per_label_set()()),
+        optional("retentionPeriodInDays") => [integer()]
+      }
+
+  """
+  @type update_workspace_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_scraper_request() :: %{
         optional("alias") => String.t(),
         optional("clientToken") => String.t(),
@@ -209,6 +222,15 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      describe_workspace_configuration_request() :: %{}
+
+  """
+  @type describe_workspace_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_logging_configuration_request() :: %{
         "clientToken" => String.t(),
         "logGroupArn" => String.t()
@@ -308,6 +330,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      update_workspace_configuration_response() :: %{
+        "status" => workspace_configuration_status()
+      }
+
+  """
+  @type update_workspace_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_workspace_alias_request() :: %{
         "alias" => String.t(),
         "clientToken" => String.t()
@@ -335,6 +368,30 @@ defmodule AWS.Amp do
 
   """
   @type get_default_scraper_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      workspace_configuration_description() :: %{
+        "limitsPerLabelSet" => list(limits_per_label_set()()),
+        "retentionPeriodInDays" => [integer()],
+        "status" => workspace_configuration_status()
+      }
+
+  """
+  @type workspace_configuration_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_workspace_configuration_response() :: %{
+        "workspaceConfiguration" => workspace_configuration_description()
+      }
+
+  """
+  @type describe_workspace_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -655,6 +712,18 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      workspace_configuration_status() :: %{
+        "statusCode" => String.t(),
+        "statusReason" => [String.t()]
+      }
+
+  """
+  @type workspace_configuration_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -832,6 +901,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      limits_per_label_set_entry() :: %{
+        "maxSeries" => [float()]
+      }
+
+  """
+  @type limits_per_label_set_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_scraper_request() :: %{}
 
   """
@@ -907,6 +987,18 @@ defmodule AWS.Amp do
 
   """
   @type alert_manager_definition_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limits_per_label_set() :: %{
+        "labelSet" => map(),
+        "limits" => limits_per_label_set_entry()
+      }
+
+  """
+  @type limits_per_label_set() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1058,6 +1150,13 @@ defmodule AWS.Amp do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type describe_workspace_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_default_scraper_configuration_errors() ::
           throttling_exception() | access_denied_exception() | internal_server_exception()
 
@@ -1136,6 +1235,15 @@ defmodule AWS.Amp do
           | conflict_exception()
 
   @type update_workspace_alias_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_workspace_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1658,6 +1766,28 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Use this operation to return information about the configuration of a workspace.
+
+  The configuration details
+  returned include workspace configuration status, label set limits, and retention
+  period.
+  """
+  @spec describe_workspace_configuration(map(), String.t(), list()) ::
+          {:ok, describe_workspace_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_workspace_configuration_errors()}
+  def describe_workspace_configuration(%Client{} = client, workspace_id, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   The `GetDefaultScraperConfiguration` operation returns the default
   scraper configuration used when Amazon EKS creates a scraper for you.
   """
@@ -2110,6 +2240,45 @@ defmodule AWS.Amp do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Use this operation to create or update the label sets, label set limits, and
+  retention period of a workspace.
+
+  You must specify at least one of `limitsPerLabelSet` or `retentionPeriodInDays`
+  for the
+  request to be valid.
+  """
+  @spec update_workspace_configuration(
+          map(),
+          String.t(),
+          update_workspace_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_workspace_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workspace_configuration_errors()}
+  def update_workspace_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 end

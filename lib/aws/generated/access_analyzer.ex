@@ -512,6 +512,18 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      s3_express_directory_access_point_configuration() :: %{
+        "accessPointPolicy" => String.t(),
+        "networkOrigin" => list()
+      }
+
+  """
+  @type s3_express_directory_access_point_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       check_no_new_access_request() :: %{
         required("existingPolicyDocument") => String.t(),
         required("newPolicyDocument") => String.t(),
@@ -1224,6 +1236,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       s3_express_directory_bucket_configuration() :: %{
+        "accessPoints" => map(),
         "bucketPolicy" => String.t()
       }
 

@@ -7,8 +7,9 @@ defmodule AWS.S3Tables do
   [Apache Parquet](https://parquet.apache.org/docs/) format and related metadata.  This data is stored inside an S3 table as a subresource. All tables in a table
   bucket are stored in the [Apache
   Iceberg](https://iceberg.apache.org/docs/latest/) table format. Through
-  integration with the [AWS Glue Data Catalog](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
-  you can interact with your tables using AWS analytics services, such as [Amazon Athena](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/) and
+  integration with the [Amazon Web Services Glue Data Catalog](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
+  you can interact with your tables using Amazon Web Services analytics services,
+  such as [Amazon Athena](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/) and
   [Amazon Redshift](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/).
   Amazon S3 manages maintenance of your tables through automatic file compaction
   and snapshot management. For more information, see [Amazon S3 table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html).
@@ -49,6 +50,18 @@ defmodule AWS.S3Tables do
 
   """
   @type list_table_buckets_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_configuration() :: %{
+        "kmsKeyArn" => [String.t()],
+        "sseAlgorithm" => list(any())
+      }
+
+  """
+  @type encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -122,6 +135,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_encryption_response() :: %{
+        "encryptionConfiguration" => encryption_configuration()
+      }
+
+  """
+  @type get_table_encryption_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_table_request() :: %{
         optional("versionToken") => String.t()
       }
@@ -144,11 +168,24 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_bucket_encryption_response() :: %{
+        "encryptionConfiguration" => encryption_configuration()
+      }
+
+  """
+  @type get_table_bucket_encryption_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
         "namespace" => list(String.t()()),
-        "ownerAccountId" => String.t()
+        "namespaceId" => String.t(),
+        "ownerAccountId" => String.t(),
+        "tableBucketId" => String.t()
       }
 
   """
@@ -163,7 +200,9 @@ defmodule AWS.S3Tables do
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t(),
         "namespace" => list(String.t()()),
+        "namespaceId" => String.t(),
         "tableARN" => String.t(),
+        "tableBucketId" => String.t(),
         "type" => list(any())
       }
 
@@ -211,6 +250,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       create_table_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
         optional("metadata") => list(),
         required("format") => list(any()),
         required("name") => String.t()
@@ -233,8 +273,10 @@ defmodule AWS.S3Tables do
         "modifiedBy" => String.t(),
         "name" => String.t(),
         "namespace" => list(String.t()()),
+        "namespaceId" => String.t(),
         "ownerAccountId" => String.t(),
         "tableARN" => String.t(),
+        "tableBucketId" => String.t(),
         "type" => list(any()),
         "versionToken" => String.t(),
         "warehouseLocation" => String.t()
@@ -263,6 +305,15 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_maintenance_job_status_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_encryption_request() :: %{}
+
+  """
+  @type get_table_bucket_encryption_request() :: %{}
 
   @typedoc """
 
@@ -304,7 +355,9 @@ defmodule AWS.S3Tables do
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
         "namespace" => list(String.t()()),
-        "ownerAccountId" => String.t()
+        "namespaceId" => String.t(),
+        "ownerAccountId" => String.t(),
+        "tableBucketId" => String.t()
       }
 
   """
@@ -389,6 +442,24 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_encryption_request() :: %{}
+
+  """
+  @type get_table_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_table_bucket_encryption_request() :: %{}
+
+  """
+  @type delete_table_bucket_encryption_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_table_bucket_maintenance_configuration_request() :: %{
         required("value") => table_bucket_maintenance_configuration_value()
       }
@@ -441,6 +512,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       create_table_bucket_request() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
         required("name") => String.t()
       }
 
@@ -651,7 +723,8 @@ defmodule AWS.S3Tables do
         "arn" => String.t(),
         "createdAt" => [non_neg_integer()],
         "name" => String.t(),
-        "ownerAccountId" => String.t()
+        "ownerAccountId" => String.t(),
+        "tableBucketId" => String.t()
       }
 
   """
@@ -693,11 +766,23 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      put_table_bucket_encryption_request() :: %{
+        required("encryptionConfiguration") => encryption_configuration()
+      }
+
+  """
+  @type put_table_bucket_encryption_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_bucket_summary() :: %{
         "arn" => String.t(),
         "createdAt" => [non_neg_integer()],
         "name" => String.t(),
-        "ownerAccountId" => String.t()
+        "ownerAccountId" => String.t(),
+        "tableBucketId" => String.t()
       }
 
   """
@@ -774,6 +859,14 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type delete_table_bucket_encryption_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type delete_table_bucket_policy_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -817,6 +910,14 @@ defmodule AWS.S3Tables do
           | too_many_requests_exception()
           | forbidden_exception()
 
+  @type get_table_bucket_encryption_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
   @type get_table_bucket_maintenance_configuration_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -830,6 +931,14 @@ defmodule AWS.S3Tables do
           | internal_server_error_exception()
           | not_found_exception()
           | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type get_table_encryption_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+          | not_found_exception()
           | too_many_requests_exception()
           | forbidden_exception()
 
@@ -884,6 +993,14 @@ defmodule AWS.S3Tables do
           | forbidden_exception()
 
   @type list_tables_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+          | forbidden_exception()
+
+  @type put_table_bucket_encryption_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
           | not_found_exception()
@@ -1004,10 +1121,18 @@ defmodule AWS.S3Tables do
 
   ### Permissions
 
+    
   You must have the `s3tables:CreateTable` permission to use this operation.
 
-  Additionally, you must have the `s3tables:PutTableData` permission to use this
-  operation with the optional `metadata` request parameter.
+    
+  If you use this operation with the optional `metadata` request parameter you
+  must have the `s3tables:PutTableData` permission.
+
+    
+  If you use this operation with the optional `encryptionConfiguration` request
+  parameter you must have the `s3tables:PutTableEncryption` permission.
+
+  Additionally,
   """
   @spec create_table(map(), String.t(), String.t(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
@@ -1047,7 +1172,12 @@ defmodule AWS.S3Tables do
 
   ### Permissions
 
+    
   You must have the `s3tables:CreateTableBucket` permission to use this operation.
+
+    
+  If you use this operation with the optional `encryptionConfiguration` parameter
+  you must have the `s3tables:PutTableBucketEncryption` permission.
   """
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
@@ -1179,6 +1309,47 @@ defmodule AWS.S3Tables do
           | {:error, delete_table_bucket_errors()}
   def delete_table_bucket(%Client{} = client, table_bucket_arn, input, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the encryption configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DeleteTableBucketEncryption` permission to use this
+  operation.
+  """
+  @spec delete_table_bucket_encryption(
+          map(),
+          String.t(),
+          delete_table_bucket_encryption_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_table_bucket_encryption_errors()}
+  def delete_table_bucket_encryption(%Client{} = client, table_bucket_arn, input, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/encryption"
     headers = []
     custom_headers = []
     query_params = []
@@ -1382,6 +1553,31 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Gets the encryption configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketEncryption` permission to use this
+  operation.
+  """
+  @spec get_table_bucket_encryption(map(), String.t(), list()) ::
+          {:ok, get_table_bucket_encryption_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_bucket_encryption_errors()}
+  def get_table_bucket_encryption(%Client{} = client, table_bucket_arn, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/encryption"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets details about a maintenance configuration for a given table bucket.
 
   For more information, see [Amazon S3 table bucket maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html)
@@ -1433,6 +1629,33 @@ defmodule AWS.S3Tables do
           | {:error, get_table_bucket_policy_errors()}
   def get_table_bucket_policy(%Client{} = client, table_bucket_arn, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/policy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the encryption configuration for a table.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableEncryption` permission to use this
+  operation.
+  """
+  @spec get_table_encryption(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_table_encryption_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_encryption_errors()}
+  def get_table_encryption(%Client{} = client, name, namespace, table_bucket_arn, options \\ []) do
+    url_path =
+      "/tables/#{AWS.Util.encode_uri(table_bucket_arn)}/#{AWS.Util.encode_uri(namespace)}/#{AWS.Util.encode_uri(name)}/encryption"
+
     headers = []
     query_params = []
 
@@ -1760,6 +1983,51 @@ defmodule AWS.S3Tables do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Sets the encryption configuration for a table bucket.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketEncryption` permission to use this
+  operation.
+
+  If you choose SSE-KMS encryption you must grant the S3 Tables maintenance
+  principal access to your KMS key. For more information, see [Permissions requirements for S3 Tables SSE-KMS
+  encryption](AmazonS3/latest/userguide/s3-tables-kms-permissions.html)
+  """
+  @spec put_table_bucket_encryption(
+          map(),
+          String.t(),
+          put_table_bucket_encryption_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_bucket_encryption_errors()}
+  def put_table_bucket_encryption(%Client{} = client, table_bucket_arn, input, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/encryption"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

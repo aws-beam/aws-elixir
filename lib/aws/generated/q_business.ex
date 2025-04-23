@@ -5,50 +5,32 @@ defmodule AWS.QBusiness do
   @moduledoc """
   This is the *Amazon Q Business* API Reference.
 
-  Amazon Q Business is a fully
-  managed, generative-AI powered enterprise chat assistant that you can deploy
-  within your
-  organization. Amazon Q Business enhances employee productivity by supporting key
-  tasks such
-  as question-answering, knowledge discovery, writing email messages, summarizing
-  text,
-  drafting document outlines, and brainstorming ideas. Users ask questions of
-  Amazon Q Business and get answers that are presented in a conversational manner.
-  For an
-  introduction to the service, see the [
-  *Amazon Q Business User Guide*
+  Amazon Q Business is a fully managed, generative-AI powered enterprise chat
+  assistant that you can deploy within your organization. Amazon Q Business
+  enhances employee productivity by supporting key tasks such as
+  question-answering, knowledge discovery, writing email messages, summarizing
+  text, drafting document outlines, and brainstorming ideas. Users ask questions
+  of Amazon Q Business and get answers that are presented in a conversational
+  manner. For an introduction to the service, see the [ *Amazon Q Business User Guide*
   ](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html).
 
   For an overview of the Amazon Q Business APIs, see [Overview of Amazon Q Business API
   operations](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview).
 
-  For information about the IAM access control permissions you need to
-  use this API, see [IAM roles for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html)
-  in the
-  *Amazon Q Business User Guide*.
+  For information about the IAM access control permissions you need to use this
+  API, see [IAM roles for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html)
+  in the *Amazon Q Business User Guide*.
 
   The following resources provide additional information about using the Amazon Q
-  Business
-  API:
+  Business API:
 
-    *
-
-  *
-  [Setting up for Amazon Q
-  Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html)
+    * * [Setting up for Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html)
   *
 
-    *
-
-  *
-  [Amazon Q Business CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html)
+    * * [Amazon Q Business CLI Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html)
   *
 
-    *
-
-  *
-  [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/amazonq.html)
-  *
+    * * [Amazon Web Services General Reference](https://docs.aws.amazon.com/general/latest/gr/amazonq.html) *
   """
 
   alias AWS.Client
@@ -429,6 +411,18 @@ defmodule AWS.QBusiness do
 
   """
   @type conversation_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl() :: %{
+        "allowlist" => document_acl_membership(),
+        "denyList" => document_acl_membership()
+      }
+
+  """
+  @type document_acl() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -875,6 +869,20 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      check_document_access_response() :: %{
+        "documentAcl" => document_acl(),
+        "hasAccess" => [boolean()],
+        "userAliases" => list(associated_user()()),
+        "userGroups" => list(associated_group()())
+      }
+
+  """
+  @type check_document_access_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_retriever_request() :: %{
         optional("configuration") => list(),
         optional("displayName") => String.t(),
@@ -962,6 +970,18 @@ defmodule AWS.QBusiness do
 
   """
   @type delete_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_membership() :: %{
+        "conditions" => list(document_acl_condition()()),
+        "memberRelation" => list(any())
+      }
+
+  """
+  @type document_acl_membership() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1276,6 +1296,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      associated_user() :: %{
+        "id" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type associated_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_user_request() :: %{}
 
   """
@@ -1551,6 +1583,18 @@ defmodule AWS.QBusiness do
 
   """
   @type disassociate_permission_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_group() :: %{
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type associated_group() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2011,6 +2055,19 @@ defmodule AWS.QBusiness do
 
   """
   @type get_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_condition() :: %{
+        "groups" => list(document_acl_group()()),
+        "memberRelation" => list(any()),
+        "users" => list(document_acl_user()())
+      }
+
+  """
+  @type document_acl_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3055,6 +3112,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      check_document_access_request() :: %{
+        optional("dataSourceId") => String.t()
+      }
+
+  """
+  @type check_document_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retriever() :: %{
         "applicationId" => String.t(),
         "displayName" => String.t(),
@@ -3269,6 +3337,18 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      document_acl_group() :: %{
+        "name" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type document_acl_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_application_request() :: %{}
 
   """
@@ -3358,6 +3438,18 @@ defmodule AWS.QBusiness do
 
   """
   @type list_subscriptions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_acl_user() :: %{
+        "id" => String.t(),
+        "type" => list(any())
+      }
+
+  """
+  @type document_acl_user() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3608,6 +3700,13 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | conflict_exception()
           | license_not_found_exception()
+
+  @type check_document_access_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type create_application_errors() ::
           throttling_exception()
@@ -4171,9 +4270,8 @@ defmodule AWS.QBusiness do
   allowing cross-account access for an ISV.
 
   This operation creates a new policy statement for the specified Amazon Q
-  Business application.
-  The policy statement defines the IAM actions that the ISV is allowed to perform
-  on the Amazon Q Business application's resources.
+  Business application. The policy statement defines the IAM actions that the ISV
+  is allowed to perform on the Amazon Q Business application's resources.
   """
   @spec associate_permission(map(), String.t(), associate_permission_request(), list()) ::
           {:ok, associate_permission_response(), any()}
@@ -4202,8 +4300,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Asynchronously deletes one or more documents added using the
-  `BatchPutDocument` API from an Amazon Q Business index.
+  Asynchronously deletes one or more documents added using the `BatchPutDocument`
+  API from an Amazon Q Business index.
 
   You can see the progress of the deletion, and any error messages related to the
   process, by using CloudWatch.
@@ -4247,16 +4345,13 @@ defmodule AWS.QBusiness do
 
   You use this API to:
 
-    *
-  ingest your structured and unstructured documents and documents stored in an
-  Amazon S3 bucket into an Amazon Q Business index.
+    * ingest your structured and unstructured documents and documents
+  stored in an Amazon S3 bucket into an Amazon Q Business index.
 
-    *
-  add custom attributes to documents in an Amazon Q Business index.
+    * add custom attributes to documents in an Amazon Q Business index.
 
-    *
-  attach an access control list to the documents added to an Amazon Q Business
-  index.
+    * attach an access control list to the documents added to an Amazon
+  Q Business index.
 
   You can see the progress of the deletion, and any error messages related to the
   process, by using CloudWatch.
@@ -4404,26 +4499,69 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Verifies if a user has access permissions for a specified document and returns
+  the actual ACL attached to the document.
+
+  Resolves user access on the document via user aliases and groups when verifying
+  user access.
+  """
+  @spec check_document_access(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, check_document_access_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, check_document_access_errors()}
+  def check_document_access(
+        %Client{} = client,
+        application_id,
+        document_id,
+        index_id,
+        user_id,
+        data_source_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/index/#{AWS.Util.encode_uri(index_id)}/users/#{AWS.Util.encode_uri(user_id)}/documents/#{AWS.Util.encode_uri(document_id)}/check-document-access"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(data_source_id) do
+        [{"dataSourceId", data_source_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Creates an Amazon Q Business application.
 
   There are new tiers for Amazon Q Business. Not all features in Amazon Q Business
-  Pro are
-  also available in Amazon Q Business Lite. For information on what's included in
-  Amazon Q Business Lite and what's included in Amazon Q Business Pro, see [Amazon Q Business
-  tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
-  You must use the Amazon Q Business console to assign
-  subscription tiers to users.
+  Pro are also available in Amazon Q Business Lite. For information on what's
+  included in Amazon Q Business Lite and what's included in Amazon Q Business Pro,
+  see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers).
+  You must use the Amazon Q Business console to assign subscription tiers to
+  users.
 
   An Amazon Q Apps service linked role will be created if it's absent in the
-  Amazon Web Services account when `QAppsConfiguration` is enabled in
-  the request. For more information, see [ Using service-linked roles for Q
-  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
+  Amazon Web Services account when `QAppsConfiguration` is enabled in the request.
+  For more information, see [ Using service-linked roles for Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
 
   When you create an application, Amazon Q Business may securely transmit data for
   processing from your selected Amazon Web Services region, but within your
-  geography.
-  For more information, see [Cross region inference in Amazon Q
-  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
+  geography. For more information, see [Cross region inference in Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
   """
   @spec create_application(map(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
@@ -4456,14 +4594,12 @@ defmodule AWS.QBusiness do
   application.
 
   The data accessor is an entity that represents the ISV's access to the Amazon Q
-  Business application's data.
-  It includes the IAM role ARN for the ISV, a friendly name, and a set of action
-  configurations that define the
-  specific actions the ISV is allowed to perform and any associated data filters.
-  When the data accessor is created,
-  an IAM Identity Center application is also created to manage the ISV's identity
-  and authentication for
-  accessing the Amazon Q Business application.
+  Business application's data. It includes the IAM role ARN for the ISV, a
+  friendly name, and a set of action configurations that define the specific
+  actions the ISV is allowed to perform and any associated data filters. When the
+  data accessor is created, an IAM Identity Center application is also created to
+  manage the ISV's identity and authentication for accessing the Amazon Q Business
+  application.
   """
   @spec create_data_accessor(map(), String.t(), create_data_accessor_request(), list()) ::
           {:ok, create_data_accessor_response(), any()}
@@ -4494,8 +4630,8 @@ defmodule AWS.QBusiness do
   @doc """
   Creates a data source connector for an Amazon Q Business application.
 
-  `CreateDataSource` is a synchronous operation. The operation returns 200 if
-  the data source was successfully created. Otherwise, an exception is raised.
+  `CreateDataSource` is a synchronous operation. The operation returns 200 if the
+  data source was successfully created. Otherwise, an exception is raised.
   """
   @spec create_data_source(map(), String.t(), String.t(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
@@ -4528,15 +4664,14 @@ defmodule AWS.QBusiness do
   @doc """
   Creates an Amazon Q Business index.
 
-  To determine if index creation has completed, check the `Status` field
-  returned from a call to `DescribeIndex`. The `Status` field is set
-  to `ACTIVE` when the index is ready to use.
+  To determine if index creation has completed, check the `Status` field returned
+  from a call to `DescribeIndex`. The `Status` field is set to `ACTIVE` when the
+  index is ready to use.
 
   Once the index is active, you can index your documents using the [
   `BatchPutDocument`
   ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html)
-  API or the [
-  `CreateDataSource`
+  API or the [ `CreateDataSource`
   ](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)
   API.
   """
@@ -4628,9 +4763,9 @@ defmodule AWS.QBusiness do
   Subscribes an IAM Identity Center user or a group to a pricing tier for an
   Amazon Q Business application.
 
-  Amazon Q Business offers two subscription tiers: `Q_LITE` and
-  `Q_BUSINESS`. Subscription tier determines feature access for the user.
-  For more information on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
+  Amazon Q Business offers two subscription tiers: `Q_LITE` and `Q_BUSINESS`.
+  Subscription tier determines feature access for the user. For more information
+  on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
   """
   @spec create_subscription(map(), String.t(), create_subscription_request(), list()) ::
           {:ok, create_subscription_response(), any()}
@@ -4660,8 +4795,7 @@ defmodule AWS.QBusiness do
 
   @doc """
   Creates a universally unique identifier (UUID) mapped to a list of local user
-  ids
-  within an application.
+  ids within an application.
   """
   @spec create_user(map(), String.t(), create_user_request(), list()) ::
           {:ok, create_user_response(), any()}
@@ -4876,9 +5010,9 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes a specified data accessor.
 
-  This operation permanently removes the data accessor
-  and its associated IAM Identity Center application. Any access granted to the
-  ISV through this data accessor will be revoked.
+  This operation permanently removes the data accessor and its associated IAM
+  Identity Center application. Any access granted to the ISV through this data
+  accessor will be revoked.
   """
   @spec delete_data_accessor(
           map(),
@@ -4923,9 +5057,8 @@ defmodule AWS.QBusiness do
   @doc """
   Deletes an Amazon Q Business data source connector.
 
-  While the data source is being
-  deleted, the `Status` field returned by a call to the
-  `DescribeDataSource` API is set to `DELETING`.
+  While the data source is being deleted, the `Status` field returned by a call to
+  the `DescribeDataSource` API is set to `DELETING`.
   """
   @spec delete_data_source(
           map(),
@@ -4973,19 +5106,14 @@ defmodule AWS.QBusiness do
   Deletes a group so that all users and sub groups that belong to the group can no
   longer access documents only available to that group.
 
-  For example, after deleting the
-  group "Summer Interns", all interns who belonged to that group no longer see
-  intern-only
-  documents in their chat results.
+  For example, after deleting the group "Summer Interns", all interns who belonged
+  to that group no longer see intern-only documents in their chat results.
 
   If you want to delete, update, or replace users or sub groups of a group, you
-  need to
-  use the `PutGroup` operation. For example, if a user in the group
+  need to use the `PutGroup` operation. For example, if a user in the group
   "Engineering" leaves the engineering team and another user takes their place,
-  you
-  provide an updated list of users or sub groups that belong to the "Engineering"
-  group
-  when calling `PutGroup`.
+  you provide an updated list of users or sub groups that belong to the
+  "Engineering" group when calling `PutGroup`.
   """
   @spec delete_group(map(), String.t(), String.t(), String.t(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
@@ -5189,8 +5317,7 @@ defmodule AWS.QBusiness do
 
   @doc """
   Removes a permission policy from a Amazon Q Business application, revoking the
-  cross-account access that was
-  previously granted to an ISV.
+  cross-account access that was previously granted to an ISV.
 
   This operation deletes the specified policy statement from the application's
   permission policy.
@@ -5255,8 +5382,7 @@ defmodule AWS.QBusiness do
 
   @doc """
   Gets information about chat controls configured for an existing Amazon Q
-  Business
-  application.
+  Business application.
   """
   @spec get_chat_controls_configuration(
           map(),
@@ -5302,13 +5428,11 @@ defmodule AWS.QBusiness do
   @doc """
   Retrieves information about a specified data accessor.
 
-  This operation returns details about the
-  data accessor, including its display name, unique identifier, Amazon Resource
-  Name (ARN), the associated
-  Amazon Q Business application and IAM Identity Center application, the IAM role
-  for the ISV, the
-  action configurations, and the timestamps for when the data accessor was created
-  and last updated.
+  This operation returns details about the data accessor, including its display
+  name, unique identifier, Amazon Resource Name (ARN), the associated Amazon Q
+  Business application and IAM Identity Center application, the IAM role for the
+  ISV, the action configurations, and the timestamps for when the data accessor
+  was created and last updated.
   """
   @spec get_data_accessor(map(), String.t(), String.t(), list()) ::
           {:ok, get_data_accessor_response(), any()}
@@ -5405,10 +5529,9 @@ defmodule AWS.QBusiness do
   Returns the image bytes corresponding to a media object.
 
   If you have implemented your own application with the Chat and ChatSync APIs,
-  and
-  have enabled content extraction from visual data in Amazon Q Business, you use
-  the GetMedia API operation to download
-  the images so you can show them in your UI with responses.
+  and have enabled content extraction from visual data in Amazon Q Business, you
+  use the GetMedia API operation to download the images so you can show them in
+  your UI with responses.
 
   For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html).
   """
@@ -5459,9 +5582,8 @@ defmodule AWS.QBusiness do
   @doc """
   Retrieves the current permission policy for a Amazon Q Business application.
 
-  The policy is
-  returned as a JSON-formatted string and defines the IAM actions that are allowed
-  or denied for the application's resources.
+  The policy is returned as a JSON-formatted string and defines the IAM actions
+  that are allowed or denied for the application's resources.
   """
   @spec get_policy(map(), String.t(), list()) ::
           {:ok, get_policy_response(), any()}
@@ -5501,8 +5623,7 @@ defmodule AWS.QBusiness do
 
   @doc """
   Describes the universally unique identifier (UUID) associated with a local user
-  in a
-  data source.
+  in a data source.
   """
   @spec get_user(map(), String.t(), String.t(), list()) ::
           {:ok, get_user_response(), any()}
@@ -5546,8 +5667,7 @@ defmodule AWS.QBusiness do
 
   Amazon Q Business applications may securely transmit data for processing across
   Amazon Web Services Regions within your geography. For more information, see
-  [Cross region inference in Amazon Q
-  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
+  [Cross region inference in Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
   """
   @spec list_applications(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_applications_response(), any()}
@@ -5698,10 +5818,9 @@ defmodule AWS.QBusiness do
   @doc """
   Lists the data accessors for a Amazon Q Business application.
 
-  This operation returns a paginated
-  list of data accessor summaries, including the friendly name, unique identifier,
-  ARN,
-  associated IAM role, and creation/update timestamps for each data accessor.
+  This operation returns a paginated list of data accessor summaries, including
+  the friendly name, unique identifier, ARN, associated IAM role, and
+  creation/update timestamps for each data accessor.
   """
   @spec list_data_accessors(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_data_accessors_response(), any()}
@@ -6132,8 +6251,8 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Lists configured Amazon Q Business actions for any plugin type—both
-  built-in and custom.
+  Lists configured Amazon Q Business actions for any plugin type—both built-in and
+  custom.
   """
   @spec list_plugin_type_actions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_plugin_type_actions_response(), any()}
@@ -6324,8 +6443,8 @@ defmodule AWS.QBusiness do
   @doc """
   Gets a list of tags associated with a specified resource.
 
-  Amazon Q Business applications
-  and data sources can have tags associated with them.
+  Amazon Q Business applications and data sources can have tags associated with
+  them.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -6382,8 +6501,7 @@ defmodule AWS.QBusiness do
 
   @doc """
   Enables your end user to provide feedback on their Amazon Q Business generated
-  chat
-  responses.
+  chat responses.
   """
   @spec put_feedback(map(), String.t(), String.t(), String.t(), put_feedback_request(), list()) ::
           {:ok, nil, any()}
@@ -6426,26 +6544,21 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
-  Create, or updates, a mapping of users—who have access to a document—to
-  groups.
+  Create, or updates, a mapping of users—who have access to a document—to groups.
 
   You can also map sub groups to groups. For example, the group "Company
-  Intellectual
-  Property Teams" includes sub groups "Research" and "Engineering". These sub
-  groups
-  include their own list of users or people who work in these teams. Only users
-  who work
-  in research and engineering, and therefore belong in the intellectual property
-  group,
-  can see top-secret company documents in their Amazon Q Business chat results.
+  Intellectual Property Teams" includes sub groups "Research" and "Engineering".
+  These sub groups include their own list of users or people who work in these
+  teams. Only users who work in research and engineering, and therefore belong in
+  the intellectual property group, can see top-secret company documents in their
+  Amazon Q Business chat results.
 
   There are two options for creating groups, either passing group members inline
-  or using an S3 file via the
-  S3PathForGroupMembers field. For inline groups, there is a limit of 1000 members
-  per group and for provided S3 files
-  there is a limit of 100 thousand members. When creating a group using an S3
-  file, you provide both
-  an S3 file and a `RoleArn` for Amazon Q Buisness to access the file.
+  or using an S3 file via the S3PathForGroupMembers field. For inline groups,
+  there is a limit of 1000 members per group and for provided S3 files there is a
+  limit of 100 thousand members. When creating a group using an S3 file, you
+  provide both an S3 file and a `RoleArn` for Amazon Q Buisness to access the
+  file.
   """
   @spec put_group(map(), String.t(), String.t(), put_group_request(), list()) ::
           {:ok, put_group_response(), any()}
@@ -6479,15 +6592,12 @@ defmodule AWS.QBusiness do
   Searches for relevant content in a Amazon Q Business application based on a
   query.
 
-  This operation takes a
-  search query text, the Amazon Q Business application identifier, and optional
-  filters
-  (such as content source and maximum results) as input. It returns a list of
-  relevant content items, where each item includes the content text, the unique
-  document identifier,
-  the document title, the document URI, any relevant document attributes, and
-  score attributes
-  indicating the confidence level of the relevance.
+  This operation takes a search query text, the Amazon Q Business application
+  identifier, and optional filters (such as content source and maximum results) as
+  input. It returns a list of relevant content items, where each item includes the
+  content text, the unique document identifier, the document title, the document
+  URI, any relevant document attributes, and score attributes indicating the
+  confidence level of the relevance.
   """
   @spec search_relevant_content(map(), String.t(), search_relevant_content_request(), list()) ::
           {:ok, search_relevant_content_response(), any()}
@@ -6518,8 +6628,8 @@ defmodule AWS.QBusiness do
   @doc """
   Starts a data source connector synchronization job.
 
-  If a synchronization job is
-  already in progress, Amazon Q Business returns a `ConflictException`.
+  If a synchronization job is already in progress, Amazon Q Business returns a
+  `ConflictException`.
   """
   @spec start_data_source_sync_job(
           map(),
@@ -6611,11 +6721,9 @@ defmodule AWS.QBusiness do
 
   @doc """
   Adds the specified tag to the specified Amazon Q Business application or data
-  source
-  resource.
+  source resource.
 
-  If the tag already exists, the existing value is replaced with the new
-  value.
+  If the tag already exists, the existing value is replaced with the new value.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -6682,13 +6790,11 @@ defmodule AWS.QBusiness do
 
   Amazon Q Business applications may securely transmit data for processing across
   Amazon Web Services Regions within your geography. For more information, see
-  [Cross region inference in Amazon Q
-  Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
+  [Cross region inference in Amazon Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/cross-region-inference.html).
 
   An Amazon Q Apps service-linked role will be created if it's absent in the
-  Amazon Web Services account when `QAppsConfiguration` is enabled in
-  the request. For more information, see [Using service-linked roles for Q
-  Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
+  Amazon Web Services account when `QAppsConfiguration` is enabled in the request.
+  For more information, see [Using service-linked roles for Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html).
   """
   @spec update_application(map(), String.t(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
@@ -6754,11 +6860,10 @@ defmodule AWS.QBusiness do
   @doc """
   Updates an existing data accessor.
 
-  This operation allows modifying the action configurations
-  (the allowed actions and associated filters) and the display name of the data
-  accessor.
-  It does not allow changing the IAM role associated with the data accessor or
-  other core properties of the data accessor.
+  This operation allows modifying the action configurations (the allowed actions
+  and associated filters) and the display name of the data accessor. It does not
+  allow changing the IAM role associated with the data accessor or other core
+  properties of the data accessor.
   """
   @spec update_data_accessor(
           map(),
@@ -6941,11 +7046,9 @@ defmodule AWS.QBusiness do
   @doc """
   Updates the pricing tier for an Amazon Q Business subscription.
 
-  Upgrades are instant.
-  Downgrades apply at the start of the next month. Subscription tier determines
-  feature
-  access for the user. For more information on subscriptions and pricing tiers,
-  see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
+  Upgrades are instant. Downgrades apply at the start of the next month.
+  Subscription tier determines feature access for the user. For more information
+  on subscriptions and pricing tiers, see [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/).
   """
   @spec update_subscription(map(), String.t(), String.t(), update_subscription_request(), list()) ::
           {:ok, update_subscription_response(), any()}

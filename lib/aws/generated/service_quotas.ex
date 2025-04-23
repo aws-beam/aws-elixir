@@ -10,6 +10,16 @@ defmodule AWS.ServiceQuotas do
   can
   create in your Amazon Web Services account. For more information, see the
   [Service Quotas User Guide](https://docs.aws.amazon.com/servicequotas/latest/userguide/).
+
+  You need Amazon Web Services CLI version 2.13.20 or higher to view and manage
+  resource-level quotas such as
+
+  ```
+  Instances
+  per domain
+  ```
+
+  for Amazon OpenSearch Service.
   """
 
   alias AWS.Client
@@ -441,6 +451,7 @@ defmodule AWS.ServiceQuotas do
       
       request_service_quota_increase_request() :: %{
         optional("ContextId") => String.t(),
+        optional("SupportCaseAllowed") => boolean(),
         required("DesiredValue") => float(),
         required("QuotaCode") => String.t(),
         required("ServiceCode") => String.t()
@@ -565,6 +576,7 @@ defmodule AWS.ServiceQuotas do
       
       service_quota() :: %{
         "Adjustable" => boolean(),
+        "Description" => String.t(),
         "ErrorReason" => error_reason(),
         "GlobalQuota" => boolean(),
         "Period" => quota_period(),
@@ -1103,7 +1115,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the applied quota value for the specified quota.
+  Retrieves the applied quota value for the specified account-level or
+  resource-level quota.
 
   For some quotas, only the
   default values are available. If the applied quota value is not available for a
@@ -1148,7 +1161,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the default values for the quotas for the specified Amazon Web Service.
+  Lists the default values for the quotas for the specified Amazon Web Services
+  service.
 
   A default
   value does not reflect any quota increases.
@@ -1165,7 +1179,12 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Retrieves the quota increase requests for the specified Amazon Web Service.
+  Retrieves the quota increase requests for the specified Amazon Web Services
+  service.
+
+  Filter responses to return quota requests at
+  either the account level, resource level, or all levels. Responses include any
+  open or closed requests within 90 days.
   """
   @spec list_requested_service_quota_change_history(
           map(),
@@ -1184,6 +1203,9 @@ defmodule AWS.ServiceQuotas do
 
   @doc """
   Retrieves the quota increase requests for the specified quota.
+
+  Filter responses to return quota requests at either the
+  account level, resource level, or all levels.
   """
   @spec list_requested_service_quota_change_history_by_quota(
           map(),
@@ -1235,12 +1257,14 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the applied quota values for the specified Amazon Web Service.
+  Lists the applied quota values for the specified Amazon Web Services service.
 
   For some quotas, only
   the default values are available. If the applied quota value is not available
   for a
-  quota, the quota is not retrieved.
+  quota, the quota is not retrieved. Filter responses to return applied quota
+  values at either the account level,
+  resource level, or all levels.
   """
   @spec list_service_quotas(map(), list_service_quotas_request(), list()) ::
           {:ok, list_service_quotas_response(), any()}
@@ -1254,8 +1278,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Lists the names and codes for the Amazon Web Services integrated with Service
-  Quotas.
+  Lists the names and codes for the Amazon Web Services services integrated with
+  Service Quotas.
   """
   @spec list_services(map(), list_services_request(), list()) ::
           {:ok, list_services_response(), any()}
@@ -1307,7 +1331,8 @@ defmodule AWS.ServiceQuotas do
   end
 
   @doc """
-  Submits a quota increase request for the specified quota.
+  Submits a quota increase request for the specified quota at the account or
+  resource level.
   """
   @spec request_service_quota_increase(map(), request_service_quota_increase_request(), list()) ::
           {:ok, request_service_quota_increase_response(), any()}

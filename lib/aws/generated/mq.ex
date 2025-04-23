@@ -356,6 +356,17 @@ defmodule AWS.Mq do
 
   ## Example:
 
+      delete_configuration_response() :: %{
+        "ConfigurationId" => String.t()
+      }
+
+  """
+  @type delete_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_tags_request() :: %{
         optional("Tags") => map()
       }
@@ -398,6 +409,15 @@ defmodule AWS.Mq do
 
   """
   @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_request() :: %{}
+
+  """
+  @type delete_configuration_request() :: %{}
 
   @typedoc """
 
@@ -1047,6 +1067,13 @@ defmodule AWS.Mq do
           | not_found_exception()
           | forbidden_exception()
 
+  @type delete_configuration_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | forbidden_exception()
+
   @type delete_tags_errors() ::
           bad_request_exception()
           | internal_server_error_exception()
@@ -1337,6 +1364,35 @@ defmodule AWS.Mq do
           | {:error, delete_broker_errors()}
   def delete_broker(%Client{} = client, broker_id, input, options \\ []) do
     url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the specified configuration.
+  """
+  @spec delete_configuration(map(), String.t(), delete_configuration_request(), list()) ::
+          {:ok, delete_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_configuration_errors()}
+  def delete_configuration(%Client{} = client, configuration_id, input, options \\ []) do
+    url_path = "/v1/configurations/#{AWS.Util.encode_uri(configuration_id)}"
     headers = []
     custom_headers = []
     query_params = []

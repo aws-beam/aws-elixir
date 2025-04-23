@@ -5,8 +5,8 @@ defmodule AWS.Omics do
   @moduledoc """
   This is the *AWS HealthOmics API Reference*.
 
-  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the
-  *AWS HealthOmics User Guide*.
+  For an introduction to the service, see [What is AWS HealthOmics?](https://docs.aws.amazon.com/omics/latest/dev/) in the *AWS
+  HealthOmics User Guide*.
   """
 
   alias AWS.Client
@@ -81,6 +81,7 @@ defmodule AWS.Omics do
         optional("name") => String.t(),
         optional("parameterTemplate") => map(),
         optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t(),
         optional("tags") => map(),
         required("requestId") => String.t()
       }
@@ -195,6 +196,25 @@ defmodule AWS.Omics do
 
   """
   @type update_variant_store_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_version_list_item() :: %{
+        "arn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t(),
+        "digest" => String.t(),
+        "metadata" => map(),
+        "status" => String.t(),
+        "type" => String.t(),
+        "versionName" => String.t(),
+        "workflowId" => String.t()
+      }
+
+  """
+  @type workflow_version_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -632,6 +652,36 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_workflow_version_response() :: %{
+        "accelerators" => String.t(),
+        "arn" => String.t(),
+        "creationTime" => non_neg_integer(),
+        "definition" => String.t(),
+        "description" => String.t(),
+        "digest" => String.t(),
+        "engine" => String.t(),
+        "main" => String.t(),
+        "metadata" => map(),
+        "parameterTemplate" => map(),
+        "status" => String.t(),
+        "statusMessage" => String.t(),
+        "storageCapacity" => [integer()],
+        "storageType" => String.t(),
+        "tags" => map(),
+        "type" => String.t(),
+        "uuid" => String.t(),
+        "versionName" => String.t(),
+        "workflowBucketOwnerId" => String.t(),
+        "workflowId" => String.t()
+      }
+
+  """
+  @type get_workflow_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_variant_import_jobs_response() :: %{
         "nextToken" => [String.t()],
         "variantImportJobs" => list(variant_import_job_item()())
@@ -933,7 +983,9 @@ defmodule AWS.Omics do
 
       update_workflow_request() :: %{
         optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("name") => String.t(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t()
       }
 
   """
@@ -984,7 +1036,8 @@ defmodule AWS.Omics do
         "stopTime" => non_neg_integer(),
         "storageCapacity" => [integer()],
         "storageType" => String.t(),
-        "workflowId" => String.t()
+        "workflowId" => String.t(),
+        "workflowVersionName" => String.t()
       }
 
   """
@@ -1455,6 +1508,15 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      delete_workflow_version_request() :: %{}
+
+  """
+  @type delete_workflow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       not_supported_operation_exception() :: %{
         "message" => [String.t()]
       }
@@ -1640,6 +1702,29 @@ defmodule AWS.Omics do
 
   """
   @type create_share_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workflow_version_request() :: %{
+        optional("accelerators") => String.t(),
+        optional("definitionUri") => String.t(),
+        optional("definitionZip") => [binary()],
+        optional("description") => String.t(),
+        optional("engine") => String.t(),
+        optional("main") => String.t(),
+        optional("parameterTemplate") => map(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t(),
+        optional("tags") => map(),
+        optional("workflowBucketOwnerId") => String.t(),
+        required("requestId") => String.t(),
+        required("versionName") => String.t()
+      }
+
+  """
+  @type create_workflow_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1907,6 +1992,22 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      create_workflow_version_response() :: %{
+        "arn" => String.t(),
+        "status" => String.t(),
+        "tags" => map(),
+        "uuid" => String.t(),
+        "versionName" => String.t(),
+        "workflowId" => String.t()
+      }
+
+  """
+  @type create_workflow_version_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       read_set_files() :: %{
         "index" => file_information(),
         "source1" => file_information(),
@@ -2030,6 +2131,19 @@ defmodule AWS.Omics do
 
   ## Example:
 
+      get_workflow_version_request() :: %{
+        optional("export") => list(String.t()()),
+        optional("type") => String.t(),
+        optional("workflowOwnerId") => String.t()
+      }
+
+  """
+  @type get_workflow_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_run_cache_request() :: %{}
 
   """
@@ -2059,6 +2173,20 @@ defmodule AWS.Omics do
 
   """
   @type list_run_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("startingToken") => String.t(),
+        optional("type") => String.t(),
+        optional("workflowOwnerId") => String.t()
+      }
+
+  """
+  @type list_workflow_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2160,6 +2288,18 @@ defmodule AWS.Omics do
 
   """
   @type start_read_set_export_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_versions_response() :: %{
+        "items" => list(workflow_version_list_item()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_workflow_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2412,7 +2552,8 @@ defmodule AWS.Omics do
         "arn" => String.t(),
         "id" => String.t(),
         "status" => String.t(),
-        "tags" => map()
+        "tags" => map(),
+        "uuid" => String.t()
       }
 
   """
@@ -2910,6 +3051,7 @@ defmodule AWS.Omics do
         optional("workflowId") => String.t(),
         optional("workflowOwnerId") => String.t(),
         optional("workflowType") => String.t(),
+        optional("workflowVersionName") => String.t(),
         required("requestId") => String.t(),
         required("roleArn") => String.t()
       }
@@ -2928,6 +3070,19 @@ defmodule AWS.Omics do
 
   """
   @type delete_annotation_store_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workflow_version_request() :: %{
+        optional("description") => String.t(),
+        optional("storageCapacity") => [integer()],
+        optional("storageType") => String.t()
+      }
+
+  """
+  @type update_workflow_version_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3138,6 +3293,7 @@ defmodule AWS.Omics do
         "priority" => [integer()],
         "id" => String.t(),
         "accelerators" => String.t(),
+        "workflowVersionName" => String.t(),
         "creationTime" => non_neg_integer(),
         "runGroupId" => String.t(),
         "name" => String.t(),
@@ -3152,6 +3308,7 @@ defmodule AWS.Omics do
         "storageCapacity" => [integer()],
         "workflowId" => String.t(),
         "statusMessage" => String.t(),
+        "workflowUuid" => String.t(),
         "startTime" => non_neg_integer(),
         "runId" => String.t(),
         "engineVersion" => String.t(),
@@ -3457,8 +3614,10 @@ defmodule AWS.Omics do
         "status" => String.t(),
         "statusMessage" => String.t(),
         "storageCapacity" => [integer()],
+        "storageType" => String.t(),
         "tags" => map(),
-        "type" => String.t()
+        "type" => String.t(),
+        "uuid" => String.t()
       }
 
   """
@@ -3628,6 +3787,16 @@ defmodule AWS.Omics do
           | conflict_exception()
           | request_timeout_exception()
 
+  @type create_workflow_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type delete_annotation_store_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3728,6 +3897,16 @@ defmodule AWS.Omics do
           | conflict_exception()
 
   @type delete_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type delete_workflow_version_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3924,6 +4103,16 @@ defmodule AWS.Omics do
           | conflict_exception()
           | request_timeout_exception()
 
+  @type get_workflow_version_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type list_annotation_import_jobs_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4100,6 +4289,16 @@ defmodule AWS.Omics do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type list_workflow_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
   @type list_workflows_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4252,6 +4451,16 @@ defmodule AWS.Omics do
           | resource_not_found_exception()
 
   @type update_workflow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | request_timeout_exception()
+
+  @type update_workflow_version_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4553,7 +4762,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Creates a new version of an annotation store.
   """
   @spec create_annotation_store_version(
@@ -4660,13 +4868,12 @@ defmodule AWS.Omics do
   run for a private workflow.
 
   Subsequent runs use the task outputs from the cache, rather than computing the
-  task outputs again.
-  You specify an Amazon S3 location where HealthOmics saves the cached data. This
-  data must be
-  immediately accessible (not in an archived state).
+  task outputs again. You specify an Amazon S3 location where Amazon Web Services
+  HealthOmics saves the cached data. This data must be immediately accessible (not
+  in an archived state).
 
   For more information, see [Creating a run cache](https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html)
-  in the AWS HealthOmics User Guide.
+  in the Amazon Web Services HealthOmics User Guide.
   """
   @spec create_run_cache(map(), create_run_cache_request(), list()) ::
           {:ok, create_run_cache_response(), any()}
@@ -4756,20 +4963,16 @@ defmodule AWS.Omics do
   @doc """
   Creates a cross-account shared resource.
 
-  The resource owner makes an offer to share the resource
-  with the principal subscriber (an AWS user with a different account than the
-  resource owner).
+  The resource owner makes an offer to share the resource with the principal
+  subscriber (an AWS user with a different account than the resource owner).
 
   The following resources support cross-account sharing:
 
-    *
-  HealthOmics variant stores
+    * HealthOmics variant stores
 
-    *
-  HealthOmics annotation stores
+    * HealthOmics annotation stores
 
-    *
-  Private workflows
+    * Private workflows
   """
   @spec create_share(map(), create_share_request(), list()) ::
           {:ok, create_share_response(), any()}
@@ -4827,7 +5030,30 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Creates a workflow.
+  Creates a private workflow.Private workflows depend on a variety of resources
+  that you create and configure before creating the workflow:
+
+    * *Input data*: Input data for the workflow, stored in an S3 bucket
+  or a Amazon Web Services HealthOmics sequence store.
+
+    * *Workflow definition files*: Define your workflow in one or more
+  workflow definition files, written in WDL, Nextflow, or CWL. The workflow
+  definition specifies the inputs and outputs for runs that use the workflow. It
+  also includes specifications for the runs and run tasks for your workflow,
+  including compute and memory requirements.
+
+    * *Parameter template files*: Define run parameters using a
+  parameter template file (written in JSON).
+
+    * *ECR container images*: Create one or more container images for
+  the workflow. Store the images in a private ECR repository.
+
+    * (Optional) *Sentieon licenses*: Request a Sentieon license if you
+  plan to use Sentieon software in a private workflow.
+
+  For more information, see [Creating or updating a private workflow in Amazon Web Services
+  HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html)
+  in the Amazon Web Services HealthOmics User Guide.
   """
   @spec create_workflow(map(), create_workflow_request(), list()) ::
           {:ok, create_workflow_response(), any()}
@@ -4836,6 +5062,49 @@ defmodule AWS.Omics do
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
     url_path = "/workflow"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a new workflow version for the workflow that you specify with the
+  `workflowId` parameter.
+
+  When you create a new version of a workflow, you need to specify the
+  configuration for the new version. It doesn't inherit any configuration values
+  from the workflow.
+
+  Provide a version name that is unique for this workflow. You cannot change the
+  name after HealthOmics creates the version.
+
+  Don’t include any personally identifiable information (PII) in the version name.
+  Version names appear in the workflow version ARN.
+
+  For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
+  in the Amazon Web Services HealthOmics User Guide.
+  """
+  @spec create_workflow_version(map(), String.t(), create_workflow_version_request(), list()) ::
+          {:ok, create_workflow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_workflow_version_errors()}
+  def create_workflow_version(%Client{} = client, workflow_id, input, options \\ []) do
+    url_path = "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version"
     headers = []
     custom_headers = []
     query_params = []
@@ -4890,7 +5159,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Deletes one or multiple versions of an annotation store.
   """
   @spec delete_annotation_store_versions(
@@ -5021,14 +5289,13 @@ defmodule AWS.Omics do
   @doc """
   Delete a run cache.
 
-  This action removes the cache metadata stored in the service account,
-  but doesn't delete the data in Amazon S3.
-  You can access the cache data in Amazon S3, for inspection or to troubleshoot
-  issues.
-  You can remove old cache data using standard S3 `Delete` operations.
+  This action removes the cache metadata stored in the service account, but
+  doesn't delete the data in Amazon S3. You can access the cache data in Amazon
+  S3, for inspection or to troubleshoot issues. You can remove old cache data
+  using standard S3 `Delete` operations.
 
   For more information, see [Deleting a run cache](https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html)
-  in the AWS HealthOmics User Guide.
+  in the Amazon Web Services HealthOmics User Guide.
   """
   @spec delete_run_cache(map(), String.t(), delete_run_cache_request(), list()) ::
           {:ok, nil, any()}
@@ -5146,9 +5413,9 @@ defmodule AWS.Omics do
   @doc """
   Deletes a resource share.
 
-  If you are the resource owner, the subscriber will no longer have
-  access to the shared resource. If you are the subscriber, this operation deletes
-  your access to the share.
+  If you are the resource owner, the subscriber will no longer have access to the
+  shared resource. If you are the subscriber, this operation deletes your access
+  to the share.
   """
   @spec delete_share(map(), String.t(), delete_share_request(), list()) ::
           {:ok, delete_share_response(), any()}
@@ -5240,6 +5507,49 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Deletes a workflow version.
+
+  Deleting a workflow version doesn't affect any ongoing runs that are using the
+  workflow version.
+
+  For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
+  in the Amazon Web Services HealthOmics User Guide.
+  """
+  @spec delete_workflow_version(
+          map(),
+          String.t(),
+          String.t(),
+          delete_workflow_version_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_workflow_version_errors()}
+  def delete_workflow_version(%Client{} = client, version_name, workflow_id, input, options \\ []) do
+    url_path =
+      "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Gets information about an annotation import job.
   """
   @spec get_annotation_import_job(map(), String.t(), list()) ::
@@ -5276,7 +5586,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Retrieves the metadata for an annotation store version.
   """
   @spec get_annotation_store_version(map(), String.t(), String.t(), list()) ::
@@ -5538,12 +5847,11 @@ defmodule AWS.Omics do
 
   If a workflow is shared with you, you cannot export information about the run.
 
-  HealthOmics stores a fixed number of runs that are available to the console and
-  API. If
-  GetRun doesn't return the requested run, you can find run logs
-  for all runs in the CloudWatch logs. For more information about viewing the run
-  logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html)
-  in the *AWS HealthOmics User Guide*.
+  Amazon Web Services HealthOmics stores a fixed number of runs that are available
+  to the console and API. If GetRun doesn't return the requested run, you can find
+  run logs for all runs in the CloudWatch logs. For more information about viewing
+  the run logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html) in the
+  *in the Amazon Web Services HealthOmics User Guide*.
   """
   @spec get_run(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_run_response(), any()}
@@ -5570,8 +5878,8 @@ defmodule AWS.Omics do
   @doc """
   Retrieve the details for the specified run cache.
 
-  For more information, see [Call caching for HealthOmics runs](https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html)
-  in the AWS HealthOmics User Guide.
+  For more information, see [Call caching for Amazon Web Services HealthOmics runs](https://docs.aws.amazon.com/omics/latest/dev/workflow-call-caching.html)
+  in the Amazon Web Services HealthOmics User Guide.
   """
   @spec get_run_cache(map(), String.t(), list()) ::
           {:ok, get_run_cache_response(), any()}
@@ -5770,6 +6078,66 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Gets information about a workflow version.
+
+  For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
+  in the Amazon Web Services HealthOmics User Guide.
+  """
+  @spec get_workflow_version(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_workflow_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_workflow_version_errors()}
+  def get_workflow_version(
+        %Client{} = client,
+        version_name,
+        workflow_id,
+        export \\ nil,
+        type \\ nil,
+        workflow_owner_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(export) do
+        [{"export", export} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of annotation import jobs.
   """
   @spec list_annotation_import_jobs(map(), list_annotation_import_jobs_request(), list()) ::
@@ -5805,7 +6173,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Lists the versions of an annotation store.
   """
   @spec list_annotation_store_versions(
@@ -6366,13 +6733,11 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of runs.
 
-  HealthOmics stores a fixed number of runs that are available to the console and
-  API. If
-  the ListRuns response doesn't include specific runs that you expected, you can
-  find run logs
-  for all runs in the CloudWatch logs. For more information about viewing the run
-  logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html)
-  in the *AWS HealthOmics User Guide*.
+  Amazon Web Services HealthOmics stores a fixed number of runs that are available
+  to the console and API. If the ListRuns response doesn't include specific runs
+  that you expected, you can find run logs for all runs in the CloudWatch logs.
+  For more information about viewing the run logs, see [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html) in the
+  *Amazon Web Services HealthOmics User Guide*.
   """
   @spec list_runs(
           map(),
@@ -6478,8 +6843,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves the resource shares associated with an account.
 
-  Use the filter parameter to
-  retrieve a specific subset of the shares.
+  Use the filter parameter to retrieve a specific subset of the shares.
   """
   @spec list_shares(map(), list_shares_request(), list()) ::
           {:ok, list_shares_response(), any()}
@@ -6599,6 +6963,71 @@ defmodule AWS.Omics do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists the workflow versions for the specified workflow.
+
+  For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
+  in the Amazon Web Services HealthOmics User Guide.
+  """
+  @spec list_workflow_versions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_workflow_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_workflow_versions_errors()}
+  def list_workflow_versions(
+        %Client{} = client,
+        workflow_id,
+        max_results \\ nil,
+        starting_token \\ nil,
+        type \\ nil,
+        workflow_owner_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(workflow_owner_id) do
+        [{"workflowOwnerId", workflow_owner_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(starting_token) do
+        [{"startingToken", starting_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -6722,8 +7151,7 @@ defmodule AWS.Omics do
   @doc """
   Activates an archived read set.
 
-  To reduce storage charges, Amazon Omics archives unused read
-  sets after 30 days.
+  To reduce storage charges, Amazon Omics archives unused read sets after 30 days.
   """
   @spec start_read_set_activation_job(
           map(),
@@ -6849,27 +7277,18 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Starts a workflow run.
+  Starts a new run or duplicates an existing run.
 
-  To duplicate a run, specify the run's ID and a role ARN. The
-  remaining parameters are copied from the previous run.
+  For a new run, specify a unique `requestId`, the `workflowId`, and a role ARN.
+  If you're using static run storage (the default), specify the required
+  `storageCapacity`.
 
-  StartRun will not support re-run for a workflow that is shared with you.
+  You duplicate a run by specifing a unique `requestId`, the `runID` of the run to
+  duplicate, and a role ARN.
 
-  HealthOmics stores a fixed number of runs that are available to the console and
-  API.
-  By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the
-  maximum
-  number of runs, you must manually remove runs. To have older runs removed
-  automatically,
-  set the retention mode to `REMOVE`.
-
-  By default, the run uses STATIC storage. For STATIC storage, set the
-  `storageCapacity` field.
-  You can set the storage type to DYNAMIC. You do not set `storageCapacity`,
-  because HealthOmics dynamically scales the storage up or down as required.
-  For more information about static and dynamic storage, see [Running workflows](https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html)
-  in the *AWS HealthOmics User Guide*.
+  For more information about the optional parameters in the StartRun request, see
+  [Starting a run](https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html) in the
+  *Amazon Web Services HealthOmics User Guide*.
   """
   @spec start_run(map(), start_run_request(), list()) ::
           {:ok, start_run_response(), any()}
@@ -7019,7 +7438,6 @@ defmodule AWS.Omics do
   end
 
   @doc """
-
   Updates the description of an annotation store version.
   """
   @spec update_annotation_store_version(
@@ -7179,7 +7597,10 @@ defmodule AWS.Omics do
   end
 
   @doc """
-  Updates a workflow.
+  Updates information about a workflow.
+
+  For more information, see [Update a private workflow](https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html)
+  in the Amazon Web Services HealthOmics User Guide.
   """
   @spec update_workflow(map(), String.t(), update_workflow_request(), list()) ::
           {:ok, nil, any()}
@@ -7208,10 +7629,50 @@ defmodule AWS.Omics do
   end
 
   @doc """
+  Updates information about the workflow version.
+
+  For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
+  in the Amazon Web Services HealthOmics User Guide.
+  """
+  @spec update_workflow_version(
+          map(),
+          String.t(),
+          String.t(),
+          update_workflow_version_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_workflow_version_errors()}
+  def update_workflow_version(%Client{} = client, version_name, workflow_id, input, options \\ []) do
+    url_path =
+      "/workflow/#{AWS.Util.encode_uri(workflow_id)}/version/#{AWS.Util.encode_uri(version_name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "workflows-")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   This operation uploads a specific part of a read set.
 
-  If you upload a new part using a previously used part number,
-  the previously uploaded part will be overwritten.
+  If you upload a new part using a previously used part number, the previously
+  uploaded part will be overwritten.
   """
   @spec upload_read_set_part(
           map(),

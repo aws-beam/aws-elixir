@@ -177,6 +177,26 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      get_vpc_endpoint_service_name_input() :: %{}
+
+  """
+  @type get_vpc_endpoint_service_name_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_endpoint_service_name_output() :: %{
+        "serviceName" => String.t()
+      }
+
+  """
+  @type get_vpc_endpoint_service_name_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => [String.t()],
         "retryAfterSeconds" => [integer()]
@@ -371,6 +391,12 @@ defmodule AWS.DSQL do
 
   @type get_cluster_errors() :: resource_not_found_exception()
 
+  @type get_vpc_endpoint_service_name_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
   @type list_clusters_errors() :: resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
@@ -540,6 +566,24 @@ defmodule AWS.DSQL do
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, identifier, options \\ []) do
     url_path = "/cluster/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the VPC endpoint service name.
+  """
+  @spec get_vpc_endpoint_service_name(map(), String.t(), list()) ::
+          {:ok, get_vpc_endpoint_service_name_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_vpc_endpoint_service_name_errors()}
+  def get_vpc_endpoint_service_name(%Client{} = client, identifier, options \\ []) do
+    url_path = "/clusters/#{AWS.Util.encode_uri(identifier)}/vpc-endpoint-service-name"
     headers = []
     query_params = []
 

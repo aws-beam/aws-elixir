@@ -429,6 +429,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      stop_service_deployment_request() :: %{
+        optional("stopType") => list(any()),
+        required("serviceDeploymentArn") => String.t()
+      }
+      
+  """
+  @type stop_service_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_response() :: %{}
       
   """
@@ -673,6 +685,17 @@ defmodule AWS.ECS do
       
   """
   @type update_task_set_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_deployment_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type service_deployment_not_found_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3301,6 +3324,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      stop_service_deployment_response() :: %{
+        "serviceDeploymentArn" => String.t()
+      }
+      
+  """
+  @type stop_service_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_tls_certificate_authority() :: %{
         "awsPcaAuthorityArn" => String.t()
       }
@@ -3847,6 +3881,15 @@ defmodule AWS.ECS do
           | client_exception()
           | unsupported_feature_exception()
           | cluster_not_found_exception()
+
+  @type stop_service_deployment_errors() ::
+          server_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | conflict_exception()
+          | client_exception()
+          | unsupported_feature_exception()
+          | service_deployment_not_found_exception()
 
   @type stop_task_errors() ::
           server_exception()
@@ -4521,7 +4564,7 @@ defmodule AWS.ECS do
 
   A service deployment happens when you release a software update for the service.
   For
-  more information, see [Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployments.html).
+  more information, see [View service history using Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-deployment.html).
   """
   @spec describe_service_deployments(map(), describe_service_deployments_request(), list()) ::
           {:ok, describe_service_deployments_response(), any()}
@@ -5151,6 +5194,34 @@ defmodule AWS.ECS do
     meta = metadata()
 
     Request.request_post(client, meta, "StartTask", input, options)
+  end
+
+  @doc """
+  Stops an ongoing service deployment.
+
+  The following stop types are avaiable:
+
+    *
+  ROLLBACK - This option rolls back the service deployment to the previous
+  service revision.
+
+  You can use this option even if you didn't configure the service deployment
+  for the rollback option.
+
+  For more information, see [Stopping Amazon ECS service
+  deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html)
+  in the *Amazon Elastic Container Service Developer
+  Guide*.
+  """
+  @spec stop_service_deployment(map(), stop_service_deployment_request(), list()) ::
+          {:ok, stop_service_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_service_deployment_errors()}
+  def stop_service_deployment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StopServiceDeployment", input, options)
   end
 
   @doc """

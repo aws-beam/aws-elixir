@@ -523,7 +523,8 @@ defmodule AWS.MemoryDB do
       
       subnet() :: %{
         "AvailabilityZone" => availability_zone(),
-        "Identifier" => String.t()
+        "Identifier" => String.t(),
+        "SupportedNetworkTypes" => list(list(any())())
       }
       
   """
@@ -788,6 +789,7 @@ defmodule AWS.MemoryDB do
         optional("Description") => String.t(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
+        optional("IpDiscovery") => list(any()),
         optional("MaintenanceWindow") => String.t(),
         optional("NodeType") => String.t(),
         optional("ParameterGroupName") => String.t(),
@@ -918,6 +920,7 @@ defmodule AWS.MemoryDB do
         "Description" => String.t(),
         "Name" => String.t(),
         "Subnets" => list(subnet()()),
+        "SupportedNetworkTypes" => list(list(any())()),
         "VpcId" => String.t()
       }
       
@@ -945,9 +948,11 @@ defmodule AWS.MemoryDB do
         optional("Description") => String.t(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
+        optional("IpDiscovery") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("MaintenanceWindow") => String.t(),
         optional("MultiRegionClusterName") => String.t(),
+        optional("NetworkType") => list(any()),
         optional("NumReplicasPerShard") => integer(),
         optional("NumShards") => integer(),
         optional("ParameterGroupName") => String.t(),
@@ -1021,10 +1026,12 @@ defmodule AWS.MemoryDB do
         "Engine" => String.t(),
         "EnginePatchVersion" => String.t(),
         "EngineVersion" => String.t(),
+        "IpDiscovery" => list(any()),
         "KmsKeyId" => String.t(),
         "MaintenanceWindow" => String.t(),
         "MultiRegionClusterName" => String.t(),
         "Name" => String.t(),
+        "NetworkType" => list(any()),
         "NodeType" => String.t(),
         "NumberOfShards" => integer(),
         "ParameterGroupName" => String.t(),
@@ -3183,8 +3190,13 @@ defmodule AWS.MemoryDB do
   Lists all tags currently on a named resource.
 
   A tag is a key-value pair where the key and value are case-sensitive. You can
-  use tags to categorize and track your MemoryDB resources.
-  For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+  use tags to categorize and track your MemoryDB resources. For more information,
+  see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+
+  When you add or remove tags from multi region clusters, you might not
+  immediately see the latest effective tags in the ListTags API response due to it
+  being eventually consistent specifically for multi region clusters. For more
+  information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
   """
   @spec list_tags(map(), list_tags_request(), list()) ::
           {:ok, list_tags_response(), any()}
@@ -3237,16 +3249,18 @@ defmodule AWS.MemoryDB do
   end
 
   @doc """
-  A tag is a key-value pair where the key and value are case-sensitive.
+  Use this operation to add tags to a resource.
 
-  You can use tags to categorize and track all your MemoryDB resources.
+  A tag is a key-value pair where the key and value are case-sensitive. You can
+  use tags to categorize and track all your MemoryDB resources. For more
+  information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
 
-  When you add or remove tags on clusters, those actions will be replicated to all
-  nodes in the cluster. For more information, see
+  When you add tags to multi region clusters, you might not immediately see the
+  latest effective tags in the ListTags API response due to it being eventually
+  consistent specifically for multi region clusters. For more information, see
+  [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
 
-  [Resource-level permissions](https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html).
-
-  For example, you can use cost-allocation tags to your MemoryDB resources, Amazon
+  You can specify cost-allocation tags for your MemoryDB resources, Amazon
   generates a cost allocation report as a comma-separated value
   (CSV) file with your usage and costs aggregated by your tags. You can apply tags
   that represent business categories
@@ -3268,6 +3282,24 @@ defmodule AWS.MemoryDB do
 
   @doc """
   Use this operation to remove tags on a resource.
+
+  A tag is a key-value pair where the key and value are case-sensitive. You can
+  use tags to categorize and track all your MemoryDB resources. For more
+  information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+
+  When you remove tags from multi region clusters, you might not immediately see
+  the latest effective tags in the ListTags API response due to it being
+  eventually consistent specifically for multi region clusters. For more
+  information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html).
+
+  You can specify cost-allocation tags for your MemoryDB resources, Amazon
+  generates a cost allocation report as a comma-separated value
+  (CSV) file with your usage and costs aggregated by your tags. You can apply tags
+  that represent business categories
+  (such as cost centers, application names, or owners) to organize your costs
+  across multiple services.
+
+  For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging.html).
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

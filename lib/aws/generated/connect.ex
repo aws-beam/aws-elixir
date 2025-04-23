@@ -5282,6 +5282,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      assign_sla_action_definition() :: %{
+        "CaseSlaConfiguration" => case_sla_configuration(),
+        "SlaAssignmentType" => list(any())
+      }
+
+  """
+  @type assign_sla_action_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_instance_storage_config_request() :: %{
         optional("ClientToken") => String.t(),
         required("ResourceType") => list(any())
@@ -6462,6 +6474,7 @@ defmodule AWS.Connect do
       rule_action() :: %{
         "ActionType" => list(any()),
         "AssignContactCategoryAction" => assign_contact_category_action_definition(),
+        "AssignSlaAction" => assign_sla_action_definition(),
         "CreateCaseAction" => create_case_action_definition(),
         "EndAssociatedTasksAction" => end_associated_tasks_action_definition(),
         "EventBridgeAction" => event_bridge_action_definition(),
@@ -9560,6 +9573,21 @@ defmodule AWS.Connect do
 
   """
   @type list_approved_origins_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_sla_configuration() :: %{
+        "FieldId" => String.t(),
+        "Name" => String.t(),
+        "TargetFieldValues" => list(field_value_union()()),
+        "TargetSlaMinutes" => float(),
+        "Type" => list(any())
+      }
+
+  """
+  @type case_sla_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13922,12 +13950,13 @@ defmodule AWS.Connect do
 
   @doc """
 
-  Only the EMAIL channel is supported.
+  Only the EMAIL and VOICE channels are supported.
 
-  The supported initiation methods are: OUTBOUND,
-  AGENT_REPLY, and FLOW.
+  The supported initiation methods for EMAIL are: OUTBOUND,
+  AGENT_REPLY, and FLOW. For VOICE the supported initiation methods are TRANSFER
+  and the subtype connect:ExternalAudio.
 
-  Creates a new EMAIL contact.
+  Creates a new EMAIL or VOICE contact.
   """
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}
@@ -22011,20 +22040,21 @@ defmodule AWS.Connect do
   @doc """
   When a contact is being recorded, this API suspends recording whatever is
   selected in the
-  flow configuration: call, screen, or both.
+  flow configuration: call (IVR or agent), screen, or both.
 
-  If only call recording or only screen recording is
-  enabled, then it would be suspended. For example, you might suspend the screen
-  recording while
-  collecting sensitive information, such as a credit card number. Then use
-  ResumeContactRecording
+  If only call recording or only screen
+  recording is enabled, then it would be suspended. For example, you might suspend
+  the screen
+  recording while collecting sensitive information, such as a credit card number.
+  Then use
+  [ResumeContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html)
+
   to restart recording the screen.
 
   The period of time that the recording is suspended is filled with silence in the
-  final
-  recording.
+  final recording.
 
-  Voice and screen recordings are supported.
+  Voice (IVR, agent) and screen recordings are supported.
   """
   @spec suspend_contact_recording(map(), suspend_contact_recording_request(), list()) ::
           {:ok, suspend_contact_recording_response(), any()}
@@ -22140,7 +22170,7 @@ defmodule AWS.Connect do
   Note the following requirements:
 
     *
-  Transfer is supported for only `TASK` and `EMAIL` contacts.
+  Transfer is only supported for `TASK` and `EMAIL` contacts.
 
     *
   Do not use both `QueueId` and `UserId` in the same call.

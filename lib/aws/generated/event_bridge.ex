@@ -64,6 +64,7 @@ defmodule AWS.EventBridge do
         optional("AuthorizationType") => list(any()),
         optional("Description") => String.t(),
         optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
+        optional("KmsKeyIdentifier") => String.t(),
         required("Name") => String.t()
       }
       
@@ -860,6 +861,7 @@ defmodule AWS.EventBridge do
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
         "InvocationConnectivityParameters" => describe_connection_connectivity_parameters(),
+        "KmsKeyIdentifier" => String.t(),
         "LastAuthorizedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
@@ -2332,6 +2334,7 @@ defmodule AWS.EventBridge do
       create_connection_request() :: %{
         optional("Description") => String.t(),
         optional("InvocationConnectivityParameters") => connectivity_resource_parameters(),
+        optional("KmsKeyIdentifier") => String.t(),
         required("AuthParameters") => create_connection_auth_request_parameters(),
         required("AuthorizationType") => list(any()),
         required("Name") => String.t()

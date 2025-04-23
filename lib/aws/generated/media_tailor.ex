@@ -377,6 +377,17 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      traffic_shaping_retrieval_window() :: %{
+        "RetrievalWindowDurationSeconds" => integer()
+      }
+
+  """
+  @type traffic_shaping_retrieval_window() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_source_location_response() :: %{
         optional("AccessConfiguration") => access_configuration(),
         optional("Arn") => String.t(),
@@ -402,6 +413,20 @@ defmodule AWS.MediaTailor do
 
   """
   @type default_segment_delivery_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recurring_retrieval() :: %{
+        "DelayAfterAvailEndSeconds" => integer(),
+        "DynamicVariables" => map(),
+        "TrafficShapingRetrievalWindow" => traffic_shaping_retrieval_window(),
+        "TrafficShapingType" => list(any())
+      }
+
+  """
+  @type recurring_retrieval() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -532,7 +557,9 @@ defmodule AWS.MediaTailor do
         optional("Consumption") => prefetch_consumption(),
         optional("Name") => String.t(),
         optional("PlaybackConfigurationName") => String.t(),
+        optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
+        optional("ScheduleType") => list(any()),
         optional("StreamId") => String.t()
       }
 
@@ -737,7 +764,9 @@ defmodule AWS.MediaTailor do
         optional("Consumption") => prefetch_consumption(),
         optional("Name") => String.t(),
         optional("PlaybackConfigurationName") => String.t(),
+        optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
         optional("Retrieval") => prefetch_retrieval(),
+        optional("ScheduleType") => list(any()),
         optional("StreamId") => String.t()
       }
 
@@ -906,7 +935,9 @@ defmodule AWS.MediaTailor do
       prefetch_retrieval() :: %{
         "DynamicVariables" => map(),
         "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
+        "StartTime" => non_neg_integer(),
+        "TrafficShapingRetrievalWindow" => traffic_shaping_retrieval_window(),
+        "TrafficShapingType" => list(any())
       }
 
   """
@@ -941,9 +972,11 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       create_prefetch_schedule_request() :: %{
-        optional("StreamId") => String.t(),
-        required("Consumption") => prefetch_consumption(),
-        required("Retrieval") => prefetch_retrieval()
+        optional("Consumption") => prefetch_consumption(),
+        optional("RecurringPrefetchConfiguration") => recurring_prefetch_configuration(),
+        optional("Retrieval") => prefetch_retrieval(),
+        optional("ScheduleType") => list(any()),
+        optional("StreamId") => String.t()
       }
 
   """
@@ -1486,6 +1519,20 @@ defmodule AWS.MediaTailor do
 
   ## Example:
 
+      recurring_prefetch_configuration() :: %{
+        "EndTime" => non_neg_integer(),
+        "RecurringConsumption" => recurring_consumption(),
+        "RecurringRetrieval" => recurring_retrieval(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type recurring_prefetch_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_alerts_response() :: %{
         optional("Items") => list(alert()()),
         optional("NextToken") => String.t()
@@ -1543,6 +1590,7 @@ defmodule AWS.MediaTailor do
       list_prefetch_schedules_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("ScheduleType") => list(any()),
         optional("StreamId") => String.t()
       }
 
@@ -1571,6 +1619,18 @@ defmodule AWS.MediaTailor do
 
   """
   @type bad_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recurring_consumption() :: %{
+        "AvailMatchingCriteria" => list(avail_matching_criteria()()),
+        "RetrievedAdExpirationSeconds" => integer()
+      }
+
+  """
+  @type recurring_consumption() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1815,7 +1875,9 @@ defmodule AWS.MediaTailor do
         "Consumption" => prefetch_consumption(),
         "Name" => String.t(),
         "PlaybackConfigurationName" => String.t(),
+        "RecurringPrefetchConfiguration" => recurring_prefetch_configuration(),
         "Retrieval" => prefetch_retrieval(),
+        "ScheduleType" => list(any()),
         "StreamId" => String.t()
       }
 

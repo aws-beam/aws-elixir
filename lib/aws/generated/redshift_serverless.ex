@@ -75,6 +75,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      get_reservation_offering_request() :: %{
+        required("offeringId") => String.t()
+      }
+      
+  """
+  @type get_reservation_offering_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_endpoint_access_request() :: %{
         optional("vpcSecurityGroupIds") => list(String.t()()),
         required("endpointName") => [String.t()]
@@ -130,6 +141,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      get_reservation_response() :: %{
+        "reservation" => reservation()
+      }
+      
+  """
+  @type get_reservation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_usage_limit_response() :: %{
         "usageLimit" => usage_limit()
       }
@@ -159,6 +181,17 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type get_table_restore_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_request() :: %{
+        required("reservationId") => String.t()
+      }
+      
+  """
+  @type get_reservation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -276,6 +309,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type create_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_reservations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -481,6 +526,17 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type scheduled_action_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_reservation_response() :: %{
+        "reservation" => reservation()
+      }
+      
+  """
+  @type create_reservation_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -974,6 +1030,18 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      list_reservation_offerings_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_reservation_offerings_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_table_from_snapshot_request() :: %{
         optional("activateCaseSensitiveIdentifier") => [boolean()],
         optional("sourceSchemaName") => [String.t()],
@@ -1053,6 +1121,23 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type delete_endpoint_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation() :: %{
+        "capacity" => integer(),
+        "endDate" => [non_neg_integer()],
+        "offering" => reservation_offering(),
+        "reservationArn" => String.t(),
+        "reservationId" => String.t(),
+        "startDate" => [non_neg_integer()],
+        "status" => String.t()
+      }
+      
+  """
+  @type reservation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1178,6 +1263,17 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      get_reservation_offering_response() :: %{
+        "reservationOffering" => reservation_offering()
+      }
+      
+  """
+  @type get_reservation_offering_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       restore_from_recovery_point_request() :: %{
         required("namespaceName") => String.t(),
         required("recoveryPointId") => [String.t()],
@@ -1275,6 +1371,18 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type resource_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reservation_offerings_response() :: %{
+        "nextToken" => String.t(),
+        "reservationOfferingsList" => list(reservation_offering()())
+      }
+      
+  """
+  @type list_reservation_offerings_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1408,6 +1516,18 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      list_reservations_response() :: %{
+        "nextToken" => String.t(),
+        "reservationsList" => list(reservation()())
+      }
+      
+  """
+  @type list_reservations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_custom_domain_association_response() :: %{
         "customDomainCertificateArn" => String.t(),
         "customDomainCertificateExpiryTime" => [non_neg_integer()],
@@ -1508,6 +1628,19 @@ defmodule AWS.RedshiftServerless do
       
   """
   @type get_snapshot_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_reservation_request() :: %{
+        optional("clientToken") => [String.t()],
+        required("capacity") => integer(),
+        required("offeringId") => String.t()
+      }
+      
+  """
+  @type create_reservation_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1916,6 +2049,22 @@ defmodule AWS.RedshiftServerless do
 
   ## Example:
       
+      reservation_offering() :: %{
+        "currencyCode" => String.t(),
+        "duration" => integer(),
+        "hourlyCharge" => float(),
+        "offeringId" => String.t(),
+        "offeringType" => String.t(),
+        "upfrontCharge" => float()
+      }
+      
+  """
+  @type reservation_offering() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_workgroup_response() :: %{
         "workgroup" => workgroup()
       }
@@ -2014,6 +2163,15 @@ defmodule AWS.RedshiftServerless do
           too_many_tags_exception()
           | validation_exception()
           | internal_server_exception()
+          | conflict_exception()
+
+  @type create_reservation_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | conflict_exception()
 
   @type create_scheduled_action_errors() ::
@@ -2131,6 +2289,18 @@ defmodule AWS.RedshiftServerless do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type get_reservation_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_reservation_offering_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_resource_policy_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -2179,6 +2349,12 @@ defmodule AWS.RedshiftServerless do
   @type list_namespaces_errors() :: validation_exception() | internal_server_exception()
 
   @type list_recovery_points_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_reservation_offerings_errors() ::
+          throttling_exception() | validation_exception() | internal_server_exception()
+
+  @type list_reservations_errors() ::
+          throttling_exception() | validation_exception() | internal_server_exception()
 
   @type list_scheduled_actions_errors() ::
           validation_exception()
@@ -2340,7 +2516,7 @@ defmodule AWS.RedshiftServerless do
   Converts a recovery point to a snapshot.
 
   For more information about recovery points and snapshots,
-  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  see [Working with snapshots and recovery points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
   """
   @spec convert_recovery_point_to_snapshot(
           map(),
@@ -2404,6 +2580,22 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Creates an Amazon Redshift Serverless reservation, which gives you the option to
+  commit to a specified number of Redshift Processing Units (RPUs)
+  for a year at a discount from Serverless on-demand (OD) rates.
+  """
+  @spec create_reservation(map(), create_reservation_request(), list()) ::
+          {:ok, create_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_reservation_errors()}
+  def create_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateReservation", input, options)
+  end
+
+  @doc """
   Creates a scheduled action.
 
   A scheduled action contains a schedule and an Amazon Redshift API action.
@@ -2427,7 +2619,7 @@ defmodule AWS.RedshiftServerless do
   For more information about snapshots, see
   [
   Working with snapshots and recovery
-  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html).
+  points](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html).
   """
   @spec create_snapshot(map(), create_snapshot_request(), list()) ::
           {:ok, create_snapshot_response(), any()}
@@ -2730,6 +2922,40 @@ defmodule AWS.RedshiftServerless do
   end
 
   @doc """
+  Gets an Amazon Redshift Serverless reservation.
+
+  A reservation gives you the option to commit to a specified number of Redshift
+  Processing Units (RPUs)
+  for a year at a discount from Serverless on-demand (OD) rates.
+  """
+  @spec get_reservation(map(), get_reservation_request(), list()) ::
+          {:ok, get_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_reservation_errors()}
+  def get_reservation(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservation", input, options)
+  end
+
+  @doc """
+  Returns the reservation offering.
+
+  The offering determines the payment schedule for the reservation.
+  """
+  @spec get_reservation_offering(map(), get_reservation_offering_request(), list()) ::
+          {:ok, get_reservation_offering_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_reservation_offering_errors()}
+  def get_reservation_offering(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetReservationOffering", input, options)
+  end
+
+  @doc """
   Returns a resource policy.
   """
   @spec get_resource_policy(map(), get_resource_policy_request(), list()) ::
@@ -2896,6 +3122,34 @@ defmodule AWS.RedshiftServerless do
     meta = metadata()
 
     Request.request_post(client, meta, "ListRecoveryPoints", input, options)
+  end
+
+  @doc """
+  Returns the current reservation offerings in your account.
+  """
+  @spec list_reservation_offerings(map(), list_reservation_offerings_request(), list()) ::
+          {:ok, list_reservation_offerings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_reservation_offerings_errors()}
+  def list_reservation_offerings(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReservationOfferings", input, options)
+  end
+
+  @doc """
+  Returns a list of Reservation objects.
+  """
+  @spec list_reservations(map(), list_reservations_request(), list()) ::
+          {:ok, list_reservations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_reservations_errors()}
+  def list_reservations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListReservations", input, options)
   end
 
   @doc """

@@ -2640,6 +2640,7 @@ defmodule AWS.CodeBuild do
       
       compute_configuration() :: %{
         "disk" => float(),
+        "instanceType" => String.t(),
         "machineType" => list(any()),
         "memory" => float(),
         "vCpu" => float()

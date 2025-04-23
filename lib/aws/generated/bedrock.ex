@@ -499,6 +499,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       automated_evaluation_config() :: %{
+        "customMetricConfig" => automated_evaluation_custom_metric_config(),
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
         "evaluatorModelConfig" => list()
       }
@@ -712,6 +713,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      automated_evaluation_custom_metric_config() :: %{
+        "customMetrics" => list(list()()),
+        "evaluatorModelConfig" => custom_metric_evaluator_model_config()
+      }
+
+  """
+  @type automated_evaluation_custom_metric_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_model_config_summary() :: %{
         "bedrockModelIdentifiers" => list(String.t()()),
         "precomputedInferenceSourceIdentifiers" => list(String.t()())
@@ -812,6 +825,17 @@ defmodule AWS.Bedrock do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_metric_bedrock_evaluator_model() :: %{
+        "modelIdentifier" => String.t()
+      }
+
+  """
+  @type custom_metric_bedrock_evaluator_model() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1209,6 +1233,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      custom_metric_definition() :: %{
+        "instructions" => String.t(),
+        "name" => String.t(),
+        "ratingScale" => list(rating_scale_item()())
+      }
+
+  """
+  @type custom_metric_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
@@ -1459,6 +1496,18 @@ defmodule AWS.Bedrock do
 
   """
   @type evaluation_precomputed_inference_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rating_scale_item() :: %{
+        "definition" => String.t(),
+        "value" => list()
+      }
+
+  """
+  @type rating_scale_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2073,6 +2122,17 @@ defmodule AWS.Bedrock do
 
   """
   @type put_model_invocation_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_metric_evaluator_model_config() :: %{
+        "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model()())
+      }
+
+  """
+  @type custom_metric_evaluator_model_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2790,6 +2850,7 @@ defmodule AWS.Bedrock do
       evaluation_summary() :: %{
         "applicationType" => list(any()),
         "creationTime" => non_neg_integer(),
+        "customMetricsEvaluatorModelIdentifiers" => list(String.t()()),
         "evaluationTaskTypes" => list(list(any())()),
         "evaluatorModelIdentifiers" => list(String.t()()),
         "inferenceConfigSummary" => evaluation_inference_config_summary(),

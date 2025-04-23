@@ -99,6 +99,7 @@ defmodule AWS.ResourceGroups do
       start_tag_sync_task_output() :: %{
         "GroupArn" => String.t(),
         "GroupName" => String.t(),
+        "ResourceQuery" => resource_query(),
         "RoleArn" => String.t(),
         "TagKey" => String.t(),
         "TagValue" => String.t(),
@@ -282,10 +283,11 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       start_tag_sync_task_input() :: %{
+        optional("ResourceQuery") => resource_query(),
+        optional("TagKey") => String.t(),
+        optional("TagValue") => String.t(),
         required("Group") => String.t(),
-        required("RoleArn") => String.t(),
-        required("TagKey") => String.t(),
-        required("TagValue") => String.t()
+        required("RoleArn") => String.t()
       }
 
   """
@@ -511,6 +513,7 @@ defmodule AWS.ResourceGroups do
         "ErrorMessage" => String.t(),
         "GroupArn" => String.t(),
         "GroupName" => String.t(),
+        "ResourceQuery" => resource_query(),
         "RoleArn" => String.t(),
         "Status" => list(any()),
         "TagKey" => String.t(),
@@ -592,6 +595,7 @@ defmodule AWS.ResourceGroups do
         "ErrorMessage" => String.t(),
         "GroupArn" => String.t(),
         "GroupName" => String.t(),
+        "ResourceQuery" => resource_query(),
         "RoleArn" => String.t(),
         "Status" => list(any()),
         "TagKey" => String.t(),
@@ -1800,6 +1804,16 @@ defmodule AWS.ResourceGroups do
   Creates a new tag-sync task to onboard and sync resources tagged with a specific
   tag key-value pair to an
   application.
+
+  To start a tag-sync task, you need a [resource tagging role](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role).
+  The resource tagging role grants permissions to tag and untag applications
+  resources and must include a
+  trust policy that allows Resource Groups to assume the role and perform resource
+  tagging tasks on your behalf.
+
+  For instructions on creating a tag-sync task, see [Create a tag-sync using the Resource Groups
+  API](https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#create-tag-sync)
+  in the *Amazon Web Services Service Catalog AppRegistry Administrator Guide*.
 
   ## Minimum permissions
 

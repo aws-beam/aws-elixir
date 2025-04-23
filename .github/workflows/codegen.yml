@@ -46,7 +46,7 @@ jobs:
           echo "LATEST_TAG=${tag_name}" >> $GITHUB_OUTPUT
 
   generate:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Update services
     needs: check
     if: ${{ needs.check.outputs.current_tag != needs.check.outputs.latest_tag }}

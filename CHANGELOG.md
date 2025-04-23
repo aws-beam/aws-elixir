@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.6] - 2025-04-23
+- `DELETE` requests have no body
+
 ## [v1.0.5] - 2025-04-15
 - Allow option `sign_request?` to disable signing
 

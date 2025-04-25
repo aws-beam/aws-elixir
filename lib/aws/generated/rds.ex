@@ -632,10 +632,12 @@ defmodule AWS.RDS do
       
       create_tenant_database_message() :: %{
         optional("CharacterSetName") => String.t(),
+        optional("ManageMasterUserPassword") => boolean(),
+        optional("MasterUserPassword") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("NcharCharacterSetName") => String.t(),
         optional("Tags") => list(tag()()),
         required("DBInstanceIdentifier") => String.t(),
-        required("MasterUserPassword") => String.t(),
         required("MasterUsername") => String.t(),
         required("TenantDBName") => String.t()
       }
@@ -992,6 +994,7 @@ defmodule AWS.RDS do
         "DBInstanceIdentifier" => String.t(),
         "DbiResourceId" => String.t(),
         "DeletionProtection" => boolean(),
+        "MasterUserSecret" => master_user_secret(),
         "MasterUsername" => String.t(),
         "NcharCharacterSetName" => String.t(),
         "PendingModifiedValues" => tenant_database_pending_modified_values(),
@@ -4023,8 +4026,11 @@ defmodule AWS.RDS do
   ## Example:
       
       modify_tenant_database_message() :: %{
+        optional("ManageMasterUserPassword") => boolean(),
         optional("MasterUserPassword") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("NewTenantDBName") => String.t(),
+        optional("RotateMasterUserPassword") => boolean(),
         required("DBInstanceIdentifier") => String.t(),
         required("TenantDBName") => String.t()
       }
@@ -4503,6 +4509,7 @@ defmodule AWS.RDS do
         optional("EngineLifecycleSupport") => String.t(),
         optional("AllocatedStorage") => integer(),
         optional("DomainOu") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("EnableCustomerOwnedIp") => boolean(),
         optional("RestoreTime") => non_neg_integer(),
         optional("Engine") => String.t(),
@@ -4523,6 +4530,7 @@ defmodule AWS.RDS do
         optional("MaxAllocatedStorage") => integer(),
         optional("DomainAuthSecretArn") => String.t(),
         optional("Iops") => integer(),
+        optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
         optional("TdeCredentialPassword") => String.t(),
         optional("CustomIamInstanceProfile") => String.t(),
@@ -6102,6 +6110,7 @@ defmodule AWS.RDS do
         optional("EngineLifecycleSupport") => String.t(),
         optional("AllocatedStorage") => integer(),
         optional("DomainOu") => String.t(),
+        optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("EnableCustomerOwnedIp") => boolean(),
         optional("DBClusterSnapshotIdentifier") => String.t(),
         optional("DBSnapshotIdentifier") => String.t(),
@@ -6123,6 +6132,7 @@ defmodule AWS.RDS do
         required("DBInstanceIdentifier") => String.t(),
         optional("DomainAuthSecretArn") => String.t(),
         optional("Iops") => integer(),
+        optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
         optional("TdeCredentialPassword") => String.t(),
         optional("CustomIamInstanceProfile") => String.t(),
@@ -8321,6 +8331,7 @@ defmodule AWS.RDS do
 
   @type create_tenant_database_errors() ::
           invalid_db_instance_state_fault()
+          | kms_key_not_accessible_fault()
           | tenant_database_already_exists_fault()
           | db_instance_not_found_fault()
           | tenant_database_quota_exceeded_fault()
@@ -8669,6 +8680,7 @@ defmodule AWS.RDS do
   @type modify_tenant_database_errors() ::
           invalid_db_instance_state_fault()
           | tenant_database_not_found_fault()
+          | kms_key_not_accessible_fault()
           | tenant_database_already_exists_fault()
           | db_instance_not_found_fault()
 

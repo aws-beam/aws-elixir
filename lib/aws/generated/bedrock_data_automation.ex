@@ -102,6 +102,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      image_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration()
+      }
+
+  """
+  @type image_override_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_automation_project_summary() :: %{
         "creationTime" => non_neg_integer(),
         "projectArn" => String.t(),
@@ -161,7 +172,11 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       override_configuration() :: %{
-        "document" => document_override_configuration()
+        "audio" => audio_override_configuration(),
+        "document" => document_override_configuration(),
+        "image" => image_override_configuration(),
+        "modalityRouting" => modality_routing_configuration(),
+        "video" => video_override_configuration()
       }
 
   """
@@ -228,11 +243,23 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       document_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration(),
         "splitter" => splitter_configuration()
       }
 
   """
   @type document_override_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration()
+      }
+
+  """
+  @type video_override_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -511,6 +538,20 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      modality_routing_configuration() :: %{
+        "jpeg" => list(any()),
+        "mov" => list(any()),
+        "mp4" => list(any()),
+        "png" => list(any())
+      }
+
+  """
+  @type modality_routing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       blueprint() :: %{
         "blueprintArn" => String.t(),
         "blueprintName" => String.t(),
@@ -692,6 +733,17 @@ defmodule AWS.BedrockDataAutomation do
 
   ## Example:
 
+      modality_processing_configuration() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type modality_processing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()()),
         "message" => String.t()
@@ -755,6 +807,17 @@ defmodule AWS.BedrockDataAutomation do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_override_configuration() :: %{
+        "modalityProcessing" => modality_processing_configuration()
+      }
+
+  """
+  @type audio_override_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

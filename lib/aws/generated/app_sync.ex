@@ -306,6 +306,18 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      integration() :: %{
+        "dataSourceName" => String.t(),
+        "lambdaConfig" => lambda_config()
+      }
+
+  """
+  @type integration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lambda_authorizer_config() :: %{
         "authorizerResultTtlInSeconds" => integer(),
         "authorizerUri" => String.t(),
@@ -598,6 +610,7 @@ defmodule AWS.AppSync do
 
       update_channel_namespace_request() :: %{
         optional("codeHandlers") => String.t(),
+        optional("handlerConfigs") => handler_configs(),
         optional("publishAuthModes") => list(auth_mode()()),
         optional("subscribeAuthModes") => list(auth_mode()())
       }
@@ -654,6 +667,18 @@ defmodule AWS.AppSync do
 
   """
   @type rds_http_endpoint_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      handler_configs() :: %{
+        "onPublish" => handler_config(),
+        "onSubscribe" => handler_config()
+      }
+
+  """
+  @type handler_configs() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -913,6 +938,7 @@ defmodule AWS.AppSync do
 
       create_channel_namespace_request() :: %{
         optional("codeHandlers") => String.t(),
+        optional("handlerConfigs") => handler_configs(),
         optional("publishAuthModes") => list(auth_mode()()),
         optional("subscribeAuthModes") => list(auth_mode()()),
         optional("tags") => map(),
@@ -1370,6 +1396,18 @@ defmodule AWS.AppSync do
 
   ## Example:
 
+      handler_config() :: %{
+        "behavior" => list(any()),
+        "integration" => integration()
+      }
+
+  """
+  @type handler_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resolver() :: %{
         "cachingConfig" => caching_config(),
         "code" => String.t(),
@@ -1677,6 +1715,7 @@ defmodule AWS.AppSync do
         "channelNamespaceArn" => String.t(),
         "codeHandlers" => String.t(),
         "created" => non_neg_integer(),
+        "handlerConfigs" => handler_configs(),
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
         "publishAuthModes" => list(auth_mode()()),
@@ -1965,6 +2004,17 @@ defmodule AWS.AppSync do
 
   """
   @type elasticsearch_data_source_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_config() :: %{
+        "invokeType" => list(any())
+      }
+
+  """
+  @type lambda_config() :: %{String.t() => any()}
 
   @typedoc """
 

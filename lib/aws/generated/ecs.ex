@@ -5154,6 +5154,20 @@ defmodule AWS.ECS do
   returns an accurate response. Apply an exponential backoff algorithm starting
   with a couple of seconds of wait time, and increase gradually up to about five
   minutes of wait time.
+
+  If you get a `ConflictException` error, the `RunTask` request could
+  not be processed due to conflicts. The provided `clientToken` is already in
+  use with a different `RunTask` request. The `resourceIds` are the
+  existing task ARNs which are already associated with the `clientToken`.
+
+  To fix this issue:
+
+    *
+  Run `RunTask` with a unique `clientToken`.
+
+    *
+  Run `RunTask` with the `clientToken` and the original
+  set of parameters
   """
   @spec run_task(map(), run_task_request(), list()) ::
           {:ok, run_task_response(), any()}
@@ -5199,19 +5213,7 @@ defmodule AWS.ECS do
   @doc """
   Stops an ongoing service deployment.
 
-  The following stop types are avaiable:
-
-    *
-  ROLLBACK - This option rolls back the service deployment to the previous
-  service revision.
-
-  You can use this option even if you didn't configure the service deployment
-  for the rollback option.
-
-  For more information, see [Stopping Amazon ECS service
-  deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html)
-  in the *Amazon Elastic Container Service Developer
-  Guide*.
+  StopServiceDeployment isn't currently supported.
   """
   @spec stop_service_deployment(map(), stop_service_deployment_request(), list()) ::
           {:ok, stop_service_deployment_response(), any()}

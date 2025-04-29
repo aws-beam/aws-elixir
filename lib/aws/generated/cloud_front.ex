@@ -32,6 +32,15 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_distribution_tenant_request() :: %{}
+
+  """
+  @type get_distribution_tenant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       invalidation_summary() :: %{
         "CreateTime" => non_neg_integer(),
         "Id" => String.t(),
@@ -136,6 +145,20 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      update_connection_group_request() :: %{
+        optional("AnycastIpListId") => String.t(),
+        optional("Enabled") => boolean(),
+        optional("Ipv6Enabled") => boolean(),
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type update_connection_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_origin_groups_per_distribution() :: %{
         "Message" => String.t()
       }
@@ -166,6 +189,17 @@ defmodule AWS.CloudFront do
 
   """
   @type update_response_headers_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_association() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_association() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -452,6 +486,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_distribution_tenant_by_domain_request() :: %{
+        required("Domain") => String.t()
+      }
+
+  """
+  @type get_distribution_tenant_by_domain_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_arg_profile_empty() :: %{
         "Message" => String.t()
       }
@@ -479,6 +524,27 @@ defmodule AWS.CloudFront do
 
   """
   @type distribution_config_with_tags() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_group_summary() :: %{
+        "AnycastIpListId" => String.t(),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "ETag" => String.t(),
+        "Enabled" => boolean(),
+        "Id" => String.t(),
+        "IsDefault" => boolean(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "RoutingEndpoint" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type connection_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -534,6 +600,25 @@ defmodule AWS.CloudFront do
 
   """
   @type illegal_origin_access_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_distribution_tenant_request() :: %{
+        optional("ConnectionGroupId") => String.t(),
+        optional("Customizations") => customizations(),
+        optional("Enabled") => boolean(),
+        optional("ManagedCertificateRequest") => managed_certificate_request(),
+        optional("Parameters") => list(parameter()()),
+        optional("Tags") => tags(),
+        required("DistributionId") => String.t(),
+        required("Domains") => list(domain_item()()),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_distribution_tenant_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -599,6 +684,18 @@ defmodule AWS.CloudFront do
 
   """
   @type trusted_key_group_does_not_exist() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribution_resource_id() :: %{
+        "DistributionId" => String.t(),
+        "DistributionTenantId" => String.t()
+      }
+
+  """
+  @type distribution_resource_id() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -694,6 +791,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      update_domain_association_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("Domain") => String.t(),
+        required("TargetResource") => distribution_resource_id()
+      }
+
+  """
+  @type update_domain_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_monitoring_subscription_result() :: %{
         "MonitoringSubscription" => monitoring_subscription()
       }
@@ -781,6 +891,17 @@ defmodule AWS.CloudFront do
 
   """
   @type origin_request_policy_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_definition_schema() :: %{
+        "StringSchema" => string_schema_config()
+      }
+
+  """
+  @type parameter_definition_schema() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -970,6 +1091,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      domain_item() :: %{
+        "Domain" => String.t()
+      }
+
+  """
+  @type domain_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_cache_policy_result() :: %{
         "CachePolicy" => cache_policy(),
         "ETag" => String.t()
@@ -977,6 +1109,24 @@ defmodule AWS.CloudFront do
 
   """
   @type update_cache_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_distribution_tenant_request() :: %{
+        optional("ConnectionGroupId") => String.t(),
+        optional("Customizations") => customizations(),
+        optional("DistributionId") => String.t(),
+        optional("Domains") => list(domain_item()()),
+        optional("Enabled") => boolean(),
+        optional("ManagedCertificateRequest") => managed_certificate_request(),
+        optional("Parameters") => list(parameter()()),
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type update_distribution_tenant_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1013,6 +1163,17 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_field_level_encryption_content_type_profiles() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_group_by_routing_endpoint_request() :: %{
+        required("RoutingEndpoint") => String.t()
+      }
+
+  """
+  @type get_connection_group_by_routing_endpoint_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1078,6 +1239,17 @@ defmodule AWS.CloudFront do
 
   """
   @type cloud_front_origin_access_identity_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_invalidations_for_distribution_tenant_result() :: %{
+        "InvalidationList" => invalidation_list()
+      }
+
+  """
+  @type list_invalidations_for_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1157,6 +1329,15 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_connection_group_request() :: %{}
+
+  """
+  @type get_connection_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       test_result() :: %{
         "ComputeUtilization" => String.t(),
         "FunctionErrorMessage" => String.t(),
@@ -1202,9 +1383,11 @@ defmodule AWS.CloudFront do
         "AnycastIpListId" => String.t(),
         "CacheBehaviors" => cache_behaviors(),
         "Comment" => String.t(),
+        "ConnectionMode" => list(any()),
         "CustomErrorResponses" => custom_error_responses(),
         "DefaultCacheBehavior" => default_cache_behavior(),
         "DomainName" => String.t(),
+        "ETag" => String.t(),
         "Enabled" => boolean(),
         "HttpVersion" => list(any()),
         "Id" => String.t(),
@@ -1296,6 +1479,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      parameter_definition() :: %{
+        "Definition" => parameter_definition_schema(),
+        "Name" => String.t()
+      }
+
+  """
+  @type parameter_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_level_encryption_config_in_use() :: %{
         "Message" => String.t()
       }
@@ -1373,6 +1568,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      dns_configuration() :: %{
+        "Domain" => String.t(),
+        "Reason" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type dns_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       continuous_deployment_policy_summary() :: %{
         "ContinuousDeploymentPolicy" => continuous_deployment_policy()
       }
@@ -1401,6 +1609,17 @@ defmodule AWS.CloudFront do
 
   """
   @type cloud_front_origin_access_identity_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connection_group_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type delete_connection_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1443,6 +1662,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_invalidations_for_distribution_tenant_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_invalidations_for_distribution_tenant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       response_headers_policy() :: %{
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -1462,6 +1693,18 @@ defmodule AWS.CloudFront do
 
   """
   @type invalid_t_t_l_order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_group_result() :: %{
+        "ConnectionGroup" => connection_group(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type update_connection_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1620,6 +1863,18 @@ defmodule AWS.CloudFront do
 
   """
   @type create_distribution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_distribution_tenant_by_domain_result() :: %{
+        "DistributionTenant" => distribution_tenant(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type get_distribution_tenant_by_domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1795,6 +2050,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      associate_distribution_web_acl_result() :: %{
+        "ETag" => String.t(),
+        "Id" => String.t(),
+        "WebACLArn" => String.t()
+      }
+
+  """
+  @type associate_distribution_web_acl_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_key_group_result() :: %{
         "ETag" => String.t(),
         "KeyGroup" => key_group()
@@ -1802,6 +2070,30 @@ defmodule AWS.CloudFront do
 
   """
   @type get_key_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geo_restriction_customization() :: %{
+        "Locations" => list(String.t()()),
+        "RestrictionType" => list(any())
+      }
+
+  """
+  @type geo_restriction_customization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_invalidation_for_distribution_tenant_result() :: %{
+        "Invalidation" => invalidation(),
+        "Location" => String.t()
+      }
+
+  """
+  @type create_invalidation_for_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1937,6 +2229,18 @@ defmodule AWS.CloudFront do
 
   """
   @type key_group_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_distribution_tenant_result() :: %{
+        "DistributionTenant" => distribution_tenant(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type get_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2182,6 +2486,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_connection_groups_result() :: %{
+        "ConnectionGroups" => list(connection_group_summary()()),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type list_connection_groups_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_key_value_store_result() :: %{
         "ETag" => String.t(),
         "KeyValueStore" => key_value_store()
@@ -2189,6 +2505,20 @@ defmodule AWS.CloudFront do
 
   """
   @type describe_key_value_store_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_conflicts_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        required("Domain") => String.t(),
+        required("DomainControlValidationResource") => distribution_resource_id()
+      }
+
+  """
+  @type list_domain_conflicts_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2324,6 +2654,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_managed_certificate_details_result() :: %{
+        "ManagedCertificateDetails" => managed_certificate_details()
+      }
+
+  """
+  @type get_managed_certificate_details_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       traffic_config() :: %{
         "SingleHeaderConfig" => continuous_deployment_single_header_config(),
         "SingleWeightConfig" => continuous_deployment_single_weight_config(),
@@ -2420,6 +2761,7 @@ defmodule AWS.CloudFront do
         "CacheBehaviors" => cache_behaviors(),
         "CallerReference" => String.t(),
         "Comment" => String.t(),
+        "ConnectionMode" => list(any()),
         "ContinuousDeploymentPolicyId" => String.t(),
         "CustomErrorResponses" => custom_error_responses(),
         "DefaultCacheBehavior" => default_cache_behavior(),
@@ -2433,6 +2775,7 @@ defmodule AWS.CloudFront do
         "PriceClass" => list(any()),
         "Restrictions" => restrictions(),
         "Staging" => boolean(),
+        "TenantConfig" => tenant_config(),
         "ViewerCertificate" => viewer_certificate(),
         "WebACLId" => String.t()
       }
@@ -2557,6 +2900,30 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_connection_groups_request() :: %{
+        optional("AssociationFilter") => connection_group_association_filter(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_connection_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_group_association_filter() :: %{
+        "AnycastIpListId" => String.t()
+      }
+
+  """
+  @type connection_group_association_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_key_list() :: %{
         "Items" => list(public_key_summary()()),
         "MaxItems" => integer(),
@@ -2599,6 +2966,17 @@ defmodule AWS.CloudFront do
 
   """
   @type get_cache_policy_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_connection_mode_result() :: %{
+        "DistributionList" => distribution_list()
+      }
+
+  """
+  @type list_distributions_by_connection_mode_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2694,6 +3072,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distribution_tenants_request() :: %{
+        optional("AssociationFilter") => distribution_tenant_association_filter(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_distribution_tenants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       response_headers_policy_access_control_expose_headers() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
@@ -2762,6 +3153,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      disassociate_distribution_web_acl_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
+  """
+  @type disassociate_distribution_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_query_strings_in_origin_request_policy() :: %{
         "Message" => String.t()
       }
@@ -2773,12 +3175,50 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      tenant_config() :: %{
+        "ParameterDefinitions" => list(parameter_definition()())
+      }
+
+  """
+  @type tenant_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_conflicts_result() :: %{
+        "DomainConflicts" => list(domain_conflict()()),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type list_domain_conflicts_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_cache_policies() :: %{
         "Message" => String.t()
       }
 
   """
   @type too_many_cache_policies() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_group_request() :: %{
+        optional("AnycastIpListId") => String.t(),
+        optional("Enabled") => boolean(),
+        optional("Ipv6Enabled") => boolean(),
+        optional("Tags") => tags(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_connection_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2952,6 +3392,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_connection_group_result() :: %{
+        "ConnectionGroup" => connection_group(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type get_connection_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_origin_access_control_request() :: %{
         optional("IfMatch") => String.t(),
         required("OriginAccessControlConfig") => origin_access_control_config()
@@ -3065,6 +3517,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      disassociate_distribution_tenant_web_acl_result() :: %{
+        "ETag" => String.t(),
+        "Id" => String.t()
+      }
+
+  """
+  @type disassociate_distribution_tenant_web_acl_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       field_patterns() :: %{
         "Items" => list(String.t()()),
         "Quantity" => integer()
@@ -3094,6 +3558,20 @@ defmodule AWS.CloudFront do
 
   """
   @type invalid_lambda_function_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distribution_tenants_by_customization_request() :: %{
+        optional("CertificateArn") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer(),
+        optional("WebACLArn") => String.t()
+      }
+
+  """
+  @type list_distribution_tenants_by_customization_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3146,12 +3624,36 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      parameter() :: %{
+        "Name" => String.t(),
+        "Value" => String.t()
+      }
+
+  """
+  @type parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_cache_policy_request() :: %{
         required("CachePolicyConfig") => cache_policy_config()
       }
 
   """
   @type create_cache_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distribution_tenants_result() :: %{
+        "DistributionTenantList" => list(distribution_tenant_summary()()),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type list_distribution_tenants_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3285,6 +3787,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      list_distribution_tenants_by_customization_result() :: %{
+        "DistributionTenantList" => list(distribution_tenant_summary()()),
+        "NextMarker" => String.t()
+      }
+
+  """
+  @type list_distribution_tenants_by_customization_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_alias_request() :: %{
         required("Alias") => String.t()
       }
@@ -3363,6 +3877,18 @@ defmodule AWS.CloudFront do
 
   """
   @type get_vpc_origin_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distributions_by_connection_mode_request() :: %{
+        optional("Marker") => String.t(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_distributions_by_connection_mode_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3460,6 +3986,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      customizations() :: %{
+        "Certificate" => certificate(),
+        "GeoRestrictions" => geo_restriction_customization(),
+        "WebAcl" => web_acl_customization()
+      }
+
+  """
+  @type customizations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_domain_name_for_origin_access_control() :: %{
         "Message" => String.t()
       }
@@ -3483,6 +4022,20 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      managed_certificate_details() :: %{
+        "CertificateArn" => String.t(),
+        "CertificateStatus" => list(any()),
+        "ValidationTokenDetails" => list(validation_token_detail()()),
+        "ValidationTokenHost" => list(any())
+      }
+
+  """
+  @type managed_certificate_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_key() :: %{
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t(),
@@ -3491,6 +4044,20 @@ defmodule AWS.CloudFront do
 
   """
   @type public_key() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_conflict() :: %{
+        "AccountId" => String.t(),
+        "Domain" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type domain_conflict() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3794,6 +4361,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      distribution_tenant_association_filter() :: %{
+        "ConnectionGroupId" => String.t(),
+        "DistributionId" => String.t()
+      }
+
+  """
+  @type distribution_tenant_association_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_public_key_result() :: %{
         "ETag" => String.t(),
         "PublicKey" => public_key()
@@ -3843,6 +4422,18 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_origin_custom_headers() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_distribution_web_acl_result() :: %{
+        "ETag" => String.t(),
+        "Id" => String.t()
+      }
+
+  """
+  @type disassociate_distribution_web_acl_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4004,6 +4595,15 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      get_invalidation_for_distribution_tenant_request() :: %{}
+
+  """
+  @type get_invalidation_for_distribution_tenant_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       distribution_list() :: %{
         "IsTruncated" => boolean(),
         "Items" => list(distribution_summary()()),
@@ -4015,6 +4615,17 @@ defmodule AWS.CloudFront do
 
   """
   @type distribution_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_disabled() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type resource_not_disabled() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4059,6 +4670,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      certificate() :: %{
+        "Arn" => String.t()
+      }
+
+  """
+  @type certificate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_response_headers_policy_config_request() :: %{}
 
   """
@@ -4074,6 +4696,18 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_field_level_encryption_encryption_entities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_distribution_web_acl_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("WebACLArn") => String.t()
+      }
+
+  """
+  @type associate_distribution_web_acl_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4119,6 +4753,29 @@ defmodule AWS.CloudFront do
 
   """
   @type grpc_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribution_tenant() :: %{
+        "Arn" => String.t(),
+        "ConnectionGroupId" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Customizations" => customizations(),
+        "DistributionId" => String.t(),
+        "Domains" => list(domain_result()()),
+        "Enabled" => boolean(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Parameters" => list(parameter()()),
+        "Status" => String.t(),
+        "Tags" => tags()
+      }
+
+  """
+  @type distribution_tenant() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4177,6 +4834,17 @@ defmodule AWS.CloudFront do
 
   """
   @type too_many_realtime_log_configs() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_dns_configuration_result() :: %{
+        "DnsConfigurationList" => list(dns_configuration()())
+      }
+
+  """
+  @type verify_dns_configuration_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4407,6 +5075,28 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      disassociate_distribution_tenant_web_acl_request() :: %{
+        optional("IfMatch") => String.t()
+      }
+
+  """
+  @type disassociate_distribution_tenant_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_distribution_tenant_request() :: %{
+        required("IfMatch") => String.t()
+      }
+
+  """
+  @type delete_distribution_tenant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_distributions_by_web_acl_id_request() :: %{
         optional("Marker") => String.t(),
         optional("MaxItems") => integer()
@@ -4485,6 +5175,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      update_domain_association_result() :: %{
+        "Domain" => String.t(),
+        "ETag" => String.t(),
+        "ResourceId" => String.t()
+      }
+
+  """
+  @type update_domain_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_public_keys_in_key_group() :: %{
         "Message" => String.t()
       }
@@ -4515,6 +5218,17 @@ defmodule AWS.CloudFront do
 
   """
   @type list_distributions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_invalidation_for_distribution_tenant_result() :: %{
+        "Invalidation" => invalidation()
+      }
+
+  """
+  @type get_invalidation_for_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4592,6 +5306,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      managed_certificate_request() :: %{
+        "CertificateTransparencyLoggingPreference" => list(any()),
+        "PrimaryDomainName" => String.t(),
+        "ValidationTokenHost" => list(any())
+      }
+
+  """
+  @type managed_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_cloud_front_origin_access_identity_config_request() :: %{}
 
   """
@@ -4664,6 +5391,18 @@ defmodule AWS.CloudFront do
 
   """
   @type list_distributions_by_anycast_ip_list_id_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_distribution_tenant_result() :: %{
+        "DistributionTenant" => distribution_tenant(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type update_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4850,6 +5589,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      associate_distribution_tenant_web_acl_request() :: %{
+        optional("IfMatch") => String.t(),
+        required("WebACLArn") => String.t()
+      }
+
+  """
+  @type associate_distribution_tenant_web_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cname_already_exists() :: %{
         "Message" => String.t()
       }
@@ -4901,6 +5652,18 @@ defmodule AWS.CloudFront do
 
   """
   @type get_continuous_deployment_policy_config_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_result() :: %{
+        "Domain" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type domain_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5021,6 +5784,31 @@ defmodule AWS.CloudFront do
 
   """
   @type get_response_headers_policy_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_token_detail() :: %{
+        "Domain" => String.t(),
+        "RedirectFrom" => String.t(),
+        "RedirectTo" => String.t()
+      }
+
+  """
+  @type validation_token_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_acl_customization() :: %{
+        "Action" => list(any()),
+        "Arn" => String.t()
+      }
+
+  """
+  @type web_acl_customization() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5179,6 +5967,18 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      verify_dns_configuration_request() :: %{
+        optional("Domain") => String.t(),
+        required("Identifier") => String.t()
+      }
+
+  """
+  @type verify_dns_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_origin_access_control_result() :: %{
         "ETag" => String.t(),
         "Location" => String.t(),
@@ -5262,6 +6062,18 @@ defmodule AWS.CloudFront do
 
   """
   @type create_public_key_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_distribution_tenant_result() :: %{
+        "DistributionTenant" => distribution_tenant(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type create_distribution_tenant_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5422,6 +6234,18 @@ defmodule AWS.CloudFront do
 
   """
   @type import_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_group_by_routing_endpoint_result() :: %{
+        "ConnectionGroup" => connection_group(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type get_connection_group_by_routing_endpoint_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5684,6 +6508,27 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      create_connection_group_result() :: %{
+        "ConnectionGroup" => connection_group(),
+        "ETag" => String.t()
+      }
+
+  """
+  @type create_connection_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_managed_certificate_details_request() :: %{}
+
+  """
+  @type get_managed_certificate_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_distribution_with_tags_request() :: %{
         required("DistributionConfigWithTags") => distribution_config_with_tags()
       }
@@ -5838,6 +6683,17 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      create_invalidation_for_distribution_tenant_request() :: %{
+        required("InvalidationBatch") => invalidation_batch()
+      }
+
+  """
+  @type create_invalidation_for_distribution_tenant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_field_level_encryption_config_result() :: %{
         "ETag" => String.t(),
         "FieldLevelEncryption" => field_level_encryption()
@@ -5910,6 +6766,19 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      associate_distribution_tenant_web_acl_result() :: %{
+        "ETag" => String.t(),
+        "Id" => String.t(),
+        "WebACLArn" => String.t()
+      }
+
+  """
+  @type associate_distribution_tenant_web_acl_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       function_in_use() :: %{
         "Message" => String.t()
       }
@@ -5939,6 +6808,19 @@ defmodule AWS.CloudFront do
 
   """
   @type list_anycast_ip_lists_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_schema_config() :: %{
+        "Comment" => String.t(),
+        "DefaultValue" => String.t(),
+        "Required" => boolean()
+      }
+
+  """
+  @type string_schema_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6284,6 +7166,28 @@ defmodule AWS.CloudFront do
 
   ## Example:
 
+      distribution_tenant_summary() :: %{
+        "Arn" => String.t(),
+        "ConnectionGroupId" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Customizations" => customizations(),
+        "DistributionId" => String.t(),
+        "Domains" => list(domain_result()()),
+        "ETag" => String.t(),
+        "Enabled" => boolean(),
+        "Id" => String.t(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "Status" => String.t()
+      }
+
+  """
+  @type distribution_tenant_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       streaming_distribution_config() :: %{
         "Aliases" => aliases(),
         "CallerReference" => String.t(),
@@ -6392,6 +7296,28 @@ defmodule AWS.CloudFront do
 
   """
   @type staging_distribution_in_use() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_group() :: %{
+        "AnycastIpListId" => String.t(),
+        "Arn" => String.t(),
+        "CreatedTime" => non_neg_integer(),
+        "Enabled" => boolean(),
+        "Id" => String.t(),
+        "Ipv6Enabled" => boolean(),
+        "IsDefault" => boolean(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "RoutingEndpoint" => String.t(),
+        "Status" => String.t(),
+        "Tags" => tags()
+      }
+
+  """
+  @type connection_group() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6578,6 +7504,20 @@ defmodule AWS.CloudFront do
           | access_denied()
           | illegal_update()
 
+  @type associate_distribution_tenant_web_acl_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
+  @type associate_distribution_web_acl_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type copy_distribution_errors() ::
           too_many_distributions_associated_to_origin_access_control()
           | too_many_distributions_associated_to_field_level_encryption_config()
@@ -6669,6 +7609,14 @@ defmodule AWS.CloudFront do
           | invalid_argument()
           | cloud_front_origin_access_identity_already_exists()
 
+  @type create_connection_group_errors() ::
+          entity_limit_exceeded()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_tagging()
+
   @type create_continuous_deployment_policy_errors() ::
           staging_distribution_in_use()
           | inconsistent_quantities()
@@ -6683,6 +7631,7 @@ defmodule AWS.CloudFront do
           | invalid_location_code()
           | invalid_response_code()
           | too_many_distributions()
+          | entity_limit_exceeded()
           | no_such_realtime_log_config()
           | invalid_function_association()
           | illegal_field_level_encryption_config_association_with_cache_behavior()
@@ -6744,6 +7693,16 @@ defmodule AWS.CloudFront do
           | invalid_origin_access_identity()
           | too_many_function_associations()
           | too_many_origin_groups_per_distribution()
+
+  @type create_distribution_tenant_errors() ::
+          entity_limit_exceeded()
+          | cname_already_exists()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_tagging()
+          | invalid_association()
 
   @type create_distribution_with_tags_errors() ::
           too_many_distributions_associated_to_origin_access_control()
@@ -6848,6 +7807,15 @@ defmodule AWS.CloudFront do
           | batch_too_large()
           | invalid_argument()
           | access_denied()
+          | too_many_invalidations_in_progress()
+
+  @type create_invalidation_for_distribution_tenant_errors() ::
+          inconsistent_quantities()
+          | missing_body()
+          | batch_too_large()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
           | too_many_invalidations_in_progress()
 
   @type create_key_group_errors() ::
@@ -6969,6 +7937,14 @@ defmodule AWS.CloudFront do
           | cloud_front_origin_access_identity_in_use()
           | invalid_if_match_version()
 
+  @type delete_connection_group_errors() ::
+          resource_not_disabled()
+          | cannot_delete_entity_while_in_use()
+          | precondition_failed()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type delete_continuous_deployment_policy_errors() ::
           continuous_deployment_policy_in_use()
           | precondition_failed()
@@ -6981,8 +7957,16 @@ defmodule AWS.CloudFront do
           no_such_distribution()
           | precondition_failed()
           | access_denied()
+          | resource_in_use()
           | invalid_if_match_version()
           | distribution_not_disabled()
+
+  @type delete_distribution_tenant_errors() ::
+          resource_not_disabled()
+          | precondition_failed()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type delete_field_level_encryption_config_errors() ::
           precondition_failed()
@@ -7083,6 +8067,20 @@ defmodule AWS.CloudFront do
   @type describe_key_value_store_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
+  @type disassociate_distribution_tenant_web_acl_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
+  @type disassociate_distribution_web_acl_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+
   @type get_anycast_ip_list_errors() ::
           unsupported_operation() | invalid_argument() | access_denied() | entity_not_found()
 
@@ -7096,6 +8094,10 @@ defmodule AWS.CloudFront do
   @type get_cloud_front_origin_access_identity_config_errors() ::
           no_such_cloud_front_origin_access_identity() | access_denied()
 
+  @type get_connection_group_errors() :: access_denied() | entity_not_found()
+
+  @type get_connection_group_by_routing_endpoint_errors() :: access_denied() | entity_not_found()
+
   @type get_continuous_deployment_policy_errors() ::
           access_denied() | no_such_continuous_deployment_policy()
 
@@ -7105,6 +8107,10 @@ defmodule AWS.CloudFront do
   @type get_distribution_errors() :: no_such_distribution() | access_denied()
 
   @type get_distribution_config_errors() :: no_such_distribution() | access_denied()
+
+  @type get_distribution_tenant_errors() :: access_denied() | entity_not_found()
+
+  @type get_distribution_tenant_by_domain_errors() :: access_denied() | entity_not_found()
 
   @type get_field_level_encryption_errors() ::
           no_such_field_level_encryption_config() | access_denied()
@@ -7123,9 +8129,14 @@ defmodule AWS.CloudFront do
   @type get_invalidation_errors() ::
           no_such_invalidation() | no_such_distribution() | access_denied()
 
+  @type get_invalidation_for_distribution_tenant_errors() ::
+          no_such_invalidation() | access_denied() | entity_not_found()
+
   @type get_key_group_errors() :: no_such_resource()
 
   @type get_key_group_config_errors() :: no_such_resource()
+
+  @type get_managed_certificate_details_errors() :: access_denied() | entity_not_found()
 
   @type get_monitoring_subscription_errors() ::
           no_such_monitoring_subscription()
@@ -7174,8 +8185,17 @@ defmodule AWS.CloudFront do
 
   @type list_conflicting_aliases_errors() :: no_such_distribution() | invalid_argument()
 
+  @type list_connection_groups_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
   @type list_continuous_deployment_policies_errors() ::
           invalid_argument() | access_denied() | no_such_continuous_deployment_policy()
+
+  @type list_distribution_tenants_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
+  @type list_distribution_tenants_by_customization_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
 
   @type list_distributions_errors() :: invalid_argument()
 
@@ -7184,6 +8204,8 @@ defmodule AWS.CloudFront do
 
   @type list_distributions_by_cache_policy_id_errors() ::
           no_such_cache_policy() | invalid_argument() | access_denied()
+
+  @type list_distributions_by_connection_mode_errors() :: invalid_argument() | access_denied()
 
   @type list_distributions_by_key_group_errors() :: no_such_resource() | invalid_argument()
 
@@ -7200,6 +8222,9 @@ defmodule AWS.CloudFront do
 
   @type list_distributions_by_web_acl_id_errors() :: invalid_web_acl_id() | invalid_argument()
 
+  @type list_domain_conflicts_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
   @type list_field_level_encryption_configs_errors() :: invalid_argument()
 
   @type list_field_level_encryption_profiles_errors() :: invalid_argument()
@@ -7208,6 +8233,9 @@ defmodule AWS.CloudFront do
 
   @type list_invalidations_errors() ::
           no_such_distribution() | invalid_argument() | access_denied()
+
+  @type list_invalidations_for_distribution_tenant_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
 
   @type list_key_groups_errors() :: invalid_argument()
 
@@ -7276,6 +8304,16 @@ defmodule AWS.CloudFront do
           | invalid_argument()
           | access_denied()
           | illegal_update()
+          | invalid_if_match_version()
+
+  @type update_connection_group_errors() ::
+          entity_limit_exceeded()
+          | precondition_failed()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | resource_in_use()
+          | entity_not_found()
           | invalid_if_match_version()
 
   @type update_continuous_deployment_policy_errors() ::
@@ -7356,6 +8394,17 @@ defmodule AWS.CloudFront do
           | too_many_function_associations()
           | too_many_origin_groups_per_distribution()
 
+  @type update_distribution_tenant_errors() ::
+          entity_limit_exceeded()
+          | cname_already_exists()
+          | precondition_failed()
+          | entity_already_exists()
+          | invalid_argument()
+          | access_denied()
+          | entity_not_found()
+          | invalid_if_match_version()
+          | invalid_association()
+
   @type update_distribution_with_staging_config_errors() ::
           too_many_distributions_associated_to_origin_access_control()
           | too_many_distributions_associated_to_field_level_encryption_config()
@@ -7419,6 +8468,14 @@ defmodule AWS.CloudFront do
           | invalid_origin_access_identity()
           | too_many_function_associations()
           | too_many_origin_groups_per_distribution()
+
+  @type update_domain_association_errors() ::
+          precondition_failed()
+          | invalid_argument()
+          | access_denied()
+          | illegal_update()
+          | entity_not_found()
+          | invalid_if_match_version()
 
   @type update_field_level_encryption_config_errors() ::
           too_many_field_level_encryption_query_arg_profiles()
@@ -7547,6 +8604,9 @@ defmodule AWS.CloudFront do
           | invalid_if_match_version()
           | cannot_update_entity_while_in_use()
 
+  @type verify_dns_configuration_errors() ::
+          invalid_argument() | access_denied() | entity_not_found()
+
   def metadata do
     %{
       api_version: "2020-05-31",
@@ -7602,6 +8662,100 @@ defmodule AWS.CloudFront do
         {"Alias", "Alias"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates the WAF web ACL with a distribution tenant.
+  """
+  @spec associate_distribution_tenant_web_acl(
+          map(),
+          String.t(),
+          associate_distribution_tenant_web_acl_request(),
+          list()
+        ) ::
+          {:ok, associate_distribution_tenant_web_acl_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_distribution_tenant_web_acl_errors()}
+  def associate_distribution_tenant_web_acl(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}/associate-web-acl"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates the WAF web ACL with a distribution.
+  """
+  @spec associate_distribution_web_acl(
+          map(),
+          String.t(),
+          associate_distribution_web_acl_request(),
+          list()
+        ) ::
+          {:ok, associate_distribution_web_acl_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_distribution_web_acl_errors()}
+  def associate_distribution_web_acl(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/associate-web-acl"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
 
     meta = metadata()
 
@@ -7835,6 +8989,42 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Creates a connection group.
+  """
+  @spec create_connection_group(map(), create_connection_group_request(), list()) ::
+          {:ok, create_connection_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_connection_group_errors()}
+  def create_connection_group(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/connection-group"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a continuous deployment policy that distributes traffic for a custom
   domain
   name to two different CloudFront distributions.
@@ -7906,6 +9096,42 @@ defmodule AWS.CloudFront do
         options,
         :response_header_parameters,
         [{"ETag", "ETag"}, {"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a distribution tenant.
+  """
+  @spec create_distribution_tenant(map(), create_distribution_tenant_request(), list()) ::
+          {:ok, create_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_distribution_tenant_errors()}
+  def create_distribution_tenant(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
       )
 
     meta = metadata()
@@ -8114,6 +9340,50 @@ defmodule AWS.CloudFront do
           | {:error, create_invalidation_errors()}
   def create_invalidation(%Client{} = client, distribution_id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates an invalidation for a distribution tenant.
+
+  For more information, see [Invalidating files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html)
+  in the *Amazon CloudFront Developer Guide*.
+  """
+  @spec create_invalidation_for_distribution_tenant(
+          map(),
+          String.t(),
+          create_invalidation_for_distribution_tenant_request(),
+          list()
+        ) ::
+          {:ok, create_invalidation_for_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_invalidation_for_distribution_tenant_errors()}
+  def create_invalidation_for_distribution_tenant(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}/invalidation"
     headers = []
     custom_headers = []
     query_params = []
@@ -8769,6 +10039,41 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Deletes a connection group.
+  """
+  @spec delete_connection_group(map(), String.t(), delete_connection_group_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connection_group_errors()}
+  def delete_connection_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-group/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a continuous deployment policy.
 
   You cannot delete a continuous deployment policy that's attached to a primary
@@ -8823,6 +10128,52 @@ defmodule AWS.CloudFront do
           | {:error, delete_distribution_errors()}
   def delete_distribution(%Client{} = client, id, input, options \\ []) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a distribution tenant.
+
+  If you use this API operation to delete a distribution tenant that is currently
+  enabled, the request will fail.
+
+  To delete a distribution tenant, you must first disable the distribution tenant
+  by using the `UpdateDistributionTenant` API operation.
+  """
+  @spec delete_distribution_tenant(
+          map(),
+          String.t(),
+          delete_distribution_tenant_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_distribution_tenant_errors()}
+  def delete_distribution_tenant(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}"
 
     {headers, input} =
       [
@@ -9529,6 +10880,100 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Disassociates a distribution tenant from the WAF web ACL.
+  """
+  @spec disassociate_distribution_tenant_web_acl(
+          map(),
+          String.t(),
+          disassociate_distribution_tenant_web_acl_request(),
+          list()
+        ) ::
+          {:ok, disassociate_distribution_tenant_web_acl_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_distribution_tenant_web_acl_errors()}
+  def disassociate_distribution_tenant_web_acl(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}/disassociate-web-acl"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates a distribution from the WAF web ACL.
+  """
+  @spec disassociate_distribution_web_acl(
+          map(),
+          String.t(),
+          disassociate_distribution_web_acl_request(),
+          list()
+        ) ::
+          {:ok, disassociate_distribution_web_acl_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_distribution_web_acl_errors()}
+  def disassociate_distribution_web_acl(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/disassociate-web-acl"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets an Anycast static IP list.
   """
   @spec get_anycast_ip_list(map(), String.t(), list()) ::
@@ -9677,6 +11122,68 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets information about a connection group.
+  """
+  @spec get_connection_group(map(), String.t(), list()) ::
+          {:ok, get_connection_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connection_group_errors()}
+  def get_connection_group(%Client{} = client, identifier, options \\ []) do
+    url_path = "/2020-05-31/connection-group/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about a connection group by using the endpoint that you
+  specify.
+  """
+  @spec get_connection_group_by_routing_endpoint(map(), String.t(), list()) ::
+          {:ok, get_connection_group_by_routing_endpoint_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connection_group_by_routing_endpoint_errors()}
+  def get_connection_group_by_routing_endpoint(
+        %Client{} = client,
+        routing_endpoint,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/connection-group"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(routing_endpoint) do
+        [{"RoutingEndpoint", routing_endpoint} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a continuous deployment policy, including metadata (the policy's identifier
   and
   the date and time when the policy was last modified).
@@ -9765,6 +11272,63 @@ defmodule AWS.CloudFront do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(id)}/config"
     headers = []
     query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about a distribution tenant.
+  """
+  @spec get_distribution_tenant(map(), String.t(), list()) ::
+          {:ok, get_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_distribution_tenant_errors()}
+  def get_distribution_tenant(%Client{} = client, identifier, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets information about a distribution tenant by the associated domain.
+  """
+  @spec get_distribution_tenant_by_domain(map(), String.t(), list()) ::
+          {:ok, get_distribution_tenant_by_domain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_distribution_tenant_by_domain_errors()}
+  def get_distribution_tenant_by_domain(%Client{} = client, domain, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(domain) do
+        [{"domain", domain} | query_params]
+      else
+        query_params
+      end
 
     options =
       Keyword.put(
@@ -9938,6 +11502,31 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Gets information about a specific invalidation for a distribution tenant.
+  """
+  @spec get_invalidation_for_distribution_tenant(map(), String.t(), String.t(), list()) ::
+          {:ok, get_invalidation_for_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_invalidation_for_distribution_tenant_errors()}
+  def get_invalidation_for_distribution_tenant(
+        %Client{} = client,
+        distribution_tenant_id,
+        id,
+        options \\ []
+      ) do
+    url_path =
+      "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(distribution_tenant_id)}/invalidation/#{AWS.Util.encode_uri(id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a key group, including the date and time when the key group was last
   modified.
 
@@ -9999,6 +11588,24 @@ defmodule AWS.CloudFront do
         :response_header_parameters,
         [{"ETag", "ETag"}]
       )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets details about the CloudFront managed ACM certificate.
+  """
+  @spec get_managed_certificate_details(map(), String.t(), list()) ::
+          {:ok, get_managed_certificate_details_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_managed_certificate_details_errors()}
+  def get_managed_certificate_details(%Client{} = client, identifier, options \\ []) do
+    url_path = "/2020-05-31/managed-certificate/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -10607,6 +12214,35 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Lists the connection groups in your Amazon Web Services account.
+  """
+  @spec list_connection_groups(map(), list_connection_groups_request(), list()) ::
+          {:ok, list_connection_groups_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_connection_groups_errors()}
+  def list_connection_groups(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/connection-groups"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets a list of the continuous deployment policies in your Amazon Web Services
   account.
 
@@ -10651,6 +12287,71 @@ defmodule AWS.CloudFront do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the distribution tenants in your Amazon Web Services account.
+  """
+  @spec list_distribution_tenants(map(), list_distribution_tenants_request(), list()) ::
+          {:ok, list_distribution_tenants_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distribution_tenants_errors()}
+  def list_distribution_tenants(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenants"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists distribution tenants by the customization that you specify.
+
+  You must specify either the `CertificateArn` parameter or `WebACLArn` parameter,
+  but not both in the same request.
+  """
+  @spec list_distribution_tenants_by_customization(
+          map(),
+          list_distribution_tenants_by_customization_request(),
+          list()
+        ) ::
+          {:ok, list_distribution_tenants_by_customization_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distribution_tenants_by_customization_errors()}
+  def list_distribution_tenants_by_customization(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenants-by-customization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -10765,6 +12466,50 @@ defmodule AWS.CloudFront do
         options \\ []
       ) do
     url_path = "/2020-05-31/distributionsByCachePolicyId/#{AWS.Util.encode_uri(cache_policy_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the distributions by the connection mode that you specify.
+  """
+  @spec list_distributions_by_connection_mode(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_distributions_by_connection_mode_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_distributions_by_connection_mode_errors()}
+  def list_distributions_by_connection_mode(
+        %Client{} = client,
+        connection_mode,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distributionsByConnectionMode/#{AWS.Util.encode_uri(connection_mode)}"
     headers = []
     query_params = []
 
@@ -11095,6 +12840,40 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Lists existing domain associations that conflict with the domain that you
+  specify.
+
+  You can use this API operation when transferring domains to identify potential
+  domain conflicts. Domain conflicts must be resolved first before they can be
+  moved.
+  """
+  @spec list_domain_conflicts(map(), list_domain_conflicts_request(), list()) ::
+          {:ok, list_domain_conflicts_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_domain_conflicts_errors()}
+  def list_domain_conflicts(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/domain-conflicts"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   List all field-level encryption configurations that have been created in
   CloudFront for this
   account.
@@ -11245,6 +13024,50 @@ defmodule AWS.CloudFront do
         options \\ []
       ) do
     url_path = "/2020-05-31/distribution/#{AWS.Util.encode_uri(distribution_id)}/invalidation"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"MaxItems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(marker) do
+        [{"Marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the invalidations for a distribution tenant.
+  """
+  @spec list_invalidations_for_distribution_tenant(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_invalidations_for_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_invalidations_for_distribution_tenant_errors()}
+  def list_invalidations_for_distribution_tenant(
+        %Client{} = client,
+        id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}/invalidation"
     headers = []
     query_params = []
 
@@ -11991,6 +13814,48 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Updates a connection group.
+  """
+  @spec update_connection_group(map(), String.t(), update_connection_group_request(), list()) ::
+          {:ok, update_connection_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_connection_group_errors()}
+  def update_connection_group(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/connection-group/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates a continuous deployment policy.
 
   You can update a continuous deployment policy
@@ -12136,6 +14001,53 @@ defmodule AWS.CloudFront do
   end
 
   @doc """
+  Updates a distribution tenant.
+  """
+  @spec update_distribution_tenant(
+          map(),
+          String.t(),
+          update_distribution_tenant_request(),
+          list()
+        ) ::
+          {:ok, update_distribution_tenant_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_distribution_tenant_errors()}
+  def update_distribution_tenant(%Client{} = client, id, input, options \\ []) do
+    url_path = "/2020-05-31/distribution-tenant/#{AWS.Util.encode_uri(id)}"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Copies the staging distribution's configuration to its corresponding primary
   distribution.
 
@@ -12207,6 +14119,49 @@ defmodule AWS.CloudFront do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Moves a domain from its current distribution or distribution tenant to another
+  one.
+  """
+  @spec update_domain_association(map(), update_domain_association_request(), list()) ::
+          {:ok, update_domain_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_domain_association_errors()}
+  def update_domain_association(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/domain-association"
+
+    {headers, input} =
+      [
+        {"IfMatch", "If-Match"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"ETag", "ETag"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -12823,6 +14778,39 @@ defmodule AWS.CloudFront do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Verify the DNS configuration for your domain names.
+
+  This API operation checks whether your domain name points to the correct routing
+  endpoint of the connection group, such as d111111abcdef8.cloudfront.net. You can
+  use this API operation to troubleshoot and resolve DNS configuration issues.
+  """
+  @spec verify_dns_configuration(map(), verify_dns_configuration_request(), list()) ::
+          {:ok, verify_dns_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, verify_dns_configuration_errors()}
+  def verify_dns_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/2020-05-31/verify-dns-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 end

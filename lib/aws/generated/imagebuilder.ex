@@ -1867,7 +1867,8 @@ defmodule AWS.Imagebuilder do
         "launchTemplateConfigurations" => list(launch_template_configuration()()),
         "licenseConfigurationArns" => list(String.t()()),
         "region" => String.t(),
-        "s3ExportConfiguration" => s3_export_configuration()
+        "s3ExportConfiguration" => s3_export_configuration(),
+        "ssmParameterConfigurations" => list(ssm_parameter_configuration()())
       }
 
   """
@@ -2880,6 +2881,19 @@ defmodule AWS.Imagebuilder do
 
   """
   @type delete_infrastructure_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ssm_parameter_configuration() :: %{
+        "amiAccountId" => String.t(),
+        "dataType" => list(any()),
+        "parameterName" => String.t()
+      }
+
+  """
+  @type ssm_parameter_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

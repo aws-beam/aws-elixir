@@ -126,6 +126,18 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      http_redirect() :: %{
+        "RedirectFrom" => String.t(),
+        "RedirectTo" => String.t()
+      }
+      
+  """
+  @type http_redirect() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_state_exception() :: %{
         "message" => String.t()
       }
@@ -158,6 +170,7 @@ defmodule AWS.ACM do
         optional("DomainValidationOptions") => list(domain_validation_option()()),
         optional("IdempotencyToken") => String.t(),
         optional("KeyAlgorithm") => list(any()),
+        optional("ManagedBy") => list(any()),
         optional("Options") => certificate_options(),
         optional("SubjectAlternativeNames") => list(String.t()()),
         optional("Tags") => list(tag()()),
@@ -218,6 +231,7 @@ defmodule AWS.ACM do
         "IssuedAt" => non_neg_integer(),
         "KeyAlgorithm" => list(any()),
         "KeyUsages" => list(list(any())()),
+        "ManagedBy" => list(any()),
         "NotAfter" => non_neg_integer(),
         "NotBefore" => non_neg_integer(),
         "RenewalEligibility" => list(any()),
@@ -499,7 +513,8 @@ defmodule AWS.ACM do
       filters() :: %{
         "extendedKeyUsage" => list(list(any())()),
         "keyTypes" => list(list(any())()),
-        "keyUsage" => list(list(any())())
+        "keyUsage" => list(list(any())()),
+        "managedBy" => list(any())
       }
       
   """
@@ -534,6 +549,7 @@ defmodule AWS.ACM do
       
       domain_validation() :: %{
         "DomainName" => String.t(),
+        "HttpRedirect" => http_redirect(),
         "ResourceRecord" => resource_record(),
         "ValidationDomain" => String.t(),
         "ValidationEmails" => list(String.t()()),
@@ -632,6 +648,7 @@ defmodule AWS.ACM do
         "Issuer" => String.t(),
         "KeyAlgorithm" => list(any()),
         "KeyUsages" => list(key_usage()()),
+        "ManagedBy" => list(any()),
         "NotAfter" => non_neg_integer(),
         "NotBefore" => non_neg_integer(),
         "Options" => certificate_options(),
@@ -709,7 +726,10 @@ defmodule AWS.ACM do
           | invalid_arn_exception()
           | tag_policy_exception()
 
-  @type renew_certificate_errors() :: resource_not_found_exception() | invalid_arn_exception()
+  @type renew_certificate_errors() ::
+          resource_not_found_exception()
+          | invalid_arn_exception()
+          | request_in_progress_exception()
 
   @type request_certificate_errors() ::
           too_many_tags_exception()
@@ -990,12 +1010,11 @@ defmodule AWS.ACM do
   @doc """
   Retrieves a list of certificate ARNs and domain names.
 
-  By default, the API returns RSA_2048 certificates. To return all certificates in
-  the account, include the `keyType` filter with the values `[RSA_1024, RSA_2048, RSA_3072, RSA_4096, EC_prime256v1, EC_secp384r1, EC_secp521r1]`.
-
-  In addition to `keyType`, you can also filter by the `CertificateStatuses`,
-  `keyUsage`, and `extendedKeyUsage` attributes on the certificate. For more
-  information, see `Filters`.
+  You can request that only
+  certificates that match a specific status be listed. You can also filter by
+  specific
+  attributes of the certificate. Default filtering returns only `RSA_2048`
+  certificates. For more information, see `Filters`.
   """
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_response(), any()}

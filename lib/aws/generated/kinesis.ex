@@ -327,6 +327,17 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      list_tags_for_resource_output() :: %{
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_records_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
@@ -476,6 +487,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       register_stream_consumer_input() :: %{
+        optional("Tags") => map(),
         required("ConsumerName") => String.t(),
         required("StreamARN") => String.t()
       }
@@ -572,6 +584,18 @@ defmodule AWS.Kinesis do
       
   """
   @type describe_stream_summary_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        optional("ResourceARN") => String.t(),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -734,6 +758,18 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      untag_resource_input() :: %{
+        optional("ResourceARN") => String.t(),
+        required("TagKeys") => list(String.t()())
+      }
+      
+  """
+  @type untag_resource_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_stream_input() :: %{
         optional("ExclusiveStartTagKey") => String.t(),
         optional("Limit") => integer(),
@@ -814,6 +850,17 @@ defmodule AWS.Kinesis do
       
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        optional("ResourceARN") => String.t()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1155,6 +1202,7 @@ defmodule AWS.Kinesis do
           | provisioned_throughput_exceeded_exception()
           | kms_throttling_exception()
           | kms_opt_in_required()
+          | internal_failure_exception()
           | kms_disabled_exception()
 
   @type get_resource_policy_errors() ::
@@ -1169,6 +1217,7 @@ defmodule AWS.Kinesis do
           | access_denied_exception()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | internal_failure_exception()
 
   @type increase_stream_retention_period_errors() ::
           limit_exceeded_exception()
@@ -1197,6 +1246,13 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | expired_next_token_exception()
 
+  @type list_tags_for_resource_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
   @type list_tags_for_stream_errors() ::
           limit_exceeded_exception()
           | invalid_argument_exception()
@@ -1221,6 +1277,7 @@ defmodule AWS.Kinesis do
           | provisioned_throughput_exceeded_exception()
           | kms_throttling_exception()
           | kms_opt_in_required()
+          | internal_failure_exception()
           | kms_disabled_exception()
 
   @type put_records_errors() ::
@@ -1233,6 +1290,7 @@ defmodule AWS.Kinesis do
           | provisioned_throughput_exceeded_exception()
           | kms_throttling_exception()
           | kms_opt_in_required()
+          | internal_failure_exception()
           | kms_disabled_exception()
 
   @type put_resource_policy_errors() ::
@@ -1284,6 +1342,20 @@ defmodule AWS.Kinesis do
           | resource_in_use_exception()
 
   @type subscribe_to_shard_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type tag_resource_errors() ::
+          limit_exceeded_exception()
+          | invalid_argument_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+
+  @type untag_resource_errors() ::
           limit_exceeded_exception()
           | invalid_argument_exception()
           | access_denied_exception()
@@ -1411,11 +1483,13 @@ defmodule AWS.Kinesis do
   `CreateStream` has a limit of five transactions per second per
   account.
 
-  You can add tags to the stream when making a `CreateStream` request by
-  setting the `Tags` parameter. If you pass `Tags` parameter, in
-  addition to having `kinesis:createStream` permission, you must also have
-  `kinesis:addTagsToStream` permission for the stream that will be created.
-  Tags will take effect from the `CREATING` status of the stream.
+  You can add tags to the stream when making a `CreateStream` request by setting
+  the `Tags` parameter. If you pass the `Tags` parameter, in addition to having
+  the `kinesis:CreateStream` permission, you must also have the
+  `kinesis:AddTagsToStream` permission for the stream that will be created. The
+  `kinesis:TagResource` permission won’t work to tag streams on creation. Tags
+  will take effect from the `CREATING` status of the stream, but you can't make
+  any updates to the tags until the stream is in `ACTIVE` state.
   """
   @spec create_stream(map(), create_stream_input(), list()) ::
           {:ok, nil, any()}
@@ -2020,6 +2094,26 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  List all tags added to the specified Kinesis resource.
+
+  Each tag is a label consisting of a user-defined key and value. Tags can help
+  you manage, identify, organize, search for, and filter resources.
+
+  For more information about tagging Kinesis resources, see [Tag your Amazon Kinesis Data Streams
+  resources](https://docs.aws.amazon.com/streams/latest/dev/tagging.html).
+  """
+  @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListTagsForResource", input, options)
+  end
+
+  @doc """
   Lists the tags for the specified Kinesis data stream.
 
   This operation has a limit of
@@ -2334,6 +2428,13 @@ defmodule AWS.Kinesis do
   that
   read from the same stream.
 
+  You can add tags to the registered consumer when making a
+  `RegisterStreamConsumer` request by setting the `Tags` parameter. If you pass
+  the `Tags` parameter, in addition to having the `kinesis:RegisterStreamConsumer`
+  permission, you must also have the `kinesis:TagResource` permission for the
+  consumer that will be registered. Tags will take effect from the `CREATING`
+  status of the consumer.
+
   You can register up to 20 consumers per stream. A given consumer can only be
   registered with one stream at a time.
 
@@ -2584,6 +2685,41 @@ defmodule AWS.Kinesis do
     meta = metadata()
 
     Request.request_post(client, meta, "SubscribeToShard", input, options)
+  end
+
+  @doc """
+  Adds or updates tags for the specified Kinesis resource.
+
+  Each tag is a label consisting of a user-defined key and value. Tags can help
+  you manage, identify, organize, search for, and filter resources. You can assign
+  up to 50 tags to a Kinesis resource.
+  """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Removes tags from the specified Kinesis resource.
+
+  Removed tags are deleted and can't be recovered after this operation completes
+  successfully.
+  """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UntagResource", input, options)
   end
 
   @doc """

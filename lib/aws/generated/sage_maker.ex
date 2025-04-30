@@ -10697,9 +10697,9 @@ defmodule AWS.SageMaker do
       
       create_project_input() :: %{
         optional("ProjectDescription") => String.t(),
+        optional("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details(),
         optional("Tags") => list(tag()()),
-        required("ProjectName") => String.t(),
-        required("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details()
+        required("ProjectName") => String.t()
       }
       
   """

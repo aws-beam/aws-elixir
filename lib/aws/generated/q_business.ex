@@ -2205,6 +2205,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      create_anonymous_web_experience_url_response() :: %{
+        "anonymousUrl" => String.t()
+      }
+
+  """
+  @type create_anonymous_web_experience_url_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_source_details() :: %{
         "mediaId" => String.t(),
         "mediaMimeType" => String.t()
@@ -3069,6 +3080,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      create_anonymous_web_experience_url_request() :: %{
+        optional("sessionDurationInMinutes") => integer()
+      }
+
+  """
+  @type create_anonymous_web_experience_url_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       attachment_input_event() :: %{
         "attachment" => attachment_input()
       }
@@ -3706,6 +3728,14 @@ defmodule AWS.QBusiness do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type create_anonymous_web_experience_url_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
 
   @type create_application_errors() ::
@@ -4543,6 +4573,52 @@ defmodule AWS.QBusiness do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Creates a unique URL for anonymous Amazon Q Business web experience.
+
+  This URL can only be used once and must be used within 5 minutes after it's
+  generated.
+  """
+  @spec create_anonymous_web_experience_url(
+          map(),
+          String.t(),
+          String.t(),
+          create_anonymous_web_experience_url_request(),
+          list()
+        ) ::
+          {:ok, create_anonymous_web_experience_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_anonymous_web_experience_url_errors()}
+  def create_anonymous_web_experience_url(
+        %Client{} = client,
+        application_id,
+        web_experience_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/experiences/#{AWS.Util.encode_uri(web_experience_id)}/anonymous-url"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

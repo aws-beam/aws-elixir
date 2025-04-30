@@ -256,6 +256,18 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      get_access_token_response() :: %{
+        "AccessRequestStatus" => list(any()),
+        "Credentials" => credentials()
+      }
+      
+  """
+  @type get_access_token_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_association() :: %{
         "Message" => String.t()
       }
@@ -1285,6 +1297,20 @@ defmodule AWS.SSM do
       
   """
   @type resource_policy_invalid_parameter_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      credentials() :: %{
+        "AccessKeyId" => String.t(),
+        "ExpirationTime" => non_neg_integer(),
+        "SecretAccessKey" => String.t(),
+        "SessionToken" => String.t()
+      }
+      
+  """
+  @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2978,6 +3004,19 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      start_access_request_request() :: %{
+        optional("Tags") => list(tag()()),
+        required("Reason") => String.t(),
+        required("Targets") => list(target()())
+      }
+      
+  """
+  @type start_access_request_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       baseline_override() :: %{
         "ApprovalRules" => patch_rule_group(),
         "ApprovedPatches" => list(String.t()()),
@@ -3531,6 +3570,21 @@ defmodule AWS.SSM do
       
   """
   @type get_ops_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t(),
+        "ServiceCode" => String.t()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5583,6 +5637,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       target_location() :: %{
         "Accounts" => list(String.t()()),
         "ExcludeAccounts" => list(String.t()()),
@@ -6170,6 +6235,19 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      throttling_exception() :: %{
+        "Message" => String.t(),
+        "QuotaCode" => String.t(),
+        "ServiceCode" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_target_with_maintenance_window_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -6303,6 +6381,17 @@ defmodule AWS.SSM do
       
   """
   @type document_version_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_token_request() :: %{
+        required("AccessRequestId") => String.t()
+      }
+      
+  """
+  @type get_access_token_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7400,6 +7489,17 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      start_access_request_response() :: %{
+        "AccessRequestId" => String.t()
+      }
+      
+  """
+  @type start_access_request_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_automation_execution_request() :: %{
         optional("Type") => list(any()),
         required("AutomationExecutionId") => String.t()
@@ -8319,6 +8419,13 @@ defmodule AWS.SSM do
           | ops_item_conflict_exception()
           | ops_item_not_found_exception()
 
+  @type get_access_token_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | resource_not_found_exception()
+
   @type get_automation_execution_errors() ::
           internal_server_error() | automation_execution_not_found_exception()
 
@@ -8628,6 +8735,14 @@ defmodule AWS.SSM do
           | invalid_parameters()
           | invalid_document()
           | max_document_size_exceeded()
+
+  @type start_access_request_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_error()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
 
   @type start_associations_once_errors() :: association_does_not_exist() | invalid_association()
 
@@ -10191,6 +10306,20 @@ defmodule AWS.SSM do
   end
 
   @doc """
+  Returns a credentials set to be used with just-in-time node access.
+  """
+  @spec get_access_token(map(), get_access_token_request(), list()) ::
+          {:ok, get_access_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_access_token_errors()}
+  def get_access_token(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccessToken", input, options)
+  end
+
+  @doc """
   Get detailed information about a particular Automation execution.
   """
   @spec get_automation_execution(map(), get_automation_execution_request(), list()) ::
@@ -11484,6 +11613,20 @@ defmodule AWS.SSM do
     meta = metadata()
 
     Request.request_post(client, meta, "SendCommand", input, options)
+  end
+
+  @doc """
+  Starts the workflow for just-in-time node access sessions.
+  """
+  @spec start_access_request(map(), start_access_request_request(), list()) ::
+          {:ok, start_access_request_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_access_request_errors()}
+  def start_access_request(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartAccessRequest", input, options)
   end
 
   @doc """

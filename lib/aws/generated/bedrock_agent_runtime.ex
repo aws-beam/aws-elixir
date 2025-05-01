@@ -29,6 +29,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      custom_orchestration() :: %{
+        "executor" => list()
+      }
+
+  """
+  @type custom_orchestration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       file_part() :: %{
         "files" => list(output_file()())
       }
@@ -2335,9 +2346,11 @@ defmodule AWS.BedrockAgentRuntime do
       invoke_inline_agent_request() :: %{
         optional("actionGroups") => list(agent_action_group()()),
         optional("agentCollaboration") => list(any()),
+        optional("agentName") => String.t(),
         optional("bedrockModelConfigurations") => inline_bedrock_model_configurations(),
         optional("collaboratorConfigurations") => list(collaborator_configuration()()),
         optional("collaborators") => list(collaborator()()),
+        optional("customOrchestration") => custom_orchestration(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("enableTrace") => [boolean()],
         optional("endSession") => [boolean()],
@@ -2346,6 +2359,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("inlineSessionState") => inline_session_state(),
         optional("inputText") => String.t(),
         optional("knowledgeBases") => list(knowledge_base()()),
+        optional("orchestrationType") => list(any()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("streamingConfigurations") => streaming_configurations(),
         required("foundationModel") => String.t(),
@@ -2850,6 +2864,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       inline_agent_trace_part() :: %{
+        "callerChain" => list(list()()),
+        "collaboratorName" => String.t(),
+        "eventTime" => non_neg_integer(),
         "sessionId" => String.t(),
         "trace" => list()
       }
@@ -3179,22 +3196,17 @@ defmodule AWS.BedrockAgentRuntime do
   @doc """
   Creates a new invocation within a session.
 
-  An invocation groups the related invocation steps that store the content from
-  a conversation. For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  An invocation groups the related invocation steps that store the content from a
+  conversation. For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
   sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
 
   Related APIs
 
     *
-
-  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html) 
-
-    *
-
+  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html)     *
   [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html)
 
     *
-
   [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html)
   """
   @spec create_invocation(map(), String.t(), create_invocation_request(), list()) ::
@@ -3225,41 +3237,32 @@ defmodule AWS.BedrockAgentRuntime do
 
   @doc """
   Creates a session to temporarily store conversations for generative AI (GenAI)
-  applications built with open-source
-  frameworks such as LangGraph and LlamaIndex.
+  applications built with open-source frameworks such as LangGraph and LlamaIndex.
 
-  Sessions enable you to save the state of
-  conversations at checkpoints, with the added security and infrastructure of
-  Amazon Web Services. For more information, see
-  [Store and retrieve conversation history and context with Amazon Bedrock sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
+  Sessions enable you to save the state of conversations at checkpoints, with the
+  added security and infrastructure of Amazon Web Services. For more information,
+  see [Store and retrieve conversation history and context with Amazon Bedrock sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
 
   By default, Amazon Bedrock uses Amazon Web Services-managed keys for session
-  encryption, including session metadata,
-  or you can use your own KMS key. For more information, see [Amazon Bedrock session
-  encryption](https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html).
+  encryption, including session metadata, or you can use your own KMS key. For
+  more information, see [Amazon Bedrock session encryption](https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html).
 
   You use a session to store state and conversation history for generative AI
-  applications built with open-source frameworks.
-  For Amazon Bedrock Agents, the service automatically manages conversation
-  context and associates them with the agent-specific sessionId you specify in the
+  applications built with open-source frameworks. For Amazon Bedrock Agents, the
+  service automatically manages conversation context and associates them with the
+  agent-specific sessionId you specify in the
   [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) API operation.
 
   Related APIs:
 
     *
-
   [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html)
 
     *
-
-  [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html) 
-
-    *
-
+  [GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html)     *
   [EndSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html)
 
     *
-
   [DeleteSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_DeleteSession.html)
   """
   @spec create_session(map(), create_session_request(), list()) ::
@@ -3330,9 +3333,8 @@ defmodule AWS.BedrockAgentRuntime do
 
   You can't delete a session with an `ACTIVE` status. To delete an active session,
   you must first end it with the
-  [EndSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html) API operation.
-  For more information about sessions, see [Store and retrieve conversation
-  history and context with Amazon Bedrock
+  [EndSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html) API operation. For more information about sessions, see [Store and retrieve
+  conversation history and context with Amazon Bedrock
   sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
   """
   @spec delete_session(map(), String.t(), delete_session_request(), list()) ::
@@ -3366,8 +3368,7 @@ defmodule AWS.BedrockAgentRuntime do
 
   After you end a session, you can still access its content but you can’t add to
   it. To delete the session and it's content, you use the DeleteSession API
-  operation.
-  For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
+  operation. For more information about sessions, see [Store and retrieve conversation history and context with Amazon Bedrock
   sessions](https://docs.aws.amazon.com/bedrock/latest/userguide/sessions.html).
   """
   @spec end_session(map(), String.t(), end_session_request(), list()) ::
@@ -3563,42 +3564,36 @@ defmodule AWS.BedrockAgentRuntime do
 
   Note the following fields for the request:
 
-    *
-  To continue the same conversation with an agent, use the same `sessionId` value
-  in the request.
+    * To continue the same conversation with an agent, use the same
+  `sessionId` value in the request.
 
-    *
-  To activate trace enablement, turn `enableTrace` to `true`. Trace enablement
-  helps you follow the agent's reasoning process that led it to the information it
-  processed, the actions it took, and the final result it yielded. For more
-  information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
+    * To activate trace enablement, turn `enableTrace` to `true`. Trace
+  enablement helps you follow the agent's reasoning process that led it to the
+  information it processed, the actions it took, and the final result it yielded.
+  For more information, see [Trace enablement](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events).
 
-    *
-  End a conversation by setting `endSession` to `true`.
+    * End a conversation by setting `endSession` to `true`.
 
-    *
-  In the `sessionState` object, you can include attributes for the session or
-  prompt or, if you configured an action group to return control, results from
-  invocation of the action group.
+    * In the `sessionState` object, you can include attributes for the
+  session or prompt or, if you configured an action group to return control,
+  results from invocation of the action group.
 
   The response contains both **chunk** and **trace** attributes.
 
   The final response is returned in the `bytes` field of the `chunk` object. The
   `InvokeAgent` returns one chunk for the entire interaction.
 
-    *
-  The `attribution` object contains citations for parts of the response.
+    * The `attribution` object contains citations for parts of the
+  response.
 
-    *
-  If you set `enableTrace` to `true` in the request, you can trace the agent's
-  steps and reasoning process that led it to the response.
+    * If you set `enableTrace` to `true` in the request, you can trace
+  the agent's steps and reasoning process that led it to the response.
 
-    *
-  If the action predicted was configured to return control, the response returns
-  parameters for the action, elicited from the user, in the `returnControl` field.
+    * If the action predicted was configured to return control, the
+  response returns parameters for the action, elicited from the user, in the
+  `returnControl` field.
 
-    *
-  Errors are also surfaced in the response.
+    * Errors are also surfaced in the response.
   """
   @spec invoke_agent(map(), String.t(), String.t(), String.t(), invoke_agent_request(), list()) ::
           {:ok, invoke_agent_response(), any()}
@@ -3697,30 +3692,26 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-
   Invokes an inline Amazon Bedrock agent using the configurations you provide with
   the request.
 
-    *
-  Specify the following fields for security purposes.
+    * Specify the following fields for security purposes.
 
-      *
-  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
-  key to encrypt the creation of the agent.
+      * (Optional) `customerEncryptionKeyArn` – The Amazon
+  Resource Name (ARN) of a KMS key to encrypt the creation of the agent.
 
-      *
-  (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
-  the agent should maintain session information. After this time expires, the
-  subsequent `InvokeInlineAgent` request begins a new session.
+      * (Optional) `idleSessionTTLinSeconds` – Specify the
+  number of seconds for which the agent should maintain session information. After
+  this time expires, the subsequent `InvokeInlineAgent` request begins a new
+  session.
 
-    *
-  To override the default prompt behavior for agent orchestration and to use
-  advanced prompts, include a `promptOverrideConfiguration` object.
-  For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
+    * To override the default prompt behavior for agent orchestration
+  and to use advanced prompts, include a `promptOverrideConfiguration` object. For
+  more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
 
-    *
-  The agent instructions will not be honored if your agent has only one knowledge
-  base, uses default prompts, has no action group, and user input is disabled.
+    * The agent instructions will not be honored if your agent has only
+  one knowledge base, uses default prompts, has no action group, and user input is
+  disabled.
   """
   @spec invoke_inline_agent(map(), String.t(), invoke_inline_agent_request(), list()) ::
           {:ok, invoke_inline_agent_response(), any()}
@@ -3933,19 +3924,11 @@ defmodule AWS.BedrockAgentRuntime do
   Related APIs:
 
     *
-
-  [GetInvocationStep](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html) 
-
-    *
-
+  [GetInvocationStep](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html)     *
   [ListInvocationSteps](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocationSteps.html)
 
     *
-
-  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html) 
-
-    *
-
+  [ListInvocations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html)     *
   [ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html)
   """
   @spec put_invocation_step(map(), String.t(), put_invocation_step_request(), list()) ::

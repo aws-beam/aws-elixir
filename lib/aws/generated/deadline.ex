@@ -787,6 +787,7 @@ defmodule AWS.Deadline do
       customer_managed_fleet_configuration() :: %{
         "mode" => list(any()),
         "storageProfileId" => String.t(),
+        "tagPropagationMode" => list(any()),
         "workerCapabilities" => customer_managed_worker_capabilities()
       }
 
@@ -3805,7 +3806,8 @@ defmodule AWS.Deadline do
 
       create_worker_request() :: %{
         optional("clientToken") => String.t(),
-        optional("hostProperties") => host_properties_request()
+        optional("hostProperties") => host_properties_request(),
+        optional("tags") => map()
       }
 
   """

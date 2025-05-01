@@ -24,7 +24,8 @@ defmodule AWS.Bedrock do
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "lastModifiedTime" => non_neg_integer(),
-        "status" => list(any())
+        "status" => list(any()),
+        "statusDetails" => status_details()
       }
 
   """
@@ -841,6 +842,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      status_details() :: %{
+        "dataProcessingDetails" => data_processing_details(),
+        "trainingDetails" => training_details(),
+        "validationDetails" => validation_details()
+      }
+
+  """
+  @type status_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_inference_profile_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("description") => String.t(),
@@ -1221,6 +1235,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      data_processing_details() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type data_processing_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_guardrails_response() :: %{
         "guardrails" => list(guardrail_summary()()),
         "nextToken" => String.t()
@@ -1545,6 +1572,19 @@ defmodule AWS.Bedrock do
 
   """
   @type teacher_model_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_details() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2313,6 +2353,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      training_details() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type training_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_word_policy_config() :: %{
         "managedWordListsConfig" => list(guardrail_managed_words_config()()),
         "wordsConfig" => list(guardrail_word_config()())
@@ -2492,6 +2545,7 @@ defmodule AWS.Bedrock do
         "outputModelName" => String.t(),
         "roleArn" => String.t(),
         "status" => list(any()),
+        "statusDetails" => status_details(),
         "trainingDataConfig" => training_data_config(),
         "trainingMetrics" => training_metrics(),
         "validationDataConfig" => validation_data_config(),

@@ -5,16 +5,14 @@ defmodule AWS.MailManager do
   @moduledoc """
   Amazon SES Mail Manager API
 
-  The Amazon SES Mail Manager API contains operations and data types
-  that comprise the Mail Manager feature of [Amazon Simple Email Service (SES)](http://aws.amazon.com/ses).
+  The Amazon SES Mail Manager API contains operations and data types that comprise
+  the Mail Manager feature of [Amazon Simple Email Service (SES)](http://aws.amazon.com/ses).
 
   Mail Manager is a set of Amazon SES email gateway features designed to help you
-  strengthen
-  your organization's email infrastructure, simplify email workflow management,
-  and
-  streamline email compliance control. To learn more, see the [Mail Manager chapter](https://docs.aws.amazon.com/ses/latest/dg/eb.html) in the *Amazon SES
-  Developer
-  Guide*.
+  strengthen your organization's email infrastructure, simplify email workflow
+  management, and streamline email compliance control. To learn more, see the
+  [Mail Manager chapter](https://docs.aws.amazon.com/ses/latest/dg/eb.html) in the
+  *Amazon SES Developer Guide*.
   """
 
   alias AWS.Client
@@ -965,6 +963,21 @@ defmodule AWS.MailManager do
       
   """
   @type ingress_is_in_address_list() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sns_action() :: %{
+        "ActionFailurePolicy" => list(any()),
+        "Encoding" => list(any()),
+        "PayloadType" => list(any()),
+        "RoleArn" => String.t(),
+        "TopicArn" => String.t()
+      }
+      
+  """
+  @type sns_action() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2529,9 +2542,8 @@ defmodule AWS.MailManager do
   @doc """
   Creates an Add On instance for the subscription indicated in the request.
 
-  The
-  resulting Amazon Resource Name (ARN) can be used in a conditional statement for
-  a rule set or traffic policy.
+  The resulting Amazon Resource Name (ARN) can be used in a conditional statement
+  for a rule set or traffic policy.
   """
   @spec create_addon_instance(map(), create_addon_instance_request(), list()) ::
           {:ok, create_addon_instance_response(), any()}
@@ -2546,11 +2558,10 @@ defmodule AWS.MailManager do
 
   @doc """
   Creates a subscription for an Add On representing the acceptance of its terms of
-  use
-  and additional pricing.
+  use and additional pricing.
 
-  The subscription can then be used to create an instance for use
-  in rule sets or traffic policies.
+  The subscription can then be used to create an instance for use in rule sets or
+  traffic policies.
   """
   @spec create_addon_subscription(map(), create_addon_subscription_request(), list()) ::
           {:ok, create_addon_subscription_response(), any()}
@@ -2707,14 +2718,11 @@ defmodule AWS.MailManager do
   @doc """
   Initiates deletion of an email archive.
 
-  This changes the archive state to pending
-  deletion. In this state, no new emails can be added, and existing archived
-  emails become
-  inaccessible (search, export, download). The archive and all of its contents
-  will be
-  permanently deleted 30 days after entering the pending deletion state,
-  regardless of the
-  configured retention period.
+  This changes the archive state to pending deletion. In this state, no new emails
+  can be added, and existing archived emails become inaccessible (search, export,
+  download). The archive and all of its contents will be permanently deleted 30
+  days after entering the pending deletion state, regardless of the configured
+  retention period.
   """
   @spec delete_archive(map(), delete_archive_request(), list()) ::
           {:ok, delete_archive_response(), any()}
@@ -2887,8 +2895,7 @@ defmodule AWS.MailManager do
 
   @doc """
   Returns a pre-signed URL that provides temporary download access to the specific
-  email message stored in
-  the archive.
+  email message stored in the archive.
   """
   @spec get_archive_message(map(), get_archive_message_request(), list()) ::
           {:ok, get_archive_message_response(), any()}
@@ -2904,8 +2911,7 @@ defmodule AWS.MailManager do
   @doc """
   Returns the textual content of a specific email message stored in the archive.
 
-  Attachments are not
-  included.
+  Attachments are not included.
   """
   @spec get_archive_message_content(map(), get_archive_message_content_request(), list()) ::
           {:ok, get_archive_message_content_response(), any()}

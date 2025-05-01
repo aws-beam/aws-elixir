@@ -3928,7 +3928,7 @@ defmodule AWS.CloudWatchLogs do
   with that key
   will be unencryptable and unusable.
 
-  CloudWatch Logs supports only symmetric KMS keys. Do not use an associate
+  CloudWatch Logs supports only symmetric KMS keys. Do not associate
   an asymmetric KMS key with your log group or query results. For more
   information, see [Using Symmetric and Asymmetric
   Keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html).
@@ -4059,7 +4059,7 @@ defmodule AWS.CloudWatchLogs do
   S3 key prefix for all exported objects.
 
   We recommend that you don't regularly export to Amazon S3 as a way to
-  continuously archive your logs. For that use case, we instaed recommend that
+  continuously archive your logs. For that use case, we instead recommend that
   you use subscriptions. For more information about subscriptions, see
   [Real-time processing of log data with subscriptions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html).
 
@@ -4602,7 +4602,7 @@ defmodule AWS.CloudWatchLogs do
 
     *
   To see subscription filter policies, you must have the
-  `logs:DescrubeSubscriptionFilters` and
+  `logs:DescribeSubscriptionFilters` and
   `logs:DescribeAccountPolicies` permissions.
 
     *
@@ -6118,7 +6118,7 @@ defmodule AWS.CloudWatchLogs do
   Otherwise, the operation fails.
 
     *
-  Each log event can be no larger than 256 KB.
+  Each log event can be no larger than 1 MB.
 
     *
   The maximum number of log events in a batch is 10,000.
@@ -6460,6 +6460,10 @@ defmodule AWS.CloudWatchLogs do
   [SessionTimeoutException](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException)
   object is returned when the session times out, after it has been kept open for
   three hours.
+
+  The `StartLiveTail` API routes requests to
+  `streaming-logs.*Region*.amazonaws.com` using SDK host prefix injection.
+  VPC endpoint support is not available for this API.
 
   You can end a session before it times out by closing the session stream or by
   closing the client that is receiving the

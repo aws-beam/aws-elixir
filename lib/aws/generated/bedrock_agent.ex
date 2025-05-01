@@ -367,6 +367,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      inline_code_flow_node_configuration() :: %{
+        "code" => String.t(),
+        "language" => list(any())
+      }
+
+  """
+  @type inline_code_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_flow_node_inline_configuration() :: %{
         "additionalModelRequestFields" => [any()],
         "inferenceConfiguration" => list(),

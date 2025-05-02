@@ -1767,6 +1767,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_software_request() :: %{
+        optional("DeploymentConfig") => deployment_configuration(),
+        optional("InstanceGroups") => list(update_cluster_software_instance_group_specification()()),
         required("ClusterName") => String.t()
       }
       
@@ -5383,6 +5385,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      scheduled_update_config() :: %{
+        "DeploymentConfig" => deployment_configuration(),
+        "ScheduleExpression" => String.t()
+      }
+      
+  """
+  @type scheduled_update_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       monitoring_alert_history_summary() :: %{
         "AlertStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
@@ -5467,6 +5481,17 @@ defmodule AWS.SageMaker do
       
   """
   @type image_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_software_instance_group_specification() :: %{
+        "InstanceGroupName" => String.t()
+      }
+      
+  """
+  @type update_cluster_software_instance_group_specification() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6030,6 +6055,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      alarm_details() :: %{
+        "AlarmName" => String.t()
+      }
+      
+  """
+  @type alarm_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       suggestion_query() :: %{
         "PropertyNameQuery" => property_name_query()
       }
@@ -6353,6 +6389,19 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_model_card_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_configuration() :: %{
+        "AutoRollbackConfiguration" => list(alarm_details()()),
+        "RollingUpdatePolicy" => rolling_deployment_policy(),
+        "WaitIntervalInSeconds" => integer()
+      }
+      
+  """
+  @type deployment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7454,6 +7503,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_feature_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_size_config() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type capacity_size_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9236,6 +9297,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      rolling_deployment_policy() :: %{
+        "MaximumBatchSize" => capacity_size_config(),
+        "RollbackMaximumBatchSize" => capacity_size_config()
+      }
+      
+  """
+  @type rolling_deployment_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       time_series_forecasting_settings() :: %{
         "AmazonForecastRoleArn" => String.t(),
         "Status" => list(any())
@@ -9819,6 +9892,7 @@ defmodule AWS.SageMaker do
         "InstanceId" => String.t(),
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceType" => list(any()),
+        "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer()
       }
       
@@ -14958,6 +15032,7 @@ defmodule AWS.SageMaker do
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
+        "ScheduledUpdateConfig" => scheduled_update_config(),
         "ThreadsPerCore" => integer(),
         "TrainingPlanArn" => String.t()
       }
@@ -17366,6 +17441,7 @@ defmodule AWS.SageMaker do
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
         "OverrideVpcConfig" => vpc_config(),
+        "ScheduledUpdateConfig" => scheduled_update_config(),
         "Status" => list(any()),
         "TargetCount" => integer(),
         "ThreadsPerCore" => integer(),
@@ -17761,6 +17837,7 @@ defmodule AWS.SageMaker do
         "InstanceStatus" => cluster_instance_status_details(),
         "InstanceStorageConfigs" => list(list()()),
         "InstanceType" => list(any()),
+        "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OverrideVpcConfig" => vpc_config(),
@@ -19723,10 +19800,13 @@ defmodule AWS.SageMaker do
   Components](https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view).
 
   Do not include any security-sensitive information including account access IDs,
-  secrets or tokens in any hyperparameter field. If the use of security-sensitive
-  credentials are detected, SageMaker will reject your training job request and
-  return an
-  exception error.
+  secrets,
+  or tokens in any hyperparameter fields. As part of the shared responsibility
+  model,
+  you are responsible for any potential exposure, unauthorized access, or
+  compromise of your sensitive data if caused by any security-sensitive
+  information included
+  in the request hyperparameter variable or plain text fields..
   """
   @spec create_hyper_parameter_tuning_job(
           map(),
@@ -20502,10 +20582,13 @@ defmodule AWS.SageMaker do
   be tuned to optimize this learning process. For a list of hyperparameters for
   each training algorithm provided by SageMaker, see
   [Algorithms](https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html). 
-  Do not include any security-sensitive information including account access
-  IDs, secrets or tokens in any hyperparameter field. If the use of
-  security-sensitive credentials are detected, SageMaker will reject your training
-  job request and return an exception error.
+  Do not include any security-sensitive information including account access IDs,
+  secrets,
+  or tokens in any hyperparameter fields. As part of the shared responsibility
+  model, you are responsible for any potential exposure, unauthorized access, or
+  compromise of
+  your sensitive data if caused by security-sensitive information included in the
+  request hyperparameter variable or plain text fields.
 
     *
 
@@ -20551,6 +20634,16 @@ defmodule AWS.SageMaker do
 
   `Environment` - The environment variables to set in the Docker
   container.
+
+  Do not include any security-sensitive information including account access IDs,
+  secrets,
+  or tokens in any environment fields. As part of the shared responsibility model,
+  you are
+  responsible for any potential exposure, unauthorized access, or compromise of
+  your sensitive
+  data if caused by security-sensitive information included in the request
+  environment variable
+  or plain text fields.
 
     *
 

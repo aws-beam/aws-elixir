@@ -4274,12 +4274,17 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_info() :: %{
+        "AfterContactWorkDuration" => integer(),
+        "AfterContactWorkEndTimestamp" => non_neg_integer(),
+        "AfterContactWorkStartTimestamp" => non_neg_integer(),
+        "AgentInitiatedHoldDuration" => integer(),
         "AgentPauseDurationInSeconds" => integer(),
         "Capabilities" => participant_capabilities(),
         "ConnectedToAgentTimestamp" => non_neg_integer(),
         "DeviceInfo" => device_info(),
         "HierarchyGroups" => hierarchy_groups(),
-        "Id" => String.t()
+        "Id" => String.t(),
+        "StateTransitions" => list(state_transition()())
       }
 
   """
@@ -5613,6 +5618,26 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      recording_info() :: %{
+        "DeletionReason" => String.t(),
+        "FragmentStartNumber" => String.t(),
+        "FragmentStopNumber" => String.t(),
+        "Location" => String.t(),
+        "MediaStreamType" => list(any()),
+        "ParticipantType" => list(any()),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "StopTimestamp" => non_neg_integer(),
+        "StorageType" => list(any())
+      }
+
+  """
+  @type recording_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_approved_origins_response() :: %{
         "NextToken" => String.t(),
         "Origins" => list(String.t()())
@@ -6130,8 +6155,10 @@ defmodule AWS.Connect do
         "AgentInfo" => agent_info(),
         "LastPausedTimestamp" => non_neg_integer(),
         "Channel" => list(any()),
+        "DisconnectReason" => String.t(),
         "LastResumedTimestamp" => non_neg_integer(),
         "LastUpdateTimestamp" => non_neg_integer(),
+        "ContactDetails" => contact_details(),
         "QueueInfo" => queue_info(),
         "SegmentAttributes" => map(),
         "Customer" => customer(),
@@ -6143,6 +6170,7 @@ defmodule AWS.Connect do
         "AdditionalEmailRecipients" => additional_email_recipients(),
         "Campaign" => campaign(),
         "PreviousContactId" => String.t(),
+        "ContactEvaluations" => map(),
         "TotalPauseDurationInSeconds" => integer(),
         "CustomerEndpoint" => endpoint_info(),
         "SystemEndpoint" => endpoint_info(),
@@ -6158,7 +6186,9 @@ defmodule AWS.Connect do
         "ConnectedToSystemTimestamp" => non_neg_integer(),
         "DisconnectDetails" => disconnect_details(),
         "TotalPauseCount" => integer(),
-        "CustomerVoiceActivity" => customer_voice_activity()
+        "CustomerVoiceActivity" => customer_voice_activity(),
+        "Attributes" => map(),
+        "Recordings" => list(recording_info()())
       }
 
   """
@@ -6274,6 +6304,19 @@ defmodule AWS.Connect do
 
   """
   @type update_contact_flow_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state_transition() :: %{
+        "State" => list(any()),
+        "StateEndTimestamp" => non_neg_integer(),
+        "StateStartTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type state_transition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6454,6 +6497,23 @@ defmodule AWS.Connect do
 
   """
   @type interval_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_evaluation() :: %{
+        "DeleteTimestamp" => non_neg_integer(),
+        "EndTimestamp" => non_neg_integer(),
+        "EvaluationArn" => String.t(),
+        "ExportLocation" => String.t(),
+        "FormId" => String.t(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type contact_evaluation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9209,6 +9269,18 @@ defmodule AWS.Connect do
 
   """
   @type operational_hour() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_details() :: %{
+        "Description" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type contact_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13952,8 +14024,9 @@ defmodule AWS.Connect do
 
   Only the EMAIL and VOICE channels are supported.
 
-  The supported initiation methods for EMAIL are: OUTBOUND,
-  AGENT_REPLY, and FLOW. For VOICE the supported initiation methods are TRANSFER
+  The supported initiation methods for EMAIL
+  are: OUTBOUND, AGENT_REPLY, and FLOW. For VOICE the supported initiation methods
+  are TRANSFER
   and the subtype connect:ExternalAudio.
 
   Creates a new EMAIL or VOICE contact.
@@ -16263,8 +16336,8 @@ defmodule AWS.Connect do
 
     
 
-  `CustomerEndpoint` and `SystemEndpoint` are only populated for
-  EMAIL contacts.
+  `SystemEndpoint` is not populated for contacts with initiation method of
+  MONITOR, QUEUE_TRANSFER, or CALLBACK
 
     
   Contact information remains available in Amazon Connect for 24 months from the
@@ -17585,8 +17658,9 @@ defmodule AWS.Connect do
   @doc """
   Gets the real-time metric data from the specified Amazon Connect instance.
 
-  For a description of each metric, see [Real-time Metrics Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  For a description of each metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec get_current_metric_data(map(), String.t(), get_current_metric_data_request(), list()) ::
           {:ok, get_current_metric_data_response(), any()}
@@ -17756,8 +17830,9 @@ defmodule AWS.Connect do
   @doc """
   Gets historical metric data from the specified Amazon Connect instance.
 
-  For a description of each historical metric, see [Historical Metrics Definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  For a description of each historical metric, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
+  in the
+  *Amazon Connect Administrator Guide*.
 
   We recommend using the
   [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html)
@@ -17813,9 +17888,10 @@ defmodule AWS.Connect do
   does not support agent queues.
 
   For a description of the historical metrics that are supported by
-  `GetMetricDataV2` and `GetMetricData`, see [Historical metrics
-  definitions](https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html)
-  in the *Amazon Connect Administrator Guide*.
+  `GetMetricDataV2` and `GetMetricData`, see [Metrics
+  definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html)
+  in the
+  *Amazon Connect Administrator Guide*.
   """
   @spec get_metric_data_v2(map(), get_metric_data_v2_request(), list()) ::
           {:ok, get_metric_data_v2_response(), any()}
@@ -22048,11 +22124,11 @@ defmodule AWS.Connect do
   recording while collecting sensitive information, such as a credit card number.
   Then use
   [ResumeContactRecording](https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html)
-
   to restart recording the screen.
 
   The period of time that the recording is suspended is filled with silence in the
-  final recording.
+  final
+  recording.
 
   Voice (IVR, agent) and screen recordings are supported.
   """

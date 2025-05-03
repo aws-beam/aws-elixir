@@ -590,7 +590,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       tag_resource_input() :: %{
-        optional("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t(),
         required("Tags") => map()
       }
       
@@ -759,7 +759,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       untag_resource_input() :: %{
-        optional("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t(),
         required("TagKeys") => list(String.t()())
       }
       
@@ -856,7 +856,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        optional("ResourceARN") => String.t()
+        required("ResourceARN") => String.t()
       }
       
   """

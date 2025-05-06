@@ -1316,6 +1316,7 @@ defmodule AWS.DeviceFarm do
       get_device_pool_compatibility_request() :: %{
         optional("appArn") => String.t(),
         optional("configuration") => schedule_run_configuration(),
+        optional("projectArn") => String.t(),
         optional("test") => schedule_run_test(),
         optional("testType") => list(any()),
         required("devicePoolArn") => String.t()

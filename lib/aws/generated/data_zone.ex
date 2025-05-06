@@ -4005,6 +4005,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      use_asset_type_policy_grant_detail() :: %{
+        "domainUnitId" => String.t()
+      }
+
+  """
+  @type use_asset_type_policy_grant_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       not_equal_to_expression() :: %{
         "columnName" => [String.t()],
         "value" => [String.t()]

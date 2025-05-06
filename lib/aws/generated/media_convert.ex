@@ -199,6 +199,7 @@ defmodule AWS.MediaConvert do
         "ParControl" => list(any()),
         "ParDenominator" => integer(),
         "ParNumerator" => integer(),
+        "PerFrameMetrics" => list(list(any())()),
         "ScanTypeConversionMode" => list(any()),
         "SlowPal" => list(any()),
         "Telecine" => list(any())
@@ -1249,6 +1250,7 @@ defmodule AWS.MediaConvert do
         "FileGroupSettings" => file_group_settings(),
         "HlsGroupSettings" => hls_group_settings(),
         "MsSmoothGroupSettings" => ms_smooth_group_settings(),
+        "PerFrameMetrics" => list(list(any())()),
         "Type" => list(any())
       }
 
@@ -1599,6 +1601,7 @@ defmodule AWS.MediaConvert do
         "FramerateConversionAlgorithm" => list(any()),
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
+        "PerFrameMetrics" => list(list(any())()),
         "Profile" => list(any()),
         "SlowPal" => list(any()),
         "Softness" => integer(),
@@ -1681,7 +1684,7 @@ defmodule AWS.MediaConvert do
 
       audio_properties() :: %{
         "BitDepth" => integer(),
-        "BitRate" => integer(),
+        "BitRate" => float(),
         "Channels" => integer(),
         "FrameRate" => frame_rate(),
         "LanguageCode" => String.t(),
@@ -1726,6 +1729,7 @@ defmodule AWS.MediaConvert do
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
         "InterlaceMode" => list(any()),
+        "PerFrameMetrics" => list(list(any())()),
         "ScanTypeConversionMode" => list(any()),
         "SlowPal" => list(any()),
         "Telecine" => list(any())
@@ -1875,6 +1879,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       h265_settings() :: %{
+        "PerFrameMetrics" => list(list(any())()),
         "ParControl" => list(any()),
         "TemporalAdaptiveQuantization" => list(any()),
         "DynamicSubGop" => list(any()),
@@ -2355,6 +2360,7 @@ defmodule AWS.MediaConvert do
         "GopSize" => float(),
         "MaxBitrate" => integer(),
         "NumberBFramesBetweenReferenceFrames" => integer(),
+        "PerFrameMetrics" => list(list(any())()),
         "QvbrSettings" => av1_qvbr_settings(),
         "RateControlMode" => list(any()),
         "Slices" => integer(),
@@ -2572,7 +2578,7 @@ defmodule AWS.MediaConvert do
 
       video_properties() :: %{
         "BitDepth" => integer(),
-        "BitRate" => integer(),
+        "BitRate" => float(),
         "ColorPrimaries" => list(any()),
         "FrameRate" => frame_rate(),
         "Height" => integer(),
@@ -2841,6 +2847,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       mpeg2_settings() :: %{
+        "PerFrameMetrics" => list(list(any())()),
         "ParControl" => list(any()),
         "TemporalAdaptiveQuantization" => list(any()),
         "DynamicSubGop" => list(any()),
@@ -3965,6 +3972,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       h264_settings() :: %{
+        "PerFrameMetrics" => list(list(any())()),
         "ParControl" => list(any()),
         "TemporalAdaptiveQuantization" => list(any()),
         "DynamicSubGop" => list(any()),

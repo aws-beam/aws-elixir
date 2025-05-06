@@ -806,6 +806,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_local_gateway_virtual_interface_result() :: %{
+        "LocalGatewayVirtualInterface" => local_gateway_virtual_interface()
+      }
+      
+  """
+  @type create_local_gateway_virtual_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       subnet_association() :: %{
         "State" => list(any()),
         "SubnetId" => String.t()
@@ -926,6 +937,21 @@ defmodule AWS.EC2 do
       
   """
   @type create_coip_pool_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_local_gateway_virtual_interface_group_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("LocalBgpAsn") => integer(),
+        optional("LocalBgpAsnExtended") => float(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("LocalGatewayId") => String.t()
+      }
+      
+  """
+  @type create_local_gateway_virtual_interface_group_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1162,6 +1188,21 @@ defmodule AWS.EC2 do
       
   """
   @type describe_address_transfers_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_link_virtual_interfaces_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("ServiceLinkVirtualInterfaceIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_service_link_virtual_interfaces_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10038,6 +10079,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      outpost_lag() :: %{
+        "LocalGatewayVirtualInterfaceIds" => list(String.t()()),
+        "OutpostArn" => String.t(),
+        "OutpostLagId" => String.t(),
+        "OwnerId" => String.t(),
+        "ServiceLinkVirtualInterfaceIds" => list(String.t()()),
+        "State" => String.t(),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type outpost_lag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vpn_connection() :: %{
         "Category" => String.t(),
         "CoreNetworkArn" => String.t(),
@@ -10771,6 +10829,18 @@ defmodule AWS.EC2 do
       
   """
   @type describe_transit_gateway_policy_tables_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_local_gateway_virtual_interface_request() :: %{
+        optional("DryRun") => boolean(),
+        required("LocalGatewayVirtualInterfaceId") => String.t()
+      }
+      
+  """
+  @type delete_local_gateway_virtual_interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11733,6 +11803,17 @@ defmodule AWS.EC2 do
       
   """
   @type id_format() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_local_gateway_virtual_interface_group_result() :: %{
+        "LocalGatewayVirtualInterfaceGroup" => local_gateway_virtual_interface_group()
+      }
+      
+  """
+  @type delete_local_gateway_virtual_interface_group_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15718,13 +15799,18 @@ defmodule AWS.EC2 do
   ## Example:
       
       local_gateway_virtual_interface() :: %{
+        "ConfigurationState" => list(any()),
         "LocalAddress" => String.t(),
         "LocalBgpAsn" => integer(),
         "LocalGatewayId" => String.t(),
+        "LocalGatewayVirtualInterfaceArn" => String.t(),
+        "LocalGatewayVirtualInterfaceGroupId" => String.t(),
         "LocalGatewayVirtualInterfaceId" => String.t(),
+        "OutpostLagId" => String.t(),
         "OwnerId" => String.t(),
         "PeerAddress" => String.t(),
         "PeerBgpAsn" => integer(),
+        "PeerBgpAsnExtended" => float(),
         "Tags" => list(tag()()),
         "Vlan" => integer()
       }
@@ -16693,6 +16779,18 @@ defmodule AWS.EC2 do
       
   """
   @type authorize_security_group_egress_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_outpost_lags_result() :: %{
+        "NextToken" => String.t(),
+        "OutpostLags" => list(outpost_lag()())
+      }
+      
+  """
+  @type describe_outpost_lags_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -19073,6 +19171,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_local_gateway_virtual_interface_result() :: %{
+        "LocalGatewayVirtualInterface" => local_gateway_virtual_interface()
+      }
+      
+  """
+  @type delete_local_gateway_virtual_interface_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_vpn_connection_device_sample_configuration_result() :: %{
         "VpnConnectionDeviceSampleConfiguration" => String.t()
       }
@@ -20199,7 +20308,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       local_gateway_virtual_interface_group() :: %{
+        "ConfigurationState" => list(any()),
+        "LocalBgpAsn" => integer(),
+        "LocalBgpAsnExtended" => float(),
         "LocalGatewayId" => String.t(),
+        "LocalGatewayVirtualInterfaceGroupArn" => String.t(),
         "LocalGatewayVirtualInterfaceGroupId" => String.t(),
         "LocalGatewayVirtualInterfaceIds" => list(String.t()()),
         "OwnerId" => String.t(),
@@ -20422,6 +20535,18 @@ defmodule AWS.EC2 do
       
   """
   @type delete_transit_gateway_prefix_list_reference_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_link_virtual_interfaces_result() :: %{
+        "NextToken" => String.t(),
+        "ServiceLinkVirtualInterfaces" => list(service_link_virtual_interface()())
+      }
+      
+  """
+  @type describe_service_link_virtual_interfaces_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -21978,6 +22103,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_local_gateway_virtual_interface_group_result() :: %{
+        "LocalGatewayVirtualInterfaceGroup" => local_gateway_virtual_interface_group()
+      }
+      
+  """
+  @type create_local_gateway_virtual_interface_group_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_instance_credit_specification_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
@@ -22336,6 +22472,21 @@ defmodule AWS.EC2 do
       
   """
   @type client_vpn_authorization_rule_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_outpost_lags_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("OutpostLagIds") => list(String.t()())
+      }
+      
+  """
+  @type describe_outpost_lags_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -23797,6 +23948,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_local_gateway_virtual_interface_group_request() :: %{
+        optional("DryRun") => boolean(),
+        required("LocalGatewayVirtualInterfaceGroupId") => String.t()
+      }
+      
+  """
+  @type delete_local_gateway_virtual_interface_group_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_snapshots_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -24411,6 +24574,25 @@ defmodule AWS.EC2 do
       
   """
   @type get_ipam_resource_cidrs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_local_gateway_virtual_interface_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("PeerBgpAsn") => integer(),
+        optional("PeerBgpAsnExtended") => float(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("LocalAddress") => String.t(),
+        required("LocalGatewayVirtualInterfaceGroupId") => String.t(),
+        required("OutpostLagId") => String.t(),
+        required("PeerAddress") => String.t(),
+        required("Vlan") => integer()
+      }
+      
+  """
+  @type create_local_gateway_virtual_interface_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -27742,6 +27924,28 @@ defmodule AWS.EC2 do
       
   """
   @type cloud_watch_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_link_virtual_interface() :: %{
+        "ConfigurationState" => list(any()),
+        "LocalAddress" => String.t(),
+        "OutpostArn" => String.t(),
+        "OutpostId" => String.t(),
+        "OutpostLagId" => String.t(),
+        "OwnerId" => String.t(),
+        "PeerAddress" => String.t(),
+        "PeerBgpAsn" => float(),
+        "ServiceLinkVirtualInterfaceArn" => String.t(),
+        "ServiceLinkVirtualInterfaceId" => String.t(),
+        "Tags" => list(tag()()),
+        "Vlan" => integer()
+      }
+      
+  """
+  @type service_link_virtual_interface() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -31725,6 +31929,40 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Create a virtual interface for a local gateway.
+  """
+  @spec create_local_gateway_virtual_interface(
+          map(),
+          create_local_gateway_virtual_interface_request(),
+          list()
+        ) ::
+          {:ok, create_local_gateway_virtual_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLocalGatewayVirtualInterface", input, options)
+  end
+
+  @doc """
+  Create a local gateway virtual interface group.
+  """
+  @spec create_local_gateway_virtual_interface_group(
+          map(),
+          create_local_gateway_virtual_interface_group_request(),
+          list()
+        ) ::
+          {:ok, create_local_gateway_virtual_interface_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateLocalGatewayVirtualInterfaceGroup", input, options)
+  end
+
+  @doc """
   Creates a managed prefix list.
 
   You can specify entries for the prefix list.
@@ -33701,6 +33939,40 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Deletes the specified local gateway virtual interface.
+  """
+  @spec delete_local_gateway_virtual_interface(
+          map(),
+          delete_local_gateway_virtual_interface_request(),
+          list()
+        ) ::
+          {:ok, delete_local_gateway_virtual_interface_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterface", input, options)
+  end
+
+  @doc """
+  Delete the specified local gateway interface group.
+  """
+  @spec delete_local_gateway_virtual_interface_group(
+          map(),
+          delete_local_gateway_virtual_interface_group_request(),
+          list()
+        ) ::
+          {:ok, delete_local_gateway_virtual_interface_group_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterfaceGroup", input, options)
   end
 
   @doc """
@@ -36857,6 +37129,19 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the Outposts link aggregation groups (LAGs).
+  """
+  @spec describe_outpost_lags(map(), describe_outpost_lags_request(), list()) ::
+          {:ok, describe_outpost_lags_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_outpost_lags(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeOutpostLags", input, options)
+  end
+
+  @doc """
   Describes the specified placement groups or all of your placement groups.
 
   To describe a specific placement group that is *shared* with
@@ -37327,6 +37612,23 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroups", input, options)
+  end
+
+  @doc """
+  Describes the Outpost service link virtual interfaces.
+  """
+  @spec describe_service_link_virtual_interfaces(
+          map(),
+          describe_service_link_virtual_interfaces_request(),
+          list()
+        ) ::
+          {:ok, describe_service_link_virtual_interfaces_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_service_link_virtual_interfaces(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeServiceLinkVirtualInterfaces", input, options)
   end
 
   @doc """

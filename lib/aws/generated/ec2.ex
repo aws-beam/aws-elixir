@@ -13995,6 +13995,7 @@ defmodule AWS.EC2 do
         "KmsKeyId" => String.t(),
         "SnapshotId" => String.t(),
         "Throughput" => integer(),
+        "VolumeInitializationRate" => integer(),
         "VolumeSize" => integer(),
         "VolumeType" => list(any())
       }
@@ -15911,6 +15912,7 @@ defmodule AWS.EC2 do
         "OutpostArn" => String.t(),
         "SnapshotId" => String.t(),
         "Throughput" => integer(),
+        "VolumeInitializationRate" => integer(),
         "VolumeSize" => integer(),
         "VolumeType" => list(any())
       }
@@ -20250,6 +20252,7 @@ defmodule AWS.EC2 do
         "Tags" => list(tag()()),
         "Throughput" => integer(),
         "VolumeId" => String.t(),
+        "VolumeInitializationRate" => integer(),
         "VolumeType" => list(any())
       }
       
@@ -21196,6 +21199,7 @@ defmodule AWS.EC2 do
         optional("SnapshotId") => String.t(),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("Throughput") => integer(),
+        optional("VolumeInitializationRate") => integer(),
         optional("VolumeType") => list(any()),
         required("AvailabilityZone") => String.t()
       }
@@ -23578,6 +23582,7 @@ defmodule AWS.EC2 do
         optional("ImageId") => String.t(),
         optional("SnapshotId") => String.t(),
         optional("TagSpecifications") => list(tag_specification()()),
+        optional("VolumeInitializationRate") => float(),
         required("InstanceId") => String.t()
       }
       
@@ -27316,6 +27321,7 @@ defmodule AWS.EC2 do
         "KmsKeyId" => String.t(),
         "SnapshotId" => String.t(),
         "Throughput" => integer(),
+        "VolumeInitializationRate" => integer(),
         "VolumeSize" => integer(),
         "VolumeType" => list(any())
       }

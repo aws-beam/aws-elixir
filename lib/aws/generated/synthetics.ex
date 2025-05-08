@@ -37,8 +37,10 @@ defmodule AWS.Synthetics do
   ## Example:
 
       get_canary_runs_request() :: %{
+        optional("DryRunId") => String.t(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t(),
+        optional("RunType") => list(any())
       }
 
   """
@@ -113,6 +115,17 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      canary_dry_run_config_output() :: %{
+        "DryRunId" => String.t()
+      }
+
+  """
+  @type canary_dry_run_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_canary_response() :: %{}
 
   """
@@ -153,6 +166,27 @@ defmodule AWS.Synthetics do
 
   """
   @type visual_reference_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_canary_dry_run_request() :: %{
+        optional("ArtifactConfig") => artifact_config_input(),
+        optional("ArtifactS3Location") => String.t(),
+        optional("Code") => canary_code_input(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("FailureRetentionPeriodInDays") => integer(),
+        optional("ProvisionedResourceCleanup") => list(any()),
+        optional("RunConfig") => canary_run_config_input(),
+        optional("RuntimeVersion") => String.t(),
+        optional("SuccessRetentionPeriodInDays") => integer(),
+        optional("VisualReference") => visual_reference_input(),
+        optional("VpcConfig") => vpc_config_input()
+      }
+
+  """
+  @type start_canary_dry_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -274,6 +308,7 @@ defmodule AWS.Synthetics do
 
       canary_run() :: %{
         "ArtifactS3Location" => String.t(),
+        "DryRunConfig" => canary_dry_run_config_output(),
         "Id" => String.t(),
         "Name" => String.t(),
         "Status" => canary_run_status(),
@@ -348,6 +383,7 @@ defmodule AWS.Synthetics do
         optional("ArtifactConfig") => artifact_config_input(),
         optional("ArtifactS3Location") => String.t(),
         optional("Code") => canary_code_input(),
+        optional("DryRunId") => String.t(),
         optional("ExecutionRoleArn") => String.t(),
         optional("FailureRetentionPeriodInDays") => integer(),
         optional("ProvisionedResourceCleanup") => list(any()),
@@ -599,6 +635,18 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      dry_run_config_output() :: %{
+        "DryRunId" => String.t(),
+        "LastDryRunExecutionStatus" => String.t()
+      }
+
+  """
+  @type dry_run_config_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       visual_reference_input() :: %{
         "BaseCanaryRunId" => String.t(),
         "BaseScreenshots" => list(base_screenshot()())
@@ -651,6 +699,17 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -678,6 +737,7 @@ defmodule AWS.Synthetics do
         "ArtifactConfig" => artifact_config_output(),
         "ArtifactS3Location" => String.t(),
         "Code" => canary_code_output(),
+        "DryRunConfig" => dry_run_config_output(),
         "EngineArn" => String.t(),
         "ExecutionRoleArn" => String.t(),
         "FailureRetentionPeriodInDays" => integer(),
@@ -721,6 +781,17 @@ defmodule AWS.Synthetics do
 
   """
   @type delete_canary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_canary_dry_run_response() :: %{
+        "DryRunConfig" => dry_run_config_output()
+      }
+
+  """
+  @type start_canary_dry_run_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -806,10 +877,12 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
-      get_canary_request() :: %{}
+      get_canary_request() :: %{
+        optional("DryRunId") => String.t()
+      }
 
   """
-  @type get_canary_request() :: %{}
+  @type get_canary_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1018,6 +1091,13 @@ defmodule AWS.Synthetics do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_canary_dry_run_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_canary_errors() ::
           validation_exception()
           | internal_server_exception()
@@ -1040,6 +1120,7 @@ defmodule AWS.Synthetics do
 
   @type update_canary_errors() ::
           validation_exception()
+          | access_denied_exception()
           | request_entity_too_large_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -1485,15 +1566,22 @@ defmodule AWS.Synthetics do
   and their names, use
   [DescribeCanaries](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html).
   """
-  @spec get_canary(map(), String.t(), list()) ::
+  @spec get_canary(map(), String.t(), String.t() | nil, list()) ::
           {:ok, get_canary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_canary_errors()}
-  def get_canary(%Client{} = client, name, options \\ []) do
+  def get_canary(%Client{} = client, name, dry_run_id \\ nil, options \\ []) do
     url_path = "/canary/#{AWS.Util.encode_uri(name)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(dry_run_id) do
+        [{"dryRunId", dry_run_id} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1698,6 +1786,35 @@ defmodule AWS.Synthetics do
   end
 
   @doc """
+  Use this operation to start a dry run for a canary that has already been created
+  """
+  @spec start_canary_dry_run(map(), String.t(), start_canary_dry_run_request(), list()) ::
+          {:ok, start_canary_dry_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_canary_dry_run_errors()}
+  def start_canary_dry_run(%Client{} = client, name, input, options \\ []) do
+    url_path = "/canary/#{AWS.Util.encode_uri(name)}/dry-run/start"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops the canary to prevent all future runs.
 
   If the canary is currently running,the
@@ -1823,6 +1940,10 @@ defmodule AWS.Synthetics do
   You can't use this operation to update the tags of an existing canary. To
   change the tags of an existing canary, use
   [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html).
+
+  When you use the `dryRunId` field when updating a canary, the only other field
+  you can provide is the `Schedule`. Adding any other field will thrown an
+  exception.
   """
   @spec update_canary(map(), String.t(), update_canary_request(), list()) ::
           {:ok, update_canary_response(), any()}

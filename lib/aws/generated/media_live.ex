@@ -4565,6 +4565,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_channel_request() :: %{
+        optional("AnywhereSettings") => anywhere_settings(),
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelEngineVersion") => channel_engine_version_request(),
         optional("Destinations") => list(output_destination()()),

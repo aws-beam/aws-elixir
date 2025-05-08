@@ -1531,10 +1531,10 @@ defmodule AWS.SageMaker do
       
       search_training_plan_offerings_request() :: %{
         optional("EndTimeBefore") => non_neg_integer(),
+        optional("InstanceCount") => integer(),
+        optional("InstanceType") => list(any()),
         optional("StartTimeAfter") => non_neg_integer(),
         required("DurationHours") => float(),
-        required("InstanceCount") => integer(),
-        required("InstanceType") => list(any()),
         required("TargetResources") => list(list(any())())
       }
       
@@ -1681,6 +1681,23 @@ defmodule AWS.SageMaker do
       
   """
   @type compute_quota_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unified_studio_settings() :: %{
+        "DomainAccountId" => String.t(),
+        "DomainId" => String.t(),
+        "DomainRegion" => String.t(),
+        "EnvironmentId" => String.t(),
+        "ProjectId" => String.t(),
+        "ProjectS3Path" => String.t(),
+        "StudioWebPortalAccess" => list(any())
+      }
+      
+  """
+  @type unified_studio_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4097,6 +4114,7 @@ defmodule AWS.SageMaker do
         "JupyterLabAppSettings" => space_jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
+        "SpaceManagedResources" => list(any()),
         "SpaceStorageSettings" => space_storage_settings()
       }
       
@@ -9230,7 +9248,8 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()()),
+        "UnifiedStudioSettings" => unified_studio_settings()
       }
       
   """
@@ -11083,7 +11102,8 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()()),
+        "UnifiedStudioSettings" => unified_studio_settings()
       }
       
   """

@@ -21316,6 +21316,7 @@ defmodule AWS.EC2 do
         optional("AdditionalAccounts") => list(String.t()()),
         optional("DryRun") => boolean(),
         optional("FilterInArns") => list(String.t()()),
+        optional("FilterOutArns") => list(String.t()()),
         optional("TagSpecifications") => list(tag_specification()()),
         required("ClientToken") => String.t(),
         required("NetworkInsightsPathId") => String.t()
@@ -25083,6 +25084,7 @@ defmodule AWS.EC2 do
         "AlternatePathHints" => list(alternate_path_hint()()),
         "Explanations" => list(explanation()()),
         "FilterInArns" => list(String.t()()),
+        "FilterOutArns" => list(String.t()()),
         "ForwardPathComponents" => list(path_component()()),
         "NetworkInsightsAnalysisArn" => String.t(),
         "NetworkInsightsAnalysisId" => String.t(),

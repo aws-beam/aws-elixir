@@ -164,6 +164,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      integration_config() :: %{
+        "RefreshInterval" => String.t()
+      }
+      
+  """
+  @type integration_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_custom_entity_type_response() :: %{
         "ContextWords" => list(String.t()()),
         "Name" => String.t(),
@@ -664,6 +675,7 @@ defmodule AWS.Glue do
         "Description" => String.t(),
         "Errors" => list(integration_error()()),
         "IntegrationArn" => String.t(),
+        "IntegrationConfig" => integration_config(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
@@ -1127,6 +1139,7 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "Errors" => list(integration_error()()),
         "IntegrationArn" => String.t(),
+        "IntegrationConfig" => integration_config(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
         "TargetArn" => String.t()
@@ -1599,6 +1612,7 @@ defmodule AWS.Glue do
         "Description" => String.t(),
         "Errors" => list(integration_error()()),
         "IntegrationArn" => String.t(),
+        "IntegrationConfig" => integration_config(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
@@ -8151,6 +8165,7 @@ defmodule AWS.Glue do
         optional("AdditionalEncryptionContext") => map(),
         optional("DataFilter") => String.t(),
         optional("Description") => String.t(),
+        optional("IntegrationConfig") => integration_config(),
         optional("KmsKeyId") => String.t(),
         optional("Tags") => list(tag()()),
         required("IntegrationName") => String.t(),

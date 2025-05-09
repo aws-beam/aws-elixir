@@ -689,6 +689,7 @@ defmodule AWS.CodePipeline do
       
       environment_variable() :: %{
         "name" => String.t(),
+        "type" => list(any()),
         "value" => String.t()
       }
       
@@ -3670,7 +3671,8 @@ defmodule AWS.CodePipeline do
   Lists the rules for the condition.
 
   For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html)
-  and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).For
+  and [How do stage conditions
+  work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).For
   more information about rules, see the [CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
   """
   @spec list_rule_types(map(), list_rule_types_input(), list()) ::
@@ -3723,7 +3725,8 @@ defmodule AWS.CodePipeline do
   Used to override a stage condition.
 
   For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html)
-  and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).
+  and [How do stage conditions
+  work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).
   """
   @spec override_stage_condition(map(), override_stage_condition_input(), list()) ::
           {:ok, nil, any()}

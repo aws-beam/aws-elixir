@@ -311,6 +311,8 @@ defmodule AWS.Synthetics do
         "DryRunConfig" => canary_dry_run_config_output(),
         "Id" => String.t(),
         "Name" => String.t(),
+        "RetryAttempt" => integer(),
+        "ScheduledRunId" => String.t(),
         "Status" => canary_run_status(),
         "Timeline" => canary_run_timeline()
       }
@@ -324,7 +326,8 @@ defmodule AWS.Synthetics do
 
       canary_schedule_input() :: %{
         "DurationInSeconds" => float(),
-        "Expression" => String.t()
+        "Expression" => String.t(),
+        "RetryConfig" => retry_config_input()
       }
 
   """
@@ -415,6 +418,7 @@ defmodule AWS.Synthetics do
 
       canary_run_timeline() :: %{
         "Completed" => non_neg_integer(),
+        "MetricTimestampForRunAndRetries" => non_neg_integer(),
         "Started" => non_neg_integer()
       }
 
@@ -947,7 +951,8 @@ defmodule AWS.Synthetics do
 
       canary_schedule_output() :: %{
         "DurationInSeconds" => float(),
-        "Expression" => String.t()
+        "Expression" => String.t(),
+        "RetryConfig" => retry_config_output()
       }
 
   """
@@ -964,6 +969,17 @@ defmodule AWS.Synthetics do
 
   """
   @type list_groups_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_config_input() :: %{
+        "MaxRetries" => integer()
+      }
+
+  """
+  @type retry_config_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1012,6 +1028,17 @@ defmodule AWS.Synthetics do
 
   """
   @type create_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_config_output() :: %{
+        "MaxRetries" => integer()
+      }
+
+  """
+  @type retry_config_output() :: %{String.t() => any()}
 
   @type associate_resource_errors() ::
           validation_exception()

@@ -1213,7 +1213,6 @@ defmodule AWS.WorkSpaces do
         "DefaultOu" => String.t(),
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
-        "EnableWorkDocs" => boolean(),
         "InstanceIamRoleArn" => String.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
@@ -1586,7 +1585,6 @@ defmodule AWS.WorkSpaces do
         "DefaultOu" => String.t(),
         "EnableInternetAccess" => boolean(),
         "EnableMaintenanceMode" => boolean(),
-        "EnableWorkDocs" => boolean(),
         "InstanceIamRoleArn" => String.t(),
         "UserEnabledAsLocalAdministrator" => boolean()
       }
@@ -2357,7 +2355,6 @@ defmodule AWS.WorkSpaces do
         optional("ActiveDirectoryConfig") => active_directory_config(),
         optional("DirectoryId") => String.t(),
         optional("EnableSelfService") => boolean(),
-        optional("EnableWorkDocs") => boolean(),
         optional("IdcInstanceArn") => String.t(),
         optional("MicrosoftEntraConfig") => microsoft_entra_config(),
         optional("SubnetIds") => list(String.t()()),

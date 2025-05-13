@@ -60,6 +60,60 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      delete_data_lake_namespace_response() :: %{
+        "instanceId" => String.t(),
+        "name" => String.t()
+      }
+
+  """
+  @type delete_data_lake_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_flow_execution_request() :: %{}
+
+  """
+  @type get_data_integration_flow_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_lake_namespaces_response() :: %{
+        "namespaces" => list(data_lake_namespace()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_lake_namespaces_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_namespace_request() :: %{}
+
+  """
+  @type delete_data_lake_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_event_dataset_target_configuration() :: %{
+        "datasetIdentifier" => String.t(),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_integration_event_dataset_target_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_response() :: %{}
 
   """
@@ -82,12 +136,37 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      data_integration_flow_execution_source_info() :: %{
+        "datasetSource" => data_integration_flow_dataset_source(),
+        "s3Source" => data_integration_flow_s3_source(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type data_integration_flow_execution_source_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_integration_flow_s3_options() :: %{
         "fileType" => list(any())
       }
 
   """
   @type data_integration_flow_s3_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_flow_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_integration_flow_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -116,6 +195,18 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      data_lake_dataset_partition_field() :: %{
+        "name" => String.t(),
+        "transform" => data_lake_dataset_partition_field_transform()
+      }
+
+  """
+  @type data_lake_dataset_partition_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_integration_flow_request() :: %{}
 
   """
@@ -138,6 +229,7 @@ defmodule AWS.SupplyChain do
 
       create_data_lake_dataset_request() :: %{
         optional("description") => String.t(),
+        optional("partitionSpec") => data_lake_dataset_partition_spec(),
         optional("schema") => data_lake_dataset_schema(),
         optional("tags") => map()
       }
@@ -172,6 +264,29 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      data_integration_flow_dedupe_strategy() :: %{
+        "fieldPriority" => data_integration_flow_field_priority_dedupe_strategy_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type data_integration_flow_dedupe_strategy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_primary_key_field() :: %{
+        "name" => String.t()
+      }
+
+  """
+  @type data_lake_dataset_primary_key_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("tagKeys") => list(String.t()())
       }
@@ -192,6 +307,30 @@ defmodule AWS.SupplyChain do
 
   """
   @type create_data_integration_flow_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_namespace_request() :: %{
+        optional("description") => String.t(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_data_lake_namespace_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_field_priority_dedupe_field() :: %{
+        "name" => String.t(),
+        "sortOrder" => list(any())
+      }
+
+  """
+  @type data_integration_flow_field_priority_dedupe_field() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -240,6 +379,17 @@ defmodule AWS.SupplyChain do
 
   """
   @type create_bill_of_materials_import_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_namespace_request() :: %{
+        optional("description") => String.t()
+      }
+
+  """
+  @type update_data_lake_namespace_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -326,6 +476,17 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      update_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
+      }
+
+  """
+  @type update_data_lake_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_bill_of_materials_import_job_request() :: %{}
 
   """
@@ -348,6 +509,7 @@ defmodule AWS.SupplyChain do
 
       data_integration_flow_dataset_options() :: %{
         "dedupeRecords" => [boolean()],
+        "dedupeStrategy" => data_integration_flow_dedupe_strategy(),
         "loadType" => list(any())
       }
 
@@ -367,6 +529,18 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      data_integration_event_dataset_load_execution_details() :: %{
+        "message" => [String.t()],
+        "status" => list(any())
+      }
+
+  """
+  @type data_integration_event_dataset_load_execution_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_instance_request() :: %{
         optional("instanceDescription") => String.t(),
         optional("instanceName") => String.t()
@@ -374,6 +548,31 @@ defmodule AWS.SupplyChain do
 
   """
   @type update_instance_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_flow_executions_response() :: %{
+        "flowExecutions" => list(data_integration_flow_execution()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_integration_flow_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_event_dataset_target_details() :: %{
+        "datasetIdentifier" => String.t(),
+        "datasetLoadExecution" => data_integration_event_dataset_load_execution_details(),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_integration_event_dataset_target_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -392,11 +591,25 @@ defmodule AWS.SupplyChain do
 
       data_lake_dataset_schema() :: %{
         "fields" => list(data_lake_dataset_schema_field()()),
-        "name" => String.t()
+        "name" => String.t(),
+        "primaryKeys" => list(data_lake_dataset_primary_key_field()())
       }
 
   """
   @type data_lake_dataset_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_events_request() :: %{
+        optional("eventType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_integration_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -408,6 +621,17 @@ defmodule AWS.SupplyChain do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_partition_field_transform() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type data_lake_dataset_partition_field_transform() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -497,6 +721,50 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      get_data_integration_flow_execution_response() :: %{
+        "flowExecution" => data_integration_flow_execution()
+      }
+
+  """
+  @type get_data_integration_flow_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_dataset_source() :: %{
+        "datasetIdentifier" => String.t()
+      }
+
+  """
+  @type data_integration_flow_dataset_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_execution_output_metadata() :: %{
+        "diagnosticReportsRootS3URI" => String.t()
+      }
+
+  """
+  @type data_integration_flow_execution_output_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_event_response() :: %{
+        "event" => data_integration_event()
+      }
+
+  """
+  @type get_data_integration_event_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_integration_flow_response() :: %{
         "flow" => data_integration_flow()
       }
@@ -545,6 +813,15 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      get_data_lake_namespace_request() :: %{}
+
+  """
+  @type get_data_lake_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "message" => [String.t()]
       }
@@ -560,6 +837,29 @@ defmodule AWS.SupplyChain do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_events_response() :: %{
+        "events" => list(data_integration_event()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_data_integration_events_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
+      }
+
+  """
+  @type get_data_lake_namespace_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -627,6 +927,15 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      get_data_integration_event_request() :: %{}
+
+  """
+  @type get_data_integration_event_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_integration_flows_response() :: %{
         "flows" => list(data_integration_flow()()),
         "nextToken" => String.t()
@@ -639,8 +948,46 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      list_data_lake_namespaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_data_lake_namespaces_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
+        "fields" => list(data_integration_flow_field_priority_dedupe_field()())
+      }
+
+  """
+  @type data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_s3_source() :: %{
+        "bucketName" => String.t(),
+        "key" => String.t()
+      }
+
+  """
+  @type data_integration_flow_s3_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_data_integration_event_request() :: %{
         optional("clientToken") => String.t(),
+        optional("datasetTarget") => data_integration_event_dataset_target_configuration(),
         optional("eventTimestamp") => [non_neg_integer()],
         required("data") => String.t(),
         required("eventGroupId") => String.t(),
@@ -649,6 +996,25 @@ defmodule AWS.SupplyChain do
 
   """
   @type send_data_integration_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_execution() :: %{
+        "endTime" => [non_neg_integer()],
+        "executionId" => String.t(),
+        "flowName" => String.t(),
+        "instanceId" => String.t(),
+        "message" => [String.t()],
+        "outputMetadata" => data_integration_flow_execution_output_metadata(),
+        "sourceInfo" => data_integration_flow_execution_source_info(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type data_integration_flow_execution() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -689,6 +1055,33 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      data_lake_dataset_partition_spec() :: %{
+        "fields" => list(data_lake_dataset_partition_field()())
+      }
+
+  """
+  @type data_lake_dataset_partition_spec() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_namespace() :: %{
+        "arn" => String.t(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t(),
+        "instanceId" => String.t(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t()
+      }
+
+  """
+  @type data_lake_namespace() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_data_integration_flows_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -696,6 +1089,22 @@ defmodule AWS.SupplyChain do
 
   """
   @type list_data_integration_flows_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_event() :: %{
+        "datasetTargetDetails" => data_integration_event_dataset_target_details(),
+        "eventGroupId" => String.t(),
+        "eventId" => String.t(),
+        "eventTimestamp" => [non_neg_integer()],
+        "eventType" => list(any()),
+        "instanceId" => String.t()
+      }
+
+  """
+  @type data_integration_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -752,6 +1161,17 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
+      create_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
+      }
+
+  """
+  @type create_data_lake_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_lake_dataset() :: %{
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
@@ -760,6 +1180,7 @@ defmodule AWS.SupplyChain do
         "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t(),
         "namespace" => String.t(),
+        "partitionSpec" => data_lake_dataset_partition_spec(),
         "schema" => data_lake_dataset_schema()
       }
 
@@ -812,6 +1233,15 @@ defmodule AWS.SupplyChain do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_data_lake_namespace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | conflict_exception()
 
   @type create_instance_errors() ::
@@ -835,6 +1265,13 @@ defmodule AWS.SupplyChain do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type delete_data_lake_namespace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_instance_errors() ::
           throttling_exception()
           | validation_exception()
@@ -849,7 +1286,21 @@ defmodule AWS.SupplyChain do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_data_integration_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_integration_flow_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_data_integration_flow_execution_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -863,7 +1314,27 @@ defmodule AWS.SupplyChain do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_data_lake_namespace_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_instance_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_data_integration_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_data_integration_flow_executions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -882,6 +1353,12 @@ defmodule AWS.SupplyChain do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_data_lake_namespaces_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_instances_errors() ::
           throttling_exception()
@@ -927,6 +1404,13 @@ defmodule AWS.SupplyChain do
           | resource_not_found_exception()
 
   @type update_data_lake_dataset_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_data_lake_namespace_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -1089,6 +1573,46 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Enables you to programmatically create an Amazon Web Services Supply Chain data
+  lake namespace.
+
+  Developers can create the namespaces for a given instance ID.
+  """
+  @spec create_data_lake_namespace(
+          map(),
+          String.t(),
+          String.t(),
+          create_data_lake_namespace_request(),
+          list()
+        ) ::
+          {:ok, create_data_lake_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_lake_namespace_errors()}
+  def create_data_lake_namespace(%Client{} = client, instance_id, name, input, options \\ []) do
+    url_path =
+      "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Enables you to programmatically create an Amazon Web Services Supply Chain
   instance by applying KMS keys and relevant information associated with the API
   without using the Amazon Web Services console.
@@ -1215,6 +1739,47 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Enables you to programmatically delete an Amazon Web Services Supply Chain data
+  lake namespace and its underling datasets.
+
+  Developers can delete the existing namespaces for a given instance ID and
+  namespace name.
+  """
+  @spec delete_data_lake_namespace(
+          map(),
+          String.t(),
+          String.t(),
+          delete_data_lake_namespace_request(),
+          list()
+        ) ::
+          {:ok, delete_data_lake_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_lake_namespace_errors()}
+  def delete_data_lake_namespace(%Client{} = client, instance_id, name, input, options \\ []) do
+    url_path =
+      "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Enables you to programmatically delete an Amazon Web Services Supply Chain
   instance by deleting the KMS keys and relevant information associated with the
   API without using the Amazon Web Services console.
@@ -1272,6 +1837,30 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Enables you to programmatically view an Amazon Web Services Supply Chain Data
+  Integration Event.
+
+  Developers can view the eventType, eventGroupId, eventTimestamp, datasetTarget,
+  datasetLoadExecution.
+  """
+  @spec get_data_integration_event(map(), String.t(), String.t(), list()) ::
+          {:ok, get_data_integration_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_integration_event_errors()}
+  def get_data_integration_event(%Client{} = client, event_id, instance_id, options \\ []) do
+    url_path =
+      "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events/#{AWS.Util.encode_uri(event_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Enables you to programmatically view a specific data pipeline for the provided
   Amazon Web Services Supply Chain instance and DataIntegrationFlow name.
   """
@@ -1283,6 +1872,32 @@ defmodule AWS.SupplyChain do
   def get_data_integration_flow(%Client{} = client, instance_id, name, options \\ []) do
     url_path =
       "/api/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the flow execution.
+  """
+  @spec get_data_integration_flow_execution(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_data_integration_flow_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_integration_flow_execution_errors()}
+  def get_data_integration_flow_execution(
+        %Client{} = client,
+        execution_id,
+        flow_name,
+        instance_id,
+        options \\ []
+      ) do
+    url_path =
+      "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(flow_name)}/executions/#{AWS.Util.encode_uri(execution_id)}"
 
     headers = []
     query_params = []
@@ -1317,6 +1932,30 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
+  Enables you to programmatically view an Amazon Web Services Supply Chain data
+  lake namespace.
+
+  Developers can view the data lake namespace information such as description for
+  a given instance ID and namespace name.
+  """
+  @spec get_data_lake_namespace(map(), String.t(), String.t(), list()) ::
+          {:ok, get_data_lake_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_lake_namespace_errors()}
+  def get_data_lake_namespace(%Client{} = client, instance_id, name, options \\ []) do
+    url_path =
+      "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Enables you to programmatically retrieve the information related to an Amazon
   Web Services Supply Chain instance ID.
   """
@@ -1329,6 +1968,110 @@ defmodule AWS.SupplyChain do
     url_path = "/api/instance/#{AWS.Util.encode_uri(instance_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Enables you to programmatically list all data integration events for the
+  provided Amazon Web Services Supply Chain instance.
+  """
+  @spec list_data_integration_events(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_data_integration_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_integration_events_errors()}
+  def list_data_integration_events(
+        %Client{} = client,
+        instance_id,
+        event_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-events"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_type) do
+        [{"eventType", event_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List flow executions.
+  """
+  @spec list_data_integration_flow_executions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_data_integration_flow_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_integration_flow_executions_errors()}
+  def list_data_integration_flow_executions(
+        %Client{} = client,
+        flow_name,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/api-data/data-integration/instance/#{AWS.Util.encode_uri(instance_id)}/data-integration-flows/#{AWS.Util.encode_uri(flow_name)}/executions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1406,6 +2149,49 @@ defmodule AWS.SupplyChain do
     url_path =
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Enables you to programmatically view the list of Amazon Web Services Supply
+  Chain data lake namespaces.
+
+  Developers can view the namespaces and the corresponding information such as
+  description for a given instance ID. Note that this API only return custom
+  namespaces, instance pre-defined namespaces are not included.
+  """
+  @spec list_data_lake_namespaces(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_data_lake_namespaces_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_lake_namespaces_errors()}
+  def list_data_lake_namespaces(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces"
     headers = []
     query_params = []
 
@@ -1515,13 +2301,11 @@ defmodule AWS.SupplyChain do
   end
 
   @doc """
-  Send the transactional data payload for the event with real-time data for
-  analysis or monitoring.
+  Send the data payload for the event with real-time data for analysis or
+  monitoring.
 
   The real-time data events are stored in an Amazon Web Services service before
-  being processed and stored in data lake. New data events are synced with data
-  lake at 5 PM GMT everyday. The updated transactional data is available in data
-  lake after ingestion.
+  being processed and stored in data lake.
   """
   @spec send_data_integration_event(
           map(),
@@ -1699,6 +2483,47 @@ defmodule AWS.SupplyChain do
       ) do
     url_path =
       "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(namespace)}/datasets/#{AWS.Util.encode_uri(name)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Enables you to programmatically update an Amazon Web Services Supply Chain data
+  lake namespace.
+
+  Developers can update the description of a data lake namespace for a given
+  instance ID and namespace name.
+  """
+  @spec update_data_lake_namespace(
+          map(),
+          String.t(),
+          String.t(),
+          update_data_lake_namespace_request(),
+          list()
+        ) ::
+          {:ok, update_data_lake_namespace_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_lake_namespace_errors()}
+  def update_data_lake_namespace(%Client{} = client, instance_id, name, input, options \\ []) do
+    url_path =
+      "/api/datalake/instance/#{AWS.Util.encode_uri(instance_id)}/namespaces/#{AWS.Util.encode_uri(name)}"
 
     headers = []
     custom_headers = []

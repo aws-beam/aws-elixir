@@ -392,6 +392,7 @@ defmodule AWS.MediaLive do
 
       output_destination() :: %{
         "Id" => String.t(),
+        "LogicalInterfaceNames" => list(String.t()()),
         "MediaPackageSettings" => list(media_package_output_destination_settings()()),
         "MultiplexSettings" => multiplex_program_channel_destination_settings(),
         "Settings" => list(output_destination_settings()()),
@@ -4639,6 +4640,7 @@ defmodule AWS.MediaLive do
 
       av1_settings() :: %{
         "AfdSignaling" => list(any()),
+        "Bitrate" => integer(),
         "BufSize" => integer(),
         "ColorSpaceSettings" => av1_color_space_settings(),
         "FixedAfd" => list(any()),
@@ -4653,6 +4655,7 @@ defmodule AWS.MediaLive do
         "ParDenominator" => integer(),
         "ParNumerator" => integer(),
         "QvbrQualityLevel" => integer(),
+        "RateControlMode" => list(any()),
         "SceneChangeDetect" => list(any()),
         "TimecodeBurninSettings" => timecode_burnin_settings()
       }

@@ -1349,6 +1349,7 @@ defmodule AWS.EC2 do
         "Actions" => list(volume_status_action()()),
         "AttachmentStatuses" => list(volume_status_attachment_status()()),
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "Events" => list(volume_status_event()()),
         "OutpostArn" => String.t(),
         "VolumeId" => String.t(),
@@ -4818,6 +4819,7 @@ defmodule AWS.EC2 do
       
       capacity_reservation_info() :: %{
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "InstanceType" => String.t(),
         "Tenancy" => list(any())
       }
@@ -6627,6 +6629,7 @@ defmodule AWS.EC2 do
         "DestinationVpc" => analysis_component(),
         "VpcPeeringConnection" => analysis_component(),
         "LoadBalancerTargetGroups" => list(analysis_component()()),
+        "AvailabilityZoneIds" => list(String.t()()),
         "SecurityGroups" => list(analysis_component()()),
         "FirewallStatelessRule" => firewall_stateless_rule(),
         "TransitGatewayAttachment" => analysis_component()
@@ -12712,6 +12715,8 @@ defmodule AWS.EC2 do
       allocate_hosts_request() :: %{
         optional("AssetIds") => list(String.t()()),
         optional("AutoPlacement") => list(any()),
+        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZoneId") => String.t(),
         optional("ClientToken") => String.t(),
         optional("HostMaintenance") => list(any()),
         optional("HostRecovery") => list(any()),
@@ -12719,8 +12724,7 @@ defmodule AWS.EC2 do
         optional("InstanceType") => String.t(),
         optional("OutpostArn") => String.t(),
         optional("Quantity") => integer(),
-        optional("TagSpecifications") => list(tag_specification()()),
-        required("AvailabilityZone") => String.t()
+        optional("TagSpecifications") => list(tag_specification()())
       }
       
   """
@@ -13943,6 +13947,7 @@ defmodule AWS.EC2 do
       
       reserved_instances() :: %{
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "CurrencyCode" => list(any()),
         "Duration" => float(),
         "End" => non_neg_integer(),
@@ -15569,6 +15574,7 @@ defmodule AWS.EC2 do
       
       reserved_instances_offering() :: %{
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "CurrencyCode" => list(any()),
         "Duration" => float(),
         "FixedPrice" => float(),
@@ -15773,6 +15779,7 @@ defmodule AWS.EC2 do
       analysis_load_balancer_target() :: %{
         "Address" => String.t(),
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "Instance" => analysis_component(),
         "Port" => integer()
       }
@@ -17281,6 +17288,7 @@ defmodule AWS.EC2 do
       
       describe_reserved_instances_offerings_request() :: %{
         optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZoneId") => String.t(),
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
         optional("IncludeMarketplace") => boolean(),
@@ -26121,6 +26129,7 @@ defmodule AWS.EC2 do
       
       reserved_instances_configuration() :: %{
         "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "Platform" => String.t(),
@@ -36417,6 +36426,16 @@ defmodule AWS.EC2 do
   see [Instance lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
   in the *Amazon EC2 User Guide*.
 
+  The Amazon EC2 API follows an eventual consistency model. This means that the
+  result of an
+  API command you run that creates or modifies resources might not be immediately
+  available to all subsequent commands you run. For guidance on how to manage
+  eventual
+  consistency, see [Eventual consistency in the Amazon EC2
+  API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
+  in the *Amazon EC2 Developer
+  Guide*.
+
   The order of the elements in the response, including those within nested
   structures, might vary. Applications should not assume the elements appear in a
   particular order.
@@ -36557,6 +36576,16 @@ defmodule AWS.EC2 do
   and
   specify only instance IDs that are in an unaffected zone, the call works
   normally.
+
+  The Amazon EC2 API follows an eventual consistency model. This means that the
+  result of an
+  API command you run that creates or modifies resources might not be immediately
+  available to all subsequent commands you run. For guidance on how to manage
+  eventual
+  consistency, see [Eventual consistency in the Amazon EC2
+  API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
+  in the *Amazon EC2 Developer
+  Guide*.
 
   We strongly recommend using only paginated requests. Unpaginated requests are
   susceptible to throttling and timeouts.

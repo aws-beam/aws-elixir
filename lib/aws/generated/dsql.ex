@@ -5,16 +5,15 @@ defmodule AWS.DSQL do
   @moduledoc """
   This is an interface reference for Amazon Aurora DSQL.
 
-  It contains documentation for one of the programming or
-  command line interfaces you can use to manage Amazon Aurora DSQL.
+  It contains documentation for one of the
+  programming or command line interfaces you can use to manage Amazon Aurora DSQL.
 
-  Amazon Aurora DSQL is a serverless, distributed SQL
-  database suitable for workloads of any size. Aurora DSQL
-  is available in both single-Region and multi-Region configurations,
-  so your clusters and databases are always available even if an
-  Availability Zone or an Amazon Web Services Region are unavailable. Aurora DSQL
-  lets you focus on using your data to acquire new insights for your
-  business and customers.
+  Amazon Aurora DSQL is a serverless, distributed SQL database suitable for
+  workloads of any size.
+  is available in both single-Region and multi-Region configurations, so your
+  clusters and databases are always available even if an Availability Zone or an
+  Amazon Web Services Region are unavailable. lets you focus on using your data to
+  acquire new insights for your business and customers.
   """
 
   alias AWS.Client
@@ -63,6 +62,7 @@ defmodule AWS.DSQL do
       create_cluster_input() :: %{
         optional("clientToken") => String.t(),
         optional("deletionProtectionEnabled") => boolean(),
+        optional("multiRegionProperties") => multi_region_properties(),
         optional("tags") => map()
       }
 
@@ -78,6 +78,7 @@ defmodule AWS.DSQL do
         "creationTime" => non_neg_integer(),
         "deletionProtectionEnabled" => boolean(),
         "identifier" => String.t(),
+        "multiRegionProperties" => multi_region_properties(),
         "status" => list(any())
       }
 
@@ -166,7 +167,9 @@ defmodule AWS.DSQL do
         "deletionProtectionEnabled" => boolean(),
         "identifier" => String.t(),
         "linkedClusterArns" => list(String.t()()),
+        "multiRegionProperties" => multi_region_properties(),
         "status" => list(any()),
+        "tags" => map(),
         "witnessRegion" => String.t()
       }
 
@@ -265,6 +268,18 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      multi_region_properties() :: %{
+        "clusters" => list(String.t()()),
+        "witnessRegion" => String.t()
+      }
+
+  """
+  @type multi_region_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t()],
         "resourceId" => [String.t()],
@@ -331,7 +346,8 @@ defmodule AWS.DSQL do
 
       update_cluster_input() :: %{
         optional("clientToken") => String.t(),
-        optional("deletionProtectionEnabled") => boolean()
+        optional("deletionProtectionEnabled") => boolean(),
+        optional("multiRegionProperties") => multi_region_properties()
       }
 
   """
@@ -379,7 +395,8 @@ defmodule AWS.DSQL do
   """
   @type validation_exception_field() :: %{String.t() => any()}
 
-  @type create_cluster_errors() :: service_quota_exceeded_exception() | conflict_exception()
+  @type create_cluster_errors() ::
+          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
 
   @type create_multi_region_clusters_errors() ::
           service_quota_exceeded_exception() | conflict_exception()
@@ -406,7 +423,8 @@ defmodule AWS.DSQL do
 
   @type untag_resource_errors() :: resource_not_found_exception()
 
-  @type update_cluster_errors() :: resource_not_found_exception() | conflict_exception()
+  @type update_cluster_errors() ::
+          validation_exception() | resource_not_found_exception() | conflict_exception()
 
   def metadata do
     %{
@@ -425,7 +443,80 @@ defmodule AWS.DSQL do
   end
 
   @doc """
-  Creates a cluster in Amazon Aurora DSQL.
+  This operation creates a cluster in Amazon Aurora DSQL.
+
+  You need the following permissions to
+  use this operation.
+
+  Permission to create a cluster.
+
+  ## Definitions
+
+  ### dsql:CreateCluster
+
+  Resources: arn:aws:dsql:*region*:*account-id*:cluster/*
+
+  Permission to add tags to a resource.
+
+  ## Definitions
+
+  ### dsql:TagResource
+
+  Resources:
+  arn:aws:dsql:*region*:*account-id*:cluster/*
+
+  Permission to configure multi-region properties for
+  a cluster.
+
+  ## Definitions
+
+  ### dsql:PutMultiRegionProperties
+
+  Resources:
+  arn:aws:dsql:*region*:*account-id*:cluster/*
+
+  When specifying multiRegionProperties.clusters.
+
+  ## Definitions
+
+  ### dsql:AddPeerCluster
+
+  Permission to add peer clusters.
+
+  Resources:
+
+    
+  Local cluster: arn:aws:dsql:*region*:*account-id*:cluster/*
+
+    
+  Each peer cluster: exact ARN of each specified peer cluster
+
+  When specifying multiRegionProperties.witnessRegion.
+
+  ## Definitions
+
+  ### dsql:PutWitnessRegion
+
+  Permission to set a witness region.
+
+  Resources: arn:aws:dsql:*region*:*account-id*:cluster/*
+
+  Condition Keys: `dsql:WitnessRegion` (matching the specified
+  witness region)
+
+  This permission is checked both in the cluster Region and in the witness
+  Region.
+
+  ## Important Notes for Multi-Region Operations
+
+    
+  The witness region specified in
+  `multiRegionProperties.witnessRegion` cannot be the same as the
+  cluster's Region.
+
+    
+  When updating clusters with peer relationships, permissions are checked for both
+  adding and removing peers.
   """
   @spec create_cluster(map(), create_cluster_input(), list()) ::
           {:ok, create_cluster_output(), any()}
@@ -456,10 +547,12 @@ defmodule AWS.DSQL do
   @doc """
   Creates multi-Region clusters in Amazon Aurora DSQL.
 
-  Multi-Region clusters require a linked Region list, which is an array
-  of the Regions in which you want to create linked clusters.
+  Multi-Region clusters require a linked
+  Region list, which is an array of the Regions in which you want to create linked
+  clusters.
   Multi-Region clusters require a witness Region, which participates in quorum in
-  failure scenarios.
+  failure
+  scenarios.
   """
   @spec create_multi_region_clusters(map(), create_multi_region_clusters_input(), list()) ::
           {:ok, create_multi_region_clusters_output(), any()}
@@ -707,6 +800,28 @@ defmodule AWS.DSQL do
 
   @doc """
   Updates a cluster.
+
+  ## Example IAM Policy for Multi-Region Operations
+
+  The following IAM policy grants permissions for multi-Region operations.
+
+  The `dsql:RemovePeerCluster` permission uses a wildcard ARN pattern to simplify
+  permission management during updates.
+
+  ## Important Notes for Multi-Region Operations
+
+    
+  The witness region specified in
+  `multiRegionProperties.witnessRegion` cannot be the same as the
+  cluster's Region.
+
+    
+  When updating clusters with peer relationships, permissions are checked for both
+  adding and removing peers.
+
+    
+  The `dsql:RemovePeerCluster` permission uses a wildcard ARN pattern to simplify
+  permission management during updates.
   """
   @spec update_cluster(map(), String.t(), update_cluster_input(), list()) ::
           {:ok, update_cluster_output(), any()}

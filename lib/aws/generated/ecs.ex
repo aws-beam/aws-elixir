@@ -3273,6 +3273,7 @@ defmodule AWS.ECS do
         "tagSpecifications" => list(ebs_tag_specification()()),
         "terminationPolicy" => task_managed_ebs_volume_termination_policy(),
         "throughput" => integer(),
+        "volumeInitializationRate" => integer(),
         "volumeType" => String.t()
       }
       
@@ -3415,6 +3416,7 @@ defmodule AWS.ECS do
         "snapshotId" => String.t(),
         "tagSpecifications" => list(ebs_tag_specification()()),
         "throughput" => integer(),
+        "volumeInitializationRate" => integer(),
         "volumeType" => String.t()
       }
       
@@ -5168,13 +5170,6 @@ defmodule AWS.ECS do
     *
   Run `RunTask` with the `clientToken` and the original
   set of parameters
-
-  If you get a `ClientException`error, the `RunTask` could not be processed
-  because you use managed
-  scaling and there is a capacity error because the quota of tasks in the
-  `PROVISIONING` per cluster has been reached. For information
-  about the service quotas, see [Amazon ECS service
-  quotas](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html).
   """
   @spec run_task(map(), run_task_request(), list()) ::
           {:ok, run_task_response(), any()}
@@ -5220,19 +5215,7 @@ defmodule AWS.ECS do
   @doc """
   Stops an ongoing service deployment.
 
-  The following stop types are avaiable:
-
-    *
-  ROLLBACK - This option rolls back the service deployment to the previous
-  service revision.
-
-  You can use this option even if you didn't configure the service deployment
-  for the rollback option.
-
-  For more information, see [Stopping Amazon ECS service
-  deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html)
-  in the *Amazon Elastic Container Service Developer
-  Guide*.
+  StopServiceDeployment isn't currently supported.
   """
   @spec stop_service_deployment(map(), stop_service_deployment_request(), list()) ::
           {:ok, stop_service_deployment_response(), any()}

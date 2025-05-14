@@ -296,6 +296,7 @@ defmodule AWS.Bedrock do
         "contentPolicy" => guardrail_content_policy(),
         "contextualGroundingPolicy" => guardrail_contextual_grounding_policy(),
         "createdAt" => non_neg_integer(),
+        "crossRegionDetails" => guardrail_cross_region_details(),
         "description" => String.t(),
         "failureRecommendations" => list(String.t()()),
         "guardrailArn" => String.t(),
@@ -371,6 +372,7 @@ defmodule AWS.Bedrock do
         optional("clientRequestToken") => String.t(),
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
+        optional("crossRegionConfig") => guardrail_cross_region_config(),
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
         optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
@@ -419,6 +421,7 @@ defmodule AWS.Bedrock do
       guardrail_summary() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
+        "crossRegionDetails" => guardrail_cross_region_details(),
         "description" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
@@ -1602,6 +1605,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_cross_region_details() :: %{
+        "guardrailProfileArn" => String.t(),
+        "guardrailProfileId" => String.t()
+      }
+
+  """
+  @type guardrail_cross_region_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_sources_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => external_sources_generation_configuration(),
         "modelArn" => String.t(),
@@ -1683,6 +1698,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_cross_region_config() :: %{
+        "guardrailProfileIdentifier" => String.t()
+      }
+
+  """
+  @type guardrail_cross_region_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         "tags" => list(tag()())
       }
@@ -1734,6 +1760,7 @@ defmodule AWS.Bedrock do
       update_guardrail_request() :: %{
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
+        optional("crossRegionConfig") => guardrail_cross_region_config(),
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
         optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),

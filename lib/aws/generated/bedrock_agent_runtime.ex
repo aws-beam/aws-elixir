@@ -219,7 +219,8 @@ defmodule AWS.BedrockAgentRuntime do
         "executionError" => [String.t()],
         "executionOutput" => [String.t()],
         "executionTimeout" => [boolean()],
-        "files" => list([String.t()]())
+        "files" => list([String.t()]()),
+        "metadata" => metadata()
       }
 
   """
@@ -471,6 +472,11 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       metadata() :: %{
+        "clientRequestId" => [String.t()],
+        "endTime" => non_neg_integer(),
+        "operationTotalTimeMs" => [float()],
+        "startTime" => non_neg_integer(),
+        "totalTimeMs" => [float()],
         "usage" => usage()
       }
 
@@ -529,7 +535,9 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       failure_trace() :: %{
+        "failureCode" => [integer()],
         "failureReason" => String.t(),
+        "metadata" => metadata(),
         "traceId" => String.t()
       }
 
@@ -1279,6 +1287,7 @@ defmodule AWS.BedrockAgentRuntime do
       agent_collaborator_invocation_output() :: %{
         "agentCollaboratorAliasArn" => String.t(),
         "agentCollaboratorName" => [String.t()],
+        "metadata" => metadata(),
         "output" => agent_collaborator_output_payload()
       }
 
@@ -1522,6 +1531,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       final_response() :: %{
+        "metadata" => metadata(),
         "text" => String.t()
       }
 
@@ -1638,6 +1648,7 @@ defmodule AWS.BedrockAgentRuntime do
       guardrail_trace() :: %{
         "action" => list(any()),
         "inputAssessments" => list(guardrail_assessment()()),
+        "metadata" => metadata(),
         "outputAssessments" => list(guardrail_assessment()()),
         "traceId" => String.t()
       }
@@ -2374,6 +2385,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       action_group_invocation_output() :: %{
+        "metadata" => metadata(),
         "text" => String.t()
       }
 
@@ -2494,6 +2506,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       knowledge_base_lookup_output() :: %{
+        "metadata" => metadata(),
         "retrievedReferences" => list(retrieved_reference()())
       }
 

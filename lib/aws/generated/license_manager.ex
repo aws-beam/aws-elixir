@@ -642,6 +642,7 @@ defmodule AWS.LicenseManager do
       
       create_license_request() :: %{
         optional("LicenseMetadata") => list(metadata()()),
+        optional("Tags") => list(tag()()),
         required("Beneficiary") => String.t(),
         required("ClientToken") => String.t(),
         required("ConsumptionConfiguration") => consumption_configuration(),
@@ -903,6 +904,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_grant_request() :: %{
+        optional("Tags") => list(tag()()),
         required("AllowedOperations") => list(list(any())()),
         required("ClientToken") => String.t(),
         required("GrantName") => String.t(),
@@ -2436,6 +2438,7 @@ defmodule AWS.LicenseManager do
           | authorization_exception()
           | resource_limit_exceeded_exception()
           | invalid_parameter_value_exception()
+          | conflict_exception()
           | rate_limit_exceeded_exception()
 
   @type update_license_manager_report_generator_errors() ::
@@ -2454,6 +2457,7 @@ defmodule AWS.LicenseManager do
           | authorization_exception()
           | invalid_resource_state_exception()
           | invalid_parameter_value_exception()
+          | conflict_exception()
           | license_usage_exception()
           | rate_limit_exceeded_exception()
 
@@ -3141,7 +3145,12 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Lists the tags for the specified license configuration.
+  Lists the tags for the specified resource.
+
+  For more information about tagging support in
+  License Manager, see the
+  [TagResource](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html)
+  operation.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -3205,7 +3214,22 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Adds the specified tags to the specified license configuration.
+  Adds the specified tags to the specified resource.
+
+  The following resources support
+  tagging in License Manager:
+
+    *
+  Licenses
+
+    *
+  Grants
+
+    *
+  License configurations
+
+    *
+  Report generators
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -3219,7 +3243,7 @@ defmodule AWS.LicenseManager do
   end
 
   @doc """
-  Removes the specified tags from the specified license configuration.
+  Removes the specified tags from the specified resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}

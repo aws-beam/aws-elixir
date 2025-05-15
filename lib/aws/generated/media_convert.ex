@@ -23,6 +23,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       video_overlay() :: %{
+        "Crop" => video_overlay_crop(),
         "EndTimecode" => String.t(),
         "InitialPosition" => video_overlay_position(),
         "Input" => video_overlay_input(),
@@ -1964,7 +1965,8 @@ defmodule AWS.MediaConvert do
         "Framerate" => caption_source_framerate(),
         "SourceFile" => String.t(),
         "TimeDelta" => integer(),
-        "TimeDeltaUnits" => list(any())
+        "TimeDeltaUnits" => list(any()),
+        "UpconvertSTLToTeletext" => list(any())
       }
 
   """
@@ -3213,6 +3215,21 @@ defmodule AWS.MediaConvert do
 
   """
   @type caption_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_overlay_crop() :: %{
+        "Height" => integer(),
+        "Unit" => list(any()),
+        "Width" => integer(),
+        "X" => integer(),
+        "Y" => integer()
+      }
+
+  """
+  @type video_overlay_crop() :: %{String.t() => any()}
 
   @typedoc """
 

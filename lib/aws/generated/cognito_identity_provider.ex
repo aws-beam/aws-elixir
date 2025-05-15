@@ -5023,9 +5023,11 @@ defmodule AWS.CognitoIdentityProvider do
 
   @type delete_web_authn_credential_errors() ::
           internal_error_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
+          | too_many_requests_exception()
           | forbidden_exception()
 
   @type describe_identity_provider_errors() ::
@@ -5339,8 +5341,10 @@ defmodule AWS.CognitoIdentityProvider do
 
   @type list_web_authn_credentials_errors() ::
           internal_error_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_exception()
           | not_authorized_exception()
+          | too_many_requests_exception()
           | forbidden_exception()
 
   @type resend_confirmation_code_errors() ::

@@ -179,6 +179,7 @@ defmodule AWS.CloudWatchLogs do
         optional("includeLinkedAccounts") => boolean(),
         optional("limit") => integer(),
         optional("logGroupClass") => list(any()),
+        optional("logGroupIdentifiers") => list(String.t()()),
         optional("logGroupNamePattern") => String.t(),
         optional("logGroupNamePrefix") => String.t(),
         optional("nextToken") => String.t()
@@ -782,6 +783,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      list_log_groups_response() :: %{
+        "logGroups" => list(log_group_summary()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_log_groups_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_integration_request() :: %{
         required("integrationName") => String.t(),
         required("integrationType") => list(any()),
@@ -1146,6 +1159,22 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type query_compile_error_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_log_groups_request() :: %{
+        optional("accountIdentifiers") => list(String.t()()),
+        optional("includeLinkedAccounts") => boolean(),
+        optional("limit") => integer(),
+        optional("logGroupClass") => list(any()),
+        optional("logGroupNamePattern") => String.t(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_log_groups_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1915,6 +1944,19 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type grok() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_group_summary() :: %{
+        "logGroupArn" => String.t(),
+        "logGroupClass" => list(any()),
+        "logGroupName" => String.t()
+      }
+      
+  """
+  @type log_group_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3677,6 +3719,9 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | operation_aborted_exception()
 
+  @type list_log_groups_errors() ::
+          invalid_parameter_exception() | service_unavailable_exception()
+
   @type list_log_groups_for_query_errors() ::
           invalid_parameter_exception()
           | access_denied_exception()
@@ -4785,9 +4830,9 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Lists the specified log groups.
+  Returns information about log groups.
 
-  You can list all your log groups or filter the results by prefix.
+  You can return all your log groups or filter the results by prefix.
   The results are ASCII-sorted by log group name.
 
   CloudWatch Logs doesn't support IAM policies that control access to the
@@ -5398,6 +5443,36 @@ defmodule AWS.CloudWatchLogs do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLogAnomalyDetectors", input, options)
+  end
+
+  @doc """
+  Returns a list of log groups in the Region in your account.
+
+  If you are performing this action in a monitoring account, you can
+  choose to also return log groups from source accounts that are linked to the
+  monitoring account. For more information about using cross-account
+  observability to set up monitoring accounts and source accounts, see
+  [
+  CloudWatch cross-account
+  observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+
+  You can optionally filter the list by log group class and by using regular
+  expressions in your request to match strings in the log group names.
+
+  This operation is paginated. By default, your first use of this operation
+  returns 50 results, and includes a token to use in a subsequent operation to
+  return
+  more results.
+  """
+  @spec list_log_groups(map(), list_log_groups_request(), list()) ::
+          {:ok, list_log_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_log_groups_errors()}
+  def list_log_groups(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListLogGroups", input, options)
   end
 
   @doc """

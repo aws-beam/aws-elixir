@@ -2560,6 +2560,7 @@ defmodule AWS.WorkSpaces do
         optional("Capacity") => capacity(),
         optional("Description") => String.t(),
         optional("DirectoryId") => String.t(),
+        optional("RunningMode") => list(any()),
         optional("TimeoutSettings") => timeout_settings(),
         required("PoolId") => String.t()
       }
@@ -2780,6 +2781,7 @@ defmodule AWS.WorkSpaces do
         "PoolArn" => String.t(),
         "PoolId" => String.t(),
         "PoolName" => String.t(),
+        "RunningMode" => list(any()),
         "State" => list(any()),
         "TimeoutSettings" => timeout_settings()
       }
@@ -2827,6 +2829,7 @@ defmodule AWS.WorkSpaces do
       
       create_workspaces_pool_request() :: %{
         optional("ApplicationSettings") => application_settings_request(),
+        optional("RunningMode") => list(any()),
         optional("Tags") => list(tag()()),
         optional("TimeoutSettings") => timeout_settings(),
         required("BundleId") => String.t(),

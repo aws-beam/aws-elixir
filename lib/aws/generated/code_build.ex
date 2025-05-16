@@ -545,6 +545,18 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      docker_server_status() :: %{
+        "message" => String.t(),
+        "status" => String.t()
+      }
+      
+  """
+  @type docker_server_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       network_interface() :: %{
         "networkInterfaceId" => String.t(),
         "subnetId" => String.t()
@@ -2599,6 +2611,7 @@ defmodule AWS.CodeBuild do
         "certificate" => String.t(),
         "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
+        "dockerServer" => docker_server(),
         "environmentVariables" => list(environment_variable()()),
         "fleet" => project_fleet(),
         "image" => String.t(),
@@ -2610,6 +2623,19 @@ defmodule AWS.CodeBuild do
       
   """
   @type project_environment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      docker_server() :: %{
+        "computeType" => list(any()),
+        "securityGroupIds" => list(String.t()()),
+        "status" => docker_server_status()
+      }
+      
+  """
+  @type docker_server() :: %{String.t() => any()}
 
   @typedoc """
 

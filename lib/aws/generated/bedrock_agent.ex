@@ -47,6 +47,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      multiple_loop_controller_nodes_flow_validation_details() :: %{
+        "loopNode" => String.t()
+      }
+
+  """
+  @type multiple_loop_controller_nodes_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_configuration() :: %{
         "kendraKnowledgeBaseConfiguration" => kendra_knowledge_base_configuration(),
         "sqlKnowledgeBaseConfiguration" => sql_knowledge_base_configuration(),
@@ -135,6 +146,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_flow_alias_request() :: %{
+        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
         optional("description") => String.t(),
         required("name") => String.t(),
         required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()())
@@ -249,6 +261,7 @@ defmodule AWS.BedrockAgent do
 
       update_flow_alias_response() :: %{
         "arn" => String.t(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "flowId" => String.t(),
@@ -501,6 +514,30 @@ defmodule AWS.BedrockAgent do
 
   """
   @type create_data_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_flow_node_configuration() :: %{
+        "definition" => flow_definition()
+      }
+
+  """
+  @type loop_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_incompatible_node_type_flow_validation_details() :: %{
+        "incompatibleNodeName" => String.t(),
+        "incompatibleNodeType" => list(any()),
+        "node" => String.t()
+      }
+
+  """
+  @type loop_incompatible_node_type_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1062,6 +1099,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_loop_controller_node_flow_validation_details() :: %{
+        "loopNode" => String.t()
+      }
+
+  """
+  @type missing_loop_controller_node_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_flow_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1095,6 +1143,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       flow_node_input() :: %{
+        "category" => list(any()),
         "expression" => String.t(),
         "name" => String.t(),
         "type" => list(any())
@@ -1102,6 +1151,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type flow_node_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      loop_controller_flow_node_configuration() :: %{
+        "continueCondition" => flow_condition(),
+        "maxIterations" => [integer()]
+      }
+
+  """
+  @type loop_controller_flow_node_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1374,8 +1435,13 @@ defmodule AWS.BedrockAgent do
 
       knowledge_base_flow_node_configuration() :: %{
         "guardrailConfiguration" => guardrail_configuration(),
+        "inferenceConfiguration" => list(),
         "knowledgeBaseId" => String.t(),
-        "modelId" => String.t()
+        "modelId" => String.t(),
+        "numberOfResults" => [integer()],
+        "orchestrationConfiguration" => knowledge_base_orchestration_configuration(),
+        "promptTemplate" => knowledge_base_prompt_template(),
+        "rerankingConfiguration" => vector_search_reranking_configuration()
       }
 
   """
@@ -1387,6 +1453,7 @@ defmodule AWS.BedrockAgent do
 
       create_flow_alias_response() :: %{
         "arn" => String.t(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "flowId" => String.t(),
@@ -1446,6 +1513,20 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_orchestration_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "inferenceConfig" => list(),
+        "performanceConfig" => performance_configuration(),
+        "promptTemplate" => knowledge_base_prompt_template()
+      }
+
+  """
+  @type knowledge_base_orchestration_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1804,6 +1885,7 @@ defmodule AWS.BedrockAgent do
 
       create_flow_alias_request() :: %{
         optional("clientToken") => String.t(),
+        optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
@@ -1990,6 +2072,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type embedding_model_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_for_reranking() :: %{
+        "fieldName" => [String.t()]
+      }
+
+  """
+  @type field_for_reranking() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2405,6 +2498,7 @@ defmodule AWS.BedrockAgent do
 
       get_flow_alias_response() :: %{
         "arn" => String.t(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "flowId" => String.t(),
@@ -2518,6 +2612,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      vector_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type vector_search_reranking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       byte_content_doc() :: %{
         "data" => binary(),
         "mimeType" => [String.t()]
@@ -2623,6 +2729,7 @@ defmodule AWS.BedrockAgent do
 
       flow_alias_summary() :: %{
         "arn" => String.t(),
+        "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "flowId" => String.t(),
@@ -2725,6 +2832,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type custom_document_identifier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_prompt_template() :: %{
+        "textPromptTemplate" => String.t()
+      }
+
+  """
+  @type knowledge_base_prompt_template() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2887,6 +3005,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_alias() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
+      }
+
+  """
+  @type vector_search_bedrock_reranking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3149,6 +3280,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      missing_loop_input_node_flow_validation_details() :: %{
+        "loopNode" => String.t()
+      }
+
+  """
+  @type missing_loop_input_node_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       open_search_managed_cluster_configuration() :: %{
         "domainArn" => String.t(),
         "domainEndpoint" => String.t(),
@@ -3197,6 +3339,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type unknown_node_input_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiple_loop_input_nodes_flow_validation_details() :: %{
+        "loopNode" => String.t()
+      }
+
+  """
+  @type multiple_loop_input_nodes_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3381,6 +3534,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      flow_alias_concurrency_configuration() :: %{
+        "maxConcurrency" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type flow_alias_concurrency_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_request() :: %{
         optional("skipResourceInUseCheck") => [boolean()]
       }
@@ -3437,6 +3602,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type malformed_condition_expression_flow_validation_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_for_reranking() :: %{
+        "selectionMode" => list(any()),
+        "selectiveModeConfiguration" => list()
+      }
+
+  """
+  @type metadata_configuration_for_reranking() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3511,6 +3688,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type agent_alias_history_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_loop_boundary_flow_validation_details() :: %{
+        "connection" => String.t(),
+        "source" => String.t(),
+        "target" => String.t()
+      }
+
+  """
+  @type invalid_loop_boundary_flow_validation_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3705,6 +3895,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type lambda_function_flow_node_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type vector_search_bedrock_reranking_model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4381,6 +4583,15 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      loop_input_flow_node_configuration() :: %{}
+
+  """
+  @type loop_input_flow_node_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_flow_version_request() :: %{
         optional("skipResourceInUseCheck") => [boolean()]
       }
@@ -4405,6 +4616,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type prompt_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_configuration() :: %{
+        "latency" => list(any())
+      }
+
+  """
+  @type performance_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

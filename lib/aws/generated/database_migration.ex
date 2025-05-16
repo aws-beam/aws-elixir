@@ -1640,6 +1640,11 @@ defmodule AWS.DatabaseMigration do
         "FullLoadStartTime" => non_neg_integer(),
         "Inserts" => float(),
         "LastUpdateTime" => non_neg_integer(),
+        "ResyncProgress" => float(),
+        "ResyncRowsAttempted" => float(),
+        "ResyncRowsFailed" => float(),
+        "ResyncRowsSucceeded" => float(),
+        "ResyncState" => String.t(),
         "SchemaName" => String.t(),
         "TableName" => String.t(),
         "TableState" => String.t(),
@@ -3282,6 +3287,7 @@ defmodule AWS.DatabaseMigration do
       
       my_s_q_l_settings() :: %{
         "AfterConnectScript" => String.t(),
+        "AuthenticationMethod" => list(any()),
         "CleanSourceMetadataOnMismatch" => boolean(),
         "DatabaseName" => String.t(),
         "EventsPollInterval" => integer(),
@@ -3294,6 +3300,7 @@ defmodule AWS.DatabaseMigration do
         "SecretsManagerSecretId" => String.t(),
         "ServerName" => String.t(),
         "ServerTimezone" => String.t(),
+        "ServiceAccessRoleArn" => String.t(),
         "TargetDbType" => list(any()),
         "Username" => String.t()
       }
@@ -4491,6 +4498,7 @@ defmodule AWS.DatabaseMigration do
       
       postgre_s_q_l_settings() :: %{
         "AfterConnectScript" => String.t(),
+        "AuthenticationMethod" => list(any()),
         "BabelfishDatabaseName" => String.t(),
         "CaptureDdls" => boolean(),
         "DatabaseMode" => list(any()),
@@ -4512,6 +4520,7 @@ defmodule AWS.DatabaseMigration do
         "SecretsManagerAccessRoleArn" => String.t(),
         "SecretsManagerSecretId" => String.t(),
         "ServerName" => String.t(),
+        "ServiceAccessRoleArn" => String.t(),
         "SlotName" => String.t(),
         "TrimSpaceInChar" => boolean(),
         "Username" => String.t()

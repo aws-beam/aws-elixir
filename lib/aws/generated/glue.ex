@@ -1872,6 +1872,7 @@ defmodule AWS.Glue do
         "S3HudiCatalogTarget" => s3_hudi_catalog_target(),
         "Spigot" => spigot(),
         "PostgreSQLCatalogTarget" => postgre_s_q_l_catalog_target(),
+        "S3ExcelSource" => s3_excel_source(),
         "DynamicTransform" => dynamic_transform(),
         "S3DirectTarget" => s3_direct_target(),
         "S3DeltaDirectTarget" => s3_delta_direct_target(),
@@ -1906,10 +1907,12 @@ defmodule AWS.Glue do
         "SelectFields" => select_fields(),
         "EvaluateDataQualityMultiFrame" => evaluate_data_quality_multi_frame(),
         "MicrosoftSQLServerCatalogSource" => microsoft_s_q_l_server_catalog_source(),
+        "S3IcebergDirectTarget" => s3_iceberg_direct_target(),
         "S3DeltaCatalogTarget" => s3_delta_catalog_target(),
         "DropFields" => drop_fields(),
         "S3CsvSource" => s3_csv_source(),
-        "OracleSQLCatalogSource" => oracle_s_q_l_catalog_source()
+        "OracleSQLCatalogSource" => oracle_s_q_l_catalog_source(),
+        "S3HyperDirectTarget" => s3_hyper_direct_target()
       }
       
   """
@@ -2795,6 +2798,7 @@ defmodule AWS.Glue do
         "Format" => list(any()),
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
+        "NumberTargetPartitions" => String.t(),
         "PartitionKeys" => list(list(String.t()())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -4906,6 +4910,25 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      s3_iceberg_direct_target() :: %{
+        "AdditionalOptions" => map(),
+        "Compression" => list(any()),
+        "Format" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "NumberTargetPartitions" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_iceberg_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       jdbc_target() :: %{
         "ConnectionName" => String.t(),
         "EnableAdditionalMetadata" => list(list(any())()),
@@ -5597,6 +5620,7 @@ defmodule AWS.Glue do
         "Format" => list(any()),
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
+        "NumberTargetPartitions" => String.t(),
         "PartitionKeys" => list(list(String.t()())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -6330,6 +6354,22 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      s3_hyper_direct_target() :: %{
+        "Compression" => list(any()),
+        "Inputs" => list(String.t()()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t()())()),
+        "Path" => String.t(),
+        "SchemaChangePolicy" => direct_schema_change_policy()
+      }
+      
+  """
+  @type s3_hyper_direct_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       table_optimizer() :: %{
         "configuration" => table_optimizer_configuration(),
         "lastRun" => table_optimizer_run(),
@@ -6761,6 +6801,7 @@ defmodule AWS.Glue do
         "Compression" => list(any()),
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
+        "NumberTargetPartitions" => String.t(),
         "PartitionKeys" => list(list(String.t()())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -10548,6 +10589,7 @@ defmodule AWS.Glue do
         "Format" => list(any()),
         "Inputs" => list(String.t()()),
         "Name" => String.t(),
+        "NumberTargetPartitions" => String.t(),
         "PartitionKeys" => list(list(String.t()())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -11460,6 +11502,29 @@ defmodule AWS.Glue do
       
   """
   @type put_schema_version_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_excel_source() :: %{
+        "AdditionalOptions" => s3_direct_source_additional_options(),
+        "CompressionType" => list(any()),
+        "Exclusions" => list(String.t()()),
+        "GroupFiles" => String.t(),
+        "GroupSize" => String.t(),
+        "MaxBand" => integer(),
+        "MaxFilesInBand" => integer(),
+        "Name" => String.t(),
+        "NumberRows" => float(),
+        "OutputSchemas" => list(glue_schema()()),
+        "Paths" => list(String.t()()),
+        "Recurse" => boolean(),
+        "SkipFooter" => integer()
+      }
+      
+  """
+  @type s3_excel_source() :: %{String.t() => any()}
 
   @typedoc """
 

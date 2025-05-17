@@ -24,6 +24,17 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
+      asset_processing_configuration() :: %{
+        "video" => video_asset_processing_configuration()
+      }
+      
+  """
+  @type asset_processing_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       blueprint() :: %{
         "blueprintArn" => String.t(),
         "stage" => list(any()),
@@ -96,6 +107,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       input_configuration() :: %{
+        "assetProcessingConfiguration" => asset_processing_configuration(),
         "s3Uri" => String.t()
       }
       
@@ -257,6 +269,18 @@ defmodule AWS.BedrockDataAutomationRuntime do
 
   ## Example:
       
+      timestamp_segment() :: %{
+        "endTimeMillis" => [float()],
+        "startTimeMillis" => [float()]
+      }
+      
+  """
+  @type timestamp_segment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tagKeys") => list(String.t()())
@@ -284,6 +308,17 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
   """
   @type validation_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      video_asset_processing_configuration() :: %{
+        "segmentConfiguration" => list()
+      }
+      
+  """
+  @type video_asset_processing_configuration() :: %{String.t() => any()}
 
   @type get_data_automation_status_errors() ::
           validation_exception()

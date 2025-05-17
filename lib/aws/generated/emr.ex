@@ -66,6 +66,21 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      create_persistent_app_ui_input() :: %{
+        optional("EMRContainersConfig") => emr_containers_config(),
+        optional("ProfilerType") => list(any()),
+        optional("Tags") => list(tag()()),
+        optional("XReferer") => String.t(),
+        required("TargetResourceArn") => String.t()
+      }
+      
+  """
+  @type create_persistent_app_ui_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       bootstrap_action_detail() :: %{
         "BootstrapActionConfig" => bootstrap_action_config()
       }
@@ -371,6 +386,21 @@ defmodule AWS.EMR do
       
   """
   @type volume_specification() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_persistent_app_ui_presigned_url_input() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("AuthProxyCall") => boolean(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("PersistentAppUIType") => list(any()),
+        required("PersistentAppUIId") => String.t()
+      }
+      
+  """
+  @type get_persistent_app_ui_presigned_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -820,6 +850,18 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      create_persistent_app_ui_output() :: %{
+        "PersistentAppUIId" => String.t(),
+        "RuntimeRoleEnabledCluster" => boolean()
+      }
+      
+  """
+  @type create_persistent_app_ui_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_cluster_output() :: %{
         "StepConcurrencyLevel" => integer()
       }
@@ -840,6 +882,21 @@ defmodule AWS.EMR do
       
   """
   @type step_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_on_cluster_app_ui_presigned_url_input() :: %{
+        optional("ApplicationId") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("ExecutionRoleArn") => String.t(),
+        optional("OnClusterAppUIType") => list(any()),
+        required("ClusterId") => String.t()
+      }
+      
+  """
+  @type get_on_cluster_app_ui_presigned_url_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1951,6 +2008,17 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      describe_persistent_app_ui_input() :: %{
+        required("PersistentAppUIId") => String.t()
+      }
+      
+  """
+  @type describe_persistent_app_ui_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_group_state_change_reason() :: %{
         "Code" => list(any()),
         "Message" => String.t()
@@ -2110,6 +2178,36 @@ defmodule AWS.EMR do
       
   """
   @type cluster_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_on_cluster_app_ui_presigned_url_output() :: %{
+        "PresignedURL" => String.t(),
+        "PresignedURLReady" => boolean()
+      }
+      
+  """
+  @type get_on_cluster_app_ui_presigned_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      persistent_app_ui() :: %{
+        "AuthorId" => String.t(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "LastStateChangeReason" => String.t(),
+        "PersistentAppUIId" => String.t(),
+        "PersistentAppUIStatus" => String.t(),
+        "PersistentAppUITypeList" => list(list(any())()),
+        "Tags" => list(tag()())
+      }
+      
+  """
+  @type persistent_app_ui() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2498,6 +2596,18 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      get_persistent_app_ui_presigned_url_output() :: %{
+        "PresignedURL" => String.t(),
+        "PresignedURLReady" => boolean()
+      }
+      
+  """
+  @type get_persistent_app_ui_presigned_url_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_termination_protection_input() :: %{
         required("JobFlowIds") => list(String.t()()),
         required("TerminationProtected") => boolean()
@@ -2660,6 +2770,17 @@ defmodule AWS.EMR do
 
   ## Example:
       
+      emr_containers_config() :: %{
+        "JobRunId" => String.t()
+      }
+      
+  """
+  @type emr_containers_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_instance_fleet_input() :: %{
         required("ClusterId") => String.t(),
         required("InstanceFleet") => instance_fleet_modify_config()
@@ -2707,6 +2828,17 @@ defmodule AWS.EMR do
       
   """
   @type put_managed_scaling_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_persistent_app_ui_output() :: %{
+        "PersistentAppUI" => persistent_app_ui()
+      }
+      
+  """
+  @type describe_persistent_app_ui_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2804,6 +2936,9 @@ defmodule AWS.EMR do
 
   @type cancel_steps_errors() :: internal_server_error() | invalid_request_exception()
 
+  @type create_persistent_app_ui_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
   @type create_security_configuration_errors() ::
           internal_server_exception() | invalid_request_exception()
 
@@ -2827,6 +2962,9 @@ defmodule AWS.EMR do
   @type describe_notebook_execution_errors() ::
           internal_server_error() | invalid_request_exception()
 
+  @type describe_persistent_app_ui_errors() ::
+          internal_server_exception() | invalid_request_exception()
+
   @type describe_release_label_errors() ::
           internal_server_exception() | invalid_request_exception()
 
@@ -2841,6 +2979,12 @@ defmodule AWS.EMR do
           internal_server_exception() | invalid_request_exception()
 
   @type get_cluster_session_credentials_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type get_on_cluster_app_ui_presigned_url_errors() ::
+          internal_server_error() | invalid_request_exception()
+
+  @type get_persistent_app_ui_presigned_url_errors() ::
           internal_server_error() | invalid_request_exception()
 
   @type get_studio_session_mapping_errors() ::
@@ -3044,6 +3188,20 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Creates a persistent application user interface.
+  """
+  @spec create_persistent_app_ui(map(), create_persistent_app_ui_input(), list()) ::
+          {:ok, create_persistent_app_ui_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_persistent_app_ui_errors()}
+  def create_persistent_app_ui(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreatePersistentAppUI", input, options)
+  end
+
+  @doc """
   Creates a security configuration, which is stored in the service and can be
   specified
   when a cluster is created.
@@ -3209,6 +3367,20 @@ defmodule AWS.EMR do
   end
 
   @doc """
+  Describes a persistent application user interface.
+  """
+  @spec describe_persistent_app_ui(map(), describe_persistent_app_ui_input(), list()) ::
+          {:ok, describe_persistent_app_ui_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_persistent_app_ui_errors()}
+  def describe_persistent_app_ui(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribePersistentAppUI", input, options)
+  end
+
+  @doc """
   Provides Amazon EMR release label details, such as the releases available the
   Region where the API request is run, and the available applications for a
   specific Amazon EMR release label.
@@ -3339,6 +3511,42 @@ defmodule AWS.EMR do
     meta = metadata()
 
     Request.request_post(client, meta, "GetManagedScalingPolicy", input, options)
+  end
+
+  @doc """
+  The presigned URL properties for the cluster's application user interface.
+  """
+  @spec get_on_cluster_app_ui_presigned_url(
+          map(),
+          get_on_cluster_app_ui_presigned_url_input(),
+          list()
+        ) ::
+          {:ok, get_on_cluster_app_ui_presigned_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_on_cluster_app_ui_presigned_url_errors()}
+  def get_on_cluster_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetOnClusterAppUIPresignedURL", input, options)
+  end
+
+  @doc """
+  The presigned URL properties for the cluster's application user interface.
+  """
+  @spec get_persistent_app_ui_presigned_url(
+          map(),
+          get_persistent_app_ui_presigned_url_input(),
+          list()
+        ) ::
+          {:ok, get_persistent_app_ui_presigned_url_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_persistent_app_ui_presigned_url_errors()}
+  def get_persistent_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetPersistentAppUIPresignedURL", input, options)
   end
 
   @doc """

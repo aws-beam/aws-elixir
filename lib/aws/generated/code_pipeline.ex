@@ -949,6 +949,17 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      action_execution_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type action_execution_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_pipeline_execution_input() :: %{
         required("pipelineExecutionId") => String.t(),
         required("pipelineName") => String.t()
@@ -968,6 +979,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type list_tags_for_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_deploy_action_execution_targets_output() :: %{
+        "nextToken" => String.t(),
+        "targets" => list(deploy_action_execution_target()())
+      }
+      
+  """
+  @type list_deploy_action_execution_targets_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1258,6 +1281,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type create_pipeline_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_target_event_context() :: %{
+        "message" => String.t(),
+        "ssmCommandId" => String.t()
+      }
+      
+  """
+  @type deploy_target_event_context() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1811,6 +1846,22 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      deploy_action_execution_target() :: %{
+        "endTime" => non_neg_integer(),
+        "events" => list(deploy_target_event()()),
+        "startTime" => non_neg_integer(),
+        "status" => String.t(),
+        "targetId" => String.t(),
+        "targetType" => String.t()
+      }
+      
+  """
+  @type deploy_action_execution_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       job_details() :: %{
         "accountId" => String.t(),
         "data" => job_data(),
@@ -2078,6 +2129,18 @@ defmodule AWS.CodePipeline do
       
   """
   @type action_type_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_filter() :: %{
+        "name" => list(any()),
+        "values" => list(String.t()())
+      }
+      
+  """
+  @type target_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2555,6 +2618,21 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      list_deploy_action_execution_targets_input() :: %{
+        optional("filters") => list(target_filter()()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("pipelineName") => String.t(),
+        required("actionExecutionId") => String.t()
+      }
+      
+  """
+  @type list_deploy_action_execution_targets_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       before_entry_conditions() :: %{
         "conditions" => list(condition()())
       }
@@ -2628,6 +2706,21 @@ defmodule AWS.CodePipeline do
       
   """
   @type pipeline_version_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_target_event() :: %{
+        "context" => deploy_target_event_context(),
+        "endTime" => non_neg_integer(),
+        "name" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t()
+      }
+      
+  """
+  @type deploy_target_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3130,6 +3223,12 @@ defmodule AWS.CodePipeline do
 
   @type list_action_types_errors() :: validation_exception() | invalid_next_token_exception()
 
+  @type list_deploy_action_execution_targets_errors() ::
+          pipeline_not_found_exception()
+          | validation_exception()
+          | invalid_next_token_exception()
+          | action_execution_not_found_exception()
+
   @type list_pipeline_executions_errors() ::
           pipeline_not_found_exception() | validation_exception() | invalid_next_token_exception()
 
@@ -3615,6 +3714,24 @@ defmodule AWS.CodePipeline do
     meta = metadata()
 
     Request.request_post(client, meta, "ListActionTypes", input, options)
+  end
+
+  @doc """
+  Lists the targets for the deploy action.
+  """
+  @spec list_deploy_action_execution_targets(
+          map(),
+          list_deploy_action_execution_targets_input(),
+          list()
+        ) ::
+          {:ok, list_deploy_action_execution_targets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_deploy_action_execution_targets_errors()}
+  def list_deploy_action_execution_targets(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListDeployActionExecutionTargets", input, options)
   end
 
   @doc """

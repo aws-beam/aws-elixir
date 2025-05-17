@@ -475,6 +475,17 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      create_support_case_request() :: %{
+        required("RequestId") => String.t()
+      }
+      
+  """
+  @type create_support_case_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_response() :: %{
         "Tags" => list(tag()())
       }
@@ -659,6 +670,15 @@ defmodule AWS.ServiceQuotas do
 
   ## Example:
       
+      create_support_case_response() :: %{}
+      
+  """
+  @type create_support_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       get_service_quota_request() :: %{
         optional("ContextId") => String.t(),
         required("QuotaCode") => String.t(),
@@ -807,6 +827,16 @@ defmodule AWS.ServiceQuotas do
           | service_exception()
           | organization_not_in_all_features_mode_exception()
           | too_many_requests_exception()
+          | dependency_access_denied_exception()
+
+  @type create_support_case_errors() ::
+          resource_already_exists_exception()
+          | access_denied_exception()
+          | no_such_resource_exception()
+          | invalid_resource_state_exception()
+          | service_exception()
+          | too_many_requests_exception()
+          | illegal_argument_exception()
           | dependency_access_denied_exception()
 
   @type delete_service_quota_increase_request_from_template_errors() ::
@@ -1006,6 +1036,23 @@ defmodule AWS.ServiceQuotas do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateServiceQuotaTemplate", input, options)
+  end
+
+  @doc """
+  Creates a Support case for an existing quota increase request.
+
+  This call only creates
+  a Support case if the request has a `Pending` status.
+  """
+  @spec create_support_case(map(), create_support_case_request(), list()) ::
+          {:ok, create_support_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_support_case_errors()}
+  def create_support_case(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateSupportCase", input, options)
   end
 
   @doc """

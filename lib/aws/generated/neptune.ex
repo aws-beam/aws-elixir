@@ -564,6 +564,17 @@ defmodule AWS.Neptune do
 
   ## Example:
       
+      switchover_global_cluster_result() :: %{
+        "GlobalCluster" => global_cluster()
+      }
+      
+  """
+  @type switchover_global_cluster_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cloudwatch_logs_export_configuration() :: %{
         "DisableLogTypes" => list(String.t()()),
         "EnableLogTypes" => list(String.t()())
@@ -1627,6 +1638,7 @@ defmodule AWS.Neptune do
         "DeletionProtection" => boolean(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
+        "FailoverState" => failover_state(),
         "GlobalClusterArn" => String.t(),
         "GlobalClusterIdentifier" => String.t(),
         "GlobalClusterMembers" => list(global_cluster_member()()),
@@ -1717,6 +1729,20 @@ defmodule AWS.Neptune do
       
   """
   @type remove_from_global_cluster_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_state() :: %{
+        "FromDbClusterArn" => String.t(),
+        "IsDataLossAllowed" => boolean(),
+        "Status" => list(any()),
+        "ToDbClusterArn" => String.t()
+      }
+      
+  """
+  @type failover_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1994,6 +2020,18 @@ defmodule AWS.Neptune do
       
   """
   @type modify_db_parameter_group_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      switchover_global_cluster_message() :: %{
+        required("GlobalClusterIdentifier") => String.t(),
+        required("TargetDbClusterIdentifier") => String.t()
+      }
+      
+  """
+  @type switchover_global_cluster_message() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3225,6 +3263,8 @@ defmodule AWS.Neptune do
   ## Example:
       
       failover_global_cluster_message() :: %{
+        optional("AllowDataLoss") => boolean(),
+        optional("Switchover") => boolean(),
         required("GlobalClusterIdentifier") => String.t(),
         required("TargetDbClusterIdentifier") => String.t()
       }
@@ -3680,6 +3720,12 @@ defmodule AWS.Neptune do
           invalid_db_instance_state_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
+
+  @type switchover_global_cluster_errors() ::
+          global_cluster_not_found_fault()
+          | db_cluster_not_found_fault()
+          | invalid_db_cluster_state_fault()
+          | invalid_global_cluster_state_fault()
 
   def metadata do
     %{
@@ -5157,5 +5203,37 @@ defmodule AWS.Neptune do
     meta = metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
+  end
+
+  @doc """
+  Switches over the specified secondary DB cluster to be the new primary DB
+  cluster in the global
+  database cluster.
+
+  Switchover operations were previously called "managed planned failovers."
+
+  Promotes the specified secondary cluster to assume full read/write capabilities
+  and demotes the current
+  primary cluster to a secondary (read-only) cluster, maintaining the original
+  replication topology. All secondary
+  clusters are synchronized with the primary at the beginning of the process so
+  the new primary continues operations
+  for the global database without losing any data. Your database is unavailable
+  for a short time while the primary
+  and selected secondary clusters are assuming their new roles.
+
+  This operation is intended for controlled environments, for operations such as
+  "regional rotation" or
+  to fall back to the original primary after a global database failover.
+  """
+  @spec switchover_global_cluster(map(), switchover_global_cluster_message(), list()) ::
+          {:ok, switchover_global_cluster_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, switchover_global_cluster_errors()}
+  def switchover_global_cluster(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end
 end

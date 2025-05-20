@@ -79,6 +79,21 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      dash_program_information() :: %{
+        "Copyright" => [String.t()],
+        "LanguageCode" => [String.t()],
+        "MoreInformationUrl" => [String.t()],
+        "Source" => [String.t()],
+        "Title" => [String.t()]
+      }
+
+  """
+  @type dash_program_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_channel_request() :: %{}
 
   """
@@ -274,21 +289,40 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_dash_manifest_configuration() :: %{
+        "BaseUrls" => list(dash_base_url()()),
+        "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
+        "DvbSettings" => dash_dvb_settings(),
         "FilterConfiguration" => filter_configuration(),
         "ManifestName" => String.t(),
         "ManifestWindowSeconds" => [integer()],
         "MinBufferTimeSeconds" => [integer()],
         "MinUpdatePeriodSeconds" => [integer()],
         "PeriodTriggers" => list(list(any())()),
+        "Profiles" => list(list(any())()),
+        "ProgramInformation" => dash_program_information(),
         "ScteDash" => scte_dash(),
         "SegmentTemplateFormat" => list(any()),
+        "SubtitleConfiguration" => dash_subtitle_configuration(),
         "SuggestedPresentationDelaySeconds" => [integer()],
         "UtcTiming" => dash_utc_timing()
       }
 
   """
   @type create_dash_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_dvb_font_download() :: %{
+        "FontFamily" => [String.t()],
+        "MimeType" => [String.t()],
+        "Url" => [String.t()]
+      }
+
+  """
+  @type dash_dvb_font_download() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -559,6 +593,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      dash_ttml_configuration() :: %{
+        "TtmlProfile" => list(any())
+      }
+
+  """
+  @type dash_ttml_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "ConflictExceptionType" => list(any()),
         "Message" => [String.t()]
@@ -583,6 +628,17 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      dash_subtitle_configuration() :: %{
+        "TtmlConfiguration" => dash_ttml_configuration()
+      }
+
+  """
+  @type dash_subtitle_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_channel_group_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -597,12 +653,38 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      dash_dvb_metrics_reporting() :: %{
+        "Probability" => [integer()],
+        "ReportingUrl" => [String.t()]
+      }
+
+  """
+  @type dash_dvb_metrics_reporting() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "Message" => [String.t()]
       }
 
   """
   @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_base_url() :: %{
+        "DvbPriority" => [integer()],
+        "DvbWeight" => [integer()],
+        "ServiceLocation" => [String.t()],
+        "Url" => [String.t()]
+      }
+
+  """
+  @type dash_base_url() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -645,6 +727,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type reset_origin_endpoint_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_dvb_settings() :: %{
+        "ErrorMetrics" => list(dash_dvb_metrics_reporting()()),
+        "FontDownload" => dash_dvb_font_download()
+      }
+
+  """
+  @type dash_dvb_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -769,15 +863,21 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       get_dash_manifest_configuration() :: %{
+        "BaseUrls" => list(dash_base_url()()),
+        "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
+        "DvbSettings" => dash_dvb_settings(),
         "FilterConfiguration" => filter_configuration(),
         "ManifestName" => String.t(),
         "ManifestWindowSeconds" => [integer()],
         "MinBufferTimeSeconds" => [integer()],
         "MinUpdatePeriodSeconds" => [integer()],
         "PeriodTriggers" => list(list(any())()),
+        "Profiles" => list(list(any())()),
+        "ProgramInformation" => dash_program_information(),
         "ScteDash" => scte_dash(),
         "SegmentTemplateFormat" => list(any()),
+        "SubtitleConfiguration" => dash_subtitle_configuration(),
         "SuggestedPresentationDelaySeconds" => [integer()],
         "Url" => [String.t()],
         "UtcTiming" => dash_utc_timing()

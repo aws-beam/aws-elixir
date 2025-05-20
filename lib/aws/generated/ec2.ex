@@ -1274,6 +1274,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_delegate_mac_volume_ownership_task_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("InstanceId") => String.t(),
+        required("MacCredentials") => String.t()
+      }
+      
+  """
+  @type create_delegate_mac_volume_ownership_task_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       move_address_to_vpc_result() :: %{
         "AllocationId" => String.t(),
         "Status" => list(any())
@@ -5909,6 +5924,23 @@ defmodule AWS.EC2 do
       
   """
   @type describe_nat_gateways_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mac_modification_task() :: %{
+        "InstanceId" => String.t(),
+        "MacModificationTaskId" => String.t(),
+        "MacSystemIntegrityProtectionConfig" => mac_system_integrity_protection_configuration(),
+        "StartTime" => non_neg_integer(),
+        "Tags" => list(tag()()),
+        "TaskState" => list(any()),
+        "TaskType" => list(any())
+      }
+      
+  """
+  @type mac_modification_task() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10723,6 +10755,24 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      mac_system_integrity_protection_configuration() :: %{
+        "AppleInternal" => list(any()),
+        "BaseSystem" => list(any()),
+        "DTraceRestrictions" => list(any()),
+        "DebuggingRestrictions" => list(any()),
+        "FilesystemProtections" => list(any()),
+        "KextSigning" => list(any()),
+        "NvramProtections" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type mac_system_integrity_protection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_ipam_resource_discovery_result() :: %{
         "IpamResourceDiscovery" => ipam_resource_discovery()
       }
@@ -11972,6 +12022,17 @@ defmodule AWS.EC2 do
       
   """
   @type describe_vpc_classic_link_dns_support_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delegate_mac_volume_ownership_task_result() :: %{
+        "MacModificationTask" => mac_modification_task()
+      }
+      
+  """
+  @type create_delegate_mac_volume_ownership_task_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17388,6 +17449,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_mac_modification_tasks_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MacModificationTaskIds") => list(String.t()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_mac_modification_tasks_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_verified_access_instances_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()()),
@@ -18508,6 +18584,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_mac_modification_tasks_result() :: %{
+        "MacModificationTasks" => list(mac_modification_task()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_mac_modification_tasks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       export_image_result() :: %{
         "Description" => String.t(),
         "DiskImageFormat" => list(any()),
@@ -18854,6 +18942,23 @@ defmodule AWS.EC2 do
       
   """
   @type delete_network_acl_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mac_system_integrity_protection_configuration_request() :: %{
+        "AppleInternal" => list(any()),
+        "BaseSystem" => list(any()),
+        "DTraceRestrictions" => list(any()),
+        "DebuggingRestrictions" => list(any()),
+        "FilesystemProtections" => list(any()),
+        "KextSigning" => list(any()),
+        "NvramProtections" => list(any())
+      }
+      
+  """
+  @type mac_system_integrity_protection_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -22313,6 +22418,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_mac_system_integrity_protection_modification_task_result() :: %{
+        "MacModificationTask" => mac_modification_task()
+      }
+      
+  """
+  @type create_mac_system_integrity_protection_modification_task_result() :: %{
+          String.t() => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       start_instances_result() :: %{
         "StartingInstances" => list(instance_state_change()())
       }
@@ -23023,6 +23141,25 @@ defmodule AWS.EC2 do
       
   """
   @type verified_access_log_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_mac_system_integrity_protection_modification_task_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("DryRun") => boolean(),
+        optional("MacCredentials") => String.t(),
+        optional("MacSystemIntegrityProtectionConfiguration") => mac_system_integrity_protection_configuration_request(),
+        optional("TagSpecifications") => list(tag_specification()()),
+        required("InstanceId") => String.t(),
+        required("MacSystemIntegrityProtectionStatus") => list(any())
+      }
+      
+  """
+  @type create_mac_system_integrity_protection_modification_task_request() :: %{
+          String.t() => any()
+        }
 
   @typedoc """
 
@@ -31355,6 +31492,24 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Delegates ownership of the Amazon EBS root volume for an Apple silicon
+  Mac instance to an administrative user.
+  """
+  @spec create_delegate_mac_volume_ownership_task(
+          map(),
+          create_delegate_mac_volume_ownership_task_request(),
+          list()
+        ) ::
+          {:ok, create_delegate_mac_volume_ownership_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_delegate_mac_volume_ownership_task(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateDelegateMacVolumeOwnershipTask", input, options)
+  end
+
+  @doc """
   Creates a custom set of DHCP options.
 
   After you create a DHCP option set, you associate
@@ -31990,6 +32145,83 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayVirtualInterfaceGroup", input, options)
+  end
+
+  @doc """
+  Creates a System Integrity Protection (SIP) modification task to configure the
+  SIP settings
+  for an x86 Mac instance or Apple silicon Mac instance.
+
+  For more information, see
+  [
+  Configure SIP for Amazon EC2
+  instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure)
+  in the *Amazon EC2 User Guide*.
+
+  When you configure the SIP settings for your instance, you can either enable
+  or disable all SIP settings, or you can specify a custom SIP configuration that
+  selectively enables or disables specific SIP settings.
+
+  If you implement a custom configuration, [
+  connect to the instance and verify the
+  settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-check-settings)
+  to ensure that your
+  requirements are properly implemented and functioning as intended.
+
+  SIP configurations might change with macOS updates. We recommend that you
+  review custom SIP settings after any macOS version upgrade to ensure
+  continued compatibility and proper functionality of your security
+  configurations.
+
+  To enable or disable all SIP settings, use the
+  ## MacSystemIntegrityProtectionStatus
+  parameter only. For example, to enable all SIP settings, specify the following:
+
+    *
+
+  `MacSystemIntegrityProtectionStatus=enabled`
+
+  To specify a custom configuration that selectively enables or disables specific
+  SIP
+  settings, use the ## MacSystemIntegrityProtectionStatus
+  parameter to enable or disable all SIP settings, and then use the
+  **MacSystemIntegrityProtectionConfiguration** parameter
+  to specify exceptions. In this case, the exceptions you specify for
+  **MacSystemIntegrityProtectionConfiguration** override the value
+  you specify for **MacSystemIntegrityProtectionStatus**.
+  For example, to enable all SIP settings, except `NvramProtections`,
+  specify the following:
+
+    *
+
+  `MacSystemIntegrityProtectionStatus=enabled`
+
+    *
+
+  `MacSystemIntegrityProtectionConfigurationRequest "NvramProtections=disabled"`
+  """
+  @spec create_mac_system_integrity_protection_modification_task(
+          map(),
+          create_mac_system_integrity_protection_modification_task_request(),
+          list()
+        ) ::
+          {:ok, create_mac_system_integrity_protection_modification_task_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_mac_system_integrity_protection_modification_task(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "CreateMacSystemIntegrityProtectionModificationTask",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -36160,6 +36392,16 @@ defmodule AWS.EC2 do
   don't meet the criteria. For more information, see
   `EnableAllowedImagesSettings`.
 
+  The Amazon EC2 API follows an eventual consistency model. This means that the
+  result of an API
+  command you run that creates or modifies resources might not be immediately
+  available to all
+  subsequent commands you run. For guidance on how to manage eventual consistency,
+  see [Eventual consistency in the Amazon EC2
+  API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
+  in the *Amazon EC2 Developer
+  Guide*.
+
   We strongly recommend using only paginated requests. Unpaginated requests are
   susceptible to throttling and timeouts.
 
@@ -36985,6 +37227,25 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes a System Integrity Protection (SIP) modification task or volume
+  ownership delegation
+  task for an Amazon EC2 Mac instance.
+
+  For more information, see [Configure SIP for Amazon EC2
+  instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec describe_mac_modification_tasks(map(), describe_mac_modification_tasks_request(), list()) ::
+          {:ok, describe_mac_modification_tasks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_mac_modification_tasks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeMacModificationTasks", input, options)
+  end
+
+  @doc """
   Describes your managed prefix lists and any Amazon Web Services-managed prefix
   lists.
 
@@ -37189,6 +37450,8 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes the Outposts link aggregation groups (LAGs).
+
+  LAGs are only available for second-generation Outposts racks at this time.
   """
   @spec describe_outpost_lags(map(), describe_outpost_lags_request(), list()) ::
           {:ok, describe_outpost_lags_result(), any()}

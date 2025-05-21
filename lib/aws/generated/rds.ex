@@ -235,6 +235,19 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      db_major_engine_version() :: %{
+        "Engine" => String.t(),
+        "MajorEngineVersion" => String.t(),
+        "SupportedEngineLifecycles" => list(supported_engine_lifecycle()())
+      }
+      
+  """
+  @type db_major_engine_version() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_db_cluster_snapshot_result() :: %{
         "DBClusterSnapshot" => db_cluster_snapshot()
       }
@@ -962,6 +975,20 @@ defmodule AWS.RDS do
       
   """
   @type delete_db_instance_automated_backup_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_db_major_engine_versions_request() :: %{
+        optional("Engine") => String.t(),
+        optional("MajorEngineVersion") => String.t(),
+        optional("Marker") => String.t(),
+        optional("MaxRecords") => integer()
+      }
+      
+  """
+  @type describe_db_major_engine_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3749,6 +3776,18 @@ defmodule AWS.RDS do
 
   ## Example:
       
+      describe_db_major_engine_versions_response() :: %{
+        "DBMajorEngineVersions" => list(db_major_engine_version()()),
+        "Marker" => String.t()
+      }
+      
+  """
+  @type describe_db_major_engine_versions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_db_proxy_targets_response() :: %{}
       
   """
@@ -4259,6 +4298,19 @@ defmodule AWS.RDS do
       
   """
   @type db_security_group_membership() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supported_engine_lifecycle() :: %{
+        "LifecycleSupportEndDate" => non_neg_integer(),
+        "LifecycleSupportName" => list(any()),
+        "LifecycleSupportStartDate" => non_neg_integer()
+      }
+      
+  """
+  @type supported_engine_lifecycle() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10690,6 +10742,23 @@ defmodule AWS.RDS do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBLogFiles", input, options)
+  end
+
+  @doc """
+  Describes the properties of specific major versions of DB engines.
+  """
+  @spec describe_db_major_engine_versions(
+          map(),
+          describe_db_major_engine_versions_request(),
+          list()
+        ) ::
+          {:ok, describe_db_major_engine_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_db_major_engine_versions(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeDBMajorEngineVersions", input, options)
   end
 
   @doc """

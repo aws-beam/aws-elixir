@@ -3973,8 +3973,13 @@ defmodule AWS.Glue do
       
       connection_type_brief() :: %{
         "Capabilities" => capabilities(),
+        "Categories" => list([String.t()]()),
         "ConnectionType" => list(any()),
-        "Description" => String.t()
+        "ConnectionTypeVariants" => list(connection_type_variant()()),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "LogoUrl" => String.t(),
+        "Vendor" => String.t()
       }
       
   """
@@ -12438,6 +12443,20 @@ defmodule AWS.Glue do
       
   """
   @type start_ml_labeling_set_generation_task_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_type_variant() :: %{
+        "ConnectionTypeVariantName" => String.t(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "LogoUrl" => String.t()
+      }
+      
+  """
+  @type connection_type_variant() :: %{String.t() => any()}
 
   @typedoc """
 

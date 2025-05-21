@@ -5,11 +5,10 @@ defmodule AWS.DataSync do
   @moduledoc """
   DataSync
 
-  DataSync is an online data movement and discovery service that simplifies data
-  migration
-  and helps you quickly, easily, and securely transfer your file or object data
-  to, from, and
-  between Amazon Web Services storage services.
+  DataSync is an online data movement and discovery service that simplifies
+  data migration and helps you quickly, easily, and securely transfer your file or
+  object data
+  to, from, and between Amazon Web Services storage services.
 
   This API interface reference includes documentation for using DataSync
   programmatically. For complete information, see the *
@@ -82,24 +81,6 @@ defmodule AWS.DataSync do
       
   """
   @type create_location_object_storage_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_storage_system_request() :: %{
-        optional("CloudWatchLogGroupArn") => String.t(),
-        optional("Name") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
-        required("AgentArns") => list(String.t()()),
-        required("ClientToken") => String.t(),
-        required("Credentials") => credentials(),
-        required("ServerConfiguration") => discovery_server_configuration(),
-        required("SystemType") => list(any())
-      }
-      
-  """
-  @type add_storage_system_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -307,38 +288,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      describe_storage_system_response() :: %{
-        "AgentArns" => list(String.t()()),
-        "CloudWatchLogGroupArn" => String.t(),
-        "ConnectivityStatus" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "ErrorMessage" => String.t(),
-        "Name" => String.t(),
-        "SecretsManagerArn" => String.t(),
-        "ServerConfiguration" => discovery_server_configuration(),
-        "StorageSystemArn" => String.t(),
-        "SystemType" => list(any())
-      }
-      
-  """
-  @type describe_storage_system_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_system_resources_response() :: %{
-        "NextToken" => String.t(),
-        "ResourceDetails" => resource_details()
-      }
-      
-  """
-  @type describe_storage_system_resources_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       filter_rule() :: %{
         "FilterType" => list(any()),
         "Value" => String.t()
@@ -362,49 +311,6 @@ defmodule AWS.DataSync do
       
   """
   @type create_agent_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_storage_system_response() :: %{}
-      
-  """
-  @type remove_storage_system_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_recommendations_response() :: %{}
-      
-  """
-  @type generate_recommendations_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      net_app_o_n_t_a_p_volume() :: %{
-        "CapacityProvisioned" => float(),
-        "CapacityUsed" => float(),
-        "CifsShareCount" => float(),
-        "LogicalCapacityUsed" => float(),
-        "LunCount" => float(),
-        "MaxP95Performance" => max_p95_performance(),
-        "NfsExported" => boolean(),
-        "RecommendationStatus" => list(any()),
-        "Recommendations" => list(recommendation()()),
-        "ResourceId" => String.t(),
-        "SecurityStyle" => String.t(),
-        "SnapshotCapacityUsed" => float(),
-        "SvmName" => String.t(),
-        "SvmUuid" => String.t(),
-        "VolumeName" => String.t()
-      }
-      
-  """
-  @type net_app_o_n_t_a_p_volume() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -442,18 +348,6 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_fsx_ontap_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      credentials() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
-      }
-      
-  """
-  @type credentials() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -587,34 +481,10 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      discovery_job_list_entry() :: %{
-        "DiscoveryJobArn" => String.t(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type discovery_job_list_entry() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_location_nfs_response() :: %{}
       
   """
   @type update_location_nfs_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_system_resource_metrics_response() :: %{
-        "Metrics" => list(resource_metrics()()),
-        "NextToken" => String.t()
-      }
-      
-  """
-  @type describe_storage_system_resource_metrics_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -682,33 +552,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      p95_metrics() :: %{
-        "IOPS" => i_o_p_s(),
-        "Latency" => latency(),
-        "Throughput" => throughput()
-      }
-      
-  """
-  @type p95_metrics() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity() :: %{
-        "ClusterCloudStorageUsed" => float(),
-        "LogicalUsed" => float(),
-        "Provisioned" => float(),
-        "Used" => float()
-      }
-      
-  """
-  @type capacity() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       qop_configuration() :: %{
         "DataTransferProtection" => list(any()),
         "RpcProtection" => list(any())
@@ -742,17 +585,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      describe_storage_system_request() :: %{
-        required("StorageSystemArn") => String.t()
-      }
-      
-  """
-  @type describe_storage_system_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       report_overrides() :: %{
         "Deleted" => report_override(),
         "Skipped" => report_override(),
@@ -762,18 +594,6 @@ defmodule AWS.DataSync do
       
   """
   @type report_overrides() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_discovery_job_request() :: %{
-        required("CollectionDurationMinutes") => integer(),
-        required("DiscoveryJobArn") => String.t()
-      }
-      
-  """
-  @type update_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -869,39 +689,10 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      list_storage_systems_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
-      }
-      
-  """
-  @type list_storage_systems_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_location_fsx_lustre_response() :: %{}
       
   """
   @type update_location_fsx_lustre_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_system_resource_metrics_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("StartTime") => non_neg_integer(),
-        required("DiscoveryJobArn") => String.t(),
-        required("ResourceId") => String.t(),
-        required("ResourceType") => list(any())
-      }
-      
-  """
-  @type describe_storage_system_resource_metrics_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1155,49 +946,12 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      discovery_server_configuration() :: %{
-        "ServerHostname" => String.t(),
-        "ServerPort" => integer()
-      }
-      
-  """
-  @type discovery_server_configuration() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recommendation() :: %{
-        "EstimatedMonthlyStorageCost" => String.t(),
-        "StorageConfiguration" => map(),
-        "StorageType" => String.t()
-      }
-      
-  """
-  @type recommendation() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_hdfs_response() :: %{
         "LocationArn" => String.t()
       }
       
   """
   @type create_location_hdfs_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      storage_system_list_entry() :: %{
-        "Name" => String.t(),
-        "StorageSystemArn" => String.t()
-      }
-      
-  """
-  @type storage_system_list_entry() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1288,39 +1042,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      net_app_o_n_t_a_p_cluster() :: %{
-        "CifsShareCount" => float(),
-        "ClusterBlockStorageLogicalUsed" => float(),
-        "ClusterBlockStorageSize" => float(),
-        "ClusterBlockStorageUsed" => float(),
-        "ClusterCloudStorageUsed" => float(),
-        "ClusterName" => String.t(),
-        "LunCount" => float(),
-        "MaxP95Performance" => max_p95_performance(),
-        "NfsExportedVolumes" => float(),
-        "RecommendationStatus" => list(any()),
-        "Recommendations" => list(recommendation()()),
-        "ResourceId" => String.t()
-      }
-      
-  """
-  @type net_app_o_n_t_a_p_cluster() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_discovery_job_request() :: %{
-        required("DiscoveryJobArn") => String.t()
-      }
-      
-  """
-  @type stop_discovery_job_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_location_object_storage_response() :: %{}
       
   """
@@ -1357,36 +1078,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      update_discovery_job_response() :: %{}
-      
-  """
-  @type update_discovery_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      max_p95_performance() :: %{
-        "IopsOther" => float(),
-        "IopsRead" => float(),
-        "IopsTotal" => float(),
-        "IopsWrite" => float(),
-        "LatencyOther" => float(),
-        "LatencyRead" => float(),
-        "LatencyWrite" => float(),
-        "ThroughputOther" => float(),
-        "ThroughputRead" => float(),
-        "ThroughputTotal" => float(),
-        "ThroughputWrite" => float()
-      }
-      
-  """
-  @type max_p95_performance() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       describe_location_fsx_open_zfs_response() :: %{
         "CreationTime" => non_neg_integer(),
         "LocationArn" => String.t(),
@@ -1410,31 +1101,6 @@ defmodule AWS.DataSync do
       
   """
   @type list_locations_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_storage_system_request() :: %{
-        required("StorageSystemArn") => String.t()
-      }
-      
-  """
-  @type remove_storage_system_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_discovery_job_request() :: %{
-        optional("Tags") => list(tag_list_entry()()),
-        required("ClientToken") => String.t(),
-        required("CollectionDurationMinutes") => integer(),
-        required("StorageSystemArn") => String.t()
-      }
-      
-  """
-  @type start_discovery_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1613,44 +1279,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      latency() :: %{
-        "Other" => float(),
-        "Read" => float(),
-        "Write" => float()
-      }
-      
-  """
-  @type latency() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_discovery_job_response() :: %{
-        "CollectionDurationMinutes" => integer(),
-        "DiscoveryJobArn" => String.t(),
-        "JobEndTime" => non_neg_integer(),
-        "JobStartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "StorageSystemArn" => String.t()
-      }
-      
-  """
-  @type describe_discovery_job_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_storage_system_response() :: %{}
-      
-  """
-  @type update_storage_system_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_fsx_windows_request() :: %{
         optional("Domain") => String.t(),
         optional("Subdirectory") => String.t(),
@@ -1745,33 +1373,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      describe_discovery_job_request() :: %{
-        required("DiscoveryJobArn") => String.t()
-      }
-      
-  """
-  @type describe_discovery_job_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_storage_system_resources_request() :: %{
-        optional("Filter") => map(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceIds") => list(String.t()()),
-        required("DiscoveryJobArn") => String.t(),
-        required("ResourceType") => list(any())
-      }
-      
-  """
-  @type describe_storage_system_resources_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_location_efs_request() :: %{
         optional("AccessPointArn") => String.t(),
         optional("FileSystemAccessRoleArn") => String.t(),
@@ -1839,32 +1440,6 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_s3_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throughput() :: %{
-        "Other" => float(),
-        "Read" => float(),
-        "Total" => float(),
-        "Write" => float()
-      }
-      
-  """
-  @type throughput() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_storage_systems_response() :: %{
-        "NextToken" => String.t(),
-        "StorageSystems" => list(storage_system_list_entry()())
-      }
-      
-  """
-  @type list_storage_systems_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1960,20 +1535,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      i_o_p_s() :: %{
-        "Other" => float(),
-        "Read" => float(),
-        "Total" => float(),
-        "Write" => float()
-      }
-      
-  """
-  @type i_o_p_s() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_fsx_lustre_request() :: %{
         optional("Subdirectory") => String.t(),
         optional("Tags") => list(tag_list_entry()()),
@@ -2050,48 +1611,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      resource_metrics() :: %{
-        "Capacity" => capacity(),
-        "P95Metrics" => p95_metrics(),
-        "ResourceId" => String.t(),
-        "ResourceType" => list(any()),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type resource_metrics() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_storage_system_request() :: %{
-        optional("AgentArns") => list(String.t()()),
-        optional("CloudWatchLogGroupArn") => String.t(),
-        optional("Credentials") => credentials(),
-        optional("Name") => String.t(),
-        optional("ServerConfiguration") => discovery_server_configuration(),
-        required("StorageSystemArn") => String.t()
-      }
-      
-  """
-  @type update_storage_system_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_discovery_job_response() :: %{
-        "DiscoveryJobArn" => String.t()
-      }
-      
-  """
-  @type start_discovery_job_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_location_object_storage_request() :: %{
         optional("AccessKey") => String.t(),
         optional("AgentArns") => list(String.t()()),
@@ -2106,30 +1625,6 @@ defmodule AWS.DataSync do
       
   """
   @type update_location_object_storage_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      net_app_o_n_t_a_p_s_v_m() :: %{
-        "CifsShareCount" => float(),
-        "ClusterUuid" => String.t(),
-        "EnabledProtocols" => list(String.t()()),
-        "LunCount" => float(),
-        "MaxP95Performance" => max_p95_performance(),
-        "NfsExportedVolumes" => float(),
-        "RecommendationStatus" => list(any()),
-        "Recommendations" => list(recommendation()()),
-        "ResourceId" => String.t(),
-        "SvmName" => String.t(),
-        "TotalCapacityProvisioned" => float(),
-        "TotalCapacityUsed" => float(),
-        "TotalLogicalCapacityUsed" => float(),
-        "TotalSnapshotCapacityUsed" => float()
-      }
-      
-  """
-  @type net_app_o_n_t_a_p_s_v_m() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2157,17 +1652,6 @@ defmodule AWS.DataSync do
       
   """
   @type fsx_protocol_smb() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_storage_system_response() :: %{
-        "StorageSystemArn" => String.t()
-      }
-      
-  """
-  @type add_storage_system_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2219,19 +1703,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      list_discovery_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("StorageSystemArn") => String.t()
-      }
-      
-  """
-  @type list_discovery_jobs_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       describe_location_hdfs_request() :: %{
         required("LocationArn") => String.t()
       }
@@ -2249,19 +1720,6 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_efs_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_details() :: %{
-        "NetAppONTAPClusters" => list(net_app_o_n_t_a_p_cluster()()),
-        "NetAppONTAPSVMs" => list(net_app_o_n_t_a_p_s_v_m()()),
-        "NetAppONTAPVolumes" => list(net_app_o_n_t_a_p_volume()())
-      }
-      
-  """
-  @type resource_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2387,31 +1845,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      list_discovery_jobs_response() :: %{
-        "DiscoveryJobs" => list(discovery_job_list_entry()()),
-        "NextToken" => String.t()
-      }
-      
-  """
-  @type list_discovery_jobs_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_recommendations_request() :: %{
-        required("DiscoveryJobArn") => String.t(),
-        required("ResourceIds") => list(String.t()()),
-        required("ResourceType") => list(any())
-      }
-      
-  """
-  @type generate_recommendations_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       create_location_object_storage_response() :: %{
         "LocationArn" => String.t()
       }
@@ -2499,15 +1932,6 @@ defmodule AWS.DataSync do
 
   ## Example:
       
-      stop_discovery_job_response() :: %{}
-      
-  """
-  @type stop_discovery_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       start_task_execution_request() :: %{
         optional("Excludes") => list(filter_rule()()),
         optional("Includes") => list(filter_rule()()),
@@ -2531,8 +1955,6 @@ defmodule AWS.DataSync do
       
   """
   @type create_location_fsx_ontap_response() :: %{String.t() => any()}
-
-  @type add_storage_system_errors() :: internal_exception() | invalid_request_exception()
 
   @type cancel_task_execution_errors() :: internal_exception() | invalid_request_exception()
 
@@ -2572,8 +1994,6 @@ defmodule AWS.DataSync do
 
   @type describe_agent_errors() :: internal_exception() | invalid_request_exception()
 
-  @type describe_discovery_job_errors() :: internal_exception() | invalid_request_exception()
-
   @type describe_location_azure_blob_errors() ::
           internal_exception() | invalid_request_exception()
 
@@ -2601,27 +2021,13 @@ defmodule AWS.DataSync do
 
   @type describe_location_smb_errors() :: internal_exception() | invalid_request_exception()
 
-  @type describe_storage_system_errors() :: internal_exception() | invalid_request_exception()
-
-  @type describe_storage_system_resource_metrics_errors() ::
-          internal_exception() | invalid_request_exception()
-
-  @type describe_storage_system_resources_errors() ::
-          internal_exception() | invalid_request_exception()
-
   @type describe_task_errors() :: internal_exception() | invalid_request_exception()
 
   @type describe_task_execution_errors() :: internal_exception() | invalid_request_exception()
 
-  @type generate_recommendations_errors() :: internal_exception() | invalid_request_exception()
-
   @type list_agents_errors() :: internal_exception() | invalid_request_exception()
 
-  @type list_discovery_jobs_errors() :: internal_exception() | invalid_request_exception()
-
   @type list_locations_errors() :: internal_exception() | invalid_request_exception()
-
-  @type list_storage_systems_errors() :: internal_exception() | invalid_request_exception()
 
   @type list_tags_for_resource_errors() :: internal_exception() | invalid_request_exception()
 
@@ -2629,21 +2035,13 @@ defmodule AWS.DataSync do
 
   @type list_tasks_errors() :: internal_exception() | invalid_request_exception()
 
-  @type remove_storage_system_errors() :: internal_exception() | invalid_request_exception()
-
-  @type start_discovery_job_errors() :: internal_exception() | invalid_request_exception()
-
   @type start_task_execution_errors() :: internal_exception() | invalid_request_exception()
-
-  @type stop_discovery_job_errors() :: internal_exception() | invalid_request_exception()
 
   @type tag_resource_errors() :: internal_exception() | invalid_request_exception()
 
   @type untag_resource_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_agent_errors() :: internal_exception() | invalid_request_exception()
-
-  @type update_discovery_job_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_location_azure_blob_errors() :: internal_exception() | invalid_request_exception()
 
@@ -2669,8 +2067,6 @@ defmodule AWS.DataSync do
 
   @type update_location_smb_errors() :: internal_exception() | invalid_request_exception()
 
-  @type update_storage_system_errors() :: internal_exception() | invalid_request_exception()
-
   @type update_task_errors() :: internal_exception() | invalid_request_exception()
 
   @type update_task_execution_errors() :: internal_exception() | invalid_request_exception()
@@ -2689,22 +2085,6 @@ defmodule AWS.DataSync do
       signing_name: "datasync",
       target_prefix: "FmrsService"
     }
-  end
-
-  @doc """
-  Creates an Amazon Web Services resource for an on-premises storage system that
-  you want DataSync Discovery to collect
-  information about.
-  """
-  @spec add_storage_system(map(), add_storage_system_request(), list()) ::
-          {:ok, add_storage_system_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, add_storage_system_errors()}
-  def add_storage_system(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "AddStorageSystem", input, options)
   end
 
   @doc """
@@ -2800,10 +2180,11 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates a transfer *location* for an Amazon FSx for Lustre file system.
+  Creates a transfer *location* for an Amazon FSx for Lustre file
+  system.
 
-  DataSync can use this location as a source or destination for transferring
-  data.
+  DataSync can use this location as a source or destination for
+  transferring data.
 
   Before you begin, make sure that you understand how DataSync
   [accesses FSx for Lustre file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access).
@@ -2841,13 +2222,15 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates a transfer *location* for an Amazon FSx for OpenZFS file system.
+  Creates a transfer *location* for an Amazon FSx for OpenZFS file
+  system.
 
-  DataSync can use this location as a source or destination for transferring
-  data.
+  DataSync can use this location as a source or destination for
+  transferring data.
 
   Before you begin, make sure that you understand how DataSync
-  [accesses FSx for OpenZFS file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access).
+  [accesses FSx for OpenZFS file
+  systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access).
 
   Request parameters related to `SMB` aren't supported with the
   `CreateLocationFsxOpenZfs` operation.
@@ -2893,8 +2276,7 @@ defmodule AWS.DataSync do
   transferring data.
 
   Before you begin, make sure that you understand how DataSync
-  [accesses HDFS
-  clusters](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs).
+  [accesses HDFS clusters](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs).
   """
   @spec create_location_hdfs(map(), create_location_hdfs_request(), list()) ::
           {:ok, create_location_hdfs_response(), any()}
@@ -2915,8 +2297,7 @@ defmodule AWS.DataSync do
   transferring data.
 
   Before you begin, make sure that you understand how DataSync
-  [accesses NFS file
-  servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs).
+  [accesses NFS file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs).
   """
   @spec create_location_nfs(map(), create_location_nfs_request(), list()) ::
           {:ok, create_location_nfs_response(), any()}
@@ -2967,7 +2348,8 @@ defmodule AWS.DataSync do
 
   [Evaluating S3 request costs when using DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests)
 
-  For more information, see [Configuring transfers with Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html).
+  For more information, see [Configuring transfers with Amazon
+  S3](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html).
   """
   @spec create_location_s3(map(), create_location_s3_request(), list()) ::
           {:ok, create_location_s3_response(), any()}
@@ -3002,11 +2384,12 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Configures a *task*, which defines where and how DataSync transfers your
-  data.
+  Configures a *task*, which defines where and how DataSync
+  transfers your data.
 
   A task includes a source location, destination location, and transfer options
-  (such as bandwidth limits, scheduling, and more).
+  (such as
+  bandwidth limits, scheduling, and more).
 
   If you're planning to transfer data to or from an Amazon S3 location, review
   [how DataSync can affect your S3 request
@@ -3075,8 +2458,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns information about an DataSync agent, such as its name, service endpoint
-  type, and status.
+  Returns information about an DataSync agent, such as its name, service
+  endpoint type, and status.
   """
   @spec describe_agent(map(), describe_agent_request(), list()) ::
           {:ok, describe_agent_response(), any()}
@@ -3087,20 +2470,6 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgent", input, options)
-  end
-
-  @doc """
-  Returns information about a DataSync discovery job.
-  """
-  @spec describe_discovery_job(map(), describe_discovery_job_request(), list()) ::
-          {:ok, describe_discovery_job_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_discovery_job_errors()}
-  def describe_discovery_job(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "DescribeDiscoveryJob", input, options)
   end
 
   @doc """
@@ -3279,63 +2648,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Returns information about an on-premises storage system that you're using with
-  DataSync Discovery.
-  """
-  @spec describe_storage_system(map(), describe_storage_system_request(), list()) ::
-          {:ok, describe_storage_system_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_storage_system_errors()}
-  def describe_storage_system(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "DescribeStorageSystem", input, options)
-  end
-
-  @doc """
-  Returns information, including performance data and capacity usage, which
-  DataSync Discovery
-  collects about a specific resource in your-premises storage system.
-  """
-  @spec describe_storage_system_resource_metrics(
-          map(),
-          describe_storage_system_resource_metrics_request(),
-          list()
-        ) ::
-          {:ok, describe_storage_system_resource_metrics_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_storage_system_resource_metrics_errors()}
-  def describe_storage_system_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "DescribeStorageSystemResourceMetrics", input, options)
-  end
-
-  @doc """
-  Returns information that DataSync Discovery collects about resources in your
-  on-premises storage
-  system.
-  """
-  @spec describe_storage_system_resources(
-          map(),
-          describe_storage_system_resources_request(),
-          list()
-        ) ::
-          {:ok, describe_storage_system_resources_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_storage_system_resources_errors()}
-  def describe_storage_system_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "DescribeStorageSystemResources", input, options)
-  end
-
-  @doc """
-  Provides information about a *task*, which defines where and how DataSync
-  transfers your data.
+  Provides information about a *task*, which defines where and how
+  DataSync transfers your data.
   """
   @spec describe_task(map(), describe_task_request(), list()) ::
           {:ok, describe_task_response(), any()}
@@ -3373,31 +2687,6 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Creates recommendations about where to migrate your data to in Amazon Web
-  Services.
-
-  Recommendations are generated based on information that DataSync Discovery
-  collects about your
-  on-premises storage system's resources. For more information, see
-  [Recommendations provided by DataSync
-  Discovery](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-understand-recommendations.html).
-
-  Once generated, you can view your recommendations by using the
-  [DescribeStorageSystemResources](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html)
-  operation.
-  """
-  @spec generate_recommendations(map(), generate_recommendations_request(), list()) ::
-          {:ok, generate_recommendations_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, generate_recommendations_errors()}
-  def generate_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "GenerateRecommendations", input, options)
-  end
-
-  @doc """
   Returns a list of DataSync agents that belong to an Amazon Web Services account
   in the Amazon Web Services Region specified in the request.
 
@@ -3431,22 +2720,6 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Provides a list of the existing discovery jobs in the Amazon Web Services Region
-  and
-  Amazon Web Services account where you're using DataSync Discovery.
-  """
-  @spec list_discovery_jobs(map(), list_discovery_jobs_request(), list()) ::
-          {:ok, list_discovery_jobs_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, list_discovery_jobs_errors()}
-  def list_discovery_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "ListDiscoveryJobs", input, options)
-  end
-
-  @doc """
   Returns a list of source and destination locations.
 
   If you have more locations than are returned in a response (that is, the
@@ -3464,20 +2737,6 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
-  end
-
-  @doc """
-  Lists the on-premises storage systems that you're using with DataSync Discovery.
-  """
-  @spec list_storage_systems(map(), list_storage_systems_request(), list()) ::
-          {:ok, list_storage_systems_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, list_storage_systems_errors()}
-  def list_storage_systems(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "ListStorageSystems", input, options)
   end
 
   @doc """
@@ -3523,41 +2782,6 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Permanently removes a storage system resource from DataSync Discovery, including
-  the associated
-  discovery jobs, collected data, and recommendations.
-  """
-  @spec remove_storage_system(map(), remove_storage_system_request(), list()) ::
-          {:ok, remove_storage_system_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, remove_storage_system_errors()}
-  def remove_storage_system(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "RemoveStorageSystem", input, options)
-  end
-
-  @doc """
-  Runs a DataSync discovery job on your on-premises storage system.
-
-  If you haven't added the
-  storage system to DataSync Discovery yet, do this first by using the
-  [AddStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html)
-  operation.
-  """
-  @spec start_discovery_job(map(), start_discovery_job_request(), list()) ::
-          {:ok, start_discovery_job_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, start_discovery_job_errors()}
-  def start_discovery_job(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "StartDiscoveryJob", input, options)
-  end
-
-  @doc """
   Starts an DataSync transfer task.
 
   For each task, you can only run one task
@@ -3581,28 +2805,6 @@ defmodule AWS.DataSync do
     meta = metadata()
 
     Request.request_post(client, meta, "StartTaskExecution", input, options)
-  end
-
-  @doc """
-  Stops a running DataSync discovery job.
-
-  You can stop a discovery job anytime. A job that's stopped before it's scheduled
-  to end
-  likely will provide you some information about your on-premises storage system
-  resources. To
-  get recommendations for a stopped job, you must use the
-  [GenerateRecommendations](https://docs.aws.amazon.com/datasync/latest/userguide/API_GenerateRecommendations.html)
-  operation.
-  """
-  @spec stop_discovery_job(map(), stop_discovery_job_request(), list()) ::
-          {:ok, stop_discovery_job_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, stop_discovery_job_errors()}
-  def stop_discovery_job(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "StopDiscoveryJob", input, options)
   end
 
   @doc """
@@ -3654,22 +2856,9 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Edits a DataSync discovery job configuration.
-  """
-  @spec update_discovery_job(map(), update_discovery_job_request(), list()) ::
-          {:ok, update_discovery_job_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_discovery_job_errors()}
-  def update_discovery_job(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "UpdateDiscoveryJob", input, options)
-  end
-
-  @doc """
   Modifies the following configurations of the Microsoft Azure Blob Storage
-  transfer location that you're using with DataSync.
+  transfer
+  location that you're using with DataSync.
 
   For more information, see [Configuring DataSync transfers with Azure Blob Storage](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html).
   """
@@ -3688,7 +2877,8 @@ defmodule AWS.DataSync do
   Modifies the following configuration parameters of the Amazon EFS transfer
   location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with Amazon EFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html).
+  For more information, see [Configuring DataSync transfers with Amazon
+  EFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html).
   """
   @spec update_location_efs(map(), update_location_efs_request(), list()) ::
           {:ok, update_location_efs_response(), any()}
@@ -3705,7 +2895,8 @@ defmodule AWS.DataSync do
   Modifies the following configuration parameters of the Amazon FSx for Lustre
   transfer location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with FSx for Lustre](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html).
+  For more information, see [Configuring DataSync transfers with FSx for
+  Lustre](https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html).
   """
   @spec update_location_fsx_lustre(map(), update_location_fsx_lustre_request(), list()) ::
           {:ok, update_location_fsx_lustre_response(), any()}
@@ -3720,9 +2911,11 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Amazon FSx for NetApp
-  ONTAP transfer location that you're using with DataSync.
+  ONTAP
+  transfer location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with FSx for ONTAP](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html).
+  For more information, see [Configuring DataSync transfers with FSx for
+  ONTAP](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html).
   """
   @spec update_location_fsx_ontap(map(), update_location_fsx_ontap_request(), list()) ::
           {:ok, update_location_fsx_ontap_response(), any()}
@@ -3739,7 +2932,8 @@ defmodule AWS.DataSync do
   Modifies the following configuration parameters of the Amazon FSx for OpenZFS
   transfer location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with FSx for OpenZFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html).
+  For more information, see [Configuring DataSync transfers with FSx for
+  OpenZFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html).
 
   Request parameters related to `SMB` aren't supported with the
   `UpdateLocationFsxOpenZfs` operation.
@@ -3757,7 +2951,8 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Amazon FSx for Windows
-  File Server transfer location that you're using with DataSync.
+  File Server
+  transfer location that you're using with DataSync.
 
   For more information, see [Configuring DataSync transfers with FSx for Windows File
   Server](https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html).
@@ -3775,9 +2970,11 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Hadoop Distributed File
-  System (HDFS) transfer location that you're using with DataSync.
+  System
+  (HDFS) transfer location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with an HDFS cluster](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html).
+  For more information, see [Configuring DataSync transfers with an HDFS
+  cluster](https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html).
   """
   @spec update_location_hdfs(map(), update_location_hdfs_request(), list()) ::
           {:ok, update_location_hdfs_response(), any()}
@@ -3792,7 +2989,8 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Network File System (NFS)
-  transfer location that you're using with DataSync.
+  transfer
+  location that you're using with DataSync.
 
   For more information, see [Configuring transfers with an NFS file
   server](https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html).
@@ -3810,9 +3008,11 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the object storage transfer
-  location that you're using with DataSync.
+  location
+  that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with an object storage system](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
+  For more information, see [Configuring DataSync transfers with an object storage
+  system](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html).
   """
   @spec update_location_object_storage(map(), update_location_object_storage_request(), list()) ::
           {:ok, update_location_object_storage_response(), any()}
@@ -3827,7 +3027,8 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Amazon S3 transfer
-  location that you're using with DataSync.
+  location
+  that you're using with DataSync.
 
   Before you begin, make sure that you read the following topics:
 
@@ -3853,9 +3054,11 @@ defmodule AWS.DataSync do
 
   @doc """
   Modifies the following configuration parameters of the Server Message Block
-  (SMB) transfer location that you're using with DataSync.
+  (SMB) transfer
+  location that you're using with DataSync.
 
-  For more information, see [Configuring DataSync transfers with an SMB file server](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
+  For more information, see [Configuring DataSync transfers with an SMB file
+  server](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html).
   """
   @spec update_location_smb(map(), update_location_smb_request(), list()) ::
           {:ok, update_location_smb_response(), any()}
@@ -3869,24 +3072,8 @@ defmodule AWS.DataSync do
   end
 
   @doc """
-  Modifies some configurations of an on-premises storage system resource that
-  you're using
-  with DataSync Discovery.
-  """
-  @spec update_storage_system(map(), update_storage_system_request(), list()) ::
-          {:ok, update_storage_system_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_storage_system_errors()}
-  def update_storage_system(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "discovery-")
-
-    Request.request_post(client, meta, "UpdateStorageSystem", input, options)
-  end
-
-  @doc """
-  Updates the configuration of a *task*, which defines where and how DataSync
-  transfers your data.
+  Updates the configuration of a *task*, which defines where and how
+  DataSync transfers your data.
   """
   @spec update_task(map(), update_task_request(), list()) ::
           {:ok, update_task_response(), any()}
@@ -3911,8 +3098,8 @@ defmodule AWS.DataSync do
 
   ```
 
-  , which throttles bandwidth for a running or queued
-  task execution.
+  , which throttles bandwidth for a running or queued task
+  execution.
   """
   @spec update_task_execution(map(), update_task_execution_request(), list()) ::
           {:ok, update_task_execution_response(), any()}

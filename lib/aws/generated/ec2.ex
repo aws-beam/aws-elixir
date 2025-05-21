@@ -843,7 +843,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_maintenance_options() :: %{
-        "AutoRecovery" => list(any())
+        "AutoRecovery" => list(any()),
+        "RebootMigration" => list(any())
       }
       
   """
@@ -10037,6 +10038,7 @@ defmodule AWS.EC2 do
       modify_instance_maintenance_options_request() :: %{
         optional("AutoRecovery") => list(any()),
         optional("DryRun") => boolean(),
+        optional("RebootMigration") => list(any()),
         required("InstanceId") => String.t()
       }
       
@@ -13731,7 +13733,8 @@ defmodule AWS.EC2 do
       
       modify_instance_maintenance_options_result() :: %{
         "AutoRecovery" => list(any()),
-        "InstanceId" => String.t()
+        "InstanceId" => String.t(),
+        "RebootMigration" => list(any())
       }
       
   """
@@ -20188,6 +20191,7 @@ defmodule AWS.EC2 do
         "PhcSupport" => list(any()),
         "PlacementGroupInfo" => placement_group_info(),
         "ProcessorInfo" => processor_info(),
+        "RebootMigrationSupport" => list(any()),
         "SupportedBootModes" => list(list(any())()),
         "SupportedRootDeviceTypes" => list(list(any())()),
         "SupportedUsageClasses" => list(list(any())()),
@@ -36717,6 +36721,9 @@ defmodule AWS.EC2 do
   Supported instance types
 
       *
+  Returns 3 network nodes in the response
+
+        *
 
   `hpc6a.48xlarge` | `hpc6id.32xlarge` |
   `hpc7a.12xlarge` | `hpc7a.24xlarge` |
@@ -36724,17 +36731,24 @@ defmodule AWS.EC2 do
   `hpc7g.4xlarge` | `hpc7g.8xlarge` |
   `hpc7g.16xlarge`
 
-      *
+        *
 
   `p3dn.24xlarge` | `p4d.24xlarge` |
   `p4de.24xlarge` | `p5.48xlarge` |
   `p5e.48xlarge` | `p5en.48xlarge`
 
-      *
+        *
 
   `trn1.2xlarge` | `trn1.32xlarge` |
   `trn1n.32xlarge` | `trn2.48xlarge` |
   `trn2u.48xlarge`
+
+      *
+  Returns 4 network nodes in the response
+
+        *
+
+  `p6-b200.48xlarge`
 
   For more information, see [Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
   in the *Amazon EC2 User Guide*.
@@ -42740,6 +42754,11 @@ defmodule AWS.EC2 do
   The default configuration will not
   enable simplified automatic recovery for an unsupported instance type. For more
   information, see [Simplified automatic recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery).
+
+  Modifies the reboot migration behavior during a user-initiated reboot of an
+  instance
+  that has a pending `system-reboot` event. For more information, see [Enable or disable reboot
+  migration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration).
   """
   @spec modify_instance_maintenance_options(
           map(),

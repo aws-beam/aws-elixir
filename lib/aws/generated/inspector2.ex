@@ -321,6 +321,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       filter_criteria() :: %{
+        "ecrImageLastInUseAt" => list(date_filter()()),
         "severity" => list(string_filter()()),
         "codeVulnerabilityFilePath" => list(string_filter()()),
         "ecrImageHash" => list(string_filter()()),
@@ -351,6 +352,7 @@ defmodule AWS.Inspector2 do
         "vulnerabilitySource" => list(string_filter()()),
         "relatedVulnerabilities" => list(string_filter()()),
         "lambdaFunctionRuntime" => list(string_filter()()),
+        "ecrImageInUseCount" => list(number_filter()()),
         "ec2InstanceSubnetId" => list(string_filter()()),
         "portRange" => list(port_range_filter()()),
         "ecrImagePushedAt" => list(date_filter()()),
@@ -690,11 +692,24 @@ defmodule AWS.Inspector2 do
 
       ecr_configuration() :: %{
         "pullDateRescanDuration" => String.t(),
+        "pullDateRescanMode" => String.t(),
         "rescanDuration" => String.t()
       }
 
   """
   @type ecr_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_metadata_details() :: %{
+        "detailsGroup" => [String.t()],
+        "taskDefinitionArn" => [String.t()]
+      }
+
+  """
+  @type aws_ecs_metadata_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -904,6 +919,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      coverage_number_filter() :: %{
+        "lowerInclusive" => [float()],
+        "upperInclusive" => [float()]
+      }
+
+  """
+  @type coverage_number_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_ec2_deep_inspection_configuration_response() :: %{
         "errorMessage" => String.t(),
         "orgPackagePaths" => list(String.t()()),
@@ -1049,6 +1076,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type ec2_instance_aggregation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_for_image_filter_criteria() :: %{
+        "resourceId" => [String.t()]
+      }
+
+  """
+  @type cluster_for_image_filter_criteria() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1547,6 +1585,20 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      cluster_details() :: %{
+        "clusterMetadata" => list(),
+        "lastInUse" => [non_neg_integer()],
+        "runningUnitCount" => [float()],
+        "stoppedUnitCount" => [float()]
+      }
+
+  """
+  @type cluster_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cvss_score_details() :: %{
         "adjustments" => list(cvss_score_adjustment()()),
         "cvssSource" => String.t(),
@@ -1913,6 +1965,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      cluster_information() :: %{
+        "clusterArn" => [String.t()],
+        "clusterDetails" => list(cluster_details()())
+      }
+
+  """
+  @type cluster_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "action" => String.t(),
         "arn" => String.t(),
@@ -2030,6 +2094,7 @@ defmodule AWS.Inspector2 do
 
       ecr_rescan_duration_state() :: %{
         "pullDateRescanDuration" => String.t(),
+        "pullDateRescanMode" => String.t(),
         "rescanDuration" => String.t(),
         "status" => String.t(),
         "updatedAt" => non_neg_integer()
@@ -2078,6 +2143,8 @@ defmodule AWS.Inspector2 do
 
       ecr_container_image_metadata() :: %{
         "imagePulledAt" => non_neg_integer(),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
         "tags" => list([String.t()]())
       }
 
@@ -2763,6 +2830,8 @@ defmodule AWS.Inspector2 do
       coverage_filter_criteria() :: %{
         "accountId" => list(coverage_string_filter()()),
         "ec2InstanceTags" => list(coverage_map_filter()()),
+        "ecrImageInUseCount" => list(coverage_number_filter()()),
+        "ecrImageLastInUseAt" => list(coverage_date_filter()()),
         "ecrImageTags" => list(coverage_string_filter()()),
         "ecrRepositoryName" => list(coverage_string_filter()()),
         "imagePulledAt" => list(coverage_date_filter()()),
@@ -2802,6 +2871,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type batch_get_account_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_clusters_for_image_response() :: %{
+        "cluster" => list(cluster_information()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type get_clusters_for_image_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3028,6 +3109,8 @@ defmodule AWS.Inspector2 do
         "architectures" => list(string_filter()()),
         "imageShas" => list(string_filter()()),
         "imageTags" => list(string_filter()()),
+        "inUseCount" => list(number_filter()()),
+        "lastInUseAt" => list(date_filter()()),
         "repositories" => list(string_filter()()),
         "resourceIds" => list(string_filter()()),
         "sortBy" => String.t(),
@@ -3201,6 +3284,19 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      get_clusters_for_image_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("filter") => cluster_for_image_filter_criteria()
+      }
+
+  """
+  @type get_clusters_for_image_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_cis_session_telemetry_request() :: %{
         required("messages") => list(cis_session_message()()),
         required("scanJobId") => String.t(),
@@ -3261,6 +3357,8 @@ defmodule AWS.Inspector2 do
         "author" => [String.t()],
         "imageHash" => String.t(),
         "imageTags" => list(String.t()()),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
         "platform" => String.t(),
         "pushedAt" => non_neg_integer(),
         "registry" => String.t(),
@@ -3305,6 +3403,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type update_org_ec2_deep_inspection_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_metadata_details() :: %{
+        "namespace" => [String.t()],
+        "workloadInfoList" => list(aws_eks_workload_info()())
+      }
+
+  """
+  @type aws_eks_metadata_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3408,6 +3518,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      aws_eks_workload_info() :: %{
+        "name" => [String.t()],
+        "type" => [String.t()]
+      }
+
+  """
+  @type aws_eks_workload_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       permission() :: %{
         "operation" => String.t(),
         "service" => String.t()
@@ -3471,6 +3593,8 @@ defmodule AWS.Inspector2 do
         "architecture" => [String.t()],
         "imageSha" => [String.t()],
         "imageTags" => list(String.t()()),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
         "repository" => [String.t()],
         "resourceId" => String.t(),
         "severityCounts" => severity_counts()
@@ -3754,6 +3878,12 @@ defmodule AWS.Inspector2 do
           | resource_not_found_exception()
 
   @type get_cis_scan_result_details_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type get_clusters_for_image_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4680,6 +4810,35 @@ defmodule AWS.Inspector2 do
           | {:error, get_cis_scan_result_details_errors()}
   def get_cis_scan_result_details(%Client{} = client, input, options \\ []) do
     url_path = "/cis/scan-result/details/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of clusters and metadata associated with an image.
+  """
+  @spec get_clusters_for_image(map(), get_clusters_for_image_request(), list()) ::
+          {:ok, get_clusters_for_image_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_clusters_for_image_errors()}
+  def get_clusters_for_image(%Client{} = client, input, options \\ []) do
+    url_path = "/cluster/get"
     headers = []
     custom_headers = []
     query_params = []

@@ -136,6 +136,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_insight_rule_input() :: %{
+        optional("ApplyOnTransformedLogs") => boolean(),
         optional("RuleState") => String.t(),
         optional("Tags") => list(tag()()),
         required("RuleDefinition") => String.t(),
@@ -675,6 +676,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      conflict_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type conflict_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceId" => String.t(),
@@ -1200,6 +1212,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       insight_rule() :: %{
+        "ApplyOnTransformedLogs" => boolean(),
         "Definition" => String.t(),
         "ManagedRule" => boolean(),
         "Name" => String.t(),
@@ -1628,6 +1641,7 @@ defmodule AWS.CloudWatch do
   @type delete_dashboards_errors() ::
           internal_service_fault()
           | invalid_parameter_value_exception()
+          | conflict_exception()
           | dashboard_not_found_error()
 
   @type delete_insight_rules_errors() ::
@@ -1712,7 +1726,8 @@ defmodule AWS.CloudWatch do
 
   @type put_composite_alarm_errors() :: limit_exceeded_fault()
 
-  @type put_dashboard_errors() :: internal_service_fault() | dashboard_invalid_input_error()
+  @type put_dashboard_errors() ::
+          internal_service_fault() | conflict_exception() | dashboard_invalid_input_error()
 
   @type put_insight_rule_errors() ::
           limit_exceeded_exception()
@@ -1754,12 +1769,14 @@ defmodule AWS.CloudWatch do
           | concurrent_modification_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type untag_resource_errors() ::
           internal_service_fault()
           | concurrent_modification_exception()
           | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1787,9 +1804,10 @@ defmodule AWS.CloudWatch do
   can't
   delete two composite alarms with one operation.
 
-  If you specify an incorrect alarm name or make any other error in the operation,
-  no alarms are deleted. To confirm that alarms were deleted successfully, you can
-  use the
+  If you specify any incorrect alarm names, the alarms you specify with correct
+  names are still deleted. Other syntax errors might result
+  in no alarms being deleted. To confirm that alarms were deleted successfully,
+  you can use the
   [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
   operation after using `DeleteAlarms`.
 

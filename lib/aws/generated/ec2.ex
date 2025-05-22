@@ -5672,6 +5672,8 @@ defmodule AWS.EC2 do
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t(),
         "PrivateIpAddresses" => list(network_interface_private_ip_address()()),
+        "PublicDnsName" => String.t(),
+        "PublicIpDnsNameOptions" => public_ip_dns_name_options(),
         "RequesterId" => String.t(),
         "RequesterManaged" => boolean(),
         "SourceDestCheck" => boolean(),
@@ -11065,6 +11067,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_public_ip_dns_name_options_result() :: %{
+        "Successful" => boolean()
+      }
+      
+  """
+  @type modify_public_ip_dns_name_options_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attach_internet_gateway_request() :: %{
         optional("DryRun") => boolean(),
         required("InternetGatewayId") => String.t(),
@@ -13261,6 +13274,19 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_reservation_target_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_public_ip_dns_name_options_request() :: %{
+        optional("DryRun") => boolean(),
+        required("HostnameType") => list(any()),
+        required("NetworkInterfaceId") => String.t()
+      }
+      
+  """
+  @type modify_public_ip_dns_name_options_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16684,6 +16710,20 @@ defmodule AWS.EC2 do
       
   """
   @type local_gateway_route_table_virtual_interface_group_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_ip_dns_name_options() :: %{
+        "DnsHostnameType" => String.t(),
+        "PublicDualStackDnsName" => String.t(),
+        "PublicIpv4DnsName" => String.t(),
+        "PublicIpv6DnsName" => String.t()
+      }
+      
+  """
+  @type public_ip_dns_name_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -29131,7 +29171,8 @@ defmodule AWS.EC2 do
       
       network_interface_ipv6_address() :: %{
         "Ipv6Address" => String.t(),
-        "IsPrimaryIpv6" => boolean()
+        "IsPrimaryIpv6" => boolean(),
+        "PublicIpv6DnsName" => String.t()
       }
       
   """
@@ -39753,6 +39794,18 @@ defmodule AWS.EC2 do
 
   This is an idempotent operation. If you perform the operation more than once,
   Amazon EC2 doesn't return an error.
+
+  An address cannot be disassociated if the all of the following conditions are
+  met:
+
+    *
+  Network interface has a `publicDualStackDnsName` publicDnsName
+
+    *
+  Public IPv4 address is the primary public IPv4 address
+
+    *
+  Network interface only has one remaining public IPv4 address
   """
   @spec disassociate_address(map(), disassociate_address_request(), list()) ::
           {:ok, nil, any()}
@@ -43058,6 +43111,26 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modify public hostname options for a network interface.
+
+  For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec modify_public_ip_dns_name_options(
+          map(),
+          modify_public_ip_dns_name_options_request(),
+          list()
+        ) ::
+          {:ok, modify_public_ip_dns_name_options_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_public_ip_dns_name_options(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ModifyPublicIpDnsNameOptions", input, options)
+  end
+
+  @doc """
   Modifies the configuration of your Reserved Instances, such as the Availability
   Zone,
   instance count, or instance type.
@@ -45752,12 +45825,12 @@ defmodule AWS.EC2 do
   attached
   EBS volumes with the `DeleteOnTermination` block device mapping parameter set
   to `true` are automatically deleted. For more information about the
-  differences between stopping and terminating instances, see [Amazon EC2
-  instance state
-  changes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
+  differences between stopping and terminating instances, see [Instance
+  lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html)
   in the *Amazon EC2 User Guide*.
 
-  For information about troubleshooting, see [Troubleshooting terminating your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html)
+  For more information about troubleshooting, see [Troubleshooting terminating your
+  instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html)
   in the
   *Amazon EC2 User Guide*.
   """

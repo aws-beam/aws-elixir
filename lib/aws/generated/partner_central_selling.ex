@@ -5,66 +5,44 @@ defmodule AWS.PartnerCentralSelling do
   @moduledoc """
   AWS Partner Central API for Selling
 
-  ## AWS Partner Central API for Selling Reference
-  Guide
+  ## AWS Partner Central API for Selling Reference Guide
 
   This Amazon Web Services (AWS) Partner Central API reference is designed to help
   [AWS Partners](http://aws.amazon.com/partners/programs/) integrate Customer Relationship Management (CRM) systems with AWS Partner Central.
 
-  Partners can
-  automate interactions with AWS Partner Central, which helps to ensure effective
-  engagements in joint business activities.
+  Partners can automate interactions with AWS Partner Central, which helps to
+  ensure effective engagements in joint business activities.
 
   The API provides standard AWS API functionality. Access it by either using API
   [Actions](https://docs.aws.amazon.com/partner-central/latest/selling-api/API_Operations.html)
-  or by using an AWS SDK that's tailored to your programming language
-  or platform. For more information, see [Getting Started with AWS](http://aws.amazon.com/getting-started) and [Tools to Build on AWS](http://aws.amazon.com/developer/tools/).
+  or by using an AWS SDK that's tailored to your programming language or platform.
+  For more information, see [Getting Started with AWS](http://aws.amazon.com/getting-started) and [Tools to Build on AWS](http://aws.amazon.com/developer/tools/).
 
   ## Features offered by AWS Partner Central API
 
-    1.
+    1. **Opportunity management:** Manages coselling opportunities
+  through API actions such as `CreateOpportunity`, `UpdateOpportunity`,
+  `ListOpportunities`, `GetOpportunity`, and `AssignOpportunity`.
 
-  **Opportunity management:** Manages coselling
-  opportunities through API actions such as `CreateOpportunity`,
-  `UpdateOpportunity`, `ListOpportunities`,
-  `GetOpportunity`, and `AssignOpportunity`.
+    2. **AWS referral management:** Manages referrals shared by AWS
+  using actions such as `ListEngagementInvitations`, `GetEngagementInvitation`,
+  `StartEngagementByAcceptingInvitation`, and `RejectEngagementInvitation`.
 
-    2.
-
-  **AWS referral management:** Manages referrals
-  shared by AWS using actions such as `ListEngagementInvitations`,
-  `GetEngagementInvitation`,
-  `StartEngagementByAcceptingInvitation`, and
-  `RejectEngagementInvitation`.
-
-    3.
-
-  **Entity association:** Associates related
-  entities such as *AWS Products*, *Partner
-  Solutions*, and *AWS Marketplace Private
-  Offers* with opportunities using the actions
-  `AssociateOpportunity`, and
+    3. **Entity association:** Associates related entities such as *AWS
+  Products*, *Partner Solutions*, and *AWS Marketplace Private Offers* with
+  opportunities using the actions `AssociateOpportunity`, and
   `DisassociateOpportunity`.
 
-    4.
+    4. **View AWS opportunity details:** Retrieves real-time summaries
+  of AWS opportunities using the `GetAWSOpportunitySummary` action.
 
-  **View AWS opportunity details:** Retrieves
-  real-time summaries of AWS opportunities using the
-  `GetAWSOpportunitySummary` action.
+    5. **List solutions:** Provides list APIs for listing partner offers
+  using `ListSolutions`.
 
-    5.
-
-  **List solutions:** Provides list APIs for
-  listing partner offers using `ListSolutions`.
-
-    6.
-
-  **Event subscription:** Subscribe to real-time
-  opportunity updates through AWS EventBridge by using actions such as
-  *Opportunity Created*, *Opportunity
-  Updated*, *Engagement Invitation Accepted*,
-  *Engagement Invitation Rejected*, and
-  *Engagement Invitation Created*.
+    6. **Event subscription:** Subscribe to real-time opportunity
+  updates through AWS EventBridge by using actions such as *Opportunity Created*,
+  *Opportunity Updated*, *Engagement Invitation Accepted*, *Engagement Invitation
+  Rejected*, and *Engagement Invitation Created*.
   """
 
   alias AWS.Client
@@ -2231,12 +2209,11 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Use the `AcceptEngagementInvitation` action to accept an engagement
-  invitation shared by AWS.
+  Use the `AcceptEngagementInvitation` action to accept an engagement invitation
+  shared by AWS.
 
-  Accepting the invitation indicates your willingness to
-  participate in the engagement, granting you access to all engagement-related
-  data.
+  Accepting the invitation indicates your willingness to participate in the
+  engagement, granting you access to all engagement-related data.
   """
   @spec accept_engagement_invitation(map(), accept_engagement_invitation_request(), list()) ::
           {:ok, nil, any()}
@@ -2250,20 +2227,17 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Enables you to reassign an existing `Opportunity` to another user within
-  your Partner Central account.
+  Enables you to reassign an existing `Opportunity` to another user within your
+  Partner Central account.
 
-  The specified user receives the opportunity, and it
-  appears on their Partner Central dashboard, allowing them to take necessary
-  actions or
-  proceed with the opportunity.
+  The specified user receives the opportunity, and it appears on their Partner
+  Central dashboard, allowing them to take necessary actions or proceed with the
+  opportunity.
 
   This is useful for distributing opportunities to the appropriate team members or
   departments within your organization, ensuring that each opportunity is handled
-  by the
-  right person. By default, the opportunity owner is the one who creates it.
-  Currently,
-  there's no API to enumerate the list of available users.
+  by the right person. By default, the opportunity owner is the one who creates
+  it. Currently, there's no API to enumerate the list of available users.
   """
   @spec assign_opportunity(map(), assign_opportunity_request(), list()) ::
           {:ok, nil, any()}
@@ -2277,52 +2251,40 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Enables you to create a formal association between an `Opportunity` and
-  various related entities, enriching the context and details of the opportunity
-  for
+  Enables you to create a formal association between an `Opportunity` and various
+  related entities, enriching the context and details of the opportunity for
   better collaboration and decision making.
 
-  You can associate an opportunity with the
-  following entity types:
+  You can associate an opportunity with the following entity types:
 
-    *
-  Partner Solution: A software product or consulting practice created and
-  delivered by Partners. Partner Solutions help customers address
+    * Partner Solution: A software product or consulting practice
+  created and delivered by Partners. Partner Solutions help customers address
   business challenges using Amazon Web Services services.
 
-    *
-  Amazon Web Services Products: Amazon Web Services offers many products and
-  services that provide scalable, reliable, and cost-effective infrastructure
-  solutions. For the latest list of Amazon Web Services products, see [Amazon Web Services
-  products](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json).
+    * Amazon Web Services Products: Amazon Web Services offers many
+  products and services that provide scalable, reliable, and cost-effective
+  infrastructure solutions. For the latest list of Amazon Web Services products,
+  see [Amazon Web Services products](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json).
 
-    *
-  Amazon Web Services Marketplace private offer: Allows Amazon Web Services
-  Marketplace sellers to extend
-  custom pricing and terms to individual Amazon Web Services customers. Sellers
-  can
-  negotiate custom prices, payment schedules, and end user license terms through
-  private offers, enabling Amazon Web Services customers to acquire software
-  solutions tailored to their specific needs. For more information, see [Private offers
-  in Amazon Web Services
-  Marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html).
+    * Amazon Web Services Marketplace private offer: Allows Amazon Web
+  Services Marketplace sellers to extend custom pricing and terms to individual
+  Amazon Web Services customers. Sellers can negotiate custom prices, payment
+  schedules, and end user license terms through private offers, enabling Amazon
+  Web Services customers to acquire software solutions tailored to their specific
+  needs. For more information, see [Private offers in Amazon Web Services Marketplace](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html).
 
   To obtain identifiers for these entities, use the following methods:
 
-    *
-  Solution: Use the `ListSolutions` operation.
+    * Solution: Use the `ListSolutions` operation.
 
-    *
-  AWS Products: For the latest list of Amazon Web Services products, see [Amazon Web Services
-  products](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json).
+    * AWS Products: For the latest list of Amazon Web Services products,
+  see [Amazon Web Services products](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json).
 
-    *
-  Amazon Web Services Marketplace private offer: Use the [Using the Amazon Web Services Marketplace Catalog
+    * Amazon Web Services Marketplace private offer: Use the [Using the Amazon Web Services Marketplace Catalog
   API](https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html)
-  to list entities. Specifically, use the
-  `ListEntities` operation to retrieve a list of private offers.
-  The request returns the details of available private offers. For more
-  information, see
+  to list entities. Specifically, use the `ListEntities` operation to retrieve a
+  list of private offers. The request returns the details of available private
+  offers. For more information, see
   [ListEntities](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html).
   """
   @spec associate_opportunity(map(), associate_opportunity_request(), list()) ::
@@ -2337,13 +2299,12 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  The `CreateEngagement` action allows you to create an
-  `Engagement`, which serves as a collaborative space between different
-  parties such as AWS Partners and AWS Sellers.
+  The `CreateEngagement` action allows you to create an `Engagement`, which serves
+  as a collaborative space between different parties such as AWS Partners and AWS
+  Sellers.
 
-  This action automatically adds the
-  caller's AWS account as an active member of the newly created
-  `Engagement`.
+  This action automatically adds the caller's AWS account as an active member of
+  the newly created `Engagement`.
   """
   @spec create_engagement(map(), create_engagement_request(), list()) ::
           {:ok, create_engagement_response(), any()}
@@ -2374,40 +2335,26 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Creates an `Opportunity` record in Partner Central.
 
-  Use this operation to
-  create a potential business opportunity for submission to Amazon Web Services.
-  Creating
-  an opportunity sets `Lifecycle.ReviewStatus` to
-
-  ```
-  Pending
-  Submission
-  ```
-
-  .
+  Use this operation to create a potential business opportunity for submission to
+  Amazon Web Services. Creating an opportunity sets `Lifecycle.ReviewStatus` to
+  `Pending Submission`.
 
   To submit an opportunity, follow these steps:
 
-    1.
-  To create the opportunity, use `CreateOpportunity`.
+    1. To create the opportunity, use `CreateOpportunity`.
 
-    2.
-  To associate a solution with the opportunity, use
+    2. To associate a solution with the opportunity, use
   `AssociateOpportunity`.
 
-    3.
-  To start the engagement with AWS, use
+    3. To start the engagement with AWS, use
   `StartEngagementFromOpportunity`.
 
   After submission, you can't edit the opportunity until the review is complete.
-  But
-  opportunities in the `Pending Submission` state must have complete details.
-  You can update the opportunity while it's in the `Pending Submission`
-  state.
+  But opportunities in the `Pending Submission` state must have complete details.
+  You can update the opportunity while it's in the `Pending Submission` state.
 
   There's a set of mandatory fields to create opportunities, but consider
-  providing
-  optional fields to enrich the opportunity record.
+  providing optional fields to enrich the opportunity record.
   """
   @spec create_opportunity(map(), create_opportunity_request(), list()) ::
           {:ok, create_opportunity_response(), any()}
@@ -2422,11 +2369,10 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   This action allows you to create an immutable snapshot of a specific resource,
-  such
-  as an opportunity, within the context of an engagement.
+  such as an opportunity, within the context of an engagement.
 
-  The snapshot captures a subset
-  of the resource's data based on the schema defined by the provided template.
+  The snapshot captures a subset of the resource's data based on the schema
+  defined by the provided template.
   """
   @spec create_resource_snapshot(map(), create_resource_snapshot_request(), list()) ::
           {:ok, create_resource_snapshot_response(), any()}
@@ -2443,10 +2389,9 @@ defmodule AWS.PartnerCentralSelling do
   Use this action to create a job to generate a snapshot of the specified resource
   within an engagement.
 
-  It initiates an asynchronous process to create a resource
-  snapshot. The job creates a new snapshot only if the resource state has changed,
-  adhering to the same access control and immutability rules as direct snapshot
-  creation.
+  It initiates an asynchronous process to create a resource snapshot. The job
+  creates a new snapshot only if the resource state has changed, adhering to the
+  same access control and immutability rules as direct snapshot creation.
   """
   @spec create_resource_snapshot_job(map(), create_resource_snapshot_job_request(), list()) ::
           {:ok, create_resource_snapshot_job_response(), any()}
@@ -2462,8 +2407,7 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Use this action to deletes a previously created resource snapshot job.
 
-  The job must
-  be in a stopped state before it can be deleted.
+  The job must be in a stopped state before it can be deleted.
   """
   @spec delete_resource_snapshot_job(map(), delete_resource_snapshot_job_request(), list()) ::
           {:ok, nil, any()}
@@ -2481,19 +2425,15 @@ defmodule AWS.PartnerCentralSelling do
   related entities, such as a Partner Solution, Amazon Web Services product, or an
   Amazon Web Services Marketplace offer.
 
-  This operation is the counterpart to
-  `AssociateOpportunity`, and it provides flexibility to manage
-  associations as business needs change.
+  This operation is the counterpart to `AssociateOpportunity`, and it provides
+  flexibility to manage associations as business needs change.
 
-  Use this operation to update the associations of an `Opportunity` due to
-  changes in the related entities, or if an association was made in error.
-  Ensuring
+  Use this operation to update the associations of an `Opportunity` due to changes
+  in the related entities, or if an association was made in error. Ensuring
   accurate associations helps maintain clarity and accuracy to track and manage
-  business
-  opportunities. When you replace an entity, first attach the new entity and then
-  disassociate the one to be removed, especially if it's the last remaining entity
-  that's
-  required.
+  business opportunities. When you replace an entity, first attach the new entity
+  and then disassociate the one to be removed, especially if it's the last
+  remaining entity that's required.
   """
   @spec disassociate_opportunity(map(), disassociate_opportunity_request(), list()) ::
           {:ok, nil, any()}
@@ -2509,11 +2449,10 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Retrieves a summary of an AWS Opportunity.
 
-  This summary includes high-level details
-  about the opportunity sourced from AWS, such as lifecycle information, customer
-  details,
-  and involvement type. It is useful for tracking updates on the AWS opportunity
-  corresponding to an opportunity in the partner's account.
+  This summary includes high-level details about the opportunity sourced from AWS,
+  such as lifecycle information, customer details, and involvement type. It is
+  useful for tracking updates on the AWS opportunity corresponding to an
+  opportunity in the partner's account.
   """
   @spec get_aws_opportunity_summary(map(), get_aws_opportunity_summary_request(), list()) ::
           {:ok, get_aws_opportunity_summary_response(), any()}
@@ -2544,11 +2483,9 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Retrieves the details of an engagement invitation shared by AWS with a partner.
 
-  The
-  information includes aspects such as customer, project details, and lifecycle
-  information. To connect an engagement invitation with an opportunity, match the
-  invitation’s `Payload.Project.Title` with opportunity
-  `Project.Title`.
+  The information includes aspects such as customer, project details, and
+  lifecycle information. To connect an engagement invitation with an opportunity,
+  match the invitation’s `Payload.Project.Title` with opportunity `Project.Title`.
   """
   @spec get_engagement_invitation(map(), get_engagement_invitation_request(), list()) ::
           {:ok, get_engagement_invitation_response(), any()}
@@ -2562,8 +2499,7 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Fetches the `Opportunity` record from Partner Central by a given
-  `Identifier`.
+  Fetches the `Opportunity` record from Partner Central by a given `Identifier`.
 
   Use the `ListOpportunities` action or the event notification (from Amazon
   EventBridge) to obtain this identifier.
@@ -2594,8 +2530,7 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Use this action to retrieves information about a specific resource snapshot
-  job.
+  Use this action to retrieves information about a specific resource snapshot job.
   """
   @spec get_resource_snapshot_job(map(), get_resource_snapshot_job_request(), list()) ::
           {:ok, get_resource_snapshot_job_response(), any()}
@@ -2625,8 +2560,8 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   Lists all in-progress, completed, or failed
-  StartEngagementByAcceptingInvitationTask
-  tasks that were initiated by the caller's account.
+  StartEngagementByAcceptingInvitationTask tasks that were initiated by the
+  caller's account.
   """
   @spec list_engagement_by_accepting_invitation_tasks(
           map(),
@@ -2644,8 +2579,8 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Lists all in-progress, completed, or failed `EngagementFromOpportunity`
-  tasks that were initiated by the caller's account.
+  Lists all in-progress, completed, or failed `EngagementFromOpportunity` tasks
+  that were initiated by the caller's account.
   """
   @spec list_engagement_from_opportunity_tasks(
           map(),
@@ -2665,10 +2600,8 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Retrieves a list of engagement invitations sent to the partner.
 
-  This allows partners
-  to view all pending or past engagement invitations, helping them track
-  opportunities
-  shared by AWS.
+  This allows partners to view all pending or past engagement invitations, helping
+  them track opportunities shared by AWS.
   """
   @spec list_engagement_invitations(map(), list_engagement_invitations_request(), list()) ::
           {:ok, list_engagement_invitations_response(), any()}
@@ -2684,11 +2617,10 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Retrieves the details of member partners in an Engagement.
 
-  This operation can only be
-  invoked by members of the Engagement. The `ListEngagementMembers` operation
-  allows you to fetch information about the members of a specific Engagement. This
-  action
-  is restricted to members of the Engagement being queried.
+  This operation can only be invoked by members of the Engagement. The
+  `ListEngagementMembers` operation allows you to fetch information about the
+  members of a specific Engagement. This action is restricted to members of the
+  Engagement being queried.
   """
   @spec list_engagement_members(map(), list_engagement_members_request(), list()) ::
           {:ok, list_engagement_members_response(), any()}
@@ -2703,8 +2635,7 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   Lists the associations between resources and engagements where the caller is a
-  member
-  and has at least one snapshot in the engagement.
+  member and has at least one snapshot in the engagement.
   """
   @spec list_engagement_resource_associations(
           map(),
@@ -2725,8 +2656,8 @@ defmodule AWS.PartnerCentralSelling do
   This action allows users to retrieve a list of Engagement records from Partner
   Central.
 
-  This action can be used to manage and track various engagements across
-  different stages of the partner selling process.
+  This action can be used to manage and track various engagements across different
+  stages of the partner selling process.
   """
   @spec list_engagements(map(), list_engagements_request(), list()) ::
           {:ok, list_engagements_response(), any()}
@@ -2741,35 +2672,27 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   This request accepts a list of filters that retrieve opportunity subsets as well
-  as
-  sort options.
+  as sort options.
 
-  This feature is available to partners from [Partner Central](https://partnercentral.awspartner.com/) using the
-  `ListOpportunities` API action.
+  This feature is available to partners from [Partner Central](https://partnercentral.awspartner.com/) using the `ListOpportunities`
+  API action.
 
   To synchronize your system with Amazon Web Services, only list the opportunities
-  that
-  were newly created or updated. We recommend you rely on events emitted by the
-  service
-  into your Amazon Web Services account’s Amazon EventBridge default event bus,
-  you can
-  also use the `ListOpportunities` action.
+  that were newly created or updated. We recommend you rely on events emitted by
+  the service into your Amazon Web Services account’s Amazon EventBridge default
+  event bus, you can also use the `ListOpportunities` action.
 
   We recommend the following approach:
 
-    1.
-  Find the latest `LastModifiedDate` that you stored, and only use
+    1. Find the latest `LastModifiedDate` that you stored, and only use
   the values that came from Amazon Web Services. Don’t use values generated by
-  your
-  system.
+  your system.
 
-    2.
-  When you send a `ListOpportunities` request, submit the date in ISO
-  8601 format in the `AfterLastModifiedDate` filter.
+    2. When you send a `ListOpportunities` request, submit the date in
+  ISO 8601 format in the `AfterLastModifiedDate` filter.
 
-    3.
-  Amazon Web Services only returns opportunities created or updated on or after
-  that date and time. Use `NextToken` to iterate over all pages.
+    3. Amazon Web Services only returns opportunities created or updated
+  on or after that date and time. Use `NextToken` to iterate over all pages.
   """
   @spec list_opportunities(map(), list_opportunities_request(), list()) ::
           {:ok, list_opportunities_response(), any()}
@@ -2785,10 +2708,9 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Lists resource snapshot jobs owned by the customer.
 
-  This operation supports various
-  filtering scenarios, including listing all jobs owned by the caller, jobs for a
-  specific
-  engagement, jobs with a specific status, or any combination of these filters.
+  This operation supports various filtering scenarios, including listing all jobs
+  owned by the caller, jobs for a specific engagement, jobs with a specific
+  status, or any combination of these filters.
   """
   @spec list_resource_snapshot_jobs(map(), list_resource_snapshot_jobs_request(), list()) ::
           {:ok, list_resource_snapshot_jobs_response(), any()}
@@ -2804,24 +2726,19 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   Retrieves a list of resource view snapshots based on specified criteria.
 
-  This
-  operation supports various use cases, including:
+  This operation supports various use cases, including:
 
-    *
-  Fetching all snapshots associated with an engagement.
+    * Fetching all snapshots associated with an engagement.
 
-    *
-  Retrieving snapshots of a specific resource type within an engagement.
+    * Retrieving snapshots of a specific resource type within an
+  engagement.
 
-    *
-  Obtaining snapshots for a particular resource using a specified
+    * Obtaining snapshots for a particular resource using a specified
   template.
 
-    *
-  Accessing the latest snapshot of a resource within an engagement.
+    * Accessing the latest snapshot of a resource within an engagement.
 
-    *
-  Filtering snapshots by resource owner.
+    * Filtering snapshots by resource owner.
   """
   @spec list_resource_snapshots(map(), list_resource_snapshots_request(), list()) ::
           {:ok, list_resource_snapshots_response(), any()}
@@ -2839,8 +2756,7 @@ defmodule AWS.PartnerCentralSelling do
   Central.
 
   This API is used to generate a list of solutions that an end user selects from
-  for
-  association with an opportunity.
+  for association with an opportunity.
   """
   @spec list_solutions(map(), list_solutions_request(), list()) ::
           {:ok, list_solutions_response(), any()}
@@ -2885,10 +2801,8 @@ defmodule AWS.PartnerCentralSelling do
   @doc """
   This action rejects an `EngagementInvitation` that AWS shared.
 
-  Rejecting an
-  invitation indicates that the partner doesn't want to pursue the opportunity,
-  and all
-  related data will become inaccessible thereafter.
+  Rejecting an invitation indicates that the partner doesn't want to pursue the
+  opportunity, and all related data will become inaccessible thereafter.
   """
   @spec reject_engagement_invitation(map(), reject_engagement_invitation_request(), list()) ::
           {:ok, nil, any()}
@@ -2905,12 +2819,10 @@ defmodule AWS.PartnerCentralSelling do
   This action starts the engagement by accepting an `EngagementInvitation`.
 
   The task is asynchronous and involves the following steps: accepting the
-  invitation,
-  creating an opportunity in the partner’s account from the AWS opportunity, and
-  copying
-  details for tracking. When completed, an `Opportunity Created` event is
-  generated, indicating that the opportunity has been successfully created in the
-  partner's account.
+  invitation, creating an opportunity in the partner’s account from the AWS
+  opportunity, and copying details for tracking. When completed, an `Opportunity
+  Created` event is generated, indicating that the opportunity has been
+  successfully created in the partner's account.
   """
   @spec start_engagement_by_accepting_invitation_task(
           map(),
@@ -2929,10 +2841,8 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   This action initiates the engagement process from an existing opportunity by
-  accepting
-  the engagement invitation and creating a corresponding opportunity in the
-  partner’s
-  system.
+  accepting the engagement invitation and creating a corresponding opportunity in
+  the partner’s system.
 
   Similar to `StartEngagementByAcceptingInvitationTask`, this action is
   asynchronous and performs multiple steps before completion.
@@ -2984,12 +2894,11 @@ defmodule AWS.PartnerCentralSelling do
 
   @doc """
   Use this action to submit an Opportunity that was previously created by partner
-  for
-  AWS review.
+  for AWS review.
 
-  After you perform this action, the Opportunity becomes non-editable until it
-  is reviewed by AWS and has ` LifeCycle.ReviewStatus ` as either
-  `Approved` or `Action Required`.
+  After you perform this action, the Opportunity becomes non-editable until it is
+  reviewed by AWS and has ` LifeCycle.ReviewStatus ` as either `Approved` or
+  `Action Required`.
   """
   @spec submit_opportunity(map(), submit_opportunity_request(), list()) ::
           {:ok, nil, any()}
@@ -3031,19 +2940,16 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Updates the `Opportunity` record identified by a given
-  `Identifier`.
+  Updates the `Opportunity` record identified by a given `Identifier`.
 
-  This operation allows you to modify the details of an
-  existing opportunity to reflect the latest information and progress. Use this
-  action to
-  keep the opportunity record up-to-date and accurate.
+  This operation allows you to modify the details of an existing opportunity to
+  reflect the latest information and progress. Use this action to keep the
+  opportunity record up-to-date and accurate.
 
   When you perform updates, include the entire payload with each request. If any
-  field
-  is omitted, the API assumes that the field is set to `null`. The best
-  practice is to always perform a `GetOpportunity` to retrieve the latest
-  values, then send the complete payload with the updated values to be changed.
+  field is omitted, the API assumes that the field is set to `null`. The best
+  practice is to always perform a `GetOpportunity` to retrieve the latest values,
+  then send the complete payload with the updated values to be changed.
   """
   @spec update_opportunity(map(), update_opportunity_request(), list()) ::
           {:ok, update_opportunity_response(), any()}

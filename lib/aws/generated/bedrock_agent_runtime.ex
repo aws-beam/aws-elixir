@@ -135,6 +135,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      stop_flow_execution_response() :: %{
+        "executionArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type stop_flow_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       session_summary() :: %{
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -190,12 +202,41 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_execution_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "endedAt" => non_neg_integer(),
+        "executionArn" => String.t(),
+        "flowAliasIdentifier" => String.t(),
+        "flowIdentifier" => String.t(),
+        "flowVersion" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type flow_execution_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       optimize_prompt_response() :: %{
         "optimizedPrompt" => list()
       }
 
   """
   @type optimize_prompt_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_execution_events_response() :: %{
+        "flowExecutionEvents" => list(list()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_flow_execution_events_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -225,6 +266,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type code_interpreter_invocation_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_output_field() :: %{
+        "content" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type node_output_field() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -471,6 +524,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      node_input_event() :: %{
+        "fields" => list(node_input_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type node_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       metadata() :: %{
         "clientRequestId" => [String.t()],
         "endTime" => non_neg_integer(),
@@ -660,6 +726,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_execution_input_event() :: %{
+        "fields" => list(flow_input_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_execution_input_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_session_configuration() :: %{
         "kmsKeyArn" => String.t()
       }
@@ -764,6 +843,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      get_flow_execution_request() :: %{}
+
+  """
+  @type get_flow_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       bedrock_reranking_model_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "modelArn" => String.t()
@@ -825,6 +913,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type invoke_flow_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_failure_event() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t()],
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type node_failure_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -949,6 +1051,22 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type transformation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_execution_flow_snapshot_response() :: %{
+        "customerEncryptionKeyArn" => String.t(),
+        "definition" => [String.t()],
+        "executionRoleArn" => String.t(),
+        "flowAliasIdentifier" => String.t(),
+        "flowIdentifier" => String.t(),
+        "flowVersion" => String.t()
+      }
+
+  """
+  @type get_execution_flow_snapshot_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1098,6 +1216,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      flow_execution_output_event() :: %{
+        "fields" => list(flow_output_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_execution_output_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pre_processing_parsed_response() :: %{
         "isValid" => [boolean()],
         "rationale" => String.t()
@@ -1198,6 +1329,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type delete_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_execution_events_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("eventType") => list(any())
+      }
+
+  """
+  @type list_flow_execution_events_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1378,6 +1522,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      condition_result_event() :: %{
+        "nodeName" => String.t(),
+        "satisfiedConditions" => list(satisfied_condition()()),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type condition_result_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_output_event() :: %{
         "text" => [String.t()]
       }
@@ -1553,6 +1710,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      stop_flow_execution_request() :: %{}
+
+  """
+  @type stop_flow_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       api_result() :: %{
         "actionGroup" => [String.t()],
         "agentId" => [String.t()],
@@ -1619,6 +1785,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      start_flow_execution_request() :: %{
+        optional("flowExecutionName") => String.t(),
+        optional("modelPerformanceConfiguration") => model_performance_configuration(),
+        required("inputs") => list(flow_input()())
+      }
+
+  """
+  @type start_flow_execution_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       external_sources_generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
@@ -1675,6 +1854,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      node_input_field() :: %{
+        "content" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type node_input_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rerank_result() :: %{
         "document" => rerank_document(),
         "index" => [integer()],
@@ -1683,6 +1874,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type rerank_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flow_executions_request() :: %{
+        optional("flowAliasIdentifier") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_flow_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1895,6 +2099,15 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type get_invocation_step_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_execution_flow_snapshot_request() :: %{}
+
+  """
+  @type get_execution_flow_snapshot_request() :: %{}
 
   @typedoc """
 
@@ -2232,6 +2445,24 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      get_flow_execution_response() :: %{
+        "endedAt" => non_neg_integer(),
+        "errors" => list(flow_execution_error()()),
+        "executionArn" => String.t(),
+        "flowAliasIdentifier" => String.t(),
+        "flowIdentifier" => String.t(),
+        "flowVersion" => String.t(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_flow_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_generation_input() :: %{
         "text" => [String.t()],
         "type" => list(any())
@@ -2273,6 +2504,31 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_output_field() :: %{
+        "content" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type flow_output_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_execution_error() :: %{
+        "error" => list(any()),
+        "message" => [String.t()],
+        "nodeName" => String.t()
+      }
+
+  """
+  @type flow_execution_error() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2354,6 +2610,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      list_flow_executions_response() :: %{
+        "flowExecutionSummaries" => list(flow_execution_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_flow_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invoke_inline_agent_request() :: %{
         optional("actionGroups") => list(agent_action_group()()),
         optional("agentCollaboration") => list(any()),
@@ -2414,6 +2682,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type rerank_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_input_field() :: %{
+        "content" => list(),
+        "name" => String.t()
+      }
+
+  """
+  @type flow_input_field() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2488,6 +2768,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type end_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_failure_event() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t()],
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type flow_failure_event() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2813,6 +3106,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      satisfied_condition() :: %{
+        "conditionName" => [String.t()]
+      }
+
+  """
+  @type satisfied_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_lookup_input() :: %{
         "knowledgeBaseId" => String.t(),
         "text" => String.t()
@@ -2933,6 +3237,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      node_output_event() :: %{
+        "fields" => list(node_output_field()()),
+        "nodeName" => String.t(),
+        "timestamp" => non_neg_integer()
+      }
+
+  """
+  @type node_output_event() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rerank_document() :: %{
         "jsonDocument" => [any()],
         "textDocument" => rerank_text_document(),
@@ -2953,6 +3270,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_flow_execution_response() :: %{
+        "executionArn" => String.t()
+      }
+
+  """
+  @type start_flow_execution_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3031,6 +3359,20 @@ defmodule AWS.BedrockAgentRuntime do
           | dependency_failed_exception()
           | bad_gateway_exception()
 
+  @type get_execution_flow_snapshot_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_flow_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_invocation_step_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3078,6 +3420,20 @@ defmodule AWS.BedrockAgentRuntime do
           | conflict_exception()
           | dependency_failed_exception()
           | bad_gateway_exception()
+
+  @type list_flow_execution_events_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_flow_executions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_invocation_steps_errors() ::
           throttling_exception()
@@ -3162,6 +3518,27 @@ defmodule AWS.BedrockAgentRuntime do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type start_flow_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+
+  @type stop_flow_execution_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
           | dependency_failed_exception()
@@ -3509,6 +3886,67 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
+  Retrieves the flow definition snapshot used for an asynchronous execution.
+
+  The snapshot represents the flow metadata and definition as it existed at the
+  time the asynchronous execution was started. Note that even if the flow is
+  edited after an execution starts, the snapshot connected to the execution
+  remains unchanged.
+
+  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  change.
+  """
+  @spec get_execution_flow_snapshot(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_execution_flow_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_execution_flow_snapshot_errors()}
+  def get_execution_flow_snapshot(
+        %Client{} = client,
+        execution_identifier,
+        flow_alias_identifier,
+        flow_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}/executions/#{AWS.Util.encode_uri(execution_identifier)}/flowsnapshot"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves details about a specific asynchronous execution of a flow, including
+  its status, start and end times, and any errors that occurred during execution.
+  """
+  @spec get_flow_execution(map(), String.t(), String.t(), String.t(), list()) ::
+          {:ok, get_flow_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_flow_execution_errors()}
+  def get_flow_execution(
+        %Client{} = client,
+        execution_identifier,
+        flow_alias_identifier,
+        flow_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}/executions/#{AWS.Util.encode_uri(execution_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the details of a specific invocation step within an invocation in a
   session.
 
@@ -3760,6 +4198,132 @@ defmodule AWS.BedrockAgentRuntime do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists events that occurred during an asynchronous execution of a flow.
+
+  Events provide detailed information about the execution progress, including node
+  inputs and outputs, flow inputs and outputs, condition results, and failure
+  events.
+
+  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  change.
+  """
+  @spec list_flow_execution_events(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_flow_execution_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flow_execution_events_errors()}
+  def list_flow_execution_events(
+        %Client{} = client,
+        execution_identifier,
+        flow_alias_identifier,
+        flow_identifier,
+        event_type,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}/executions/#{AWS.Util.encode_uri(execution_identifier)}/events"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(event_type) do
+        [{"eventType", event_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all asynchronous executions for a flow.
+
+  Results can be paginated and include summary information about each execution,
+  such as status, start and end times, and the execution's Amazon Resource Name
+  (ARN).
+
+  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  change.
+  """
+  @spec list_flow_executions(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_flow_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_flow_executions_errors()}
+  def list_flow_executions(
+        %Client{} = client,
+        flow_identifier,
+        flow_alias_identifier \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/executions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(flow_alias_identifier) do
+        [{"flowAliasIdentifier", flow_alias_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -4090,6 +4654,107 @@ defmodule AWS.BedrockAgentRuntime do
         :response_header_parameters,
         [{"x-amzn-bedrock-knowledge-base-session-id", "sessionId"}]
       )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts an asynchronous execution of an Amazon Bedrock flow.
+
+  Unlike synchronous flows that run until completion or time out after five
+  minutes, you can run asynchronous flows for longer durations. Asynchronous flows
+  also yield control so that your application can perform other tasks.
+
+  This operation returns an Amazon Resource Name (ARN) that you can use to track
+  and manage your flow's async execution.
+
+  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  change.
+  """
+  @spec start_flow_execution(
+          map(),
+          String.t(),
+          String.t(),
+          start_flow_execution_request(),
+          list()
+        ) ::
+          {:ok, start_flow_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_flow_execution_errors()}
+  def start_flow_execution(
+        %Client{} = client,
+        flow_alias_identifier,
+        flow_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}/executions"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops an Amazon Bedrock flow's asynchronous execution.
+
+  This operation prevents further processing of the flow and changes the execution
+  status to `Aborted`.
+  """
+  @spec stop_flow_execution(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          stop_flow_execution_request(),
+          list()
+        ) ::
+          {:ok, stop_flow_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_flow_execution_errors()}
+  def stop_flow_execution(
+        %Client{} = client,
+        execution_identifier,
+        flow_alias_identifier,
+        flow_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/flows/#{AWS.Util.encode_uri(flow_identifier)}/aliases/#{AWS.Util.encode_uri(flow_alias_identifier)}/executions/#{AWS.Util.encode_uri(execution_identifier)}/stop"
+
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

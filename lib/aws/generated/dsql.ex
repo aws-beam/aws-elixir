@@ -62,6 +62,7 @@ defmodule AWS.DSQL do
       create_cluster_input() :: %{
         optional("clientToken") => String.t(),
         optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsEncryptionKey") => String.t(),
         optional("multiRegionProperties") => multi_region_properties(),
         optional("tags") => map()
       }
@@ -77,6 +78,7 @@ defmodule AWS.DSQL do
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
         "deletionProtectionEnabled" => boolean(),
+        "encryptionDetails" => encryption_details(),
         "identifier" => String.t(),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any())
@@ -114,6 +116,19 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      encryption_details() :: %{
+        "encryptionStatus" => list(any()),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t()
+      }
+
+  """
+  @type encryption_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_cluster_input() :: %{}
 
   """
@@ -127,6 +142,7 @@ defmodule AWS.DSQL do
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
         "deletionProtectionEnabled" => boolean(),
+        "encryptionDetails" => encryption_details(),
         "identifier" => String.t(),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any()),
@@ -295,6 +311,7 @@ defmodule AWS.DSQL do
       update_cluster_input() :: %{
         optional("clientToken") => String.t(),
         optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsEncryptionKey") => String.t(),
         optional("multiRegionProperties") => multi_region_properties()
       }
 

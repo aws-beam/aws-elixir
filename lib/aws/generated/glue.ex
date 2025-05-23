@@ -6904,6 +6904,7 @@ defmodule AWS.Glue do
   ## Example:
       
       integration_partition() :: %{
+        "ConversionSpec" => String.t(),
         "FieldName" => String.t(),
         "FunctionSpec" => String.t()
       }

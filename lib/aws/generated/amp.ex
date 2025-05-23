@@ -4,17 +4,14 @@
 defmodule AWS.Amp do
   @moduledoc """
   Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible
-  monitoring service for
-  container metrics that makes it easier to securely monitor container
-  environments at
-  scale.
+  monitoring service for container metrics that makes it easier to securely
+  monitor container environments at scale.
 
   With Amazon Managed Service for Prometheus, you can use the same open-source
-  Prometheus data
-  model and query language that you use today to monitor the performance of your
-  containerized workloads, and also enjoy improved scalability, availability, and
-  security
-  without having to manage the underlying infrastructure.
+  Prometheus data model and query language that you use today to monitor the
+  performance of your containerized workloads, and also enjoy improved
+  scalability, availability, and security without having to manage the underlying
+  infrastructure.
 
   For more information about Amazon Managed Service for Prometheus, see the
   [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html)
@@ -22,19 +19,31 @@ defmodule AWS.Amp do
 
   Amazon Managed Service for Prometheus includes two APIs.
 
-    *
-  Use the Amazon Web Services API described in this guide to manage Amazon Managed
-  Service for Prometheus resources, such as workspaces, rule groups, and alert
-  managers.
+    * Use the Amazon Web Services API described in this guide to manage
+  Amazon Managed Service for Prometheus resources, such as workspaces, rule
+  groups, and alert managers.
 
-    *
-  Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
-  to work within your Prometheus
-  workspace.
+    * Use the [Prometheus-compatible API](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis)
+  to work within your Prometheus workspace.
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+
+      query_logging_configuration_metadata() :: %{
+        "createdAt" => [non_neg_integer()],
+        "destinations" => list(logging_destination()()),
+        "modifiedAt" => [non_neg_integer()],
+        "status" => query_logging_configuration_status(),
+        "workspace" => String.t()
+      }
+
+  """
+  @type query_logging_configuration_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -71,6 +80,17 @@ defmodule AWS.Amp do
 
   """
   @type update_workspace_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_query_logging_configuration_response() :: %{
+        "queryLoggingConfiguration" => query_logging_configuration_metadata()
+      }
+
+  """
+  @type describe_query_logging_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -125,6 +145,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      create_query_logging_configuration_response() :: %{
+        "status" => query_logging_configuration_status()
+      }
+
+  """
+  @type create_query_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rule_groups_namespace_status() :: %{
         "statusCode" => String.t(),
         "statusReason" => [String.t()]
@@ -132,6 +163,15 @@ defmodule AWS.Amp do
 
   """
   @type rule_groups_namespace_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_query_logging_configuration_request() :: %{}
+
+  """
+  @type describe_query_logging_configuration_request() :: %{}
 
   @typedoc """
 
@@ -243,6 +283,18 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      query_logging_configuration_status() :: %{
+        "statusCode" => String.t(),
+        "statusReason" => [String.t()]
+      }
+
+  """
+  @type query_logging_configuration_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_rule_groups_namespace_response() :: %{
         "arn" => String.t(),
         "name" => String.t(),
@@ -311,6 +363,17 @@ defmodule AWS.Amp do
 
   """
   @type put_rule_groups_namespace_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_log_destination() :: %{
+        "logGroupArn" => String.t()
+      }
+
+  """
+  @type cloud_watch_log_destination() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -463,6 +526,18 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      logging_destination() :: %{
+        "cloudWatchLogs" => cloud_watch_log_destination(),
+        "filters" => logging_filter()
+      }
+
+  """
+  @type logging_destination() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logging_configuration_status() :: %{
         "statusCode" => String.t(),
         "statusReason" => [String.t()]
@@ -496,6 +571,17 @@ defmodule AWS.Amp do
 
   """
   @type describe_scraper_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_query_logging_configuration_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type delete_query_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -552,6 +638,18 @@ defmodule AWS.Amp do
 
   """
   @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_query_logging_configuration_request() :: %{
+        optional("clientToken") => String.t(),
+        required("destinations") => list(logging_destination()())
+      }
+
+  """
+  @type update_query_logging_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -667,6 +765,17 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      update_query_logging_configuration_response() :: %{
+        "status" => query_logging_configuration_status()
+      }
+
+  """
+  @type update_query_logging_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_default_scraper_configuration_response() :: %{
         "configuration" => [binary()]
       }
@@ -751,6 +860,17 @@ defmodule AWS.Amp do
 
   """
   @type put_alert_manager_definition_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_filter() :: %{
+        "qspThreshold" => [float()]
+      }
+
+  """
+  @type logging_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -944,6 +1064,18 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      create_query_logging_configuration_request() :: %{
+        optional("clientToken") => String.t(),
+        required("destinations") => list(logging_destination()())
+      }
+
+  """
+  @type create_query_logging_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_scrapers_response() :: %{
         "nextToken" => String.t(),
         "scrapers" => list(scraper_summary()())
@@ -1051,6 +1183,12 @@ defmodule AWS.Amp do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_query_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_rule_groups_namespace_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1092,6 +1230,13 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_query_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_rule_groups_namespace_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1124,6 +1269,12 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
 
   @type describe_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type describe_query_logging_configuration_errors() ::
           validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1225,6 +1376,13 @@ defmodule AWS.Amp do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_query_logging_configuration_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type update_scraper_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1272,9 +1430,8 @@ defmodule AWS.Amp do
   The `CreateAlertManagerDefinition` operation creates the alert manager
   definition in a workspace.
 
-  If a workspace already has an alert manager definition, don't
-  use this operation to update it. Instead, use
-  `PutAlertManagerDefinition`.
+  If a workspace already has an alert manager definition, don't use this operation
+  to update it. Instead, use `PutAlertManagerDefinition`.
   """
   @spec create_alert_manager_definition(
           map(),
@@ -1308,11 +1465,13 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateLoggingConfiguration` operation creates a logging configuration
-  for the workspace.
+  The `CreateLoggingConfiguration` operation creates rules and alerting logging
+  configuration for the workspace.
 
-  Use this operation to set the CloudWatch log group to which
-  the logs will be published to.
+  Use this operation to set the CloudWatch log group to which the logs will be
+  published to.
+
+  These logging configurations are only for rules and alerting logs.
   """
   @spec create_logging_configuration(
           map(),
@@ -1346,15 +1505,51 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace
-  within a workspace.
+  Creates a query logging configuration for the specified workspace.
 
-  A rule groups namespace is associated with exactly one rules file. A
-  workspace can have multiple rule groups namespaces.
+  This operation enables logging of queries that exceed the specified QSP
+  threshold.
+  """
+  @spec create_query_logging_configuration(
+          map(),
+          String.t(),
+          create_query_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_query_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_query_logging_configuration_errors()}
+  def create_query_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging/query"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  The `CreateRuleGroupsNamespace` operation creates a rule groups namespace within
+  a workspace.
+
+  A rule groups namespace is associated with exactly one rules file. A workspace
+  can have multiple rule groups namespaces.
 
   Use this operation only to create new rule groups namespaces. To update an
-  existing
-  rule groups namespace, use `PutRuleGroupsNamespace`.
+  existing rule groups namespace, use `PutRuleGroupsNamespace`.
   """
   @spec create_rule_groups_namespace(
           map(),
@@ -1390,30 +1585,29 @@ defmodule AWS.Amp do
   @doc """
   The `CreateScraper` operation creates a scraper to collect metrics.
 
-  A
-  scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
+  A scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
   cluster, and sends them to your Amazon Managed Service for Prometheus workspace.
-  Scrapers are
-  flexible, and can be configured to control what metrics are collected, the
-  frequency of collection, what transformations are applied to the metrics, and
-  more.
+  Scrapers are flexible, and can be configured to control what metrics are
+  collected, the frequency of collection, what transformations are applied to the
+  metrics, and more.
 
   An IAM role will be created for you that Amazon Managed Service for Prometheus
-  uses
-  to access the metrics in your cluster. You must configure this role with a
-  policy that
-  allows it to scrape metrics from your cluster. For more information, see
-  [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
+  uses to access the metrics in your cluster. You must configure this role with a
+  policy that allows it to scrape metrics from your cluster. For more information,
+  see [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
   in the *Amazon Managed Service for Prometheus User Guide*.
 
   The `scrapeConfiguration` parameter contains the base-64 encoded YAML
   configuration for the scraper.
 
+  When creating a scraper, the service creates a `Network Interface` in each
+  **Availability Zone** that are passed into `CreateScraper` through subnets.
+  These network interfaces are used to connect to the Amazon EKS cluster within
+  the VPC for scraping metrics.
+
   For more information about collectors, including what metrics are collected, and
-  how to configure the scraper, see [Using an Amazon Web Services managed
-  collector](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html)
-  in the *Amazon Managed Service for Prometheus User
-  Guide*.
+  how to configure the scraper, see [Using an Amazon Web Services managed collector](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html)
+  in the *Amazon Managed Service for Prometheus User Guide*.
   """
   @spec create_scraper(map(), create_scraper_request(), list()) ::
           {:ok, create_scraper_response(), any()}
@@ -1444,10 +1638,9 @@ defmodule AWS.Amp do
   @doc """
   Creates a Prometheus workspace.
 
-  A workspace is a logical space dedicated to the
-  storage and querying of Prometheus metrics. You can have one or more workspaces
-  in each
-  Region in your account.
+  A workspace is a logical space dedicated to the storage and querying of
+  Prometheus metrics. You can have one or more workspaces in each Region in your
+  account.
   """
   @spec create_workspace(map(), create_workspace_request(), list()) ::
           {:ok, create_workspace_response(), any()}
@@ -1515,7 +1708,9 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Deletes the logging configuration for a workspace.
+  Deletes the rules and alerting logging configuration for a workspace.
+
+  These logging configurations are only for rules and alerting logs.
   """
   @spec delete_logging_configuration(
           map(),
@@ -1529,6 +1724,45 @@ defmodule AWS.Amp do
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes the query logging configuration for the specified workspace.
+  """
+  @spec delete_query_logging_configuration(
+          map(),
+          String.t(),
+          delete_query_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_query_logging_configuration_errors()}
+  def delete_query_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging/query"
     headers = []
     custom_headers = []
 
@@ -1687,8 +1921,10 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Returns complete information about the current logging configuration of the
-  workspace.
+  Returns complete information about the current rules and alerting logging
+  configuration of the workspace.
+
+  These logging configurations are only for rules and alerting logs.
   """
   @spec describe_logging_configuration(map(), String.t(), list()) ::
           {:ok, describe_logging_configuration_response(), any()}
@@ -1706,10 +1942,28 @@ defmodule AWS.Amp do
   end
 
   @doc """
+  Retrieves the details of the query logging configuration for the specified
+  workspace.
+  """
+  @spec describe_query_logging_configuration(map(), String.t(), list()) ::
+          {:ok, describe_query_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_query_logging_configuration_errors()}
+  def describe_query_logging_configuration(%Client{} = client, workspace_id, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging/query"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns complete information about one rule groups namespace.
 
-  To retrieve a list of
-  rule groups namespaces, use `ListRuleGroupsNamespaces`.
+  To retrieve a list of rule groups namespaces, use `ListRuleGroupsNamespaces`.
   """
   @spec describe_rule_groups_namespace(map(), String.t(), String.t(), list()) ::
           {:ok, describe_rule_groups_namespace_response(), any()}
@@ -1729,8 +1983,7 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `DescribeScraper` operation displays information about an existing
-  scraper.
+  The `DescribeScraper` operation displays information about an existing scraper.
   """
   @spec describe_scraper(map(), String.t(), list()) ::
           {:ok, describe_scraper_response(), any()}
@@ -1768,9 +2021,8 @@ defmodule AWS.Amp do
   @doc """
   Use this operation to return information about the configuration of a workspace.
 
-  The configuration details
-  returned include workspace configuration status, label set limits, and retention
-  period.
+  The configuration details returned include workspace configuration status, label
+  set limits, and retention period.
   """
   @spec describe_workspace_configuration(map(), String.t(), list()) ::
           {:ok, describe_workspace_configuration_response(), any()}
@@ -1788,8 +2040,8 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `GetDefaultScraperConfiguration` operation returns the default
-  scraper configuration used when Amazon EKS creates a scraper for you.
+  The `GetDefaultScraperConfiguration` operation returns the default scraper
+  configuration used when Amazon EKS creates a scraper for you.
   """
   @spec get_default_scraper_configuration(map(), list()) ::
           {:ok, get_default_scraper_configuration_response(), any()}
@@ -1860,11 +2112,10 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListScrapers` operation lists all of the scrapers in
-  your account.
+  The `ListScrapers` operation lists all of the scrapers in your account.
 
-  This includes scrapers being created or deleted. You can optionally
-  filter the returned list.
+  This includes scrapers being created or deleted. You can optionally filter the
+  returned list.
   """
   @spec list_scrapers(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_scrapers_response(), any()}
@@ -1909,11 +2160,11 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  The `ListTagsForResource` operation returns the tags that are associated
-  with an Amazon Managed Service for Prometheus resource.
+  The `ListTagsForResource` operation returns the tags that are associated with an
+  Amazon Managed Service for Prometheus resource.
 
-  Currently, the only resources that can be
-  tagged are scrapers, workspaces, and rule groups namespaces.
+  Currently, the only resources that can be tagged are scrapers, workspaces, and
+  rule groups namespaces.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1934,8 +2185,7 @@ defmodule AWS.Amp do
   Lists all of the Amazon Managed Service for Prometheus workspaces in your
   account.
 
-  This includes
-  workspaces being created or deleted.
+  This includes workspaces being created or deleted.
   """
   @spec list_workspaces(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
@@ -1982,9 +2232,8 @@ defmodule AWS.Amp do
   @doc """
   Updates an existing alert manager definition in a workspace.
 
-  If the workspace does not
-  already have an alert manager definition, don't use this operation to create it.
-  Instead, use `CreateAlertManagerDefinition`.
+  If the workspace does not already have an alert manager definition, don't use
+  this operation to create it. Instead, use `CreateAlertManagerDefinition`.
   """
   @spec put_alert_manager_definition(
           map(),
@@ -2020,14 +2269,11 @@ defmodule AWS.Amp do
   @doc """
   Updates an existing rule groups namespace within a workspace.
 
-  A rule groups namespace
-  is associated with exactly one rules file. A workspace can have multiple rule
-  groups
-  namespaces.
+  A rule groups namespace is associated with exactly one rules file. A workspace
+  can have multiple rule groups namespaces.
 
   Use this operation only to update existing rule groups namespaces. To create a
-  new
-  rule groups namespace, use `CreateRuleGroupsNamespace`.
+  new rule groups namespace, use `CreateRuleGroupsNamespace`.
 
   You can't use this operation to add tags to an existing rule groups namespace.
   Instead, use `TagResource`.
@@ -2068,19 +2314,15 @@ defmodule AWS.Amp do
 
   @doc """
   The `TagResource` operation associates tags with an Amazon Managed Service for
-  Prometheus
-  resource.
+  Prometheus resource.
 
-  The only resources that can be tagged are rule groups namespaces, scrapers,
-  and workspaces.
+  The only resources that can be tagged are rule groups namespaces, scrapers, and
+  workspaces.
 
   If you specify a new tag key for the resource, this tag is appended to the list
-  of
-  tags associated with the resource. If you specify a tag key that is already
-  associated
-  with the resource, the new tag value that you specify replaces the previous
-  value for
-  that tag. To remove a tag, use `UntagResource`.
+  of tags associated with the resource. If you specify a tag key that is already
+  associated with the resource, the new tag value that you specify replaces the
+  previous value for that tag. To remove a tag, use `UntagResource`.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -2112,8 +2354,8 @@ defmodule AWS.Amp do
   Removes the specified tags from an Amazon Managed Service for Prometheus
   resource.
 
-  The only resources
-  that can be tagged are rule groups namespaces, scrapers, and workspaces.
+  The only resources that can be tagged are rule groups namespaces, scrapers, and
+  workspaces.
   """
   @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -2147,8 +2389,10 @@ defmodule AWS.Amp do
   end
 
   @doc """
-  Updates the log group ARN or the workspace ID of the current logging
-  configuration.
+  Updates the log group ARN or the workspace ID of the current rules and alerting
+  logging configuration.
+
+  These logging configurations are only for rules and alerting logs.
   """
   @spec update_logging_configuration(
           map(),
@@ -2162,6 +2406,40 @@ defmodule AWS.Amp do
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
     url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the query logging configuration for the specified workspace.
+  """
+  @spec update_query_logging_configuration(
+          map(),
+          String.t(),
+          update_query_logging_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_query_logging_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_query_logging_configuration_errors()}
+  def update_query_logging_configuration(%Client{} = client, workspace_id, input, options \\ []) do
+    url_path = "/workspaces/#{AWS.Util.encode_uri(workspace_id)}/logging/query"
     headers = []
     custom_headers = []
     query_params = []
@@ -2248,8 +2526,7 @@ defmodule AWS.Amp do
   retention period of a workspace.
 
   You must specify at least one of `limitsPerLabelSet` or `retentionPeriodInDays`
-  for the
-  request to be valid.
+  for the request to be valid.
   """
   @spec update_workspace_configuration(
           map(),

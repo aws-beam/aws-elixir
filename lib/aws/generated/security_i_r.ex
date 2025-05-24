@@ -1382,15 +1382,8 @@ defmodule AWS.SecurityIR do
   @doc """
   Grants permission to update the status for a designated cases.
 
-  Options include
-
-  ```
-  Submitted |
-  Detection and Analysis | Eradication, Containment and Recovery | Post-Incident
-  Activities | Closed
-  ```
-
-  .
+  Options include `Submitted | Detection and Analysis | Eradication, Containment
+  and Recovery | Post-Incident Activities | Closed`.
   """
   @spec update_case_status(map(), String.t(), update_case_status_request(), list()) ::
           {:ok, update_case_status_response(), any()}

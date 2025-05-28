@@ -2695,6 +2695,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      active_vpn_tunnel_status() :: %{
+        "IkeVersion" => String.t(),
+        "Phase1DHGroup" => integer(),
+        "Phase1EncryptionAlgorithm" => String.t(),
+        "Phase1IntegrityAlgorithm" => String.t(),
+        "Phase2DHGroup" => integer(),
+        "Phase2EncryptionAlgorithm" => String.t(),
+        "Phase2IntegrityAlgorithm" => String.t(),
+        "ProvisioningStatus" => list(any()),
+        "ProvisioningStatusReason" => String.t()
+      }
+      
+  """
+  @type active_vpn_tunnel_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_coip_pool_request() :: %{
         optional("DryRun") => boolean(),
         optional("TagSpecifications") => list(tag_specification()()),
@@ -10147,6 +10166,7 @@ defmodule AWS.EC2 do
         "CustomerGatewayId" => String.t(),
         "GatewayAssociationState" => list(any()),
         "Options" => vpn_connection_options(),
+        "PreSharedKeyArn" => String.t(),
         "Routes" => list(vpn_static_route()()),
         "State" => list(any()),
         "Tags" => list(tag()()),
@@ -10170,6 +10190,17 @@ defmodule AWS.EC2 do
       
   """
   @type user_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_active_vpn_tunnel_status_result() :: %{
+        "ActiveVpnTunnelStatus" => active_vpn_tunnel_status()
+      }
+      
+  """
+  @type get_active_vpn_tunnel_status_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11260,6 +11291,7 @@ defmodule AWS.EC2 do
       get_vpn_connection_device_sample_configuration_request() :: %{
         optional("DryRun") => boolean(),
         optional("InternetKeyExchangeVersion") => String.t(),
+        optional("SampleType") => String.t(),
         required("VpnConnectionDeviceTypeId") => String.t(),
         required("VpnConnectionId") => String.t()
       }
@@ -18864,6 +18896,7 @@ defmodule AWS.EC2 do
       
       modify_vpn_tunnel_options_request() :: %{
         optional("DryRun") => boolean(),
+        optional("PreSharedKeyStorage") => String.t(),
         optional("SkipTunnelReplacement") => boolean(),
         required("TunnelOptions") => modify_vpn_tunnel_options_specification(),
         required("VpnConnectionId") => String.t(),
@@ -26841,6 +26874,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_active_vpn_tunnel_status_request() :: %{
+        optional("DryRun") => boolean(),
+        required("VpnConnectionId") => String.t(),
+        required("VpnTunnelOutsideIpAddress") => String.t()
+      }
+      
+  """
+  @type get_active_vpn_tunnel_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       release_ipam_pool_allocation_request() :: %{
         optional("DryRun") => boolean(),
         required("Cidr") => String.t(),
@@ -27953,6 +27999,7 @@ defmodule AWS.EC2 do
       create_vpn_connection_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => vpn_connection_options_specification(),
+        optional("PreSharedKeyStorage") => String.t(),
         optional("TagSpecifications") => list(tag_specification()()),
         optional("TransitGatewayId") => String.t(),
         optional("VpnGatewayId") => String.t(),
@@ -40821,6 +40868,21 @@ defmodule AWS.EC2 do
       input,
       options
     )
+  end
+
+  @doc """
+  Returns the currently negotiated security parameters for an active VPN tunnel,
+  including IKE version, DH groups, encryption algorithms, and integrity
+  algorithms.
+  """
+  @spec get_active_vpn_tunnel_status(map(), get_active_vpn_tunnel_status_request(), list()) ::
+          {:ok, get_active_vpn_tunnel_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_active_vpn_tunnel_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetActiveVpnTunnelStatus", input, options)
   end
 
   @doc """

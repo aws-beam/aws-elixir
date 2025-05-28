@@ -820,7 +820,8 @@ defmodule AWS.Deadline do
 
       service_managed_ec2_fleet_configuration() :: %{
         "instanceCapabilities" => service_managed_ec2_instance_capabilities(),
-        "instanceMarketOptions" => service_managed_ec2_instance_market_options()
+        "instanceMarketOptions" => service_managed_ec2_instance_market_options(),
+        "storageProfileId" => String.t()
       }
 
   """

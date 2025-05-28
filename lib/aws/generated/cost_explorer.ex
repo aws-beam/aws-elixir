@@ -447,6 +447,18 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      get_cost_comparison_drivers_response() :: %{
+        "CostComparisonDrivers" => list(cost_comparison_driver()()),
+        "NextPageToken" => String.t()
+      }
+      
+  """
+  @type get_cost_comparison_drivers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_values() :: %{
         "Key" => String.t(),
         "MatchOptions" => list(list(any())()),
@@ -505,6 +517,18 @@ defmodule AWS.CostExplorer do
       
   """
   @type update_anomaly_monitor_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_and_usage_comparison() :: %{
+        "CostAndUsageSelector" => expression(),
+        "Metrics" => map()
+      }
+      
+  """
+  @type cost_and_usage_comparison() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -916,6 +940,19 @@ defmodule AWS.CostExplorer do
       
   """
   @type start_commitment_purchase_analysis_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_comparison_driver() :: %{
+        "CostDrivers" => list(cost_driver()()),
+        "CostSelector" => expression(),
+        "Metrics" => map()
+      }
+      
+  """
+  @type cost_comparison_driver() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1587,6 +1624,24 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      get_cost_comparison_drivers_request() :: %{
+        optional("BillingViewArn") => String.t(),
+        optional("Filter") => expression(),
+        optional("GroupBy") => list(group_definition()()),
+        optional("MaxResults") => integer(),
+        optional("NextPageToken") => String.t(),
+        required("BaselineTimePeriod") => date_interval(),
+        required("ComparisonTimePeriod") => date_interval(),
+        required("MetricForComparison") => String.t()
+      }
+      
+  """
+  @type get_cost_comparison_drivers_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_cost_allocation_tags_status_request() :: %{
         required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry()())
       }
@@ -1636,6 +1691,20 @@ defmodule AWS.CostExplorer do
       
   """
   @type savings_plans_purchase_recommendation_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      comparison_metric_value() :: %{
+        "BaselineTimePeriodAmount" => String.t(),
+        "ComparisonTimePeriodAmount" => String.t(),
+        "Difference" => String.t(),
+        "Unit" => String.t()
+      }
+      
+  """
+  @type comparison_metric_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2054,6 +2123,19 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      get_cost_and_usage_comparisons_response() :: %{
+        "CostAndUsageComparisons" => list(cost_and_usage_comparison()()),
+        "NextPageToken" => String.t(),
+        "TotalCostAndUsage" => map()
+      }
+      
+  """
+  @type get_cost_and_usage_comparisons_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_commitment_purchase_analysis_request() :: %{
         required("AnalysisId") => String.t()
       }
@@ -2123,6 +2205,19 @@ defmodule AWS.CostExplorer do
       
   """
   @type network_resource_utilization() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_driver() :: %{
+        "Metrics" => map(),
+        "Name" => String.t(),
+        "Type" => String.t()
+      }
+      
+  """
+  @type cost_driver() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2429,6 +2524,24 @@ defmodule AWS.CostExplorer do
       
   """
   @type savings_plans_coverage() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_and_usage_comparisons_request() :: %{
+        optional("BillingViewArn") => String.t(),
+        optional("Filter") => expression(),
+        optional("GroupBy") => list(group_definition()()),
+        optional("MaxResults") => integer(),
+        optional("NextPageToken") => String.t(),
+        required("BaselineTimePeriod") => date_interval(),
+        required("ComparisonTimePeriod") => date_interval(),
+        required("MetricForComparison") => String.t()
+      }
+      
+  """
+  @type get_cost_and_usage_comparisons_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2819,6 +2932,12 @@ defmodule AWS.CostExplorer do
           | request_changed_exception()
           | resource_not_found_exception()
 
+  @type get_cost_and_usage_comparisons_errors() ::
+          limit_exceeded_exception()
+          | data_unavailable_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
+
   @type get_cost_and_usage_with_resources_errors() ::
           limit_exceeded_exception()
           | bill_expiration_exception()
@@ -2833,6 +2952,12 @@ defmodule AWS.CostExplorer do
           | data_unavailable_exception()
           | invalid_next_token_exception()
           | request_changed_exception()
+          | resource_not_found_exception()
+
+  @type get_cost_comparison_drivers_errors() ::
+          limit_exceeded_exception()
+          | data_unavailable_exception()
+          | invalid_next_token_exception()
           | resource_not_found_exception()
 
   @type get_cost_forecast_errors() ::
@@ -3209,6 +3334,26 @@ defmodule AWS.CostExplorer do
   end
 
   @doc """
+  Retrieves cost and usage comparisons for your account between two periods within
+  the last
+  13 months.
+
+  If you have enabled multi-year data at monthly granularity, you can go back up
+  to
+  38 months.
+  """
+  @spec get_cost_and_usage_comparisons(map(), get_cost_and_usage_comparisons_request(), list()) ::
+          {:ok, get_cost_and_usage_comparisons_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_cost_and_usage_comparisons_errors()}
+  def get_cost_and_usage_comparisons(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostAndUsageComparisons", input, options)
+  end
+
+  @doc """
   Retrieves cost and usage metrics with resources for your account.
 
   You can specify which
@@ -3264,6 +3409,25 @@ defmodule AWS.CostExplorer do
     meta = metadata()
 
     Request.request_post(client, meta, "GetCostCategories", input, options)
+  end
+
+  @doc """
+  Retrieves key factors driving cost changes between two time periods within the
+  last 13
+  months, such as usage changes, discount changes, and commitment-based savings.
+
+  If you have
+  enabled multi-year data at monthly granularity, you can go back up to 38 months.
+  """
+  @spec get_cost_comparison_drivers(map(), get_cost_comparison_drivers_request(), list()) ::
+          {:ok, get_cost_comparison_drivers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_cost_comparison_drivers_errors()}
+  def get_cost_comparison_drivers(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetCostComparisonDrivers", input, options)
   end
 
   @doc """

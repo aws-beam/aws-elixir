@@ -219,6 +219,7 @@ defmodule AWS.Synthetics do
 
       canary_run_config_output() :: %{
         "ActiveTracing" => boolean(),
+        "EphemeralStorage" => integer(),
         "MemoryInMB" => integer(),
         "TimeoutInSeconds" => integer()
       }
@@ -360,6 +361,7 @@ defmodule AWS.Synthetics do
       canary_run_config_input() :: %{
         "ActiveTracing" => boolean(),
         "EnvironmentVariables" => map(),
+        "EphemeralStorage" => integer(),
         "MemoryInMB" => integer(),
         "TimeoutInSeconds" => integer()
       }
@@ -452,7 +454,8 @@ defmodule AWS.Synthetics do
       canary_run_status() :: %{
         "State" => list(any()),
         "StateReason" => String.t(),
-        "StateReasonCode" => list(any())
+        "StateReasonCode" => list(any()),
+        "TestResult" => list(any())
       }
 
   """

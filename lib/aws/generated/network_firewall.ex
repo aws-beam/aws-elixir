@@ -89,24 +89,34 @@ defmodule AWS.NetworkFirewall do
   subnet for the sole use of Network Firewall.
 
     3.
-  In Network Firewall, create stateless and stateful rule groups,
+  In Network Firewall, define the firewall behavior as follows:
+
+      1.
+  Create stateless and stateful rule groups,
   to define the components of the network traffic filtering behavior that you want
   your firewall to have.
 
-    4.
-  In Network Firewall, create a firewall policy that uses your rule groups and
+      2.
+  Create a firewall policy that uses your rule groups and
   specifies additional default traffic filtering behavior.
 
-    5.
+    4.
   In Network Firewall, create a firewall and specify your new firewall policy and
   VPC subnets. Network Firewall creates a firewall endpoint in each subnet that
   you
   specify, with the behavior that's defined in the firewall policy.
 
-    6.
+    5.
   In Amazon VPC, use ingress routing enhancements to route traffic through the new
   firewall
   endpoints.
+
+  After your firewall is established, you can add firewall endpoints for new
+  Availability Zones by following the prior steps for the Amazon VPC setup and
+  firewall subnet definitions. You can also add endpoints to Availability Zones
+  that you're using in the firewall, either for the same VPC
+  or for another VPC, by following the prior steps for the Amazon VPC setup, and
+  defining the new VPC subnets as VPC endpoint associations.
   """
 
   alias AWS.Client
@@ -163,6 +173,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type t_c_p_flag_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_z_sync_state() :: %{
+        "Attachment" => attachment()
+      }
+      
+  """
+  @type a_z_sync_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -304,6 +325,8 @@ defmodule AWS.NetworkFirewall do
       start_flow_capture_request() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("MinimumFlowAgeInSeconds") => integer(),
+        optional("VpcEndpointAssociationArn") => String.t(),
+        optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
         required("FlowFilters") => list(flow_filter()())
       }
@@ -317,6 +340,8 @@ defmodule AWS.NetworkFirewall do
       
       describe_flow_operation_request() :: %{
         optional("AvailabilityZone") => String.t(),
+        optional("VpcEndpointAssociationArn") => String.t(),
+        optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
         required("FlowOperationId") => String.t()
       }
@@ -336,7 +361,9 @@ defmodule AWS.NetworkFirewall do
         "FlowOperationStatus" => list(any()),
         "FlowOperationType" => list(any()),
         "FlowRequestTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t(),
+        "VpcEndpointAssociationArn" => String.t(),
+        "VpcEndpointId" => String.t()
       }
       
   """
@@ -451,6 +478,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type describe_rule_group_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type delete_vpc_endpoint_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -629,6 +668,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_firewall_metadata_response() :: %{
+        "Description" => String.t(),
+        "FirewallArn" => String.t(),
+        "FirewallPolicyArn" => String.t(),
+        "Status" => list(any()),
+        "SupportedAvailabilityZones" => map()
+      }
+      
+  """
+  @type describe_firewall_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_firewall_policy_request() :: %{
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -654,6 +708,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type associate_firewall_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_endpoint_associations_response() :: %{
+        "NextToken" => String.t(),
+        "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata()())
+      }
+      
+  """
+  @type list_vpc_endpoint_associations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -698,6 +764,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type firewall_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type describe_vpc_endpoint_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -816,6 +894,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      vpc_endpoint_association_status() :: %{
+        "AssociationSyncState" => map(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type vpc_endpoint_association_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_firewall_response() :: %{
         "Firewall" => firewall(),
         "FirewallStatus" => firewall_status()
@@ -840,6 +930,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_vpc_endpoint_association_request() :: %{
+        required("VpcEndpointAssociationArn") => String.t()
+      }
+      
+  """
+  @type describe_vpc_endpoint_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t()
       }
@@ -857,6 +958,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_firewall_policy_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_association_metadata() :: %{
+        "VpcEndpointAssociationArn" => String.t()
+      }
+      
+  """
+  @type vpc_endpoint_association_metadata() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -999,6 +1111,23 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      vpc_endpoint_association() :: %{
+        "Description" => String.t(),
+        "FirewallArn" => String.t(),
+        "SubnetMapping" => subnet_mapping(),
+        "Tags" => list(tag()()),
+        "VpcEndpointAssociationArn" => String.t(),
+        "VpcEndpointAssociationId" => String.t(),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type vpc_endpoint_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_firewall_request() :: %{
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t()
@@ -1077,6 +1206,8 @@ defmodule AWS.NetworkFirewall do
         optional("AvailabilityZone") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("VpcEndpointAssociationArn") => String.t(),
+        optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
         required("FlowOperationId") => String.t()
       }
@@ -1096,6 +1227,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type stateful_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type create_vpc_endpoint_association_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1257,6 +1400,8 @@ defmodule AWS.NetworkFirewall do
         optional("FlowOperationType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("VpcEndpointAssociationArn") => String.t(),
+        optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t()
       }
       
@@ -1277,6 +1422,7 @@ defmodule AWS.NetworkFirewall do
         "FirewallName" => String.t(),
         "FirewallPolicyArn" => String.t(),
         "FirewallPolicyChangeProtection" => boolean(),
+        "NumberOfAssociations" => integer(),
         "SubnetChangeProtection" => boolean(),
         "SubnetMappings" => list(subnet_mapping()()),
         "Tags" => list(tag()()),
@@ -1365,6 +1511,8 @@ defmodule AWS.NetworkFirewall do
       start_flow_flush_request() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("MinimumFlowAgeInSeconds") => integer(),
+        optional("VpcEndpointAssociationArn") => String.t(),
+        optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
         required("FlowFilters") => list(flow_filter()())
       }
@@ -1840,6 +1988,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      availability_zone_metadata() :: %{
+        "IPAddressType" => list(any())
+      }
+      
+  """
+  @type availability_zone_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_firewall_policy_request() :: %{
         optional("FirewallPolicyArn") => String.t(),
         optional("FirewallPolicyName") => String.t()
@@ -1867,6 +2026,21 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_association_request() :: %{
+        optional("Description") => String.t(),
+        optional("Tags") => list(tag()()),
+        required("FirewallArn") => String.t(),
+        required("SubnetMapping") => subnet_mapping(),
+        required("VpcId") => String.t()
+      }
+      
+  """
+  @type create_vpc_endpoint_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1931,7 +2105,9 @@ defmodule AWS.NetworkFirewall do
         "FlowRequestTimestamp" => non_neg_integer(),
         "Flows" => list(flow()()),
         "NextToken" => String.t(),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t(),
+        "VpcEndpointAssociationArn" => String.t(),
+        "VpcEndpointId" => String.t()
       }
       
   """
@@ -2051,6 +2227,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_firewall_metadata_request() :: %{
+        optional("FirewallArn") => String.t()
+      }
+      
+  """
+  @type describe_firewall_metadata_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       flow() :: %{
         "Age" => integer(),
         "ByteCount" => float(),
@@ -2150,6 +2337,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type firewall_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_endpoint_association_request() :: %{
+        required("VpcEndpointAssociationArn") => String.t()
+      }
+      
+  """
+  @type delete_vpc_endpoint_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2300,6 +2498,19 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_vpc_endpoint_associations_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_vpc_endpoint_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_firewall_policy_response() :: %{
         "FirewallPolicy" => firewall_policy(),
         "FirewallPolicyResponse" => firewall_policy_response(),
@@ -2355,6 +2566,15 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | insufficient_capacity_exception()
 
+  @type create_vpc_endpoint_association_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | insufficient_capacity_exception()
+          | invalid_operation_exception()
+
   @type delete_firewall_errors() ::
           throttling_exception()
           | internal_server_error()
@@ -2393,7 +2613,20 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | invalid_operation_exception()
 
+  @type delete_vpc_endpoint_association_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
   @type describe_firewall_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_firewall_metadata_errors() ::
           throttling_exception()
           | internal_server_error()
           | invalid_request_exception()
@@ -2436,6 +2669,12 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
 
   @type describe_t_l_s_inspection_configuration_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_vpc_endpoint_association_errors() ::
           throttling_exception()
           | internal_server_error()
           | invalid_request_exception()
@@ -2490,6 +2729,9 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+
+  @type list_vpc_endpoint_associations_errors() ::
+          throttling_exception() | internal_server_error() | invalid_request_exception()
 
   @type put_resource_policy_errors() ::
           throttling_exception()
@@ -2785,6 +3027,26 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Creates a firewall endpoint for an Network Firewall firewall.
+
+  This type of firewall endpoint is independent of the firewall endpoints that you
+  specify in the `Firewall` itself, and you define it in addition to those
+  endpoints after the firewall has been created. You can define a VPC endpoint
+  association using a different VPC than the one you used in the firewall
+  specifications.
+  """
+  @spec create_vpc_endpoint_association(map(), create_vpc_endpoint_association_request(), list()) ::
+          {:ok, create_vpc_endpoint_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_vpc_endpoint_association_errors()}
+  def create_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateVpcEndpointAssociation", input, options)
+  end
+
+  @doc """
   Deletes the specified `Firewall` and its `FirewallStatus`.
 
   This operation requires the firewall's `DeleteProtection` flag to be
@@ -2876,6 +3138,30 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Deletes the specified `VpcEndpointAssociation`.
+
+  You can check whether an endpoint association is
+  in use by reviewing the route tables for the Availability Zones where you have
+  the endpoint subnet mapping.
+  You can retrieve the subnet mapping by calling `DescribeVpcEndpointAssociation`.
+  You define and update the route tables through Amazon VPC. As needed, update the
+  route tables for the
+  Availability Zone to remove the firewall endpoint for the association. When the
+  route tables no longer use the firewall endpoint,
+  you can remove the endpoint association safely.
+  """
+  @spec delete_vpc_endpoint_association(map(), delete_vpc_endpoint_association_request(), list()) ::
+          {:ok, delete_vpc_endpoint_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_vpc_endpoint_association_errors()}
+  def delete_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteVpcEndpointAssociation", input, options)
+  end
+
+  @doc """
   Returns the data objects for the specified firewall.
   """
   @spec describe_firewall(map(), describe_firewall_request(), list()) ::
@@ -2887,6 +3173,22 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeFirewall", input, options)
+  end
+
+  @doc """
+  Returns the high-level information about a firewall, including the Availability
+  Zones where the Firewall is
+  currently in use.
+  """
+  @spec describe_firewall_metadata(map(), describe_firewall_metadata_request(), list()) ::
+          {:ok, describe_firewall_metadata_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_firewall_metadata_errors()}
+  def describe_firewall_metadata(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeFirewallMetadata", input, options)
   end
 
   @doc """
@@ -2994,6 +3296,24 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeTLSInspectionConfiguration", input, options)
+  end
+
+  @doc """
+  Returns the data object for the specified VPC endpoint association.
+  """
+  @spec describe_vpc_endpoint_association(
+          map(),
+          describe_vpc_endpoint_association_request(),
+          list()
+        ) ::
+          {:ok, describe_vpc_endpoint_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_vpc_endpoint_association_errors()}
+  def describe_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeVpcEndpointAssociation", input, options)
   end
 
   @doc """
@@ -3203,21 +3523,46 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Creates or updates an IAM policy for your rule group or firewall policy.
+  Retrieves the metadata for the VPC endpoint associations that you have defined.
 
-  Use this to share rule groups and firewall policies between accounts. This
-  operation works in conjunction with the Amazon Web Services Resource Access
-  Manager (RAM) service
+  If you specify a fireawll,
+  this returns only the endpoint associations for that firewall.
+
+  Depending on your setting for max results and the number of associations, a
+  single call
+  might not return the full list.
+  """
+  @spec list_vpc_endpoint_associations(map(), list_vpc_endpoint_associations_request(), list()) ::
+          {:ok, list_vpc_endpoint_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_vpc_endpoint_associations_errors()}
+  def list_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListVpcEndpointAssociations", input, options)
+  end
+
+  @doc """
+  Creates or updates an IAM policy for your rule group, firewall policy, or
+  firewall.
+
+  Use this to share these resources between accounts. This operation works in
+  conjunction with the Amazon Web Services Resource Access Manager (RAM) service
   to manage resource sharing for Network Firewall.
 
-  Use this operation to create or update a resource policy for your rule group or
-  firewall policy. In the policy, you specify the accounts that you want to share
-  the resource with and the operations that you want the accounts to be able to
-  perform.
+  For information about using sharing with Network Firewall resources, see
+  [Sharing Network Firewall resources](https://docs.aws.amazon.com/network-firewall/latest/developerguide/sharing.html)
+  in the *Network Firewall Developer Guide*.
+
+  Use this operation to create or update a resource policy for your Network
+  Firewall rule group, firewall policy, or firewall. In the resource policy, you
+  specify the accounts that you want to share the Network Firewall resource with
+  and the operations that you want the accounts to be able to perform.
 
   When you add an account in the resource policy, you then run the following
-  Resource Access Manager (RAM) operations to access and accept the shared rule
-  group or firewall policy.
+  Resource Access Manager (RAM) operations to access and accept the shared
+  resource.
 
     *
 

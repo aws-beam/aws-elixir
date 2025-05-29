@@ -6287,10 +6287,13 @@ defmodule AWS.EC2 do
 
   ## Example:
       
-      deregister_image_result() :: %{}
+      deregister_image_result() :: %{
+        "DeleteSnapshotResults" => list(delete_snapshot_return_code()()),
+        "Return" => boolean()
+      }
       
   """
-  @type deregister_image_result() :: %{}
+  @type deregister_image_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11013,6 +11016,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       deregister_image_request() :: %{
+        optional("DeleteAssociatedSnapshots") => boolean(),
         optional("DryRun") => boolean(),
         required("ImageId") => String.t()
       }
@@ -26968,6 +26972,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      delete_snapshot_return_code() :: %{
+        "ReturnCode" => list(any()),
+        "SnapshotId" => String.t()
+      }
+      
+  """
+  @type delete_snapshot_return_code() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_multicast_domains_result() :: %{
         "NextToken" => String.t(),
         "TransitGatewayMulticastDomains" => list(transit_gateway_multicast_domain()())
@@ -31127,7 +31143,7 @@ defmodule AWS.EC2 do
   Removes your Amazon Web Services account from the launch permissions for the
   specified AMI.
 
-  For more information, see [ Cancel having an AMI shared with your Amazon Web Services
+  For more information, see [Cancel having an AMI shared with your Amazon Web Services
   account](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html)
   in the *Amazon EC2 User Guide*.
   """
@@ -31269,9 +31285,9 @@ defmodule AWS.EC2 do
   support unencrypted
   snapshots.
 
-  For information about the prerequisites when copying an AMI, see [Copy an
-  AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in
-  the
+  For information about the prerequisites when copying an AMI, see [Copy an Amazon
+  EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html)
+  in the
   *Amazon EC2 User Guide*.
   """
   @spec copy_image(map(), copy_image_request(), list()) ::
@@ -31788,8 +31804,9 @@ defmodule AWS.EC2 do
   automatically launches
   with those additional volumes.
 
-  For more information, see [Create an Amazon EBS-backed Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
-  in the *Amazon Elastic Compute Cloud User Guide*.
+  For more information, see [Create an Amazon EBS-backed AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
+  in
+  the *Amazon Elastic Compute Cloud User Guide*.
   """
   @spec create_image(map(), create_image_request(), list()) ::
           {:ok, create_image_result(), any()}
@@ -32640,13 +32657,12 @@ defmodule AWS.EC2 do
   using
   [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html). 
   To use this API, you must have the required permissions. For more information,
-  see [Permissions for storing and restoring AMIs using Amazon
-  S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions)
+  see [Permissions for storing and restoring AMIs using
+  S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions)
   in the
   *Amazon EC2 User Guide*.
 
-  For more information, see [Store and restore an AMI using Amazon
-  S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
+  For more information, see [Store and restore an AMI using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec create_restore_image_task(map(), create_restore_image_task_request(), list()) ::
@@ -32980,12 +32996,11 @@ defmodule AWS.EC2 do
   Stores an AMI as a single object in an Amazon S3 bucket.
 
   To use this API, you must have the required permissions. For more information,
-  see [Permissions for storing and restoring AMIs using Amazon S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions)
+  see [Permissions for storing and restoring AMIs using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions)
   in the
   *Amazon EC2 User Guide*.
 
-  For more information, see [Store and restore an AMI using Amazon
-  S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
+  For more information, see [Store and restore an AMI using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec create_store_image_task(map(), create_store_image_task_request(), list()) ::
@@ -35399,8 +35414,16 @@ defmodule AWS.EC2 do
   expires, after which it is permanently deleted. If the deregistered AMI doesn't
   match a
   retention rule, it is permanently deleted immediately. For more information, see
-  [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
-  the *Amazon EBS User Guide*.
+  [Recover deleted Amazon EBS snapshots and EBS-backed AMIs with Recycle
+  Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
+  the *Amazon EBS User
+  Guide*.
+
+  When deregistering an EBS-backed AMI, you can optionally delete its associated
+  snapshots
+  at the same time. However, if a snapshot is associated with multiple AMIs, it
+  won't be deleted
+  even if specified for deletion, although the AMI will still be deregistered.
 
   Deregistering an AMI does not delete the following:
 
@@ -35410,10 +35433,9 @@ defmodule AWS.EC2 do
   instances until you terminate them.
 
     *
-  For EBS-backed AMIs: The snapshots that were created of the root and data
-  volumes of
-  the instance during AMI creation. You'll continue to incur snapshot storage
-  costs.
+  For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll
+  continue
+  to incur snapshot storage costs.
 
     *
   For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI
@@ -38363,12 +38385,11 @@ defmodule AWS.EC2 do
   days can be viewed.
 
   To use this API, you must have the required permissions. For more information,
-  see [Permissions for storing and restoring AMIs using Amazon S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions)
+  see [Permissions for storing and restoring AMIs using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions)
   in the
   *Amazon EC2 User Guide*.
 
-  For more information, see [Store and restore an AMI using Amazon
-  S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
+  For more information, see [Store and restore an AMI using S3](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec describe_store_image_tasks(map(), describe_store_image_tasks_request(), list()) ::
@@ -39561,7 +39582,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Block
   public access to your
-  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec disable_image_block_public_access(
@@ -39581,7 +39602,7 @@ defmodule AWS.EC2 do
   @doc """
   Cancels the deprecation of the specified AMI.
 
-  For more information, see [Deprecate an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in
+  For more information, see [Deprecate an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in
   the
   *Amazon EC2 User Guide*.
   """
@@ -39607,8 +39628,7 @@ defmodule AWS.EC2 do
   won’t
   immediately be able to deregister the AMI.
 
-  For more information, see [Protect an AMI from
-  deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection)
+  For more information, see [Protect an Amazon EC2 AMI from deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec disable_image_deregistration_protection(
@@ -40420,9 +40440,8 @@ defmodule AWS.EC2 do
 
   Only the AMI owner can re-enable a disabled AMI.
 
-  For more information, see [Disable an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html) in
-  the
-  *Amazon EC2 User Guide*.
+  For more information, see [Disable an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html)
+  in the *Amazon EC2 User Guide*.
   """
   @spec enable_image(map(), enable_image_request(), list()) ::
           {:ok, enable_image_result(), any()}
@@ -40449,7 +40468,7 @@ defmodule AWS.EC2 do
 
   For more information, see [Block
   public access to your
-  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec enable_image_block_public_access(
@@ -40493,8 +40512,8 @@ defmodule AWS.EC2 do
   protection
   using `DisableImageDeregistrationProtection`.
 
-  For more information, see [Protect an AMI from
-  deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection)
+  For more information, see [Protect an Amazon EC2 AMI from
+  deregistration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec enable_image_deregistration_protection(
@@ -41220,7 +41239,7 @@ defmodule AWS.EC2 do
   level in the specified Amazon Web Services Region.
 
   For more information, see [Block public access to your
-  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis)
+  AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html)
   in the *Amazon EC2 User Guide*.
   """
   @spec get_image_block_public_access_state(
@@ -44430,8 +44449,8 @@ defmodule AWS.EC2 do
   the AMI is encrypted.
 
   For more information, see [Create an AMI from a snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot)
-  and [Use encryption with Amazon EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html) in
-  the *Amazon EC2 User Guide*.
+  and [Use encryption with EBS-backed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html)
+  in the *Amazon EC2 User Guide*.
 
   ## Amazon Web Services Marketplace product codes
 
@@ -45209,8 +45228,10 @@ defmodule AWS.EC2 do
   @doc """
   Restores an AMI from the Recycle Bin.
 
-  For more information, see [Recycle Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
-  the *Amazon EC2 User Guide*.
+  For more information, see [Recover deleted Amazon EBS snapshots and EBS-back AMIs with Recycle
+  Bin](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html) in
+  the
+  *Amazon EC2 User Guide*.
   """
   @spec restore_image_from_recycle_bin(map(), restore_image_from_recycle_bin_request(), list()) ::
           {:ok, restore_image_from_recycle_bin_result(), any()}

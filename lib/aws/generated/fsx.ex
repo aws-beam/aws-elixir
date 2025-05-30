@@ -1414,6 +1414,7 @@ defmodule AWS.FSx do
         "CopyTagsToBackups" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
         "DeploymentType" => list(any()),
         "DriveCacheType" => list(any()),
         "EfaEnabled" => boolean(),
@@ -1424,6 +1425,7 @@ defmodule AWS.FSx do
         "MetadataConfiguration" => create_file_system_lustre_metadata_configuration(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
       
@@ -1532,10 +1534,12 @@ defmodule AWS.FSx do
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
         "LogConfiguration" => lustre_log_create_configuration(),
         "MetadataConfiguration" => update_file_system_lustre_metadata_configuration(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
       
@@ -1753,6 +1757,7 @@ defmodule AWS.FSx do
         "CopyTagsToBackups" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DataCompressionType" => list(any()),
+        "DataReadCacheConfiguration" => lustre_read_cache_configuration(),
         "DataRepositoryConfiguration" => data_repository_configuration(),
         "DeploymentType" => list(any()),
         "DriveCacheType" => list(any()),
@@ -1762,6 +1767,7 @@ defmodule AWS.FSx do
         "MountName" => String.t(),
         "PerUnitStorageThroughput" => integer(),
         "RootSquashConfiguration" => lustre_root_squash_configuration(),
+        "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
       
@@ -1803,6 +1809,18 @@ defmodule AWS.FSx do
       
   """
   @type restore_volume_from_snapshot_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lustre_read_cache_configuration() :: %{
+        "SizeGiB" => integer(),
+        "SizingMode" => list(any())
+      }
+      
+  """
+  @type lustre_read_cache_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4728,6 +4746,10 @@ defmodule AWS.FSx do
 
     *
 
+  `DiskIopsConfiguration`
+
+    *
+
   `SelfManagedActiveDirectoryConfiguration`
 
     *
@@ -4741,10 +4763,6 @@ defmodule AWS.FSx do
     *
 
   `ThroughputCapacity`
-
-    *
-
-  `DiskIopsConfiguration`
 
     *
 
@@ -4779,6 +4797,10 @@ defmodule AWS.FSx do
 
     *
 
+  `LustreReadCacheConfiguration`
+
+    *
+
   `LustreRootSquashConfiguration`
 
     *
@@ -4792,6 +4814,10 @@ defmodule AWS.FSx do
     *
 
   `StorageCapacity`
+
+    *
+
+  `ThroughputCapacity`
 
     *
 

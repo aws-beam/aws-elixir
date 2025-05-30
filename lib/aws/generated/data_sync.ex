@@ -5,10 +5,10 @@ defmodule AWS.DataSync do
   @moduledoc """
   DataSync
 
-  DataSync is an online data movement and discovery service that simplifies
-  data migration and helps you quickly, easily, and securely transfer your file or
-  object data
-  to, from, and between Amazon Web Services storage services.
+  DataSync is an online data movement service that simplifies data
+  migration and helps you quickly, easily, and securely transfer your file or
+  object data to,
+  from, and between Amazon Web Services storage services.
 
   This API interface reference includes documentation for using DataSync
   programmatically. For complete information, see the *
@@ -29,6 +29,8 @@ defmodule AWS.DataSync do
         optional("AgentArns") => list(String.t()()),
         optional("AuthenticationType") => list(any()),
         optional("BlobType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
         optional("Subdirectory") => String.t(),
         required("LocationArn") => String.t()
@@ -68,13 +70,15 @@ defmodule AWS.DataSync do
       
       create_location_object_storage_request() :: %{
         optional("AccessKey") => String.t(),
+        optional("AgentArns") => list(String.t()()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("SecretKey") => String.t(),
         optional("ServerCertificate") => binary(),
         optional("ServerPort") => integer(),
         optional("ServerProtocol") => list(any()),
         optional("Subdirectory") => String.t(),
         optional("Tags") => list(tag_list_entry()()),
-        required("AgentArns") => list(String.t()()),
         required("BucketName") => String.t(),
         required("ServerHostname") => String.t()
       }
@@ -271,6 +275,18 @@ defmodule AWS.DataSync do
       
   """
   @type describe_location_nfs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cmk_secret_config() :: %{
+        "KmsKeyArn" => String.t(),
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type cmk_secret_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -552,6 +568,17 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      managed_secret_config() :: %{
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type managed_secret_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       qop_configuration() :: %{
         "DataTransferProtection" => list(any()),
         "RpcProtection" => list(any())
@@ -615,11 +642,13 @@ defmodule AWS.DataSync do
       
       create_location_azure_blob_request() :: %{
         optional("AccessTier") => list(any()),
+        optional("AgentArns") => list(String.t()()),
         optional("BlobType") => list(any()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
         optional("Subdirectory") => String.t(),
         optional("Tags") => list(tag_list_entry()()),
-        required("AgentArns") => list(String.t()()),
         required("AuthenticationType") => list(any()),
         required("ContainerUrl") => String.t()
       }
@@ -1229,6 +1258,7 @@ defmodule AWS.DataSync do
         "BytesCompressed" => float(),
         "BytesTransferred" => float(),
         "BytesWritten" => float(),
+        "EndTime" => non_neg_integer(),
         "EstimatedBytesToTransfer" => float(),
         "EstimatedFilesToDelete" => float(),
         "EstimatedFilesToTransfer" => float(),
@@ -1241,6 +1271,7 @@ defmodule AWS.DataSync do
         "FilesTransferred" => float(),
         "FilesVerified" => float(),
         "Includes" => list(filter_rule()()),
+        "LaunchTime" => non_neg_integer(),
         "ManifestConfig" => manifest_config(),
         "Options" => options(),
         "ReportResult" => report_result(),
@@ -1614,6 +1645,8 @@ defmodule AWS.DataSync do
       update_location_object_storage_request() :: %{
         optional("AccessKey") => String.t(),
         optional("AgentArns") => list(String.t()()),
+        optional("CmkSecretConfig") => cmk_secret_config(),
+        optional("CustomSecretConfig") => custom_secret_config(),
         optional("SecretKey") => String.t(),
         optional("ServerCertificate") => binary(),
         optional("ServerHostname") => String.t(),
@@ -1751,9 +1784,12 @@ defmodule AWS.DataSync do
         "AgentArns" => list(String.t()()),
         "AuthenticationType" => list(any()),
         "BlobType" => list(any()),
+        "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
         "LocationArn" => String.t(),
-        "LocationUri" => String.t()
+        "LocationUri" => String.t(),
+        "ManagedSecretConfig" => managed_secret_config()
       }
       
   """
@@ -1859,9 +1895,12 @@ defmodule AWS.DataSync do
       describe_location_object_storage_response() :: %{
         "AccessKey" => String.t(),
         "AgentArns" => list(String.t()()),
+        "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
+        "CustomSecretConfig" => custom_secret_config(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
+        "ManagedSecretConfig" => managed_secret_config(),
         "ServerCertificate" => binary(),
         "ServerPort" => integer(),
         "ServerProtocol" => list(any())
@@ -1911,6 +1950,18 @@ defmodule AWS.DataSync do
       
   """
   @type delete_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_secret_config() :: %{
+        "SecretAccessRoleArn" => String.t(),
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type custom_secret_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2137,15 +2188,14 @@ defmodule AWS.DataSync do
   Creates a transfer *location* for a Microsoft Azure Blob Storage
   container.
 
-  DataSync can use this location as a transfer source or
-  destination.
+  DataSync can use this location as a transfer source or destination.
+  You can make transfers with or without a [DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent)
+  that connects to your
+  container.
 
   Before you begin, make sure you know [how DataSync accesses Azure Blob Storage](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access)
   and works with [access tiers](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers)
   and [blob types](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types).
-  You also need a [DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent)
-  that can connect to your
-  container.
   """
   @spec create_location_azure_blob(map(), create_location_azure_blob_request(), list()) ::
           {:ok, create_location_azure_blob_response(), any()}
@@ -2313,8 +2363,9 @@ defmodule AWS.DataSync do
   @doc """
   Creates a transfer *location* for an object storage system.
 
-  DataSync can use this location as a source or destination for transferring
-  data.
+  DataSync can use this location as a source or destination for transferring data.
+  You
+  can make transfers with or without a [DataSync agent](https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required).
 
   Before you begin, make sure that you understand the
   [prerequisites](https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites)

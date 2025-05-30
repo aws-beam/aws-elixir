@@ -45,6 +45,29 @@ defmodule AWS.IVSRealTime do
   **Composition** — Controls the look of the outputs,
   including how participants are positioned in the video.
 
+  For participant replication:
+
+    *
+
+  **Source stage** — The stage where the participant originally joined, which is
+  used as the source for
+  replication.
+
+    *
+
+  **Destination stage** — The stage to which the participant is replicated.
+
+    *
+
+  **Replicated participant** — A participant in a stage that is replicated to one
+  or more destination stages.
+
+    *
+
+  **Replica participant** — A participant in a destination stage that is
+  replicated from another stage
+  (the source stage).
+
   For more information about your IVS live stream, also see [Getting Started with Amazon IVS Real-Time
   Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html).
 
@@ -101,6 +124,18 @@ defmodule AWS.IVSRealTime do
 
   """
   @type update_stage_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_participant_replicas_response() :: %{
+        "nextToken" => String.t(),
+        "replicas" => list(participant_replica()())
+      }
+
+  """
+  @type list_participant_replicas_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -243,7 +278,11 @@ defmodule AWS.IVSRealTime do
         "recordingS3BucketName" => String.t(),
         "recordingS3Prefix" => String.t(),
         "recordingState" => String.t(),
+        "replicationState" => String.t(),
+        "replicationType" => String.t(),
         "sdkVersion" => String.t(),
+        "sourceSessionId" => String.t(),
+        "sourceStageArn" => String.t(),
         "state" => String.t(),
         "userId" => String.t()
       }
@@ -261,6 +300,22 @@ defmodule AWS.IVSRealTime do
 
   """
   @type create_ingest_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participant_replica() :: %{
+        "destinationSessionId" => String.t(),
+        "destinationStageArn" => String.t(),
+        "participantId" => String.t(),
+        "replicationState" => String.t(),
+        "sourceSessionId" => String.t(),
+        "sourceStageArn" => String.t()
+      }
+
+  """
+  @type participant_replica() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -410,6 +465,10 @@ defmodule AWS.IVSRealTime do
         "participantId" => String.t(),
         "published" => boolean(),
         "recordingState" => String.t(),
+        "replicationState" => String.t(),
+        "replicationType" => String.t(),
+        "sourceSessionId" => String.t(),
+        "sourceStageArn" => String.t(),
         "state" => String.t(),
         "userId" => String.t()
       }
@@ -474,6 +533,20 @@ defmodule AWS.IVSRealTime do
 
   """
   @type get_stage_session_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_participant_replicas_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("participantId") => String.t(),
+        required("sourceStageArn") => String.t()
+      }
+
+  """
+  @type list_participant_replicas_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -666,6 +739,23 @@ defmodule AWS.IVSRealTime do
 
   """
   @type disconnect_participant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_participant_replication_response() :: %{
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
+      }
+
+  """
+  @type start_participant_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -868,6 +958,7 @@ defmodule AWS.IVSRealTime do
       auto_participant_recording_configuration() :: %{
         "hlsConfiguration" => participant_recording_hls_configuration(),
         "mediaTypes" => list(list(any())()),
+        "recordParticipantReplicas" => boolean(),
         "recordingReconnectWindowSeconds" => integer(),
         "storageConfigurationArn" => String.t(),
         "thumbnailConfiguration" => participant_thumbnail_configuration()
@@ -1155,11 +1246,14 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       event() :: %{
+        "destinationSessionId" => String.t(),
+        "destinationStageArn" => String.t(),
         "errorCode" => list(any()),
         "eventTime" => non_neg_integer(),
         "name" => String.t(),
         "participantId" => String.t(),
-        "remoteParticipantId" => String.t()
+        "remoteParticipantId" => String.t(),
+        "replica" => boolean()
       }
 
   """
@@ -1244,6 +1338,19 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      stop_participant_replication_request() :: %{
+        required("destinationStageArn") => String.t(),
+        required("participantId") => String.t(),
+        required("sourceStageArn") => String.t()
+      }
+
+  """
+  @type stop_participant_replication_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_storage_configuration_response() :: %{}
 
   """
@@ -1263,6 +1370,23 @@ defmodule AWS.IVSRealTime do
 
   """
   @type list_participant_events_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_participant_replication_response() :: %{
+        "accessControlAllowOrigin" => String.t(),
+        "accessControlExposeHeaders" => String.t(),
+        "cacheControl" => String.t(),
+        "contentSecurityPolicy" => String.t(),
+        "strictTransportSecurity" => String.t(),
+        "xContentTypeOptions" => String.t(),
+        "xFrameOptions" => String.t()
+      }
+
+  """
+  @type stop_participant_replication_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1382,6 +1506,21 @@ defmodule AWS.IVSRealTime do
 
   """
   @type stop_composition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_participant_replication_request() :: %{
+        optional("attributes") => map(),
+        optional("reconnectWindowSeconds") => integer(),
+        required("destinationStageArn") => String.t(),
+        required("participantId") => String.t(),
+        required("sourceStageArn") => String.t()
+      }
+
+  """
+  @type start_participant_replication_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1739,6 +1878,8 @@ defmodule AWS.IVSRealTime do
 
   @type list_participant_events_errors() :: validation_exception() | access_denied_exception()
 
+  @type list_participant_replicas_errors() :: validation_exception() | access_denied_exception()
+
   @type list_participants_errors() :: validation_exception() | access_denied_exception()
 
   @type list_public_keys_errors() :: validation_exception() | access_denied_exception()
@@ -1767,6 +1908,15 @@ defmodule AWS.IVSRealTime do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type start_participant_replication_errors() ::
+          pending_verification()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_composition_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1774,6 +1924,12 @@ defmodule AWS.IVSRealTime do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type stop_participant_replication_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
           validation_exception() | internal_server_exception() | resource_not_found_exception()
@@ -2553,6 +2709,35 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Lists all the replicas for a participant from a source stage.
+  """
+  @spec list_participant_replicas(map(), list_participant_replicas_request(), list()) ::
+          {:ok, list_participant_replicas_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_participant_replicas_errors()}
+  def list_participant_replicas(%Client{} = client, input, options \\ []) do
+    url_path = "/ListParticipantReplicas"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all participants in a specified stage session.
   """
   @spec list_participants(map(), list_participants_request(), list()) ::
@@ -2771,6 +2956,51 @@ defmodule AWS.IVSRealTime do
   end
 
   @doc """
+  Starts replicating a publishing participant from a source stage to a destination
+  stage.
+  """
+  @spec start_participant_replication(map(), start_participant_replication_request(), list()) ::
+          {:ok, start_participant_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_participant_replication_errors()}
+  def start_participant_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StartParticipantReplication"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Access-Control-Allow-Origin", "accessControlAllowOrigin"},
+          {"Access-Control-Expose-Headers", "accessControlExposeHeaders"},
+          {"Cache-Control", "cacheControl"},
+          {"Content-Security-Policy", "contentSecurityPolicy"},
+          {"Strict-Transport-Security", "strictTransportSecurity"},
+          {"X-Content-Type-Options", "xContentTypeOptions"},
+          {"X-Frame-Options", "xFrameOptions"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops and deletes a Composition resource.
 
   Any broadcast from the Composition resource
@@ -2786,6 +3016,50 @@ defmodule AWS.IVSRealTime do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops a replicated participant session.
+  """
+  @spec stop_participant_replication(map(), stop_participant_replication_request(), list()) ::
+          {:ok, stop_participant_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_participant_replication_errors()}
+  def stop_participant_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/StopParticipantReplication"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"Access-Control-Allow-Origin", "accessControlAllowOrigin"},
+          {"Access-Control-Expose-Headers", "accessControlExposeHeaders"},
+          {"Cache-Control", "cacheControl"},
+          {"Content-Security-Policy", "contentSecurityPolicy"},
+          {"Strict-Transport-Security", "strictTransportSecurity"},
+          {"X-Content-Type-Options", "xContentTypeOptions"},
+          {"X-Frame-Options", "xFrameOptions"}
+        ]
+      )
 
     meta = metadata()
 

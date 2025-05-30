@@ -3,19 +3,16 @@
 
 defmodule AWS.BCMPricingCalculator do
   @moduledoc """
-
   You can use the Pricing Calculator API to programmatically create estimates for
   your planned cloud use.
 
-  You can model usage and commitments such as Savings Plans and
-  Reserved Instances, and generate estimated costs using your discounts and
-  benefit sharing preferences.
+  You can model usage and commitments such as Savings Plans and Reserved
+  Instances, and generate estimated costs using your discounts and benefit sharing
+  preferences.
 
   The Pricing Calculator API provides the following endpoint:
 
-    *
-
-  `https://bcm-pricing-calculator.us-east-1.api.aws`
+    * `https://bcm-pricing-calculator.us-east-1.api.aws`
   """
 
   alias AWS.Client
@@ -1911,14 +1908,12 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Create Compute Savings Plans, EC2 Instance Savings Plans, or EC2 Reserved
   Instances commitments that you want to model in a Bill Scenario.
 
   The `BatchCreateBillScenarioCommitmentModification` operation doesn't have its
   own IAM permission. To authorize this operation for Amazon Web Services
-  principals,
-  include the permission
+  principals, include the permission
   `bcm-pricing-calculator:CreateBillScenarioCommitmentModification` in your
   policies.
   """
@@ -1944,7 +1939,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Create Amazon Web Services service usage that you want to model in a Bill
   Scenario.
 
@@ -1969,7 +1963,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Create Amazon Web Services service usage that you want to model in a Workload
   Estimate.
 
@@ -1994,23 +1987,19 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Delete commitment that you have created in a Bill Scenario.
 
-  You can only delete a commitment that you had
-  added and cannot model deletion (or removal) of a existing commitment. If you
-  want model deletion of an existing
+  You can only delete a commitment that you had added and cannot model deletion
+  (or removal) of a existing commitment. If you want model deletion of an existing
   commitment, see the negate [
   BillScenarioCommitmentModificationAction](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html)
-  of
-  [
+  of [
   BatchCreateBillScenarioCommitmentModification](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchCreateBillScenarioUsageModification.html)
   operation.
 
   The `BatchDeleteBillScenarioCommitmentModification` operation doesn't have its
   own IAM permission. To authorize this operation for Amazon Web Services
-  principals,
-  include the permission
+  principals, include the permission
   `bcm-pricing-calculator:DeleteBillScenarioCommitmentModification` in your
   policies.
   """
@@ -2036,13 +2025,11 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Delete usage that you have created in a Bill Scenario.
 
-  You can only delete usage that you had added and cannot model
-  deletion (or removal) of a existing usage. If you want model removal of an
-  existing usage, see
-  [
+  You can only delete usage that you had added and cannot model deletion (or
+  removal) of a existing usage. If you want model removal of an existing usage,
+  see [
   BatchUpdateBillScenarioUsageModification](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html).
 
   The `BatchDeleteBillScenarioUsageModification` operation doesn't have its own
@@ -2066,13 +2053,11 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Delete usage that you have created in a Workload estimate.
 
-  You can only delete usage that you had added and cannot model deletion
-  (or removal) of a existing usage. If you want model removal of an existing
-  usage, see
-  [
+  You can only delete usage that you had added and cannot model deletion (or
+  removal) of a existing usage. If you want model removal of an existing usage,
+  see [
   BatchUpdateWorkloadEstimateUsage](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html).
 
   The `BatchDeleteWorkloadEstimateUsage` operation doesn't have its own IAM
@@ -2096,7 +2081,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Update a newly added or existing commitment.
 
   You can update the commitment group based on a commitment ID and a Bill scenario
@@ -2104,8 +2088,7 @@ defmodule AWS.BCMPricingCalculator do
 
   The `BatchUpdateBillScenarioCommitmentModification` operation doesn't have its
   own IAM permission. To authorize this operation for Amazon Web Services
-  principals,
-  include the permission
+  principals, include the permission
   `bcm-pricing-calculator:UpdateBillScenarioCommitmentModification` in your
   policies.
   """
@@ -2131,7 +2114,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Update a newly added or existing usage lines.
 
   You can update the usage amounts, usage hour, and usage group based on a usage
@@ -2158,7 +2140,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Update a newly added or existing usage lines.
 
   You can update the usage amounts and usage group based on a usage ID and a
@@ -2185,7 +2166,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Create a Bill estimate from a Bill scenario.
 
   In the Bill scenario you can model usage addition, usage changes, and usage
@@ -2208,7 +2188,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Creates a new bill scenario to model potential changes to Amazon Web Services
   usage and costs.
   """
@@ -2224,7 +2203,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Creates a new workload estimate to model costs for a specific workload.
   """
   @spec create_workload_estimate(map(), create_workload_estimate_request(), list()) ::
@@ -2239,7 +2217,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Deletes an existing bill estimate.
   """
   @spec delete_bill_estimate(map(), delete_bill_estimate_request(), list()) ::
@@ -2254,7 +2231,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Deletes an existing bill scenario.
   """
   @spec delete_bill_scenario(map(), delete_bill_scenario_request(), list()) ::
@@ -2269,7 +2245,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Deletes an existing workload estimate.
   """
   @spec delete_workload_estimate(map(), delete_workload_estimate_request(), list()) ::
@@ -2284,7 +2259,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Retrieves details of a specific bill estimate.
   """
   @spec get_bill_estimate(map(), get_bill_estimate_request(), list()) ::
@@ -2299,7 +2273,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Retrieves details of a specific bill scenario.
   """
   @spec get_bill_scenario(map(), get_bill_scenario_request(), list()) ::
@@ -2314,7 +2287,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Retrieves the current preferences for Pricing Calculator.
   """
   @spec get_preferences(map(), get_preferences_request(), list()) ::
@@ -2329,7 +2301,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Retrieves details of a specific workload estimate.
   """
   @spec get_workload_estimate(map(), get_workload_estimate_request(), list()) ::
@@ -2344,7 +2315,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the commitments associated with a bill estimate.
   """
   @spec list_bill_estimate_commitments(map(), list_bill_estimate_commitments_request(), list()) ::
@@ -2359,7 +2329,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the input commitment modifications associated with a bill estimate.
   """
   @spec list_bill_estimate_input_commitment_modifications(
@@ -2384,7 +2353,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the input usage modifications associated with a bill estimate.
   """
   @spec list_bill_estimate_input_usage_modifications(
@@ -2403,7 +2371,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the line items associated with a bill estimate.
   """
   @spec list_bill_estimate_line_items(map(), list_bill_estimate_line_items_request(), list()) ::
@@ -2418,7 +2385,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists all bill estimates for the account.
   """
   @spec list_bill_estimates(map(), list_bill_estimates_request(), list()) ::
@@ -2433,7 +2399,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the commitment modifications associated with a bill scenario.
   """
   @spec list_bill_scenario_commitment_modifications(
@@ -2452,7 +2417,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the usage modifications associated with a bill scenario.
   """
   @spec list_bill_scenario_usage_modifications(
@@ -2471,7 +2435,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists all bill scenarios for the account.
   """
   @spec list_bill_scenarios(map(), list_bill_scenarios_request(), list()) ::
@@ -2486,7 +2449,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists all tags associated with a specified resource.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
@@ -2501,7 +2463,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists the usage associated with a workload estimate.
   """
   @spec list_workload_estimate_usage(map(), list_workload_estimate_usage_request(), list()) ::
@@ -2516,7 +2477,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Lists all workload estimates for the account.
   """
   @spec list_workload_estimates(map(), list_workload_estimates_request(), list()) ::
@@ -2531,7 +2491,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Adds one or more tags to a specified resource.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
@@ -2546,7 +2505,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Removes one or more tags from a specified resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
@@ -2561,7 +2519,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Updates an existing bill estimate.
   """
   @spec update_bill_estimate(map(), update_bill_estimate_request(), list()) ::
@@ -2576,7 +2533,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Updates an existing bill scenario.
   """
   @spec update_bill_scenario(map(), update_bill_scenario_request(), list()) ::
@@ -2591,7 +2547,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Updates the preferences for Pricing Calculator.
   """
   @spec update_preferences(map(), update_preferences_request(), list()) ::
@@ -2606,7 +2561,6 @@ defmodule AWS.BCMPricingCalculator do
   end
 
   @doc """
-
   Updates an existing workload estimate.
   """
   @spec update_workload_estimate(map(), update_workload_estimate_request(), list()) ::

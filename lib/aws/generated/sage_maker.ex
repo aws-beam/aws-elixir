@@ -12287,6 +12287,7 @@ defmodule AWS.SageMaker do
         "MlflowVersion" => String.t(),
         "RoleArn" => String.t(),
         "TrackingServerArn" => String.t(),
+        "TrackingServerMaintenanceStatus" => list(any()),
         "TrackingServerName" => String.t(),
         "TrackingServerSize" => list(any()),
         "TrackingServerStatus" => list(any()),

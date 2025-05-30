@@ -288,7 +288,8 @@ defmodule AWS.MWAA do
         "CreatedAt" => non_neg_integer(),
         "Error" => update_error(),
         "Source" => String.t(),
-        "Status" => String.t()
+        "Status" => String.t(),
+        "WorkerReplacementStrategy" => String.t()
       }
 
   """
@@ -384,7 +385,8 @@ defmodule AWS.MWAA do
         optional("StartupScriptS3ObjectVersion") => String.t(),
         optional("StartupScriptS3Path") => String.t(),
         optional("WebserverAccessMode") => String.t(),
-        optional("WeeklyMaintenanceWindowStart") => String.t()
+        optional("WeeklyMaintenanceWindowStart") => String.t(),
+        optional("WorkerReplacementStrategy") => String.t()
       }
 
   """

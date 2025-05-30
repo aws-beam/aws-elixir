@@ -323,6 +323,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       create_event_action_request() :: %{
+        optional("Tags") => map(),
         required("Action") => action(),
         required("Event") => event()
       }
@@ -888,6 +889,7 @@ defmodule AWS.DataExchange do
         optional("CreatedAt") => non_neg_integer(),
         optional("Event") => event(),
         optional("Id") => String.t(),
+        optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
@@ -1954,6 +1956,7 @@ defmodule AWS.DataExchange do
         optional("CreatedAt") => non_neg_integer(),
         optional("Event") => event(),
         optional("Id") => String.t(),
+        optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 

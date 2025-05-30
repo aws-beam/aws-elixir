@@ -41,6 +41,7 @@ defmodule AWS.Amplify do
         "enableBranchAutoDeletion" => boolean(),
         "environmentVariables" => map(),
         "iamServiceRoleArn" => String.t(),
+        "jobConfig" => job_config(),
         "name" => String.t(),
         "platform" => list(any()),
         "productionBranch" => production_branch(),
@@ -182,6 +183,7 @@ defmodule AWS.Amplify do
         optional("enableBranchAutoDeletion") => boolean(),
         optional("environmentVariables") => map(),
         optional("iamServiceRoleArn") => String.t(),
+        optional("jobConfig") => job_config(),
         optional("oauthToken") => String.t(),
         optional("platform") => list(any()),
         optional("repository") => String.t(),
@@ -888,6 +890,17 @@ defmodule AWS.Amplify do
 
   ## Example:
 
+      job_config() :: %{
+        "buildComputeType" => list(any())
+      }
+
+  """
+  @type job_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_branch_request() :: %{
         optional("backend") => backend(),
         optional("backendEnvironmentArn") => String.t(),
@@ -1006,6 +1019,7 @@ defmodule AWS.Amplify do
         optional("enableBranchAutoDeletion") => boolean(),
         optional("environmentVariables") => map(),
         optional("iamServiceRoleArn") => String.t(),
+        optional("jobConfig") => job_config(),
         optional("name") => String.t(),
         optional("oauthToken") => String.t(),
         optional("platform") => list(any()),
@@ -1597,10 +1611,9 @@ defmodule AWS.Amplify do
   This API is available only to Amplify Gen 1 applications where the
   backend is created using Amplify Studio or the Amplify
   command line interface (CLI). This API isn’t available to Amplify Gen 2
-  applications.
-  When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  applications. When you deploy an application with Amplify Gen 2, you provision
+  the app's
+  backend infrastructure using Typescript code.
   """
   @spec create_backend_environment(
           map(),
@@ -1797,10 +1810,9 @@ defmodule AWS.Amplify do
   This API is available only to Amplify Gen 1 applications where the
   backend is created using Amplify Studio or the Amplify
   command line interface (CLI). This API isn’t available to Amplify Gen 2
-  applications.
-  When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  applications. When you deploy an application with Amplify Gen 2, you provision
+  the app's
+  backend infrastructure using Typescript code.
   """
   @spec delete_backend_environment(
           map(),
@@ -2037,10 +2049,9 @@ defmodule AWS.Amplify do
   This API is available only to Amplify Gen 1 applications where the
   backend is created using Amplify Studio or the Amplify
   command line interface (CLI). This API isn’t available to Amplify Gen 2
-  applications.
-  When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  applications. When you deploy an application with Amplify Gen 2, you provision
+  the app's
+  backend infrastructure using Typescript code.
   """
   @spec get_backend_environment(map(), String.t(), String.t(), list()) ::
           {:ok, get_backend_environment_result(), any()}
@@ -2172,11 +2183,11 @@ defmodule AWS.Amplify do
   To return the build artifacts, use the
   [GetJob](https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html) API.
 
-  For more information about Amplify testing support, see [Setting up end-to-end
-  Cypress tests for your Amplify
+  For more information about Amplify testing support, see [Setting up
+  end-to-end Cypress tests for your Amplify
   application](https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html)
-  in the *Amplify Hosting User
-  Guide*.
+  in the
+  *Amplify Hosting User Guide*.
   """
   @spec list_artifacts(
           map(),
@@ -2231,10 +2242,9 @@ defmodule AWS.Amplify do
   This API is available only to Amplify Gen 1 applications where the
   backend is created using Amplify Studio or the Amplify
   command line interface (CLI). This API isn’t available to Amplify Gen 2
-  applications.
-  When you deploy an application with
-  Amplify Gen 2, you provision the app's backend infrastructure using Typescript
-  code.
+  applications. When you deploy an application with Amplify Gen 2, you provision
+  the app's
+  backend infrastructure using Typescript code.
   """
   @spec list_backend_environments(
           map(),

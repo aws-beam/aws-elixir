@@ -2980,6 +2980,7 @@ defmodule AWS.S3 do
   ## Example:
 
       put_bucket_ownership_controls_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
         optional("ContentMD5") => String.t(),
         optional("ExpectedBucketOwner") => String.t(),
         required("OwnershipControls") => ownership_controls()
@@ -9779,13 +9780,14 @@ defmodule AWS.S3 do
   end
 
   @doc """
-  Retrieves all the metadata from an object without returning the object itself.
+  Retrieves all of the metadata from an object without returning the object
+  itself.
 
   This
   operation is useful if you're interested only in an object's metadata.
 
   `GetObjectAttributes` combines the functionality of `HeadObject`
-  and `ListParts`. All of the data returned with each of those individual calls
+  and `ListParts`. All of the data returned with both of those individual calls
   can be returned with a single call to `GetObjectAttributes`.
 
   **Directory buckets** -
@@ -9814,17 +9816,28 @@ defmodule AWS.S3 do
     
 
   **General purpose bucket permissions** - To
-  use `GetObjectAttributes`, you must have READ access to the
-  object. The permissions that you need to use this operation depend on
-  whether the bucket is versioned. If the bucket is versioned, you need both
-  the `s3:GetObjectVersion` and
-  `s3:GetObjectVersionAttributes` permissions for this
-  operation. If the bucket is not versioned, you need the
+  use `GetObjectAttributes`, you must have READ access to the object.
+
+  The other permissions that you need to use this operation depend on
+  whether the bucket is versioned and if a version ID is passed in the
+  `GetObjectAttributes` request.
+
+      
+  If you pass a version ID in your request, you need both the
+  `s3:GetObjectVersion` and
+  `s3:GetObjectVersionAttributes` permissions.
+
+      
+  If you do not pass a version ID in your request, you need the
   `s3:GetObject` and `s3:GetObjectAttributes`
-  permissions. For more information, see [Specifying Permissions in a
+  permissions.
+
+  For more information, see [Specifying Permissions in a
   Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)
   in the
-  *Amazon S3 User Guide*. If the object that you request does
+  *Amazon S3 User Guide*.
+
+  If the object that you request does
   not exist, the error Amazon S3 returns depends on whether you also have the
   `s3:ListBucket` permission.
 
@@ -9880,11 +9893,12 @@ defmodule AWS.S3 do
   error. It's because the encryption method can't be changed when you retrieve
   the object.
 
-  If you encrypt an object by using server-side encryption with customer-provided
-  encryption keys (SSE-C) when you store the object in Amazon S3, then when you
-  retrieve
-  the metadata from the object, you must use the following headers to provide the
-  encryption key for the server to be able to retrieve the object's metadata. The
+  If you encrypted an object when you stored the object in Amazon S3 by using
+  server-side encryption with customer-provided
+  encryption keys (SSE-C), then when you retrieve
+  the metadata from the object, you must use the following headers. These headers
+  provide the
+  server with the encryption key required to retrieve the object's metadata. The
   headers are:
 
     
@@ -14056,6 +14070,7 @@ defmodule AWS.S3 do
 
     {headers, input} =
       [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
         {"ContentMD5", "Content-MD5"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
       ]

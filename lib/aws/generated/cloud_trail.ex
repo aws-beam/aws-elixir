@@ -594,6 +594,17 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      get_event_configuration_request() :: %{
+        optional("EventDataStore") => String.t()
+      }
+      
+  """
+  @type get_event_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_event_data_store_response() :: %{
         "AdvancedEventSelectors" => list(advanced_event_selector()()),
         "BillingMode" => list(any()),
@@ -1042,6 +1053,19 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      put_event_configuration_response() :: %{
+        "ContextKeySelectors" => list(context_key_selector()()),
+        "EventDataStoreArn" => String.t(),
+        "MaxEventSize" => list(any())
+      }
+      
+  """
+  @type put_event_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_source_exception() :: %{
         "Message" => String.t()
       }
@@ -1082,6 +1106,19 @@ defmodule AWS.CloudTrail do
       
   """
   @type account_has_ongoing_import_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_event_configuration_request() :: %{
+        optional("EventDataStore") => String.t(),
+        required("ContextKeySelectors") => list(context_key_selector()()),
+        required("MaxEventSize") => list(any())
+      }
+      
+  """
+  @type put_event_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1230,6 +1267,17 @@ defmodule AWS.CloudTrail do
       
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_iam_access_permission_exception() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type insufficient_iam_access_permission_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1970,6 +2018,19 @@ defmodule AWS.CloudTrail do
       
   """
   @type get_insight_selectors_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_configuration_response() :: %{
+        "ContextKeySelectors" => list(context_key_selector()()),
+        "EventDataStoreArn" => String.t(),
+        "MaxEventSize" => list(any())
+      }
+      
+  """
+  @type get_event_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2845,6 +2906,18 @@ defmodule AWS.CloudTrail do
 
   ## Example:
       
+      context_key_selector() :: %{
+        "Equals" => list(String.t()()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type context_key_selector() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_import_request() :: %{
         optional("Destinations") => list(String.t()()),
         optional("EndEventTime") => non_neg_integer(),
@@ -3209,6 +3282,18 @@ defmodule AWS.CloudTrail do
   @type get_dashboard_errors() ::
           resource_not_found_exception() | unsupported_operation_exception()
 
+  @type get_event_configuration_errors() ::
+          cloud_trail_arn_invalid_exception()
+          | invalid_event_data_store_status_exception()
+          | event_data_store_not_found_exception()
+          | invalid_parameter_exception()
+          | operation_not_permitted_exception()
+          | invalid_event_data_store_category_exception()
+          | invalid_parameter_combination_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | event_data_store_arn_invalid_exception()
+          | unsupported_operation_exception()
+
   @type get_event_data_store_errors() ::
           event_data_store_not_found_exception()
           | invalid_parameter_exception()
@@ -3355,6 +3440,24 @@ defmodule AWS.CloudTrail do
           | unsupported_operation_exception()
           | invalid_max_results_exception()
 
+  @type put_event_configuration_errors() ::
+          cloud_trail_arn_invalid_exception()
+          | invalid_event_data_store_status_exception()
+          | event_data_store_not_found_exception()
+          | throttling_exception()
+          | invalid_parameter_exception()
+          | inactive_event_data_store_exception()
+          | not_organization_master_account_exception()
+          | operation_not_permitted_exception()
+          | invalid_event_data_store_category_exception()
+          | insufficient_iam_access_permission_exception()
+          | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
+          | invalid_parameter_combination_exception()
+          | no_management_account_s_l_r_exists_exception()
+          | event_data_store_arn_invalid_exception()
+          | unsupported_operation_exception()
+
   @type put_event_selectors_errors() ::
           cloud_trail_arn_invalid_exception()
           | throttling_exception()
@@ -3403,6 +3506,7 @@ defmodule AWS.CloudTrail do
           | operation_not_permitted_exception()
           | organizations_not_in_use_exception()
           | account_not_found_exception()
+          | insufficient_iam_access_permission_exception()
           | insufficient_dependency_service_access_permission_exception()
           | organization_not_in_all_features_mode_exception()
           | conflict_exception()
@@ -3463,6 +3567,7 @@ defmodule AWS.CloudTrail do
           | operation_not_permitted_exception()
           | invalid_event_data_store_category_exception()
           | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
           | no_management_account_s_l_r_exists_exception()
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
@@ -3518,6 +3623,7 @@ defmodule AWS.CloudTrail do
           | operation_not_permitted_exception()
           | invalid_event_data_store_category_exception()
           | insufficient_dependency_service_access_permission_exception()
+          | conflict_exception()
           | no_management_account_s_l_r_exists_exception()
           | event_data_store_arn_invalid_exception()
           | unsupported_operation_exception()
@@ -4057,6 +4163,23 @@ defmodule AWS.CloudTrail do
   end
 
   @doc """
+  Retrieves the current event configuration settings for the specified event data
+  store, including details
+  about maximum event size and context key selectors configured for the event data
+  store.
+  """
+  @spec get_event_configuration(map(), get_event_configuration_request(), list()) ::
+          {:ok, get_event_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_event_configuration_errors()}
+  def get_event_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetEventConfiguration", input, options)
+  end
+
+  @doc """
   Returns information about an event data store specified as either an ARN or the
   ID
   portion of the ARN.
@@ -4490,6 +4613,22 @@ defmodule AWS.CloudTrail do
     meta = metadata()
 
     Request.request_post(client, meta, "LookupEvents", input, options)
+  end
+
+  @doc """
+  Updates the event configuration settings for the specified event data store.
+
+  You can update the maximum event size and context key selectors.
+  """
+  @spec put_event_configuration(map(), put_event_configuration_request(), list()) ::
+          {:ok, put_event_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_event_configuration_errors()}
+  def put_event_configuration(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "PutEventConfiguration", input, options)
   end
 
   @doc """

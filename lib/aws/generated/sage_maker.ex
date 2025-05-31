@@ -181,6 +181,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      production_variant_capacity_reservation_summary() :: %{
+        "AvailableInstanceCount" => integer(),
+        "CapacityReservationPreference" => list(any()),
+        "Ec2CapacityReservations" => list(ec2_capacity_reservation()()),
+        "MlReservationArn" => String.t(),
+        "TotalInstanceCount" => integer(),
+        "UsedByCurrentEndpoint" => integer()
+      }
+      
+  """
+  @type production_variant_capacity_reservation_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       best_objective_not_improving() :: %{
         "MaxNumberOfTrainingJobsNotImproving" => integer()
       }
@@ -1688,6 +1704,7 @@ defmodule AWS.SageMaker do
         "EnvironmentId" => String.t(),
         "ProjectId" => String.t(),
         "ProjectS3Path" => String.t(),
+        "SingleSignOnApplicationArn" => String.t(),
         "StudioWebPortalAccess" => list(any())
       }
       
@@ -5367,6 +5384,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       production_variant_summary() :: %{
+        "CapacityReservationConfig" => production_variant_capacity_reservation_summary(),
         "CurrentInstanceCount" => integer(),
         "CurrentServerlessConfig" => production_variant_serverless_config(),
         "CurrentWeight" => float(),
@@ -6873,6 +6891,20 @@ defmodule AWS.SageMaker do
       
   """
   @type create_cluster_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_capacity_reservation() :: %{
+        "AvailableInstanceCount" => integer(),
+        "Ec2CapacityReservationId" => String.t(),
+        "TotalInstanceCount" => integer(),
+        "UsedByCurrentEndpoint" => integer()
+      }
+      
+  """
+  @type ec2_capacity_reservation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8598,6 +8630,7 @@ defmodule AWS.SageMaker do
       
       production_variant() :: %{
         "AcceleratorType" => list(any()),
+        "CapacityReservationConfig" => production_variant_capacity_reservation_config(),
         "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
         "CoreDumpConfig" => production_variant_core_dump_config(),
         "EnableSSMAccess" => boolean(),
@@ -16333,6 +16366,18 @@ defmodule AWS.SageMaker do
       
   """
   @type space_jupyter_lab_app_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      production_variant_capacity_reservation_config() :: %{
+        "CapacityReservationPreference" => list(any()),
+        "MlReservationArn" => String.t()
+      }
+      
+  """
+  @type production_variant_capacity_reservation_config() :: %{String.t() => any()}
 
   @typedoc """
 

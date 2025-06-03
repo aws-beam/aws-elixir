@@ -827,6 +827,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_agent_alias_request() :: %{
+        optional("aliasInvocationState") => list(any()),
         optional("description") => String.t(),
         optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()()),
         required("agentAliasName") => String.t()
@@ -2556,6 +2557,7 @@ defmodule AWS.BedrockAgent do
         "agentAliasId" => String.t(),
         "agentAliasName" => String.t(),
         "agentAliasStatus" => list(any()),
+        "aliasInvocationState" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "routingConfiguration" => list(agent_alias_routing_configuration_list_item()()),
@@ -2995,6 +2997,7 @@ defmodule AWS.BedrockAgent do
         "agentAliasName" => String.t(),
         "agentAliasStatus" => list(any()),
         "agentId" => String.t(),
+        "aliasInvocationState" => list(any()),
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),

@@ -33,6 +33,17 @@ defmodule AWS.CostOptimizationHub do
 
   ## Example:
       
+      aurora_db_cluster_storage_configuration() :: %{
+        "storageType" => [String.t()]
+      }
+      
+  """
+  @type aurora_db_cluster_storage_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       summary_metrics_result() :: %{
         "savingsPercentage" => [String.t()]
       }
@@ -718,6 +729,18 @@ defmodule AWS.CostOptimizationHub do
       
   """
   @type savings_plans_cost_calculation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aurora_db_cluster_storage() :: %{
+        "configuration" => aurora_db_cluster_storage_configuration(),
+        "costCalculation" => resource_cost_calculation()
+      }
+      
+  """
+  @type aurora_db_cluster_storage() :: %{String.t() => any()}
 
   @typedoc """
 

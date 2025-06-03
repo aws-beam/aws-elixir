@@ -6938,8 +6938,24 @@ defmodule AWS.Backup do
 
   @doc """
   Returns the tags assigned to the resource, such as a target recovery point,
-  backup plan, or
-  backup vault.
+  backup plan,
+  or backup vault.
+
+  This operation returns results depending on the resource type used in the value
+  for
+  `resourceArn`. For example, recovery points of Amazon DynamoDB with
+  Advanced Settings have an ARN (Amazon Resource Name) that begins with
+  `arn:aws:backup`. Recovery points (backups) of DynamoDB without
+  Advanced Settings enabled have an ARN that begins with
+  `arn:aws:dynamodb`.
+
+  When this operation is called and when you include values of `resourceArn`
+  that have an ARN other than `arn:aws:backup`, it may return one of the
+  exceptions listed below. To prevent this exception, include only values
+  representing
+  resource types that are fully managed by Backup. These have an ARN that begins
+  `arn:aws:backup` and they are noted in the [Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource)
+  table.
   """
   @spec list_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_tags_output(), any()}
@@ -7270,11 +7286,33 @@ defmodule AWS.Backup do
   Attempts to cancel a job to create a one-time backup of a resource.
 
   This action is not supported for the following services:
-  Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for NetApp
-  ONTAP,
-  Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon
-  RDS, Amazon Aurora,
-  and Amazon Neptune.
+
+    *
+  Amazon Aurora
+
+    *
+  Amazon DocumentDB (with MongoDB compatibility)
+
+    *
+  Amazon FSx for Lustre
+
+    *
+  Amazon FSx for NetApp ONTAP
+
+    *
+  Amazon FSx for OpenZFS
+
+    *
+  Amazon FSx for Windows File Server
+
+    *
+  Amazon Neptune
+
+    *
+  SAP HANA databases on Amazon EC2 instances
+
+    *
+  Amazon RDS
   """
   @spec stop_backup_job(map(), String.t(), stop_backup_job_input(), list()) ::
           {:ok, nil, any()}
@@ -7303,13 +7341,7 @@ defmodule AWS.Backup do
   end
 
   @doc """
-  Assigns a set of key-value pairs to a recovery point, backup plan, or backup
-  vault
-  identified by an Amazon Resource Name (ARN).
-
-  This API is supported for recovery points for resource types
-  including Aurora, Amazon DocumentDB. Amazon EBS,
-  Amazon FSx, Neptune, and Amazon RDS.
+  Assigns a set of key-value pairs to a resource.
   """
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, nil, any()}

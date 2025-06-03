@@ -6,24 +6,19 @@ defmodule AWS.EntityResolution do
   Welcome to the *Entity Resolution API Reference*.
 
   Entity Resolution is an Amazon Web Services service that provides pre-configured
-  entity
-  resolution capabilities that enable developers and analysts at advertising and
-  marketing
-  companies to build an accurate and complete view of their consumers.
+  entity resolution capabilities that enable developers and analysts at
+  advertising and marketing companies to build an accurate and complete view of
+  their consumers.
 
   With Entity Resolution, you can match source records containing consumer
-  identifiers,
-  such as name, email address, and phone number. This is true even when these
-  records have
-  incomplete or conflicting identifiers. For example, Entity Resolution can
-  effectively match
-  a source record from a customer relationship management (CRM) system with a
-  source record
-  from a marketing system containing campaign information.
+  identifiers, such as name, email address, and phone number. This is true even
+  when these records have incomplete or conflicting identifiers. For example,
+  Entity Resolution can effectively match a source record from a customer
+  relationship management (CRM) system with a source record from a marketing
+  system containing campaign information.
 
   To learn more about Entity Resolution concepts, procedures, and best practices,
-  see the
-  [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
+  see the [Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html).
   """
 
   alias AWS.Client
@@ -72,6 +67,19 @@ defmodule AWS.EntityResolution do
 
   """
   @type id_mapping_techniques() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      record() :: %{
+        "inputSourceARN" => [String.t()],
+        "recordAttributeMap" => map(),
+        "uniqueId" => String.t()
+      }
+
+  """
+  @type record() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -442,6 +450,19 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      failed_record() :: %{
+        "errorMessage" => String.t(),
+        "inputSourceARN" => [String.t()],
+        "uniqueId" => [String.t()]
+      }
+
+  """
+  @type failed_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_id_namespaces_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
@@ -652,6 +673,18 @@ defmodule AWS.EntityResolution do
 
   """
   @type delete_id_namespace_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_match_id_input() :: %{
+        optional("processingType") => list(any()),
+        required("records") => list(record()())
+      }
+
+  """
+  @type generate_match_id_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -936,6 +969,19 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      match_group() :: %{
+        "matchId" => [String.t()],
+        "matchRule" => [String.t()],
+        "records" => list(matched_record()())
+      }
+
+  """
+  @type match_group() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t()
       }
@@ -1092,6 +1138,18 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      generate_match_id_output() :: %{
+        "failedRecords" => list(failed_record()()),
+        "matchGroups" => list(match_group()())
+      }
+
+  """
+  @type generate_match_id_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_id_namespace_input() :: %{
         optional("description") => String.t(),
         optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()()),
@@ -1121,6 +1179,18 @@ defmodule AWS.EntityResolution do
 
   """
   @type delete_policy_statement_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      matched_record() :: %{
+        "inputSourceARN" => [String.t()],
+        "recordId" => [String.t()]
+      }
+
+  """
+  @type matched_record() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1630,6 +1700,13 @@ defmodule AWS.EntityResolution do
           | internal_server_exception()
           | conflict_exception()
 
+  @type generate_match_id_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_id_mapping_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -1819,8 +1896,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Adds a policy statement object.
 
-  To retrieve a list of existing policy statements, use
-  the `GetPolicy` API.
+  To retrieve a list of existing policy statements, use the `GetPolicy` API.
   """
   @spec add_policy_statement(map(), String.t(), String.t(), add_policy_statement_input(), list()) ::
           {:ok, add_policy_statement_output(), any()}
@@ -1885,12 +1961,11 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates an `IdMappingWorkflow` object which stores the configuration of the
-  data processing job to be run.
+  Creates an `IdMappingWorkflow` object which stores the configuration of the data
+  processing job to be run.
 
-  Each `IdMappingWorkflow` must have a unique
-  workflow name. To modify an existing workflow, use the `UpdateIdMappingWorkflow`
-  API.
+  Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing
+  workflow, use the `UpdateIdMappingWorkflow` API.
   """
   @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
@@ -1920,11 +1995,10 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Creates an ID namespace object which will help customers provide metadata
-  explaining
-  their dataset and how to use it.
+  explaining their dataset and how to use it.
 
-  Each ID namespace must have a unique name. To modify an
-  existing ID namespace, use the `UpdateIdNamespace` API.
+  Each ID namespace must have a unique name. To modify an existing ID namespace,
+  use the `UpdateIdNamespace` API.
   """
   @spec create_id_namespace(map(), create_id_namespace_input(), list()) ::
           {:ok, create_id_namespace_output(), any()}
@@ -1953,12 +2027,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates a `MatchingWorkflow` object which stores the configuration of the
-  data processing job to be run.
+  Creates a `MatchingWorkflow` object which stores the configuration of the data
+  processing job to be run.
 
-  It is important to note that there should not be a
-  pre-existing `MatchingWorkflow` with the same name. To modify an existing
-  workflow, utilize the `UpdateMatchingWorkflow` API.
+  It is important to note that there should not be a pre-existing
+  `MatchingWorkflow` with the same name. To modify an existing workflow, utilize
+  the `UpdateMatchingWorkflow` API.
   """
   @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
           {:ok, create_matching_workflow_output(), any()}
@@ -2022,8 +2096,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `IdMappingWorkflow` with a given name.
 
-  This operation will
-  succeed even if a workflow with the given name does not exist.
+  This operation will succeed even if a workflow with the given name does not
+  exist.
   """
   @spec delete_id_mapping_workflow(map(), String.t(), delete_id_mapping_workflow_input(), list()) ::
           {:ok, delete_id_mapping_workflow_output(), any()}
@@ -2083,8 +2157,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `MatchingWorkflow` with a given name.
 
-  This operation will succeed
-  even if a workflow with the given name does not exist.
+  This operation will succeed even if a workflow with the given name does not
+  exist.
   """
   @spec delete_matching_workflow(map(), String.t(), delete_matching_workflow_input(), list()) ::
           {:ok, delete_matching_workflow_output(), any()}
@@ -2150,11 +2224,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `SchemaMapping` with a given name.
 
-  This operation will succeed
-  even if a schema with the given name does not exist. This operation will fail if
-  there is a
-  `MatchingWorkflow` object that references the `SchemaMapping` in
-  the workflow's `InputSourceConfig`.
+  This operation will succeed even if a schema with the given name does not exist.
+  This operation will fail if there is a `MatchingWorkflow` object that references
+  the `SchemaMapping` in the workflow's `InputSourceConfig`.
   """
   @spec delete_schema_mapping(map(), String.t(), delete_schema_mapping_input(), list()) ::
           {:ok, delete_schema_mapping_output(), any()}
@@ -2183,9 +2255,49 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  Generates or retrieves Match IDs for records using a rule-based matching
+  workflow.
+
+  When you call this operation, it processes your records against the workflow's
+  matching rules to identify potential matches. For existing records, it retrieves
+  their Match IDs and associated rules. For records without matches, it generates
+  new Match IDs. The operation saves results to Amazon S3.
+
+  The processing type (`processingType`) you choose affects both the accuracy and
+  response time of the operation. Additional charges apply for each API call,
+  whether made through the Entity Resolution console or directly via the API. The
+  rule-based matching workflow must exist and be active before calling this
+  operation.
+  """
+  @spec generate_match_id(map(), String.t(), generate_match_id_input(), list()) ::
+          {:ok, generate_match_id_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, generate_match_id_errors()}
+  def generate_match_id(%Client{} = client, workflow_name, input, options \\ []) do
+    url_path = "/matchingworkflows/#{AWS.Util.encode_uri(workflow_name)}/generateMatches"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the status, metrics, and errors (if there are any) that are associated
+  with a job.
   """
   @spec get_id_mapping_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_id_mapping_job_output(), any()}
@@ -2242,12 +2354,10 @@ defmodule AWS.EntityResolution do
 
   @doc """
   Returns the corresponding Match ID of a customer record if the record has been
-  processed
-  in a rule-based matching workflow or ML matching workflow.
+  processed in a rule-based matching workflow or ML matching workflow.
 
   You can call this API as a dry run of an incremental load on the rule-based
-  matching
-  workflow.
+  matching workflow.
   """
   @spec get_match_id(map(), String.t(), get_match_id_input(), list()) ::
           {:ok, get_match_id_output(), any()}
@@ -2276,9 +2386,8 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Gets the status, metrics, and errors (if there are any) that are associated with
-  a
-  job.
+  Returns the status, metrics, and errors (if there are any) that are associated
+  with a job.
   """
   @spec get_matching_job(map(), String.t(), String.t(), list()) ::
           {:ok, get_matching_job_output(), any()}
@@ -2561,8 +2670,8 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `ProviderServices` that are available in this
-  Amazon Web Services Region.
+  Returns a list of all the `ProviderServices` that are available in this Amazon
+  Web Services Region.
   """
   @spec list_provider_services(
           map(),
@@ -2613,8 +2722,8 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Returns a list of all the `SchemaMappings` that have been created for an
-  Amazon Web Services account.
+  Returns a list of all the `SchemaMappings` that have been created for an Amazon
+  Web Services account.
   """
   @spec list_schema_mappings(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_schema_mappings_output(), any()}
@@ -2653,8 +2762,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Displays the tags associated with an Entity Resolution resource.
 
-  In Entity Resolution,
-  `SchemaMapping`, and `MatchingWorkflow` can be tagged.
+  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
   """
   @spec list_tags_for_resource(map(), String.t(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2703,8 +2811,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Starts the `IdMappingJob` of a workflow.
 
-  The workflow must have previously
-  been created using the `CreateIdMappingWorkflow` endpoint.
+  The workflow must have previously been created using the
+  `CreateIdMappingWorkflow` endpoint.
   """
   @spec start_id_mapping_job(map(), String.t(), start_id_mapping_job_input(), list()) ::
           {:ok, start_id_mapping_job_output(), any()}
@@ -2735,8 +2843,8 @@ defmodule AWS.EntityResolution do
   @doc """
   Starts the `MatchingJob` of a workflow.
 
-  The workflow must have previously
-  been created using the `CreateMatchingWorkflow` endpoint.
+  The workflow must have previously been created using the
+  `CreateMatchingWorkflow` endpoint.
   """
   @spec start_matching_job(map(), String.t(), start_matching_job_input(), list()) ::
           {:ok, start_matching_job_output(), any()}
@@ -2769,19 +2877,14 @@ defmodule AWS.EntityResolution do
   resource.
 
   Tags can help you organize and categorize your resources. You can also use them
-  to scope
-  user permissions by granting a user permission to access or change only
-  resources with
-  certain tag values. In Entity Resolution, `SchemaMapping` and
-  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to
-  Amazon Web Services and are interpreted strictly as strings of characters. You
-  can use
+  to scope user permissions by granting a user permission to access or change only
+  resources with certain tag values. In Entity Resolution, `SchemaMapping` and
+  `MatchingWorkflow` can be tagged. Tags don't have any semantic meaning to Amazon
+  Web Services and are interpreted strictly as strings of characters. You can use
   the `TagResource` action with a resource that already has tags. If you specify a
   new tag key, this tag is appended to the list of tags associated with the
-  resource. If you
-  specify a tag key that is already associated with the resource, the new tag
-  value that you
-  specify replaces the previous value for that tag.
+  resource. If you specify a tag key that is already associated with the resource,
+  the new tag value that you specify replaces the previous value for that tag.
   """
   @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
@@ -2812,8 +2915,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Removes one or more tags from the specified Entity Resolution resource.
 
-  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be
-  tagged.
+  In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
   """
   @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
@@ -2849,10 +2951,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing `IdMappingWorkflow`.
 
-  This method is identical to
-  `CreateIdMappingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `IdMappingWorkflow` must already
-  exist for the method to succeed.
+  This method is identical to `CreateIdMappingWorkflow`, except it uses an HTTP
+  `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must
+  already exist for the method to succeed.
   """
   @spec update_id_mapping_workflow(map(), String.t(), update_id_mapping_workflow_input(), list()) ::
           {:ok, update_id_mapping_workflow_output(), any()}
@@ -2912,10 +3013,9 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing `MatchingWorkflow`.
 
-  This method is identical to
-  `CreateMatchingWorkflow`, except it uses an HTTP `PUT` request
-  instead of a `POST` request, and the `MatchingWorkflow` must already
-  exist for the method to succeed.
+  This method is identical to `CreateMatchingWorkflow`, except it uses an HTTP
+  `PUT` request instead of a `POST` request, and the `MatchingWorkflow` must
+  already exist for the method to succeed.
   """
   @spec update_matching_workflow(map(), String.t(), update_matching_workflow_input(), list()) ::
           {:ok, update_matching_workflow_output(), any()}
@@ -2947,8 +3047,7 @@ defmodule AWS.EntityResolution do
   Updates a schema mapping.
 
   A schema is immutable if it is being used by a workflow. Therefore, you can't
-  update
-  a schema mapping if it's associated with a workflow.
+  update a schema mapping if it's associated with a workflow.
   """
   @spec update_schema_mapping(map(), String.t(), update_schema_mapping_input(), list()) ::
           {:ok, update_schema_mapping_output(), any()}

@@ -98,6 +98,7 @@ defmodule AWS.ComputeOptimizer do
         "currentDBInstanceClass" => String.t(),
         "currentInstancePerformanceRisk" => list(any()),
         "currentStorageConfiguration" => db_storage_configuration(),
+        "currentStorageEstimatedMonthlyVolumeIOPsCostVariation" => list(any()),
         "dbClusterIdentifier" => String.t(),
         "effectiveRecommendationPreferences" => rds_effective_recommendation_preferences(),
         "engine" => String.t(),
@@ -1449,6 +1450,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       rds_db_storage_recommendation_option() :: %{
+        "estimatedMonthlyVolumeIOPsCostVariation" => list(any()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => rds_storage_savings_opportunity_after_discounts(),
@@ -2863,8 +2865,8 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
 
-  Export optimization recommendations for your Amazon Relational Database Service
-  (Amazon RDS).
+  Export optimization recommendations for your Amazon Aurora and Amazon Relational
+  Database Service (Amazon RDS) databases.
 
   Recommendations are exported in a comma-separated values (CSV) file, and its
   metadata
@@ -2874,8 +2876,8 @@ defmodule AWS.ComputeOptimizer do
   in the *Compute Optimizer User
   Guide*.
 
-  You can have only one Amazon RDS export job in progress per Amazon Web Services
-  Region.
+  You can have only one Amazon Aurora or RDS export job in progress per Amazon Web
+  Services Region.
   """
   @spec export_rds_database_recommendations(
           map(),
@@ -3174,7 +3176,7 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
 
-  Returns the projected metrics of Amazon RDS recommendations.
+  Returns the projected metrics of Aurora and RDS database recommendations.
   """
   @spec get_rds_database_recommendation_projected_metrics(
           map(),
@@ -3199,9 +3201,10 @@ defmodule AWS.ComputeOptimizer do
 
   @doc """
 
-  Returns Amazon RDS recommendations.
+  Returns Amazon Aurora and RDS database recommendations.
 
-  Compute Optimizer generates recommendations for Amazon RDS that
+  Compute Optimizer generates recommendations for Amazon Aurora and RDS databases
+  that
   meet a specific set of requirements. For more
   information, see the [Supported resources and requirements](https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html)
   in the *Compute Optimizer User
@@ -3258,7 +3261,7 @@ defmodule AWS.ComputeOptimizer do
   `Optimized`.
 
     *
-  Auto Scaling groups in an account that are `NotOptimized`, or
+  EC2Auto Scaling groups in an account that are `NotOptimized`, or
   `Optimized`.
 
     *
@@ -3272,6 +3275,15 @@ defmodule AWS.ComputeOptimizer do
     *
   Amazon ECS services in an account that are `Underprovisioned`,
   `Overprovisioned`, or `Optimized`.
+
+    *
+  Commercial software licenses in an account that are `InsufficientMetrics`,
+  `NotOptimized` or `Optimized`.
+
+    *
+  Amazon Aurora and Amazon RDS databases in an account that are
+  `Underprovisioned`,
+  `Overprovisioned`, `Optimized`, or `NotOptimized`.
   """
   @spec get_recommendation_summaries(map(), get_recommendation_summaries_request(), list()) ::
           {:ok, get_recommendation_summaries_response(), any()}

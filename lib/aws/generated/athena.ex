@@ -85,6 +85,18 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      managed_query_results_configuration() :: %{
+        "Enabled" => boolean(),
+        "EncryptionConfiguration" => managed_query_results_encryption_configuration()
+      }
+      
+  """
+  @type managed_query_results_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_data_catalog_input() :: %{
         optional("DeleteCatalogOnly") => boolean(),
         required("Name") => String.t()
@@ -1059,6 +1071,19 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      managed_query_results_configuration_updates() :: %{
+        "Enabled" => boolean(),
+        "EncryptionConfiguration" => managed_query_results_encryption_configuration(),
+        "RemoveEncryptionConfiguration" => boolean()
+      }
+      
+  """
+  @type managed_query_results_configuration_updates() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t(),
         "ResourceName" => String.t()
@@ -1317,6 +1342,7 @@ defmodule AWS.Athena do
       query_execution() :: %{
         "EngineVersion" => engine_version(),
         "ExecutionParameters" => list(String.t()()),
+        "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
         "Query" => String.t(),
         "QueryExecutionContext" => query_execution_context(),
         "QueryExecutionId" => String.t(),
@@ -1684,6 +1710,7 @@ defmodule AWS.Athena do
         "EngineVersion" => engine_version(),
         "ExecutionRole" => String.t(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
+        "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "RequesterPaysEnabled" => boolean(),
@@ -1716,6 +1743,7 @@ defmodule AWS.Athena do
         "EnforceWorkGroupConfiguration" => boolean(),
         "EngineVersion" => engine_version(),
         "ExecutionRole" => String.t(),
+        "ManagedQueryResultsConfigurationUpdates" => managed_query_results_configuration_updates(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "RemoveBytesScannedCutoffPerQuery" => boolean(),
@@ -1977,6 +2005,7 @@ defmodule AWS.Athena do
       get_query_results_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
+        optional("QueryResultType") => list(any()),
         required("QueryExecutionId") => String.t()
       }
       
@@ -2236,6 +2265,17 @@ defmodule AWS.Athena do
       
   """
   @type cancel_capacity_reservation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_query_results_encryption_configuration() :: %{
+        "KmsKey" => String.t()
+      }
+      
+  """
+  @type managed_query_results_encryption_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

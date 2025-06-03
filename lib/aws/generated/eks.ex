@@ -4984,7 +4984,21 @@ defmodule AWS.EKS do
   You can
   filter which insights are returned by category, associated Kubernetes version,
   and
-  status.
+  status. The default filter lists all categories and every status.
+
+  The following lists the available categories:
+
+    *
+
+  `UPGRADE_READINESS`: Amazon EKS identifies issues that could impact your
+  ability to upgrade to new versions of Kubernetes. These are called upgrade
+  insights.
+
+    *
+
+  `MISCONFIGURATION`: Amazon EKS identifies misconfiguration in your EKS
+  Hybrid Nodes setup that could impair functionality of your cluster or
+  workloads. These are called configuration insights.
   """
   @spec list_insights(map(), String.t(), list_insights_request(), list()) ::
           {:ok, list_insights_response(), any()}

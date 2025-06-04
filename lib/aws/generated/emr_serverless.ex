@@ -854,10 +854,12 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
-      cancel_job_run_request() :: %{}
+      cancel_job_run_request() :: %{
+        optional("shutdownGracePeriodInSeconds") => integer()
+      }
 
   """
-  @type cancel_job_run_request() :: %{}
+  @type cancel_job_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1001,7 +1003,12 @@ defmodule AWS.EMRServerless do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"shutdownGracePeriodInSeconds", "shutdownGracePeriodInSeconds"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

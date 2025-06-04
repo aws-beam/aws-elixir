@@ -675,6 +675,7 @@ defmodule AWS.APIGateway do
         optional("policy") => String.t(),
         optional("regionalCertificateArn") => String.t(),
         optional("regionalCertificateName") => String.t(),
+        optional("routingMode") => list(any()),
         optional("securityPolicy") => list(any()),
         optional("tags") => map(),
         required("domainName") => String.t()
@@ -1517,6 +1518,7 @@ defmodule AWS.APIGateway do
         "regionalCertificateName" => String.t(),
         "regionalDomainName" => String.t(),
         "regionalHostedZoneId" => String.t(),
+        "routingMode" => list(any()),
         "securityPolicy" => list(any()),
         "tags" => map()
       }

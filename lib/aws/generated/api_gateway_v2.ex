@@ -147,6 +147,17 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      delete_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t()
+      }
+
+  """
+  @type delete_routing_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_vpc_link_response() :: %{}
 
   """
@@ -229,6 +240,17 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_vpc_links_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_action() :: %{
+        "InvokeApi" => routing_rule_action_invoke_api()
+      }
+
+  """
+  @type routing_rule_action() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -412,6 +434,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      list_routing_rules_response() :: %{
+        "NextToken" => String.t(),
+        "RoutingRules" => list(routing_rule()())
+      }
+
+  """
+  @type list_routing_rules_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_route_responses_response() :: %{
         "Items" => list(route_response()()),
         "NextToken" => String.t()
@@ -556,6 +590,21 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      put_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()()),
+        "Conditions" => list(routing_rule_condition()()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t(),
+        "RoutingRuleId" => String.t()
+      }
+
+  """
+  @type put_routing_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_model_request() :: %{
         optional("ContentType") => String.t(),
         optional("Description") => String.t(),
@@ -595,6 +644,7 @@ defmodule AWS.ApiGatewayV2 do
       create_domain_name_request() :: %{
         optional("DomainNameConfigurations") => list(domain_name_configuration()()),
         optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
+        optional("RoutingMode") => list(any()),
         optional("Tags") => map(),
         required("DomainName") => String.t()
       }
@@ -660,6 +710,18 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type create_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_condition() :: %{
+        "MatchBasePaths" => routing_rule_match_base_paths(),
+        "MatchHeaders" => routing_rule_match_headers()
+      }
+
+  """
+  @type routing_rule_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -853,6 +915,20 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      put_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t(),
+        required("Actions") => list(routing_rule_action()()),
+        required("Conditions") => list(routing_rule_condition()()),
+        required("Priority") => integer()
+      }
+
+  """
+  @type put_routing_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_authorizers_request() :: %{
         optional("MaxResults") => String.t(),
         optional("NextToken") => String.t()
@@ -996,6 +1072,17 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      routing_rule_match_headers() :: %{
+        "AnyOf" => list(routing_rule_match_header_value()())
+      }
+
+  """
+  @type routing_rule_match_headers() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t(),
@@ -1119,8 +1206,10 @@ defmodule AWS.ApiGatewayV2 do
       update_domain_name_response() :: %{
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
+        "DomainNameArn" => String.t(),
         "DomainNameConfigurations" => list(domain_name_configuration()()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
         "Tags" => map()
       }
 
@@ -1330,7 +1419,8 @@ defmodule AWS.ApiGatewayV2 do
 
       update_domain_name_request() :: %{
         optional("DomainNameConfigurations") => list(domain_name_configuration()()),
-        optional("MutualTlsAuthentication") => mutual_tls_authentication_input()
+        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
+        optional("RoutingMode") => list(any())
       }
 
   """
@@ -1355,8 +1445,10 @@ defmodule AWS.ApiGatewayV2 do
       domain_name() :: %{
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
+        "DomainNameArn" => String.t(),
         "DomainNameConfigurations" => list(domain_name_configuration()()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
         "Tags" => map()
       }
 
@@ -1674,10 +1766,36 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()()),
+        "Conditions" => list(routing_rule_condition()()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t(),
+        "RoutingRuleId" => String.t()
+      }
+
+  """
+  @type create_routing_rule_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t()
+      }
+
+  """
+  @type get_routing_rule_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1901,6 +2019,18 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      routing_rule_match_header_value() :: %{
+        "Header" => String.t(),
+        "ValueGlob" => String.t()
+      }
+
+  """
+  @type routing_rule_match_header_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_response() :: %{
         "ContentType" => String.t(),
         "Description" => String.t(),
@@ -1911,6 +2041,19 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type get_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_action_invoke_api() :: %{
+        "ApiId" => String.t(),
+        "Stage" => String.t(),
+        "StripBasePath" => boolean()
+      }
+
+  """
+  @type routing_rule_action_invoke_api() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1961,8 +2104,10 @@ defmodule AWS.ApiGatewayV2 do
       create_domain_name_response() :: %{
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
+        "DomainNameArn" => String.t(),
         "DomainNameConfigurations" => list(domain_name_configuration()()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
         "Tags" => map()
       }
 
@@ -2086,6 +2231,20 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t(),
+        required("Actions") => list(routing_rule_action()()),
+        required("Conditions") => list(routing_rule_condition()()),
+        required("Priority") => integer()
+      }
+
+  """
+  @type create_routing_rule_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_apis_response() :: %{
         "Items" => list(api()()),
         "NextToken" => String.t()
@@ -2124,6 +2283,49 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routing_rules_request() :: %{
+        optional("DomainNameId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_routing_rules_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule() :: %{
+        "Actions" => list(routing_rule_action()()),
+        "Conditions" => list(routing_rule_condition()()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t(),
+        "RoutingRuleId" => String.t()
+      }
+
+  """
+  @type routing_rule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()()),
+        "Conditions" => list(routing_rule_condition()()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t(),
+        "RoutingRuleId" => String.t()
+      }
+
+  """
+  @type get_routing_rule_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2180,8 +2382,10 @@ defmodule AWS.ApiGatewayV2 do
       get_domain_name_response() :: %{
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
+        "DomainNameArn" => String.t(),
         "DomainNameConfigurations" => list(domain_name_configuration()()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
         "Tags" => map()
       }
 
@@ -2255,6 +2459,17 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type delete_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_match_base_paths() :: %{
+        "AnyOf" => list(String.t()())
+      }
+
+  """
+  @type routing_rule_match_base_paths() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2341,6 +2556,12 @@ defmodule AWS.ApiGatewayV2 do
           | conflict_exception()
           | too_many_requests_exception()
 
+  @type create_routing_rule_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
   @type create_stage_errors() ::
           bad_request_exception()
           | not_found_exception()
@@ -2381,6 +2602,9 @@ defmodule AWS.ApiGatewayV2 do
   @type delete_route_response_errors() :: not_found_exception() | too_many_requests_exception()
 
   @type delete_route_settings_errors() :: not_found_exception() | too_many_requests_exception()
+
+  @type delete_routing_rule_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type delete_stage_errors() :: not_found_exception() | too_many_requests_exception()
 
@@ -2442,6 +2666,9 @@ defmodule AWS.ApiGatewayV2 do
   @type get_routes_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
+  @type get_routing_rule_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
   @type get_stage_errors() :: not_found_exception() | too_many_requests_exception()
 
   @type get_stages_errors() ::
@@ -2458,6 +2685,15 @@ defmodule AWS.ApiGatewayV2 do
   @type get_vpc_links_errors() :: bad_request_exception() | too_many_requests_exception()
 
   @type import_api_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | too_many_requests_exception()
+
+  @type list_routing_rules_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type put_routing_rule_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
@@ -2864,6 +3100,40 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a RoutingRule
+  """
+  @spec create_routing_rule(map(), String.t(), create_routing_rule_request(), list()) ::
+          {:ok, create_routing_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_routing_rule_errors()}
+  def create_routing_rule(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/routingrules"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"DomainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -3412,6 +3682,42 @@ defmodule AWS.ApiGatewayV2 do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a routing rule.
+  """
+  @spec delete_routing_rule(map(), String.t(), String.t(), delete_routing_rule_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_routing_rule_errors()}
+  def delete_routing_rule(%Client{} = client, domain_name, routing_rule_id, input, options \\ []) do
+    url_path =
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/routingrules/#{AWS.Util.encode_uri(routing_rule_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"DomainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -4144,6 +4450,39 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
+  Gets a routing rule.
+  """
+  @spec get_routing_rule(map(), String.t(), String.t(), String.t() | nil, list()) ::
+          {:ok, get_routing_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_routing_rule_errors()}
+  def get_routing_rule(
+        %Client{} = client,
+        domain_name,
+        routing_rule_id,
+        domain_name_id \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/routingrules/#{AWS.Util.encode_uri(routing_rule_id)}"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(domain_name_id) do
+        [{"domainNameId", domain_name_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a Stage.
   """
   @spec get_stage(map(), String.t(), String.t(), list()) ::
@@ -4300,6 +4639,95 @@ defmodule AWS.ApiGatewayV2 do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Lists routing rules.
+  """
+  @spec list_routing_rules(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_routing_rules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_routing_rules_errors()}
+  def list_routing_rules(
+        %Client{} = client,
+        domain_name,
+        domain_name_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/routingrules"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(domain_name_id) do
+        [{"domainNameId", domain_name_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Updates a routing rule.
+  """
+  @spec put_routing_rule(map(), String.t(), String.t(), put_routing_rule_request(), list()) ::
+          {:ok, put_routing_rule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_routing_rule_errors()}
+  def put_routing_rule(%Client{} = client, domain_name, routing_rule_id, input, options \\ []) do
+    url_path =
+      "/v2/domainnames/#{AWS.Util.encode_uri(domain_name)}/routingrules/#{AWS.Util.encode_uri(routing_rule_id)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"DomainNameId", "domainNameId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

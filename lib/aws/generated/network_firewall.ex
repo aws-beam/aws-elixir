@@ -591,6 +591,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       update_logging_configuration_request() :: %{
+        optional("EnableMonitoringDashboard") => boolean(),
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
         optional("LoggingConfiguration") => logging_configuration()
@@ -1941,6 +1942,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       describe_logging_configuration_response() :: %{
+        "EnableMonitoringDashboard" => boolean(),
         "FirewallArn" => String.t(),
         "LoggingConfiguration" => logging_configuration()
       }
@@ -2257,6 +2259,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       update_logging_configuration_response() :: %{
+        "EnableMonitoringDashboard" => boolean(),
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
         "LoggingConfiguration" => logging_configuration()

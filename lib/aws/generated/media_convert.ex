@@ -77,11 +77,14 @@ defmodule AWS.MediaConvert do
 
       mp4_settings() :: %{
         "AudioDuration" => list(any()),
+        "C2paManifest" => list(any()),
+        "CertificateSecret" => String.t(),
         "CslgAtom" => list(any()),
         "CttsVersion" => integer(),
         "FreeSpaceBox" => list(any()),
         "MoovPlacement" => list(any()),
-        "Mp4MajorBrand" => String.t()
+        "Mp4MajorBrand" => String.t(),
+        "SigningKmsKey" => String.t()
       }
 
   """

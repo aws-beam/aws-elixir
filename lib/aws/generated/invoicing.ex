@@ -3,17 +3,13 @@
 
 defmodule AWS.Invoicing do
   @moduledoc """
-
   ## Amazon Web Services Invoice Configuration
 
   You can use Amazon Web Services Invoice Configuration APIs to programmatically
-  create,
-  update, delete, get, and list invoice units.
+  create, update, delete, get, and list invoice units.
 
-  You can also programmatically fetch the
-  information of the invoice receiver. For example, business legal name, address,
-  and invoicing
-  contacts.
+  You can also programmatically fetch the information of the invoice receiver. For
+  example, business legal name, address, and invoicing contacts.
 
   You can use Amazon Web Services Invoice Configuration to receive separate Amazon
   Web Services invoices based your organizational needs. By using Amazon Web
@@ -30,9 +26,7 @@ defmodule AWS.Invoicing do
   You can use the following endpoints for Amazon Web Services Invoice
   Configuration:
 
-    *
-
-  `https://invoicing.us-east-1.api.aws`
+    * `https://invoicing.us-east-1.api.aws`
   """
 
   alias AWS.Client
@@ -42,73 +36,13 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("ResourceTags") => list(resource_tag()())
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_invoice_profile_request() :: %{
-        required("AccountIds") => list(String.t()())
-      }
-      
-  """
-  @type batch_get_invoice_profile_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_invoice_profile_response() :: %{
-        "Profiles" => list(invoice_profile()())
-      }
-      
-  """
-  @type batch_get_invoice_profile_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_invoice_unit_request() :: %{
-        optional("Description") => String.t(),
-        optional("ResourceTags") => list(resource_tag()()),
-        optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceReceiver") => String.t(),
-        required("Name") => String.t(),
-        required("Rule") => invoice_unit_rule()
-      }
-      
-  """
-  @type create_invoice_unit_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t()
-      }
-      
-  """
-  @type create_invoice_unit_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_invoice_unit_request() :: %{
-        required("InvoiceUnitArn") => String.t()
-      }
-      
-  """
-  @type delete_invoice_unit_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -120,31 +54,6 @@ defmodule AWS.Invoicing do
       
   """
   @type delete_invoice_unit_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filters() :: %{
-        "Accounts" => list(String.t()()),
-        "InvoiceReceivers" => list(String.t()()),
-        "Names" => list(String.t()())
-      }
-      
-  """
-  @type filters() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_invoice_unit_request() :: %{
-        optional("AsOf") => non_neg_integer(),
-        required("InvoiceUnitArn") => String.t()
-      }
-      
-  """
-  @type get_invoice_unit_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -167,13 +76,59 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      internal_server_exception() :: %{
-        "message" => String.t(),
-        "retryAfterSeconds" => [integer()]
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "InvoicingEntity" => String.t()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type entity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discounts_breakdown_amount() :: %{
+        "Amount" => String.t(),
+        "Description" => String.t(),
+        "Rate" => String.t()
+      }
+      
+  """
+  @type discounts_breakdown_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_interval() :: %{
+        "EndDate" => [non_neg_integer()],
+        "StartDate" => [non_neg_integer()]
+      }
+      
+  """
+  @type date_interval() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_summaries_filter() :: %{
+        "BillingPeriod" => billing_period(),
+        "InvoicingEntity" => String.t(),
+        "TimeInterval" => date_interval()
+      }
+      
+  """
+  @type invoice_summaries_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -195,77 +150,24 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      invoice_unit() :: %{
-        "Description" => String.t(),
-        "InvoiceReceiver" => String.t(),
-        "InvoiceUnitArn" => String.t(),
-        "LastModified" => non_neg_integer(),
-        "Name" => String.t(),
-        "Rule" => invoice_unit_rule(),
-        "TaxInheritanceDisabled" => boolean()
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("ResourceTagKeys") => list(String.t()())
       }
       
   """
-  @type invoice_unit() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      invoice_unit_rule() :: %{
-        "LinkedAccounts" => list(String.t()())
+      update_invoice_unit_response() :: %{
+        "InvoiceUnitArn" => String.t()
       }
       
   """
-  @type invoice_unit_rule() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_invoice_units_request() :: %{
-        optional("AsOf") => non_neg_integer(),
-        optional("Filters") => filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
-      }
-      
-  """
-  @type list_invoice_units_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_invoice_units_response() :: %{
-        "InvoiceUnits" => list(invoice_unit()()),
-        "NextToken" => String.t()
-      }
-      
-  """
-  @type list_invoice_units_response() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag()())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type update_invoice_unit_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -290,6 +192,18 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
+      list_invoice_units_response() :: %{
+        "InvoiceUnits" => list(invoice_unit()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_invoice_units_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "message" => String.t(),
         "resourceName" => String.t()
@@ -297,6 +211,188 @@ defmodule AWS.Invoicing do
       
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_invoice_unit_request() :: %{
+        required("InvoiceUnitArn") => String.t()
+      }
+      
+  """
+  @type delete_invoice_unit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      taxes_breakdown_amount() :: %{
+        "Amount" => String.t(),
+        "Description" => String.t(),
+        "Rate" => String.t()
+      }
+      
+  """
+  @type taxes_breakdown_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_summary() :: %{
+        "AccountId" => String.t(),
+        "BaseCurrencyAmount" => invoice_currency_amount(),
+        "BillingPeriod" => billing_period(),
+        "DueDate" => [non_neg_integer()],
+        "Entity" => entity(),
+        "InvoiceId" => String.t(),
+        "InvoiceType" => list(any()),
+        "IssuedDate" => [non_neg_integer()],
+        "OriginalInvoiceId" => String.t(),
+        "PaymentCurrencyAmount" => invoice_currency_amount(),
+        "PurchaseOrderNumber" => String.t(),
+        "TaxCurrencyAmount" => invoice_currency_amount()
+      }
+      
+  """
+  @type invoice_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "ResourceTags" => list(resource_tag()())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      currency_exchange_details() :: %{
+        "Rate" => String.t(),
+        "SourceCurrencyCode" => String.t(),
+        "TargetCurrencyCode" => String.t()
+      }
+      
+  """
+  @type currency_exchange_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_invoice_profile_request() :: %{
+        required("AccountIds") => list(String.t()())
+      }
+      
+  """
+  @type batch_get_invoice_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t(),
+        "name" => String.t()
+      }
+      
+  """
+  @type validation_exception_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_currency_amount() :: %{
+        "AmountBreakdown" => amount_breakdown(),
+        "CurrencyCode" => String.t(),
+        "CurrencyExchangeDetails" => currency_exchange_details(),
+        "TotalAmount" => String.t(),
+        "TotalAmountBeforeTax" => String.t()
+      }
+      
+  """
+  @type invoice_currency_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      discounts_breakdown() :: %{
+        "Breakdown" => list(discounts_breakdown_amount()()),
+        "TotalAmount" => String.t()
+      }
+      
+  """
+  @type discounts_breakdown() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_period() :: %{
+        "Month" => integer(),
+        "Year" => integer()
+      }
+      
+  """
+  @type billing_period() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fees_breakdown_amount() :: %{
+        "Amount" => String.t(),
+        "Description" => String.t(),
+        "Rate" => String.t()
+      }
+      
+  """
+  @type fees_breakdown_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t(),
+        "retryAfterSeconds" => [integer()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_units_request() :: %{
+        optional("AsOf") => non_neg_integer(),
+        optional("Filters") => filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_invoice_units_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -314,24 +410,13 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+      access_denied_exception() :: %{
+        "message" => String.t(),
+        "resourceName" => String.t()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("ResourceTags") => list(resource_tag()())
-      }
-      
-  """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -346,58 +431,35 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      throttling_exception() :: %{
-        "message" => String.t()
+      invoice_unit_rule() :: %{
+        "LinkedAccounts" => list(String.t()())
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type invoice_unit_rule() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("ResourceTagKeys") => list(String.t()())
+      batch_get_invoice_profile_response() :: %{
+        "Profiles" => list(invoice_profile()())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type batch_get_invoice_profile_response() :: %{String.t() => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_invoice_unit_request() :: %{
-        optional("Description") => String.t(),
-        optional("Rule") => invoice_unit_rule(),
-        optional("TaxInheritanceDisabled") => boolean(),
-        required("InvoiceUnitArn") => String.t()
+      invoice_summaries_selector() :: %{
+        "ResourceType" => list(any()),
+        "Value" => String.t()
       }
       
   """
-  @type update_invoice_unit_request() :: %{String.t() => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_invoice_unit_response() :: %{
-        "InvoiceUnitArn" => String.t()
-      }
-      
-  """
-  @type update_invoice_unit_response() :: %{String.t() => any()}
+  @type invoice_summaries_selector() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -417,75 +479,239 @@ defmodule AWS.Invoicing do
 
   ## Example:
       
-      validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_invoice_unit_request() :: %{
+        optional("Description") => String.t(),
+        optional("ResourceTags") => list(resource_tag()()),
+        optional("TaxInheritanceDisabled") => boolean(),
+        required("InvoiceReceiver") => String.t(),
+        required("Name") => String.t(),
+        required("Rule") => invoice_unit_rule()
+      }
+      
+  """
+  @type create_invoice_unit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_invoice_unit_request() :: %{
+        optional("Description") => String.t(),
+        optional("Rule") => invoice_unit_rule(),
+        optional("TaxInheritanceDisabled") => boolean(),
+        required("InvoiceUnitArn") => String.t()
+      }
+      
+  """
+  @type update_invoice_unit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amount_breakdown() :: %{
+        "Discounts" => discounts_breakdown(),
+        "Fees" => fees_breakdown(),
+        "SubTotalAmount" => String.t(),
+        "Taxes" => taxes_breakdown()
+      }
+      
+  """
+  @type amount_breakdown() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filters() :: %{
+        "Accounts" => list(String.t()()),
+        "InvoiceReceivers" => list(String.t()()),
+        "Names" => list(String.t()())
+      }
+      
+  """
+  @type filters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_summaries_response() :: %{
+        "InvoiceSummaries" => list(invoice_summary()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_invoice_summaries_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_invoice_unit_response() :: %{
+        "InvoiceUnitArn" => String.t()
+      }
+      
+  """
+  @type create_invoice_unit_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fees_breakdown() :: %{
+        "Breakdown" => list(fees_breakdown_amount()()),
+        "TotalAmount" => String.t()
+      }
+      
+  """
+  @type fees_breakdown() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_invoice_unit_request() :: %{
+        optional("AsOf") => non_neg_integer(),
+        required("InvoiceUnitArn") => String.t()
+      }
+      
+  """
+  @type get_invoice_unit_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invoice_unit() :: %{
+        "Description" => String.t(),
+        "InvoiceReceiver" => String.t(),
+        "InvoiceUnitArn" => String.t(),
+        "LastModified" => non_neg_integer(),
+        "Name" => String.t(),
+        "Rule" => invoice_unit_rule(),
+        "TaxInheritanceDisabled" => boolean()
+      }
+      
+  """
+  @type invoice_unit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_invoice_summaries_request() :: %{
+        optional("Filter") => invoice_summaries_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("Selector") => invoice_summaries_selector()
+      }
+      
+  """
+  @type list_invoice_summaries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      taxes_breakdown() :: %{
+        "Breakdown" => list(taxes_breakdown_amount()()),
+        "TotalAmount" => String.t()
+      }
+      
+  """
+  @type taxes_breakdown() :: %{String.t() => any()}
 
   @type batch_get_invoice_profile_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type create_invoice_unit_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
 
   @type delete_invoice_unit_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_invoice_unit_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_invoice_summaries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_invoice_units_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | internal_server_exception()
-          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_invoice_unit_errors() ::
-          validation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | internal_server_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{
@@ -563,6 +789,20 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
+  Retrieves your invoice details programmatically, without line item details.
+  """
+  @spec list_invoice_summaries(map(), list_invoice_summaries_request(), list()) ::
+          {:ok, list_invoice_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_invoice_summaries_errors()}
+  def list_invoice_summaries(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListInvoiceSummaries", input, options)
+  end
+
+  @doc """
   This fetches a list of all invoice unit definitions for a given account, as of
   the provided `AsOf` date.
   """
@@ -606,7 +846,6 @@ defmodule AWS.Invoicing do
   end
 
   @doc """
-
   Removes a tag from a resource.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::

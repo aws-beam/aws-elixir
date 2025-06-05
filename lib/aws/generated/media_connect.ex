@@ -8,30 +8,22 @@ defmodule AWS.MediaConnect do
   MediaConnect is a service that lets you ingest live video content into the cloud
   and distribute it to destinations all over the world, both inside and outside
   the Amazon Web Services cloud. This API reference provides descriptions, syntax,
-  and usage examples
-  for each of the actions and data types that are supported by MediaConnect.
+  and usage examples for each of the actions and data types that are supported by
+  MediaConnect.
 
   Use the following links to get started with the MediaConnect API:
 
     *
+  [Actions](https://docs.aws.amazon.com/mediaconnect/latest/api/API_Operations.html): An alphabetical list of all MediaConnect API operations.
 
-  [Actions](https://docs.aws.amazon.com/mediaconnect/latest/api/API_Operations.html): An
-  alphabetical list of all MediaConnect API operations.
-
-    *
-
-  [Data
+    * [Data
   types](https://docs.aws.amazon.com/mediaconnect/latest/api/API_Types.html): An
   alphabetical list of all MediaConnect data types.
 
-    *
-
-  [Common parameters](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonParameters.html):
+    * [Common parameters](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonParameters.html):
   Parameters that all operations can use.
 
-    *
-
-  [Common errors](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonErrors.html):
+    * [Common errors](https://docs.aws.amazon.com/mediaconnect/latest/api/CommonErrors.html):
   Client and server errors that all operations can return.
   """
 
@@ -1566,6 +1558,7 @@ defmodule AWS.MediaConnect do
         "IngestPort" => [integer()],
         "MediaStreamSourceConfigurations" => list(media_stream_source_configuration()()),
         "Name" => [String.t()],
+        "PeerIpAddress" => [String.t()],
         "SenderControlPort" => [integer()],
         "SenderIpAddress" => [String.t()],
         "SourceArn" => [String.t()],
@@ -2547,6 +2540,7 @@ defmodule AWS.MediaConnect do
         "Name" => [String.t()],
         "OutputArn" => [String.t()],
         "OutputStatus" => list(any()),
+        "PeerIpAddress" => [String.t()],
         "Port" => [integer()],
         "Transport" => transport(),
         "VpcInterfaceAttachment" => vpc_interface_attachment()
@@ -3511,8 +3505,8 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of a flow.
 
-  The response includes the flow Amazon Resource Name (ARN),
-  name, and Availability Zone, as well as details about the source, outputs, and
+  The response includes the flow Amazon Resource Name (ARN), name, and
+  Availability Zone, as well as details about the source, outputs, and
   entitlements.
   """
   @spec describe_flow(map(), String.t(), list()) ::
@@ -3531,7 +3525,6 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-
   The `DescribeFlowSourceMetadata` API is used to view information about the
   flow's source transport stream and programs.
 
@@ -3554,7 +3547,6 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-
   Describes the thumbnail for the flow source.
   """
   @spec describe_flow_source_thumbnail(map(), String.t(), list()) ::
@@ -3575,8 +3567,8 @@ defmodule AWS.MediaConnect do
   @doc """
   Displays the details of a gateway.
 
-  The response includes the gateway Amazon Resource Name
-  (ARN), name, and CIDR blocks, as well as details about the networks.
+  The response includes the gateway Amazon Resource Name (ARN), name, and CIDR
+  blocks, as well as details about the networks.
   """
   @spec describe_gateway(map(), String.t(), list()) ::
           {:ok, describe_gateway_response(), any()}
@@ -3594,7 +3586,6 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
-
   Displays the details of an instance.
   """
   @spec describe_gateway_instance(map(), String.t(), list()) ::
@@ -3686,8 +3677,7 @@ defmodule AWS.MediaConnect do
 
   @doc """
   Displays a list of bridges that are associated with this account and an
-  optionally
-  specified Amazon Resource Name (ARN).
+  optionally specified Amazon Resource Name (ARN).
 
   This request returns a paginated result.
   """
@@ -4350,10 +4340,8 @@ defmodule AWS.MediaConnect do
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource are not specified in the request parameters, they
-  are not
-  changed. When a resource is deleted, the tags associated with that resource are
-  deleted as
-  well.
+  are not changed. When a resource is deleted, the tags associated with that
+  resource are deleted as well.
   """
   @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
           {:ok, nil, any()}

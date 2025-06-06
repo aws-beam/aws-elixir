@@ -266,6 +266,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       rate_based_statement_custom_key() :: %{
+        "ASN" => rate_limit_asn(),
         "Cookie" => rate_limit_cookie(),
         "ForwardedIP" => rate_limit_forwarded_ip(),
         "HTTPMethod" => rate_limit_h_t_t_p_method(),
@@ -777,6 +778,7 @@ defmodule AWS.WAFV2 do
       
       statement() :: %{
         "AndStatement" => and_statement(),
+        "AsnMatchStatement" => asn_match_statement(),
         "ByteMatchStatement" => byte_match_statement(),
         "GeoMatchStatement" => geo_match_statement(),
         "IPSetReferenceStatement" => ip_set_reference_statement(),
@@ -1461,6 +1463,15 @@ defmodule AWS.WAFV2 do
       
   """
   @type response_inspection_body_contains() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rate_limit_asn() :: %{}
+      
+  """
+  @type rate_limit_asn() :: %{}
 
   @typedoc """
 
@@ -2351,6 +2362,18 @@ defmodule AWS.WAFV2 do
       
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      asn_match_statement() :: %{
+        "AsnList" => list(float()()),
+        "ForwardedIPConfig" => forwarded_ip_config()
+      }
+      
+  """
+  @type asn_match_statement() :: %{String.t() => any()}
 
   @typedoc """
 

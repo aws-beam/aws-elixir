@@ -443,8 +443,7 @@ defmodule AWS.KMS do
       encrypt_response() :: %{
         "CiphertextBlob" => binary(),
         "EncryptionAlgorithm" => list(any()),
-        "KeyId" => String.t(),
-        "KeyMaterialId" => String.t()
+        "KeyId" => String.t()
       }
       
   """

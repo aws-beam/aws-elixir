@@ -213,10 +213,15 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
-      get_table_request() :: %{}
+      get_table_request() :: %{
+        optional("name") => String.t(),
+        optional("namespace") => String.t(),
+        optional("tableArn") => String.t(),
+        optional("tableBucketARN") => String.t()
+      }
 
   """
-  @type get_table_request() :: %{}
+  @type get_table_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1121,18 +1126,19 @@ defmodule AWS.S3Tables do
 
   ### Permissions
 
-    
-  You must have the `s3tables:CreateTable` permission to use this operation.
+     You must have the `s3tables:CreateTable` permission to use this
+  operation.
 
-    
-  If you use this operation with the optional `metadata` request parameter you
-  must have the `s3tables:PutTableData` permission.
+     If you use this operation with the optional `metadata` request
+  parameter you must have the `s3tables:PutTableData` permission.
 
-    
-  If you use this operation with the optional `encryptionConfiguration` request
-  parameter you must have the `s3tables:PutTableEncryption` permission.
+     If you use this operation with the optional
+  `encryptionConfiguration` request parameter you must have the
+  `s3tables:PutTableEncryption` permission.
 
-  Additionally,
+  Additionally, If you choose SSE-KMS encryption you must grant the S3 Tables
+  maintenance principal access to your KMS key. For more information, see
+  [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
   """
   @spec create_table(map(), String.t(), String.t(), create_table_request(), list()) ::
           {:ok, create_table_response(), any()}
@@ -1172,12 +1178,12 @@ defmodule AWS.S3Tables do
 
   ### Permissions
 
-    
-  You must have the `s3tables:CreateTableBucket` permission to use this operation.
+     You must have the `s3tables:CreateTableBucket` permission to use
+  this operation.
 
-    
-  If you use this operation with the optional `encryptionConfiguration` parameter
-  you must have the `s3tables:PutTableBucketEncryption` permission.
+     If you use this operation with the optional
+  `encryptionConfiguration` parameter you must have the
+  `s3tables:PutTableBucketEncryption` permission.
   """
   @spec create_table_bucket(map(), create_table_bucket_request(), list()) ::
           {:ok, create_table_bucket_response(), any()}
@@ -1508,17 +1514,57 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:GetTable` permission to use this operation.
   """
-  @spec get_table(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_table(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, get_table_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_table_errors()}
-  def get_table(%Client{} = client, name, namespace, table_bucket_arn, options \\ []) do
-    url_path =
-      "/tables/#{AWS.Util.encode_uri(table_bucket_arn)}/#{AWS.Util.encode_uri(namespace)}/#{AWS.Util.encode_uri(name)}"
-
+  def get_table(
+        %Client{} = client,
+        name \\ nil,
+        namespace \\ nil,
+        table_arn \\ nil,
+        table_bucket_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/get-table"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(table_bucket_arn) do
+        [{"tableBucketARN", table_bucket_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableArn", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1997,7 +2043,8 @@ defmodule AWS.S3Tables do
 
   If you choose SSE-KMS encryption you must grant the S3 Tables maintenance
   principal access to your KMS key. For more information, see [Permissions requirements for S3 Tables SSE-KMS
-  encryption](AmazonS3/latest/userguide/s3-tables-kms-permissions.html)
+  encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html)
+  in the *Amazon Simple Storage Service User Guide*.
   """
   @spec put_table_bucket_encryption(
           map(),
@@ -2032,8 +2079,7 @@ defmodule AWS.S3Tables do
 
   @doc """
   Creates a new maintenance configuration or replaces an existing maintenance
-  configuration
-  for a table bucket.
+  configuration for a table bucket.
 
   For more information, see [Amazon S3 table bucket maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html)
   in the *Amazon Simple Storage Service User Guide*.
@@ -2087,8 +2133,7 @@ defmodule AWS.S3Tables do
 
   @doc """
   Creates a new maintenance configuration or replaces an existing table bucket
-  policy for a
-  table bucket.
+  policy for a table bucket.
 
   For more information, see [Adding a table bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-add)
   in the *Amazon Simple Storage Service User Guide*.
@@ -2128,8 +2173,7 @@ defmodule AWS.S3Tables do
 
   @doc """
   Creates a new maintenance configuration or replaces an existing maintenance
-  configuration
-  for a table.
+  configuration for a table.
 
   For more information, see [S3 Tables maintenance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-maintenance.html)
   in the *Amazon Simple Storage Service User Guide*.

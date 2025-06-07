@@ -2445,6 +2445,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      prompt_creation_configurations() :: %{
+        "excludePreviousThinkingSteps" => [boolean()],
+        "previousConversationTurnsToInclude" => [integer()]
+      }
+
+  """
+  @type prompt_creation_configurations() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_flow_execution_response() :: %{
         "endedAt" => non_neg_integer(),
         "errors" => list(flow_execution_error()()),
@@ -2639,6 +2651,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("inputText") => String.t(),
         optional("knowledgeBases") => list(knowledge_base()()),
         optional("orchestrationType") => list(any()),
+        optional("promptCreationConfigurations") => prompt_creation_configurations(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("streamingConfigurations") => streaming_configurations(),
         required("foundationModel") => String.t(),
@@ -2903,6 +2916,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("endSession") => [boolean()],
         optional("inputText") => String.t(),
         optional("memoryId") => String.t(),
+        optional("promptCreationConfigurations") => prompt_creation_configurations(),
         optional("sessionState") => session_state(),
         optional("sourceArn") => String.t(),
         optional("streamingConfigurations") => streaming_configurations()
@@ -3886,14 +3900,13 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Retrieves the flow definition snapshot used for an asynchronous execution.
+  Retrieves the flow definition snapshot used for a flow execution.
 
   The snapshot represents the flow metadata and definition as it existed at the
-  time the asynchronous execution was started. Note that even if the flow is
-  edited after an execution starts, the snapshot connected to the execution
-  remains unchanged.
+  time the execution was started. Note that even if the flow is edited after an
+  execution starts, the snapshot connected to the execution remains unchanged.
 
-  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  Flow executions is in preview release for Amazon Bedrock and is subject to
   change.
   """
   @spec get_execution_flow_snapshot(map(), String.t(), String.t(), String.t(), list()) ::
@@ -3920,8 +3933,8 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Retrieves details about a specific asynchronous execution of a flow, including
-  its status, start and end times, and any errors that occurred during execution.
+  Retrieves details about a specific flow execution, including its status, start
+  and end times, and any errors that occurred during execution.
   """
   @spec get_flow_execution(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_flow_execution_response(), any()}
@@ -4201,13 +4214,13 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Lists events that occurred during an asynchronous execution of a flow.
+  Lists events that occurred during a flow execution.
 
   Events provide detailed information about the execution progress, including node
   inputs and outputs, flow inputs and outputs, condition results, and failure
   events.
 
-  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  Flow executions is in preview release for Amazon Bedrock and is subject to
   change.
   """
   @spec list_flow_execution_events(
@@ -4267,13 +4280,13 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Lists all asynchronous executions for a flow.
+  Lists all executions of a flow.
 
   Results can be paginated and include summary information about each execution,
   such as status, start and end times, and the execution's Amazon Resource Name
   (ARN).
 
-  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  Flow executions is in preview release for Amazon Bedrock and is subject to
   change.
   """
   @spec list_flow_executions(
@@ -4671,16 +4684,16 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Starts an asynchronous execution of an Amazon Bedrock flow.
+  Starts an execution of an Amazon Bedrock flow.
 
-  Unlike synchronous flows that run until completion or time out after five
-  minutes, you can run asynchronous flows for longer durations. Asynchronous flows
-  also yield control so that your application can perform other tasks.
+  Unlike flows that run until completion or time out after five minutes, flow
+  executions let you run flows asynchronously for longer durations. Flow
+  executions also yield control so that your application can perform other tasks.
 
   This operation returns an Amazon Resource Name (ARN) that you can use to track
-  and manage your flow's async execution.
+  and manage your flow execution.
 
-  Asynchronous flows is in preview release for Amazon Bedrock and is subject to
+  Flow executions is in preview release for Amazon Bedrock and is subject to
   change.
   """
   @spec start_flow_execution(
@@ -4724,7 +4737,7 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Stops an Amazon Bedrock flow's asynchronous execution.
+  Stops an Amazon Bedrock flow's execution.
 
   This operation prevents further processing of the flow and changes the execution
   status to `Aborted`.

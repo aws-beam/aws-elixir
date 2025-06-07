@@ -5812,6 +5812,7 @@ defmodule AWS.RDS do
         "AllocatedStorage" => integer(),
         "HostedZoneId" => String.t(),
         "AssociatedRoles" => list(db_cluster_role()()),
+        "GlobalClusterIdentifier" => String.t(),
         "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
         "StorageEncrypted" => boolean(),
         "Endpoint" => String.t(),
@@ -11362,6 +11363,13 @@ defmodule AWS.RDS do
   Downloads all or a portion of the specified log file, up to 1 MB in size.
 
   This command doesn't apply to RDS Custom.
+
+  This operation uses resources on database instances. Because of this, we
+  recommend publishing database logs to CloudWatch and then
+  using the GetLogEvents operation. For more information,
+  see
+  [GetLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html)
+  in the *Amazon CloudWatch Logs API Reference*.
   """
   @spec download_db_log_file_portion(map(), download_db_log_file_portion_message(), list()) ::
           {:ok, download_db_log_file_portion_details(), any()}

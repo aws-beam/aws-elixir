@@ -9,12 +9,13 @@ defmodule AWS.EFS do
   for
   use with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud.
 
-  With Amazon EFS, storage capacity is elastic, growing and shrinking
-  automatically as you add and
-  remove files, so that your applications have the storage they need, when they
-  need it. For
-  more information, see the [Amazon Elastic File System API Reference](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html) and the
-  [Amazon Elastic File System User Guide](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html).
+  With
+  Amazon EFS, storage capacity is elastic, growing and shrinking automatically as
+  you
+  add and remove files, so that your applications have the storage they need, when
+  they need it.
+  For more information, see the [Amazon Elastic File System API Reference](https://docs.aws.amazon.com/efs/latest/ug/api-reference.html) and
+  the [Amazon Elastic File System User Guide](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html).
   """
 
   alias AWS.Client
@@ -89,6 +90,7 @@ defmodule AWS.EFS do
         "AvailabilityZoneName" => String.t(),
         "FileSystemId" => String.t(),
         "IpAddress" => String.t(),
+        "Ipv6Address" => String.t(),
         "LifeCycleState" => list(any()),
         "MountTargetId" => String.t(),
         "NetworkInterfaceId" => String.t(),
@@ -213,6 +215,8 @@ defmodule AWS.EFS do
 
       create_mount_target_request() :: %{
         optional("IpAddress") => String.t(),
+        optional("IpAddressType") => list(any()),
+        optional("Ipv6Address") => String.t(),
         optional("SecurityGroups") => list(String.t()()),
         required("FileSystemId") => String.t(),
         required("SubnetId") => String.t()
@@ -1351,16 +1355,18 @@ defmodule AWS.EFS do
   file system
   path is exposed as the access point's root directory. Applications using the
   access point can
-  only access data in the application's own directory and any subdirectories. To
-  learn more, see
+  only access data in the application's own directory and any subdirectories. A
+  file system can
+  have a maximum of 10,000 access points unless you request an increase. To learn
+  more, see
   [Mounting a file system using EFS access
   points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
 
   If multiple requests to create access points on the same file system are sent in
   quick
-  succession, and the file system is near the limit of 1,000 access points, you
-  may experience
-  a throttling response for these requests. This is to ensure that the file system
+  succession, and the file system is near the limit of access points, you may
+  experience a
+  throttling response for these requests. This is to ensure that the file system
   does not
   exceed the stated access point limit.
 
@@ -1469,8 +1475,8 @@ defmodule AWS.EFS do
   `available`, at which point you can create one or more mount targets for the
   file
   system in your VPC. For more information, see `CreateMountTarget`. You mount
-  your Amazon EFS file system on an EC2 instances in
-  your VPC by using the mount target. For more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
+  your Amazon EFS file system on an EC2 instances in your VPC by using the mount
+  target. For more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
   This operation requires permissions for the
   `elasticfilesystem:CreateFileSystem` action.
@@ -1517,22 +1523,23 @@ defmodule AWS.EFS do
   instances by using the mount target.
 
   You can create one mount target in each Availability Zone in your VPC. All EC2
-  instances in a VPC within a given Availability Zone share a single mount target
-  for a given
-  file system. If you have multiple subnets in an Availability Zone, you create a
-  mount target
-  in one of the subnets. EC2 instances do not need to be in the same subnet as the
-  mount target
-  in order to access their file system.
+  instances
+  in a VPC within a given Availability Zone share a single mount target for a
+  given file system. If
+  you have multiple subnets in an Availability Zone, you create a mount target in
+  one of the subnets.
+  EC2 instances do not need to be in the same subnet as the mount target in order
+  to
+  access their file system.
 
-  You can create only one mount target for a One Zone file system.
-  You must create that mount target in the same Availability Zone in which the
-  file system is
-  located. Use the `AvailabilityZoneName` and `AvailabiltyZoneId`
-  properties in the `DescribeFileSystems` response object to get this
-  information. Use the `subnetId` associated with the file system's Availability
-  Zone
-  when creating the mount target.
+  You can create only one mount target for a One Zone file system. You must
+  create that mount target in the same Availability Zone in which the file system
+  is located. Use the
+  `AvailabilityZoneName` and `AvailabiltyZoneId` properties in the
+  `DescribeFileSystems` response object to get this information. Use the
+  `subnetId` associated with the file system's Availability Zone when creating the
+  mount
+  target.
 
   For more information, see [Amazon EFS: How it Works](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html).
 
@@ -1563,28 +1570,28 @@ defmodule AWS.EFS do
   After creating the mount target, Amazon EFS returns a response that includes, a
   `MountTargetId` and an `IpAddress`. You use this IP address when
   mounting the file system in an EC2 instance. You can also use the mount target's
-  DNS name
-  when mounting the file system. The EC2 instance on which you mount the file
-  system by using
-  the mount target can resolve the mount target's DNS name to its IP address. For
-  more
-  information, see [How it Works: Implementation
+  DNS name when mounting the file system. The EC2 instance on which you mount the
+  file
+  system by using the mount target can resolve the mount target's DNS name to its
+  IP
+  address. For more information, see [How it Works: Implementation
   Overview](https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation).
 
   Note that you can create mount targets for a file system in only one VPC, and
-  there can
-  be only one mount target per Availability Zone. That is, if the file system
-  already has one or
-  more mount targets created for it, the subnet specified in the request to add
-  another mount
-  target must meet the following requirements:
+  there can be
+  only one mount target per Availability Zone. That is, if the file system already
+  has one or more
+  mount targets created for it, the subnet specified in the request to add another
+  mount target
+  must meet the following requirements:
 
     *
   Must belong to the same VPC as the subnets of the existing mount targets
 
     *
   Must not be in the same Availability Zone as any of the subnets of the existing
-  mount targets
+  mount
+  targets
 
   If the request satisfies the requirements, Amazon EFS does the following:
 
@@ -1595,11 +1602,11 @@ defmodule AWS.EFS do
   Also creates a new network interface in the subnet as follows:
 
       *
-  If the request provides an `IpAddress`, Amazon EFS assigns that IP
-  address to the network interface. Otherwise, Amazon EFS assigns a free address
-  in the
-  subnet (in the same way that the Amazon EC2 `CreateNetworkInterface` call
-  does when a request does not specify a primary private IP address).
+  If the request provides an `IpAddress`, Amazon EFS assigns that
+  IP address to the network interface. Otherwise, Amazon EFS assigns a free
+  address in the subnet (in the same way that the Amazon EC2
+  `CreateNetworkInterface` call does when a request does not specify a
+  primary private IP address).
 
       *
   If the request provides `SecurityGroups`, this network interface is
@@ -1639,10 +1646,10 @@ defmodule AWS.EFS do
   `true`, and the `requesterId` value to
   `EFS`.
 
-  Each Amazon EFS mount target has one corresponding requester-managed EC2 network
-  interface. After the network interface is created, Amazon EFS sets the
-  `NetworkInterfaceId` field in the mount target's description to the
-  network interface ID, and the `IpAddress` field to its address. If network
+  Each Amazon EFS mount target has one corresponding requester-managed
+  EC2 network interface. After the network interface is created, Amazon EFS
+  sets the `NetworkInterfaceId` field in the mount target's description to
+  the network interface ID, and the `IpAddress` field to its address. If network
   interface creation fails, the entire `CreateMountTarget` operation
   fails.
 
@@ -1653,15 +1660,16 @@ defmodule AWS.EFS do
   target state.
 
   We recommend that you create a mount target in each of the Availability Zones.
-  There
-  are cost considerations for using a file system in an Availability Zone through
-  a mount target
-  created in another Availability Zone. For more information, see [Amazon EFS](http://aws.amazon.com/efs/). In addition, by always using a mount target
-  local to the
+  There are cost
+  considerations for using a file system in an Availability Zone through a mount
+  target created in
+  another Availability Zone. For more information, see [Amazon EFS pricing](http://aws.amazon.com/efs/pricing/). In addition, by always using a
+  mount target local to the
   instance's Availability Zone, you eliminate a partial failure scenario. If the
-  Availability Zone in which your mount target is created goes down, then you
-  can't access
-  your file system through that mount target.
+  Availability Zone in
+  which your mount target is created goes down, then you can't access your file
+  system
+  through that mount target.
 
   This operation requires permissions for the following action on the file
   system:
@@ -1975,8 +1983,8 @@ defmodule AWS.EFS do
   Uncommitted writes might be lost, but breaking a mount target using this
   operation does not
   corrupt the file system itself. The file system you created remains. You can
-  mount an EC2
-  instance in your VPC by using another mount target.
+  mount an
+  EC2 instance in your VPC by using another mount target.
 
   This operation requires permissions for the following action on the file
   system:
@@ -2344,11 +2352,12 @@ defmodule AWS.EFS do
   end
 
   @doc """
-  Returns the current `LifecycleConfiguration` object for the specified Amazon
+  Returns the current `LifecycleConfiguration` object for the specified
   EFS file system.
 
-  Lifecycle management uses the `LifecycleConfiguration` object to
-  identify when to move files between storage classes. For a file system without a
+  Lifecycle management uses the `LifecycleConfiguration`
+  object to identify when to move files between storage classes. For a file system
+  without a
   `LifecycleConfiguration` object, the call returns an empty array in the
   response.
 

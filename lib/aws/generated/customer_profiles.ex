@@ -33,6 +33,26 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_domain_layout_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Layout" => String.t(),
+        "LayoutDefinitionName" => String.t(),
+        "LayoutType" => list(any()),
+        "Tags" => map(),
+        "Version" => String.t()
+      }
+
+  """
+  @type get_domain_layout_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       profile() :: %{
         "AccountNumber" => String.t(),
         "AdditionalInformation" => String.t(),
@@ -142,8 +162,11 @@ defmodule AWS.CustomerProfiles do
         "DisplayName" => String.t(),
         "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
         "Statistic" => list(any()),
-        "Tags" => map()
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
@@ -317,8 +340,11 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       range() :: %{
+        "TimestampFormat" => String.t(),
+        "TimestampSource" => String.t(),
         "Unit" => list(any()),
-        "Value" => integer()
+        "Value" => integer(),
+        "ValueRange" => value_range()
       }
 
   """
@@ -419,6 +445,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type marketo_source_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_layout_request() :: %{}
+
+  """
+  @type get_domain_layout_request() :: %{}
 
   @typedoc """
 
@@ -716,12 +751,24 @@ defmodule AWS.CustomerProfiles do
         "CalculatedAttributeName" => String.t(),
         "DisplayName" => String.t(),
         "IsDataPartial" => String.t(),
+        "LastObjectTimestamp" => non_neg_integer(),
         "ProfileId" => String.t(),
         "Value" => String.t()
       }
 
   """
   @type calculated_attribute_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_layout_response() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type delete_domain_layout_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -782,6 +829,26 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type put_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_layout_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Layout" => String.t(),
+        "LayoutDefinitionName" => String.t(),
+        "LayoutType" => list(any()),
+        "Tags" => map(),
+        "Version" => String.t()
+      }
+
+  """
+  @type create_domain_layout_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1076,6 +1143,7 @@ defmodule AWS.CustomerProfiles do
         optional("DisplayName") => String.t(),
         optional("Filter") => filter(),
         optional("Tags") => map(),
+        optional("UseHistoricalData") => boolean(),
         required("AttributeDetails") => attribute_details(),
         required("Statistic") => list(any())
       }
@@ -1093,7 +1161,9 @@ defmodule AWS.CustomerProfiles do
         "Description" => String.t(),
         "DisplayName" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Tags" => map()
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
@@ -1383,8 +1453,11 @@ defmodule AWS.CustomerProfiles do
         "Description" => String.t(),
         "DisplayName" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
         "Statistic" => list(any()),
-        "Tags" => map()
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
@@ -1507,6 +1580,7 @@ defmodule AWS.CustomerProfiles do
         "CalculatedAttributeName" => String.t(),
         "DisplayName" => String.t(),
         "IsDataPartial" => String.t(),
+        "LastObjectTimestamp" => non_neg_integer(),
         "Value" => String.t()
       }
 
@@ -1783,6 +1857,26 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      update_domain_layout_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Layout" => String.t(),
+        "LayoutDefinitionName" => String.t(),
+        "LayoutType" => list(any()),
+        "Tags" => map(),
+        "Version" => String.t()
+      }
+
+  """
+  @type update_domain_layout_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_event_stream_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DestinationDetails" => event_stream_destination_details(),
@@ -1945,6 +2039,21 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type consolidation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_layout_request() :: %{
+        optional("Description") => String.t(),
+        optional("DisplayName") => String.t(),
+        optional("IsDefault") => boolean(),
+        optional("Layout") => String.t(),
+        optional("LayoutType") => list(any())
+      }
+
+  """
+  @type update_domain_layout_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2307,6 +2416,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      value_range() :: %{
+        "End" => integer(),
+        "Start" => integer()
+      }
+
+  """
+  @type value_range() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_segment_snapshot_request() :: %{}
 
   """
@@ -2338,6 +2459,22 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_workflow_steps_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_layout_request() :: %{
+        optional("IsDefault") => boolean(),
+        optional("Tags") => map(),
+        required("Description") => String.t(),
+        required("DisplayName") => String.t(),
+        required("Layout") => String.t(),
+        required("LayoutType") => list(any())
+      }
+
+  """
+  @type create_domain_layout_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2874,6 +3011,24 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      layout_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t(),
+        "DisplayName" => String.t(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "LayoutDefinitionName" => String.t(),
+        "LayoutType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type layout_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       appflow_integration() :: %{
         "Batches" => list(batch()()),
         "FlowDefinition" => flow_definition()
@@ -2886,10 +3041,23 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_domain_layouts_response() :: %{
+        "Items" => list(layout_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_domain_layouts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_calculated_attribute_for_profile_item() :: %{
         "CalculatedAttributeName" => String.t(),
         "DisplayName" => String.t(),
         "IsDataPartial" => String.t(),
+        "LastObjectTimestamp" => non_neg_integer(),
         "Value" => String.t()
       }
 
@@ -2987,6 +3155,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_workflows_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      readiness() :: %{
+        "Message" => String.t(),
+        "ProgressPercentage" => integer()
+      }
+
+  """
+  @type readiness() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3124,6 +3304,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_domain_layouts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_domain_layouts_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_event_stream_response() :: %{
         "EventStreamArn" => String.t(),
         "Tags" => map()
@@ -3215,8 +3407,11 @@ defmodule AWS.CustomerProfiles do
         "DisplayName" => String.t(),
         "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
         "Statistic" => list(any()),
-        "Tags" => map()
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
@@ -3246,6 +3441,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_profile_object_types_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_layout_request() :: %{}
+
+  """
+  @type delete_domain_layout_request() :: %{}
 
   @typedoc """
 
@@ -3329,6 +3533,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_domain_layout_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type create_event_stream_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3386,6 +3597,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type delete_domain_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_domain_layout_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3484,6 +3702,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type get_domain_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_domain_layout_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3603,6 +3828,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type list_calculated_attributes_for_profile_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_domain_layouts_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3751,6 +3983,13 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type update_domain_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_domain_layout_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -3986,6 +4225,52 @@ defmodule AWS.CustomerProfiles do
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates the layout to view data for a specific domain.
+
+  This API can only be invoked from
+  the Amazon Connect admin website.
+  """
+  @spec create_domain_layout(
+          map(),
+          String.t(),
+          String.t(),
+          create_domain_layout_request(),
+          list()
+        ) ::
+          {:ok, create_domain_layout_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_domain_layout_errors()}
+  def create_domain_layout(
+        %Client{} = client,
+        domain_name,
+        layout_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/layouts/#{AWS.Util.encode_uri(layout_definition_name)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -4343,6 +4628,52 @@ defmodule AWS.CustomerProfiles do
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes the layout used to view data for a specific domain.
+
+  This API can only be invoked
+  from the Amazon Connect admin website.
+  """
+  @spec delete_domain_layout(
+          map(),
+          String.t(),
+          String.t(),
+          delete_domain_layout_request(),
+          list()
+        ) ::
+          {:ok, delete_domain_layout_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_domain_layout_errors()}
+  def delete_domain_layout(
+        %Client{} = client,
+        domain_name,
+        layout_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/layouts/#{AWS.Util.encode_uri(layout_definition_name)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -4832,6 +5163,29 @@ defmodule AWS.CustomerProfiles do
           | {:error, get_domain_errors()}
   def get_domain(%Client{} = client, domain_name, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the layout to view data for a specific domain.
+
+  This API can only be invoked from
+  the Amazon Connect admin website.
+  """
+  @spec get_domain_layout(map(), String.t(), String.t(), list()) ::
+          {:ok, get_domain_layout_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_domain_layout_errors()}
+  def get_domain_layout(%Client{} = client, domain_name, layout_definition_name, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/layouts/#{AWS.Util.encode_uri(layout_definition_name)}"
+
     headers = []
     query_params = []
 
@@ -5398,6 +5752,47 @@ defmodule AWS.CustomerProfiles do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/profile/#{AWS.Util.encode_uri(profile_id)}/calculated-attributes"
 
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the existing layouts that can be used to view data for a specific domain.
+
+  This API
+  can only be invoked from the Amazon Connect admin website.
+  """
+  @spec list_domain_layouts(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_domain_layouts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_domain_layouts_errors()}
+  def list_domain_layouts(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/layouts"
     headers = []
     query_params = []
 
@@ -6357,6 +6752,52 @@ defmodule AWS.CustomerProfiles do
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, domain_name, input, options \\ []) do
     url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the layout used to view data for a specific domain.
+
+  This API can only be invoked
+  from the Amazon Connect admin website.
+  """
+  @spec update_domain_layout(
+          map(),
+          String.t(),
+          String.t(),
+          update_domain_layout_request(),
+          list()
+        ) ::
+          {:ok, update_domain_layout_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_domain_layout_errors()}
+  def update_domain_layout(
+        %Client{} = client,
+        domain_name,
+        layout_definition_name,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/layouts/#{AWS.Util.encode_uri(layout_definition_name)}"
+
     headers = []
     custom_headers = []
     query_params = []

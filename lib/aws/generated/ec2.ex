@@ -5670,6 +5670,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_interface() :: %{
+        "AssociatedSubnets" => list(String.t()()),
         "Association" => network_interface_association(),
         "Attachment" => network_interface_attachment(),
         "AvailabilityZone" => String.t(),
@@ -5903,6 +5904,7 @@ defmodule AWS.EC2 do
         "SubnetArn" => String.t(),
         "SubnetId" => String.t(),
         "Tags" => list(tag()()),
+        "Type" => String.t(),
         "VpcId" => String.t()
       }
       
@@ -7938,6 +7940,7 @@ defmodule AWS.EC2 do
       
       modify_network_interface_attribute_request() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
+        optional("AssociatedSubnetIds") => list(String.t()()),
         optional("Attachment") => network_interface_attachment_changes(),
         optional("ConnectionTrackingSpecification") => connection_tracking_specification_request(),
         optional("Description") => attribute_value(),
@@ -26717,6 +26720,7 @@ defmodule AWS.EC2 do
         "PublicIp" => String.t(),
         "PublicIpv4Pool" => String.t(),
         "ServiceManaged" => list(any()),
+        "SubnetId" => String.t(),
         "Tags" => list(tag()())
       }
       
@@ -30800,18 +30804,21 @@ defmodule AWS.EC2 do
   end
 
   @doc """
-  Attaches an EBS volume to a running or stopped instance and exposes it to the
-  instance
-  with the specified device name.
+  Attaches an Amazon EBS volume to a `running` or `stopped`
+  instance, and exposes it to the instance with the specified device name.
 
-  Encrypted EBS volumes must be attached to instances that support Amazon EBS
-  encryption. For
-  more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html)
-  in the *Amazon EBS User Guide*.
+  The maximum number of Amazon EBS volumes that you can attach to an instance
+  depends on the
+  instance type. If you exceed the volume attachment limit for an instance type,
+  the attachment
+  request fails with the `AttachmentLimitExceeded` error. For more information,
+  see [Instance volume
+  limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html).
 
-  After you attach an EBS volume, you must make it available. For more
-  information, see
-  [Make an EBS volume available for use](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html).
+  After you attach an EBS volume, you must make it available for use. For more
+  information,
+  see [Make an EBS volume available for
+  use](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html).
 
   If a volume has an Amazon Web Services Marketplace product code:
 

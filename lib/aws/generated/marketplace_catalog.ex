@@ -7,7 +7,7 @@ defmodule AWS.MarketplaceCatalog do
   and
   update capabilities.
 
-  An entity can be a product or an offer on AWS Marketplace.
+  An *entity* can be a product or an offer on AWS Marketplace.
 
   You can automate your entity update process by integrating the AWS Marketplace
   Catalog
@@ -205,6 +205,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_entity_id_filter() :: %{
+        "ValueList" => list(String.t()())
+      }
+
+  """
+  @type machine_learning_product_entity_id_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_in_use_exception() :: %{
         "Message" => String.t()
       }
@@ -339,6 +350,7 @@ defmodule AWS.MarketplaceCatalog do
         "EntityId" => String.t(),
         "EntityType" => String.t(),
         "LastModifiedDate" => String.t(),
+        "MachineLearningProductSummary" => machine_learning_product_summary(),
         "Name" => String.t(),
         "OfferSummary" => offer_summary(),
         "ResaleAuthorizationSummary" => resale_authorization_summary(),
@@ -529,6 +541,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+
+  """
+  @type machine_learning_product_sort() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_visibility_filter() :: %{
         "ValueList" => list(list(any())())
       }
@@ -656,6 +680,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_title_filter() :: %{
+        "ValueList" => list(String.t()()),
+        "WildCardValue" => String.t()
+      }
+
+  """
+  @type machine_learning_product_title_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_product_last_modified_date_filter() :: %{
         "DateRange" => container_product_last_modified_date_filter_date_range()
       }
@@ -685,6 +721,18 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type ami_product_visibility_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      machine_learning_product_last_modified_date_filter_date_range() :: %{
+        "AfterValue" => String.t(),
+        "BeforeValue" => String.t()
+      }
+
+  """
+  @type machine_learning_product_last_modified_date_filter_date_range() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1070,6 +1118,18 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_summary() :: %{
+        "ProductTitle" => String.t(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type machine_learning_product_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       offer_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -1277,6 +1337,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_visibility_filter() :: %{
+        "ValueList" => list(list(any())())
+      }
+
+  """
+  @type machine_learning_product_visibility_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_entities_response() :: %{
         "EntitySummaryList" => list(entity_summary()()),
         "NextToken" => String.t()
@@ -1391,6 +1462,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      machine_learning_product_last_modified_date_filter() :: %{
+        "DateRange" => machine_learning_product_last_modified_date_filter_date_range()
+      }
+
+  """
+  @type machine_learning_product_last_modified_date_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_product_last_modified_date_filter() :: %{
         "DateRange" => data_product_last_modified_date_filter_date_range()
       }
@@ -1420,6 +1502,20 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type offer_availability_end_date_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      machine_learning_product_filters() :: %{
+        "EntityId" => machine_learning_product_entity_id_filter(),
+        "LastModifiedDate" => machine_learning_product_last_modified_date_filter(),
+        "ProductTitle" => machine_learning_product_title_filter(),
+        "Visibility" => machine_learning_product_visibility_filter()
+      }
+
+  """
+  @type machine_learning_product_filters() :: %{String.t() => any()}
 
   @type batch_describe_entities_errors() ::
           throttling_exception()
@@ -1882,6 +1978,11 @@ defmodule AWS.MarketplaceCatalog do
   single-AMI products, see [Working with single-AMI products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products).
   Also, for more information about change
   types available for container-based products, see [Working with container products](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products).
+
+  To download "DetailsDocument" shapes, see
+  [Python](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python) and
+  [Java](https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main)
+  shapes on GitHub.
   """
   @spec start_change_set(map(), start_change_set_request(), list()) ::
           {:ok, start_change_set_response(), any()}

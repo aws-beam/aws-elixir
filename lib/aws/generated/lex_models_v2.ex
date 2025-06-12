@@ -942,6 +942,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       runtime_settings() :: %{
+        "nluImprovement" => nlu_improvement_specification(),
         "slotResolutionImprovement" => slot_resolution_improvement_specification()
       }
 
@@ -5111,6 +5112,17 @@ defmodule AWS.LexModelsV2 do
 
   """
   @type list_recommended_intents_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nlu_improvement_specification() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type nlu_improvement_specification() :: %{String.t() => any()}
 
   @typedoc """
 

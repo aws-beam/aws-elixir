@@ -1146,6 +1146,7 @@ defmodule AWS.WAFV2 do
         "LabelNamespace" => String.t(),
         "ManagedByFirewallManager" => boolean(),
         "Name" => String.t(),
+        "OnSourceDDoSProtectionConfig" => on_source_d_do_s_protection_config(),
         "PostProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()()),
         "PreProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()()),
         "RetrofittedByFirewallManager" => boolean(),
@@ -1400,6 +1401,19 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      client_side_action() :: %{
+        "ExemptUriRegularExpressions" => list(regex()()),
+        "Sensitivity" => list(any()),
+        "UsageOfAction" => list(any())
+      }
+      
+  """
+  @type client_side_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rate_limit_forwarded_ip() :: %{}
       
   """
@@ -1463,6 +1477,18 @@ defmodule AWS.WAFV2 do
       
   """
   @type response_inspection_body_contains() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_managed_rules_anti_d_do_s_rule_set() :: %{
+        "ClientSideActionConfig" => client_side_action_config(),
+        "SensitivityToBlock" => list(any())
+      }
+      
+  """
+  @type aws_managed_rules_anti_d_do_s_rule_set() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1695,6 +1721,7 @@ defmodule AWS.WAFV2 do
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
+        optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()()),
         optional("TokenDomains") => list(String.t()()),
         required("DefaultAction") => default_action(),
@@ -2259,6 +2286,7 @@ defmodule AWS.WAFV2 do
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
+        optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()()),
         optional("Tags") => list(tag()()),
         optional("TokenDomains") => list(String.t()()),
@@ -2523,6 +2551,17 @@ defmodule AWS.WAFV2 do
       
   """
   @type list_tags_for_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_source_d_do_s_protection_config() :: %{
+        "ALBLowReputationMode" => list(any())
+      }
+      
+  """
+  @type on_source_d_do_s_protection_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2862,6 +2901,7 @@ defmodule AWS.WAFV2 do
       managed_rule_group_config() :: %{
         "AWSManagedRulesACFPRuleSet" => aws_managed_rules_a_c_f_p_rule_set(),
         "AWSManagedRulesATPRuleSet" => aws_managed_rules_a_t_p_rule_set(),
+        "AWSManagedRulesAntiDDoSRuleSet" => aws_managed_rules_anti_d_do_s_rule_set(),
         "AWSManagedRulesBotControlRuleSet" => aws_managed_rules_bot_control_rule_set(),
         "LoginPath" => String.t(),
         "PasswordField" => password_field(),
@@ -3322,6 +3362,17 @@ defmodule AWS.WAFV2 do
       
   """
   @type association_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_side_action_config() :: %{
+        "Challenge" => client_side_action()
+      }
+      
+  """
+  @type client_side_action_config() :: %{String.t() => any()}
 
   @type associate_web_acl_errors() ::
           w_a_f_invalid_operation_exception()

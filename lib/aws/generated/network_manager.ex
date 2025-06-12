@@ -1340,12 +1340,15 @@ defmodule AWS.NetworkManager do
         "Asn" => float(),
         "Cidr" => String.t(),
         "DestinationIdentifier" => String.t(),
+        "DnsSupport" => boolean(),
         "EdgeLocations" => list(String.t()()),
         "InsideCidrBlocks" => list(String.t()()),
         "NetworkFunctionGroupName" => String.t(),
+        "SecurityGroupReferencingSupport" => boolean(),
         "SegmentName" => String.t(),
         "ServiceInsertionActions" => list(service_insertion_action()()),
-        "SharedSegments" => list(String.t()())
+        "SharedSegments" => list(String.t()()),
+        "VpnEcmpSupport" => boolean()
       }
 
   """
@@ -2670,7 +2673,9 @@ defmodule AWS.NetworkManager do
 
       vpc_options() :: %{
         "ApplianceModeSupport" => boolean(),
-        "Ipv6Support" => boolean()
+        "DnsSupport" => boolean(),
+        "Ipv6Support" => boolean(),
+        "SecurityGroupReferencingSupport" => boolean()
       }
 
   """

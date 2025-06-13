@@ -3143,27 +3143,30 @@ defmodule AWS.KMS do
   verify.
   You can't change these properties after the KMS key is created.
 
-  Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or
-  an
-  SM2 key pair (China Regions only). The private key in an asymmetric KMS key
-  never leaves
-  KMS unencrypted. However, you can use the `GetPublicKey` operation to
-  download the public key so it can be used outside of KMS. Each KMS key can have
-  only
-  one key usage. KMS keys with RSA key pairs can be used to encrypt and decrypt
-  data or
-  sign and verify messages (but not both). KMS keys with NIST-recommended ECC key
+  Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair,
+  ML-DSA
+  key pair or an SM2 key pair (China Regions only). The private key in an
+  asymmetric KMS
+  key never leaves KMS unencrypted. However, you can use the `GetPublicKey`
+  operation to download the public key so it can be used
+  outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key
   pairs
-  can be used to sign and verify messages or derive shared secrets (but not both).
-  KMS
-  keys with `ECC_SECG_P256K1` can be used only to sign and verify messages. KMS
-  keys with SM2 key pairs (China Regions only) can be used to either encrypt and
-  decrypt
-  data, sign and verify messages, or derive shared secrets (you must choose one
-  key usage
-  type). For information about asymmetric KMS keys, see [Asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)
-  in the
-  *Key Management Service Developer Guide*.
+  can be used to encrypt and decrypt data or sign and verify messages (but not
+  both). KMS
+  keys with NIST-recommended ECC key pairs can be used to sign and verify messages
+  or
+  derive shared secrets (but not both). KMS keys with `ECC_SECG_P256K1` can be
+  used only to sign and verify messages. KMS keys with ML-DSA key pairs can be
+  used to
+  sign and verify messages. KMS keys with SM2 key pairs (China Regions only) can
+  be used
+  to either encrypt and decrypt data, sign and verify messages, or derive shared
+  secrets
+  (you must choose one key usage type). For information about asymmetric KMS keys,
+  see
+  [Asymmetric KMS
+  keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html)
+  in the *Key Management Service Developer Guide*.
 
   ### HMAC KMS key
 
@@ -6328,9 +6331,9 @@ defmodule AWS.KMS do
   KMS key.
 
   You can perform [on-demand rotation](https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html)
-  of
-  the key material in customer managed KMS keys, regardless of whether or not
-  [automatic key rotation](https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html)
+  of the key
+  material in customer managed KMS keys, regardless of whether or not [automatic key
+  rotation](https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html)
   is enabled. On-demand rotations do not change existing automatic rotation
   schedules. For example, consider a KMS key that has automatic key rotation
   enabled with a
@@ -6528,14 +6531,14 @@ defmodule AWS.KMS do
   in the *Key Management Service Developer Guide*.
 
   Digital signatures are generated and verified by using asymmetric key pair, such
-  as an RSA
-  or ECC pair that is represented by an asymmetric KMS key. The key owner (or an
-  authorized
-  user) uses their private key to sign a message. Anyone with the public key can
-  verify that the
-  message was signed with that particular private key and that the message hasn't
-  changed since
-  it was signed.
+  as an
+  RSA, ECC, or ML-DSA pair that is represented by an asymmetric KMS key. The key
+  owner (or an
+  authorized user) uses their private key to sign a message. Anyone with the
+  public key can
+  verify that the message was signed with that particular private key and that the
+  message
+  hasn't changed since it was signed.
 
   To use the `Sign` operation, provide the following information:
 
@@ -6550,9 +6553,9 @@ defmodule AWS.KMS do
   sign. You can submit messages of up to 4096 bytes. To sign a larger message,
   generate a
   hash digest of the message, and then provide the hash digest in the `Message`
-  parameter. To indicate whether the message is a full message or a digest, use
-  the
-  `MessageType` parameter.
+  parameter. To indicate whether the message is a full message, a digest, or an
+  ML-DSA
+  EXTERNAL_MU, use the `MessageType` parameter.
 
     *
   Choose a signing algorithm that is compatible with the KMS key.
@@ -7014,7 +7017,8 @@ defmodule AWS.KMS do
   in `us-east-1` and a replica key in `eu-west-2`. If you run
   `UpdatePrimaryRegion` with a `PrimaryRegion` value of
   `eu-west-2`, the primary key is now the key in `eu-west-2`, and the
-  key in `us-east-1` becomes a replica key. For details, see [Change the primary key in a set of multi-Region
+  key in `us-east-1` becomes a replica key. For details, see [Change the primary key in a
+  set of multi-Region
   keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-update.html)
   in the *Key Management Service Developer Guide*.
 

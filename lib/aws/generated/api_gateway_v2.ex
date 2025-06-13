@@ -3117,7 +3117,7 @@ defmodule AWS.ApiGatewayV2 do
   end
 
   @doc """
-  Creates a RoutingRule
+  Creates a RoutingRule.
   """
   @spec create_routing_rule(map(), String.t(), create_routing_rule_request(), list()) ::
           {:ok, create_routing_rule_response(), any()}

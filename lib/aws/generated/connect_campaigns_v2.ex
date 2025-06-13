@@ -173,6 +173,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      instance_communication_limits_config() :: %{
+        "allChannelSubtypes" => list()
+      }
+
+  """
+  @type instance_communication_limits_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_campaign_channel_subtype_config_request() :: %{
         required("channelSubtype") => String.t()
       }
@@ -510,6 +521,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      put_instance_communication_limits_request() :: %{
+        required("communicationLimitsConfig") => instance_communication_limits_config()
+      }
+
+  """
+  @type put_instance_communication_limits_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_campaign_state_request() :: %{}
 
   """
@@ -615,6 +637,15 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      get_instance_communication_limits_request() :: %{}
+
+  """
+  @type get_instance_communication_limits_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_connect_instance_integrations_response() :: %{
         "integrationSummaryList" => list(list()()),
         "nextToken" => String.t()
@@ -679,7 +710,8 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       communication_limits_config() :: %{
-        "allChannelSubtypes" => list()
+        "allChannelSubtypes" => list(),
+        "instanceLimitsHandling" => String.t()
       }
 
   """
@@ -1095,6 +1127,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      get_instance_communication_limits_response() :: %{
+        "communicationLimitsConfig" => instance_communication_limits_config()
+      }
+
+  """
+  @type get_instance_communication_limits_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       campaign_summary() :: %{
         "arn" => String.t(),
         "channelSubtypes" => list(String.t()()),
@@ -1249,6 +1292,12 @@ defmodule AWS.ConnectCampaignsV2 do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_instance_communication_limits_errors() ::
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_instance_onboarding_job_status_errors() ::
           validation_exception()
           | access_denied_exception()
@@ -1284,6 +1333,13 @@ defmodule AWS.ConnectCampaignsV2 do
   @type put_connect_instance_integration_errors() ::
           throttling_exception()
           | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type put_instance_communication_limits_errors() ::
+          validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
@@ -1818,6 +1874,26 @@ defmodule AWS.ConnectCampaignsV2 do
   end
 
   @doc """
+  Get the instance communication limits.
+  """
+  @spec get_instance_communication_limits(map(), String.t(), list()) ::
+          {:ok, get_instance_communication_limits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_instance_communication_limits_errors()}
+  def get_instance_communication_limits(%Client{} = client, connect_instance_id, options \\ []) do
+    url_path =
+      "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/communication-limits"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get the specific instance onboarding job status.
   """
   @spec get_instance_onboarding_job_status(map(), String.t(), list()) ::
@@ -1977,6 +2053,49 @@ defmodule AWS.ConnectCampaignsV2 do
         options \\ []
       ) do
     url_path = "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/integrations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Put the instance communication limits.
+
+  This API is idempotent.
+  """
+  @spec put_instance_communication_limits(
+          map(),
+          String.t(),
+          put_instance_communication_limits_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_instance_communication_limits_errors()}
+  def put_instance_communication_limits(
+        %Client{} = client,
+        connect_instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/connect-instance/#{AWS.Util.encode_uri(connect_instance_id)}/communication-limits"
+
     headers = []
     custom_headers = []
     query_params = []

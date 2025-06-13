@@ -162,6 +162,7 @@ defmodule AWS.EMRServerless do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "endedAt" => non_neg_integer(),
+        "executionIamPolicy" => job_run_execution_iam_policy(),
         "executionRole" => String.t(),
         "executionTimeoutMinutes" => float(),
         "jobDriver" => list(),

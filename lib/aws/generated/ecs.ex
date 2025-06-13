@@ -5633,7 +5633,8 @@ defmodule AWS.ECS do
   (provided that the cluster resources required to do this are available).
 
   When
-  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html) stops a task during a deployment, the equivalent of `docker stop` is issued
+  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html)
+  stops a task during a deployment, the equivalent of `docker stop` is issued
   to the containers running in the task. This results in a `SIGTERM` and a
   30-second timeout. After this, `SIGKILL` is sent and the containers are
   forcibly stopped. If the container handles the `SIGTERM` gracefully and exits
@@ -5680,22 +5681,6 @@ defmodule AWS.ECS do
   Stop the task on a container instance in an optimal Availability Zone (based
   on the previous steps), favoring container instances with the largest number of
   running tasks for this service.
-
-  You must have a service-linked role when you update any of the following service
-  properties:
-
-    
-
-  `loadBalancers`,
-
-    
-
-  `serviceRegistries`
-
-  For more information about the role see the `CreateService` request
-  parameter [
-  `role`
-  ](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role).
   """
   @spec update_service(map(), update_service_request(), list()) ::
           {:ok, update_service_response(), any()}

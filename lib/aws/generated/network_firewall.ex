@@ -353,6 +353,20 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      update_availability_zone_change_protection_response() :: %{
+        "AvailabilityZoneChangeProtection" => boolean(),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type update_availability_zone_change_protection_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_flow_operation_response() :: %{
         "AvailabilityZone" => String.t(),
         "FirewallArn" => String.t(),
@@ -382,6 +396,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type associate_subnets_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_availability_zones_response() :: %{
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type associate_availability_zones_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -674,11 +702,24 @@ defmodule AWS.NetworkFirewall do
         "FirewallArn" => String.t(),
         "FirewallPolicyArn" => String.t(),
         "Status" => list(any()),
-        "SupportedAvailabilityZones" => map()
+        "SupportedAvailabilityZones" => map(),
+        "TransitGatewayAttachmentId" => String.t()
       }
       
   """
   @type describe_firewall_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type delete_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -797,6 +838,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      reject_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type reject_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_policy_request() :: %{
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -885,7 +938,8 @@ defmodule AWS.NetworkFirewall do
         "CapacityUsageSummary" => capacity_usage_summary(),
         "ConfigurationSyncStateSummary" => list(any()),
         "Status" => list(any()),
-        "SyncStates" => map()
+        "SyncStates" => map(),
+        "TransitGatewayAttachmentSyncState" => transit_gateway_attachment_sync_state()
       }
       
   """
@@ -926,6 +980,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type list_flow_operations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type accept_network_firewall_transit_gateway_attachment_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1034,6 +1100,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type flow_operation_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_mapping() :: %{
+        "AvailabilityZone" => String.t()
+      }
+      
+  """
+  @type availability_zone_mapping() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1220,6 +1297,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      accept_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t()
+      }
+      
+  """
+  @type accept_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stateful_rule() :: %{
         "Action" => list(any()),
         "Header" => header(),
@@ -1396,6 +1484,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      delete_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t()
+      }
+      
+  """
+  @type delete_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_flow_operations_request() :: %{
         optional("AvailabilityZone") => String.t(),
         optional("FlowOperationType") => list(any()),
@@ -1414,6 +1513,8 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       firewall() :: %{
+        "AvailabilityZoneChangeProtection" => boolean(),
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
         "DeleteProtection" => boolean(),
         "Description" => String.t(),
         "EnabledAnalysisTypes" => list(list(any())()),
@@ -1427,6 +1528,8 @@ defmodule AWS.NetworkFirewall do
         "SubnetChangeProtection" => boolean(),
         "SubnetMappings" => list(subnet_mapping()()),
         "Tags" => list(tag()()),
+        "TransitGatewayId" => String.t(),
+        "TransitGatewayOwnerAccountId" => String.t(),
         "VpcId" => String.t()
       }
       
@@ -1449,6 +1552,8 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       create_firewall_request() :: %{
+        optional("AvailabilityZoneChangeProtection") => boolean(),
+        optional("AvailabilityZoneMappings") => list(availability_zone_mapping()()),
         optional("DeleteProtection") => boolean(),
         optional("Description") => String.t(),
         optional("EnabledAnalysisTypes") => list(list(any())()),
@@ -1457,6 +1562,7 @@ defmodule AWS.NetworkFirewall do
         optional("SubnetChangeProtection") => boolean(),
         optional("SubnetMappings") => list(subnet_mapping()()),
         optional("Tags") => list(tag()()),
+        optional("TransitGatewayId") => String.t(),
         optional("VpcId") => String.t(),
         required("FirewallName") => String.t(),
         required("FirewallPolicyArn") => String.t()
@@ -1644,6 +1750,20 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      disassociate_availability_zones_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("AvailabilityZoneMappings") => list(availability_zone_mapping()())
+      }
+      
+  """
+  @type disassociate_availability_zones_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_firewall_policies_response() :: %{
         "FirewallPolicies" => list(firewall_policy_metadata()()),
         "NextToken" => String.t()
@@ -1687,6 +1807,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type internal_server_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_attachment_sync_state() :: %{
+        "AttachmentId" => String.t(),
+        "StatusMessage" => String.t(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type transit_gateway_attachment_sync_state() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2061,6 +2194,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      reject_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t()
+      }
+      
+  """
+  @type reject_network_firewall_transit_gateway_attachment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       dimension() :: %{
         "Value" => String.t()
       }
@@ -2078,6 +2222,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_resource_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_availability_zones_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("AvailabilityZoneMappings") => list(availability_zone_mapping()())
+      }
+      
+  """
+  @type associate_availability_zones_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2335,7 +2493,8 @@ defmodule AWS.NetworkFirewall do
       
       firewall_metadata() :: %{
         "FirewallArn" => String.t(),
-        "FirewallName" => String.t()
+        "FirewallName" => String.t(),
+        "TransitGatewayAttachmentId" => String.t()
       }
       
   """
@@ -2402,6 +2561,20 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type rule_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_availability_zones_response() :: %{
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
+        "FirewallArn" => String.t(),
+        "FirewallName" => String.t(),
+        "UpdateToken" => String.t()
+      }
+      
+  """
+  @type disassociate_availability_zones_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2523,6 +2696,35 @@ defmodule AWS.NetworkFirewall do
   """
   @type describe_firewall_policy_response() :: %{String.t() => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      update_availability_zone_change_protection_request() :: %{
+        optional("FirewallArn") => String.t(),
+        optional("FirewallName") => String.t(),
+        optional("UpdateToken") => String.t(),
+        required("AvailabilityZoneChangeProtection") => boolean()
+      }
+      
+  """
+  @type update_availability_zone_change_protection_request() :: %{String.t() => any()}
+
+  @type accept_network_firewall_transit_gateway_attachment_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type associate_availability_zones_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | insufficient_capacity_exception()
+          | invalid_operation_exception()
+
   @type associate_firewall_policy_errors() ::
           invalid_token_exception()
           | throttling_exception()
@@ -2593,6 +2795,12 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | invalid_operation_exception()
           | unsupported_operation_exception()
+
+  @type delete_network_firewall_transit_gateway_attachment_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
 
   @type delete_resource_policy_errors() ::
           throttling_exception()
@@ -2683,6 +2891,14 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type disassociate_availability_zones_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
+
   @type disassociate_subnets_errors() ::
           invalid_token_exception()
           | throttling_exception()
@@ -2743,6 +2959,12 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | resource_not_found_exception()
 
+  @type reject_network_firewall_transit_gateway_attachment_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
   @type start_analysis_report_errors() ::
           throttling_exception()
           | internal_server_error()
@@ -2772,6 +2994,14 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+
+  @type update_availability_zone_change_protection_errors() ::
+          invalid_token_exception()
+          | throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | resource_owner_check_exception()
 
   @type update_firewall_analysis_settings_errors() ::
           throttling_exception()
@@ -2861,6 +3091,67 @@ defmodule AWS.NetworkFirewall do
       signing_name: "network-firewall",
       target_prefix: "NetworkFirewall_20201112"
     }
+  end
+
+  @doc """
+  Accepts a transit gateway attachment request for Network Firewall.
+
+  When you accept the attachment request, Network Firewall creates the necessary
+  routing components to enable traffic flow between the transit gateway and
+  firewall endpoints.
+
+  You must accept a transit gateway attachment to complete the creation of a
+  transit gateway-attached firewall, unless auto-accept is enabled on the transit
+  gateway. After acceptance, use `DescribeFirewall` to verify the firewall status.
+
+  To reject an attachment instead of accepting it, use
+  `RejectNetworkFirewallTransitGatewayAttachment`.
+
+  It can take several minutes for the attachment acceptance to complete and the
+  firewall to become available.
+  """
+  @spec accept_network_firewall_transit_gateway_attachment(
+          map(),
+          accept_network_firewall_transit_gateway_attachment_request(),
+          list()
+        ) ::
+          {:ok, accept_network_firewall_transit_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, accept_network_firewall_transit_gateway_attachment_errors()}
+  def accept_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "AcceptNetworkFirewallTransitGatewayAttachment",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Associates the specified Availability Zones with a transit gateway-attached
+  firewall.
+
+  For each Availability Zone, Network Firewall creates a firewall endpoint to
+  process traffic. You can specify one or more Availability Zones where you want
+  to deploy the firewall.
+
+  After adding Availability Zones, you must update your transit gateway route
+  tables to direct traffic through the new firewall endpoints. Use
+  `DescribeFirewall` to monitor the status of the new endpoints.
+  """
+  @spec associate_availability_zones(map(), associate_availability_zones_request(), list()) ::
+          {:ok, associate_availability_zones_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_availability_zones_errors()}
+  def associate_availability_zones(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AssociateAvailabilityZones", input, options)
   end
 
   @doc """
@@ -3095,6 +3386,39 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Deletes a transit gateway attachment from a Network Firewall.
+
+  Either the firewall owner or the transit gateway owner can delete the
+  attachment.
+
+  After you delete a transit gateway attachment, traffic will no longer flow
+  through the firewall endpoints.
+
+  After you initiate the delete operation, use `DescribeFirewall` to monitor the
+  deletion status.
+  """
+  @spec delete_network_firewall_transit_gateway_attachment(
+          map(),
+          delete_network_firewall_transit_gateway_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_network_firewall_transit_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_network_firewall_transit_gateway_attachment_errors()}
+  def delete_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteNetworkFirewallTransitGatewayAttachment",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Deletes a resource policy that you created in a `PutResourcePolicy` request.
   """
   @spec delete_resource_policy(map(), delete_resource_policy_request(), list()) ::
@@ -3317,6 +3641,31 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointAssociation", input, options)
+  end
+
+  @doc """
+  Removes the specified Availability Zone associations from a transit
+  gateway-attached firewall.
+
+  This removes the firewall endpoints from these Availability Zones and stops
+  traffic filtering in those zones. Before removing an Availability Zone, ensure
+  you've updated your transit gateway route tables to redirect traffic
+  appropriately.
+
+  If `AvailabilityZoneChangeProtection` is enabled, you must first disable it
+  using `UpdateAvailabilityZoneChangeProtection`.
+
+  To verify the status of your Availability Zone changes, use `DescribeFirewall`.
+  """
+  @spec disassociate_availability_zones(map(), disassociate_availability_zones_request(), list()) ::
+          {:ok, disassociate_availability_zones_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_availability_zones_errors()}
+  def disassociate_availability_zones(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DisassociateAvailabilityZones", input, options)
   end
 
   @doc """
@@ -3591,6 +3940,42 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Rejects a transit gateway attachment request for Network Firewall.
+
+  When you reject the attachment request, Network Firewall cancels the creation of
+  routing components between the transit gateway and firewall endpoints.
+
+  Only the transit gateway owner can reject the attachment. After rejection, no
+  traffic will flow through the firewall endpoints for this attachment.
+
+  Use `DescribeFirewall` to monitor the rejection status. To accept the attachment
+  instead of rejecting it, use `AcceptNetworkFirewallTransitGatewayAttachment`.
+
+  Once rejected, you cannot reverse this action. To establish connectivity, you
+  must create a new transit gateway-attached firewall.
+  """
+  @spec reject_network_firewall_transit_gateway_attachment(
+          map(),
+          reject_network_firewall_transit_gateway_attachment_request(),
+          list()
+        ) ::
+          {:ok, reject_network_firewall_transit_gateway_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reject_network_firewall_transit_gateway_attachment_errors()}
+  def reject_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "RejectNetworkFirewallTransitGatewayAttachment",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Generates a traffic analysis report for the timeframe and traffic type you
   specify.
 
@@ -3713,6 +4098,33 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Modifies the `AvailabilityZoneChangeProtection` setting for a transit
+  gateway-attached firewall.
+
+  When enabled, this setting prevents accidental changes to the firewall's
+  Availability Zone configuration. This helps protect against disrupting traffic
+  flow in production environments.
+
+  When enabled, you must disable this protection before using
+  `AssociateAvailabilityZones` or `DisassociateAvailabilityZones` to modify the
+  firewall's Availability Zone configuration.
+  """
+  @spec update_availability_zone_change_protection(
+          map(),
+          update_availability_zone_change_protection_request(),
+          list()
+        ) ::
+          {:ok, update_availability_zone_change_protection_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_availability_zone_change_protection_errors()}
+  def update_availability_zone_change_protection(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateAvailabilityZoneChangeProtection", input, options)
   end
 
   @doc """

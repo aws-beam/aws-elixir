@@ -42,6 +42,7 @@ defmodule AWS.Bedrock do
         optional("foundationModelArnEquals") => String.t(),
         optional("isOwned") => [boolean()],
         optional("maxResults") => integer(),
+        optional("modelStatus") => list(any()),
         optional("nameContains") => String.t(),
         optional("nextToken") => String.t(),
         optional("sortBy") => list(any()),
@@ -775,6 +776,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_custom_model_response() :: %{
+        "modelArn" => String.t()
+      }
+
+  """
+  @type create_custom_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_prompt_router_request() :: %{}
 
   """
@@ -1416,12 +1428,14 @@ defmodule AWS.Bedrock do
         "creationTime" => non_neg_integer(),
         "customizationConfig" => list(),
         "customizationType" => list(any()),
+        "failureMessage" => String.t(),
         "hyperParameters" => map(),
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "modelArn" => String.t(),
         "modelKmsKeyArn" => String.t(),
         "modelName" => String.t(),
+        "modelStatus" => list(any()),
         "outputDataConfig" => output_data_config(),
         "trainingDataConfig" => training_data_config(),
         "trainingMetrics" => training_metrics(),
@@ -2380,6 +2394,22 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_custom_model_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("modelKmsKeyArn") => String.t(),
+        optional("modelTags") => list(tag()()),
+        optional("roleArn") => String.t(),
+        required("modelName") => String.t(),
+        required("modelSourceConfig") => list()
+      }
+
+  """
+  @type create_custom_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       training_details() :: %{
         "creationTime" => non_neg_integer(),
         "lastModifiedTime" => non_neg_integer(),
@@ -3002,6 +3032,7 @@ defmodule AWS.Bedrock do
         "customizationType" => list(any()),
         "modelArn" => String.t(),
         "modelName" => String.t(),
+        "modelStatus" => list(any()),
         "ownerAccountId" => String.t()
       }
 
@@ -3157,6 +3188,16 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_custom_model_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3605,9 +3646,9 @@ defmodule AWS.Bedrock do
   @doc """
   Deletes a batch of evaluation jobs.
 
-  An evaluation job can only be deleted if it has
-  following status `FAILED`, `COMPLETED`, and `STOPPED`.
-  You can request up to 25 model evaluation jobs be deleted in a single request.
+  An evaluation job can only be deleted if it has following status `FAILED`,
+  `COMPLETED`, and `STOPPED`. You can request up to 25 model evaluation jobs be
+  deleted in a single request.
   """
   @spec batch_delete_evaluation_job(map(), batch_delete_evaluation_job_request(), list()) ::
           {:ok, batch_delete_evaluation_job_response(), any()}
@@ -3632,6 +3673,68 @@ defmodule AWS.Bedrock do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates a new custom model in Amazon Bedrock from an existing SageMaker
+  AI-trained Amazon Nova model stored in an Amazon-managed Amazon S3 bucket.
+
+  After the model is active, you can use it for inference.
+
+  To use the model for inference, you must purchase Provisioned Throughput for it.
+  You can't use On-demand inference with these custom models. For more information
+  about Provisioned Throughput, see [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html).
+
+  The model appears in `ListCustomModels` with a `customizationType` of
+  `imported`. To track the status of the new model, you use the `GetCustomModel`
+  API operation. The model can be in the following states:
+
+    * `Creating` - Initial state during validation and registration
+
+    * `Active` - Model is ready for use in inference
+
+    * `Failed` - Creation process encountered an error
+
+  For more information about creating custom models, including specific model
+  requirements, see [Import a SageMaker AI-trained Amazon Nova model](https://docs.aws.amazon.com/bedrock/latest/userguide/create-custom-model-from-existing.html)
+  in the Amazon Bedrock User Guide.
+
+  You use the `CreateCustomModel` API to import only SageMaker AI-trained Amazon
+  Nova models. To import open-source models, you use the
+  [CreateModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html). 
+  ## Related APIs
+
+    *
+  [GetCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html)
+
+    *
+  [ListCustomModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html)     *
+  [DeleteCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html)
+  """
+  @spec create_custom_model(map(), create_custom_model_request(), list()) ::
+          {:ok, create_custom_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_custom_model_errors()}
+  def create_custom_model(%Client{} = client, input, options \\ []) do
+    url_path = "/custom-models/create-custom-model"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -3669,44 +3772,30 @@ defmodule AWS.Bedrock do
   generative AI applications.
 
   You can configure the following policies in a guardrail to avoid undesirable and
-  harmful content, filter
-  out denied topics and words, and remove sensitive information for privacy
-  protection.
+  harmful content, filter out denied topics and words, and remove sensitive
+  information for privacy protection.
 
-    *
+    * **Content filters** - Adjust filter strengths to block input
+  prompts or model responses containing harmful content.
 
-  **Content filters** - Adjust filter strengths
-  to block input prompts or model responses containing harmful content.
+    * **Denied topics** - Define a set of topics that are undesirable in
+  the context of your application. These topics will be blocked if detected in
+  user queries or model responses.
 
-    *
+    * **Word filters** - Configure filters to block undesirable words,
+  phrases, and profanity. Such words can include offensive terms, competitor names
+  etc.
 
-  **Denied topics** - Define a set of topics that
-  are undesirable in the context of your application. These topics will be blocked
-  if
-  detected in user queries or model responses.
-
-    *
-
-  **Word filters** - Configure filters to block
-  undesirable words, phrases, and profanity. Such words can include offensive
-  terms,
-  competitor names etc.
-
-    *
-
-  **Sensitive information filters** - Block or
-  mask sensitive information such as personally identifiable information (PII) or
-  custom
-  regex in user inputs and model responses.
+    * **Sensitive information filters** - Block or mask sensitive
+  information such as personally identifiable information (PII) or custom regex in
+  user inputs and model responses.
 
   In addition to the above policies, you can also configure the messages to be
-  returned to
-  the user if a user input or model response is in violation of the policies
-  defined in the guardrail.
+  returned to the user if a user input or model response is in violation of the
+  policies defined in the guardrail.
 
   For more information, see [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
-  in
-  the *Amazon Bedrock User Guide*.
+  in the *Amazon Bedrock User Guide*.
   """
   @spec create_guardrail(map(), create_guardrail_request(), list()) ::
           {:ok, create_guardrail_response(), any()}
@@ -3737,9 +3826,8 @@ defmodule AWS.Bedrock do
   @doc """
   Creates a version of the guardrail.
 
-  Use this API to create a snapshot of the
-  guardrail when you are satisfied with a configuration, or to compare the
-  configuration with another version.
+  Use this API to create a snapshot of the guardrail when you are satisfied with a
+  configuration, or to compare the configuration with another version.
   """
   @spec create_guardrail_version(map(), String.t(), create_guardrail_version_request(), list()) ::
           {:ok, create_guardrail_version_response(), any()}
@@ -3808,8 +3896,7 @@ defmodule AWS.Bedrock do
   @doc """
   Creates an endpoint for a model from Amazon Bedrock Marketplace.
 
-  The endpoint is hosted by
-  Amazon SageMaker.
+  The endpoint is hosted by Amazon SageMaker.
   """
   @spec create_marketplace_model_endpoint(
           map(),
@@ -3884,9 +3971,8 @@ defmodule AWS.Bedrock do
   For information on the format of training and validation data, see [Prepare the datasets](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html).
 
   Model-customization jobs are asynchronous and the completion time depends on the
-  base model and the training/validation data size.
-  To monitor a job, use the `GetModelCustomizationJob` operation to retrieve the
-  job status.
+  base model and the training/validation data size. To monitor a job, use the
+  `GetModelCustomizationJob` operation to retrieve the job status.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
@@ -3921,8 +4007,7 @@ defmodule AWS.Bedrock do
   Creates a model import job to import model that you have customized in other
   environments, such as Amazon SageMaker.
 
-  For more information,
-  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  For more information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
   """
   @spec create_model_import_job(map(), create_model_import_job_request(), list()) ::
           {:ok, create_model_import_job_response(), any()}
@@ -4089,14 +4174,13 @@ defmodule AWS.Bedrock do
   @doc """
   Deletes a guardrail.
 
-    *
-  To delete a guardrail, only specify the ARN of the guardrail in the
-  `guardrailIdentifier` field. If you delete a guardrail, all of its versions will
-  be deleted.
+    * To delete a guardrail, only specify the ARN of the guardrail in
+  the `guardrailIdentifier` field. If you delete a guardrail, all of its versions
+  will be deleted.
 
-    *
-  To delete a version of a guardrail, specify the ARN of the guardrail in the
-  `guardrailIdentifier` field and the version in the `guardrailVersion` field.
+    * To delete a version of a guardrail, specify the ARN of the
+  guardrail in the `guardrailIdentifier` field and the version in the
+  `guardrailVersion` field.
   """
   @spec delete_guardrail(map(), String.t(), delete_guardrail_request(), list()) ::
           {:ok, delete_guardrail_response(), any()}
@@ -4132,8 +4216,7 @@ defmodule AWS.Bedrock do
   @doc """
   Deletes a custom model that you imported earlier.
 
-  For more information,
-  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  For more information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec delete_imported_model(map(), String.t(), delete_imported_model_request(), list()) ::
@@ -4344,10 +4427,8 @@ defmodule AWS.Bedrock do
   @doc """
   Deregisters an endpoint for a model from Amazon Bedrock Marketplace.
 
-  This operation removes the
-  endpoint's association with Amazon Bedrock but does not delete the underlying
-  Amazon SageMaker
-  endpoint.
+  This operation removes the endpoint's association with Amazon Bedrock but does
+  not delete the underlying Amazon SageMaker endpoint.
   """
   @spec deregister_marketplace_model_endpoint(
           map(),
@@ -4387,7 +4468,9 @@ defmodule AWS.Bedrock do
 
   @doc """
   Get the properties associated with a Amazon Bedrock custom model that you have
-  created.For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
+  created.
+
+  For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec get_custom_model(map(), String.t(), list()) ::
@@ -4578,11 +4661,9 @@ defmodule AWS.Bedrock do
 
   @doc """
   Retrieves the properties associated with import model job, including the status
-  of the
-  job.
+  of the job.
 
-  For more information,
-  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  For more information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec get_model_import_job(map(), String.t(), list()) ::
@@ -4696,6 +4777,7 @@ defmodule AWS.Bedrock do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_custom_models_response(), any()}
@@ -4710,6 +4792,7 @@ defmodule AWS.Bedrock do
         foundation_model_arn_equals \\ nil,
         is_owned \\ nil,
         max_results \\ nil,
+        model_status \\ nil,
         name_contains \\ nil,
         next_token \\ nil,
         sort_by \\ nil,
@@ -4744,6 +4827,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(name_contains) do
         [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(model_status) do
+        [{"modelStatus", model_status} | query_params]
       else
         query_params
       end
@@ -5021,9 +5111,8 @@ defmodule AWS.Bedrock do
   @doc """
   Returns a list of models you've imported.
 
-  You can filter the results to return based on one or more criteria.
-  For more information,
-  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  You can filter the results to return based on one or more criteria. For more
+  information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_imported_models(
@@ -5167,8 +5256,7 @@ defmodule AWS.Bedrock do
 
   @doc """
   Lists the endpoints for models from Amazon Bedrock Marketplace in your Amazon
-  Web Services
-  account.
+  Web Services account.
   """
   @spec list_marketplace_model_endpoints(
           map(),
@@ -5221,8 +5309,8 @@ defmodule AWS.Bedrock do
   @doc """
   Returns a list of model copy jobs that you have submitted.
 
-  You can filter the jobs to return based on
-  one or more criteria. For more information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
+  You can filter the jobs to return based on one or more criteria. For more
+  information, see [Copy models to be used in other regions](https://docs.aws.amazon.com/bedrock/latest/userguide/copy-model.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_model_copy_jobs(
@@ -5339,8 +5427,7 @@ defmodule AWS.Bedrock do
   @doc """
   Returns a list of model customization jobs that you have submitted.
 
-  You can filter the jobs to return based on
-  one or more criteria.
+  You can filter the jobs to return based on one or more criteria.
 
   For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
@@ -5441,9 +5528,8 @@ defmodule AWS.Bedrock do
   @doc """
   Returns a list of import jobs you've submitted.
 
-  You can filter the results to return based on one or more criteria.
-  For more information,
-  see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
+  You can filter the results to return based on one or more criteria. For more
+  information, see [Import a customized model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html)
   in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
   """
   @spec list_model_import_jobs(
@@ -5857,8 +5943,7 @@ defmodule AWS.Bedrock do
 
   @doc """
   Registers an existing Amazon SageMaker endpoint with Amazon Bedrock Marketplace,
-  allowing it to be used with
-  Amazon Bedrock APIs.
+  allowing it to be used with Amazon Bedrock APIs.
   """
   @spec register_marketplace_model_endpoint(
           map(),
@@ -6063,46 +6148,38 @@ defmodule AWS.Bedrock do
   @doc """
   Updates a guardrail with the values you specify.
 
-    *
-  Specify a `name` and optional `description`.
+    * Specify a `name` and optional `description`.
 
-    *
-  Specify messages for when the guardrail successfully blocks a prompt or a model
-  response in the `blockedInputMessaging` and `blockedOutputsMessaging` fields.
+    * Specify messages for when the guardrail successfully blocks a
+  prompt or a model response in the `blockedInputMessaging` and
+  `blockedOutputsMessaging` fields.
 
-    *
-  Specify topics for the guardrail to deny in the `topicPolicyConfig` object. Each
+    * Specify topics for the guardrail to deny in the
+  `topicPolicyConfig` object. Each
   [GuardrailTopicConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html) object in the `topicsConfig` list pertains to one topic.
 
-      *
-  Give a `name` and `description` so that the guardrail can properly identify the
-  topic.
+      * Give a `name` and `description` so that the guardrail
+  can properly identify the topic.
 
-      *
-  Specify `DENY` in the `type` field.
+      * Specify `DENY` in the `type` field.
 
-      *
-  (Optional) Provide up to five prompts that you would categorize as belonging to
-  the topic in the `examples` list.
+      * (Optional) Provide up to five prompts that you would
+  categorize as belonging to the topic in the `examples` list.
 
-    *
-  Specify filter strengths for the harmful categories defined in Amazon Bedrock in
-  the `contentPolicyConfig` object. Each
+    * Specify filter strengths for the harmful categories defined in
+  Amazon Bedrock in the `contentPolicyConfig` object. Each
   [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html)
   object in the `filtersConfig` list pertains to a harmful category. For more
   information, see [Content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters).
   For more information about the fields in a content filter, see
-  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html). 
-      *
-  Specify the category in the `type` field.
+  [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).      * Specify the category in the `type` field.
 
-      *
-  Specify the strength of the filter for prompts in the `inputStrength` field and
-  for model responses in the `strength` field of the
+      * Specify the strength of the filter for prompts in the
+  `inputStrength` field and for model responses in the `strength` field of the
   [GuardrailContentFilterConfig](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html).
 
-    *
-  (Optional) For security, include the ARN of a KMS key in the `kmsKeyId` field.
+    * (Optional) For security, include the ARN of a KMS key in the
+  `kmsKeyId` field.
   """
   @spec update_guardrail(map(), String.t(), update_guardrail_request(), list()) ::
           {:ok, update_guardrail_response(), any()}
@@ -6132,8 +6209,7 @@ defmodule AWS.Bedrock do
 
   @doc """
   Updates the configuration of an existing endpoint for a model from Amazon
-  Bedrock
-  Marketplace.
+  Bedrock Marketplace.
   """
   @spec update_marketplace_model_endpoint(
           map(),

@@ -62,8 +62,11 @@ defmodule AWS.GuardDuty do
 
       resource_data() :: %{
         "AccessKey" => access_key(),
+        "Container" => container_finding_resource(),
         "Ec2Instance" => ec2_instance(),
         "Ec2NetworkInterface" => ec2_network_interface(),
+        "EksCluster" => eks_cluster(),
+        "KubernetesWorkload" => kubernetes_workload(),
         "S3Bucket" => s3_bucket(),
         "S3Object" => s3_object()
       }
@@ -469,6 +472,7 @@ defmodule AWS.GuardDuty do
 
       sequence() :: %{
         "Actors" => list(actor()()),
+        "AdditionalSequenceTypes" => list(String.t()()),
         "Description" => String.t(),
         "Endpoints" => list(network_endpoint()()),
         "Resources" => list(resource_v2()()),
@@ -2290,6 +2294,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      eks_cluster() :: %{
+        "Arn" => String.t(),
+        "CreatedAt" => non_neg_integer(),
+        "Ec2InstanceUids" => list(String.t()()),
+        "Status" => list(any()),
+        "VpcId" => String.t()
+      }
+
+  """
+  @type eks_cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_publishing_destination_request() :: %{}
 
   """
@@ -2618,6 +2637,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      container_finding_resource() :: %{
+        "Image" => String.t(),
+        "ImageUid" => String.t()
+      }
+
+  """
+  @type container_finding_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lineage_object() :: %{
         "Euid" => integer(),
         "ExecutablePath" => String.t(),
@@ -2886,6 +2917,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type eks_cluster_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_workload() :: %{
+        "ContainerUids" => list(String.t()()),
+        "KubernetesResourcesTypes" => list(any()),
+        "Namespace" => String.t()
+      }
+
+  """
+  @type kubernetes_workload() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3216,6 +3260,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type delete_invitations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor_process() :: %{
+        "Name" => String.t(),
+        "Path" => String.t(),
+        "Sha256" => String.t()
+      }
+
+  """
+  @type actor_process() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3910,6 +3967,7 @@ defmodule AWS.GuardDuty do
 
       actor() :: %{
         "Id" => String.t(),
+        "Process" => actor_process(),
         "Session" => session(),
         "User" => user()
       }
@@ -6051,9 +6109,22 @@ defmodule AWS.GuardDuty do
   current
   GuardDuty member account.
 
-  If the organization's management account or a delegated administrator runs this
-  API,
-  it will return success (`HTTP 200`) but no content.
+  Based on the type of account that runs this API, the following list shows how
+  the API behavior varies:
+
+    *
+  When the GuardDuty administrator account runs this API, it will return success
+  (`HTTP 200`) but no content.
+
+    *
+  When a member account runs this API, it will return the details of the GuardDuty
+  administrator account that is associated
+  with this calling member account.
+
+    *
+  When an individual account (not associated with an organization) runs this API,
+  it will return success (`HTTP 200`)
+  but no content.
   """
   @spec get_administrator_account(map(), String.t(), list()) ::
           {:ok, get_administrator_account_response(), any()}

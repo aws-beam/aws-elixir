@@ -3677,8 +3677,7 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
-  Creates a new custom model in Amazon Bedrock from an existing SageMaker
-  AI-trained Amazon Nova model stored in an Amazon-managed Amazon S3 bucket.
+  Creates a new custom model in Amazon Bedrock.
 
   After the model is active, you can use it for inference.
 
@@ -3696,20 +3695,13 @@ defmodule AWS.Bedrock do
 
     * `Failed` - Creation process encountered an error
 
-  For more information about creating custom models, including specific model
-  requirements, see [Import a SageMaker AI-trained Amazon Nova model](https://docs.aws.amazon.com/bedrock/latest/userguide/create-custom-model-from-existing.html)
-  in the Amazon Bedrock User Guide.
-
-  You use the `CreateCustomModel` API to import only SageMaker AI-trained Amazon
-  Nova models. To import open-source models, you use the
-  [CreateModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html). 
   ## Related APIs
 
     *
-  [GetCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html)
+  [GetCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html)     *
+  [ListCustomModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html)
 
     *
-  [ListCustomModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html)     *
   [DeleteCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html)
   """
   @spec create_custom_model(map(), create_custom_model_request(), list()) ::

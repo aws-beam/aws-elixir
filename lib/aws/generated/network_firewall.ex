@@ -887,6 +887,7 @@ defmodule AWS.NetworkFirewall do
         optional("RuleGroup") => rule_group(),
         optional("Rules") => String.t(),
         optional("SourceMetadata") => source_metadata(),
+        optional("SummaryConfiguration") => summary_configuration(),
         optional("Tags") => list(tag()()),
         required("Capacity") => integer(),
         required("RuleGroupName") => String.t(),
@@ -997,6 +998,19 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_rule_group_summary_request() :: %{
+        optional("RuleGroupArn") => String.t(),
+        optional("RuleGroupName") => String.t(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_rule_group_summary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_vpc_endpoint_association_request() :: %{
         required("VpcEndpointAssociationArn") => String.t()
       }
@@ -1036,6 +1050,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type vpc_endpoint_association_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_summary_response() :: %{
+        "Description" => String.t(),
+        "RuleGroupName" => String.t(),
+        "Summary" => summary()
+      }
+      
+  """
+  @type describe_rule_group_summary_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1244,6 +1271,7 @@ defmodule AWS.NetworkFirewall do
         "RuleGroupStatus" => list(any()),
         "SnsTopic" => String.t(),
         "SourceMetadata" => source_metadata(),
+        "SummaryConfiguration" => summary_configuration(),
         "Tags" => list(tag()()),
         "Type" => list(any())
       }
@@ -1334,6 +1362,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       stateful_rule_group_reference() :: %{
+        "DeepThreatInspection" => boolean(),
         "Override" => stateful_rule_group_override(),
         "Priority" => integer(),
         "ResourceArn" => String.t()
@@ -1598,6 +1627,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_firewall_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_summary() :: %{
+        "Metadata" => String.t(),
+        "Msg" => String.t(),
+        "SID" => String.t()
+      }
+      
+  """
+  @type rule_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1871,6 +1913,7 @@ defmodule AWS.NetworkFirewall do
         optional("RuleGroupName") => String.t(),
         optional("Rules") => String.t(),
         optional("SourceMetadata") => source_metadata(),
+        optional("SummaryConfiguration") => summary_configuration(),
         optional("Type") => list(any()),
         required("UpdateToken") => String.t()
       }
@@ -2227,6 +2270,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      summary_configuration() :: %{
+        "RuleOptions" => list(list(any())())
+      }
+      
+  """
+  @type summary_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_availability_zones_request() :: %{
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
@@ -2510,6 +2564,17 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_vpc_endpoint_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary() :: %{
+        "RuleSummaries" => list(rule_summary()())
+      }
+      
+  """
+  @type summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2874,6 +2939,12 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
 
   @type describe_rule_group_metadata_errors() ::
+          throttling_exception()
+          | internal_server_error()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+
+  @type describe_rule_group_summary_errors() ::
           throttling_exception()
           | internal_server_error()
           | invalid_request_exception()
@@ -3391,7 +3462,7 @@ defmodule AWS.NetworkFirewall do
   Either the firewall owner or the transit gateway owner can delete the
   attachment.
 
-  After you delete a transit gateway attachment, traffic will no longer flow
+  After you delete a transit gateway attachment, raffic will no longer flow
   through the firewall endpoints.
 
   After you initiate the delete operation, use `DescribeFirewall` to monitor the
@@ -3605,6 +3676,28 @@ defmodule AWS.NetworkFirewall do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroupMetadata", input, options)
+  end
+
+  @doc """
+  Returns detailed information for a stateful rule group.
+
+  For active threat defense Amazon Web Services managed rule groups, this
+  operation provides insight into the protections enabled by the rule group, based
+  on Suricata rule metadata fields. Summaries are available for rule groups you
+  manage and for active threat defense Amazon Web Services managed rule groups.
+
+  To modify how threat information appears in summaries, use the
+  `SummaryConfiguration` parameter in `UpdateRuleGroup`.
+  """
+  @spec describe_rule_group_summary(map(), describe_rule_group_summary_request(), list()) ::
+          {:ok, describe_rule_group_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_rule_group_summary_errors()}
+  def describe_rule_group_summary(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeRuleGroupSummary", input, options)
   end
 
   @doc """
@@ -3945,8 +4038,8 @@ defmodule AWS.NetworkFirewall do
   When you reject the attachment request, Network Firewall cancels the creation of
   routing components between the transit gateway and firewall endpoints.
 
-  Only the transit gateway owner can reject the attachment. After rejection, no
-  traffic will flow through the firewall endpoints for this attachment.
+  Only the firewall owner can reject the attachment. After rejection, no traffic
+  will flow through the firewall endpoints for this attachment.
 
   Use `DescribeFirewall` to monitor the rejection status. To accept the attachment
   instead of rejecting it, use `AcceptNetworkFirewallTransitGatewayAttachment`.

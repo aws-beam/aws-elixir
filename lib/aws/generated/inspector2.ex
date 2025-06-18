@@ -28,6 +28,17 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      batch_disassociate_code_security_scan_configuration_request() :: %{
+        required("disassociateConfigurationRequests") => list(disassociate_configuration_request()())
+      }
+
+  """
+  @type batch_disassociate_code_security_scan_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_encryption_key_response() :: %{
         "kmsKeyId" => String.t()
       }
@@ -78,6 +89,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type code_file_path() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_git_lab_self_managed_integration_detail() :: %{
+        "accessToken" => String.t(),
+        "instanceUrl" => String.t()
+      }
+
+  """
+  @type create_git_lab_self_managed_integration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -137,6 +160,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type repository_aggregation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_code_security_scan_configuration() :: %{
+        "continuousIntegrationScanConfigurations" => list(project_continuous_integration_scan_configuration()()),
+        "periodicScanConfigurations" => list(project_periodic_scan_configuration()())
+      }
+
+  """
+  @type project_code_security_scan_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -219,10 +254,45 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      get_code_security_integration_request() :: %{
+        optional("tags") => map(),
+        required("integrationArn") => String.t()
+      }
+
+  """
+  @type get_code_security_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_request() :: %{
+        required("resource") => list(),
+        required("scanId") => String.t()
+      }
+
+  """
+  @type get_code_security_scan_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_organization_configuration_request() :: %{}
 
   """
   @type describe_organization_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_git_lab_self_managed_integration_detail() :: %{
+        "authCode" => String.t()
+      }
+
+  """
+  @type update_git_lab_self_managed_integration_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -275,12 +345,41 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      code_security_integration_summary() :: %{
+        "createdOn" => [non_neg_integer()],
+        "integrationArn" => String.t(),
+        "lastUpdateOn" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type code_security_integration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_findings_report_response() :: %{
         optional("reportId") => String.t()
       }
 
   """
   @type create_findings_report_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      continuous_integration_scan_configuration() :: %{
+        "supportedEvents" => list(list(any())())
+      }
+
+  """
+  @type continuous_integration_scan_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -345,6 +444,7 @@ defmodule AWS.Inspector2 do
         "epssScore" => list(number_filter()()),
         "ecrImageRegistry" => list(string_filter()()),
         "componentType" => list(string_filter()()),
+        "codeRepositoryProviderType" => list(string_filter()()),
         "lastObservedAt" => list(date_filter()()),
         "exploitAvailable" => list(string_filter()()),
         "ecrImageTags" => list(string_filter()()),
@@ -356,6 +456,7 @@ defmodule AWS.Inspector2 do
         "ec2InstanceSubnetId" => list(string_filter()()),
         "portRange" => list(port_range_filter()()),
         "ecrImagePushedAt" => list(date_filter()()),
+        "codeRepositoryProjectName" => list(string_filter()()),
         "lambdaFunctionLastModifiedAt" => list(date_filter()()),
         "ecrImageArchitecture" => list(string_filter()()),
         "vulnerabilityId" => list(string_filter()()),
@@ -506,6 +607,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      list_code_security_scan_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_code_security_scan_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       member_account_ec2_deep_inspection_status_state() :: %{
         "accountId" => String.t(),
         "errorMessage" => String.t(),
@@ -547,6 +660,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_state() :: %{
+        "codeRepository" => state(),
         "ec2" => state(),
         "ecr" => state(),
         "lambda" => state(),
@@ -666,6 +780,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      associate_configuration_request() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type associate_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_findings_response() :: %{
         optional("findings") => list(finding()()),
         optional("nextToken") => String.t()
@@ -775,6 +901,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_status() :: %{
+        "codeRepository" => String.t(),
         "ec2" => String.t(),
         "ecr" => String.t(),
         "lambda" => String.t(),
@@ -801,6 +928,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_scan_metadata() :: %{
+        "codeRepository" => code_repository_metadata(),
         "ec2" => ec2_metadata(),
         "ecrImage" => ecr_container_image_metadata(),
         "ecrRepository" => ecr_repository_metadata(),
@@ -837,6 +965,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      update_git_hub_integration_detail() :: %{
+        "code" => String.t(),
+        "installationId" => String.t()
+      }
+
+  """
+  @type update_git_hub_integration_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_cis_scan_configuration_request() :: %{
         optional("scanName") => String.t(),
         optional("schedule") => list(),
@@ -859,6 +999,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type reset_encryption_key_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_integration_response() :: %{
+        "integrationArn" => String.t()
+      }
+
+  """
+  @type delete_code_security_integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -887,6 +1038,31 @@ defmodule AWS.Inspector2 do
 
   """
   @type untag_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_integration_request() :: %{
+        optional("details") => list(),
+        optional("tags") => map(),
+        required("name") => String.t(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_code_security_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type delete_code_security_scan_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -953,6 +1129,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type failed_member_account_ec2_deep_inspection_status_state() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_security_scan_configuration_association_summary() :: %{
+        "resource" => list()
+      }
+
+  """
+  @type code_security_scan_configuration_association_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1118,6 +1305,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      list_code_security_scan_configuration_associations_response() :: %{
+        "associations" => list(code_security_scan_configuration_association_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_code_security_scan_configuration_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_cis_scan_results_aggregated_by_checks_response() :: %{
         "checkAggregations" => list(cis_check_aggregation()()),
         "nextToken" => String.t()
@@ -1130,6 +1329,17 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      delete_code_security_integration_request() :: %{
+        required("integrationArn") => String.t()
+      }
+
+  """
+  @type delete_code_security_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cis_target_status_reason_filter() :: %{
         "comparison" => list(any()),
         "value" => list(any())
@@ -1137,6 +1347,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type cis_target_status_reason_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      periodic_scan_configuration() :: %{
+        "frequency" => list(any()),
+        "frequencyExpression" => String.t()
+      }
+
+  """
+  @type periodic_scan_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1303,6 +1525,36 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      list_code_security_scan_configurations_response() :: %{
+        "configurations" => list(code_security_scan_configuration_summary()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_code_security_scan_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_response() :: %{
+        "accountId" => [String.t()],
+        "createdAt" => [non_neg_integer()],
+        "lastCommitId" => [String.t()],
+        "resource" => list(),
+        "scanId" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_code_security_scan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       compute_platform() :: %{
         "product" => String.t(),
         "vendor" => String.t(),
@@ -1358,6 +1610,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type list_delegated_admin_accounts_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_integrations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t()]
+      }
+
+  """
+  @type list_code_security_integrations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1585,6 +1849,25 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      code_security_scan_configuration_summary() :: %{
+        "continuousIntegrationScanSupportedEvents" => list(list(any())()),
+        "frequencyExpression" => String.t(),
+        "name" => String.t(),
+        "ownerAccountId" => String.t(),
+        "periodicScanFrequency" => list(any()),
+        "ruleSetCategories" => list(list(any())()),
+        "scanConfigurationArn" => String.t(),
+        "scopeSettings" => scope_settings(),
+        "tags" => map()
+      }
+
+  """
+  @type code_security_scan_configuration_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cluster_details() :: %{
         "clusterMetadata" => list(),
         "lastInUse" => [non_neg_integer()],
@@ -1610,6 +1893,19 @@ defmodule AWS.Inspector2 do
 
   """
   @type cvss_score_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_security_scan_configuration() :: %{
+        "continuousIntegrationScanConfiguration" => continuous_integration_scan_configuration(),
+        "periodicScanConfiguration" => periodic_scan_configuration(),
+        "ruleSetCategories" => list(list(any())())
+      }
+
+  """
+  @type code_security_scan_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1726,6 +2022,25 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      get_code_security_integration_response() :: %{
+        "authorizationUrl" => String.t(),
+        "createdOn" => [non_neg_integer()],
+        "integrationArn" => String.t(),
+        "lastUpdateOn" => [non_neg_integer()],
+        "name" => String.t(),
+        "status" => list(any()),
+        "statusReason" => [String.t()],
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_code_security_integration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_response() :: %{
         optional("tags") => map()
       }
@@ -1782,6 +2097,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type list_usage_totals_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type create_code_security_scan_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1935,6 +2261,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      start_code_security_scan_response() :: %{
+        "scanId" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_code_security_scan_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cis_security_level_filter() :: %{
         "comparison" => list(any()),
         "value" => list(any())
@@ -1972,6 +2310,21 @@ defmodule AWS.Inspector2 do
 
   """
   @type cluster_information() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_aggregation() :: %{
+        "projectNames" => list(string_filter()()),
+        "providerTypes" => list(string_filter()()),
+        "resourceIds" => list(string_filter()()),
+        "sortBy" => String.t(),
+        "sortOrder" => String.t()
+      }
+
+  """
+  @type code_repository_aggregation() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2092,6 +2445,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      update_code_security_integration_request() :: %{
+        required("details") => list(),
+        required("integrationArn") => String.t()
+      }
+
+  """
+  @type update_code_security_integration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ecr_rescan_duration_state() :: %{
         "pullDateRescanDuration" => String.t(),
         "pullDateRescanMode" => String.t(),
@@ -2136,6 +2501,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type update_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_configuration_request() :: %{
+        required("scanConfigurationArn") => String.t()
+      }
+
+  """
+  @type get_code_security_scan_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2192,6 +2568,35 @@ defmodule AWS.Inspector2 do
 
   """
   @type internal_server_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_metadata() :: %{
+        "integrationArn" => String.t(),
+        "lastScannedCommitId" => String.t(),
+        "onDemandScan" => code_repository_on_demand_scan(),
+        "projectName" => [String.t()],
+        "providerType" => [String.t()],
+        "providerTypeVisibility" => [String.t()],
+        "scanConfiguration" => project_code_security_scan_configuration()
+      }
+
+  """
+  @type code_repository_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_integrations_response() :: %{
+        "integrations" => list(code_security_integration_summary()()),
+        "nextToken" => [String.t()]
+      }
+
+  """
+  @type list_code_security_integrations_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2359,6 +2764,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      update_code_security_scan_configuration_request() :: %{
+        required("configuration") => code_security_scan_configuration(),
+        required("scanConfigurationArn") => String.t()
+      }
+
+  """
+  @type update_code_security_scan_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       network_reachability_details() :: %{
         "networkPath" => network_path(),
         "openPortRange" => port_range(),
@@ -2426,6 +2843,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type finding_details_error() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_security_scan_request() :: %{
+        optional("clientToken") => String.t(),
+        required("resource") => list()
+      }
+
+  """
+  @type start_code_security_scan_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2515,6 +2944,21 @@ defmodule AWS.Inspector2 do
 
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_scan_configuration_request() :: %{
+        optional("scopeSettings") => scope_settings(),
+        optional("tags") => map(),
+        required("configuration") => code_security_scan_configuration(),
+        required("level") => list(any()),
+        required("name") => String.t()
+      }
+
+  """
+  @type create_code_security_scan_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2625,6 +3069,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      project_continuous_integration_scan_configuration() :: %{
+        "ruleSetCategories" => list(list(any())()),
+        "supportedEvent" => list(any())
+      }
+
+  """
+  @type project_continuous_integration_scan_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       free_trial_info() :: %{
         "end" => [non_neg_integer()],
         "start" => [non_neg_integer()],
@@ -2656,6 +3112,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type get_cis_scan_report_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scope_settings() :: %{
+        "projectSelectionScope" => list(any())
+      }
+
+  """
+  @type scope_settings() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2829,6 +3296,9 @@ defmodule AWS.Inspector2 do
 
       coverage_filter_criteria() :: %{
         "accountId" => list(coverage_string_filter()()),
+        "codeRepositoryProjectName" => list(coverage_string_filter()()),
+        "codeRepositoryProviderType" => list(coverage_string_filter()()),
+        "codeRepositoryProviderTypeVisibility" => list(coverage_string_filter()()),
         "ec2InstanceTags" => list(coverage_map_filter()()),
         "ecrImageInUseCount" => list(coverage_number_filter()()),
         "ecrImageLastInUseAt" => list(coverage_date_filter()()),
@@ -2839,6 +3309,7 @@ defmodule AWS.Inspector2 do
         "lambdaFunctionRuntime" => list(coverage_string_filter()()),
         "lambdaFunctionTags" => list(coverage_map_filter()()),
         "lastScannedAt" => list(coverage_date_filter()()),
+        "lastScannedCommitId" => list(coverage_string_filter()()),
         "resourceId" => list(coverage_string_filter()()),
         "resourceType" => list(coverage_string_filter()()),
         "scanMode" => list(coverage_string_filter()()),
@@ -2883,6 +3354,19 @@ defmodule AWS.Inspector2 do
 
   """
   @type get_clusters_for_image_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_integration_response() :: %{
+        "authorizationUrl" => String.t(),
+        "integrationArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_code_security_integration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2959,6 +3443,47 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      list_code_security_scan_configuration_associations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t(),
+        required("scanConfigurationArn") => String.t()
+      }
+
+  """
+  @type list_code_security_scan_configuration_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_aggregation_response() :: %{
+        "accountId" => [String.t()],
+        "exploitAvailableActiveFindingsCount" => [float()],
+        "fixAvailableActiveFindingsCount" => [float()],
+        "projectNames" => [String.t()],
+        "providerType" => [String.t()],
+        "resourceId" => [String.t()],
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type code_repository_aggregation_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_scan_configuration_request() :: %{
+        required("scanConfigurationArn") => String.t()
+      }
+
+  """
+  @type delete_code_security_scan_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       package_aggregation() :: %{
         "packageNames" => list(string_filter()()),
         "sortBy" => String.t(),
@@ -3025,6 +3550,33 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      code_repository_on_demand_scan() :: %{
+        "lastScanAt" => non_neg_integer(),
+        "lastScannedCommitId" => String.t(),
+        "scanStatus" => scan_status()
+      }
+
+  """
+  @type code_repository_on_demand_scan() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_association_result() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t(),
+        "statusCode" => list(any()),
+        "statusMessage" => String.t()
+      }
+
+  """
+  @type failed_association_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cis_result_status_filter() :: %{
         "comparison" => list(any()),
         "value" => list(any())
@@ -3061,6 +3613,24 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      get_code_security_scan_configuration_response() :: %{
+        "configuration" => code_security_scan_configuration(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "level" => list(any()),
+        "name" => String.t(),
+        "scanConfigurationArn" => String.t(),
+        "scopeSettings" => scope_settings(),
+        "tags" => map()
+      }
+
+  """
+  @type get_code_security_scan_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "message" => [String.t()]
       }
@@ -3089,6 +3659,17 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      batch_associate_code_security_scan_configuration_request() :: %{
+        required("associateConfigurationRequests") => list(associate_configuration_request()())
+      }
+
+  """
+  @type batch_associate_code_security_scan_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_cis_scan_results_aggregated_by_target_resource_request() :: %{
         optional("filterCriteria") => cis_scan_results_aggregated_by_target_resource_filter_criteria(),
         optional("maxResults") => integer(),
@@ -3100,6 +3681,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type list_cis_scan_results_aggregated_by_target_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_code_security_scan_configuration_response() :: %{
+        "failedAssociations" => list(failed_association_result()()),
+        "successfulAssociations" => list(successful_association_result()())
+      }
+
+  """
+  @type batch_disassociate_code_security_scan_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3194,7 +3787,8 @@ defmodule AWS.Inspector2 do
       resource_details() :: %{
         "awsEc2Instance" => aws_ec2_instance_details(),
         "awsEcrContainerImage" => aws_ecr_container_image_details(),
-        "awsLambdaFunction" => aws_lambda_function_details()
+        "awsLambdaFunction" => aws_lambda_function_details(),
+        "codeRepository" => code_repository_details()
       }
 
   """
@@ -3237,6 +3831,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       auto_enable() :: %{
+        "codeRepository" => [boolean()],
         "ec2" => [boolean()],
         "ecr" => [boolean()],
         "lambda" => [boolean()],
@@ -3267,6 +3862,19 @@ defmodule AWS.Inspector2 do
 
   """
   @type cis_scan_result_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_details() :: %{
+        "integrationArn" => String.t(),
+        "projectName" => String.t(),
+        "providerType" => String.t()
+      }
+
+  """
+  @type code_repository_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3352,6 +3960,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      update_code_security_integration_response() :: %{
+        "integrationArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_code_security_integration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       aws_ecr_container_image_details() :: %{
         "architecture" => String.t(),
         "author" => [String.t()],
@@ -3378,6 +3998,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type disassociate_member_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type update_code_security_scan_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3491,6 +4122,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      batch_associate_code_security_scan_configuration_response() :: %{
+        "failedAssociations" => list(failed_association_result()()),
+        "successfulAssociations" => list(successful_association_result()())
+      }
+
+  """
+  @type batch_associate_code_security_scan_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cis_scan_result_details_filter_criteria() :: %{
         "checkIdFilters" => list(cis_string_filter()()),
         "findingArnFilters" => list(cis_string_filter()()),
@@ -3537,6 +4180,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type permission() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_configuration_request() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type disassociate_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3679,6 +4334,18 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      project_periodic_scan_configuration() :: %{
+        "frequencyExpression" => String.t(),
+        "ruleSetCategories" => list(list(any())())
+      }
+
+  """
+  @type project_periodic_scan_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_finding_details_response() :: %{
         "errors" => list(finding_details_error()()),
         "findingDetails" => list(finding_detail()())
@@ -3702,6 +4369,18 @@ defmodule AWS.Inspector2 do
 
   """
   @type resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_association_result() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t()
+      }
+
+  """
+  @type successful_association_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3734,6 +4413,22 @@ defmodule AWS.Inspector2 do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+
+  @type batch_associate_code_security_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type batch_disassociate_code_security_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type batch_get_account_status_errors() ::
           throttling_exception()
@@ -3792,6 +4487,22 @@ defmodule AWS.Inspector2 do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type create_code_security_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
+  @type create_code_security_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_filter_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3815,6 +4526,20 @@ defmodule AWS.Inspector2 do
           | resource_not_found_exception()
 
   @type delete_cis_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_code_security_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_code_security_scan_configuration_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3889,6 +4614,28 @@ defmodule AWS.Inspector2 do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type get_code_security_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_code_security_scan_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type get_code_security_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_configuration_errors() ::
           throttling_exception() | internal_server_exception() | resource_not_found_exception()
 
@@ -3962,6 +4709,26 @@ defmodule AWS.Inspector2 do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_code_security_integrations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_code_security_scan_configuration_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type list_code_security_scan_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_coverage_errors() ::
           throttling_exception() | validation_exception() | internal_server_exception()
@@ -4039,6 +4806,14 @@ defmodule AWS.Inspector2 do
           | internal_server_exception()
           | conflict_exception()
 
+  @type start_code_security_scan_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type stop_cis_session_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4065,6 +4840,22 @@ defmodule AWS.Inspector2 do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type update_code_security_integration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_code_security_scan_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_configuration_errors() ::
           throttling_exception()
@@ -4124,10 +4915,12 @@ defmodule AWS.Inspector2 do
   Associates an Amazon Web Services account with an Amazon Inspector delegated
   administrator.
 
-  An HTTP 200 response indicates the association was successfully started, but
-  doesn’t indicate whether it was completed. You can check if the association
-  completed by using
-  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple accounts or
+  An HTTP 200 response
+  indicates the association was successfully started, but doesn’t indicate whether
+  it was
+  completed. You can check if the association completed by using
+  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple
+  accounts or
   [GetMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html)
   for a single account.
   """
@@ -4138,6 +4931,80 @@ defmodule AWS.Inspector2 do
           | {:error, associate_member_errors()}
   def associate_member(%Client{} = client, input, options \\ []) do
     url_path = "/members/associate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates multiple code repositories with an Amazon Inspector code security
+  scan
+  configuration.
+  """
+  @spec batch_associate_code_security_scan_configuration(
+          map(),
+          batch_associate_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, batch_associate_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_associate_code_security_scan_configuration_errors()}
+  def batch_associate_code_security_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/batch/associate"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates multiple code repositories from an Amazon Inspector code security
+  scan
+  configuration.
+  """
+  @spec batch_disassociate_code_security_scan_configuration(
+          map(),
+          batch_disassociate_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, batch_disassociate_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_disassociate_code_security_scan_configuration_errors()}
+  def batch_disassociate_code_security_scan_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    url_path = "/codesecurity/scan-configuration/batch/disassociate"
     headers = []
     custom_headers = []
     query_params = []
@@ -4189,7 +5056,8 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves code snippets from findings that Amazon Inspector detected code
-  vulnerabilities in.
+  vulnerabilities
+  in.
   """
   @spec batch_get_code_snippet(map(), batch_get_code_snippet_request(), list()) ::
           {:ok, batch_get_code_snippet_response(), any()}
@@ -4277,10 +5145,12 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves Amazon Inspector deep inspection activation status of multiple member
-  accounts within your organization.
+  accounts within
+  your organization.
 
   You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  to
+  use this API.
   """
   @spec batch_get_member_ec2_deep_inspection_status(
           map(),
@@ -4314,10 +5184,12 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Activates or deactivates Amazon Inspector deep inspection for the provided
-  member accounts in your organization.
+  member accounts in your
+  organization.
 
   You must be the delegated administrator of an organization in Amazon Inspector
-  to use this API.
+  to use
+  this API.
   """
   @spec batch_update_member_ec2_deep_inspection_status(
           map(),
@@ -4437,10 +5309,81 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Creates a code security integration with a source code repository provider.
+
+  After calling the `CreateCodeSecurityIntegration` operation, you complete
+  authentication and authorization with your provider. Next you call the
+  `UpdateCodeSecurityIntegration` operation to provide the `details`
+  to complete the integration setup
+  """
+  @spec create_code_security_integration(
+          map(),
+          create_code_security_integration_request(),
+          list()
+        ) ::
+          {:ok, create_code_security_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_code_security_integration_errors()}
+  def create_code_security_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/integration/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a scan configuration for code security scanning.
+  """
+  @spec create_code_security_scan_configuration(
+          map(),
+          create_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_code_security_scan_configuration_errors()}
+  def create_code_security_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a filter resource using specified filter criteria.
 
-  When the filter action is set to `SUPPRESS` this action creates a suppression
-  rule.
+  When the filter action is set
+  to `SUPPRESS` this action creates a suppression rule.
   """
   @spec create_filter(map(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
@@ -4471,9 +5414,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Creates a finding report.
 
-  By default only `ACTIVE` findings are returned in the report. To see `SUPRESSED`
-  or `CLOSED` findings you must specify a value for the `findingStatus` filter
-  criteria.
+  By default only `ACTIVE` findings are returned in
+  the report. To see `SUPRESSED` or `CLOSED` findings you must specify
+  a value for the `findingStatus` filter criteria.
   """
   @spec create_findings_report(map(), create_findings_report_request(), list()) ::
           {:ok, create_findings_report_response(), any()}
@@ -4560,6 +5503,72 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Deletes a code security integration.
+  """
+  @spec delete_code_security_integration(
+          map(),
+          delete_code_security_integration_request(),
+          list()
+        ) ::
+          {:ok, delete_code_security_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_code_security_integration_errors()}
+  def delete_code_security_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/integration/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a code security scan configuration.
+  """
+  @spec delete_code_security_scan_configuration(
+          map(),
+          delete_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_code_security_scan_configuration_errors()}
+  def delete_code_security_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a filter resource.
   """
   @spec delete_filter(map(), delete_filter_request(), list()) ::
@@ -4625,8 +5634,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-  Disabling all scan types in an account
-  disables the Amazon Inspector service.
+  Disabling all scan types in an
+  account disables the Amazon Inspector service.
   """
   @spec disable(map(), disable_request(), list()) ::
           {:ok, disable_response(), any()}
@@ -4859,6 +5868,97 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Retrieves information about a code security integration.
+  """
+  @spec get_code_security_integration(map(), get_code_security_integration_request(), list()) ::
+          {:ok, get_code_security_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_code_security_integration_errors()}
+  def get_code_security_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/integration/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about a specific code security scan.
+  """
+  @spec get_code_security_scan(map(), get_code_security_scan_request(), list()) ::
+          {:ok, get_code_security_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_code_security_scan_errors()}
+  def get_code_security_scan(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves information about a code security scan configuration.
+  """
+  @spec get_code_security_scan_configuration(
+          map(),
+          get_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_code_security_scan_configuration_errors()}
+  def get_code_security_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves setting configurations for Inspector scans.
   """
   @spec get_configuration(map(), get_configuration_request(), list()) ::
@@ -4920,7 +6020,8 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves the activation status of Amazon Inspector deep inspection and custom
-  paths associated with your account.
+  paths associated
+  with your account.
   """
   @spec get_ec2_deep_inspection_configuration(
           map(),
@@ -5229,6 +6330,121 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Lists all code security integrations in your account.
+  """
+  @spec list_code_security_integrations(map(), list_code_security_integrations_request(), list()) ::
+          {:ok, list_code_security_integrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_code_security_integrations_errors()}
+  def list_code_security_integrations(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/integration/list"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the associations between code repositories and Amazon Inspector code
+  security scan
+  configurations.
+  """
+  @spec list_code_security_scan_configuration_associations(
+          map(),
+          list_code_security_scan_configuration_associations_request(),
+          list()
+        ) ::
+          {:ok, list_code_security_scan_configuration_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_code_security_scan_configuration_associations_errors()}
+  def list_code_security_scan_configuration_associations(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/associations/list"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all code security scan configurations in your account.
+  """
+  @spec list_code_security_scan_configurations(
+          map(),
+          list_code_security_scan_configurations_request(),
+          list()
+        ) ::
+          {:ok, list_code_security_scan_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_code_security_scan_configurations_errors()}
+  def list_code_security_scan_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/list"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists coverage details for your environment.
   """
   @spec list_coverage(map(), list_coverage_request(), list()) ::
@@ -5484,8 +6700,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Resets an encryption key.
 
-  After the key is reset your resources will be encrypted by an Amazon Web
-  Services owned key.
+  After the key is reset your resources will be encrypted by an
+  Amazon Web Services owned key.
   """
   @spec reset_encryption_key(map(), reset_encryption_key_request(), list()) ::
           {:ok, reset_encryption_key_response(), any()}
@@ -5543,13 +6759,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-
   Sends a CIS session health.
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls
+  this API to start a CIS scan session for the scan ID supplied by the service.
   """
   @spec send_cis_session_health(map(), send_cis_session_health_request(), list()) ::
           {:ok, send_cis_session_health_response(), any()}
@@ -5578,13 +6793,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-
   Sends a CIS session telemetry.
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls
+  this API to start a CIS scan session for the scan ID supplied by the service.
   """
   @spec send_cis_session_telemetry(map(), send_cis_session_telemetry_request(), list()) ::
           {:ok, send_cis_session_telemetry_response(), any()}
@@ -5613,13 +6827,12 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-
   Starts a CIS session.
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to start a CIS scan session for
-  the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls
+  this API to start a CIS scan session for the scan ID supplied by the service.
   """
   @spec start_cis_session(map(), start_cis_session_request(), list()) ::
           {:ok, start_cis_session_response(), any()}
@@ -5648,13 +6861,41 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Initiates a code security scan on a specified repository.
+  """
+  @spec start_code_security_scan(map(), start_code_security_scan_request(), list()) ::
+          {:ok, start_code_security_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_code_security_scan_errors()}
+  def start_code_security_scan(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan/start"
+    headers = []
+    custom_headers = []
+    query_params = []
 
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Stops a CIS session.
 
-  This API is used by the Amazon Inspector SSM plugin to communicate with the
-  Amazon Inspector service.
-  The Amazon Inspector SSM plugin calls this API to stop a CIS scan session for
-  the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to
+  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
+  calls
+  this API to stop a CIS scan session for the scan ID supplied by the service.
   """
   @spec stop_cis_session(map(), stop_cis_session_request(), list()) ::
           {:ok, stop_cis_session_response(), any()}
@@ -5775,11 +7016,83 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Updates an existing code security integration.
+
+  After calling the `CreateCodeSecurityIntegration` operation, you complete
+  authentication and authorization with your provider. Next you call the
+  `UpdateCodeSecurityIntegration` operation to provide the `details`
+  to complete the integration setup
+  """
+  @spec update_code_security_integration(
+          map(),
+          update_code_security_integration_request(),
+          list()
+        ) ::
+          {:ok, update_code_security_integration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_code_security_integration_errors()}
+  def update_code_security_integration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/integration/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing code security scan configuration.
+  """
+  @spec update_code_security_scan_configuration(
+          map(),
+          update_code_security_scan_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_code_security_scan_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_code_security_scan_configuration_errors()}
+  def update_code_security_scan_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/codesecurity/scan-configuration/update"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates setting configurations for your Amazon Inspector account.
 
-  When you use this API as an Amazon Inspector delegated administrator this
-  updates the setting for all accounts you manage. Member accounts in an
-  organization cannot update this setting.
+  When you use this API as an Amazon Inspector
+  delegated administrator this updates the setting for all accounts you manage.
+  Member
+  accounts in an organization cannot update this setting.
   """
   @spec update_configuration(map(), update_configuration_request(), list()) ::
           {:ok, update_configuration_response(), any()}
@@ -5844,8 +7157,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates an encryption key.
 
-  A `ResourceNotFoundException` means that an Amazon Web Services owned key is
-  being used for encryption.
+  A `ResourceNotFoundException` means that an
+  Amazon Web Services owned key is being used for encryption.
   """
   @spec update_encryption_key(map(), update_encryption_key_request(), list()) ::
           {:ok, update_encryption_key_response(), any()}
@@ -5906,7 +7219,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates the Amazon Inspector deep inspection custom paths for your organization.
 
-  You must be an Amazon Inspector delegated administrator to use this API.
+  You must be an
+  Amazon Inspector delegated administrator to use this API.
   """
   @spec update_org_ec2_deep_inspection_configuration(
           map(),

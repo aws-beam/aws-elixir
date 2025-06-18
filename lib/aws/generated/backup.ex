@@ -374,6 +374,7 @@ defmodule AWS.Backup do
         "IamRoleArn" => String.t(),
         "IndexStatus" => list(any()),
         "IndexStatusMessage" => String.t(),
+        "InitiationDate" => non_neg_integer(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
@@ -822,11 +823,15 @@ defmodule AWS.Backup do
         "CreationDate" => non_neg_integer(),
         "CreatorRequestId" => String.t(),
         "EncryptionKeyArn" => String.t(),
+        "LatestMpaApprovalTeamUpdate" => latest_mpa_approval_team_update(),
         "LockDate" => non_neg_integer(),
         "Locked" => boolean(),
         "MaxRetentionDays" => float(),
         "MinRetentionDays" => float(),
+        "MpaApprovalTeamArn" => String.t(),
+        "MpaSessionArn" => String.t(),
         "NumberOfRecoveryPoints" => float(),
+        "SourceBackupVaultArn" => String.t(),
         "VaultState" => list(any()),
         "VaultType" => list(any())
       }
@@ -879,6 +884,20 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      create_restore_access_backup_vault_output() :: %{
+        "CreationDate" => non_neg_integer(),
+        "RestoreAccessBackupVaultArn" => String.t(),
+        "RestoreAccessBackupVaultName" => String.t(),
+        "VaultState" => list(any())
+      }
+
+  """
+  @type create_restore_access_backup_vault_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_protected_resource_input() :: %{}
 
   """
@@ -925,6 +944,17 @@ defmodule AWS.Backup do
 
   """
   @type get_legal_hold_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_backup_vault_mpa_approval_team_input() :: %{
+        optional("RequesterComment") => String.t()
+      }
+
+  """
+  @type disassociate_backup_vault_mpa_approval_team_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1072,6 +1102,17 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      revoke_restore_access_backup_vault_input() :: %{
+        optional("RequesterComment") => String.t()
+      }
+
+  """
+  @type revoke_restore_access_backup_vault_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_recovery_points_by_legal_hold_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -1162,6 +1203,21 @@ defmodule AWS.Backup do
 
   """
   @type update_framework_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_mpa_approval_team_update() :: %{
+        "ExpiryDate" => non_neg_integer(),
+        "InitiationDate" => non_neg_integer(),
+        "MpaSessionArn" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type latest_mpa_approval_team_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1293,6 +1349,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      associate_backup_vault_mpa_approval_team_input() :: %{
+        optional("RequesterComment") => String.t(),
+        required("MpaApprovalTeamArn") => String.t()
+      }
+
+  """
+  @type associate_backup_vault_mpa_approval_team_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_restore_testing_selection_input() :: %{}
 
   """
@@ -1323,6 +1391,21 @@ defmodule AWS.Backup do
 
   """
   @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_access_backup_vault_list_member() :: %{
+        "ApprovalDate" => non_neg_integer(),
+        "CreationDate" => non_neg_integer(),
+        "LatestRevokeRequest" => latest_revoke_request(),
+        "RestoreAccessBackupVaultArn" => String.t(),
+        "VaultState" => list(any())
+      }
+
+  """
+  @type restore_access_backup_vault_list_member() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2335,6 +2418,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_restore_access_backup_vaults_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_restore_access_backup_vaults_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_backup_vault_notifications_input() :: %{}
 
   """
@@ -2869,6 +2964,7 @@ defmodule AWS.Backup do
         "IamRoleArn" => String.t(),
         "IndexStatus" => list(any()),
         "IndexStatusMessage" => String.t(),
+        "InitiationDate" => non_neg_integer(),
         "IsEncrypted" => boolean(),
         "IsParent" => boolean(),
         "LastRestoreTime" => non_neg_integer(),
@@ -2887,6 +2983,21 @@ defmodule AWS.Backup do
 
   """
   @type describe_recovery_point_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_revoke_request() :: %{
+        "ExpiryDate" => non_neg_integer(),
+        "InitiationDate" => non_neg_integer(),
+        "MpaSessionArn" => String.t(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t()
+      }
+
+  """
+  @type latest_revoke_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2944,6 +3055,21 @@ defmodule AWS.Backup do
 
   """
   @type get_legal_hold_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_restore_access_backup_vault_input() :: %{
+        optional("BackupVaultName") => String.t(),
+        optional("BackupVaultTags") => map(),
+        optional("CreatorRequestId") => String.t(),
+        optional("RequesterComment") => String.t(),
+        required("SourceBackupVaultArn") => String.t()
+      }
+
+  """
+  @type create_restore_access_backup_vault_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3157,6 +3283,18 @@ defmodule AWS.Backup do
 
   ## Example:
 
+      list_restore_access_backup_vaults_output() :: %{
+        "NextToken" => String.t(),
+        "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member()())
+      }
+
+  """
+  @type list_restore_access_backup_vaults_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_restore_validation_result_input() :: %{
         optional("ValidationStatusMessage") => String.t(),
         required("ValidationStatus") => list(any())
@@ -3164,6 +3302,13 @@ defmodule AWS.Backup do
 
   """
   @type put_restore_validation_result_input() :: %{String.t() => any()}
+
+  @type associate_backup_vault_mpa_approval_team_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
 
   @type cancel_legal_hold_errors() ::
           invalid_resource_state_exception()
@@ -3218,6 +3363,15 @@ defmodule AWS.Backup do
           limit_exceeded_exception()
           | service_unavailable_exception()
           | invalid_parameter_value_exception()
+          | already_exists_exception()
+          | missing_parameter_value_exception()
+
+  @type create_restore_access_backup_vault_errors() ::
+          limit_exceeded_exception()
+          | service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | already_exists_exception()
           | missing_parameter_value_exception()
 
@@ -3361,6 +3515,13 @@ defmodule AWS.Backup do
           service_unavailable_exception()
           | dependency_failure_exception()
           | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
+  @type disassociate_backup_vault_mpa_approval_team_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
           | resource_not_found_exception()
           | missing_parameter_value_exception()
 
@@ -3546,6 +3707,12 @@ defmodule AWS.Backup do
   @type list_report_plans_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
 
+  @type list_restore_access_backup_vaults_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
   @type list_restore_job_summaries_errors() ::
           service_unavailable_exception() | invalid_parameter_value_exception()
 
@@ -3595,6 +3762,13 @@ defmodule AWS.Backup do
           | missing_parameter_value_exception()
 
   @type put_restore_validation_result_errors() ::
+          service_unavailable_exception()
+          | invalid_parameter_value_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | missing_parameter_value_exception()
+
+  @type revoke_restore_access_backup_vault_errors() ::
           service_unavailable_exception()
           | invalid_parameter_value_exception()
           | invalid_request_exception()
@@ -3725,6 +3899,45 @@ defmodule AWS.Backup do
       signing_name: "backup",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Associates an MPA approval team with a backup vault.
+  """
+  @spec associate_backup_vault_mpa_approval_team(
+          map(),
+          String.t(),
+          associate_backup_vault_mpa_approval_team_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_backup_vault_mpa_approval_team_errors()}
+  def associate_backup_vault_mpa_approval_team(
+        %Client{} = client,
+        backup_vault_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/mpaApprovalTeam"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -4016,6 +4229,40 @@ defmodule AWS.Backup do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a restore access backup vault that provides temporary access to recovery
+  points in a logically air-gapped backup vault, subject to MPA approval.
+  """
+  @spec create_restore_access_backup_vault(
+          map(),
+          create_restore_access_backup_vault_input(),
+          list()
+        ) ::
+          {:ok, create_restore_access_backup_vault_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_restore_access_backup_vault_errors()}
+  def create_restore_access_backup_vault(%Client{} = client, input, options \\ []) do
+    url_path = "/restore-access-backup-vaults"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4815,6 +5062,46 @@ defmodule AWS.Backup do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Removes the association between an MPA approval team and a backup vault,
+  disabling the MPA approval workflow for restore operations.
+  """
+  @spec disassociate_backup_vault_mpa_approval_team(
+          map(),
+          String.t(),
+          disassociate_backup_vault_mpa_approval_team_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_backup_vault_mpa_approval_team_errors()}
+  def disassociate_backup_vault_mpa_approval_team(
+        %Client{} = client,
+        backup_vault_name,
+        input,
+        options \\ []
+      ) do
+    url_path = "/backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/mpaApprovalTeam?delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -6569,6 +6856,53 @@ defmodule AWS.Backup do
   end
 
   @doc """
+  Returns a list of restore access backup vaults associated with a specified
+  backup vault.
+  """
+  @spec list_restore_access_backup_vaults(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_restore_access_backup_vaults_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_restore_access_backup_vaults_errors()}
+  def list_restore_access_backup_vaults(
+        %Client{} = client,
+        backup_vault_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/logically-air-gapped-backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/restore-access-backup-vaults"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   This request obtains a summary of restore jobs created
   or running within the the most recent 30 days.
 
@@ -7161,6 +7495,55 @@ defmodule AWS.Backup do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Revokes access to a restore access backup vault, removing the ability to restore
+  from its recovery points and permanently deleting the vault.
+  """
+  @spec revoke_restore_access_backup_vault(
+          map(),
+          String.t(),
+          String.t(),
+          revoke_restore_access_backup_vault_input(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, revoke_restore_access_backup_vault_errors()}
+  def revoke_restore_access_backup_vault(
+        %Client{} = client,
+        backup_vault_name,
+        restore_access_backup_vault_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/logically-air-gapped-backup-vaults/#{AWS.Util.encode_uri(backup_vault_name)}/restore-access-backup-vaults/#{AWS.Util.encode_uri(restore_access_backup_vault_arn)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"RequesterComment", "requesterComment"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

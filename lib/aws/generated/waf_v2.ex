@@ -1021,6 +1021,18 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      application_attribute() :: %{
+        "Name" => String.t(),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type application_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rate_limit_cookie() :: %{
         "Name" => String.t(),
         "TextTransformations" => list(text_transformation()())
@@ -1134,6 +1146,7 @@ defmodule AWS.WAFV2 do
       
       web_acl() :: %{
         "ARN" => String.t(),
+        "ApplicationConfig" => application_config(),
         "AssociationConfig" => association_config(),
         "Capacity" => float(),
         "CaptchaConfig" => captcha_config(),
@@ -2280,6 +2293,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       create_web_acl_request() :: %{
+        optional("ApplicationConfig") => application_config(),
         optional("AssociationConfig") => association_config(),
         optional("CaptchaConfig") => captcha_config(),
         optional("ChallengeConfig") => challenge_config(),
@@ -2911,6 +2925,17 @@ defmodule AWS.WAFV2 do
       
   """
   @type managed_rule_group_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      application_config() :: %{
+        "Attributes" => list(application_attribute()())
+      }
+      
+  """
+  @type application_config() :: %{String.t() => any()}
 
   @typedoc """
 

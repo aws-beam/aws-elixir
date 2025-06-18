@@ -2626,11 +2626,14 @@ defmodule AWS.Organizations do
 
     *
 
-  [AISERVICES_OPT_OUT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html)
+  [AISERVICES_OPT_OUT_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html) 
+
+    *
+
+  [SECURITYHUB_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub.html)
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec attach_policy(map(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3082,8 +3085,7 @@ defmodule AWS.Organizations do
   `organizations:TagResource` permission.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec create_policy(map(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
@@ -3168,8 +3170,7 @@ defmodule AWS.Organizations do
   and accounts.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec delete_policy(map(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3185,7 +3186,7 @@ defmodule AWS.Organizations do
   @doc """
   Deletes the resource policy from your organization.
 
-  You can only call this operation from the organization's management account.
+  This operation can be called only from the organization's management account.
   """
   @spec delete_resource_policy(map(), %{}, list()) ::
           {:ok, nil, any()}
@@ -3238,8 +3239,7 @@ defmodule AWS.Organizations do
   Retrieves Organizations-related information about the specified account.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec describe_account(map(), describe_account_request(), list()) ::
           {:ok, describe_account_response(), any()}
@@ -3256,8 +3256,7 @@ defmodule AWS.Organizations do
   Retrieves the current status of an asynchronous request to create an account.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec describe_create_account_status(map(), describe_create_account_status_request(), list()) ::
           {:ok, describe_create_account_status_response(), any()}
@@ -3351,8 +3350,7 @@ defmodule AWS.Organizations do
   Retrieves information about an organizational unit (OU).
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec describe_organizational_unit(map(), describe_organizational_unit_request(), list()) ::
           {:ok, describe_organizational_unit_response(), any()}
@@ -3369,8 +3367,7 @@ defmodule AWS.Organizations do
   Retrieves information about a policy.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec describe_policy(map(), describe_policy_request(), list()) ::
           {:ok, describe_policy_response(), any()}
@@ -3387,8 +3384,7 @@ defmodule AWS.Organizations do
   Retrieves information about a resource policy.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec describe_resource_policy(map(), %{}, list()) ::
           {:ok, describe_resource_policy_response(), any()}
@@ -3427,8 +3423,7 @@ defmodule AWS.Organizations do
   authorization strategy of a "[deny list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist)".
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec detach_policy(map(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
@@ -3546,8 +3541,7 @@ defmodule AWS.Organizations do
   root, and then use this operation.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
 
   To view the status of available policy types in the organization, use
   `DescribeOrganization`.
@@ -3654,9 +3648,7 @@ defmodule AWS.Organizations do
   in the
   *Organizations User Guide*.
 
-  You can only call this operation from the organization's management account and
-  only
-  if the organization has [enabled all features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html).
+  This operation can be called only from the organization's management account.
   """
   @spec enable_aws_service_access(map(), enable_aws_service_access_request(), list()) ::
           {:ok, nil, any()}
@@ -3684,8 +3676,7 @@ defmodule AWS.Organizations do
   types for a specified root, and then use this operation.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
 
   You can enable a policy type in a root only if that policy type is available in
   the
@@ -3713,19 +3704,6 @@ defmodule AWS.Organizations do
   other account's owner. The invitation is implemented as a `Handshake`
   whose details are in the response.
 
-    
-  You can invite Amazon Web Services accounts only from the same seller as the
-  management
-  account. For example, if your organization's management account was created
-  by Amazon Internet Services Pvt. Ltd (AISPL), an Amazon Web Services seller in
-  India, you
-  can invite only other AISPL accounts to your organization. You can't combine
-  accounts from AISPL and Amazon Web Services or from any other Amazon Web
-  Services seller. For more
-  information, see [Consolidated billing in
-  India](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-India.html).
-
-    
   If you receive an exception that indicates that you exceeded your account
   limits for the organization or that the operation failed because your
   organization is still initializing, wait one hour and then try again. If the
@@ -3799,13 +3777,6 @@ defmodule AWS.Organizations do
   organization.
 
     
-  You can leave an organization only after you enable IAM user access to
-  billing in your account. For more information, see [About IAM access to the Billing and Cost Management
-  console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate)
-  in the
-  *Amazon Web Services Billing and Cost Management User Guide*.
-
-    
   After the account leaves the organization, all tags that were attached to
   the account object in the organization are deleted. Amazon Web Services accounts
   outside
@@ -3849,8 +3820,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_accounts(map(), list_accounts_request(), list()) ::
           {:ok, list_accounts_response(), any()}
@@ -3884,8 +3854,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_accounts_for_parent(map(), list_accounts_for_parent_request(), list()) ::
           {:ok, list_accounts_for_parent_response(), any()}
@@ -3914,8 +3883,7 @@ defmodule AWS.Organizations do
   in the *Organizations User Guide*.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_aws_service_access_for_organization(
           map(),
@@ -3949,8 +3917,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_children(map(), list_children_request(), list()) ::
           {:ok, list_children_response(), any()}
@@ -3977,8 +3944,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_create_account_status(map(), list_create_account_status_request(), list()) ::
           {:ok, list_create_account_status_response(), any()}
@@ -3997,8 +3963,7 @@ defmodule AWS.Organizations do
   organization.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_delegated_administrators(map(), list_delegated_administrators_request(), list()) ::
           {:ok, list_delegated_administrators_response(), any()}
@@ -4017,8 +3982,7 @@ defmodule AWS.Organizations do
   administrator.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_delegated_services_for_account(
           map(),
@@ -4091,8 +4055,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_handshakes_for_organization(
           map(),
@@ -4121,8 +4084,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_organizational_units_for_parent(
           map(),
@@ -4156,8 +4118,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
 
   In the current release, a child can have only a single parent.
   """
@@ -4184,8 +4145,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_policies(map(), list_policies_request(), list()) ::
           {:ok, list_policies_response(), any()}
@@ -4214,8 +4174,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_policies_for_target(map(), list_policies_for_target_request(), list()) ::
           {:ok, list_policies_for_target_response(), any()}
@@ -4240,8 +4199,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
 
   Policy types can be enabled and disabled in roots. This is distinct from whether
   they're available in the organization. When you enable all features, you make
@@ -4280,8 +4238,7 @@ defmodule AWS.Organizations do
   Policy (any type)
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -4307,8 +4264,7 @@ defmodule AWS.Organizations do
   when there are no more results to display.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec list_targets_for_policy(map(), list_targets_for_policy_request(), list()) ::
           {:ok, list_targets_for_policy_response(), any()}
@@ -4342,7 +4298,7 @@ defmodule AWS.Organizations do
   @doc """
   Creates or updates a resource policy.
 
-  You can only call this operation from the organization's management account.
+  This operation can be called only from the organization's management account..
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
@@ -4457,8 +4413,7 @@ defmodule AWS.Organizations do
   Policy (any type)
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4489,8 +4444,7 @@ defmodule AWS.Organizations do
   Policy (any type)
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
@@ -4531,8 +4485,7 @@ defmodule AWS.Organizations do
   type.
 
   This operation can be called only from the organization's
-  management account or by a member account that is a delegated administrator for
-  an Amazon Web Services service.
+  management account or by a member account that is a delegated administrator.
   """
   @spec update_policy(map(), update_policy_request(), list()) ::
           {:ok, update_policy_response(), any()}

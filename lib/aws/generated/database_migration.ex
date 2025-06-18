@@ -183,7 +183,8 @@ defmodule AWS.DatabaseMigration do
         "DataProviderName" => String.t(),
         "Description" => String.t(),
         "Engine" => String.t(),
-        "Settings" => list()
+        "Settings" => list(),
+        "Virtual" => boolean()
       }
       
   """
@@ -298,6 +299,8 @@ defmodule AWS.DatabaseMigration do
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "SecretsManagerOracleAsmAccessRoleArn" => String.t(),
         "SecretsManagerOracleAsmSecretId" => String.t(),
         "SecretsManagerSecurityDbEncryptionAccessRoleArn" => String.t(),
@@ -1141,6 +1144,8 @@ defmodule AWS.DatabaseMigration do
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -1937,6 +1942,8 @@ defmodule AWS.DatabaseMigration do
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -2087,6 +2094,7 @@ defmodule AWS.DatabaseMigration do
         optional("DataProviderName") => String.t(),
         optional("Description") => String.t(),
         optional("Tags") => list(tag()()),
+        optional("Virtual") => boolean(),
         required("Engine") => String.t(),
         required("Settings") => list()
       }
@@ -2113,6 +2121,8 @@ defmodule AWS.DatabaseMigration do
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -2291,6 +2301,7 @@ defmodule AWS.DatabaseMigration do
         optional("Engine") => String.t(),
         optional("ExactSettings") => boolean(),
         optional("Settings") => list(),
+        optional("Virtual") => boolean(),
         required("DataProviderIdentifier") => String.t()
       }
       
@@ -3078,6 +3089,8 @@ defmodule AWS.DatabaseMigration do
       redshift_data_provider_settings() :: %{
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t()
       }
       
@@ -3928,6 +3941,8 @@ defmodule AWS.DatabaseMigration do
       maria_db_data_provider_settings() :: %{
         "CertificateArn" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -4216,6 +4231,8 @@ defmodule AWS.DatabaseMigration do
         "CertificateArn" => String.t(),
         "DatabaseName" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -4877,6 +4894,8 @@ defmodule AWS.DatabaseMigration do
       my_sql_data_provider_settings() :: %{
         "CertificateArn" => String.t(),
         "Port" => integer(),
+        "S3AccessRoleArn" => String.t(),
+        "S3Path" => String.t(),
         "ServerName" => String.t(),
         "SslMode" => list(any())
       }
@@ -5586,11 +5605,18 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Starts the analysis of up to 20 source databases to recommend target engines for
   each
-  source database.
-
-  This is a batch version of
+  source database. This is a batch version of
   [StartRecommendations](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html).
 
   The result of analysis of each source database is reported individually in the
@@ -5725,6 +5751,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Creates a Fleet Advisor collector using the specified parameters.
   """
   @spec create_fleet_advisor_collector(map(), create_fleet_advisor_collector_request(), list()) ::
@@ -5952,6 +5987,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Deletes the specified Fleet Advisor collector.
   """
   @spec delete_fleet_advisor_collector(map(), delete_collector_request(), list()) ::
@@ -5966,6 +6010,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Deletes the specified Fleet Advisor collector databases.
   """
   @spec delete_fleet_advisor_databases(map(), delete_fleet_advisor_databases_request(), list()) ::
@@ -6393,6 +6446,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Returns a list of the Fleet Advisor collectors in your account.
   """
   @spec describe_fleet_advisor_collectors(
@@ -6411,6 +6473,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Returns a list of Fleet Advisor databases in your account.
   """
   @spec describe_fleet_advisor_databases(
@@ -6429,6 +6500,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Provides descriptions of large-scale assessment (LSA) analyses produced by your
   Fleet
   Advisor collectors.
@@ -6449,6 +6529,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Provides descriptions of the schemas discovered by your Fleet Advisor
   collectors.
   """
@@ -6468,6 +6557,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Returns a list of schemas detected by Fleet Advisor Collectors in your account.
   """
   @spec describe_fleet_advisor_schemas(map(), describe_fleet_advisor_schemas_request(), list()) ::
@@ -6639,6 +6737,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Returns a paginated list of limitations for recommendations of target Amazon Web
   Services
   engines.
@@ -6659,6 +6766,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Returns a paginated list of target engine recommendations for your source
   databases.
   """
@@ -7288,6 +7404,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in
   your account.
   """
@@ -7432,6 +7557,15 @@ defmodule AWS.DatabaseMigration do
   end
 
   @doc """
+
+
+  End of support notice: On May 20, 2026, Amazon Web Services will end support for
+  Amazon Web Services DMS Fleet Advisor;.
+
+  After May 20, 2026, you will no longer be able to access the Amazon Web Services
+  DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources.
+  For more information, see [Amazon Web Services DMS Fleet Advisor end of support](https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html).
+
   Starts the analysis of your source database to provide recommendations of target
   engines.
 

@@ -316,6 +316,17 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      identity_center_configuration_input() :: %{
+        "identityCenterInstanceArn" => String.t()
+      }
+
+  """
+  @type identity_center_configuration_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       auto_start_config() :: %{
         "enabled" => [boolean()]
       }
@@ -483,6 +494,7 @@ defmodule AWS.EMRServerless do
         "autoStartConfiguration" => auto_start_config(),
         "autoStopConfiguration" => auto_stop_config(),
         "createdAt" => non_neg_integer(),
+        "identityCenterConfiguration" => identity_center_configuration(),
         "imageConfiguration" => image_configuration(),
         "initialCapacity" => map(),
         "interactiveConfiguration" => interactive_configuration(),
@@ -523,6 +535,7 @@ defmodule AWS.EMRServerless do
         optional("architecture") => String.t(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
+        optional("identityCenterConfiguration") => identity_center_configuration_input(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
         optional("interactiveConfiguration") => interactive_configuration(),
@@ -617,6 +630,7 @@ defmodule AWS.EMRServerless do
         optional("architecture") => String.t(),
         optional("autoStartConfiguration") => auto_start_config(),
         optional("autoStopConfiguration") => auto_stop_config(),
+        optional("identityCenterConfiguration") => identity_center_configuration_input(),
         optional("imageConfiguration") => image_configuration_input(),
         optional("initialCapacity") => map(),
         optional("interactiveConfiguration") => interactive_configuration(),
@@ -781,6 +795,18 @@ defmodule AWS.EMRServerless do
 
   """
   @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_configuration() :: %{
+        "identityCenterApplicationArn" => String.t(),
+        "identityCenterInstanceArn" => String.t()
+      }
+
+  """
+  @type identity_center_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

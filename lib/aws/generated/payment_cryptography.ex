@@ -1104,26 +1104,19 @@ defmodule AWS.PaymentCryptography do
   [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html).
   These operations don't affect the underlying key. To get the alias that you
   created, call
-  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html). 
-  **Cross-account use**: This operation can't be used across different Amazon Web
+  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html).  **Cross-account use**: This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
     *
-
   [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html)
 
     *
-
-  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html) 
-
-    *
-
+  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html)     *
   [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html)
 
     *
-
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
   """
   @spec create_alias(map(), create_alias_input(), list()) ::
@@ -1153,15 +1146,32 @@ defmodule AWS.PaymentCryptography do
   cryptographic operations that you can perform using the key, for example key
   class (example: `SYMMETRIC_KEY`), key algorithm (example: `TDES_2KEY`), key
   usage (example: `TR31_P0_PIN_ENCRYPTION_KEY`) and key modes of use (example:
-  `Encrypt`). For information about valid combinations of key attributes, see
-  [Understanding key attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
+  `Encrypt`). Amazon Web Services Payment Cryptography binds key attributes to
+  keys using key blocks when you store or export them. Amazon Web Services Payment
+  Cryptography stores the key contents wrapped and never stores or transmits them
+  in the clear.
+
+  For information about valid combinations of key attributes, see [Understanding key
+  attributes](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html)
   in the *Amazon Web Services Payment Cryptography User Guide*. The mutable data
   contained within a key includes usage timestamp and key deletion timestamp and
   can be modified after creation.
 
-  Amazon Web Services Payment Cryptography binds key attributes to keys using key
-  blocks when you store or export them. Amazon Web Services Payment Cryptography
-  stores the key contents wrapped and never stores or transmits them in the clear.
+  You can use the `CreateKey` operation to generate an ECC (Elliptic Curve
+  Cryptography) key pair used for establishing an ECDH (Elliptic Curve
+  Diffie-Hellman) key agreement between two parties. In the ECDH key agreement
+  process, both parties generate their own ECC key pair with key usage K3 and
+  exchange the public keys. Each party then use their private key, the received
+  public key from the other party, and the key derivation parameters including key
+  derivation function, hash algorithm, derivation data, and key algorithm to
+  derive a shared key.
+
+  To maintain the single-use principle of cryptographic keys in payments, ECDH
+  derived keys should not be used for multiple purposes, such as a
+  `TR31_P0_PIN_ENCRYPTION_KEY` and `TR31_K1_KEY_BLOCK_PROTECTION_KEY`. When
+  creating ECC key pairs in Amazon Web Services Payment Cryptography you can
+  optionally set the `DeriveKeyUsage` parameter, which defines the key usage bound
+  to the symmetric key that will be derived using the ECC key pair.
 
   **Cross-account use**: This operation can't be used across different Amazon Web
   Services accounts.
@@ -1169,15 +1179,10 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html) 
-
-    *
-
+  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)     *
   [GetKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html)
 
     *
-
   [ListKeys](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html)
   """
   @spec create_key(map(), create_key_input(), list()) ::
@@ -1207,19 +1212,11 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html) 
-
-    *
-
+  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html)     *
   [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html)
 
     *
-
-  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html) 
-
-    *
-
+  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html)     *
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
   """
   @spec delete_alias(map(), delete_alias_input(), list()) ::
@@ -1251,22 +1248,16 @@ defmodule AWS.PaymentCryptography do
   You should delete a key only when you are sure that you don't need to use it
   anymore and no other parties are utilizing this key. If you aren't sure,
   consider deactivating it instead by calling
-  [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html). 
-  **Cross-account use:** This operation can't be used across different Amazon Web
+  [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html).  **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
     *
-
   [RestoreKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RestoreKey.html)
 
     *
-
-  [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html) 
-
-    *
-
+  [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html)     *
   [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html)
   """
   @spec delete_key(map(), delete_key_input(), list()) ::
@@ -1293,20 +1284,21 @@ defmodule AWS.PaymentCryptography do
 
   For symmetric key exchange, Amazon Web Services Payment Cryptography uses the
   ANSI X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key
-  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm
-  and RSA wrap and unwrap key exchange mechanism. Asymmetric key exchange methods
-  are typically used to establish bi-directional trust between the two parties
-  exhanging keys and are used for initial key exchange such as Key Encryption Key
-  (KEK). After which you can export working keys using symmetric method to perform
-  various cryptographic operations within Amazon Web Services Payment
-  Cryptography.
+  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm,
+  RSA unwrap, and ECDH (Elliptic Curve Diffie-Hellman) key exchange mechanisms.
+  Asymmetric key exchange methods are typically used to establish bi-directional
+  trust between the two parties exhanging keys and are used for initial key
+  exchange such as Key Encryption Key (KEK). After which you can export working
+  keys using symmetric method to perform various cryptographic operations within
+  Amazon Web Services Payment Cryptography.
 
-  The TR-34 norm is intended for exchanging 3DES keys only and keys are imported
-  in a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm,
-  KeyModesOfUse, Exportability) are contained within the key block. With RSA wrap
-  and unwrap, you can exchange both 3DES and AES-128 keys. The keys are imported
-  in a WrappedKeyCryptogram format and you will need to specify the key attributes
-  during import.
+  PCI requires specific minimum key strength of wrapping keys used to protect the
+  keys being exchanged electronically. These requirements can change when PCI
+  standards are revised. The rules specify that wrapping keys used for transport
+  must be at least as strong as the key being protected. For more information on
+  recommended key strength of wrapping keys and key exchange mechanism, see
+  [Importing and exporting keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-importexport.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
 
   You can also use `ExportKey` functionality to generate and export an IPEK
   (Initial Pin Encryption Key) from Amazon Web Services Payment Cryptography using
@@ -1324,8 +1316,7 @@ defmodule AWS.PaymentCryptography do
 
   The `OptionalBlocks` contain the additional data related to the key. For
   information on data type that can be included within optional blocks, refer to
-  [ASC X9.143-2022](https://webstore.ansi.org/standards/ascx9/ansix91432022). 
-  Data included in key block headers is signed but transmitted in clear text.
+  [ASC X9.143-2022](https://webstore.ansi.org/standards/ascx9/ansix91432022).  Data included in key block headers is signed but transmitted in clear text.
   Sensitive or confidential information should not be included in optional blocks.
   Refer to ASC X9.143-2022 standard for information on allowed data type.
 
@@ -1347,7 +1338,7 @@ defmodule AWS.PaymentCryptography do
   sign the the export payload and the signing public key certificate is provided
   to KRD to verify the signature. The KRD can import the root certificate into its
   Hardware Security Module (HSM), as required. The export token and the associated
-  KDH signing certificate expires after 7 days.
+  KDH signing certificate expires after 30 days.
 
   Next the KRD generates a key pair for the the purpose of encrypting the KDH key
   and provides the public key cerificate (also known as KRD wrapping certificate)
@@ -1363,37 +1354,23 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    *
+    * `ExportAttributes`: Specify export attributes in case of IPEK
+  export. This parameter is optional for KEK export.
 
-  `ExportAttributes`: Specify export attributes in case of IPEK export. This
-  parameter is optional for KEK export.
+    * `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of
+  IPEK) under export.
 
-    *
+    * `KeyMaterial`: Use `Tr34KeyBlock` parameters.
 
-  `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of IPEK) under
-  export.
+    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
+  certificate chain that signed the KRD wrapping key certificate.
 
-    *
-
-  `KeyMaterial`: Use `Tr34KeyBlock` parameters.
-
-    *
-
-  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
-  that signed the KRD wrapping key certificate.
-
-    *
-
-  `ExportToken`: Obtained from KDH by calling
-  [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html). 
-
-    *
-
-  `WrappingKeyCertificate`: The public key certificate in PEM format (base64
-  encoded) of the KRD wrapping key Amazon Web Services Payment Cryptography uses
-  for encryption of the TR-34 export payload. This certificate must be signed by
-  the root certificate (CertificateAuthorityPublicKeyIdentifier) imported into
-  Amazon Web Services Payment Cryptography.
+    * `ExportToken`: Obtained from KDH by calling
+  [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html).     * `WrappingKeyCertificate`: The public key certificate in PEM format
+  (base64 encoded) of the KRD wrapping key Amazon Web Services Payment
+  Cryptography uses for encryption of the TR-34 export payload. This certificate
+  must be signed by the root certificate (CertificateAuthorityPublicKeyIdentifier)
+  imported into Amazon Web Services Payment Cryptography.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the KEK or IPEK as a TR-34 WrappedKeyBlock.
@@ -1410,22 +1387,16 @@ defmodule AWS.PaymentCryptography do
 
   Next call `ExportKey` and set the following parameters:
 
-    *
+    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
+  certificate chain that signed wrapping key certificate.
 
-  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
-  that signed wrapping key certificate.
+    * `KeyMaterial`: Set to `KeyCryptogram`.
 
-    *
-
-  `KeyMaterial`: Set to `KeyCryptogram`.
-
-    *
-
-  `WrappingKeyCertificate`: The public key certificate in PEM format (base64
-  encoded) obtained by the receiving HSM and signed by the root certificate
-  (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services
-  Payment Cryptography. The receiving HSM uses its private key component to unwrap
-  the WrappedKeyCryptogram.
+    * `WrappingKeyCertificate`: The public key certificate in PEM format
+  (base64 encoded) obtained by the receiving HSM and signed by the root
+  certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web
+  Services Payment Cryptography. The receiving HSM uses its private key component
+  to unwrap the WrappedKeyCryptogram.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
   returns the WrappedKeyCryptogram.
@@ -1440,22 +1411,45 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    *
+    * `ExportAttributes`: Specify export attributes in case of IPEK
+  export. This parameter is optional for KEK export.
 
-  `ExportAttributes`: Specify export attributes in case of IPEK export. This
-  parameter is optional for KEK export.
+    * `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of
+  IPEK) under export.
 
-    *
+    * `KeyMaterial`: Use `Tr31KeyBlock` parameters.
 
-  `ExportKeyIdentifier`: The `KeyARN` of the KEK or BDK (in case of IPEK) under
-  export.
+  ## To export working keys using ECDH
 
-    *
+  You can also use ECDH key agreement to export working keys in a TR-31 keyblock,
+  where the wrapping key is an ECDH derived key.
 
-  `KeyMaterial`: Use `Tr31KeyBlock` parameters.
+  To initiate a TR-31 key export using ECDH, both sides must create an ECC key
+  pair with key usage K3 and exchange public key certificates. In Amazon Web
+  Services Payment Cryptography, you can do this by calling `CreateKey`. If you
+  have not already done so, you must import the CA chain that issued the receiving
+  public key certificate by calling `ImportKey` with input
+  `RootCertificatePublicKey` for root CA or `TrustedPublicKey` for intermediate
+  CA. You can then complete a TR-31 key export by deriving a shared wrapping key
+  using the service ECC key pair, public certificate of your ECC key pair outside
+  of Amazon Web Services Payment Cryptography, and the key derivation parameters
+  including key derivation function, hash algorithm, derivation data, key
+  algorithm.
+
+    * `KeyMaterial`: Use `DiffieHellmanTr31KeyBlock` parameters.
+
+    * `PrivateKeyIdentifier`: The `KeyArn` of the ECC key pair created
+  within Amazon Web Services Payment Cryptography to derive a shared KEK.
+
+    * `PublicKeyCertificate`: The public key certificate of the
+  receiving ECC key pair in PEM format (base64 encoded) to derive a shared KEK.
+
+    * `CertificateAuthorityPublicKeyIdentifier`: The `keyARN` of the CA
+  that signed the public key certificate of the receiving ECC key pair.
 
   When this operation is successful, Amazon Web Services Payment Cryptography
-  returns the working key or IPEK as a TR-31 WrappedKeyBlock.
+  returns the working key as a TR-31 WrappedKeyBlock, where the wrapping key is
+  the ECDH derived key.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1463,11 +1457,7 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [GetParametersForExport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html) 
-
-    *
-
+  [GetParametersForExport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html)     *
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
   @spec export_key(map(), export_key_input(), list()) ::
@@ -1490,19 +1480,11 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html) 
-
-    *
-
+  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html)     *
   [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html)
 
     *
-
-  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html) 
-
-    *
-
+  [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html)     *
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
   """
   @spec get_alias(map(), get_alias_input(), list()) ::
@@ -1526,15 +1508,10 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html) 
-
-    *
-
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html)     *
   [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)
 
     *
-
   [ListKeys](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html)
   """
   @spec get_key(map(), get_key_input(), list()) ::
@@ -1555,7 +1532,7 @@ defmodule AWS.PaymentCryptography do
   The signing key certificate signs the wrapped key under export within the TR-34
   key payload. The export token and signing key certificate must be in place and
   operational before calling
-  [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html). The export token expires in 7 days. You can use the same export token to export
+  [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html). The export token expires in 30 days. You can use the same export token to export
   multiple keys from your service account.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
@@ -1564,11 +1541,9 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
   [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html)
 
     *
-
   [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html)
   """
   @spec get_parameters_for_export(map(), get_parameters_for_export_input(), list()) ::
@@ -1589,7 +1564,7 @@ defmodule AWS.PaymentCryptography do
 
   The wrapping key certificate wraps the key under import. The import token and
   wrapping key certificate must be in place and operational before calling
-  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html). The import token expires in 7 days. You can use the same import token to import
+  [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html). The import token expires in 30 days. You can use the same import token to import
   multiple keys into your service account.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
@@ -1598,11 +1573,9 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
   [GetParametersForExport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html)
 
     *
-
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
   @spec get_parameters_for_import(map(), get_parameters_for_import_input(), list()) ::
@@ -1652,20 +1625,21 @@ defmodule AWS.PaymentCryptography do
 
   For symmetric key exchange, Amazon Web Services Payment Cryptography uses the
   ANSI X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key
-  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm
-  and RSA wrap and unwrap key exchange mechanisms. Asymmetric key exchange methods
-  are typically used to establish bi-directional trust between the two parties
-  exhanging keys and are used for initial key exchange such as Key Encryption Key
-  (KEK) or Zone Master Key (ZMK). After which you can import working keys using
-  symmetric method to perform various cryptographic operations within Amazon Web
-  Services Payment Cryptography.
+  exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm,
+  RSA unwrap, and ECDH (Elliptic Curve Diffie-Hellman) key exchange mechanisms.
+  Asymmetric key exchange methods are typically used to establish bi-directional
+  trust between the two parties exhanging keys and are used for initial key
+  exchange such as Key Encryption Key (KEK) or Zone Master Key (ZMK). After which
+  you can import working keys using symmetric method to perform various
+  cryptographic operations within Amazon Web Services Payment Cryptography.
 
-  The TR-34 norm is intended for exchanging 3DES keys only and keys are imported
-  in a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm,
-  KeyModesOfUse, Exportability) are contained within the key block. With RSA wrap
-  and unwrap, you can exchange both 3DES and AES-128 keys. The keys are imported
-  in a WrappedKeyCryptogram format and you will need to specify the key attributes
-  during import.
+  PCI requires specific minimum key strength of wrapping keys used to protect the
+  keys being exchanged electronically. These requirements can change when PCI
+  standards are revised. The rules specify that wrapping keys used for transport
+  must be at least as strong as the key being protected. For more information on
+  recommended key strength of wrapping keys and key exchange mechanism, see
+  [Importing and exporting keys](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-importexport.html)
+  in the *Amazon Web Services Payment Cryptography User Guide*.
 
   You can also import a *root public key certificate*, used to sign other public
   key certificates, or a *trusted public key certificate* under an already
@@ -1680,51 +1654,33 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    *
+    * `KeyMaterial`: `RootCertificatePublicKey`
 
-  `KeyMaterial`: `RootCertificatePublicKey`
+    * `KeyClass`: `PUBLIC_KEY`
 
-    *
+    * `KeyModesOfUse`: `Verify`
 
-  `KeyClass`: `PUBLIC_KEY`
+    * `KeyUsage`: `TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE`
 
-    *
-
-  `KeyModesOfUse`: `Verify`
-
-    *
-
-  `KeyUsage`: `TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE`
-
-    *
-
-  `PublicKeyCertificate`: The public key certificate in PEM format (base64
-  encoded) of the private root key under import.
+    * `PublicKeyCertificate`: The public key certificate in PEM format
+  (base64 encoded) of the private root key under import.
 
   ## To import a trusted public key certificate
 
   The root public key certificate must be in place and operational before you
   import a trusted public key certificate. Set the following parameters:
 
-    *
+    * `KeyMaterial`: `TrustedCertificatePublicKey`
 
-  `KeyMaterial`: `TrustedCertificatePublicKey`
-
-    *
-
-  `CertificateAuthorityPublicKeyIdentifier`: `KeyArn` of the
+    * `CertificateAuthorityPublicKeyIdentifier`: `KeyArn` of the
   `RootCertificatePublicKey`.
 
-    *
+    * `KeyModesOfUse` and `KeyUsage`: Corresponding to the cryptographic
+  operations such as wrap, sign, or encrypt that you will allow the trusted public
+  key certificate to perform.
 
-  `KeyModesOfUse` and `KeyUsage`: Corresponding to the cryptographic operations
-  such as wrap, sign, or encrypt that you will allow the trusted public key
-  certificate to perform.
-
-    *
-
-  `PublicKeyCertificate`: The trusted public key certificate in PEM format (base64
-  encoded) under import.
+    * `PublicKeyCertificate`: The trusted public key certificate in PEM
+  format (base64 encoded) under import.
 
   ## To import initial keys (KEK or ZMK or similar) using TR-34
 
@@ -1741,7 +1697,7 @@ defmodule AWS.PaymentCryptography do
   wrapping certificate) and the root certificate chain. The KDH must trust and
   install the KRD wrapping certificate on its HSM and use it to encrypt (wrap) the
   KDH key during TR-34 WrappedKeyBlock generation. The import token and associated
-  KRD wrapping certificate expires after 7 days.
+  KRD wrapping certificate expires after 30 days.
 
   Next the KDH generates a key pair for the purpose of signing the encrypted KDH
   key and provides the public certificate of the signing key to Amazon Web
@@ -1754,32 +1710,20 @@ defmodule AWS.PaymentCryptography do
 
   Set the following parameters:
 
-    *
+    * `KeyMaterial`: Use `Tr34KeyBlock` parameters.
 
-  `KeyMaterial`: Use `Tr34KeyBlock` parameters.
+    * `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the
+  certificate chain that signed the KDH signing key certificate.
 
-    *
-
-  `CertificateAuthorityPublicKeyIdentifier`: The `KeyARN` of the certificate chain
-  that signed the KDH signing key certificate.
-
-    *
-
-  `ImportToken`: Obtained from KRD by calling
-  [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html). 
-
-    *
-
-  `WrappedKeyBlock`: The TR-34 wrapped key material from KDH. It contains the KDH
-  key under import, wrapped with KRD wrapping certificate and signed by KDH
-  signing private key. This TR-34 key block is typically generated by the KDH
-  Hardware Security Module (HSM) outside of Amazon Web Services Payment
+    * `ImportToken`: Obtained from KRD by calling
+  [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html).     * `WrappedKeyBlock`: The TR-34 wrapped key material from KDH. It
+  contains the KDH key under import, wrapped with KRD wrapping certificate and
+  signed by KDH signing private key. This TR-34 key block is typically generated
+  by the KDH Hardware Security Module (HSM) outside of Amazon Web Services Payment
   Cryptography.
 
-    *
-
-  `SigningKeyCertificate`: The public key certificate in PEM format (base64
-  encoded) of the KDH signing key generated under the root certificate
+    * `SigningKeyCertificate`: The public key certificate in PEM format
+  (base64 encoded) of the KDH signing key generated under the root certificate
   (CertificateAuthorityPublicKeyIdentifier) imported in Amazon Web Services
   Payment Cryptography.
 
@@ -1792,7 +1736,7 @@ defmodule AWS.PaymentCryptography do
   operation also generates an encryption keypair for the purpose of key import,
   signs the key and returns back the wrapping key certificate in PEM format
   (base64 encoded) and its root certificate chain. The import token and associated
-  KRD wrapping certificate expires after 7 days.
+  KRD wrapping certificate expires after 30 days.
 
   You must trust and install the wrapping certificate and its certificate chain on
   the sending HSM and use it to wrap the key under export for WrappedKeyCryptogram
@@ -1806,20 +1750,45 @@ defmodule AWS.PaymentCryptography do
   Payment Cryptography by using TR-34 key import or by using
   [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html). To initiate a TR-31 key import, set the following parameters:
 
-    *
+    * `KeyMaterial`: Use `Tr31KeyBlock` parameters.
 
-  `KeyMaterial`: Use `Tr31KeyBlock` parameters.
+    * `WrappedKeyBlock`: The TR-31 wrapped key material. It contains the
+  key under import, encrypted using KEK. The TR-31 key block is typically
+  generated by a HSM outside of Amazon Web Services Payment Cryptography.
 
-    *
+    * `WrappingKeyIdentifier`: The `KeyArn` of the KEK that Amazon Web
+  Services Payment Cryptography uses to decrypt or unwrap the key under import.
 
-  `WrappedKeyBlock`: The TR-31 wrapped key material. It contains the key under
-  import, encrypted using KEK. The TR-31 key block is typically generated by a HSM
-  outside of Amazon Web Services Payment Cryptography.
+  ## To import working keys using ECDH
 
-    *
+  You can also use ECDH key agreement to import working keys as a TR-31 keyblock,
+  where the wrapping key is an ECDH derived key.
 
-  `WrappingKeyIdentifier`: The `KeyArn` of the KEK that Amazon Web Services
-  Payment Cryptography uses to decrypt or unwrap the key under import.
+  To initiate a TR-31 key import using ECDH, both sides must create an ECC key
+  pair with key usage K3 and exchange public key certificates. In Amazon Web
+  Services Payment Cryptography, you can do this by calling `CreateKey` and then
+  `GetPublicKeyCertificate` to retrieve its public key certificate. Next, you can
+  then generate a TR-31 WrappedKeyBlock using your own ECC key pair, the public
+  certificate of the service's ECC key pair, and the key derivation parameters
+  including key derivation function, hash algorithm, derivation data, and key
+  algorithm. If you have not already done so, you must import the CA chain that
+  issued the receiving public key certificate by calling `ImportKey` with input
+  `RootCertificatePublicKey` for root CA or `TrustedPublicKey` for intermediate
+  CA. To complete the TR-31 key import, you can use the following parameters. It
+  is important that the ECDH key derivation parameters you use should match those
+  used during import to derive the same shared wrapping key within Amazon Web
+  Services Payment Cryptography.
+
+    * `KeyMaterial`: Use `DiffieHellmanTr31KeyBlock` parameters.
+
+    * `PrivateKeyIdentifier`: The `KeyArn` of the ECC key pair created
+  within Amazon Web Services Payment Cryptography to derive a shared KEK.
+
+    * `PublicKeyCertificate`: The public key certificate of the
+  receiving ECC key pair in PEM format (base64 encoded) to derive a shared KEK.
+
+    * `CertificateAuthorityPublicKeyIdentifier`: The `keyARN` of the CA
+  that signed the public key certificate of the receiving ECC key pair.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1827,11 +1796,9 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
   [ExportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html)
 
     *
-
   [GetParametersForImport](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html)
   """
   @spec import_key(map(), import_key_input(), list()) ::
@@ -1854,10 +1821,10 @@ defmodule AWS.PaymentCryptography do
 
   This is a paginated operation, which means that each response might contain only
   a subset of all the aliases. When the response contains only a subset of
-  aliases, it includes a `NextToken` value.
-  Use this value in a subsequent `ListAliases` request to get more aliases. When
-  you receive a response with no NextToken (or an empty or null value), that means
-  there are no more aliases to get.
+  aliases, it includes a `NextToken` value. Use this value in a subsequent
+  `ListAliases` request to get more aliases. When you receive a response with no
+  NextToken (or an empty or null value), that means there are no more aliases to
+  get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1865,19 +1832,11 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html) 
-
-    *
-
+  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html)     *
   [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html)
 
     *
-
-  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html) 
-
-    *
-
+  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html)     *
   [UpdateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html)
   """
   @spec list_aliases(map(), list_aliases_input(), list()) ::
@@ -1898,11 +1857,10 @@ defmodule AWS.PaymentCryptography do
   You can filter the list of keys.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the keys.
-  When the response contains only a subset of keys, it includes a `NextToken`
-  value. Use this value in a subsequent `ListKeys` request to get more keys.
-  When you receive a response with no NextToken (or an empty or null value), that
-  means there are no more keys to get.
+  a subset of all the keys. When the response contains only a subset of keys, it
+  includes a `NextToken` value. Use this value in a subsequent `ListKeys` request
+  to get more keys. When you receive a response with no NextToken (or an empty or
+  null value), that means there are no more keys to get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1910,15 +1868,10 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html) 
-
-    *
-
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html)     *
   [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)
 
     *
-
   [GetKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html)
   """
   @spec list_keys(map(), list_keys_input(), list()) ::
@@ -1936,12 +1889,11 @@ defmodule AWS.PaymentCryptography do
   Lists the tags for an Amazon Web Services resource.
 
   This is a paginated operation, which means that each response might contain only
-  a subset of all the tags.
-  When the response contains only a subset of tags, it includes a `NextToken`
-  value. Use this value in a subsequent `ListTagsForResource` request to get more
-  tags.
-  When you receive a response with no NextToken (or an empty or null value), that
-  means there are no more tags to get.
+  a subset of all the tags. When the response contains only a subset of tags, it
+  includes a `NextToken` value. Use this value in a subsequent
+  `ListTagsForResource` request to get more tags. When you receive a response with
+  no NextToken (or an empty or null value), that means there are no more tags to
+  get.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1949,11 +1901,7 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [TagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html) 
-
-    *
-
+  [TagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html)     *
   [UntagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html)
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
@@ -1974,9 +1922,8 @@ defmodule AWS.PaymentCryptography do
 
   During the waiting period, the `KeyState` is `DELETE_PENDING` and
   `deletePendingTimestamp` contains the date and time after which the `Key` will
-  be deleted.
-  After `Key` is restored, the `KeyState` is `CREATE_COMPLETE`, and the value for
-  `deletePendingTimestamp` is removed.
+  be deleted. After `Key` is restored, the `KeyState` is `CREATE_COMPLETE`, and
+  the value for `deletePendingTimestamp` is removed.
 
   **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
@@ -1984,15 +1931,10 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html) 
-
-    *
-
+  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)     *
   [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html)
 
     *
-
   [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html)
   """
   @spec restore_key(map(), restore_key_input(), list()) ::
@@ -2016,7 +1958,6 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
   [StopKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html)
   """
   @spec start_key_usage(map(), start_key_usage_input(), list()) ::
@@ -2044,11 +1985,7 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html) 
-
-    *
-
+  [DeleteKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html)     *
   [StartKeyUsage](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html)
   """
   @spec stop_key_usage(map(), stop_key_usage_input(), list()) ::
@@ -2073,18 +2010,15 @@ defmodule AWS.PaymentCryptography do
   new tag key and a tag value. To edit a tag, specify an existing tag key and a
   new tag value. You can also add tags to an Amazon Web Services Payment
   Cryptography key when you create it with
-  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html). 
-  **Cross-account use:** This operation can't be used across different Amazon Web
+  [CreateKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html).  **Cross-account use:** This operation can't be used across different Amazon Web
   Services accounts.
 
   ## Related operations:
 
     *
-
   [ListTagsForResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html)
 
     *
-
   [UntagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html)
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
@@ -2110,11 +2044,7 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [ListTagsForResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html) 
-
-    *
-
+  [ListTagsForResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html)     *
   [TagResource](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html)
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
@@ -2143,19 +2073,11 @@ defmodule AWS.PaymentCryptography do
   ## Related operations:
 
     *
-
-  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html) 
-
-    *
-
+  [CreateAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html)     *
   [DeleteAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html)
 
     *
-
-  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html) 
-
-    *
-
+  [GetAlias](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html)     *
   [ListAliases](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html)
   """
   @spec update_alias(map(), update_alias_input(), list()) ::

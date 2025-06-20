@@ -1208,6 +1208,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cfn_create_template_provider() :: %{
+        "Parameters" => list(cfn_stack_create_parameter()()),
+        "RoleARN" => String.t(),
+        "TemplateName" => String.t(),
+        "TemplateURL" => String.t()
+      }
+      
+  """
+  @type cfn_create_template_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_inference_component_output() :: %{
         "InferenceComponentArn" => String.t()
       }
@@ -1860,6 +1874,7 @@ defmodule AWS.SageMaker do
         optional("ProjectDescription") => String.t(),
         optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
         optional("Tags") => list(tag()()),
+        optional("TemplateProvidersToUpdate") => list(update_template_provider()()),
         required("ProjectName") => String.t()
       }
       
@@ -5649,7 +5664,8 @@ defmodule AWS.SageMaker do
         "ProjectName" => String.t(),
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
-        "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details()
+        "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
+        "TemplateProviderDetails" => list(template_provider_detail()())
       }
       
   """
@@ -7683,7 +7699,8 @@ defmodule AWS.SageMaker do
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
         "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag()()),
+        "TemplateProviderDetails" => list(template_provider_detail()())
       }
       
   """
@@ -8494,6 +8511,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cfn_stack_create_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type cfn_stack_create_parameter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_workteam_request() :: %{
         optional("Description") => String.t(),
         optional("MemberDefinitions") => list(member_definition()()),
@@ -9028,6 +9057,18 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_optimization_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cfn_stack_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type cfn_stack_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -10376,6 +10417,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_template_provider() :: %{
+        "CfnTemplateProvider" => cfn_create_template_provider()
+      }
+      
+  """
+  @type create_template_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       experiment_config() :: %{
         "ExperimentName" => String.t(),
         "RunName" => String.t(),
@@ -10820,6 +10872,7 @@ defmodule AWS.SageMaker do
         optional("ProjectDescription") => String.t(),
         optional("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details(),
         optional("Tags") => list(tag()()),
+        optional("TemplateProviders") => list(create_template_provider()()),
         required("ProjectName") => String.t()
       }
       
@@ -11989,6 +12042,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cfn_update_template_provider() :: %{
+        "Parameters" => list(cfn_stack_update_parameter()()),
+        "TemplateName" => String.t(),
+        "TemplateURL" => String.t()
+      }
+      
+  """
+  @type cfn_update_template_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       parent_hyper_parameter_tuning_job() :: %{
         "HyperParameterTuningJobName" => String.t()
       }
@@ -12627,6 +12693,18 @@ defmodule AWS.SageMaker do
       
   """
   @type create_partner_app_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cfn_stack_update_parameter() :: %{
+        "Key" => String.t(),
+        "Value" => String.t()
+      }
+      
+  """
+  @type cfn_stack_update_parameter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -13856,6 +13934,17 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_pipeline_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_provider_detail() :: %{
+        "CfnTemplateProviderDetail" => cfn_template_provider_detail()
+      }
+      
+  """
+  @type template_provider_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -15534,6 +15623,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_template_provider() :: %{
+        "CfnTemplateProvider" => cfn_update_template_provider()
+      }
+      
+  """
+  @type update_template_provider() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_model_package_group_input() :: %{
         required("ModelPackageGroupName") => String.t()
       }
@@ -15562,6 +15662,19 @@ defmodule AWS.SageMaker do
       
   """
   @type model_dashboard_monitoring_schedule() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cfn_stack_detail() :: %{
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "StatusMessage" => String.t()
+      }
+      
+  """
+  @type cfn_stack_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -17602,6 +17715,21 @@ defmodule AWS.SageMaker do
       
   """
   @type workforce_vpc_config_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cfn_template_provider_detail() :: %{
+        "Parameters" => list(cfn_stack_parameter()()),
+        "RoleARN" => String.t(),
+        "StackDetail" => cfn_stack_detail(),
+        "TemplateName" => String.t(),
+        "TemplateURL" => String.t()
+      }
+      
+  """
+  @type cfn_template_provider_detail() :: %{String.t() => any()}
 
   @typedoc """
 

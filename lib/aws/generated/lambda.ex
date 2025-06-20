@@ -219,6 +219,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       update_event_source_mapping_request() :: %{
+        optional("AmazonManagedKafkaEventSourceConfig") => amazon_managed_kafka_event_source_config(),
         optional("BatchSize") => integer(),
         optional("BisectBatchOnFunctionError") => boolean(),
         optional("DestinationConfig") => destination_config(),
@@ -235,6 +236,7 @@ defmodule AWS.Lambda do
         optional("ParallelizationFactor") => integer(),
         optional("ProvisionedPollerConfig") => provisioned_poller_config(),
         optional("ScalingConfig") => scaling_config(),
+        optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
         optional("SourceAccessConfigurations") => list(source_access_configuration()()),
         optional("TumblingWindowInSeconds") => integer()
       }
@@ -304,6 +306,17 @@ defmodule AWS.Lambda do
 
   """
   @type delete_function_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_schema_validation_config() :: %{
+        "Attribute" => list(any())
+      }
+
+  """
+  @type kafka_schema_validation_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -412,7 +425,8 @@ defmodule AWS.Lambda do
   ## Example:
 
       amazon_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t()
+        "ConsumerGroupId" => String.t(),
+        "SchemaRegistryConfig" => kafka_schema_registry_config()
       }
 
   """
@@ -720,7 +734,8 @@ defmodule AWS.Lambda do
   ## Example:
 
       self_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t()
+        "ConsumerGroupId" => String.t(),
+        "SchemaRegistryConfig" => kafka_schema_registry_config()
       }
 
   """
@@ -1798,6 +1813,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      kafka_schema_registry_access_config() :: %{
+        "Type" => list(any()),
+        "URI" => String.t()
+      }
+
+  """
+  @type kafka_schema_registry_access_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invocation_request() :: %{
         optional("ClientContext") => String.t(),
         optional("InvocationType") => list(any()),
@@ -2225,6 +2252,20 @@ defmodule AWS.Lambda do
 
   """
   @type update_function_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_schema_registry_config() :: %{
+        "AccessConfigs" => list(kafka_schema_registry_access_config()()),
+        "EventRecordFormat" => list(any()),
+        "SchemaRegistryURI" => String.t(),
+        "SchemaValidationConfigs" => list(kafka_schema_validation_config()())
+      }
+
+  """
+  @type kafka_schema_registry_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3498,9 +3539,9 @@ defmodule AWS.Lambda do
 
     *
 
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue, Amazon SNS
-  topic, or
-  Amazon S3 bucket.
+  `OnFailure` – Send discarded records to an Amazon SQS queue, Amazon SNS topic,
+  or
+  Amazon S3 bucket. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
   For information about which configuration parameters apply to each event source,
   see the following topics.
@@ -6048,9 +6089,9 @@ defmodule AWS.Lambda do
 
     *
 
-  `DestinationConfig` – Send discarded records to an Amazon SQS queue, Amazon SNS
-  topic, or
-  Amazon S3 bucket.
+  `OnFailure` – Send discarded records to an Amazon SQS queue, Amazon SNS topic,
+  or
+  Amazon S3 bucket. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
   For information about which configuration parameters apply to each event source,
   see the following topics.

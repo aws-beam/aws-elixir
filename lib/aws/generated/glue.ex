@@ -1412,6 +1412,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_data_quality_result_response() :: %{
+        "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
@@ -3256,6 +3257,22 @@ defmodule AWS.Glue do
       
   """
   @type last_crawl_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_aggregated_metrics() :: %{
+        "TotalRowsFailed" => float(),
+        "TotalRowsPassed" => float(),
+        "TotalRowsProcessed" => float(),
+        "TotalRulesFailed" => float(),
+        "TotalRulesPassed" => float(),
+        "TotalRulesProcessed" => float()
+      }
+      
+  """
+  @type data_quality_aggregated_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5361,7 +5378,8 @@ defmodule AWS.Glue do
         "EvaluatedRule" => String.t(),
         "EvaluationMessage" => String.t(),
         "Name" => String.t(),
-        "Result" => list(any())
+        "Result" => list(any()),
+        "RuleMetrics" => map()
       }
       
   """
@@ -9588,6 +9606,7 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_result() :: %{
+        "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),

@@ -3,41 +3,30 @@
 
 defmodule AWS.GeoPlaces do
   @moduledoc """
-
   The Places API enables powerful location search and geocoding capabilities for
   your applications, offering global coverage with rich, detailed information.
 
   Key features include:
 
-    *
-  Forward and reverse geocoding for addresses and coordinates
+    * Forward and reverse geocoding for addresses and coordinates
 
-    *
-  Comprehensive place searches with detailed information, including:
+    * Comprehensive place searches with detailed information, including:
 
-      *
-  Business names and addresses
+      * Business names and addresses
 
-      *
-  Contact information
+      * Contact information
 
-      *
-  Hours of operation
+      * Hours of operation
 
-      *
-  POI (Points of Interest) categories
+      * POI (Points of Interest) categories
 
-      *
-  Food types for restaurants
+      * Food types for restaurants
 
-      *
-  Chain affiliation for relevant businesses
+      * Chain affiliation for relevant businesses
 
-    *
-  Global data coverage with a wide range of POI categories
+    * Global data coverage with a wide range of POI categories
 
-    *
-  Regular data updates to ensure accuracy and relevance
+    * Regular data updates to ensure accuracy and relevance
   """
 
   alias AWS.Client
@@ -50,18 +39,19 @@ defmodule AWS.GeoPlaces do
       reverse_geocode_result_item() :: %{
         "AccessPoints" => list(access_point()()),
         "Address" => address(),
-        "AddressNumberCorrected" => [boolean()],
+        "AddressNumberCorrected" => boolean(),
         "Categories" => list(category()()),
         "Distance" => float(),
         "FoodTypes" => list(food_type()()),
+        "Intersections" => list(intersection()()),
         "MapView" => list([float()]()),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()()),
         "TimeZone" => time_zone(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -71,9 +61,32 @@ defmodule AWS.GeoPlaces do
 
   ## Example:
 
+      geocode_parsed_query_address_components() :: %{
+        "AddressNumber" => list(parsed_query_component()()),
+        "Block" => list(parsed_query_component()()),
+        "Building" => list(parsed_query_component()()),
+        "Country" => list(parsed_query_component()()),
+        "District" => list(parsed_query_component()()),
+        "Locality" => list(parsed_query_component()()),
+        "PostalCode" => list(parsed_query_component()()),
+        "Region" => list(parsed_query_component()()),
+        "SecondaryAddressComponents" => list(parsed_query_secondary_address_component()()),
+        "Street" => list(parsed_query_component()()),
+        "SubBlock" => list(parsed_query_component()()),
+        "SubDistrict" => list(parsed_query_component()()),
+        "SubRegion" => list(parsed_query_component()())
+      }
+
+  """
+  @type geocode_parsed_query_address_components() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sub_region() :: %{
-        "Code" => [String.t()],
-        "Name" => [String.t()]
+        "Code" => String.t(),
+        "Name" => String.t()
       }
 
   """
@@ -130,7 +143,7 @@ defmodule AWS.GeoPlaces do
         "AccessPoints" => list(access_point()()),
         "AccessRestrictions" => list(access_restriction()()),
         "Address" => address(),
-        "AddressNumberCorrected" => [boolean()],
+        "AddressNumberCorrected" => boolean(),
         "BusinessChains" => list(business_chain()()),
         "Categories" => list(category()()),
         "Contacts" => contacts(),
@@ -139,12 +152,12 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
         "TimeZone" => time_zone(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -180,7 +193,7 @@ defmodule AWS.GeoPlaces do
       highlight() :: %{
         "EndIndex" => [integer()],
         "StartIndex" => [integer()],
-        "Value" => [String.t()]
+        "Value" => String.t()
       }
 
   """
@@ -205,13 +218,13 @@ defmodule AWS.GeoPlaces do
 
       search_nearby_filter() :: %{
         "BoundingBox" => list([float()]()),
-        "ExcludeBusinessChains" => list([String.t()]()),
-        "ExcludeCategories" => list([String.t()]()),
-        "ExcludeFoodTypes" => list([String.t()]()),
-        "IncludeBusinessChains" => list([String.t()]()),
-        "IncludeCategories" => list([String.t()]()),
+        "ExcludeBusinessChains" => list(String.t()()),
+        "ExcludeCategories" => list(String.t()()),
+        "ExcludeFoodTypes" => list(String.t()()),
+        "IncludeBusinessChains" => list(String.t()()),
+        "IncludeCategories" => list(String.t()()),
         "IncludeCountries" => list(String.t()()),
-        "IncludeFoodTypes" => list([String.t()]())
+        "IncludeFoodTypes" => list(String.t()())
       }
 
   """
@@ -291,7 +304,7 @@ defmodule AWS.GeoPlaces do
         "FoodTypes" => list(food_type()()),
         "MapView" => list([float()]()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
@@ -306,9 +319,9 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       food_type() :: %{
-        "Id" => [String.t()],
-        "LocalizedName" => [String.t()],
-        "Primary" => [boolean()]
+        "Id" => String.t(),
+        "LocalizedName" => String.t(),
+        "Primary" => boolean()
       }
 
   """
@@ -333,7 +346,7 @@ defmodule AWS.GeoPlaces do
       country() :: %{
         "Code2" => String.t(),
         "Code3" => String.t(),
-        "Name" => [String.t()]
+        "Name" => String.t()
       }
 
   """
@@ -344,7 +357,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       suggest_query_result() :: %{
-        "QueryId" => [String.t()],
+        "QueryId" => String.t(),
         "QueryType" => String.t()
       }
 
@@ -384,10 +397,10 @@ defmodule AWS.GeoPlaces do
         "Distance" => float(),
         "Highlights" => autocomplete_highlights(),
         "Language" => String.t(),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -432,9 +445,21 @@ defmodule AWS.GeoPlaces do
 
   ## Example:
 
+      geocode_parsed_query() :: %{
+        "Address" => geocode_parsed_query_address_components(),
+        "Title" => list(parsed_query_component()())
+      }
+
+  """
+  @type geocode_parsed_query() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       region() :: %{
-        "Code" => [String.t()],
-        "Name" => [String.t()]
+        "Code" => String.t(),
+        "Name" => String.t()
       }
 
   """
@@ -445,12 +470,12 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       street_components() :: %{
-        "BaseName" => [String.t()],
-        "Direction" => [String.t()],
+        "BaseName" => String.t(),
+        "Direction" => String.t(),
         "Language" => String.t(),
-        "Prefix" => [String.t()],
-        "Suffix" => [String.t()],
-        "Type" => [String.t()],
+        "Prefix" => String.t(),
+        "Suffix" => String.t(),
+        "Type" => String.t(),
         "TypePlacement" => String.t(),
         "TypeSeparator" => String.t()
       }
@@ -483,8 +508,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       business_chain() :: %{
-        "Id" => [String.t()],
-        "Name" => [String.t()]
+        "Id" => String.t(),
+        "Name" => String.t()
       }
 
   """
@@ -517,7 +542,7 @@ defmodule AWS.GeoPlaces do
 
       access_restriction() :: %{
         "Categories" => list(category()()),
-        "Restricted" => [boolean()]
+        "Restricted" => boolean()
       }
 
   """
@@ -541,9 +566,9 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       opening_hours_components() :: %{
-        "OpenDuration" => [String.t()],
-        "OpenTime" => [String.t()],
-        "Recurrence" => [String.t()]
+        "OpenDuration" => String.t(),
+        "OpenTime" => String.t(),
+        "Recurrence" => String.t()
       }
 
   """
@@ -555,7 +580,7 @@ defmodule AWS.GeoPlaces do
 
       postal_code_details() :: %{
         "PostalAuthority" => String.t(),
-        "PostalCode" => [String.t()],
+        "PostalCode" => String.t(),
         "PostalCodeType" => String.t(),
         "UspsZip" => usps_zip(),
         "UspsZipPlus4" => usps_zip_plus4()
@@ -563,6 +588,20 @@ defmodule AWS.GeoPlaces do
 
   """
   @type postal_code_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parsed_query_component() :: %{
+        "EndIndex" => [integer()],
+        "QueryComponent" => String.t(),
+        "StartIndex" => [integer()],
+        "Value" => String.t()
+      }
+
+  """
+  @type parsed_query_component() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -596,8 +635,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       time_zone() :: %{
-        "Name" => [String.t()],
-        "Offset" => [String.t()],
+        "Name" => String.t(),
+        "Offset" => String.t(),
         "OffsetSeconds" => float()
       }
 
@@ -608,10 +647,25 @@ defmodule AWS.GeoPlaces do
 
   ## Example:
 
+      parsed_query_secondary_address_component() :: %{
+        "Designator" => String.t(),
+        "EndIndex" => [integer()],
+        "Number" => String.t(),
+        "StartIndex" => [integer()],
+        "Value" => String.t()
+      }
+
+  """
+  @type parsed_query_secondary_address_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_refinement() :: %{
         "EndIndex" => [integer()],
-        "OriginalTerm" => [String.t()],
-        "RefinedTerm" => [String.t()],
+        "OriginalTerm" => String.t(),
+        "RefinedTerm" => String.t(),
         "StartIndex" => [integer()]
       }
 
@@ -676,6 +730,17 @@ defmodule AWS.GeoPlaces do
 
   ## Example:
 
+      secondary_address_component() :: %{
+        "Number" => String.t()
+      }
+
+  """
+  @type secondary_address_component() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       geocode_response() :: %{
         "PricingBucket" => [String.t()],
         "ResultItems" => list(geocode_result_item()())
@@ -688,11 +753,40 @@ defmodule AWS.GeoPlaces do
 
   ## Example:
 
+      secondary_address_component_match_score() :: %{
+        "Number" => float()
+      }
+
+  """
+  @type secondary_address_component_match_score() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intersection() :: %{
+        "AccessPoints" => list(access_point()()),
+        "Address" => address(),
+        "Distance" => float(),
+        "MapView" => list([float()]()),
+        "PlaceId" => String.t(),
+        "Position" => list([float()]()),
+        "RouteDistance" => float(),
+        "Title" => String.t()
+      }
+
+  """
+  @type intersection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       search_nearby_result_item() :: %{
         "AccessPoints" => list(access_point()()),
         "AccessRestrictions" => list(access_restriction()()),
         "Address" => address(),
-        "AddressNumberCorrected" => [boolean()],
+        "AddressNumberCorrected" => boolean(),
         "BusinessChains" => list(business_chain()()),
         "Categories" => list(category()()),
         "Contacts" => contacts(),
@@ -701,12 +795,12 @@ defmodule AWS.GeoPlaces do
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
         "TimeZone" => time_zone(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -744,22 +838,24 @@ defmodule AWS.GeoPlaces do
         "AccessPoints" => list(access_point()()),
         "AccessRestrictions" => list(access_restriction()()),
         "Address" => address(),
-        "AddressNumberCorrected" => [boolean()],
+        "AddressNumberCorrected" => boolean(),
         "BusinessChains" => list(business_chain()()),
         "Categories" => list(category()()),
         "Contacts" => contacts(),
         "FoodTypes" => list(food_type()()),
+        "MainAddress" => related_place(),
         "MapView" => list([float()]()),
         "OpeningHours" => list(opening_hours()()),
         "Phonemes" => phoneme_details(),
-        "PlaceId" => [String.t()],
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()()),
         "PricingBucket" => [String.t()],
+        "SecondaryAddresses" => list(related_place()()),
         "TimeZone" => time_zone(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -775,6 +871,22 @@ defmodule AWS.GeoPlaces do
 
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      related_place() :: %{
+        "AccessPoints" => list(access_point()()),
+        "Address" => address(),
+        "PlaceId" => String.t(),
+        "PlaceType" => String.t(),
+        "Position" => list([float()]()),
+        "Title" => String.t()
+      }
+
+  """
+  @type related_place() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -809,6 +921,7 @@ defmodule AWS.GeoPlaces do
         "Locality" => float(),
         "PostalCode" => float(),
         "Region" => float(),
+        "SecondaryAddressComponents" => list(secondary_address_component_match_score()()),
         "SubBlock" => float(),
         "SubDistrict" => float(),
         "SubRegion" => float()
@@ -822,10 +935,10 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       category() :: %{
-        "Id" => [String.t()],
-        "LocalizedName" => [String.t()],
-        "Name" => [String.t()],
-        "Primary" => [boolean()]
+        "Id" => String.t(),
+        "LocalizedName" => String.t(),
+        "Name" => String.t(),
+        "Primary" => boolean()
       }
 
   """
@@ -837,8 +950,8 @@ defmodule AWS.GeoPlaces do
 
       contact_details() :: %{
         "Categories" => list(category()()),
-        "Label" => [String.t()],
-        "Value" => [String.t()]
+        "Label" => String.t(),
+        "Value" => String.t()
       }
 
   """
@@ -871,7 +984,7 @@ defmodule AWS.GeoPlaces do
         "Place" => suggest_place_result(),
         "Query" => suggest_query_result(),
         "SuggestResultItemType" => String.t(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -904,19 +1017,23 @@ defmodule AWS.GeoPlaces do
       geocode_result_item() :: %{
         "AccessPoints" => list(access_point()()),
         "Address" => address(),
-        "AddressNumberCorrected" => [boolean()],
+        "AddressNumberCorrected" => boolean(),
         "Categories" => list(category()()),
         "Distance" => float(),
         "FoodTypes" => list(food_type()()),
+        "Intersections" => list(intersection()()),
+        "MainAddress" => related_place(),
         "MapView" => list([float()]()),
         "MatchScores" => match_score_details(),
-        "PlaceId" => [String.t()],
+        "ParsedQuery" => geocode_parsed_query(),
+        "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
         "PostalCodeDetails" => list(postal_code_details()()),
+        "SecondaryAddresses" => list(related_place()()),
         "TimeZone" => time_zone(),
-        "Title" => [String.t()]
+        "Title" => String.t()
       }
 
   """
@@ -939,8 +1056,8 @@ defmodule AWS.GeoPlaces do
 
       phoneme_transcription() :: %{
         "Language" => String.t(),
-        "Preferred" => [boolean()],
-        "Value" => [String.t()]
+        "Preferred" => boolean(),
+        "Value" => String.t()
       }
 
   """
@@ -978,20 +1095,21 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       address() :: %{
-        "AddressNumber" => [String.t()],
-        "Block" => [String.t()],
-        "Building" => [String.t()],
+        "AddressNumber" => String.t(),
+        "Block" => String.t(),
+        "Building" => String.t(),
         "Country" => country(),
-        "District" => [String.t()],
+        "District" => String.t(),
         "Intersection" => list(String.t()()),
-        "Label" => [String.t()],
-        "Locality" => [String.t()],
-        "PostalCode" => [String.t()],
+        "Label" => String.t(),
+        "Locality" => String.t(),
+        "PostalCode" => String.t(),
         "Region" => region(),
-        "Street" => [String.t()],
+        "SecondaryAddressComponents" => list(secondary_address_component()()),
+        "Street" => String.t(),
         "StreetComponents" => list(street_components()()),
-        "SubBlock" => [String.t()],
-        "SubDistrict" => [String.t()],
+        "SubBlock" => String.t(),
+        "SubDistrict" => String.t(),
         "SubRegion" => sub_region()
       }
 
@@ -1006,7 +1124,7 @@ defmodule AWS.GeoPlaces do
         "Categories" => list(category()()),
         "Components" => list(opening_hours_components()()),
         "Display" => list(String.t()()),
-        "OpenNow" => [boolean()]
+        "OpenNow" => boolean()
       }
 
   """
@@ -1142,13 +1260,14 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  The autocomplete operation speeds up and increases the accuracy of entering
-  addresses by providing a list of address candidates matching a partially entered
-  address.
+  `Autocomplete` completes potential places and addresses as the user types, based
+  on the partial input.
 
-  Results are sorted from most to least matching. Filtering and biasing can be
-  used to increase the relevance of the results if additional search context is
-  known
+  The API enhances the efficiency and accuracy of address by completing query
+  based on a few entered keystrokes. It helps you by completing partial queries
+  with valid address completion. Also, the API supports the filtering of results
+  based on geographic location, country, or specific place types, and can be
+  tailored using optional parameters like language and political views.
   """
   @spec autocomplete(map(), autocomplete_request(), list()) ::
           {:ok, autocomplete_response(), any()}
@@ -1189,8 +1308,13 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  The `Geocode` action allows you to obtain coordinates, addresses, and other
-  information about places.
+  `Geocode` converts a textual address or place into geographic coordinates.
+
+  You can obtain geographic coordinates, address component, and other related
+  information. It supports flexible queries, including free-form text or
+  structured queries with components like street names, postal codes, and regions.
+  The Geocode API can also provide additional features such as time zone
+  information and the inclusion of political views.
   """
   @spec geocode(map(), geocode_request(), list()) ::
           {:ok, geocode_response(), any()}
@@ -1231,10 +1355,9 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  Finds a place by its unique ID.
+  `GetPlace` finds a place by its unique ID.
 
-  A `PlaceId` is returned by other place
-  operations.
+  A `PlaceId` is returned by other place operations.
   """
   @spec get_place(
           map(),
@@ -1312,8 +1435,14 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  The `ReverseGeocode` operation allows you to retrieve addresses and place
-  information from coordinates.
+  `ReverseGeocode` converts geographic coordinates into a human-readable address
+  or place.
+
+  You can obtain address component, and other related information such as place
+  type, category, street information. The Reverse Geocode API supports filtering
+  to on place type so that you can refine result based on your need. Also, The
+  Reverse Geocode API can also provide additional features such as time zone
+  information and the inclusion of political views.
   """
   @spec reverse_geocode(map(), reverse_geocode_request(), list()) ::
           {:ok, reverse_geocode_response(), any()}
@@ -1354,7 +1483,13 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  Search nearby a specified location.
+  `SearchNearby` queries for points of interest within a radius from a central
+  coordinates, returning place results with optional filters such as categories,
+  business chains, food types and more.
+
+  The API returns details such as a place name, address, phone, category, food
+  type, contact, opening hours. Also, the API can return phonemes, time zones and
+  more based on requested parameters.
   """
   @spec search_nearby(map(), search_nearby_request(), list()) ::
           {:ok, search_nearby_response(), any()}
@@ -1395,7 +1530,7 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  Use the `SearchText` operation to search for geocode and place information.
+  `SearchText` searches for geocode and place information.
 
   You can then complete a follow-up query suggested from the `Suggest` API via a
   query id.
@@ -1439,11 +1574,18 @@ defmodule AWS.GeoPlaces do
   end
 
   @doc """
-  The `Suggest` operation finds addresses or place candidates based on
-  incomplete or misspelled queries.
+  `Suggest` provides intelligent predictions or recommendations based on the
+  user's input or context, such as relevant places, points of interest, query
+  terms or search category.
 
-  You then select the best query to submit based on the
-  returned results.
+  It is designed to help users find places or point of interests candidates or
+  identify a follow on query based on incomplete or misspelled queries. It returns
+  a list of possible matches or refinements that can be used to formulate a more
+  accurate query. Users can select the most appropriate suggestion and use it for
+  further searching. The API provides options for filtering results by location
+  and other attributes, and allows for additional features like phonemes and
+  timezones. The response includes refined query terms and detailed place
+  information.
   """
   @spec suggest(map(), suggest_request(), list()) ::
           {:ok, suggest_response(), any()}

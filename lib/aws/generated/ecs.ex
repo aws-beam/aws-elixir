@@ -4104,7 +4104,7 @@ defmodule AWS.ECS do
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when creating or
   updating a service. `volumeConfigurations` is only supported for REPLICA
-  service and not DAEMON service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  service and not DAEMON service. For more information, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   Tasks for services that don't use a load balancer are considered healthy if
@@ -5129,7 +5129,7 @@ defmodule AWS.ECS do
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when creating or
-  updating a service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  updating a service. For more information, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   The Amazon ECS API follows an eventual consistency model. This is because of the
@@ -5205,7 +5205,7 @@ defmodule AWS.ECS do
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when creating or
-  updating a service. For more infomation, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  updating a service. For more information, see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
   """
   @spec start_task(map(), start_task_request(), list()) ::
@@ -5549,13 +5549,13 @@ defmodule AWS.ECS do
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when starting or
-  running a task, or when creating or updating a service. For more infomation, see
-  [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  running a task, or when creating or updating a service. For more information,
+  see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*. You can update
   your volume configurations and trigger a new deployment.
   `volumeConfigurations` is only supported for REPLICA service and not
   DAEMON service. If you leave `volumeConfigurations`
-  `null`, it doesn't trigger a new deployment. For more infomation on volumes,
+  `null`, it doesn't trigger a new deployment. For more information on volumes,
   see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
 
@@ -5588,8 +5588,8 @@ defmodule AWS.ECS do
 
   You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume
   when starting or
-  running a task, or when creating or updating a service. For more infomation, see
-  [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
+  running a task, or when creating or updating a service. For more information,
+  see [Amazon EBS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   If you have updated the container image of your application, you can create a

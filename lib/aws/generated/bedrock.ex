@@ -148,6 +148,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_content_filters_tier_config() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_content_filters_tier_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
         required("tags") => list(tag()())
@@ -341,6 +352,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_topic_policy_config() :: %{
+        "tierConfig" => guardrail_topics_tier_config(),
         "topicsConfig" => list(guardrail_topic_config()())
       }
 
@@ -553,6 +565,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_topics_tier() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_topics_tier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       human_workflow_config() :: %{
         "flowDefinitionArn" => String.t(),
         "instructions" => String.t()
@@ -566,7 +589,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_policy() :: %{
-        "filters" => list(guardrail_content_filter()())
+        "filters" => list(guardrail_content_filter()()),
+        "tier" => guardrail_content_filters_tier()
       }
 
   """
@@ -620,6 +644,17 @@ defmodule AWS.Bedrock do
 
   """
   @type list_model_import_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topics_tier_config() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_topics_tier_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1377,6 +1412,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      guardrail_content_filters_tier() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_content_filters_tier() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_provisioned_model_throughput_response() :: %{
         "provisionedModelArn" => String.t()
       }
@@ -1513,7 +1559,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_policy_config() :: %{
-        "filtersConfig" => list(guardrail_content_filter_config()())
+        "filtersConfig" => list(guardrail_content_filter_config()()),
+        "tierConfig" => guardrail_content_filters_tier_config()
       }
 
   """
@@ -2675,6 +2722,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_topic_policy() :: %{
+        "tier" => guardrail_topics_tier(),
         "topics" => list(guardrail_topic()())
       }
 

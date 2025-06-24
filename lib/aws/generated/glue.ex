@@ -1529,6 +1529,7 @@ defmodule AWS.Glue do
   ## Example:
       
       table_optimizer_configuration() :: %{
+        "compactionConfiguration" => compaction_configuration(),
         "enabled" => boolean(),
         "orphanFileDeletionConfiguration" => orphan_file_deletion_configuration(),
         "retentionConfiguration" => retention_configuration(),
@@ -2133,6 +2134,7 @@ defmodule AWS.Glue do
       
       table_optimizer_run() :: %{
         "compactionMetrics" => compaction_metrics(),
+        "compactionStrategy" => list(any()),
         "endTimestamp" => non_neg_integer(),
         "error" => String.t(),
         "eventType" => list(any()),
@@ -7207,6 +7209,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_compaction_configuration() :: %{
+        "strategy" => list(any())
+      }
+      
+  """
+  @type iceberg_compaction_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_csv_classifier_request() :: %{
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
@@ -10304,6 +10317,17 @@ defmodule AWS.Glue do
       
   """
   @type list_schema_versions_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compaction_configuration() :: %{
+        "icebergConfiguration" => iceberg_compaction_configuration()
+      }
+      
+  """
+  @type compaction_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

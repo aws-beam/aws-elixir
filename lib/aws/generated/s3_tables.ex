@@ -634,6 +634,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       iceberg_compaction_settings() :: %{
+        "strategy" => list(any()),
         "targetFileSizeMB" => integer()
       }
 
@@ -1720,8 +1721,11 @@ defmodule AWS.S3Tables do
 
   ### Permissions
 
-  You must have the `s3tables:GetTableMaintenanceConfiguration` permission to use
-  this operation.
+     You must have the `s3tables:GetTableMaintenanceConfiguration`
+  permission to use this operation.
+
+     You must have the `s3tables:GetTableData` permission to use set the
+  compaction strategy to `sort` or `zorder`.
   """
   @spec get_table_maintenance_configuration(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_table_maintenance_configuration_response(), any()}

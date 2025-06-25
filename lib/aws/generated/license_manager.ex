@@ -1133,6 +1133,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       license_conversion_context() :: %{
+        "ProductCodes" => list(product_code_list_item()()),
         "UsageOperation" => String.t()
       }
       
@@ -1329,6 +1330,18 @@ defmodule AWS.LicenseManager do
       
   """
   @type create_license_manager_report_generator_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      product_code_list_item() :: %{
+        "ProductCodeId" => String.t(),
+        "ProductCodeType" => list(any())
+      }
+      
+  """
+  @type product_code_list_item() :: %{String.t() => any()}
 
   @typedoc """
 

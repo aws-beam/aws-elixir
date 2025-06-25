@@ -1631,6 +1631,7 @@ defmodule AWS.Batch do
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
         "targetInstanceTypes" => list(String.t()()),
+        "userdataType" => list(any()),
         "version" => String.t()
       }
 
@@ -1832,6 +1833,7 @@ defmodule AWS.Batch do
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
         "overrides" => list(launch_template_specification_override()()),
+        "userdataType" => list(any()),
         "version" => String.t()
       }
 

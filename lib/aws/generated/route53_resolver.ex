@@ -1120,6 +1120,7 @@ defmodule AWS.Route53Resolver do
         "Arn" => String.t(),
         "CreationTime" => String.t(),
         "CreatorRequestId" => String.t(),
+        "DelegationRecord" => String.t(),
         "DomainName" => String.t(),
         "Id" => String.t(),
         "ModificationTime" => String.t(),
@@ -1496,6 +1497,7 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       create_resolver_rule_request() :: %{
+        optional("DelegationRecord") => String.t(),
         optional("DomainName") => String.t(),
         optional("Name") => String.t(),
         optional("ResolverEndpointId") => String.t(),

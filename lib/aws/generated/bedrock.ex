@@ -249,10 +249,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      offer() :: %{
+        "offerId" => String.t(),
+        "offerToken" => String.t(),
+        "termDetails" => term_details()
+      }
+
+  """
+  @type offer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_evaluation_job_request() :: %{}
 
   """
   @type get_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_foundation_model_availability_request() :: %{}
+
+  """
+  @type get_foundation_model_availability_request() :: %{}
 
   @typedoc """
 
@@ -692,6 +714,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_foundation_model_agreement_offers_response() :: %{
+        "modelId" => String.t(),
+        "offers" => list(offer()())
+      }
+
+  """
+  @type list_foundation_model_agreement_offers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_provisioned_model_throughputs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -706,6 +740,17 @@ defmodule AWS.Bedrock do
 
   """
   @type list_provisioned_model_throughputs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_term() :: %{
+        "rateCard" => list(dimensional_price_rate()())
+      }
+
+  """
+  @type pricing_term() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -794,6 +839,29 @@ defmodule AWS.Bedrock do
 
   """
   @type get_prompt_router_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      agreement_availability() :: %{
+        "errorMessage" => [String.t()],
+        "status" => list(any())
+      }
+
+  """
+  @type agreement_availability() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      support_term() :: %{
+        "refundPolicyDescription" => [String.t()]
+      }
+
+  """
+  @type support_term() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1141,6 +1209,17 @@ defmodule AWS.Bedrock do
 
   """
   @type bedrock_evaluator_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_use_case_for_model_access_response() :: %{
+        "formData" => binary()
+      }
+
+  """
+  @type get_use_case_for_model_access_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1629,6 +1708,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_foundation_model_agreement_request() :: %{
+        required("modelId") => String.t()
+      }
+
+  """
+  @type delete_foundation_model_agreement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       teacher_model_config() :: %{
         "maxResponseLengthForInference" => [integer()],
         "teacherModelIdentifier" => String.t()
@@ -1818,6 +1908,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_use_case_for_model_access_response() :: %{}
+
+  """
+  @type put_use_case_for_model_access_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_guardrail_request() :: %{
         optional("contentPolicyConfig") => guardrail_content_policy_config(),
         optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
@@ -1901,6 +2000,17 @@ defmodule AWS.Bedrock do
 
   """
   @type byte_content_doc() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      legal_term() :: %{
+        "url" => [String.t()]
+      }
+
+  """
+  @type legal_term() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2108,6 +2218,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_use_case_for_model_access_request() :: %{
+        required("formData") => binary()
+      }
+
+  """
+  @type put_use_case_for_model_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_rag_config_summary() :: %{
         "bedrockKnowledgeBaseIdentifiers" => list(String.t()()),
         "precomputedRagSourceIdentifiers" => list(String.t()())
@@ -2135,6 +2256,17 @@ defmodule AWS.Bedrock do
 
   """
   @type distillation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_foundation_model_agreement_offers_request() :: %{
+        optional("offerType") => list(any())
+      }
+
+  """
+  @type list_foundation_model_agreement_offers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2266,6 +2398,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_foundation_model_agreement_request() :: %{
+        required("modelId") => String.t(),
+        required("offerToken") => String.t()
+      }
+
+  """
+  @type create_foundation_model_agreement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_model_customization_jobs_response() :: %{
         "modelCustomizationJobSummaries" => list(model_customization_job_summary()()),
         "nextToken" => String.t()
@@ -2284,6 +2428,21 @@ defmodule AWS.Bedrock do
 
   """
   @type list_foundation_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_foundation_model_availability_response() :: %{
+        "agreementAvailability" => agreement_availability(),
+        "authorizationStatus" => list(any()),
+        "entitlementAvailability" => list(any()),
+        "modelId" => String.t(),
+        "regionAvailability" => list(any())
+      }
+
+  """
+  @type get_foundation_model_availability_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2385,6 +2544,15 @@ defmodule AWS.Bedrock do
 
   """
   @type generation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_use_case_for_model_access_request() :: %{}
+
+  """
+  @type get_use_case_for_model_access_request() :: %{}
 
   @typedoc """
 
@@ -2841,6 +3009,45 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      term_details() :: %{
+        "legalTerm" => legal_term(),
+        "supportTerm" => support_term(),
+        "usageBasedPricingTerm" => pricing_term(),
+        "validityTerm" => validity_term()
+      }
+
+  """
+  @type term_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validity_term() :: %{
+        "agreementDuration" => [String.t()]
+      }
+
+  """
+  @type validity_term() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dimensional_price_rate() :: %{
+        "description" => [String.t()],
+        "dimension" => [String.t()],
+        "price" => [String.t()],
+        "unit" => [String.t()]
+      }
+
+  """
+  @type dimensional_price_rate() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_model_invocation_logging_configuration_response() :: %{}
 
   """
@@ -2857,6 +3064,17 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_foundation_model_agreement_response() :: %{
+        "modelId" => String.t()
+      }
+
+  """
+  @type create_foundation_model_agreement_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3187,6 +3405,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_foundation_model_agreement_response() :: %{}
+
+  """
+  @type delete_foundation_model_agreement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_model_invocation_job_response() :: %{
         "clientRequestToken" => String.t(),
         "endTime" => non_neg_integer(),
@@ -3255,6 +3482,14 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_foundation_model_agreement_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -3358,6 +3593,14 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_foundation_model_agreement_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_guardrail_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3430,6 +3673,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
 
   @type get_foundation_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_foundation_model_availability_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3509,6 +3759,12 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_use_case_for_model_access_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_custom_models_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3520,6 +3776,13 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type list_foundation_model_agreement_offers_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_foundation_models_errors() ::
           throttling_exception()
@@ -3598,6 +3861,12 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
 
   @type put_model_invocation_logging_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type put_use_case_for_model_access_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3788,6 +4057,39 @@ defmodule AWS.Bedrock do
           | {:error, create_evaluation_job_errors()}
   def create_evaluation_job(%Client{} = client, input, options \\ []) do
     url_path = "/evaluation-jobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Request a model access agreement for the specified model.
+  """
+  @spec create_foundation_model_agreement(
+          map(),
+          create_foundation_model_agreement_request(),
+          list()
+        ) ::
+          {:ok, create_foundation_model_agreement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_foundation_model_agreement_errors()}
+  def create_foundation_model_agreement(%Client{} = client, input, options \\ []) do
+    url_path = "/create-foundation-model-agreement"
     headers = []
     custom_headers = []
     query_params = []
@@ -4212,6 +4514,39 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Delete the model access agreement for the specified model.
+  """
+  @spec delete_foundation_model_agreement(
+          map(),
+          delete_foundation_model_agreement_request(),
+          list()
+        ) ::
+          {:ok, delete_foundation_model_agreement_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_foundation_model_agreement_errors()}
+  def delete_foundation_model_agreement(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-foundation-model-agreement"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a guardrail.
 
     * To delete a guardrail, only specify the ARN of the guardrail in
@@ -4565,6 +4900,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Get information about the Foundation model availability.
+  """
+  @spec get_foundation_model_availability(map(), String.t(), list()) ::
+          {:ok, get_foundation_model_availability_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_foundation_model_availability_errors()}
+  def get_foundation_model_availability(%Client{} = client, model_id, options \\ []) do
+    url_path = "/foundation-model-availability/#{AWS.Util.encode_uri(model_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets details about a guardrail.
 
   If you don't specify a version, the response returns details for the `DRAFT`
@@ -4799,6 +5152,24 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Get usecase for model access.
+  """
+  @spec get_use_case_for_model_access(map(), list()) ::
+          {:ok, get_use_case_for_model_access_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_use_case_for_model_access_errors()}
+  def get_use_case_for_model_access(%Client{} = client, options \\ []) do
+    url_path = "/use-case-for-model-access"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of the custom models that you have created with the
   `CreateModelCustomizationJob` operation.
 
@@ -5021,6 +5392,36 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(application_type_equals) do
         [{"applicationTypeEquals", application_type_equals} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get the offers associated with the specified model.
+  """
+  @spec list_foundation_model_agreement_offers(map(), String.t(), String.t() | nil, list()) ::
+          {:ok, list_foundation_model_agreement_offers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_foundation_model_agreement_offers_errors()}
+  def list_foundation_model_agreement_offers(
+        %Client{} = client,
+        model_id,
+        offer_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/list-foundation-model-agreement-offers/#{AWS.Util.encode_uri(model_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(offer_type) do
+        [{"offerType", offer_type} | query_params]
       else
         query_params
       end
@@ -5978,6 +6379,35 @@ defmodule AWS.Bedrock do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Put usecase for model access.
+  """
+  @spec put_use_case_for_model_access(map(), put_use_case_for_model_access_request(), list()) ::
+          {:ok, put_use_case_for_model_access_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_use_case_for_model_access_errors()}
+  def put_use_case_for_model_access(%Client{} = client, input, options \\ []) do
+    url_path = "/use-case-for-model-access"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 

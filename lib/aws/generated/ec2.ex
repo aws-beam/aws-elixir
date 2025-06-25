@@ -12640,6 +12640,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("NoReboot") => boolean(),
+        optional("SnapshotLocation") => list(any()),
         optional("TagSpecifications") => list(tag_specification()()),
         required("InstanceId") => String.t(),
         required("Name") => String.t()
@@ -16049,6 +16050,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       ebs_block_device() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
@@ -31011,8 +31014,7 @@ defmodule AWS.EC2 do
 
   @doc """
   Cancels the specified Capacity Reservation, releases the reserved capacity, and
-  changes
-  the Capacity Reservation's state to `cancelled`.
+  changes the Capacity Reservation's state to `cancelled`.
 
   You can cancel a Capacity Reservation that is in the following states:
 
@@ -31030,17 +31032,17 @@ defmodule AWS.EC2 do
   ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
 
   If a future-dated Capacity Reservation enters the `delayed` state, the
-  commitment
-  duration is waived, and you can cancel it as soon as it enters the `active`
-  state.
+  commitment duration is waived, and you can cancel it as soon as it enters the
+  `active` state.
 
   Instances running in the reserved capacity continue running until you stop them.
-  Stopped
-  instances that target the Capacity Reservation can no longer launch. Modify
-  these instances to either
-  target a different Capacity Reservation, launch On-Demand Instance capacity, or
-  run in any open Capacity Reservation
-  that has matching attributes and sufficient capacity.
+  Stopped instances that target the Capacity Reservation can no longer launch.
+  Modify
+  these instances to either target a different Capacity Reservation, launch
+  On-Demand
+  Instance capacity, or run in any open Capacity Reservation that has matching
+  attributes
+  and sufficient capacity.
   """
   @spec cancel_capacity_reservation(map(), cancel_capacity_reservation_request(), list()) ::
           {:ok, cancel_capacity_reservation_result(), any()}
@@ -31360,40 +31362,38 @@ defmodule AWS.EC2 do
   @doc """
   Creates a new Capacity Reservation with the specified attributes.
 
-  Capacity Reservations enable
-  you to reserve capacity for your Amazon EC2 instances in a specific Availability
-  Zone for any
-  duration.
+  Capacity
+  Reservations enable you to reserve capacity for your Amazon EC2 instances in a
+  specific
+  Availability Zone for any duration.
 
   You can create a Capacity Reservation at any time, and you can choose when it
-  starts. You can create a
-  Capacity Reservation for immediate use or you can request a Capacity Reservation
-  for a future date.
+  starts.
+  You can create a Capacity Reservation for immediate use or you can request a
+  Capacity
+  Reservation for a future date.
 
-  For more information, see [
-  Reserve compute capacity with On-Demand Capacity
+  For more information, see [ Reserve compute capacity with On-Demand Capacity
   Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html)
-  in the *Amazon EC2 User Guide*.
+  in the
+  *Amazon EC2 User Guide*.
 
   Your request to create a Capacity Reservation could fail if:
 
     *
-  Amazon EC2 does not have sufficient capacity. In this case, try again at a later
-  time, try in a different Availability Zone, or request a smaller Capacity
-  Reservation. If
-  your workload is flexible across instance types and sizes, try with different
-  instance
-  attributes.
+  Amazon EC2 does not have sufficient capacity. In this case, try again
+  at a later time, try in a different Availability Zone, or request a smaller
+  Capacity Reservation. If your workload is flexible across instance types and
+  sizes, try with different instance attributes.
 
     *
   The requested quantity exceeds your On-Demand Instance quota. In this case,
-  increase your
-  On-Demand Instance quota for the requested instance type and try again. For more
-  information,
-  see [
+  increase your On-Demand Instance quota for the requested instance type and try
+  again. For more information, see [
   Amazon EC2 Service
   Quotas](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
-  in the *Amazon EC2 User Guide*.
+  in the
+  *Amazon EC2 User Guide*.
   """
   @spec create_capacity_reservation(map(), create_capacity_reservation_request(), list()) ::
           {:ok, create_capacity_reservation_result(), any()}
@@ -31811,6 +31811,19 @@ defmodule AWS.EC2 do
   automatically launches
   with those additional volumes.
 
+  The location of the source instance determines where you can create the
+  snapshots of the
+  AMI:
+
+    *
+  If the source instance is in a Region, you must create the snapshots in the same
+  Region as the instance.
+
+    *
+  If the source instance is in a Local Zone, you can create the snapshots in the
+  same
+  Local Zone or in its parent Region.
+
   For more information, see [Create an Amazon EBS-backed AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html)
   in
   the *Amazon Elastic Compute Cloud User Guide*.
@@ -31830,9 +31843,9 @@ defmodule AWS.EC2 do
 
   An EC2 Instance Connect Endpoint allows you to connect to an instance, without
   requiring the instance to have a public IPv4 address. For more information, see
-  [Connect to your instances without requiring a public IPv4 address using EC2 Instance Connect
-  Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html)
-  in the *Amazon EC2 User Guide*.
+  [Connect to your instances using EC2 Instance Connect Endpoint](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html)
+  in the
+  *Amazon EC2 User Guide*.
   """
   @spec create_instance_connect_endpoint(
           map(),
@@ -35789,8 +35802,8 @@ defmodule AWS.EC2 do
 
   @doc """
   Describes Capacity Block extension offerings available for purchase in the
-  Amazon Web Services Region
-  that you're currently using.
+  Amazon Web Services
+  Region that you're currently using.
   """
   @spec describe_capacity_block_extension_offerings(
           map(),
@@ -42355,47 +42368,46 @@ defmodule AWS.EC2 do
 
   @doc """
   Modifies a Capacity Reservation's capacity, instance eligibility, and the
-  conditions under
-  which it is to be released.
+  conditions
+  under which it is to be released.
 
-  You can't modify a Capacity Reservation's instance type, EBS
-  optimization, platform, instance store settings, Availability Zone, or tenancy.
-  If you need
-  to modify any of these attributes, we recommend that you cancel the Capacity
-  Reservation,
-  and then create a new one with the required attributes. For more information,
-  see
-  [
-  Modify an active Capacity
+  You can't modify a Capacity Reservation's instance
+  type, EBS optimization, platform, instance store settings, Availability Zone, or
+  tenancy. If you need to modify any of these attributes, we recommend that you
+  cancel the
+  Capacity Reservation, and then create a new one with the required attributes.
+  For more
+  information, see [ Modify an active Capacity
   Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html).
 
   The allowed modifications depend on the state of the Capacity Reservation:
 
     *
 
-  `assessing` or `scheduled` state - You can modify the tags only.
+  `assessing` or `scheduled` state - You can modify the
+  tags only.
 
     *
 
-  `pending` state - You can't modify the Capacity Reservation in any way.
+  `pending` state - You can't modify the Capacity Reservation in any
+  way.
 
     *
 
-  `active` state but still within the commitment duration - You can't decrease the
-  instance
-  count or set an end date that is within the commitment duration. All other
-  modifications are allowed.
+  `active` state but still within the commitment duration - You can't
+  decrease the instance count or set an end date that is within the commitment
+  duration. All other modifications are allowed.
 
     *
 
-  `active` state with no commitment duration or elapsed commitment duration - All
-  modifications
-  are allowed.
+  `active` state with no commitment duration or elapsed commitment
+  duration - All modifications are allowed.
 
     *
 
-  `expired`, `cancelled`, `unsupported`, or `failed` state -
-  You can't modify the Capacity Reservation in any way.
+  `expired`, `cancelled`, `unsupported`, or
+  `failed` state - You can't modify the Capacity Reservation in any
+  way.
   """
   @spec modify_capacity_reservation(map(), modify_capacity_reservation_request(), list()) ::
           {:ok, modify_capacity_reservation_result(), any()}
@@ -45617,7 +45629,8 @@ defmodule AWS.EC2 do
   An S3 bucket must be available before generating the report (you can create a
   new one or use an existing one), it must be in the same Region where the report
   generation request is made, and it must have an appropriate bucket policy. For a
-  sample S3 policy, see *Sample Amazon S3 policy* under .
+  sample S3 policy, see *Sample Amazon S3 policy* under
+  [Examples](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.html#API_StartDeclarativePoliciesReport_Examples). 
 
     *
   Trusted access must be enabled for the service for which the declarative
@@ -45627,7 +45640,8 @@ defmodule AWS.EC2 do
   API uses the following service principal to identify the EC2 service:
   `ec2.amazonaws.com`. For more information on how to enable
   trusted access with the Amazon Web Services CLI and Amazon Web Services SDKs,
-  see [Using Organizations with other Amazon Web Services
+  see [Using
+  Organizations with other Amazon Web Services
   services](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
   in the
   *Amazon Web Services Organizations User Guide*.
@@ -45769,13 +45783,13 @@ defmodule AWS.EC2 do
   @doc """
   Stops an Amazon EBS-backed instance.
 
-  For more information, see [Stop and start Amazon EC2
+  You can restart your instance at any time using
+  the
+  [StartInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html) API. For more information, see [Stop and start Amazon EC2
   instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)
-  in the *Amazon EC2 User
-  Guide*.
+  in the *Amazon EC2 User Guide*.
 
-  When you stop an instance, we shut it down. You can restart your instance at any
-  time.
+  When you stop an instance, we shut it down.
 
   You can use the Stop operation together with the Hibernate parameter to
   hibernate an

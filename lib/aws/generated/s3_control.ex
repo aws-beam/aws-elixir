@@ -2975,6 +2975,8 @@ defmodule AWS.S3Control do
         "Alias" => String.t(),
         "Bucket" => String.t(),
         "BucketAccountId" => String.t(),
+        "DataSourceId" => String.t(),
+        "DataSourceType" => String.t(),
         "Name" => String.t(),
         "NetworkOrigin" => list(any()),
         "VpcConfiguration" => vpc_configuration()
@@ -3154,6 +3156,8 @@ defmodule AWS.S3Control do
         "Bucket" => String.t(),
         "BucketAccountId" => String.t(),
         "CreationDate" => non_neg_integer(),
+        "DataSourceId" => String.t(),
+        "DataSourceType" => String.t(),
         "Endpoints" => map(),
         "Name" => String.t(),
         "NetworkOrigin" => list(any()),
@@ -3366,6 +3370,8 @@ defmodule AWS.S3Control do
 
       list_access_points_request() :: %{
         optional("Bucket") => String.t(),
+        optional("DataSourceId") => String.t(),
+        optional("DataSourceType") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AccountId") => String.t()
@@ -4061,16 +4067,22 @@ defmodule AWS.S3Control do
   Creates an access point and associates it to a specified bucket.
 
   For more information, see
-  [Managing access to shared datasets in general purpose buckets with access
+  [Managing access to shared datasets with access
   points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
   or [Managing access to shared datasets in directory buckets with access
   points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html)
   in the
   *Amazon S3 User Guide*.
 
+  To create an access point and attach it to a volume on an Amazon FSx file
+  system, see
+  [CreateAndAttachS3AccessPoint](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateAndAttachS3AccessPoint.html) in the *Amazon FSx API
+  Reference*.
+
   S3 on Outposts only supports VPC-style access points.
 
-  For more information, see [ Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access
+  For more information, see [ Accessing Amazon S3 on Outposts using
+  virtual private cloud (VPC) only access
   points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html)
   in the
   *Amazon S3 User Guide*.
@@ -7556,15 +7568,16 @@ defmodule AWS.S3Control do
 
   This operation is not supported by directory buckets.
 
-  Returns a list of the access points
-  that are
-  owned by the current account
-  that's
-  associated with the specified bucket. You can retrieve up to 1000 access points
-  per call. If the specified bucket has more than 1,000 access points (or the
-  number specified in
-  `maxResults`, whichever is less), the response will include a continuation
-  token that you can use to list the additional access points.
+  Returns a list of the access points. You can retrieve up to 1,000 access points
+  per call. If the call
+  returns more than 1,000 access points (or the number specified in `maxResults`,
+  whichever is less), the response will include a continuation token that you can
+  use to list
+  the additional access points.
+
+  Returns only access points attached to S3 buckets by default. To return all
+  access points specify
+  `DataSourceType` as `ALL`.
 
   All Amazon S3 on Outposts REST API requests for this action require an
   additional parameter of `x-amz-outpost-id` to be passed with the request. In
@@ -7593,6 +7606,8 @@ defmodule AWS.S3Control do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
           String.t(),
           list()
         ) ::
@@ -7602,6 +7617,8 @@ defmodule AWS.S3Control do
   def list_access_points(
         %Client{} = client,
         bucket \\ nil,
+        data_source_id \\ nil,
+        data_source_type \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         account_id,
@@ -7629,6 +7646,20 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(data_source_type) do
+        [{"dataSourceType", data_source_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(data_source_id) do
+        [{"dataSourceId", data_source_id} | query_params]
       else
         query_params
       end

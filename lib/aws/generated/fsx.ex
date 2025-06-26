@@ -126,6 +126,17 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      s3_access_point_vpc_configuration() :: %{
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type s3_access_point_vpc_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("Tags") => list(tag()())
@@ -207,6 +218,18 @@ defmodule AWS.FSx do
       
   """
   @type open_z_f_s_client_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_access_points() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type too_many_access_points() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -620,6 +643,21 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      create_and_attach_s3_access_point_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        optional("OpenZFSConfiguration") => create_and_attach_s3_access_point_open_z_f_s_configuration(),
+        optional("S3AccessPoint") => create_and_attach_s3_access_point_s3_configuration(),
+        required("Name") => String.t(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       missing_volume_configuration() :: %{
         "Message" => String.t()
       }
@@ -637,6 +675,18 @@ defmodule AWS.FSx do
       
   """
   @type data_repository_task_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{
+        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
+        "VolumeId" => String.t()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_open_z_f_s_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +735,18 @@ defmodule AWS.FSx do
       
   """
   @type windows_audit_log_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_access_point_attachments_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t()())
+      }
+      
+  """
+  @type s3_access_point_attachments_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1573,6 +1635,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      detach_and_delete_s3_access_point_request() :: %{
+        optional("ClientRequestToken") => String.t(),
+        required("Name") => String.t()
+      }
+      
+  """
+  @type detach_and_delete_s3_access_point_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_backup_response() :: %{
         "BackupId" => String.t(),
         "Lifecycle" => list(any())
@@ -1618,6 +1692,20 @@ defmodule AWS.FSx do
       
   """
   @type update_storage_virtual_machine_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_s3_access_point_attachments_request() :: %{
+        optional("Filters") => list(s3_access_point_attachments_filter()()),
+        optional("MaxResults") => integer(),
+        optional("Names") => list(String.t()()),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_s3_access_point_attachments_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1684,12 +1772,35 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      s3_access_point_open_z_f_s_configuration() :: %{
+        "FileSystemIdentity" => open_z_f_s_file_system_identity(),
+        "VolumeId" => String.t()
+      }
+      
+  """
+  @type s3_access_point_open_z_f_s_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_storage_virtual_machine_response() :: %{
         "StorageVirtualMachine" => storage_virtual_machine()
       }
       
   """
   @type update_storage_virtual_machine_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_response() :: %{
+        "S3AccessPointAttachment" => s3_access_point_attachment()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1718,6 +1829,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      open_z_f_s_file_system_identity() :: %{
+        "PosixUser" => open_z_f_s_posix_file_system_user(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type open_z_f_s_file_system_identity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_file_cache_lustre_configuration() :: %{
         "WeeklyMaintenanceStartTime" => String.t()
       }
@@ -1736,6 +1859,19 @@ defmodule AWS.FSx do
       
   """
   @type lustre_log_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_access_point() :: %{
+        "Alias" => String.t(),
+        "ResourceARN" => String.t(),
+        "VpcConfiguration" => s3_access_point_vpc_configuration()
+      }
+      
+  """
+  @type s3_access_point() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1848,6 +1984,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      detach_and_delete_s3_access_point_response() :: %{
+        "Lifecycle" => list(any()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type detach_and_delete_s3_access_point_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       missing_file_system_configuration() :: %{
         "Message" => String.t()
       }
@@ -1928,6 +2076,18 @@ defmodule AWS.FSx do
       
   """
   @type create_open_z_f_s_volume_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_point_already_owned_by_you() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type access_point_already_owned_by_you() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2516,6 +2676,19 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      open_z_f_s_posix_file_system_user() :: %{
+        "Gid" => float(),
+        "SecondaryGids" => list(float()()),
+        "Uid" => float()
+      }
+      
+  """
+  @type open_z_f_s_posix_file_system_user() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       data_repository_task() :: %{
         "CapacityToRelease" => float(),
         "CreationTime" => non_neg_integer(),
@@ -2622,6 +2795,47 @@ defmodule AWS.FSx do
       
   """
   @type describe_shared_vpc_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_access_point() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_access_point() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_access_point_attachment() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "Name" => String.t(),
+        "OpenZFSConfiguration" => s3_access_point_open_z_f_s_configuration(),
+        "S3AccessPoint" => s3_access_point(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type s3_access_point_attachment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_and_attach_s3_access_point_s3_configuration() :: %{
+        "Policy" => String.t(),
+        "VpcConfiguration" => s3_access_point_vpc_configuration()
+      }
+      
+  """
+  @type create_and_attach_s3_access_point_s3_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2850,6 +3064,17 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      s3_access_point_attachment_not_found() :: %{
+        "Message" => String.t()
+      }
+      
+  """
+  @type s3_access_point_attachment_not_found() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       backup_being_copied() :: %{
         "BackupId" => String.t(),
         "Message" => String.t()
@@ -2892,6 +3117,18 @@ defmodule AWS.FSx do
       
   """
   @type disassociate_file_system_aliases_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request() :: %{
+        "ErrorCode" => String.t(),
+        "Message" => String.t()
+      }
+      
+  """
+  @type invalid_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3051,6 +3288,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      describe_s3_access_point_attachments_response() :: %{
+        "NextToken" => String.t(),
+        "S3AccessPointAttachments" => list(s3_access_point_attachment()())
+      }
+      
+  """
+  @type describe_s3_access_point_attachments_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_storage_virtual_machines_request() :: %{
         optional("Filters") => list(storage_virtual_machine_filter()()),
         optional("MaxResults") => integer(),
@@ -3190,6 +3439,17 @@ defmodule AWS.FSx do
           | service_limit_exceeded()
           | internal_server_error()
           | bad_request()
+
+  @type create_and_attach_s3_access_point_errors() ::
+          invalid_request()
+          | incompatible_parameter_error()
+          | volume_not_found()
+          | invalid_access_point()
+          | internal_server_error()
+          | bad_request()
+          | access_point_already_owned_by_you()
+          | unsupported_operation()
+          | too_many_access_points()
 
   @type create_backup_errors() ::
           incompatible_parameter_error()
@@ -3356,6 +3616,12 @@ defmodule AWS.FSx do
   @type describe_file_systems_errors() ::
           internal_server_error() | bad_request() | file_system_not_found()
 
+  @type describe_s3_access_point_attachments_errors() ::
+          s3_access_point_attachment_not_found()
+          | internal_server_error()
+          | bad_request()
+          | unsupported_operation()
+
   @type describe_shared_vpc_configuration_errors() :: internal_server_error() | bad_request()
 
   @type describe_snapshots_errors() ::
@@ -3365,6 +3631,13 @@ defmodule AWS.FSx do
           internal_server_error() | bad_request() | storage_virtual_machine_not_found()
 
   @type describe_volumes_errors() :: volume_not_found() | internal_server_error() | bad_request()
+
+  @type detach_and_delete_s3_access_point_errors() ::
+          s3_access_point_attachment_not_found()
+          | incompatible_parameter_error()
+          | internal_server_error()
+          | bad_request()
+          | unsupported_operation()
 
   @type disassociate_file_system_aliases_errors() ::
           internal_server_error() | bad_request() | file_system_not_found()
@@ -3596,6 +3869,62 @@ defmodule AWS.FSx do
     meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshotAndUpdateVolume", input, options)
+  end
+
+  @doc """
+  Creates an S3 access point and attaches it to an Amazon FSx volume.
+
+  For FSx for OpenZFS file systems, the
+  volume must be hosted on a high-availability file system, either Single-AZ or
+  Multi-AZ. For more information,
+  see [Accessing your data using access points](fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html)
+  in the Amazon FSx for OpenZFS User Guide.
+
+  The requester requires the following permissions to perform these actions:
+
+    *
+
+  `fsx:CreateAndAttachS3AccessPoint`
+
+    *
+
+  `s3:CreateAccessPoint`
+
+    *
+
+  `s3:GetAccessPoint`
+
+    *
+
+  `s3:PutAccessPointPolicy`
+
+    *
+
+  `s3:DeleteAccessPoint`
+
+  The following actions are related to `CreateAndAttachS3AccessPoint`:
+
+    *
+
+  `DescribeS3AccessPointAttachments`
+
+    *
+
+  `DetachAndDeleteS3AccessPoint`
+  """
+  @spec create_and_attach_s3_access_point(
+          map(),
+          create_and_attach_s3_access_point_request(),
+          list()
+        ) ::
+          {:ok, create_and_attach_s3_access_point_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_and_attach_s3_access_point_errors()}
+  def create_and_attach_s3_access_point(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateAndAttachS3AccessPoint", input, options)
   end
 
   @doc """
@@ -4092,6 +4421,15 @@ defmodule AWS.FSx do
   volumes and storage virtual machines (SVMs) on the file system. Then provide a
   `FileSystemId` value to the `DeleteFileSystem` operation.
 
+  Before deleting an Amazon FSx for OpenZFS file system, make sure that there
+  aren't
+  any Amazon S3 access points attached to any volume. For more information on how
+  to list S3
+  access points that are attached to volumes, see
+  [Listing S3 access point attachments](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list).
+  For more information on how to delete S3 access points, see
+  [Deleting an S3 access point attachment](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-points-list).
+
   By default, when you delete an Amazon FSx for Windows File Server file system,
   a final backup is created upon deletion. This final backup isn't subject to the
   file
@@ -4431,6 +4769,30 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Describes one or more S3 access points attached to Amazon FSx volumes.
+
+  The requester requires the following permission to perform this action:
+
+    *
+
+  `fsx:DescribeS3AccessPointAttachments`
+  """
+  @spec describe_s3_access_point_attachments(
+          map(),
+          describe_s3_access_point_attachments_request(),
+          list()
+        ) ::
+          {:ok, describe_s3_access_point_attachments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_s3_access_point_attachments_errors()}
+  def describe_s3_access_point_attachments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeS3AccessPointAttachments", input, options)
+  end
+
+  @doc """
   Indicates whether participant accounts in your organization can create Amazon
   FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
   virtual
@@ -4530,6 +4892,35 @@ defmodule AWS.FSx do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
+  end
+
+  @doc """
+  Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access
+  point.
+
+  The requester requires the following permission to perform this action:
+
+    *
+
+  `fsx:DetachAndDeleteS3AccessPoint`
+
+    *
+
+  `s3:DeleteAccessPoint`
+  """
+  @spec detach_and_delete_s3_access_point(
+          map(),
+          detach_and_delete_s3_access_point_request(),
+          list()
+        ) ::
+          {:ok, detach_and_delete_s3_access_point_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, detach_and_delete_s3_access_point_errors()}
+  def detach_and_delete_s3_access_point(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachAndDeleteS3AccessPoint", input, options)
   end
 
   @doc """

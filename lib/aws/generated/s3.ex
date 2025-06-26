@@ -16034,14 +16034,15 @@ defmodule AWS.S3 do
 
   ### Permissions
 
-  To grant access to the `RenameObject` operation on a directory bucket, we
-  recommend that you
-  use the `CreateSession` operation for session-based authorization.
-  Specifically, you grant the `s3express:CreateSession` permission to the
-  directory bucket in a bucket policy or an IAM identity-based policy. Then, you
-  make the `CreateSession` API call on the directory bucket to obtain a
-  session token. With the session token in your request header, you can make API
-  requests to this operation. After the session token expires, you make another
+  To grant access to the `RenameObject` operation on a directory
+  bucket, we recommend that you use the `CreateSession` operation for
+  session-based authorization. Specifically, you grant the
+  `s3express:CreateSession` permission to the directory bucket in a
+  bucket policy or an IAM identity-based policy. Then, you make the
+  `CreateSession` API call on the directory bucket to obtain a session
+  token. With the session token in your request header, you can make API requests
+  to
+  this operation. After the session token expires, you make another
   `CreateSession` API call to generate a new session token for use.
   The Amazon Web Services CLI and SDKs will create and manage your session
   including refreshing
@@ -16054,11 +16055,11 @@ defmodule AWS.S3 do
   authorization, see [
   `CreateSession`
   ](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html). To
-  learn more about Zonal endpoint APT operations, see [Authorizing Zonal endpoint API
-  operations with
+  learn more about Zonal endpoint API
+  operations, see [Authorizing Zonal endpoint API operations with
   CreateSession](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-create-session.html)
-  in the *Amazon S3 User
-  Guide*.
+  in the *Amazon S3
+  User Guide*.
 
   ### HTTP Host header syntax
 

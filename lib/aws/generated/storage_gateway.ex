@@ -5446,8 +5446,9 @@ defmodule AWS.StorageGateway do
   The following requirements must be met to successfully generate a cache report:
 
     *
-  You must have permissions to list the entire Amazon S3 bucket associated
-  with the specified file share.
+  You must have `s3:PutObject` and `s3:AbortMultipartUpload`
+  permissions for the Amazon S3 bucket where you want to store the cache
+  report.
 
     *
   No other cache reports can currently be in-progress for the specified file

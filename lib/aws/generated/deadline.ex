@@ -1003,6 +1003,7 @@ defmodule AWS.Deadline do
         "startedAt" => non_neg_integer(),
         "stepId" => String.t(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map()
       }
@@ -1510,6 +1511,7 @@ defmodule AWS.Deadline do
         "startedAt" => non_neg_integer(),
         "stepId" => String.t(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
@@ -1697,6 +1699,7 @@ defmodule AWS.Deadline do
         "sourceJobId" => String.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
@@ -3251,6 +3254,7 @@ defmodule AWS.Deadline do
         "startedAt" => non_neg_integer(),
         "storageProfileId" => String.t(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),
@@ -3771,6 +3775,7 @@ defmodule AWS.Deadline do
         "sourceJobId" => String.t(),
         "startedAt" => non_neg_integer(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map()
       }
@@ -3963,6 +3968,7 @@ defmodule AWS.Deadline do
         "startedAt" => non_neg_integer(),
         "stepId" => String.t(),
         "targetTaskRunStatus" => list(any()),
+        "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
         "taskRunStatusCounts" => map(),
         "updatedAt" => non_neg_integer(),

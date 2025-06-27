@@ -557,6 +557,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      access_endpoint_config() :: %{
+        "AccessEndpoints" => list(access_endpoint()()),
+        "InternetFallbackProtocols" => list(list(any())())
+      }
+      
+  """
+  @type access_endpoint_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_workspace_image_permissions_result() :: %{
         "ImageId" => String.t(),
         "ImagePermissions" => list(image_permission()()),
@@ -717,6 +729,18 @@ defmodule AWS.WorkSpaces do
 
   ## Example:
       
+      access_endpoint() :: %{
+        "AccessEndpointType" => list(any()),
+        "VpcEndpointId" => String.t()
+      }
+      
+  """
+  @type access_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity() :: %{
         "DesiredUserSessions" => integer()
       }
@@ -804,6 +828,17 @@ defmodule AWS.WorkSpaces do
       
   """
   @type workspace_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1707,6 +1742,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       workspace_access_properties() :: %{
+        "AccessEndpointConfig" => access_endpoint_config(),
         "DeviceTypeAndroid" => list(any()),
         "DeviceTypeChromeOs" => list(any()),
         "DeviceTypeIos" => list(any()),
@@ -3822,7 +3858,11 @@ defmodule AWS.WorkSpaces do
           | resource_not_found_exception()
 
   @type modify_workspace_access_properties_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          operation_not_supported_exception()
+          | access_denied_exception()
+          | invalid_parameter_values_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_combination_exception()
 
   @type modify_workspace_creation_properties_errors() ::
           operation_not_supported_exception()

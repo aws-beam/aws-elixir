@@ -108,6 +108,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       update_data_accessor_request() :: %{
+        optional("authenticationDetail") => data_accessor_authentication_detail(),
         optional("displayName") => String.t(),
         required("actionConfigurations") => list(action_configuration()())
       }
@@ -361,6 +362,7 @@ defmodule AWS.QBusiness do
       get_data_accessor_response() :: %{
         "actionConfigurations" => list(action_configuration()()),
         "applicationId" => String.t(),
+        "authenticationDetail" => data_accessor_authentication_detail(),
         "createdAt" => non_neg_integer(),
         "dataAccessorArn" => String.t(),
         "dataAccessorId" => String.t(),
@@ -652,6 +654,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       create_data_accessor_request() :: %{
+        optional("authenticationDetail") => data_accessor_authentication_detail(),
         optional("clientToken") => String.t(),
         optional("tags") => list(tag()()),
         required("actionConfigurations") => list(action_configuration()()),
@@ -2466,6 +2469,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      data_accessor_idc_trusted_token_issuer_configuration() :: %{
+        "idcTrustedTokenIssuerArn" => String.t()
+      }
+
+  """
+  @type data_accessor_idc_trusted_token_issuer_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       orchestration_configuration() :: %{
         "control" => list(any())
       }
@@ -2922,6 +2936,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       associate_permission_request() :: %{
+        optional("conditions") => list(permission_condition()()),
         required("actions") => list(String.t()()),
         required("principal") => String.t(),
         required("statementId") => String.t()
@@ -3011,6 +3026,19 @@ defmodule AWS.QBusiness do
 
   """
   @type list_applications_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_accessor_authentication_detail() :: %{
+        "authenticationConfiguration" => list(),
+        "authenticationType" => list(any()),
+        "externalIds" => list(String.t()())
+      }
+
+  """
+  @type data_accessor_authentication_detail() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3145,6 +3173,19 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      permission_condition() :: %{
+        "conditionKey" => String.t(),
+        "conditionOperator" => list(any()),
+        "conditionValues" => list(String.t()())
+      }
+
+  """
+  @type permission_condition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retriever() :: %{
         "applicationId" => String.t(),
         "displayName" => String.t(),
@@ -3257,6 +3298,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       data_accessor() :: %{
+        "authenticationDetail" => data_accessor_authentication_detail(),
         "createdAt" => non_neg_integer(),
         "dataAccessorArn" => String.t(),
         "dataAccessorId" => String.t(),

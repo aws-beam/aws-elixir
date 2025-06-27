@@ -20,26 +20,29 @@ defmodule AWS.KMS do
 
   Amazon Web Services provides SDKs that consist of libraries and sample code for
   various programming
-  languages and platforms (Java, Ruby, .Net, macOS, Android, etc.). The SDKs
-  provide a
-  convenient way to create programmatic access to KMS and other Amazon Web
-  Services services. For example,
-  the SDKs take care of tasks such as signing requests (see below), managing
-  errors, and
-  retrying requests automatically. For more information about the Amazon Web
-  Services SDKs, including how to
-  download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
+  languages and platforms (Java, Rust, Python, Ruby, .Net, macOS, Android, etc.).
+  The SDKs
+  provide a convenient way to create programmatic access to KMS and other Amazon
+  Web Services services.
+  For example, the SDKs take care of tasks such as signing requests (see below),
+  managing
+  errors, and retrying requests automatically. For more information about the
+  Amazon Web Services SDKs,
+  including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/).
 
   We recommend that you use the Amazon Web Services SDKs to make programmatic API
   calls to KMS.
 
   If you need to use FIPS 140-2 validated cryptographic modules when communicating
   with
-  Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services
-  Region. For more information about the
-  available FIPS endpoints, see [Service endpoints](https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region) in
-  the Key Management Service topic of
-  the *Amazon Web Services General Reference*.
+  Amazon Web Services, use one of the FIPS endpoints in your preferred Amazon Web
+  Services Region. If you need communicate
+  over IPv6, use the dual-stack endpoint in your preferred Amazon Web Services
+  Region. For more information
+  see [Service endpoints](https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region) in
+  the Key Management Service topic of the *Amazon Web Services General Reference*
+  and [Dual-stack endpoint support](https://docs.aws.amazon.com/kms/latest/developerguide/ipv6-kms.html) in
+  the KMS Developer Guide.
 
   All KMS API calls must be signed and be transmitted using Transport Layer
   Security
@@ -5366,32 +5369,33 @@ defmodule AWS.KMS do
   material.
 
   You can also use this operation to set or update the expiration model and
-  expiration date of
-  the imported key material.
+  expiration
+  date of the imported key material.
 
   By default, KMS creates KMS keys with key material that it generates. You can
-  also generate and
-  import your own key material. For more information about importing key material,
-  see
-  [Importing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
+  also
+  generate and import your own key material. For more information about importing
+  key material,
+  see [Importing key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html).
 
   For asymmetric, HMAC and multi-Region keys, you cannot change the key material
-  after the initial import.
-  You can import multiple key materials into single-Region, symmetric encryption
-  keys and rotate the key material
-  on demand using `RotateKeyOnDemand`.
+  after the
+  initial import. You can import multiple key materials into single-Region,
+  symmetric encryption
+  keys and rotate the key material on demand using `RotateKeyOnDemand`.
 
   After you import key material, you can [reimport the same key
   material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#reimport-key-material)
   into that KMS key or, if the key supports on-demand rotation,
   import new key material. You can use the `ImportType` parameter to indicate
-  whether you are importing new key material or re-importing previously imported
+  whether
+  you are importing new key material or re-importing previously imported key
+  material. You might
+  reimport key material to replace key material that expired or key material that
+  you deleted.
+  You might also reimport key material to change the expiration model or
+  expiration date of the
   key material.
-  You might reimport key material to replace key material that expired or key
-  material
-  that you deleted. You might also reimport key material to change the expiration
-  model or
-  expiration date of the key material.
 
   Each time you import key material into KMS, you can determine whether
   (`ExpirationModel`) and when (`ValidTo`) the key material expires. To
@@ -5403,19 +5407,18 @@ defmodule AWS.KMS do
   Before you call `ImportKeyMaterial`, complete these steps:
 
     *
-  Create or identify a KMS key with `EXTERNAL` origin, which indicates that the
-  KMS key is
-  designed for imported key material.
+  Create or identify a KMS key with `EXTERNAL` origin, which indicates that
+  the KMS key is designed for imported key material.
 
   To create a new KMS key for imported key material, call the `CreateKey`
   operation with an `Origin` value of `EXTERNAL`. You can create a
   symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key,
-  asymmetric key agreement key,
-  or asymmetric signing KMS key. You can also import key material into a
+  asymmetric key
+  agreement key, or asymmetric signing KMS key. You can also import key material
+  into a
   [multi-Region key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html)
-  of any
-  supported type. However, you can't import key material into a KMS key in a
-  [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
+  of any supported type. However, you can't import key material
+  into a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
 
     *
   Call the `GetParametersForImport` operation to get a public key and
@@ -5465,10 +5468,9 @@ defmodule AWS.KMS do
   cryptographic operations. For single-Region, symmetric encryption keys, you will
   need to
   import all of the key materials associated with the KMS key to change its state
-  to `Enabled`.
-  Use the `ListKeyRotations` operation to list the ID and import state of each key
-  material
-  associated with a KMS key.
+  to
+  `Enabled`. Use the `ListKeyRotations` operation to list the ID and
+  import state of each key material associated with a KMS key.
 
   If this operation fails, use the exception to help determine the problem. If the
   error is
@@ -5689,9 +5691,10 @@ defmodule AWS.KMS do
   Returns information about the key materials associated with the specified KMS
   key.
 
-  You can use the optional `IncludeKeyMaterial` parameter to control which key
-  materials
-  are included in the response.
+  You can
+  use the optional `IncludeKeyMaterial` parameter to control which key materials
+  are
+  included in the response.
 
   You must specify the KMS key in all requests. You can refine the key rotations
   list by
@@ -6357,18 +6360,19 @@ defmodule AWS.KMS do
   cannot
   perform on-demand rotation of [asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html),
   [HMAC KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html),
-  multi-Region KMS keys
-  with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
+  multi-Region KMS
+  keys with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html),
   or KMS keys in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html).
-  When you initiate on-demand key rotation on a symmetric encryption KMS key
-  with imported key material, you must have already imported
-  [new key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html)
-  and that key material's state should be `PENDING_ROTATION`. Use the
-  `ListKeyRotations`
-  operation to check the state of all key materials associated with a KMS key. To
-  perform on-demand rotation of
-  a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate),
-  invoke the on-demand rotation on the primary key.
+  When you initiate on-demand key
+  rotation on a symmetric encryption KMS key with imported key material, you must
+  have already
+  imported [new key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html)
+  and that
+  key material's state should be `PENDING_ROTATION`. Use the
+  `ListKeyRotations` operation to check the state of all key materials associated
+  with a KMS key. To perform on-demand rotation of a set of related [multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate),
+  invoke
+  the on-demand rotation on the primary key.
 
   You cannot initiate on-demand rotation of [Amazon Web Services managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
   KMS

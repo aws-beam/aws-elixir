@@ -19,6 +19,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      managed_thing_association() :: %{
+        "AccountAssociationId" => String.t(),
+        "ManagedThingId" => String.t()
+      }
+
+  """
+  @type managed_thing_association() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       capability_action() :: %{
         "actionTraceId" => String.t(),
         "name" => String.t(),
@@ -58,6 +70,20 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      matter_cluster() :: %{
+        "attributes" => any(),
+        "commands" => map(),
+        "events" => map(),
+        "id" => String.t()
+      }
+
+  """
+  @type matter_cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_hub_configuration_response() :: %{
         "HubTokenTimerExpirySettingInSeconds" => float(),
         "UpdatedAt" => non_neg_integer()
@@ -65,6 +91,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_hub_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_discoveries_response() :: %{
+        "Items" => list(device_discovery_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_device_discoveries_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -99,6 +137,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       send_managed_thing_command_request() :: %{
+        optional("AccountAssociationId") => String.t(),
         optional("ConnectorAssociationId") => String.t(),
         required("Endpoints") => list(command_endpoint()())
       }
@@ -116,6 +155,28 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type put_runtime_log_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_config_update() :: %{
+        "oAuthUpdate" => o_auth_update()
+      }
+
+  """
+  @type auth_config_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -168,6 +229,59 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      proactive_refresh_token_renewal() :: %{
+        "DaysBeforeRenewal" => [integer()],
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type proactive_refresh_token_renewal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_thing_account_associations_request() :: %{
+        optional("AccountAssociationId") => String.t(),
+        optional("ManagedThingId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_managed_thing_account_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_config() :: %{
+        "authUrl" => String.t(),
+        "oAuthCompleteRedirectUrl" => [String.t()],
+        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal(),
+        "scope" => [String.t()],
+        "tokenEndpointAuthenticationScheme" => list(any()),
+        "tokenUrl" => String.t()
+      }
+
+  """
+  @type o_auth_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_destination_response() :: %{
+        "Id" => String.t()
+      }
+
+  """
+  @type create_connector_destination_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_destination_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
@@ -200,6 +314,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type unauthorized_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_connector_request() :: %{
+        optional("Description") => String.t(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_cloud_connector_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -239,6 +365,39 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      matter_capability_report_cluster() :: %{
+        "attributes" => list(matter_capability_report_attribute()()),
+        "commands" => list(String.t()()),
+        "events" => list(String.t()()),
+        "fabricIndex" => integer(),
+        "featureMap" => float(),
+        "generatedCommands" => list(String.t()()),
+        "id" => String.t(),
+        "name" => String.t(),
+        "publicId" => String.t(),
+        "revision" => integer(),
+        "specVersion" => String.t()
+      }
+
+  """
+  @type matter_capability_report_cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager() :: %{
+        "arn" => String.t(),
+        "versionId" => String.t()
+      }
+
+  """
+  @type secrets_manager() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_ota_task_configuration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
@@ -266,12 +425,30 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ota_task_execution_retry_config() :: %{
         "RetryConfigCriteria" => list(retry_config_criteria()())
       }
 
   """
   @type ota_task_execution_retry_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_account_association_refresh_request() :: %{}
+
+  """
+  @type start_account_association_refresh_request() :: %{}
 
   @typedoc """
 
@@ -316,6 +493,25 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type rollout_rate_increase_criteria() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      discovered_device_summary() :: %{
+        "AuthenticationMaterial" => String.t(),
+        "Brand" => String.t(),
+        "ConnectorDeviceId" => String.t(),
+        "ConnectorDeviceName" => String.t(),
+        "DeviceTypes" => list(String.t()()),
+        "DiscoveredAt" => non_neg_integer(),
+        "ManagedThingId" => String.t(),
+        "Model" => String.t(),
+        "Modification" => list(any())
+      }
+
+  """
+  @type discovered_device_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -376,6 +572,19 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      matter_capability_report_attribute() :: %{
+        "id" => String.t(),
+        "name" => String.t(),
+        "value" => any()
+      }
+
+  """
+  @type matter_capability_report_attribute() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_ota_task_request() :: %{}
 
   """
@@ -403,6 +612,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type put_hub_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_connectors_response() :: %{
+        "Items" => list(connector_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_cloud_connectors_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -462,6 +683,31 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      o_auth_update() :: %{
+        "oAuthCompleteRedirectUrl" => [String.t()],
+        "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal()
+      }
+
+  """
+  @type o_auth_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_discovery_summary() :: %{
+        "DiscoveryType" => list(any()),
+        "Id" => String.t(),
+        "Status" => list(any())
+      }
+
+  """
+  @type device_discovery_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_credential_lockers_response() :: %{
         "Items" => list(credential_locker_summary()()),
         "NextToken" => String.t()
@@ -487,6 +733,17 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_credential_locker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t()())
+      }
+
+  """
+  @type untag_resource_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -530,6 +787,24 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_device_discovery_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_destination_response() :: %{
+        "AuthConfig" => auth_config(),
+        "AuthType" => list(any()),
+        "CloudConnectorId" => String.t(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "OAuthCompleteRedirectUrl" => String.t(),
+        "SecretsManager" => secrets_manager()
+      }
+
+  """
+  @type get_connector_destination_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -647,6 +922,30 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_managed_thing_account_associations_response() :: %{
+        "Items" => list(managed_thing_association()()),
+        "NextToken" => [String.t()]
+      }
+
+  """
+  @type list_managed_thing_account_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_endpoint() :: %{
+        "clusters" => list(matter_cluster()()),
+        "id" => String.t()
+      }
+
+  """
+  @type matter_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       schedule_maintenance_window() :: %{
         "DurationInMinutes" => integer(),
         "StartTime" => String.t()
@@ -668,6 +967,31 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type command_capability() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_connector_response() :: %{
+        "Description" => String.t(),
+        "EndpointConfig" => endpoint_config(),
+        "EndpointType" => list(any()),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type get_cloud_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cloud_connector_request() :: %{}
+
+  """
+  @type delete_cloud_connector_request() :: %{}
 
   @typedoc """
 
@@ -758,7 +1082,9 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t(),
+        "ResourceId" => String.t(),
+        "ResourceType" => String.t()
       }
 
   """
@@ -796,6 +1122,52 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type list_event_log_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_connector_event_request() :: %{
+        optional("ConnectorDeviceId") => String.t(),
+        optional("DeviceDiscoveryId") => String.t(),
+        optional("Devices") => list(device()()),
+        optional("MatterEndpoint") => matter_endpoint(),
+        optional("Message") => String.t(),
+        optional("OperationVersion") => String.t(),
+        optional("StatusCode") => integer(),
+        optional("TraceId") => String.t(),
+        optional("UserId") => String.t(),
+        required("Operation") => list(any())
+      }
+
+  """
+  @type send_connector_event_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type invalid_request_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_association_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("Tags") => map(),
+        required("ConnectorDestinationId") => String.t()
+      }
+
+  """
+  @type create_account_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -885,6 +1257,23 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      account_association_item() :: %{
+        "AccountAssociationId" => String.t(),
+        "Arn" => String.t(),
+        "AssociationState" => list(any()),
+        "ConnectorDestinationId" => String.t(),
+        "Description" => String.t(),
+        "ErrorMessage" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type account_association_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ota_task_execution_summaries() :: %{
         "ManagedThingId" => String.t(),
         "TaskExecutionSummary" => ota_task_execution_summary()
@@ -907,6 +1296,21 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type destination_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_schema_item() :: %{
+        "CapabilityId" => String.t(),
+        "ExtrinsicId" => String.t(),
+        "ExtrinsicVersion" => integer(),
+        "Format" => list(any()),
+        "Schema" => any()
+      }
+
+  """
+  @type capability_schema_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -939,6 +1343,28 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_default_encryption_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_connector_response() :: %{
+        "Id" => String.t()
+      }
+
+  """
+  @type create_cloud_connector_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -982,6 +1408,23 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type update_notification_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_destination_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        required("AuthConfig") => auth_config(),
+        required("AuthType") => list(any()),
+        required("CloudConnectorId") => String.t(),
+        required("SecretsManager") => secrets_manager()
+      }
+
+  """
+  @type create_connector_destination_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1047,6 +1490,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Brand") => String.t(),
         optional("Capabilities") => String.t(),
         optional("CapabilityReport") => capability_report(),
+        optional("CapabilitySchemas") => list(capability_schema_item()()),
         optional("Classification") => String.t(),
         optional("CredentialLockerId") => String.t(),
         optional("HubNetworkMode") => list(any()),
@@ -1105,6 +1549,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_account_associations_response() :: %{
+        "Items" => list(account_association_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_account_associations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_ota_tasks_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -1129,6 +1585,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_connector_destinations_response() :: %{
+        "ConnectorDestinationList" => list(connector_destination_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_connector_destinations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_event_log_configurations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -1136,6 +1604,33 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type list_event_log_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_config() :: %{
+        "lambda" => lambda_config()
+      }
+
+  """
+  @type endpoint_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_item() :: %{
+        "Description" => String.t(),
+        "EndpointConfig" => endpoint_config(),
+        "EndpointType" => list(any()),
+        "Id" => String.t(),
+        "Name" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type connector_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1149,6 +1644,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type create_ota_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discovered_devices_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_discovered_devices_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1226,6 +1733,31 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      start_account_association_refresh_response() :: %{
+        "OAuthAuthorizationUrl" => String.t()
+      }
+
+  """
+  @type start_account_association_refresh_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_discoveries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("StatusFilter") => list(any()),
+        optional("TypeFilter") => list(any())
+      }
+
+  """
+  @type list_device_discoveries_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_log_configuration_request() :: %{}
 
   """
@@ -1236,11 +1768,13 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       start_device_discovery_request() :: %{
+        optional("AccountAssociationId") => String.t(),
         optional("AuthenticationMaterial") => String.t(),
         optional("AuthenticationMaterialType") => list(any()),
         optional("ClientToken") => String.t(),
         optional("ConnectorAssociationIdentifier") => String.t(),
         optional("ControllerIdentifier") => String.t(),
+        optional("CustomProtocolDetail") => map(),
         optional("Tags") => map(),
         required("DiscoveryType") => list(any())
       }
@@ -1279,6 +1813,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       get_device_discovery_response() :: %{
+        "AccountAssociationId" => String.t(),
         "Arn" => String.t(),
         "ConnectorAssociationId" => String.t(),
         "ControllerId" => String.t(),
@@ -1303,6 +1838,7 @@ defmodule AWS.IoTManagedIntegrations do
         "Arn" => String.t(),
         "Brand" => String.t(),
         "Classification" => String.t(),
+        "ConnectorDestinationId" => String.t(),
         "ConnectorDeviceId" => String.t(),
         "ConnectorPolicyId" => String.t(),
         "CreatedAt" => non_neg_integer(),
@@ -1337,6 +1873,28 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      register_account_association_response() :: %{
+        "AccountAssociationId" => String.t(),
+        "DeviceDiscoveryId" => String.t(),
+        "ManagedThingId" => String.t()
+      }
+
+  """
+  @type register_account_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_association_request() :: %{}
+
+  """
+  @type delete_account_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_ota_task_executions_response() :: %{
         "ExecutionSummaries" => list(ota_task_execution_summaries()()),
         "NextToken" => String.t()
@@ -1355,6 +1913,24 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_schema_version_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_association_request() :: %{}
+
+  """
+  @type get_account_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_connector_request() :: %{}
+
+  """
+  @type get_cloud_connector_request() :: %{}
 
   @typedoc """
 
@@ -1379,6 +1955,24 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_managed_thing_capabilities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_destination_request() :: %{}
+
+  """
+  @type get_connector_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1412,6 +2006,8 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_managed_things_request() :: %{
+        optional("ConnectorDestinationIdFilter") => String.t(),
+        optional("ConnectorDeviceIdFilter") => String.t(),
         optional("ConnectorPolicyIdFilter") => String.t(),
         optional("CredentialLockerFilter") => String.t(),
         optional("MaxResults") => integer(),
@@ -1430,10 +2026,63 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      create_cloud_connector_request() :: %{
+        optional("ClientToken") => String.t(),
+        optional("Description") => String.t(),
+        optional("EndpointType") => list(any()),
+        required("EndpointConfig") => endpoint_config(),
+        required("Name") => String.t()
+      }
+
+  """
+  @type create_cloud_connector_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matter_capability_report() :: %{
+        "endpoints" => list(matter_capability_report_endpoint()()),
+        "nodeId" => String.t(),
+        "version" => String.t()
+      }
+
+  """
+  @type matter_capability_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_destination_summary() :: %{
+        "CloudConnectorId" => String.t(),
+        "Description" => String.t(),
+        "Id" => String.t(),
+        "Name" => String.t()
+      }
+
+  """
+  @type connector_destination_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_credential_locker_request() :: %{}
 
   """
   @type delete_credential_locker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_config() :: %{
+        "oAuth" => o_auth_config()
+      }
+
+  """
+  @type auth_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1488,6 +2137,15 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       capability_report_capability() :: %{
         "actions" => list(String.t()()),
         "events" => list(String.t()()),
@@ -1516,6 +2174,7 @@ defmodule AWS.IoTManagedIntegrations do
         "Protocol" => list(any()),
         "S3Url" => String.t(),
         "Status" => list(any()),
+        "Tags" => map(),
         "Target" => list([String.t()]()),
         "TaskArn" => String.t(),
         "TaskConfigurationId" => String.t(),
@@ -1525,6 +2184,30 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_ota_task_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_config() :: %{
+        "arn" => String.t()
+      }
+
+  """
+  @type lambda_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_account_association_request() :: %{
+        required("AccountAssociationId") => String.t(),
+        required("DeviceDiscoveryId") => String.t(),
+        required("ManagedThingId") => String.t()
+      }
+
+  """
+  @type register_account_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1567,6 +2250,40 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      update_connector_destination_request() :: %{
+        optional("AuthConfig") => auth_config_update(),
+        optional("AuthType") => list(any()),
+        optional("Description") => String.t(),
+        optional("Name") => String.t(),
+        optional("SecretsManager") => secrets_manager()
+      }
+
+  """
+  @type update_connector_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_association_response() :: %{
+        "AccountAssociationId" => String.t(),
+        "Arn" => String.t(),
+        "AssociationState" => list(any()),
+        "ConnectorDestinationId" => String.t(),
+        "Description" => String.t(),
+        "ErrorMessage" => String.t(),
+        "Name" => String.t(),
+        "OAuthAuthorizationUrl" => String.t(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_account_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_event_log_configuration_request() :: %{
         required("EventLogLevel") => list(any())
       }
@@ -1584,6 +2301,41 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type ota_task_timeout_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_association_request() :: %{
+        optional("Description") => String.t(),
+        optional("Name") => String.t()
+      }
+
+  """
+  @type update_account_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Message" => String.t()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discovered_devices_response() :: %{
+        "Items" => list(discovered_device_summary()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_discovered_devices_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1611,6 +2363,20 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_cloud_connectors_request() :: %{
+        optional("LambdaArn") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type list_cloud_connectors_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       capability_report() :: %{
         "endpoints" => list(capability_report_endpoint()()),
         "nodeId" => String.t(),
@@ -1624,12 +2390,28 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      device() :: %{
+        "CapabilityReport" => matter_capability_report(),
+        "CapabilitySchemas" => list(capability_schema_item()()),
+        "ConnectorDeviceId" => String.t(),
+        "ConnectorDeviceName" => String.t(),
+        "DeviceMetadata" => any()
+      }
+
+  """
+  @type device() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_managed_thing_response() :: %{
         "ActivatedAt" => non_neg_integer(),
         "AdvertisedProductId" => String.t(),
         "Arn" => String.t(),
         "Brand" => String.t(),
         "Classification" => String.t(),
+        "ConnectorDestinationId" => String.t(),
         "ConnectorDeviceId" => String.t(),
         "ConnectorPolicyId" => String.t(),
         "CreatedAt" => non_neg_integer(),
@@ -1748,6 +2530,19 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      list_account_associations_request() :: %{
+        optional("ConnectorDestinationId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_account_associations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       register_custom_endpoint_response() :: %{
         "EndpointAddress" => String.t()
       }
@@ -1771,6 +2566,18 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      deregister_account_association_request() :: %{
+        required("AccountAssociationId") => String.t(),
+        required("ManagedThingId") => String.t()
+      }
+
+  """
+  @type deregister_account_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_default_encryption_configuration_request() :: %{
         optional("kmsKeyArn") => String.t(),
         required("encryptionType") => list(any())
@@ -1787,6 +2594,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Brand") => String.t(),
         optional("Capabilities") => String.t(),
         optional("CapabilityReport") => capability_report(),
+        optional("CapabilitySchemas") => list(capability_schema_item()()),
         optional("Classification") => String.t(),
         optional("ClientToken") => String.t(),
         optional("CredentialLockerId") => String.t(),
@@ -1808,6 +2616,45 @@ defmodule AWS.IoTManagedIntegrations do
 
   ## Example:
 
+      matter_capability_report_endpoint() :: %{
+        "clientClusters" => list(String.t()()),
+        "clusters" => list(matter_capability_report_cluster()()),
+        "deviceTypes" => list(String.t()()),
+        "id" => String.t(),
+        "parts" => list(String.t()()),
+        "semanticTags" => list(String.t()())
+      }
+
+  """
+  @type matter_capability_report_endpoint() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_association_response() :: %{
+        "AccountAssociationId" => String.t(),
+        "Arn" => String.t(),
+        "AssociationState" => list(any()),
+        "OAuthAuthorizationUrl" => String.t()
+      }
+
+  """
+  @type create_account_association_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_destination_request() :: %{}
+
+  """
+  @type delete_connector_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       managed_thing_schema_list_item() :: %{
         "CapabilityId" => String.t(),
         "EndpointId" => String.t(),
@@ -1816,6 +2663,17 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type managed_thing_schema_list_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_connector_event_response() :: %{
+        "ConnectorId" => String.t()
+      }
+
+  """
+  @type send_connector_event_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1832,6 +2690,19 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type get_provisioning_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_destinations_request() :: %{
+        optional("CloudConnectorId") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_connector_destinations_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1855,6 +2726,29 @@ defmodule AWS.IoTManagedIntegrations do
 
   """
   @type ota_task_execution_rollout_config() :: %{String.t() => any()}
+
+  @type create_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type create_cloud_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_connector_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
 
   @type create_credential_locker_errors() ::
           throttling_exception()
@@ -1902,7 +2796,9 @@ defmodule AWS.IoTManagedIntegrations do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_ota_task_configuration_errors() ::
           throttling_exception()
@@ -1917,8 +2813,31 @@ defmodule AWS.IoTManagedIntegrations do
           | access_denied_exception()
           | internal_server_exception()
           | service_unavailable_exception()
+          | resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+
+  @type delete_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type delete_cloud_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type delete_connector_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_credential_locker_errors() ::
           throttling_exception()
@@ -1960,7 +2879,8 @@ defmodule AWS.IoTManagedIntegrations do
           | resource_not_found_exception()
 
   @type delete_ota_task_errors() ::
-          throttling_exception()
+          limit_exceeded_exception()
+          | throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
@@ -1981,6 +2901,35 @@ defmodule AWS.IoTManagedIntegrations do
           | service_unavailable_exception()
           | resource_not_found_exception()
           | unauthorized_exception()
+
+  @type deregister_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
+  @type get_cloud_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_connector_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type get_credential_locker_errors() ::
           throttling_exception()
@@ -2130,6 +3079,25 @@ defmodule AWS.IoTManagedIntegrations do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type list_account_associations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+
+  @type list_cloud_connectors_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_connector_destinations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
   @type list_credential_lockers_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2143,7 +3111,30 @@ defmodule AWS.IoTManagedIntegrations do
           | access_denied_exception()
           | internal_server_exception()
 
+  @type list_device_discoveries_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | unauthorized_exception()
+
+  @type list_discovered_devices_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
   @type list_event_log_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_managed_thing_account_associations_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2183,12 +3174,14 @@ defmodule AWS.IoTManagedIntegrations do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_ota_tasks_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_provisioning_profiles_errors() ::
           throttling_exception()
@@ -2205,6 +3198,12 @@ defmodule AWS.IoTManagedIntegrations do
           | internal_server_exception()
           | service_unavailable_exception()
           | conflict_exception()
+
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type put_default_encryption_configuration_errors() ::
           throttling_exception()
@@ -2230,6 +3229,14 @@ defmodule AWS.IoTManagedIntegrations do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type register_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type register_custom_endpoint_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2246,7 +3253,24 @@ defmodule AWS.IoTManagedIntegrations do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type send_connector_event_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+
   @type send_managed_thing_command_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
+
+  @type start_account_association_refresh_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2263,6 +3287,43 @@ defmodule AWS.IoTManagedIntegrations do
           | resource_not_found_exception()
           | conflict_exception()
           | unauthorized_exception()
+
+  @type tag_resource_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type untag_resource_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+
+  @type update_account_association_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_cloud_connector_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type update_connector_destination_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_destination_errors() ::
           throttling_exception()
@@ -2319,11 +3380,98 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  Creates a new account association via the destination id.
+  """
+  @spec create_account_association(map(), create_account_association_request(), list()) ::
+          {:ok, create_account_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_account_association_errors()}
+  def create_account_association(%Client{} = client, input, options \\ []) do
+    url_path = "/account-associations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a C2C (cloud-to-cloud) connector.
+  """
+  @spec create_cloud_connector(map(), create_cloud_connector_request(), list()) ::
+          {:ok, create_cloud_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_cloud_connector_errors()}
+  def create_cloud_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/cloud-connectors"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a connector destination for connecting a cloud-to-cloud (C2C) connector
+  to the customer's Amazon Web Services account.
+  """
+  @spec create_connector_destination(map(), create_connector_destination_request(), list()) ::
+          {:ok, create_connector_destination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_connector_destination_errors()}
+  def create_connector_destination(%Client{} = client, input, options \\ []) do
+    url_path = "/connector-destinations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Create a product credential locker.
 
-  This operation will trigger the creation of all the
-  manufacturing resources including the Wi-Fi setup key pair and device
-  certificate.
+  This operation will trigger the creation of all the manufacturing resources
+  including the Wi-Fi setup key pair and device certificate.
   """
   @spec create_credential_locker(map(), create_credential_locker_request(), list()) ::
           {:ok, create_credential_locker_response(), any()}
@@ -2416,8 +3564,8 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Creates a managed thing.
 
-  A managed thing contains the device identifier, protocol
-  supported, and capabilities of the device in a protocol-specific format.
+  A managed thing contains the device identifier, protocol supported, and
+  capabilities of the device in a protocol-specific format.
   """
   @spec create_managed_thing(map(), create_managed_thing_request(), list()) ::
           {:ok, create_managed_thing_response(), any()}
@@ -2448,8 +3596,8 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Creates a notification configuration.
 
-  A configuration is a connection between an event
-  type and a destination that you have already created.
+  A configuration is a connection between an event type and a destination that you
+  have already created.
   """
   @spec create_notification_configuration(
           map(),
@@ -2541,11 +3689,10 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Create a provisioning profile for a device to execute the provisioning flows
-  using a
-  provisioning template.
+  using a provisioning template.
 
-  The provisioning template is a document that defines the set of
-  resources and policies applied to a device during the provisioning process.
+  The provisioning template is a document that defines the set of resources and
+  policies applied to a device during the provisioning process.
   """
   @spec create_provisioning_profile(map(), create_provisioning_profile_request(), list()) ::
           {:ok, create_provisioning_profile_response(), any()}
@@ -2574,10 +3721,108 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  Remove a third party account and related devices from an end user.
+  """
+  @spec delete_account_association(
+          map(),
+          String.t(),
+          delete_account_association_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_account_association_errors()}
+  def delete_account_association(%Client{} = client, account_association_id, input, options \\ []) do
+    url_path = "/account-associations/#{AWS.Util.encode_uri(account_association_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete a cloud connector.
+  """
+  @spec delete_cloud_connector(map(), String.t(), delete_cloud_connector_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_cloud_connector_errors()}
+  def delete_cloud_connector(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/cloud-connectors/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete a connector destination for connecting a cloud-to-cloud (C2C) connector
+  to the customer's Amazon Web Services account.
+  """
+  @spec delete_connector_destination(
+          map(),
+          String.t(),
+          delete_connector_destination_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connector_destination_errors()}
+  def delete_connector_destination(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/connector-destinations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete a credential locker.
 
-  This operation can't be undone and any existing device won't be able to use
-  IoT managed integrations.
+  This operation can't be undone and any existing device won't be able to use IoT
+  managed integrations.
   """
   @spec delete_credential_locker(map(), String.t(), delete_credential_locker_request(), list()) ::
           {:ok, nil, any()}
@@ -2671,9 +3916,8 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Delete a managed thing.
 
-  If a controller is deleted, all of the devices connected to it
-  will have their status changed to `PENDING`. It is not possible to remove a
-  cloud device.
+  If a controller is deleted, all of the devices connected to it will have their
+  status changed to `PENDING`. It is not possible to remove a cloud device.
   """
   @spec delete_managed_thing(map(), String.t(), delete_managed_thing_request(), list()) ::
           {:ok, nil, any()}
@@ -2838,6 +4082,92 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  Deregisters an account association, removing the connection between a managed
+  thing and a third-party account.
+  """
+  @spec deregister_account_association(map(), deregister_account_association_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deregister_account_association_errors()}
+  def deregister_account_association(%Client{} = client, input, options \\ []) do
+    url_path = "/managed-thing-associations/deregister"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Get an account association for an Amazon Web Services account linked to a
+  customer-managed destination.
+  """
+  @spec get_account_association(map(), String.t(), list()) ::
+          {:ok, get_account_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_association_errors()}
+  def get_account_association(%Client{} = client, account_association_id, options \\ []) do
+    url_path = "/account-associations/#{AWS.Util.encode_uri(account_association_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets all the information about a connector for a connector developer.
+  """
+  @spec get_cloud_connector(map(), String.t(), list()) ::
+          {:ok, get_cloud_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_cloud_connector_errors()}
+  def get_cloud_connector(%Client{} = client, identifier, options \\ []) do
+    url_path = "/cloud-connectors/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get a connector destination of a cloud-to-cloud (C2C) connector connecting to a
+  customer's Amazon Web Services account.
+  """
+  @spec get_connector_destination(map(), String.t(), list()) ::
+          {:ok, get_connector_destination_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connector_destination_errors()}
+  def get_connector_destination(%Client{} = client, identifier, options \\ []) do
+    url_path = "/connector-destinations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get information on an existing credential locker
   """
   @spec get_credential_locker(map(), String.t(), list()) ::
@@ -2875,8 +4205,7 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Retrieves information about the default encryption configuration for the Amazon
-  Web Services account
-  in the default or specified region.
+  Web Services account in the default or specified region.
 
   For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
   in the *AWS IoT SiteWise User Guide*.
@@ -3040,6 +4369,11 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Get the metadata information for a managed thing.
+
+  The `managedThing` `metadata` parameter is used for associating attributes with
+  a `managedThing` that can be used for grouping over-the-air (OTA) tasks. Name
+  value pairs in `metadata` can be used in the `OtaTargetQueryString` parameter
+  for the `CreateOtaTask` API operation.
   """
   @spec get_managed_thing_meta_data(map(), String.t(), list()) ::
           {:ok, get_managed_thing_meta_data_response(), any()}
@@ -3148,8 +4482,7 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Get the runtime log configuration for a specific managed thing or for all
-  managed things
-  as a group.
+  managed things as a group.
   """
   @spec get_runtime_log_configuration(map(), String.t(), list()) ::
           {:ok, get_runtime_log_configuration_response(), any()}
@@ -3190,6 +4523,169 @@ defmodule AWS.IoTManagedIntegrations do
     query_params =
       if !is_nil(format) do
         [{"Format", format} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all account associations, with optional filtering by connector destination
+  ID.
+  """
+  @spec list_account_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_account_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_account_associations_errors()}
+  def list_account_associations(
+        %Client{} = client,
+        connector_destination_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/account-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connector_destination_id) do
+        [{"ConnectorDestinationId", connector_destination_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of connectors based on permissions.
+  """
+  @spec list_cloud_connectors(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_cloud_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cloud_connectors_errors()}
+  def list_cloud_connectors(
+        %Client{} = client,
+        lambda_arn \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/cloud-connectors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"Type", type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(lambda_arn) do
+        [{"LambdaArn", lambda_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all connector destinations, with optional filtering by cloud connector ID.
+  """
+  @spec list_connector_destinations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_connector_destinations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_connector_destinations_errors()}
+  def list_connector_destinations(
+        %Client{} = client,
+        cloud_connector_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/connector-destinations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(cloud_connector_id) do
+        [{"CloudConnectorId", cloud_connector_id} | query_params]
       else
         query_params
       end
@@ -3269,6 +4765,104 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  Lists all device discovery tasks, with optional filtering by type and status.
+  """
+  @spec list_device_discoveries(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_device_discoveries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_device_discoveries_errors()}
+  def list_device_discoveries(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status_filter \\ nil,
+        type_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/device-discoveries"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(type_filter) do
+        [{"TypeFilter", type_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"StatusFilter", status_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all devices discovered during a specific device discovery task.
+  """
+  @spec list_discovered_devices(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_discovered_devices_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_discovered_devices_errors()}
+  def list_discovered_devices(
+        %Client{} = client,
+        identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/device-discoveries/#{AWS.Util.encode_uri(identifier)}/devices"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List all event log configurations for an account.
   """
   @spec list_event_log_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -3296,6 +4890,66 @@ defmodule AWS.IoTManagedIntegrations do
     query_params =
       if !is_nil(max_results) do
         [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all account associations for a specific managed thing.
+  """
+  @spec list_managed_thing_account_associations(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_managed_thing_account_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_managed_thing_account_associations_errors()}
+  def list_managed_thing_account_associations(
+        %Client{} = client,
+        account_association_id \\ nil,
+        managed_thing_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/managed-thing-associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(managed_thing_id) do
+        [{"ManagedThingId", managed_thing_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(account_association_id) do
+        [{"AccountAssociationId", account_association_id} | query_params]
       else
         query_params
       end
@@ -3368,10 +5022,12 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  List all of the associations and statuses for a managed thing by its owner.
+  Listing all managed things with provision for filters.
   """
   @spec list_managed_things(
           map(),
+          String.t() | nil,
+          String.t() | nil,
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
@@ -3389,6 +5045,8 @@ defmodule AWS.IoTManagedIntegrations do
           | {:error, list_managed_things_errors()}
   def list_managed_things(
         %Client{} = client,
+        connector_destination_id_filter \\ nil,
+        connector_device_id_filter \\ nil,
         connector_policy_id_filter \\ nil,
         credential_locker_filter \\ nil,
         max_results \\ nil,
@@ -3463,6 +5121,20 @@ defmodule AWS.IoTManagedIntegrations do
     query_params =
       if !is_nil(connector_policy_id_filter) do
         [{"ConnectorPolicyIdFilter", connector_policy_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connector_device_id_filter) do
+        [{"ConnectorDeviceIdFilter", connector_device_id_filter} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(connector_destination_id_filter) do
+        [{"ConnectorDestinationIdFilter", connector_destination_id_filter} | query_params]
       else
         query_params
       end
@@ -3734,10 +5406,27 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  List tags for the specified resource.
+  """
+  @spec list_tags_for_resource(map(), String.t(), list()) ::
+          {:ok, list_tags_for_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Sets the default encryption configuration for the Amazon Web Services account.
 
-  For more information,
-  see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
+  For more information, see [Key management](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html)
   in the AWS IoT SiteWise User Guide.
   """
   @spec put_default_encryption_configuration(
@@ -3801,8 +5490,7 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Set the runtime log configuration for a specific managed thing or for all
-  managed things
-  as a group.
+  managed things as a group.
   """
   @spec put_runtime_log_configuration(
           map(),
@@ -3836,9 +5524,38 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
+  Registers an account association with a managed thing, establishing a connection
+  between a device and a third-party account.
+  """
+  @spec register_account_association(map(), register_account_association_request(), list()) ::
+          {:ok, register_account_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_account_association_errors()}
+  def register_account_association(%Client{} = client, input, options \\ []) do
+    url_path = "/managed-thing-associations/register"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Customers can request IoT managed integrations to manage the server trust for
-  them or bring their own
-  external server trusts for the custom domain.
+  them or bring their own external server trusts for the custom domain.
 
   Returns an IoT managed integrations endpoint.
   """
@@ -3870,8 +5587,7 @@ defmodule AWS.IoTManagedIntegrations do
 
   @doc """
   Reset a runtime log configuration for a specific managed thing or for all
-  managed things
-  as a group.
+  managed things as a group.
   """
   @spec reset_runtime_log_configuration(
           map(),
@@ -3901,6 +5617,36 @@ defmodule AWS.IoTManagedIntegrations do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Relays third-party device events for a connector such as a new device or a
+  device state change event.
+  """
+  @spec send_connector_event(map(), String.t(), send_connector_event_request(), list()) ::
+          {:ok, send_connector_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_connector_event_errors()}
+  def send_connector_event(%Client{} = client, connector_id, input, options \\ []) do
+    url_path = "/connector-event/#{AWS.Util.encode_uri(connector_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -3939,12 +5685,51 @@ defmodule AWS.IoTManagedIntegrations do
   end
 
   @doc """
-  During user-guided setup, this is used to start device discovery.
+  Initiates a refresh of an existing account association to update its
+  authorization and connection status.
+  """
+  @spec start_account_association_refresh(
+          map(),
+          String.t(),
+          start_account_association_refresh_request(),
+          list()
+        ) ::
+          {:ok, start_account_association_refresh_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_account_association_refresh_errors()}
+  def start_account_association_refresh(
+        %Client{} = client,
+        account_association_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/account-associations/#{AWS.Util.encode_uri(account_association_id)}/refresh"
+    headers = []
+    custom_headers = []
+    query_params = []
 
-  The authentication
-  material (install code) is passed as a message to the controller telling it to
-  start the
-  discovery.
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API is used to start device discovery for hub-connected and
+  third-party-connected devices.
+
+  The authentication material (install code) is passed as a message to the
+  controller telling it to start the discovery.
   """
   @spec start_device_discovery(map(), start_device_discovery_request(), list()) ::
           {:ok, start_device_discovery_response(), any()}
@@ -3969,6 +5754,166 @@ defmodule AWS.IoTManagedIntegrations do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Add tags for the specified resource.
+  """
+  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+          {:ok, tag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Remove tags for the specified resource.
+  """
+  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+          {:ok, untag_resource_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/tags/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"TagKeys", "tagKeys"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the properties of an existing account association.
+  """
+  @spec update_account_association(
+          map(),
+          String.t(),
+          update_account_association_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_account_association_errors()}
+  def update_account_association(%Client{} = client, account_association_id, input, options \\ []) do
+    url_path = "/account-associations/#{AWS.Util.encode_uri(account_association_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Update an existing cloud connector.
+  """
+  @spec update_cloud_connector(map(), String.t(), update_cloud_connector_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cloud_connector_errors()}
+  def update_cloud_connector(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/cloud-connectors/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the properties of an existing connector destination.
+  """
+  @spec update_connector_destination(
+          map(),
+          String.t(),
+          update_connector_destination_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_connector_destination_errors()}
+  def update_connector_destination(%Client{} = client, identifier, input, options \\ []) do
+    url_path = "/connector-destinations/#{AWS.Util.encode_uri(identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 

@@ -16762,6 +16762,12 @@ defmodule AWS.Connect do
 
   @doc """
   Describes the specified routing profile.
+
+  `DescribeRoutingProfile` does not populate AssociatedQueueIds in its response.
+  The example Response Syntax shown on this page is incorrect; we are working to
+  update it.
+  [SearchRoutingProfiles](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html)
+  does include AssociatedQueueIds.
   """
   @spec describe_routing_profile(map(), String.t(), String.t(), list()) ::
           {:ok, describe_routing_profile_response(), any()}
@@ -21115,6 +21121,12 @@ defmodule AWS.Connect do
   @doc """
   Searches routing profiles in an Amazon Connect instance, with optional
   filtering.
+
+  `SearchRoutingProfiles` does not populate LastModifiedRegion, LastModifiedTime,
+  MediaConcurrencies.CrossChannelBehavior, and AgentAvailabilityTimer in its
+  response, but
+  [DescribeRoutingProfile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html)
+  does.
   """
   @spec search_routing_profiles(map(), search_routing_profiles_request(), list()) ::
           {:ok, search_routing_profiles_response(), any()}

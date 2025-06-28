@@ -3,47 +3,34 @@
 
 defmodule AWS.QConnect do
   @moduledoc """
+    * [Amazon Q actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html)
 
-    *
-
-  [Amazon Q actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Q_Connect.html)
-
-    *
-
-  [Amazon Q data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html)
+    * [Amazon Q data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Q_Connect.html)
 
   **Powered by Amazon Bedrock**: Amazon Web Services implements [automated abuse detection](https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html).
 
   Because Amazon Q in Connect is built on Amazon Bedrock, users can take full
-  advantage of
-  the controls implemented in Amazon Bedrock to enforce safety, security, and the
-  responsible use of
-  artificial intelligence (AI).
+  advantage of the controls implemented in Amazon Bedrock to enforce safety,
+  security, and the responsible use of artificial intelligence (AI).
 
   Amazon Q in Connect is a generative AI customer service assistant. It is an
-  LLM-enhanced
-  evolution of Amazon Connect Wisdom that delivers real-time recommendations to
-  help contact
-  center agents resolve customer issues quickly and accurately.
+  LLM-enhanced evolution of Amazon Connect Wisdom that delivers real-time
+  recommendations to help contact center agents resolve customer issues quickly
+  and accurately.
 
   Amazon Q in Connect automatically detects customer intent during calls and chats
-  using conversational
-  analytics and natural language understanding (NLU). It then provides agents with
-  immediate,
-  real-time generative responses and suggested actions, and links to relevant
-  documents and
-  articles. Agents can also query Amazon Q in Connect directly using natural
-  language or keywords to answer
+  using conversational analytics and natural language understanding (NLU). It then
+  provides agents with immediate, real-time generative responses and suggested
+  actions, and links to relevant documents and articles. Agents can also query
+  Amazon Q in Connect directly using natural language or keywords to answer
   customer requests.
 
   Use the Amazon Q in Connect APIs to create an assistant and a knowledge base,
-  for example, or
-  manage content by uploading custom files.
+  for example, or manage content by uploading custom files.
 
   For more information, see [Use Amazon Q in Connect for generative AI powered agent assistance in
   real-time](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  in the *Amazon Connect Administrator Guide*.
   """
 
   alias AWS.Client
@@ -245,6 +232,17 @@ defmodule AWS.QConnect do
 
   """
   @type list_a_i_agent_versions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type unauthorized_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4206,6 +4204,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_a_i_agent_version_errors() ::
           throttling_exception()
@@ -4214,6 +4213,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_a_i_guardrail_errors() ::
           throttling_exception()
@@ -4222,6 +4222,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_a_i_guardrail_version_errors() ::
           throttling_exception()
@@ -4230,6 +4231,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_a_iprompt_errors() ::
           throttling_exception()
@@ -4238,6 +4240,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_a_iprompt_version_errors() ::
           throttling_exception()
@@ -4246,12 +4249,14 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_assistant_errors() ::
           validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_assistant_association_errors() ::
           validation_exception()
@@ -4266,6 +4271,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_content_association_errors() ::
           throttling_exception()
@@ -4274,12 +4280,14 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_knowledge_base_errors() ::
           validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_message_template_errors() ::
           throttling_exception()
@@ -4296,6 +4304,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_message_template_version_errors() ::
           throttling_exception()
@@ -4311,12 +4320,14 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type create_session_errors() ::
           validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type deactivate_message_template_errors() ::
           throttling_exception()
@@ -4330,6 +4341,7 @@ defmodule AWS.QConnect do
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_a_i_agent_version_errors() ::
           throttling_exception()
@@ -4337,6 +4349,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_a_i_guardrail_errors() ::
           throttling_exception()
@@ -4344,6 +4357,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_a_i_guardrail_version_errors() ::
           throttling_exception()
@@ -4351,12 +4365,14 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_a_iprompt_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_a_iprompt_version_errors() ::
           throttling_exception()
@@ -4364,33 +4380,46 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_assistant_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_assistant_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_content_errors() ::
           validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_content_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type delete_import_job_errors() ::
           validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_knowledge_base_errors() ::
           validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type delete_message_template_errors() ::
           throttling_exception()
@@ -4407,108 +4436,149 @@ defmodule AWS.QConnect do
           | conflict_exception()
 
   @type delete_quick_response_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_a_i_agent_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_a_i_guardrail_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_a_iprompt_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_assistant_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_assistant_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_content_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_content_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_content_summary_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_import_job_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type get_knowledge_base_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_message_template_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_next_message_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type get_quick_response_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type get_recommendations_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type get_session_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_i_agent_versions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_i_agents_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_i_guardrail_versions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_i_guardrails_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_iprompt_versions_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_a_iprompts_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_assistant_associations_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
-  @type list_assistants_errors() :: validation_exception() | access_denied_exception()
+  @type list_assistants_errors() ::
+          validation_exception() | access_denied_exception() | unauthorized_exception()
 
   @type list_content_associations_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type list_contents_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -4565,22 +4635,30 @@ defmodule AWS.QConnect do
           | resource_not_found_exception()
 
   @type search_content_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type search_message_templates_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type search_quick_responses_errors() ::
           validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | request_timeout_exception()
+          | unauthorized_exception()
 
   @type search_sessions_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type send_message_errors() ::
           throttling_exception()
@@ -4591,7 +4669,10 @@ defmodule AWS.QConnect do
           | request_timeout_exception()
 
   @type start_content_upload_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type start_import_job_errors() ::
           validation_exception()
@@ -4599,6 +4680,7 @@ defmodule AWS.QConnect do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type tag_resource_errors() :: too_many_tags_exception() | resource_not_found_exception()
 
@@ -4610,6 +4692,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type update_a_i_guardrail_errors() ::
           throttling_exception()
@@ -4617,6 +4700,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type update_a_iprompt_errors() ::
           throttling_exception()
@@ -4624,6 +4708,7 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type update_assistant_a_i_agent_errors() ::
           throttling_exception()
@@ -4636,6 +4721,7 @@ defmodule AWS.QConnect do
           | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type update_knowledge_base_template_uri_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -4660,12 +4746,19 @@ defmodule AWS.QConnect do
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | unauthorized_exception()
 
   @type update_session_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   @type update_session_data_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | unauthorized_exception()
 
   def metadata do
     %{
@@ -4686,11 +4779,9 @@ defmodule AWS.QConnect do
   @doc """
   Activates a specific version of the Amazon Q in Connect message template.
 
-  After the
-  version is activated, the previous active version will be deactivated
-  automatically. You can
-  use the `$ACTIVE_VERSION` qualifier later to reference the version that is in
-  active status.
+  After the version is activated, the previous active version will be deactivated
+  automatically. You can use the `$ACTIVE_VERSION` qualifier later to reference
+  the version that is in active status.
   """
   @spec activate_message_template(
           map(),
@@ -4981,10 +5072,8 @@ defmodule AWS.QConnect do
   Creates an association between an Amazon Q in Connect assistant and another
   resource.
 
-  Currently, the
-  only supported association is with a knowledge base. An assistant can have only
-  a single
-  association.
+  Currently, the only supported association is with a knowledge base. An assistant
+  can have only a single association.
   """
   @spec create_assistant_association(
           map(),
@@ -5054,31 +5143,25 @@ defmodule AWS.QConnect do
   Creates an association between a content resource in a knowledge base and
   [step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/step-by-step-guided-experiences.html).
 
-  Step-by-step guides offer instructions to agents for resolving
-  common customer issues. You create a content association to integrate Amazon Q
-  in Connect and
+  Step-by-step guides offer instructions to agents for resolving common customer
+  issues. You create a content association to integrate Amazon Q in Connect and
   step-by-step guides.
 
   After you integrate Amazon Q and step-by-step guides, when Amazon Q provides a
   recommendation to an agent based on the intent that it's detected, it also
-  provides them with
-  the option to start the step-by-step guide that you have associated with the
-  content.
+  provides them with the option to start the step-by-step guide that you have
+  associated with the content.
 
   Note the following limitations:
 
-    *
-  You can create only one content association for each content resource in a
-  knowledge
-  base.
+    * You can create only one content association for each content
+  resource in a knowledge base.
 
-    *
-  You can associate a step-by-step guide with multiple content resources.
+    * You can associate a step-by-step guide with multiple content
+  resources.
 
-  For more information, see [Integrate Amazon Q in Connect with step-by-step
-  guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect Administrator
-  Guide*.
+  For more information, see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec create_content_association(
           map(),
@@ -5125,30 +5208,21 @@ defmodule AWS.QConnect do
 
   When using this API, you cannot reuse [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
   DataIntegrations with external knowledge bases such as Salesforce and
-  ServiceNow. If you do,
-  you'll get an `InvalidRequestException` error.
+  ServiceNow. If you do, you'll get an `InvalidRequestException` error.
 
   For example, you're programmatically managing your external knowledge base, and
-  you want
-  to add or remove one of the fields that is being ingested from Salesforce. Do
-  the
-  following:
+  you want to add or remove one of the fields that is being ingested from
+  Salesforce. Do the following:
 
-    
-  Call
-  [DeleteKnowledgeBase](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_DeleteKnowledgeBase.html). 
-    
-  Call
+     Call
+  [DeleteKnowledgeBase](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_DeleteKnowledgeBase.html).     Call
   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html).
 
-    
-  Call
+     Call
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  to recreate the DataIntegration or a create different
-  one.
+  to recreate the DataIntegration or a create different one.
 
-    
-  Call CreateKnowledgeBase.
+     Call CreateKnowledgeBase.
   """
   @spec create_knowledge_base(map(), create_knowledge_base_request(), list()) ::
           {:ok, create_knowledge_base_response(), any()}
@@ -5179,12 +5253,10 @@ defmodule AWS.QConnect do
   @doc """
   Creates an Amazon Q in Connect message template.
 
-  The name of the message template has to
-  be unique for each knowledge base. The channel subtype of the message template
-  is immutable
-  and cannot be modified after creation. After the message template is created,
-  you can use the
-  `$LATEST` qualifier to reference the created message template.
+  The name of the message template has to be unique for each knowledge base. The
+  channel subtype of the message template is immutable and cannot be modified
+  after creation. After the message template is created, you can use the `$LATEST`
+  qualifier to reference the created message template.
   """
   @spec create_message_template(map(), String.t(), create_message_template_request(), list()) ::
           {:ok, create_message_template_response(), any()}
@@ -5216,13 +5288,10 @@ defmodule AWS.QConnect do
   Uploads an attachment file to the specified Amazon Q in Connect message
   template.
 
-  The name
-  of the message template attachment has to be unique for each message template
-  referenced by
-  the `$LATEST` qualifier. The body of the attachment file should be encoded using
-  base64 encoding. After the file is uploaded, you can use the pre-signed Amazon
-  S3 URL returned
-  in response to download the uploaded file.
+  The name of the message template attachment has to be unique for each message
+  template referenced by the `$LATEST` qualifier. The body of the attachment file
+  should be encoded using base64 encoding. After the file is uploaded, you can use
+  the pre-signed Amazon S3 URL returned in response to download the uploaded file.
   """
   @spec create_message_template_attachment(
           map(),
@@ -5266,21 +5335,16 @@ defmodule AWS.QConnect do
 
   @doc """
   Creates a new Amazon Q in Connect message template version from the current
-  content and
-  configuration of a message template.
+  content and configuration of a message template.
 
-  Versions are immutable and monotonically increasing. Once
-  a version is created, you can reference a specific version of the message
-  template by passing
-  in `<message-template-id>:<versionNumber>` as the message template
-  identifier. An error is displayed if the supplied `messageTemplateContentSha256`
-  is
-  different from the `messageTemplateContentSha256` of the message template with
-  `$LATEST` qualifier. If multiple `CreateMessageTemplateVersion`
-  requests are made while the message template remains the same, only the first
-  invocation
-  creates a new version and the succeeding requests will return the same response
-  as the first
+  Versions are immutable and monotonically increasing. Once a version is created,
+  you can reference a specific version of the message template by passing in
+  `<message-template-id>:<versionNumber>` as the message template identifier. An
+  error is displayed if the supplied `messageTemplateContentSha256` is different
+  from the `messageTemplateContentSha256` of the message template with `$LATEST`
+  qualifier. If multiple `CreateMessageTemplateVersion` requests are made while
+  the message template remains the same, only the first invocation creates a new
+  version and the succeeding requests will return the same response as the first
   invocation.
   """
   @spec create_message_template_version(
@@ -5355,9 +5419,8 @@ defmodule AWS.QConnect do
   @doc """
   Creates a session.
 
-  A session is a contextual container used for generating
-  recommendations. Amazon Connect creates a new Amazon Q in Connect session for
-  each contact on which
+  A session is a contextual container used for generating recommendations. Amazon
+  Connect creates a new Amazon Q in Connect session for each contact on which
   Amazon Q in Connect is enabled.
   """
   @spec create_session(map(), String.t(), create_session_request(), list()) ::
@@ -5389,9 +5452,8 @@ defmodule AWS.QConnect do
   @doc """
   Deactivates a specific version of the Amazon Q in Connect message template .
 
-  After the
-  version is deactivated, you can no longer use the `$ACTIVE_VERSION` qualifier to
-  reference the version in active status.
+  After the version is deactivated, you can no longer use the `$ACTIVE_VERSION`
+  qualifier to reference the version in active status.
   """
   @spec deactivate_message_template(
           map(),
@@ -5780,10 +5842,8 @@ defmodule AWS.QConnect do
   Deletes the content association.
 
   For more information about content associations--what they are and when they are
-  used--see
-  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec delete_content_association(
           map(),
@@ -5870,13 +5930,11 @@ defmodule AWS.QConnect do
   When you use this API to delete an external knowledge base such as Salesforce or
   ServiceNow, you must also delete the [Amazon AppIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html)
   DataIntegration. This is because you can't reuse the DataIntegration after it's
-  been
-  associated with an external knowledge base. However, you can delete and recreate
-  it. See
+  been associated with an external knowledge base. However, you can delete and
+  recreate it. See
   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html) and
   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)
-  in the *Amazon AppIntegrations API
-  Reference*.
+  in the *Amazon AppIntegrations API Reference*.
   """
   @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
@@ -5906,14 +5964,12 @@ defmodule AWS.QConnect do
 
   @doc """
   Deletes an Amazon Q in Connect message template entirely or a specific version
-  of the
-  message template if version is supplied in the request.
+  of the message template if version is supplied in the request.
 
-  You can provide the message template
-  identifier as `<message-template-id>:<versionNumber>` to delete a
-  specific version of the message template. If it is not supplied, the message
-  template and all
-  available versions will be deleted.
+  You can provide the message template identifier as
+  `<message-template-id>:<versionNumber>` to delete a specific version of the
+  message template. If it is not supplied, the message template and all available
+  versions will be deleted.
   """
   @spec delete_message_template(
           map(),
@@ -5957,11 +6013,9 @@ defmodule AWS.QConnect do
 
   @doc """
   Deletes the attachment file from the Amazon Q in Connect message template that
-  is
-  referenced by `$LATEST` qualifier.
+  is referenced by `$LATEST` qualifier.
 
-  Attachments on available message template
-  versions will remain unchanged.
+  Attachments on available message template versions will remain unchanged.
   """
   @spec delete_message_template_attachment(
           map(),
@@ -6175,10 +6229,8 @@ defmodule AWS.QConnect do
   Returns the content association.
 
   For more information about content associations--what they are and when they are
-  used--see
-  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec get_content_association(map(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_content_association_response(), any()}
@@ -6264,12 +6316,10 @@ defmodule AWS.QConnect do
   @doc """
   Retrieves the Amazon Q in Connect message template.
 
-  The message template identifier can
-  contain an optional qualifier, for example,
-  `<message-template-id>:<qualifier>`, which is either an actual
-  version number or an Amazon Q Connect managed qualifier `$ACTIVE_VERSION` |
-  `$LATEST`. If it is not supplied, then `$LATEST` is assumed
-  implicitly.
+  The message template identifier can contain an optional qualifier, for example,
+  `<message-template-id>:<qualifier>`, which is either an actual version number or
+  an Amazon Q Connect managed qualifier `$ACTIVE_VERSION` | `$LATEST`. If it is
+  not supplied, then `$LATEST` is assumed implicitly.
   """
   @spec get_message_template(map(), String.t(), String.t(), list()) ::
           {:ok, get_message_template_response(), any()}
@@ -6347,23 +6397,17 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-
   This API will be discontinued starting June 1, 2024.
 
-  To receive generative responses
-  after March 1, 2024, you will need to create a new Assistant in the Amazon
-  Connect
-  console and integrate the Amazon Q in Connect JavaScript library
-  (amazon-q-connectjs) into
-  your applications.
+  To receive generative responses after March 1, 2024, you will need to create a
+  new Assistant in the Amazon Connect console and integrate the Amazon Q in
+  Connect JavaScript library (amazon-q-connectjs) into your applications.
 
   Retrieves recommendations for the specified session. To avoid retrieving the
-  same
-  recommendations in subsequent calls, use
-  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the
-  `waitTimeSeconds` parameter. Short poll is the default behavior and only returns
-  recommendations already available. To perform a manual query against an
-  assistant, use
+  same recommendations in subsequent calls, use
+  [NotifyRecommendationsReceived](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html). This API supports long-polling behavior with the `waitTimeSeconds` parameter.
+  Short poll is the default behavior and only returns recommendations already
+  available. To perform a manual query against an assistant, use
   [QueryAssistant](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html).
   """
   @spec get_recommendations(
@@ -6820,10 +6864,8 @@ defmodule AWS.QConnect do
   Lists the content associations.
 
   For more information about content associations--what they are and when they are
-  used--see
-  [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
-  in the *Amazon Connect
-  Administrator Guide*.
+  used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html)
+  in the *Amazon Connect Administrator Guide*.
   """
   @spec list_content_associations(
           map(),
@@ -7034,8 +7076,7 @@ defmodule AWS.QConnect do
 
   @doc """
   Lists all the available Amazon Q in Connect message templates for the specified
-  knowledge
-  base.
+  knowledge base.
   """
   @spec list_message_templates(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_message_templates_response(), any()}
@@ -7171,13 +7212,12 @@ defmodule AWS.QConnect do
 
   @doc """
   Removes the specified recommendations from the specified assistant's queue of
-  newly
-  available recommendations.
+  newly available recommendations.
 
   You can use this API in conjunction with
   [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html)
-  and a `waitTimeSeconds` input for long-polling
-  behavior and avoiding duplicate recommendations.
+  and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate
+  recommendations.
   """
   @spec notify_recommendations_received(
           map(),
@@ -7222,8 +7262,7 @@ defmodule AWS.QConnect do
   @doc """
   Provides feedback against the specified assistant for the specified target.
 
-  This API only
-  supports generative targets.
+  This API only supports generative targets.
   """
   @spec put_feedback(map(), String.t(), put_feedback_request(), list()) ::
           {:ok, put_feedback_response(), any()}
@@ -7252,19 +7291,14 @@ defmodule AWS.QConnect do
   end
 
   @doc """
-
   This API will be discontinued starting June 1, 2024.
 
-  To receive generative responses
-  after March 1, 2024, you will need to create a new Assistant in the Amazon
-  Connect
-  console and integrate the Amazon Q in Connect JavaScript library
-  (amazon-q-connectjs) into
-  your applications.
+  To receive generative responses after March 1, 2024, you will need to create a
+  new Assistant in the Amazon Connect console and integrate the Amazon Q in
+  Connect JavaScript library (amazon-q-connectjs) into your applications.
 
   Performs a manual search against the specified assistant. To retrieve
-  recommendations for
-  an assistant, use
+  recommendations for an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html).
   """
   @spec query_assistant(map(), String.t(), query_assistant_request(), list()) ::
@@ -7374,14 +7408,11 @@ defmodule AWS.QConnect do
 
   @doc """
   Renders the Amazon Q in Connect message template based on the attribute values
-  provided
-  and generates the message content.
+  provided and generates the message content.
 
-  For any variable present in the message template, if the
-  attribute value is neither provided in the attribute request parameter nor the
-  default
-  attribute of the message template, the rendered message content will keep the
-  variable
+  For any variable present in the message template, if the attribute value is
+  neither provided in the attribute request parameter nor the default attribute of
+  the message template, the rendered message content will keep the variable
   placeholder as it is and return the attribute keys that are missing.
   """
   @spec render_message_template(
@@ -7427,8 +7458,7 @@ defmodule AWS.QConnect do
   @doc """
   Searches for content in a specified knowledge base.
 
-  Can be used to get a specific content
-  resource by its name.
+  Can be used to get a specific content resource by its name.
   """
   @spec search_content(map(), String.t(), search_content_request(), list()) ::
           {:ok, search_content_response(), any()}
@@ -7603,17 +7633,12 @@ defmodule AWS.QConnect do
   @doc """
   Get a URL to upload content to a knowledge base.
 
-  To upload content, first make a PUT
-  request to the returned URL with your file, making sure to include the required
-  headers. Then
-  use
-  [CreateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_CreateContent.html) to
-  finalize the content creation process or
+  To upload content, first make a PUT request to the returned URL with your file,
+  making sure to include the required headers. Then use
+  [CreateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_CreateContent.html) to finalize the content creation process or
   [UpdateContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_UpdateContent.html)
-  to
-  modify an existing resource. You can only upload content to a knowledge base of
-  type
-  CUSTOM.
+  to modify an existing resource. You can only upload content to a knowledge base
+  of type CUSTOM.
   """
   @spec start_content_upload(map(), String.t(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
@@ -7646,15 +7671,11 @@ defmodule AWS.QConnect do
   uploaded source file.
 
   Before calling this API, use
-  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to
-  upload an asset that contains the resource data.
+  [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html) to upload an asset that contains the resource data.
 
-    *
-  For importing Amazon Q in Connect quick responses, you need to upload a csv file
-  including the
-  quick responses. For information about how to format the csv file for importing
-  quick
-  responses, see [Import quick
+    * For importing Amazon Q in Connect quick responses, you need to
+  upload a csv file including the quick responses. For information about how to
+  format the csv file for importing quick responses, see [Import quick
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
   """
   @spec start_import_job(map(), String.t(), start_import_job_request(), list()) ::
@@ -7920,11 +7941,10 @@ defmodule AWS.QConnect do
   @doc """
   Updates the template URI of a knowledge base.
 
-  This is only supported for knowledge bases
-  of type EXTERNAL. Include a single variable in `${variable}` format; this
-  interpolated by Amazon Q in Connect using ingested content. For example, if you
-  ingest a Salesforce
-  article, it has an `Id` value, and you can set the template URI to
+  This is only supported for knowledge bases of type EXTERNAL. Include a single
+  variable in `${variable}` format; this interpolated by Amazon Q in Connect using
+  ingested content. For example, if you ingest a Salesforce article, it has an
+  `Id` value, and you can set the template URI to
   `https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view`.
   """
   @spec update_knowledge_base_template_uri(
@@ -7966,13 +7986,11 @@ defmodule AWS.QConnect do
   @doc """
   Updates the Amazon Q in Connect message template.
 
-  Partial update is supported. If any
-  field is not supplied, it will remain unchanged for the message template that is
-  referenced by
-  the `$LATEST` qualifier. Any modification will only apply to the message
-  template
-  that is referenced by the `$LATEST` qualifier. The fields for all available
-  versions will remain unchanged.
+  Partial update is supported. If any field is not supplied, it will remain
+  unchanged for the message template that is referenced by the `$LATEST`
+  qualifier. Any modification will only apply to the message template that is
+  referenced by the `$LATEST` qualifier. The fields for all available versions
+  will remain unchanged.
   """
   @spec update_message_template(
           map(),
@@ -8017,13 +8035,10 @@ defmodule AWS.QConnect do
   @doc """
   Updates the Amazon Q in Connect message template metadata.
 
-  Note that any modification to
-  the message template’s name, description and grouping configuration will applied
-  to the
-  message template pointed by the `$LATEST` qualifier and all available versions.
-  Partial update is supported. If any field is not supplied, it will remain
-  unchanged for the
-  message template.
+  Note that any modification to the message template’s name, description and
+  grouping configuration will applied to the message template pointed by the
+  `$LATEST` qualifier and all available versions. Partial update is supported. If
+  any field is not supplied, it will remain unchanged for the message template.
   """
   @spec update_message_template_metadata(
           map(),
@@ -8111,9 +8126,8 @@ defmodule AWS.QConnect do
   @doc """
   Updates a session.
 
-  A session is a contextual container used for generating
-  recommendations. Amazon Connect updates the existing Amazon Q in Connect session
-  for each contact on
+  A session is a contextual container used for generating recommendations. Amazon
+  Connect updates the existing Amazon Q in Connect session for each contact on
   which Amazon Q in Connect is enabled.
   """
   @spec update_session(map(), String.t(), String.t(), update_session_request(), list()) ::

@@ -310,6 +310,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_iceberg_input() :: %{
+        "UpdateIcebergTableInput" => update_iceberg_table_input()
+      }
+      
+  """
+  @type update_iceberg_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_workflow_request() :: %{
         optional("DefaultRunProperties") => map(),
         optional("Description") => String.t(),
@@ -691,6 +702,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_struct_field() :: %{
+        "Doc" => String.t(),
+        "Id" => integer(),
+        "Name" => String.t(),
+        "Required" => boolean(),
+        "Type" => any()
+      }
+      
+  """
+  @type iceberg_struct_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       supported_dialect() :: %{
         "Dialect" => list(any()),
         "DialectVersion" => String.t()
@@ -969,6 +995,18 @@ defmodule AWS.Glue do
       
   """
   @type remove_schema_version_metadata_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_partition_spec() :: %{
+        "Fields" => list(iceberg_partition_field()()),
+        "SpecId" => integer()
+      }
+      
+  """
+  @type iceberg_partition_spec() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1266,12 +1304,14 @@ defmodule AWS.Glue do
       update_table_request() :: %{
         optional("CatalogId") => String.t(),
         optional("Force") => boolean(),
+        optional("Name") => String.t(),
         optional("SkipArchive") => boolean(),
+        optional("TableInput") => table_input(),
         optional("TransactionId") => String.t(),
+        optional("UpdateOpenTableFormatInput") => update_open_table_format_input(),
         optional("VersionId") => String.t(),
         optional("ViewUpdateAction") => list(any()),
-        required("DatabaseName") => String.t(),
-        required("TableInput") => table_input()
+        required("DatabaseName") => String.t()
       }
       
   """
@@ -1643,6 +1683,7 @@ defmodule AWS.Glue do
       
       federated_database() :: %{
         "ConnectionName" => String.t(),
+        "ConnectionType" => String.t(),
         "Identifier" => String.t()
       }
       
@@ -2544,6 +2585,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_sort_order() :: %{
+        "Fields" => list(iceberg_sort_field()()),
+        "OrderId" => integer()
+      }
+      
+  """
+  @type iceberg_sort_order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_x_ml_classifier_request() :: %{
         "Classification" => String.t(),
         "Name" => String.t(),
@@ -2576,6 +2629,7 @@ defmodule AWS.Glue do
       
       federated_catalog() :: %{
         "ConnectionName" => String.t(),
+        "ConnectionType" => String.t(),
         "Identifier" => String.t()
       }
       
@@ -2852,6 +2906,7 @@ defmodule AWS.Glue do
       
       create_table_request() :: %{
         optional("CatalogId") => String.t(),
+        optional("Name") => String.t(),
         optional("OpenTableFormatInput") => open_table_format_input(),
         optional("PartitionIndexes") => list(partition_index()()),
         optional("TransactionId") => String.t(),
@@ -5489,6 +5544,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_iceberg_table_input() :: %{
+        "Updates" => list(iceberg_table_update()())
+      }
+      
+  """
+  @type update_iceberg_table_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_dev_endpoint_response() :: %{
         "DevEndpoint" => dev_endpoint()
       }
@@ -6129,6 +6195,7 @@ defmodule AWS.Glue do
       
       federated_table() :: %{
         "ConnectionName" => String.t(),
+        "ConnectionType" => String.t(),
         "DatabaseIdentifier" => String.t(),
         "Identifier" => String.t()
       }
@@ -7327,6 +7394,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_sort_field() :: %{
+        "Direction" => list(any()),
+        "NullOrder" => list(any()),
+        "SourceId" => integer(),
+        "Transform" => String.t()
+      }
+      
+  """
+  @type iceberg_sort_field() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       compute_environment_configuration() :: %{
         "ComputeEnvironment" => list(any()),
         "ConnectionOptionNameOverrides" => map(),
@@ -7910,6 +7991,20 @@ defmodule AWS.Glue do
       
   """
   @type get_usage_profile_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_partition_field() :: %{
+        "FieldId" => integer(),
+        "Name" => String.t(),
+        "SourceId" => integer(),
+        "Transform" => String.t()
+      }
+      
+  """
+  @type iceberg_partition_field() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -9496,6 +9591,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iceberg_table_update() :: %{
+        "Location" => String.t(),
+        "PartitionSpec" => iceberg_partition_spec(),
+        "Properties" => map(),
+        "Schema" => iceberg_schema(),
+        "SortOrder" => iceberg_sort_order()
+      }
+      
+  """
+  @type iceberg_table_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_job_request() :: %{
         required("JobName") => String.t()
       }
@@ -10009,6 +10119,7 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_input() :: %{
+        "CreateIcebergTableInput" => create_iceberg_table_input(),
         "MetadataOperation" => list(any()),
         "Version" => String.t()
       }
@@ -10681,6 +10792,20 @@ defmodule AWS.Glue do
       
   """
   @type cancel_data_quality_ruleset_evaluation_run_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_schema() :: %{
+        "Fields" => list(iceberg_struct_field()()),
+        "IdentifierFieldIds" => list(integer()()),
+        "SchemaId" => integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type iceberg_schema() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11873,6 +11998,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_open_table_format_input() :: %{
+        "UpdateIcebergInput" => update_iceberg_input()
+      }
+      
+  """
+  @type update_open_table_format_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_ml_labeling_set_generation_task_run_response() :: %{
         "TaskRunId" => String.t()
       }
@@ -12612,6 +12748,21 @@ defmodule AWS.Glue do
       
   """
   @type basic_authentication_credentials() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_iceberg_table_input() :: %{
+        "Location" => String.t(),
+        "PartitionSpec" => iceberg_partition_spec(),
+        "Properties" => map(),
+        "Schema" => iceberg_schema(),
+        "WriteOrder" => iceberg_sort_order()
+      }
+      
+  """
+  @type create_iceberg_table_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18056,6 +18207,11 @@ defmodule AWS.Glue do
   all future runs of the machine learning transform will use the new and improved
   labels and
   perform a higher-quality transformation.
+
+  Note: The role used to write the generated labeling set to the `OutputS3Path` is
+  the role
+  associated with the Machine Learning Transform, specified in the
+  `CreateMLTransform` API.
   """
   @spec start_ml_labeling_set_generation_task_run(
           map(),

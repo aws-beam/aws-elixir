@@ -8961,6 +8961,7 @@ defmodule AWS.RDS do
           invalid_db_instance_state_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_shard_group_state_fault()
 
   @type start_db_instance_errors() ::
           invalid_db_instance_state_fault()
@@ -9005,6 +9006,7 @@ defmodule AWS.RDS do
           invalid_db_instance_state_fault()
           | db_cluster_not_found_fault()
           | invalid_db_cluster_state_fault()
+          | invalid_db_shard_group_state_fault()
 
   @type stop_db_instance_errors() ::
           invalid_db_instance_state_fault()

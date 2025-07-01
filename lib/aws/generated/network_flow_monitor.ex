@@ -898,6 +898,7 @@ defmodule AWS.NetworkFlowMonitor do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   @type get_monitor_errors() ::
           throttling_exception()
@@ -1052,6 +1053,7 @@ defmodule AWS.NetworkFlowMonitor do
           | internal_server_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | conflict_exception()
 
   def metadata do
     %{
@@ -1240,7 +1242,11 @@ defmodule AWS.NetworkFlowMonitor do
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec get_query_results_monitor_top_contributors(
           map(),
@@ -1308,7 +1314,11 @@ defmodule AWS.NetworkFlowMonitor do
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec get_query_results_workload_insights_top_contributors(
           map(),
@@ -1376,9 +1386,13 @@ defmodule AWS.NetworkFlowMonitor do
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
 
-  The top contributor network flows overall for a specific metric type, for
+  The top contributor network flows overall are for a specific metric type, for
   example, the
   number of retransmissions.
   """
@@ -1433,11 +1447,11 @@ defmodule AWS.NetworkFlowMonitor do
 
   This call returns the query status for the top contributors for a monitor.
 
-  When you start a query, use this call to check the status of the query to make
+  When you create a query, use this call to check the status of the query to make
   sure that it has
-  has `SUCCEEDED` before you reviewStartQueryWorkloadInsightsTopContributorsData
-  the results. Use the same query ID that you used for
-  the corresponding API call to start the query,
+  has `SUCCEEDED` before you review the results. Use the same query ID that you
+  used for
+  the corresponding API call to start (create) the query,
   `StartQueryMonitorTopContributors`.
 
   When you run a query, use this call to check the status of the query to make
@@ -1482,7 +1496,11 @@ defmodule AWS.NetworkFlowMonitor do
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec get_query_status_workload_insights_top_contributors(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_status_workload_insights_top_contributors_output(), any()}
@@ -1522,9 +1540,13 @@ defmodule AWS.NetworkFlowMonitor do
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
 
-  The top contributor network flows overall for a specific metric type, for
+  The top contributor network flows overall are for a specific metric type, for
   example, the
   number of retransmissions.
   """
@@ -1675,15 +1697,25 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Start a query to return the data with the Network Flow Monitor query interface.
+  Create a query that you can use with the Network Flow Monitor query interface to
+  return the top
+  contributors for a monitor.
 
-  Specify the query that you want to return results for by providing a query ID
-  and a monitor name. This query returns the top contributors for a specific
-  monitor.
+  Specify the monitor that you want to create the query for.
+
+  The call returns a query ID that you can use with
+  [
+  GetQueryResultsMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html)
+
+  to run the query and return the top contributors for a specific monitor.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable APIs for the top contributors that you
+  want to be
+  returned.
   """
   @spec start_query_monitor_top_contributors(
           map(),
@@ -1717,15 +1749,25 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Start a query to return the data with the Network Flow Monitor query interface.
+  Create a query with the Network Flow Monitor query interface that you can run to
+  return workload insights top contributors.
 
-  Specify the query that you want to start by providing a query ID
-  and a monitor name. This query returns the top contributors for a specific
-  monitor.
+  Specify the scope that you want to create a query for.
+
+  The call returns a query ID that you can use with
+  [
+  GetQueryResultsWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html)
+
+  to run the query and return the top contributors for the workload insights for a
+  scope.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable APIs for the top contributors that you
+  want to be
+  returned.
   """
   @spec start_query_workload_insights_top_contributors(
           map(),
@@ -1764,15 +1806,26 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Start a query to return the with the Network Flow Monitor query interface.
+  Create a query with the Network Flow Monitor query interface that you can run to
+  return data for
+  workload insights top contributors.
 
-  Specify the query that you want to start by providing a query ID
-  and a monitor name. This query returns the data for top contributors for
-  workload insights.
+  Specify the scope that you want to create a query for.
+
+  The call returns a query ID that you can use with
+  [
+  GetQueryResultsWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.html)
+
+  to run the query and return the data for the top contributors for the workload
+  insights for a scope.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec start_query_workload_insights_top_contributors_data(
           map(),
@@ -1811,15 +1864,18 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Stop a query with the Network Flow Monitor query interface.
+  Stop a top contributors query for a monitor.
 
   Specify the query that you want to stop by providing a query ID
-  and a monitor name. This query returns the top contributors for a specific
-  monitor.
+  and a monitor name.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec stop_query_monitor_top_contributors(
           map(),
@@ -1862,15 +1918,18 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Stop a query with the Network Flow Monitor query interface.
+  Stop a top contributors query for workload insights.
 
   Specify the query that you want to stop by providing a query ID
-  and a monitor name. This query returns the top contributors for a specific
-  monitor.
+  and a scope ID.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec stop_query_workload_insights_top_contributors(
           map(),
@@ -1913,22 +1972,18 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
-  Return the data for a query with the Network Flow Monitor query interface.
+  Stop a top contributors data query for workload insights.
 
-  Specify the query that you want to return results for by providing a query ID
-  and a scope ID. This query returns data for the top contributors for workload
-  insights.
-  Workload insights provide a high level view of network flow performance data
-  collected by agents
-  for a scope.
+  Specify the query that you want to stop by providing a query ID
+  and a scope ID.
 
   Top contributors in Network Flow Monitor are network flows with the highest
   values for a specific
-  metric type, related to a scope (for workload insights) or a monitor.
-
-  The top contributor network flows overall for a specific metric type, for
-  example, the
-  number of retransmissions.
+  metric type. Top contributors can be across all workload insights, for a given
+  scope, or for
+  a specific monitor. Use the applicable call for the top contributors that you
+  want to be
+  returned.
   """
   @spec stop_query_workload_insights_top_contributors_data(
           map(),

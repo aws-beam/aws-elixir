@@ -429,6 +429,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      chat_contact_metrics() :: %{
+        "AgentFirstResponseTimeInMillis" => float(),
+        "AgentFirstResponseTimestamp" => non_neg_integer(),
+        "ConversationCloseTimeInMillis" => float(),
+        "ConversationTurnCount" => integer(),
+        "MultiParty" => boolean(),
+        "TotalBotMessageLengthInChars" => integer(),
+        "TotalBotMessages" => integer(),
+        "TotalMessages" => integer()
+      }
+
+  """
+  @type chat_contact_metrics() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       traffic_distribution_group_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
@@ -1437,6 +1455,25 @@ defmodule AWS.Connect do
 
   """
   @type delete_contact_flow_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      participant_metrics() :: %{
+        "ConversationAbandon" => boolean(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "MaxResponseTimeInMillis" => float(),
+        "MessageLengthInChars" => integer(),
+        "MessagesSent" => integer(),
+        "NumResponses" => integer(),
+        "ParticipantId" => String.t(),
+        "ParticipantType" => list(any()),
+        "TotalResponseTimeInMillis" => float()
+      }
+
+  """
+  @type participant_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6159,6 +6196,7 @@ defmodule AWS.Connect do
         "LastResumedTimestamp" => non_neg_integer(),
         "LastUpdateTimestamp" => non_neg_integer(),
         "ContactDetails" => contact_details(),
+        "ChatMetrics" => chat_metrics(),
         "QueueInfo" => queue_info(),
         "SegmentAttributes" => map(),
         "Customer" => customer(),
@@ -9233,6 +9271,19 @@ defmodule AWS.Connect do
 
   """
   @type update_queue_status_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chat_metrics() :: %{
+        "AgentMetrics" => participant_metrics(),
+        "ChatContactMetrics" => chat_contact_metrics(),
+        "CustomerMetrics" => participant_metrics()
+      }
+
+  """
+  @type chat_metrics() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14022,14 +14073,30 @@ defmodule AWS.Connect do
 
   @doc """
 
-  Only the EMAIL and VOICE channels are supported.
+  Only the VOICE, EMAIL, and TASK channels are supported.
 
-  The supported initiation methods for EMAIL
-  are: OUTBOUND, AGENT_REPLY, and FLOW. For VOICE the supported initiation methods
-  are TRANSFER
-  and the subtype connect:ExternalAudio.
+    
+  For VOICE: The supported initiation method is `TRANSFER`. The contacts created
+  with this initiation method have a subtype `connect:ExternalAudio`.
 
-  Creates a new EMAIL or VOICE contact.
+    
+  For EMAIL: The supported initiation methods are `OUTBOUND`,
+  `AGENT_REPLY`, and `FLOW`.
+
+    
+  For TASK: The supported initiation method is `API`. Contacts created with this
+  API have a sub-type of `connect:ExternalTask`.
+
+  Creates a new VOICE, EMAIL, or TASK contact.
+
+  After a contact is created, you can move it to the desired state by using the
+  `InitiateAs` parameter. While you can use API to create task contacts that are
+  in the
+  `COMPLETED` state, you must contact Amazon Web Services Support before using it
+  for
+  bulk import use cases. Bulk import causes your requests to be throttled or fail
+  if your
+  CreateContact limits aren't high enough.
   """
   @spec create_contact(map(), create_contact_request(), list()) ::
           {:ok, create_contact_response(), any()}

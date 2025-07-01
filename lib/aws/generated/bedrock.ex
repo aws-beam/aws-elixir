@@ -148,6 +148,19 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      metadata_attribute_schema() :: %{
+        "description" => [String.t()],
+        "key" => [String.t()],
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_attribute_schema() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_content_filters_tier_config() :: %{
         "tierName" => list(any())
       }
@@ -1402,6 +1415,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      field_for_reranking() :: %{
+        "fieldName" => [String.t()]
+      }
+
+  """
+  @type field_for_reranking() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "key" => String.t(),
         "value" => String.t()
@@ -1992,6 +2016,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      vector_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type vector_search_reranking_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       byte_content_doc() :: %{
         "contentType" => String.t(),
         "data" => binary(),
@@ -2094,8 +2130,10 @@ defmodule AWS.Bedrock do
 
       knowledge_base_vector_search_configuration() :: %{
         "filter" => list(),
+        "implicitFilterConfiguration" => implicit_filter_configuration(),
         "numberOfResults" => [integer()],
-        "overrideSearchType" => list(any())
+        "overrideSearchType" => list(any()),
+        "rerankingConfiguration" => vector_search_reranking_configuration()
       }
 
   """
@@ -2185,6 +2223,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      implicit_filter_configuration() :: %{
+        "metadataAttributes" => list(metadata_attribute_schema()()),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type implicit_filter_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       foundation_model_lifecycle() :: %{
         "status" => list(any())
       }
@@ -2256,6 +2306,19 @@ defmodule AWS.Bedrock do
 
   """
   @type distillation_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
+      }
+
+  """
+  @type vector_search_bedrock_reranking_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2694,6 +2757,18 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      metadata_configuration_for_reranking() :: %{
+        "selectionMode" => list(any()),
+        "selectiveModeConfiguration" => list()
+      }
+
+  """
+  @type metadata_configuration_for_reranking() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_guardrail_version_response() :: %{
         "guardrailId" => String.t(),
         "version" => String.t()
@@ -2884,6 +2959,18 @@ defmodule AWS.Bedrock do
 
   """
   @type list_prompt_routers_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t()
+      }
+
+  """
+  @type vector_search_bedrock_reranking_model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

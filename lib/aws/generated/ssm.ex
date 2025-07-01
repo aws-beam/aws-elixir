@@ -11,7 +11,8 @@ defmodule AWS.SSM do
 
   This reference is intended to be used with the [Amazon Web Services Systems Manager User
   Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/). To get
-  started, see [Setting up Amazon Web Services Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html).
+  started, see [Setting up Amazon Web Services Systems
+  Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-console.html).
 
   ## Related resources
 
@@ -4619,6 +4620,7 @@ defmodule AWS.SSM do
   ## Example:
       
       session() :: %{
+        "AccessType" => list(any()),
         "Details" => String.t(),
         "DocumentName" => String.t(),
         "EndDate" => non_neg_integer(),
@@ -8183,6 +8185,7 @@ defmodule AWS.SSM do
 
   @type create_document_errors() ::
           document_limit_exceeded()
+          | too_many_updates()
           | internal_server_error()
           | document_already_exists()
           | invalid_document_schema_version()
@@ -8235,6 +8238,7 @@ defmodule AWS.SSM do
   @type delete_document_errors() ::
           invalid_document_operation()
           | associated_instances()
+          | too_many_updates()
           | internal_server_error()
           | invalid_document()
 
@@ -8825,6 +8829,7 @@ defmodule AWS.SSM do
 
   @type update_document_metadata_errors() ::
           invalid_document_operation()
+          | too_many_updates()
           | internal_server_error()
           | invalid_document_version()
           | invalid_document()

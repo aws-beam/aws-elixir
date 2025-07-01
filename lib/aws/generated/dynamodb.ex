@@ -50,6 +50,7 @@ defmodule AWS.DynamoDB do
         "DeletionProtectionEnabled" => boolean(),
         "GlobalSecondaryIndexes" => list(global_secondary_index_description()()),
         "GlobalTableVersion" => String.t(),
+        "GlobalTableWitnesses" => list(global_table_witness_description()()),
         "ItemCount" => float(),
         "KeySchema" => list(key_schema_element()()),
         "LatestStreamArn" => String.t(),
@@ -2091,6 +2092,17 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      create_global_table_witness_group_member_action() :: %{
+        "RegionName" => String.t()
+      }
+      
+  """
+  @type create_global_table_witness_group_member_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_item_output() :: %{
         "Attributes" => map(),
         "ConsumedCapacity" => consumed_capacity(),
@@ -2181,6 +2193,18 @@ defmodule AWS.DynamoDB do
       
   """
   @type global_secondary_index_update() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_table_witness_description() :: %{
+        "RegionName" => String.t(),
+        "WitnessStatus" => list(any())
+      }
+      
+  """
+  @type global_table_witness_description() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2961,6 +2985,17 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      delete_global_table_witness_group_member_action() :: %{
+        "RegionName" => String.t()
+      }
+      
+  """
+  @type delete_global_table_witness_group_member_action() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_export_time_exception() :: %{
         "message" => String.t()
       }
@@ -3100,6 +3135,7 @@ defmodule AWS.DynamoDB do
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
         optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
+        optional("GlobalTableWitnessUpdates") => list(global_table_witness_group_update()()),
         optional("MultiRegionConsistency") => list(any()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
@@ -3143,6 +3179,18 @@ defmodule AWS.DynamoDB do
       
   """
   @type batch_statement_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_table_witness_group_update() :: %{
+        "Create" => create_global_table_witness_group_member_action(),
+        "Delete" => delete_global_table_witness_group_member_action()
+      }
+      
+  """
+  @type global_table_witness_group_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3397,6 +3445,7 @@ defmodule AWS.DynamoDB do
           | internal_server_error()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | replicated_write_conflict_exception()
           | invalid_endpoint_exception()
           | item_collection_size_limit_exceeded_exception()
 
@@ -4231,9 +4280,6 @@ defmodule AWS.DynamoDB do
   returns a `ResourceNotFoundException`. If table is already in the
   `DELETING` state, no error is returned.
 
-  For global tables, this operation only applies to
-  global tables using Version 2019.11.21 (Current version).
-
   DynamoDB might continue to accept data read and write operations, such as
   `GetItem` and `PutItem`, on a table in the
   `DELETING` state until the table deletion is complete. For the full
@@ -4538,9 +4584,6 @@ defmodule AWS.DynamoDB do
   when
   it was created, the primary key schema, and any indexes on the table.
 
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version).
-
   If you issue a `DescribeTable` request immediately after a
   `CreateTable` request, DynamoDB might return a
   `ResourceNotFoundException`. This is because
@@ -4562,9 +4605,6 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Describes auto scaling settings across replicas of the global table at once.
-
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version).
   """
   @spec describe_table_replica_auto_scaling(
           map(),
@@ -5563,9 +5603,8 @@ defmodule AWS.DynamoDB do
   To update existing global tables from version 2017.11.29 (Legacy) to version
   2019.11.21 (Current), see [Upgrading global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html).
 
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version). If you are using global tables [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html)
-  you can use
+  If you are using global tables [Version 2019.11.21](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html)
+  (Current) you can use
   [UpdateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html)
   instead.
 
@@ -5673,9 +5712,6 @@ defmodule AWS.DynamoDB do
   DynamoDB
   Streams settings for a given table.
 
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version).
-
   You can only perform one of the following operations at once:
 
     *
@@ -5708,9 +5744,6 @@ defmodule AWS.DynamoDB do
 
   @doc """
   Updates auto scaling settings on your global tables at once.
-
-  For global tables, this operation only applies to global tables using Version
-  2019.11.21 (Current version).
   """
   @spec update_table_replica_auto_scaling(
           map(),

@@ -4929,23 +4929,28 @@ defmodule AWS.Config do
   You can check the state of a rule by using the
   `DescribeConfigRules` request.
 
-  ## Recommendation: Consider excluding the `AWS::Config::ResourceCompliance`
-  resource type from recording before deleting rules
+  ## Recommendation: Stop recording resource compliance before deleting rules
 
-  Deleting rules creates configuration items (CIs) for
-  `AWS::Config::ResourceCompliance`
-  that can affect your costs for the configuration recorder. If you are deleting
-  rules which evaluate a large number of resource types,
+  It is highly recommended that you stop recording for the
+  `AWS::Config::ResourceCompliance` resource type before you delete rules in your
+  account.
+  Deleting rules creates CIs for `AWS::Config::ResourceCompliance` and can affect
+  your Config [configuration recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
+  costs.
+
+  If you are deleting rules which evaluate a large number of resource types,
   this can lead to a spike in the number of CIs recorded.
 
-  To avoid the associated costs, you can opt to disable recording
-  for the `AWS::Config::ResourceCompliance` resource type before deleting rules,
-  and re-enable recording after the rules have been deleted.
+  Best practice:
 
-  However, since deleting rules is an asynchronous process, it might take an hour
-  or more to complete. During the time
-  when recording is disabled for `AWS::Config::ResourceCompliance`, rule
-  evaluations will not be recorded in the associated resource’s history.
+    
+  Stop recording `AWS::Config::ResourceCompliance`
+
+    
+  Delete rule(s)
+
+    
+  Turn on recording for `AWS::Config::ResourceCompliance`
   """
   @spec delete_config_rule(map(), delete_config_rule_request(), list()) ::
           {:ok, nil, any()}
@@ -5003,24 +5008,6 @@ defmodule AWS.Config do
   Config sets the conformance pack to `DELETE_IN_PROGRESS` until the deletion is
   complete.
   You cannot update a conformance pack while it is in this state.
-
-  ## Recommendation: Consider excluding the `AWS::Config::ResourceCompliance`
-  resource type from recording before deleting rules
-
-  Deleting rules creates configuration items (CIs) for
-  `AWS::Config::ResourceCompliance`
-  that can affect your costs for the configuration recorder. If you are deleting
-  rules which evaluate a large number of resource types,
-  this can lead to a spike in the number of CIs recorded.
-
-  To avoid the associated costs, you can opt to disable recording
-  for the `AWS::Config::ResourceCompliance` resource type before deleting rules,
-  and re-enable recording after the rules have been deleted.
-
-  However, since deleting rules is an asynchronous process, it might take an hour
-  or more to complete. During the time
-  when recording is disabled for `AWS::Config::ResourceCompliance`, rule
-  evaluations will not be recorded in the associated resource’s history.
   """
   @spec delete_conformance_pack(map(), delete_conformance_pack_request(), list()) ::
           {:ok, nil, any()}
@@ -5084,24 +5071,6 @@ defmodule AWS.Config do
   Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is
   complete.
   You cannot update a rule while it is in this state.
-
-  ## Recommendation: Consider excluding the `AWS::Config::ResourceCompliance`
-  resource type from recording before deleting rules
-
-  Deleting rules creates configuration items (CIs) for
-  `AWS::Config::ResourceCompliance`
-  that can affect your costs for the configuration recorder. If you are deleting
-  rules which evaluate a large number of resource types,
-  this can lead to a spike in the number of CIs recorded.
-
-  To avoid the associated costs, you can opt to disable recording
-  for the `AWS::Config::ResourceCompliance` resource type before deleting rules,
-  and re-enable recording after the rules have been deleted.
-
-  However, since deleting rules is an asynchronous process, it might take an hour
-  or more to complete. During the time
-  when recording is disabled for `AWS::Config::ResourceCompliance`, rule
-  evaluations will not be recorded in the associated resource’s history.
   """
   @spec delete_organization_config_rule(map(), delete_organization_config_rule_request(), list()) ::
           {:ok, nil, any()}
@@ -5128,24 +5097,6 @@ defmodule AWS.Config do
   Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the
   deletion is complete.
   You cannot update a conformance pack while it is in this state.
-
-  ## Recommendation: Consider excluding the `AWS::Config::ResourceCompliance`
-  resource type from recording before deleting rules
-
-  Deleting rules creates configuration items (CIs) for
-  `AWS::Config::ResourceCompliance`
-  that can affect your costs for the configuration recorder. If you are deleting
-  rules which evaluate a large number of resource types,
-  this can lead to a spike in the number of CIs recorded.
-
-  To avoid the associated costs, you can opt to disable recording
-  for the `AWS::Config::ResourceCompliance` resource type before deleting rules,
-  and re-enable recording after the rules have been deleted.
-
-  However, since deleting rules is an asynchronous process, it might take an hour
-  or more to complete. During the time
-  when recording is disabled for `AWS::Config::ResourceCompliance`, rule
-  evaluations will not be recorded in the associated resource’s history.
   """
   @spec delete_organization_conformance_pack(
           map(),
@@ -6421,21 +6372,15 @@ defmodule AWS.Config do
   For accurate reporting on the compliance status, you must record the
   `AWS::Config::ResourceCompliance` resource type.
 
-  For more information, see [Recording Amazon Web Services Resources](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html)
-  in the *Config Resources Developer Guide*.
+  For more information, see [Selecting Which Resources Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
 
-  Returns a list of configurations items (CIs) for the specified resource.
-
-  ## Contents
-
+  Returns a list of `ConfigurationItems` for the specified resource.
   The list contains details about each state of the resource
   during the specified time interval. If you specified a retention
-  period to retain your CIs between a
+  period to retain your `ConfigurationItems` between a
   minimum of 30 days and a maximum of 7 years (2557 days), Config
-  returns the CIs for the specified
+  returns the `ConfigurationItems` for the specified
   retention period.
-
-  ## Pagination
 
   The response is paginated. By default, Config returns a
   limit of 10 configuration items per page. You can customize this
@@ -6573,59 +6518,25 @@ defmodule AWS.Config do
   end
 
   @doc """
-  Returns a list of resource
-  resource identifiers for the specified resource types for the resources of that
-  type.
+  Accepts a resource type and returns a list of resource
+  identifiers for the resources of that type.
 
-  A *resource identifier*
+  A resource identifier
   includes the resource type, ID, and (if available) the custom
-  resource name.
-
-  The results consist of resources that Config has
-  *discovered*, including those that Config is not currently
+  resource name. The results consist of resources that Config has
+  discovered, including those that Config is not currently
   recording. You can narrow the results to include only resources that
   have specific resource IDs or a resource name.
 
   You can specify either resource IDs or a resource name, but
   not both, in the same request.
 
-  *CloudFormation stack recording behavior in Config*
-
-  When a CloudFormation stack fails to create (for example, it enters the
-  `ROLLBACK_FAILED` state),
-  Config does not record a configuration item (CI) for that stack. Configuration
-  items are only recorded for stacks that reach
-  the following states:
-
-    
-
-  `CREATE_COMPLETE`
-
-    
-
-  `UPDATE_COMPLETE`
-
-    
-
-  `UPDATE_ROLLBACK_COMPLETE`
-
-    
-
-  `UPDATE_ROLLBACK_FAILED`
-
-    
-
-  `DELETE_FAILED`
-
-    
-
-  `DELETE_COMPLETE`
-
-  Because no CI is created for a failed stack creation, you won't see
-  configuration history
-  for that stack in Config, even after the stack is deleted. This helps make sure
-  that Config only
-  tracks resources that were successfully provisioned.
+  The response is paginated. By default, Config lists 100
+  resource identifiers on each page. You can customize this number
+  with the `limit` parameter. The response includes a
+  `nextToken` string. To get the next page of results,
+  run the request again and specify the string for the
+  `nextToken` parameter.
   """
   @spec list_discovered_resources(map(), list_discovered_resources_request(), list()) ::
           {:ok, list_discovered_resources_response(), any()}
@@ -6910,18 +6821,6 @@ defmodule AWS.Config do
   ](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in
   the *Config Developer Guide*.
 
-  When you use `PutConformancePack` to deploy conformance packs in your account,
-  the operation can create Config rules and remediation actions without
-  requiring `config:PutConfigRule` or
-  `config:PutRemediationConfigurations` permissions in your account IAM
-  policies.
-
-  This API uses the `AWSServiceRoleForConfigConforms` service-linked role in your
-  account to create conformance pack resources. This service-linked role includes
-  the
-  permissions to create Config rules and remediation configurations, even
-  if your account IAM policies explicitly deny these actions.
-
   This API creates a service-linked role `AWSServiceRoleForConfigConforms` in your
   account.
   The service-linked role is created only when the role does not exist in your
@@ -7099,18 +6998,6 @@ defmodule AWS.Config do
   Organizations
   `ListDelegatedAdministrator` permissions are added. An organization can have up
   to 3 delegated administrators.
-
-  When you use `PutOrganizationConformancePack` to deploy conformance packs across
-  member accounts, the operation can create Config rules and remediation
-  actions without requiring `config:PutConfigRule` or
-  `config:PutRemediationConfigurations` permissions in member account
-  IAM policies.
-
-  This API uses the `AWSServiceRoleForConfigConforms` service-linked role in each
-  member account to create conformance pack resources. This service-linked role
-  includes the permissions to create Config rules and remediation
-  configurations, even if member account IAM policies explicitly deny these
-  actions.
 
   This API enables organization service access for
   `config-multiaccountsetup.amazonaws.com`
@@ -7337,7 +7224,7 @@ defmodule AWS.Config do
   `recordingScope` is set by the service that is linked to the configuration
   recorder.
 
-  For more information and a list of supported services/service principals, see [
+  For more information, see [
   ## Working with the Configuration Recorder
   ](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html)
   in the *Config Developer Guide*.

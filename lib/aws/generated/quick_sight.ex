@@ -1988,6 +1988,7 @@ defmodule AWS.QuickSight do
 
       sheet_text_box() :: %{
         "Content" => String.t(),
+        "Interactions" => text_box_interaction_options(),
         "SheetTextBoxId" => String.t()
       }
 
@@ -2912,6 +2913,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       athena_parameters() :: %{
+        "IdentityCenterConfiguration" => identity_center_configuration(),
         "RoleArn" => String.t(),
         "WorkGroup" => String.t()
       }
@@ -12860,6 +12862,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      text_box_menu_option() :: %{
+        "AvailabilityStatus" => list(any())
+      }
+
+  """
+  @type text_box_menu_option() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       plugin_visual_property() :: %{
         "Name" => String.t(),
         "Value" => String.t()
@@ -16927,6 +16940,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      text_box_interaction_options() :: %{
+        "TextBoxMenuOption" => text_box_menu_option()
+      }
+
+  """
+  @type text_box_interaction_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_role_custom_permission_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer()
@@ -17293,7 +17317,13 @@ defmodule AWS.QuickSight do
         "CreateSPICEDataset" => list(any()),
         "CreateSharedFolders" => list(any()),
         "ExportToCsv" => list(any()),
+        "ExportToCsvInScheduledReports" => list(any()),
         "ExportToExcel" => list(any()),
+        "ExportToExcelInScheduledReports" => list(any()),
+        "ExportToPdf" => list(any()),
+        "ExportToPdfInScheduledReports" => list(any()),
+        "IncludeContentInScheduledReportsEmail" => list(any()),
+        "PrintReports" => list(any()),
         "RenameSharedFolders" => list(any()),
         "ShareAnalyses" => list(any()),
         "ShareDashboards" => list(any()),

@@ -4,66 +4,23 @@
 defmodule AWS.ARCZonalShift do
   @moduledoc """
   Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon
-  Route 53 Application Recovery Controller (ARC).
+  Application Recovery Controller (ARC).
 
   You can start a zonal shift to move traffic for a load balancer resource away
-  from an Availability Zone to
-  help your application recover quickly from an impairment in an Availability
-  Zone. For example,
-  you can recover your application from a developer's bad code deployment or from
-  an
-  Amazon Web Services infrastructure failure in a single Availability Zone.
+  from an Availability Zone to help your application recover quickly from an
+  impairment in an Availability Zone. For example, you can recover your
+  application from a developer's bad code deployment or from an Amazon Web
+  Services infrastructure failure in a single Availability Zone.
 
   You can also configure zonal autoshift for supported load balancer resources.
-  Zonal autoshift
-  is a capability in ARC where you authorize Amazon Web Services to shift away
-  application resource
-  traffic from an Availability Zone during events, on your behalf, to help reduce
-  your time to recovery.
-  Amazon Web Services starts an autoshift when internal telemetry indicates that
-  there is an Availability
-  Zone impairment that could potentially impact customers.
-
-  To help make sure that zonal autoshift is safe for your application, you must
-  also configure practice runs when you enable zonal autoshift for a resource.
-  Practice runs start
-  weekly zonal shifts for a resource, to shift traffic for the resource away from
-  an Availability Zone.
-  Practice runs help you to make sure, on a regular basis, that you have enough
-  capacity in all the
-  Availability Zones in an Amazon Web Services Region for your application to
-  continue to operate normally
-  when traffic for a resource is shifted away from one Availability Zone.
-
-  Before you configure practice runs or enable zonal autoshift, we strongly
-  recommend
-  that you prescale your application resource capacity in all Availability Zones
-  in the Region where
-  your application resources are deployed. You should not rely on scaling on
-  demand when an
-  autoshift or practice run starts. Zonal autoshift, including practice runs,
-  works independently,
-  and does not wait for auto scaling actions to complete. Relying on auto scaling,
-  instead of
-  pre-scaling, can result in loss of availability.
-
-  If you use auto scaling to handle regular cycles of traffic, we strongly
-  recommend that you configure
-  the minimum capacity of your auto scaling to continue operating normally with
-  the loss of an
-  Availability Zone.
-
-  Be aware that ARC does not inspect the health of individual resources. Amazon
-  Web Services only starts an
-  autoshift when Amazon Web Services telemetry detects that there is an
-  Availability Zone impairment that could
-  potentially impact customers. In some cases, resources might be shifted away
-  that are not experiencing
-  impact.
+  Zonal autoshift is a capability in ARC where you authorize Amazon Web Services
+  to shift away application resource traffic from an Availability Zone during
+  events, on your behalf, to help reduce your time to recovery. Amazon Web
+  Services starts an autoshift when internal telemetry indicates that there is an
+  Availability Zone impairment that could potentially impact customers.
 
   For more information about using zonal shift and zonal autoshift, see the
-  [Amazon Route 53 Application Recovery Controller Developer
-  Guide](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html).
+  [Amazon Application Recovery Controller Developer Guide](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html).
   """
 
   alias AWS.Client
@@ -121,6 +78,19 @@ defmodule AWS.ARCZonalShift do
 
   """
   @type update_zonal_shift_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_practice_run_request() :: %{
+        required("awayFrom") => String.t(),
+        required("comment") => String.t(),
+        required("resourceIdentifier") => String.t()
+      }
+
+  """
+  @type start_practice_run_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -394,6 +364,15 @@ defmodule AWS.ARCZonalShift do
 
   ## Example:
 
+      cancel_practice_run_request() :: %{}
+
+  """
+  @type cancel_practice_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_autoshift_observer_notification_status_response() :: %{
         "status" => list(any())
       }
@@ -512,6 +491,23 @@ defmodule AWS.ARCZonalShift do
 
   ## Example:
 
+      start_practice_run_response() :: %{
+        "awayFrom" => String.t(),
+        "comment" => String.t(),
+        "expiryTime" => non_neg_integer(),
+        "resourceIdentifier" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "zonalShiftId" => String.t()
+      }
+
+  """
+  @type start_practice_run_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_autoshift_observer_notification_status_request() :: %{}
 
   """
@@ -543,6 +539,31 @@ defmodule AWS.ARCZonalShift do
 
   """
   @type delete_practice_run_configuration_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_practice_run_response() :: %{
+        "awayFrom" => String.t(),
+        "comment" => String.t(),
+        "expiryTime" => non_neg_integer(),
+        "resourceIdentifier" => String.t(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "zonalShiftId" => String.t()
+      }
+
+  """
+  @type cancel_practice_run_response() :: %{String.t() => any()}
+
+  @type cancel_practice_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type cancel_zonal_shift_errors() ::
           throttling_exception()
@@ -595,6 +616,14 @@ defmodule AWS.ARCZonalShift do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+
+  @type start_practice_run_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_zonal_shift_errors() ::
           throttling_exception()
@@ -651,15 +680,43 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Cancel a zonal shift in Amazon Route 53 Application Recovery Controller.
+  Cancel an in-progress practice run zonal shift in Amazon Application Recovery
+  Controller.
+  """
+  @spec cancel_practice_run(map(), String.t(), cancel_practice_run_request(), list()) ::
+          {:ok, cancel_practice_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_practice_run_errors()}
+  def cancel_practice_run(%Client{} = client, zonal_shift_id, input, options \\ []) do
+    url_path = "/practiceruns/#{AWS.Util.encode_uri(zonal_shift_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancel a zonal shift in Amazon Application Recovery Controller.
 
   To cancel the zonal shift, specify the zonal shift ID.
 
   A zonal shift can be one that you've started for a resource in your Amazon Web
-  Services account
-  in an Amazon Web Services Region, or it can be a zonal shift started by a
-  practice run with zonal
-  autoshift.
+  Services account in an Amazon Web Services Region, or it can be a zonal shift
+  started by a practice run with zonal autoshift.
   """
   @spec cancel_zonal_shift(map(), String.t(), cancel_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
@@ -692,24 +749,18 @@ defmodule AWS.ARCZonalShift do
   zonal autoshift.
 
   A practice run configuration includes specifications for blocked dates and
-  blocked time windows,
-  and for Amazon CloudWatch alarms that you create to use with practice runs. The
-  alarms that you specify are an
-  *outcome alarm*, to monitor application health during practice runs and,
-  optionally, a *blocking alarm*, to block practice runs from starting.
+  blocked time windows, and for Amazon CloudWatch alarms that you create to use
+  with practice runs. The alarms that you specify are an *outcome alarm*, to
+  monitor application health during practice runs and, optionally, a *blocking
+  alarm*, to block practice runs from starting.
 
   When a resource has a practice run configuration, ARC starts zonal shifts for
-  the resource
-  weekly, to shift traffic for practice runs. Practice runs help you to ensure
-  that
-  shifting away traffic from an Availability Zone during an autoshift is safe for
-  your application.
+  the resource weekly, to shift traffic for practice runs. Practice runs help you
+  to ensure that shifting away traffic from an Availability Zone during an
+  autoshift is safe for your application.
 
-  For more information, see
-  [
-  Considerations when you configure zonal
-  autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  For more information, see [ Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html)
+  in the Amazon Application Recovery Controller Developer Guide.
   """
   @spec create_practice_run_configuration(
           map(),
@@ -744,11 +795,9 @@ defmodule AWS.ARCZonalShift do
   @doc """
   Deletes the practice run configuration for a resource.
 
-  Before you can delete
-  a practice run configuration for a resource., you must disable zonal autoshift
-  for
-  the resource. Practice runs must be configured for zonal autoshift to be
-  enabled.
+  Before you can delete a practice run configuration for a resource., you must
+  disable zonal autoshift for the resource. Practice runs must be configured for
+  zonal autoshift to be enabled.
   """
   @spec delete_practice_run_configuration(
           map(),
@@ -811,12 +860,10 @@ defmodule AWS.ARCZonalShift do
 
   @doc """
   Get information about a resource that's been registered for zonal shifts with
-  Amazon Route 53 Application Recovery Controller in this Amazon Web Services
-  Region.
+  Amazon Application Recovery Controller in this Amazon Web Services Region.
 
-  Resources that are registered for
-  zonal shifts are managed resources in ARC. You can start zonal shifts and
-  configure zonal autoshift for managed resources.
+  Resources that are registered for zonal shifts are managed resources in ARC. You
+  can start zonal shifts and configure zonal autoshift for managed resources.
   """
   @spec get_managed_resource(map(), String.t(), list()) ::
           {:ok, get_managed_resource_response(), any()}
@@ -836,10 +883,8 @@ defmodule AWS.ARCZonalShift do
   @doc """
   Returns the autoshifts for an Amazon Web Services Region.
 
-  By default, the call returns
-  only `ACTIVE` autoshifts. Optionally, you can specify the `status` parameter to
-  return
-  `COMPLETED` autoshifts.
+  By default, the call returns only `ACTIVE` autoshifts. Optionally, you can
+  specify the `status` parameter to return `COMPLETED` autoshifts.
   """
   @spec list_autoshifts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_autoshifts_response(), any()}
@@ -885,14 +930,12 @@ defmodule AWS.ARCZonalShift do
 
   @doc """
   Lists all the resources in your Amazon Web Services account in this Amazon Web
-  Services Region that are managed for
-  zonal shifts in Amazon Route 53 Application Recovery Controller, and information
-  about them.
+  Services Region that are managed for zonal shifts in Amazon Application Recovery
+  Controller, and information about them.
 
-  The information includes the zonal autoshift status for the resource,
-  as well as the Amazon Resource Name (ARN), the Availability Zones that each
-  resource is deployed in, and
-  the resource name.
+  The information includes the zonal autoshift status for the resource, as well as
+  the Amazon Resource Name (ARN), the Availability Zones that each resource is
+  deployed in, and the resource name.
   """
   @spec list_managed_resources(map(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_managed_resources_response(), any()}
@@ -929,9 +972,15 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Lists all active and completed zonal shifts in Amazon Route 53 Application
-  Recovery Controller in your Amazon Web Services account in this Amazon Web
-  Services Region.
+  Lists all active and completed zonal shifts in Amazon Application Recovery
+  Controller in your Amazon Web Services account in this Amazon Web Services
+  Region.
+
+  `ListZonalShifts` returns customer-initiated zonal shifts, as well as practice
+  run zonal shifts that ARC started on your behalf for zonal autoshift.
+
+  For more information about listing autoshifts, see
+  [">ListAutoshifts](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html).
   """
   @spec list_zonal_shifts(
           map(),
@@ -991,28 +1040,70 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
+  Start an on-demand practice run zonal shift in Amazon Application Recovery
+  Controller.
+
+  With zonal autoshift enabled, you can start an on-demand practice run to verify
+  preparedness at any time. Amazon Web Services also runs automated practice runs
+  about weekly when you have enabled zonal autoshift.
+
+  For more information, see [ Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html)
+  in the Amazon Application Recovery Controller Developer Guide.
+  """
+  @spec start_practice_run(map(), start_practice_run_request(), list()) ::
+          {:ok, start_practice_run_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_practice_run_errors()}
+  def start_practice_run(%Client{} = client, input, options \\ []) do
+    url_path = "/practiceruns"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   You start a zonal shift to temporarily move load balancer traffic away from an
-  Availability Zone in an Amazon Web Services Region,
-  to help your application recover immediately, for example, from a developer's
-  bad code deployment or from an Amazon Web Services
-  infrastructure failure in a single Availability Zone.
+  Availability Zone in an Amazon Web Services Region, to help your application
+  recover immediately, for example, from a developer's bad code deployment or from
+  an Amazon Web Services infrastructure failure in a single Availability Zone.
 
-  You can start a zonal shift in ARC only for managed
-  resources in your Amazon Web Services account in an Amazon Web Services Region.
-  Resources are automatically registered with ARC
-  by Amazon Web Services services.
+  You can start a zonal shift in ARC only for managed resources in your Amazon Web
+  Services account in an Amazon Web Services Region. Resources are automatically
+  registered with ARC by Amazon Web Services services.
 
-  At this time, you can only start a zonal shift for Network Load Balancers and
-  Application Load Balancers with cross-zone load balancing turned off.
+  Amazon Application Recovery Controller currently supports enabling the following
+  resources for zonal shift and zonal autoshift:
+
+    * [Amazon EC2 Auto Scaling groups](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.ec2-auto-scaling-groups.html)
+
+    * [Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.eks.html)
+
+    * [Application Load Balancer](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.app-load-balancers.html)
+
+    * [Network Load Balancer](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html)
 
   When you start a zonal shift, traffic for the resource is no longer routed to
-  the Availability Zone. The
-  zonal shift is created immediately in ARC. However, it can take a short time,
-  typically up to a few minutes,
-  for existing, in-progress connections in the Availability Zone to complete.
+  the Availability Zone. The zonal shift is created immediately in ARC. However,
+  it can take a short time, typically up to a few minutes, for existing,
+  in-progress connections in the Availability Zone to complete.
 
   For more information, see [Zonal shift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  in the Amazon Application Recovery Controller Developer Guide.
   """
   @spec start_zonal_shift(map(), start_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
@@ -1043,21 +1134,16 @@ defmodule AWS.ARCZonalShift do
   @doc """
   Update the status of autoshift observer notification.
 
-  Autoshift observer
-  notification enables you to be notified, through Amazon EventBridge, when
-  there is an autoshift event for zonal autoshift.
+  Autoshift observer notification enables you to be notified, through Amazon
+  EventBridge, when there is an autoshift event for zonal autoshift.
 
-  If the status is `ENABLED`,
-  ARC includes all autoshift events when you use the EventBridge pattern
-  `Autoshift In Progress`. When the status is `DISABLED`,
-  ARC includes only autoshift events for autoshifts when one or more of your
-  resources is included in the autoshift.
+  If the status is `ENABLED`, ARC includes all autoshift events when you use the
+  EventBridge pattern `Autoshift In Progress`. When the status is `DISABLED`, ARC
+  includes only autoshift events for autoshifts when one or more of your resources
+  is included in the autoshift.
 
-  For more information, see
-  [
-  Notifications for practice runs and
-  autoshifts](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification)
-  in the Amazon Route 53 Application Recovery Controller Developer Guide.
+  For more information, see [ Notifications for practice runs and autoshifts](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification)
+  in the Amazon Application Recovery Controller Developer Guide.
   """
   @spec update_autoshift_observer_notification_status(
           map(),
@@ -1132,22 +1218,18 @@ defmodule AWS.ARCZonalShift do
 
   @doc """
   The zonal autoshift configuration for a resource includes the practice run
-  configuration and the status for
-  running autoshifts, zonal autoshift status.
+  configuration and the status for running autoshifts, zonal autoshift status.
 
-  When a resource has a practice run configuation, Route 53 ARC
-  starts weekly zonal shifts for the resource, to shift traffic away from an
-  Availability Zone. Weekly practice
-  runs help you to make sure that your application can continue to operate
-  normally with the loss of one Availability Zone.
+  When a resource has a practice run configuation, ARC starts weekly zonal shifts
+  for the resource, to shift traffic away from an Availability Zone. Weekly
+  practice runs help you to make sure that your application can continue to
+  operate normally with the loss of one Availability Zone.
 
   You can update the zonal autoshift autoshift status to enable or disable zonal
-  autoshift. When zonal
-  autoshift is `ENABLED`, you authorize Amazon Web Services to shift away resource
-  traffic for
-  an application from an Availability Zone during events, on your behalf, to help
-  reduce time to recovery.
-  Traffic is also shifted away for the required weekly practice runs.
+  autoshift. When zonal autoshift is `ENABLED`, you authorize Amazon Web Services
+  to shift away resource traffic for an application from an Availability Zone
+  during events, on your behalf, to help reduce time to recovery. Traffic is also
+  shifted away for the required weekly practice runs.
   """
   @spec update_zonal_autoshift_configuration(
           map(),
@@ -1186,11 +1268,11 @@ defmodule AWS.ARCZonalShift do
   end
 
   @doc """
-  Update an active zonal shift in Amazon Route 53 Application Recovery Controller
-  in your Amazon Web Services account.
+  Update an active zonal shift in Amazon Application Recovery Controller in your
+  Amazon Web Services account.
 
-  You can update a zonal shift to set a new expiration, or
-  edit or replace the comment for the zonal shift.
+  You can update a zonal shift to set a new expiration, or edit or replace the
+  comment for the zonal shift.
   """
   @spec update_zonal_shift(map(), String.t(), update_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}

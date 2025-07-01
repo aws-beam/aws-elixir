@@ -165,7 +165,8 @@ defmodule AWS.Glue do
   ## Example:
       
       integration_config() :: %{
-        "RefreshInterval" => String.t()
+        "RefreshInterval" => String.t(),
+        "SourceProperties" => map()
       }
       
   """

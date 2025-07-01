@@ -47,6 +47,19 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      document_char_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_char_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_content_policy_assessment() :: %{
         "filters" => list(guardrail_content_filter()())
       }
@@ -59,6 +72,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       document_block() :: %{
+        "citations" => citations_config(),
+        "context" => [String.t()],
         "format" => list(any()),
         "name" => [String.t()],
         "source" => list()
@@ -192,6 +207,31 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_trace_assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citation() :: %{
+        "location" => list(),
+        "sourceContent" => list(list()()),
+        "title" => [String.t()]
+      }
+
+  """
+  @type citation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_content_block() :: %{
+        "citations" => list(citation()()),
+        "content" => list(list()())
+      }
+
+  """
+  @type citations_content_block() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -685,6 +725,19 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      document_page_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_page_location() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
@@ -710,6 +763,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type get_async_invoke_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_chunk_location() :: %{
+        "documentIndex" => [integer()],
+        "end" => [integer()],
+        "start" => [integer()]
+      }
+
+  """
+  @type document_chunk_location() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1007,6 +1073,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      citation_source_content_delta() :: %{
+        "text" => [String.t()]
+      }
+
+  """
+  @type citation_source_content_delta() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bidirectional_output_payload_part() :: %{
         "bytes" => binary()
       }
@@ -1064,6 +1141,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_output_content() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_config() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type citations_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1149,6 +1237,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type performance_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      citations_delta() :: %{
+        "location" => list(),
+        "sourceContent" => list(citation_source_content_delta()()),
+        "title" => [String.t()]
+      }
+
+  """
+  @type citations_delta() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1289,8 +1390,7 @@ defmodule AWS.BedrockRuntime do
   The action to apply a guardrail.
 
   For troubleshooting some of the common errors you might encounter when using the
-  `ApplyGuardrail` API,
-  see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
+  `ApplyGuardrail` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
   @spec apply_guardrail(map(), String.t(), String.t(), apply_guardrail_request(), list()) ::
@@ -1330,13 +1430,10 @@ defmodule AWS.BedrockRuntime do
   @doc """
   Sends messages to the specified Amazon Bedrock model.
 
-  `Converse` provides
-  a consistent interface that works with all models that
+  `Converse` provides a consistent interface that works with all models that
   support messages. This allows you to write code once and use it with different
-  models.
-  If a model has unique inference parameters, you can also pass those unique
-  parameters
-  to the model.
+  models. If a model has unique inference parameters, you can also pass those
+  unique parameters to the model.
 
   Amazon Bedrock doesn't store any text, images, or documents that you provide as
   content. The data is only used to generate the response.
@@ -1355,11 +1452,9 @@ defmodule AWS.BedrockRuntime do
   management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html).
 
   For information about the Converse API, see *Use the Converse API* in the
-  *Amazon Bedrock User Guide*.
-  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
-  Bedrock User Guide*.
-  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
-  Bedrock User Guide*
+  *Amazon Bedrock User Guide*. To use a guardrail, see *Use a guardrail with the
+  Converse API* in the *Amazon Bedrock User Guide*. To use a tool with a model,
+  see *Tool use (Function calling)* in the *Amazon Bedrock User Guide*
 
   For example code, see *Converse API examples* in the *Amazon Bedrock User
   Guide*.
@@ -1367,17 +1462,15 @@ defmodule AWS.BedrockRuntime do
   This operation requires permission for the `bedrock:InvokeModel` action.
 
   To deny all inference access to resources that you specify in the modelId field,
-  you
-  need to deny access to the `bedrock:InvokeModel` and
-  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies
-  access to the resource through the base inference actions
+  you need to deny access to the `bedrock:InvokeModel` and
+  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies access
+  to the resource through the base inference actions
   ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and
   [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)).
   For more information see [Deny access for inference on specific models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference).
 
   For troubleshooting some of the common errors you might encounter when using the
-  `Converse` API,
-  see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
+  `Converse` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
   @spec converse(map(), String.t(), converse_request(), list()) ::
@@ -1407,15 +1500,13 @@ defmodule AWS.BedrockRuntime do
   end
 
   @doc """
-  Sends messages to the specified Amazon Bedrock model and returns
-  the response in a stream.
+  Sends messages to the specified Amazon Bedrock model and returns the response in
+  a stream.
 
-  `ConverseStream` provides a consistent API
-  that works with all Amazon Bedrock models that support messages.
-  This allows you to write code once and use it with different models. Should a
-  model have unique inference parameters, you can also pass those unique
-  parameters to the
-  model.
+  `ConverseStream` provides a consistent API that works with all Amazon Bedrock
+  models that support messages. This allows you to write code once and use it with
+  different models. Should a model have unique inference parameters, you can also
+  pass those unique parameters to the model.
 
   To find out if a model supports streaming, call
   [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html) and check the `responseStreamingSupported` field in the response.
@@ -1441,11 +1532,9 @@ defmodule AWS.BedrockRuntime do
   management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html).
 
   For information about the Converse API, see *Use the Converse API* in the
-  *Amazon Bedrock User Guide*.
-  To use a guardrail, see *Use a guardrail with the Converse API* in the *Amazon
-  Bedrock User Guide*.
-  To use a tool with a model, see *Tool use (Function calling)* in the *Amazon
-  Bedrock User Guide*
+  *Amazon Bedrock User Guide*. To use a guardrail, see *Use a guardrail with the
+  Converse API* in the *Amazon Bedrock User Guide*. To use a tool with a model,
+  see *Tool use (Function calling)* in the *Amazon Bedrock User Guide*
 
   For example code, see *Conversation streaming example* in the *Amazon Bedrock
   User Guide*.
@@ -1454,17 +1543,15 @@ defmodule AWS.BedrockRuntime do
   `bedrock:InvokeModelWithResponseStream` action.
 
   To deny all inference access to resources that you specify in the modelId field,
-  you
-  need to deny access to the `bedrock:InvokeModel` and
-  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies
-  access to the resource through the base inference actions
+  you need to deny access to the `bedrock:InvokeModel` and
+  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies access
+  to the resource through the base inference actions
   ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and
   [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)).
   For more information see [Deny access for inference on specific models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference).
 
   For troubleshooting some of the common errors you might encounter when using the
-  `ConverseStream` API,
-  see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
+  `ConverseStream` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
   @spec converse_stream(map(), String.t(), converse_stream_request(), list()) ::
@@ -1523,17 +1610,15 @@ defmodule AWS.BedrockRuntime do
   This operation requires permission for the `bedrock:InvokeModel` action.
 
   To deny all inference access to resources that you specify in the modelId field,
-  you
-  need to deny access to the `bedrock:InvokeModel` and
-  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies
-  access to the resource through the Converse API actions
+  you need to deny access to the `bedrock:InvokeModel` and
+  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies access
+  to the resource through the Converse API actions
   ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and
   [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)).
   For more information see [Deny access for inference on specific models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference).
 
   For troubleshooting some of the common errors you might encounter when using the
-  `InvokeModel` API,
-  see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
+  `InvokeModel` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
   @spec invoke_model(map(), String.t(), invoke_model_request(), list()) ::
@@ -1639,25 +1724,24 @@ defmodule AWS.BedrockRuntime do
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `InvokeModelWithResponseStream`.
 
-  For example code, see *Invoke model with streaming code
-  example* in the *Amazon Bedrock User Guide*.
+  For example code, see *Invoke model with streaming code example* in the *Amazon
+  Bedrock User Guide*.
 
   This operation requires permissions to perform the
   `bedrock:InvokeModelWithResponseStream` action.
 
   To deny all inference access to resources that you specify in the modelId field,
-  you
-  need to deny access to the `bedrock:InvokeModel` and
-  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies
-  access to the resource through the Converse API actions
+  you need to deny access to the `bedrock:InvokeModel` and
+  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies access
+  to the resource through the Converse API actions
   ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html)
   and
   [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)). For more information see [Deny access for inference on specific
   models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference).
 
   For troubleshooting some of the common errors you might encounter when using the
-  `InvokeModelWithResponseStream` API,
-  see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
+  `InvokeModelWithResponseStream` API, see [Troubleshooting Amazon Bedrock API Error
+  Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
   @spec invoke_model_with_response_stream(
@@ -1805,10 +1889,9 @@ defmodule AWS.BedrockRuntime do
   This operation requires permission for the `bedrock:InvokeModel` action.
 
   To deny all inference access to resources that you specify in the modelId field,
-  you
-  need to deny access to the `bedrock:InvokeModel` and
-  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies
-  access to the resource through the Converse API actions
+  you need to deny access to the `bedrock:InvokeModel` and
+  `bedrock:InvokeModelWithResponseStream` actions. Doing this also denies access
+  to the resource through the Converse API actions
   ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and
   [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)).
   For more information see [Deny access for inference on specific models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference).

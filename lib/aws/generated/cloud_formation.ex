@@ -2779,6 +2779,7 @@ defmodule AWS.CloudFormation do
       
       stack_resource_drift() :: %{
         "ActualProperties" => String.t(),
+        "DriftStatusReason" => String.t(),
         "ExpectedProperties" => String.t(),
         "LogicalResourceId" => String.t(),
         "ModuleInfo" => module_info(),
@@ -4286,6 +4287,22 @@ defmodule AWS.CloudFormation do
   specify at least
   one value for either `Accounts` or `DeploymentTargets`, and you must
   specify at least one value for `Regions`.
+
+  The maximum number of organizational unit (OUs) supported by a
+  `CreateStackInstances` operation is 50.
+
+  If you need more than 50, consider the following options:
+
+    
+
+  *Batch processing:* If you don't want to expose your OU
+  hierarchy, split up the operations into multiple calls with less than 50 OUs
+  each.
+
+    
+
+  *Parent OU strategy:* If you don't mind exposing the OU
+  hierarchy, target a parent OU that contains all desired child OUs.
   """
   @spec create_stack_instances(map(), create_stack_instances_input(), list()) ::
           {:ok, create_stack_instances_output(), any()}
@@ -4434,6 +4451,22 @@ defmodule AWS.CloudFormation do
   @doc """
   Deletes stack instances for the specified accounts, in the specified Amazon Web
   Services Regions.
+
+  The maximum number of organizational unit (OUs) supported by a
+  `DeleteStackInstances` operation is 50.
+
+  If you need more than 50, consider the following options:
+
+    
+
+  *Batch processing:* If you don't want to expose your OU
+  hierarchy, split up the operations into multiple calls with less than 50 OUs
+  each.
+
+    
+
+  *Parent OU strategy:* If you don't mind exposing the OU
+  hierarchy, target a parent OU that contains all desired child OUs.
   """
   @spec delete_stack_instances(map(), delete_stack_instances_input(), list()) ::
           {:ok, delete_stack_instances_output(), any()}
@@ -4819,6 +4852,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the description of the specified StackSet.
+
+  This API provides *strongly consistent* reads meaning it will always
+  return the most up-to-date data.
   """
   @spec describe_stack_set(map(), describe_stack_set_input(), list()) ::
           {:ok, describe_stack_set_output(), any()}
@@ -4833,6 +4869,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns the description of the specified StackSet operation.
+
+  This API provides *strongly consistent* reads meaning it will always
+  return the most up-to-date data.
   """
   @spec describe_stack_set_operation(map(), describe_stack_set_operation_input(), list()) ::
           {:ok, describe_stack_set_operation_output(), any()}
@@ -5462,6 +5501,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about the results of a stack set operation.
+
+  This API provides *eventually consistent* reads meaning it may take
+  some time but will eventually return the most up-to-date data.
   """
   @spec list_stack_set_operation_results(map(), list_stack_set_operation_results_input(), list()) ::
           {:ok, list_stack_set_operation_results_output(), any()}
@@ -5476,6 +5518,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about operations performed on a stack set.
+
+  This API provides *eventually consistent* reads meaning it may take
+  some time but will eventually return the most up-to-date data.
   """
   @spec list_stack_set_operations(map(), list_stack_set_operations_input(), list()) ::
           {:ok, list_stack_set_operations_output(), any()}
@@ -5490,6 +5535,9 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about stack sets that are associated with the user.
+
+  This API provides *strongly consistent* reads meaning it will always
+  return the most up-to-date data.
 
     *
   [Self-managed permissions] If you set the `CallAs` parameter to `SELF` while signed in to your Amazon Web Services account, `ListStackSets`
@@ -5989,6 +6037,22 @@ defmodule AWS.CloudFormation do
   updated with the
   new parameter, you can then override the parameter value using
   `UpdateStackInstances`.
+
+  The maximum number of organizational unit (OUs) supported by a
+  `UpdateStackInstances` operation is 50.
+
+  If you need more than 50, consider the following options:
+
+    
+
+  *Batch processing:* If you don't want to expose your OU
+  hierarchy, split up the operations into multiple calls with less than 50 OUs
+  each.
+
+    
+
+  *Parent OU strategy:* If you don't mind exposing the OU
+  hierarchy, target a parent OU that contains all desired child OUs.
   """
   @spec update_stack_instances(map(), update_stack_instances_input(), list()) ::
           {:ok, update_stack_instances_output(), any()}
@@ -6012,6 +6076,22 @@ defmodule AWS.CloudFormation do
   updated with your
   changes. Subsequent `CreateStackInstances` calls on the specified stack set
   use the updated stack set.
+
+  The maximum number of organizational unit (OUs) supported by a
+  `UpdateStackSet` operation is 50.
+
+  If you need more than 50, consider the following options:
+
+    
+
+  *Batch processing:* If you don't want to expose your OU
+  hierarchy, split up the operations into multiple calls with less than 50 OUs
+  each.
+
+    
+
+  *Parent OU strategy:* If you don't mind exposing the OU
+  hierarchy, target a parent OU that contains all desired child OUs.
   """
   @spec update_stack_set(map(), update_stack_set_input(), list()) ::
           {:ok, update_stack_set_output(), any()}

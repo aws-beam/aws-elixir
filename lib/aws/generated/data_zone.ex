@@ -767,6 +767,7 @@ defmodule AWS.DataZone do
 
       update_project_input() :: %{
         optional("description") => String.t(),
+        optional("domainUnitId") => String.t(),
         optional("environmentDeploymentDetails") => environment_deployment_details(),
         optional("glossaryTerms") => list(String.t()()),
         optional("name") => String.t(),

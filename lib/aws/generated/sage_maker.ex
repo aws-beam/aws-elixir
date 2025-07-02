@@ -5254,10 +5254,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_request() :: %{
+        optional("InstanceGroups") => list(cluster_instance_group_specification()()),
         optional("InstanceGroupsToDelete") => list(String.t()()),
         optional("NodeRecovery") => list(any()),
-        required("ClusterName") => String.t(),
-        required("InstanceGroups") => list(cluster_instance_group_specification()())
+        required("ClusterName") => String.t()
       }
       
   """
@@ -6897,12 +6897,12 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_cluster_request() :: %{
+        optional("InstanceGroups") => list(cluster_instance_group_specification()()),
         optional("NodeRecovery") => list(any()),
         optional("Orchestrator") => cluster_orchestrator(),
         optional("Tags") => list(tag()()),
         optional("VpcConfig") => vpc_config(),
-        required("ClusterName") => String.t(),
-        required("InstanceGroups") => list(cluster_instance_group_specification()())
+        required("ClusterName") => String.t()
       }
       
   """

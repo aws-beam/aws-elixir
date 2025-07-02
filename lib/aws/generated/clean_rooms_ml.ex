@@ -14,12 +14,10 @@ defmodule AWS.CleanRoomsML do
   training data.
 
   To learn more about Amazon Web Services Clean Rooms ML concepts, procedures, and
-  best practices, see the
-  [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
+  best practices, see the [Clean Rooms User Guide](https://docs.aws.amazon.com/clean-rooms/latest/userguide/machine-learning.html).
 
   To learn more about SQL commands, functions, and conditions supported in Clean
-  Rooms, see the
-  [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+  Rooms, see the [Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
   """
 
   alias AWS.Client
@@ -43,7 +41,8 @@ defmodule AWS.CleanRoomsML do
       list_trained_model_inference_jobs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("trainedModelArn") => String.t()
+        optional("trainedModelArn") => String.t(),
+        optional("trainedModelVersionIdentifier") => String.t()
       }
 
   """
@@ -58,11 +57,13 @@ defmodule AWS.CleanRoomsML do
         "configuredModelAlgorithmAssociationArn" => String.t(),
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
         "membershipIdentifier" => String.t(),
         "name" => String.t(),
         "status" => list(any()),
         "trainedModelArn" => String.t(),
-        "updateTime" => [non_neg_integer()]
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t()
       }
 
   """
@@ -226,10 +227,12 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      get_trained_model_request() :: %{}
+      get_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t()
+      }
 
   """
-  @type get_trained_model_request() :: %{}
+  @type get_trained_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -256,7 +259,8 @@ defmodule AWS.CleanRoomsML do
 
       trained_models_configuration_policy() :: %{
         "containerLogs" => list(logs_configuration_policy()()),
-        "containerMetrics" => metrics_configuration_policy()
+        "containerMetrics" => metrics_configuration_policy(),
+        "maxArtifactSize" => trained_model_artifact_max_size()
       }
 
   """
@@ -281,6 +285,7 @@ defmodule AWS.CleanRoomsML do
         "status" => list(any()),
         "trainedModelArn" => String.t(),
         "trainedModelInferenceJobArn" => String.t(),
+        "trainedModelVersionIdentifier" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -481,6 +486,7 @@ defmodule AWS.CleanRoomsML do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
         "logsStatus" => list(any()),
         "logsStatusDetails" => [String.t()],
         "membershipIdentifier" => String.t(),
@@ -493,7 +499,9 @@ defmodule AWS.CleanRoomsML do
         "stoppingCondition" => stopping_condition(),
         "trainedModelArn" => String.t(),
         "trainingContainerImageDigest" => [String.t()],
-        "updateTime" => [non_neg_integer()]
+        "trainingInputMode" => list(any()),
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t()
       }
 
   """
@@ -605,11 +613,23 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_model_export_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t(),
+        optional("trainedModelVersionIdentifier") => String.t()
       }
 
   """
   @type list_collaboration_trained_model_export_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type internal_service_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -637,6 +657,7 @@ defmodule AWS.CleanRoomsML do
         "description" => String.t(),
         "environment" => map(),
         "hyperparameters" => map(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
         "kmsKeyArn" => String.t(),
         "logsStatus" => list(any()),
         "logsStatusDetails" => [String.t()],
@@ -651,7 +672,9 @@ defmodule AWS.CleanRoomsML do
         "tags" => map(),
         "trainedModelArn" => String.t(),
         "trainingContainerImageDigest" => [String.t()],
-        "updateTime" => [non_neg_integer()]
+        "trainingInputMode" => list(any()),
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t()
       }
 
   """
@@ -683,11 +706,24 @@ defmodule AWS.CleanRoomsML do
         "status" => list(any()),
         "statusDetails" => status_details(),
         "trainedModelArn" => String.t(),
+        "trainedModelVersionIdentifier" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
   @type collaboration_trained_model_export_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_versions_response() :: %{
+        "nextToken" => String.t(),
+        "trainedModels" => list(trained_model_summary()())
+      }
+
+  """
+  @type list_trained_model_versions_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -835,7 +871,8 @@ defmodule AWS.CleanRoomsML do
 
       model_training_data_channel() :: %{
         "channelName" => String.t(),
-        "mlInputChannelArn" => String.t()
+        "mlInputChannelArn" => String.t(),
+        "s3DataDistributionType" => list(any())
       }
 
   """
@@ -969,6 +1006,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      incremental_training_data_channel() :: %{
+        "channelName" => String.t(),
+        "trainedModelArn" => String.t(),
+        "versionIdentifier" => String.t()
+      }
+
+  """
+  @type incremental_training_data_channel() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       trained_model_inference_max_output_size() :: %{
         "unit" => list(any()),
         "value" => float()
@@ -981,10 +1031,12 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      get_collaboration_trained_model_request() :: %{}
+      get_collaboration_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t()
+      }
 
   """
-  @type get_collaboration_trained_model_request() :: %{}
+  @type get_collaboration_trained_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1003,7 +1055,9 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t()],
+        "quotaName" => [String.t()],
+        "quotaValue" => [float()]
       }
 
   """
@@ -1115,9 +1169,11 @@ defmodule AWS.CleanRoomsML do
         optional("description") => String.t(),
         optional("environment") => map(),
         optional("hyperparameters") => map(),
+        optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()()),
         optional("kmsKeyArn") => String.t(),
         optional("stoppingCondition") => stopping_condition(),
         optional("tags") => map(),
+        optional("trainingInputMode") => list(any()),
         required("configuredModelAlgorithmAssociationArn") => String.t(),
         required("dataChannels") => list(model_training_data_channel()()),
         required("name") => String.t(),
@@ -1149,11 +1205,13 @@ defmodule AWS.CleanRoomsML do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
         "membershipIdentifier" => String.t(),
         "name" => String.t(),
         "status" => list(any()),
         "trainedModelArn" => String.t(),
-        "updateTime" => [non_neg_integer()]
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t()
       }
 
   """
@@ -1313,6 +1371,7 @@ defmodule AWS.CleanRoomsML do
         optional("environment") => map(),
         optional("kmsKeyArn") => String.t(),
         optional("tags") => map(),
+        optional("trainedModelVersionIdentifier") => String.t(),
         required("dataSource") => model_inference_data_source(),
         required("name") => String.t(),
         required("outputConfiguration") => inference_output_configuration(),
@@ -1322,6 +1381,18 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type start_trained_model_inference_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_artifact_max_size() :: %{
+        "unit" => list(any()),
+        "value" => float()
+      }
+
+  """
+  @type trained_model_artifact_max_size() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1458,6 +1529,19 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      incremental_training_data_channel_output() :: %{
+        "channelName" => String.t(),
+        "modelName" => String.t(),
+        "versionIdentifier" => String.t()
+      }
+
+  """
+  @type incremental_training_data_channel_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_ml_input_channel_data_request() :: %{}
 
   """
@@ -1501,7 +1585,8 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_trained_model_response() :: %{
-        "trainedModelArn" => String.t()
+        "trainedModelArn" => String.t(),
+        "versionIdentifier" => String.t()
       }
 
   """
@@ -1513,6 +1598,7 @@ defmodule AWS.CleanRoomsML do
 
       start_trained_model_export_job_request() :: %{
         optional("description") => String.t(),
+        optional("trainedModelVersionIdentifier") => String.t(),
         required("name") => String.t(),
         required("outputConfiguration") => trained_model_export_output_configuration()
       }
@@ -1566,10 +1652,25 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      cancel_trained_model_request() :: %{}
+      cancel_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t()
+      }
 
   """
-  @type cancel_trained_model_request() :: %{}
+  @type cancel_trained_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_trained_model_versions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1686,6 +1787,17 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
+      throttling_exception() :: %{
+        "message" => [String.t()]
+      }
+
+  """
+  @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       glue_data_source() :: %{
         "catalogId" => String.t(),
         "databaseName" => String.t(),
@@ -1728,6 +1840,7 @@ defmodule AWS.CleanRoomsML do
         "status" => list(any()),
         "trainedModelArn" => String.t(),
         "trainedModelInferenceJobArn" => String.t(),
+        "trainedModelVersionIdentifier" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -1989,6 +2102,7 @@ defmodule AWS.CleanRoomsML do
         "tags" => map(),
         "trainedModelArn" => String.t(),
         "trainedModelInferenceJobArn" => String.t(),
+        "trainedModelVersionIdentifier" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
 
@@ -2175,10 +2289,12 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      delete_trained_model_output_request() :: %{}
+      delete_trained_model_output_request() :: %{
+        optional("versionIdentifier") => String.t()
+      }
 
   """
-  @type delete_trained_model_output_request() :: %{}
+  @type delete_trained_model_output_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2196,20 +2312,23 @@ defmodule AWS.CleanRoomsML do
       list_collaboration_trained_model_inference_jobs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("trainedModelArn") => String.t()
+        optional("trainedModelArn") => String.t(),
+        optional("trainedModelVersionIdentifier") => String.t()
       }
 
   """
   @type list_collaboration_trained_model_inference_jobs_request() :: %{String.t() => any()}
 
   @type cancel_trained_model_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type cancel_trained_model_inference_job_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -2235,25 +2354,29 @@ defmodule AWS.CleanRoomsML do
           | conflict_exception()
 
   @type create_configured_model_algorithm_association_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type create_ml_input_channel_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type create_trained_model_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+          | internal_service_exception()
 
   @type create_training_dataset_errors() ::
           validation_exception() | access_denied_exception() | conflict_exception()
@@ -2286,22 +2409,28 @@ defmodule AWS.CleanRoomsML do
           | conflict_exception()
 
   @type delete_configured_model_algorithm_association_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_ml_configuration_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type delete_ml_input_channel_data_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type delete_trained_model_output_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
@@ -2319,13 +2448,22 @@ defmodule AWS.CleanRoomsML do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type get_collaboration_configured_model_algorithm_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_collaboration_ml_input_channel_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_collaboration_trained_model_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_configured_audience_model_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2337,19 +2475,34 @@ defmodule AWS.CleanRoomsML do
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type get_configured_model_algorithm_association_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_ml_configuration_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_ml_input_channel_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_trained_model_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_trained_model_inference_job_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
 
   @type get_training_dataset_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
@@ -2362,45 +2515,54 @@ defmodule AWS.CleanRoomsML do
   @type list_audience_models_errors() :: validation_exception() | access_denied_exception()
 
   @type list_collaboration_configured_model_algorithm_associations_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_collaboration_ml_input_channels_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_collaboration_trained_model_export_jobs_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_collaboration_trained_model_inference_jobs_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_collaboration_trained_models_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_configured_audience_models_errors() ::
           validation_exception() | access_denied_exception()
 
   @type list_configured_model_algorithm_associations_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_configured_model_algorithms_errors() ::
           validation_exception() | access_denied_exception()
 
-  @type list_ml_input_channels_errors() :: validation_exception() | access_denied_exception()
+  @type list_ml_input_channels_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
   @type list_trained_model_inference_jobs_errors() ::
-          validation_exception() | access_denied_exception()
+          throttling_exception() | validation_exception() | access_denied_exception()
 
-  @type list_trained_models_errors() :: validation_exception() | access_denied_exception()
+  @type list_trained_model_versions_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+
+  @type list_trained_models_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type list_training_datasets_errors() :: validation_exception() | access_denied_exception()
 
   @type put_configured_audience_model_policy_errors() ::
           validation_exception() | access_denied_exception() | resource_not_found_exception()
 
-  @type put_ml_configuration_errors() :: validation_exception() | access_denied_exception()
+  @type put_ml_configuration_errors() ::
+          throttling_exception() | validation_exception() | access_denied_exception()
 
   @type start_audience_export_job_errors() ::
           validation_exception()
@@ -2410,20 +2572,23 @@ defmodule AWS.CleanRoomsML do
           | conflict_exception()
 
   @type start_audience_generation_job_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type start_trained_model_export_job_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
   @type start_trained_model_inference_job_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
@@ -2483,7 +2648,12 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"versionIdentifier", "versionIdentifier"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -3092,7 +3262,7 @@ defmodule AWS.CleanRoomsML do
   end
 
   @doc """
-  Deletes the output of a trained model.
+  Deletes the model artifacts stored by the service.
   """
   @spec delete_trained_model_output(
           map(),
@@ -3117,7 +3287,12 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     custom_headers = []
-    query_params = []
+
+    {query_params, input} =
+      [
+        {"versionIdentifier", "versionIdentifier"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -3263,7 +3438,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a trained model in a collaboration.
   """
-  @spec get_collaboration_trained_model(map(), String.t(), String.t(), list()) ::
+  @spec get_collaboration_trained_model(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_collaboration_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3272,6 +3447,7 @@ defmodule AWS.CleanRoomsML do
         %Client{} = client,
         collaboration_identifier,
         trained_model_arn,
+        version_identifier \\ nil,
         options \\ []
       ) do
     url_path =
@@ -3279,6 +3455,13 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(version_identifier) do
+        [{"versionIdentifier", version_identifier} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -3426,7 +3609,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a trained model.
   """
-  @spec get_trained_model(map(), String.t(), String.t(), list()) ::
+  @spec get_trained_model(map(), String.t(), String.t(), String.t() | nil, list()) ::
           {:ok, get_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3435,6 +3618,7 @@ defmodule AWS.CleanRoomsML do
         %Client{} = client,
         membership_identifier,
         trained_model_arn,
+        version_identifier \\ nil,
         options \\ []
       ) do
     url_path =
@@ -3442,6 +3626,13 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(version_identifier) do
+        [{"versionIdentifier", version_identifier} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -3741,6 +3932,7 @@ defmodule AWS.CleanRoomsML do
           String.t(),
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_collaboration_trained_model_export_jobs_response(), any()}
@@ -3753,6 +3945,7 @@ defmodule AWS.CleanRoomsML do
         trained_model_arn,
         max_results \\ nil,
         next_token \\ nil,
+        trained_model_version_identifier \\ nil,
         options \\ []
       ) do
     url_path =
@@ -3760,6 +3953,13 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(trained_model_version_identifier) do
+        [{"trainedModelVersionIdentifier", trained_model_version_identifier} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(next_token) do
@@ -3789,6 +3989,7 @@ defmodule AWS.CleanRoomsML do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_collaboration_trained_model_inference_jobs_response(), any()}
@@ -3801,6 +4002,7 @@ defmodule AWS.CleanRoomsML do
         max_results \\ nil,
         next_token \\ nil,
         trained_model_arn \\ nil,
+        trained_model_version_identifier \\ nil,
         options \\ []
       ) do
     url_path =
@@ -3808,6 +4010,13 @@ defmodule AWS.CleanRoomsML do
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(trained_model_version_identifier) do
+        [{"trainedModelVersionIdentifier", trained_model_version_identifier} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(trained_model_arn) do
@@ -4065,6 +4274,7 @@ defmodule AWS.CleanRoomsML do
           String.t() | nil,
           String.t() | nil,
           String.t() | nil,
+          String.t() | nil,
           list()
         ) ::
           {:ok, list_trained_model_inference_jobs_response(), any()}
@@ -4077,6 +4287,7 @@ defmodule AWS.CleanRoomsML do
         max_results \\ nil,
         next_token \\ nil,
         trained_model_arn \\ nil,
+        trained_model_version_identifier \\ nil,
         options \\ []
       ) do
     url_path =
@@ -4086,8 +4297,77 @@ defmodule AWS.CleanRoomsML do
     query_params = []
 
     query_params =
+      if !is_nil(trained_model_version_identifier) do
+        [{"trainedModelVersionIdentifier", trained_model_version_identifier} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(trained_model_arn) do
         [{"trainedModelArn", trained_model_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of trained model versions for a specified trained model.
+
+  This operation allows you to view all versions of a trained model, including
+  information about their status and creation details. You can use this to track
+  the evolution of your trained models and select specific versions for inference
+  or further training.
+  """
+  @spec list_trained_model_versions(
+          map(),
+          String.t(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_trained_model_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_trained_model_versions_errors()}
+  def list_trained_model_versions(
+        %Client{} = client,
+        membership_identifier,
+        trained_model_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/trained-models/#{AWS.Util.encode_uri(trained_model_arn)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
       else
         query_params
       end

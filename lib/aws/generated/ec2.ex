@@ -7241,6 +7241,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_instance_types_from_instance_requirements_request() :: %{
+        optional("Context") => String.t(),
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),

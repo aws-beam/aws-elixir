@@ -70,6 +70,24 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      instruction_collection() :: %{
+        "customInstructions" => String.t(),
+        "examples" => String.t(),
+        "identity" => String.t(),
+        "outputStyle" => String.t(),
+        "perspective" => String.t(),
+        "responseLength" => String.t(),
+        "targetAudience" => String.t(),
+        "tone" => String.t()
+      }
+
+  """
+  @type instruction_collection() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       applied_attachments_configuration() :: %{
         "attachmentsControlMode" => list(any())
       }
@@ -499,6 +517,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      get_chat_response_configuration_request() :: %{}
+
+  """
+  @type get_chat_response_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_index_request() :: %{}
 
   """
@@ -801,6 +828,27 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      list_chat_response_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_chat_response_configurations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chat_response_configuration_response() :: %{}
+
+  """
+  @type update_chat_response_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_plugin_actions_response() :: %{
         "items" => list(action_summary()()),
         "nextToken" => String.t()
@@ -1074,6 +1122,18 @@ defmodule AWS.QBusiness do
 
   """
   @type list_plugin_type_actions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_chat_response_configuration_response() :: %{
+        "chatResponseConfigurationArn" => String.t(),
+        "chatResponseConfigurationId" => String.t()
+      }
+
+  """
+  @type create_chat_response_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1484,6 +1544,21 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      chat_response_configuration_detail() :: %{
+        "error" => error_detail(),
+        "responseConfigurationSummary" => String.t(),
+        "responseConfigurations" => map(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type chat_response_configuration_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_attachment_request() :: %{
         optional("userId") => String.t()
       }
@@ -1690,6 +1765,15 @@ defmodule AWS.QBusiness do
 
   """
   @type group_status_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_chat_response_configuration_request() :: %{}
+
+  """
+  @type delete_chat_response_configuration_request() :: %{}
 
   @typedoc """
 
@@ -2353,6 +2437,15 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      delete_chat_response_configuration_response() :: %{}
+
+  """
+  @type delete_chat_response_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_chat_controls_configuration_request() :: %{}
 
   """
@@ -2436,6 +2529,22 @@ defmodule AWS.QBusiness do
 
   """
   @type update_index_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_chat_response_configuration_response() :: %{
+        "chatResponseConfigurationArn" => String.t(),
+        "chatResponseConfigurationId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "displayName" => String.t(),
+        "inUseConfiguration" => chat_response_configuration_detail(),
+        "lastUpdateConfiguration" => chat_response_configuration_detail()
+      }
+
+  """
+  @type get_chat_response_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2827,7 +2936,8 @@ defmodule AWS.QBusiness do
 
       native_index_configuration() :: %{
         "boostingOverride" => map(),
-        "indexId" => String.t()
+        "indexId" => String.t(),
+        "version" => float()
       }
 
   """
@@ -2909,6 +3019,17 @@ defmodule AWS.QBusiness do
 
   ## Example:
 
+      response_configuration() :: %{
+        "instructionCollection" => instruction_collection()
+      }
+
+  """
+  @type response_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_group_request() :: %{
         optional("dataSourceId") => String.t()
       }
@@ -2979,6 +3100,49 @@ defmodule AWS.QBusiness do
 
   """
   @type get_chat_controls_configuration_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_chat_response_configurations_response() :: %{
+        "chatResponseConfigurations" => list(chat_response_configuration()()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_chat_response_configurations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chat_response_configuration() :: %{
+        "chatResponseConfigurationArn" => String.t(),
+        "chatResponseConfigurationId" => String.t(),
+        "createdAt" => non_neg_integer(),
+        "displayName" => String.t(),
+        "responseConfigurationSummary" => String.t(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type chat_response_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_chat_response_configuration_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("tags") => list(tag()()),
+        required("displayName") => String.t(),
+        required("responseConfigurations") => map()
+      }
+
+  """
+  @type create_chat_response_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3319,6 +3483,19 @@ defmodule AWS.QBusiness do
 
   """
   @type update_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chat_response_configuration_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("displayName") => String.t(),
+        required("responseConfigurations") => map()
+      }
+
+  """
+  @type update_chat_response_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3789,6 +3966,15 @@ defmodule AWS.QBusiness do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_chat_response_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type create_data_accessor_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3882,6 +4068,14 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type delete_chat_response_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_conversation_errors() ::
           throttling_exception()
@@ -3977,6 +4171,13 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_chat_response_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_data_accessor_errors() ::
           throttling_exception()
           | validation_exception()
@@ -4064,6 +4265,13 @@ defmodule AWS.QBusiness do
           | internal_server_exception()
           | resource_not_found_exception()
           | license_not_found_exception()
+
+  @type list_chat_response_configurations_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type list_conversations_errors() ::
           throttling_exception()
@@ -4250,6 +4458,14 @@ defmodule AWS.QBusiness do
           | access_denied_exception()
           | internal_server_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type update_chat_response_configuration_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -4708,6 +4924,43 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Creates a new chat response configuration for an Amazon Q Business application.
+
+  This operation establishes a set of parameters that define how the system
+  generates and formats responses to user queries in chat interactions.
+  """
+  @spec create_chat_response_configuration(
+          map(),
+          String.t(),
+          create_chat_response_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_chat_response_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_chat_response_configuration_errors()}
+  def create_chat_response_configuration(%Client{} = client, application_id, input, options \\ []) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatresponseconfigurations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new data accessor for an ISV to access data from a Amazon Q Business
   application.
 
@@ -5064,6 +5317,50 @@ defmodule AWS.QBusiness do
           | {:error, delete_chat_controls_configuration_errors()}
   def delete_chat_controls_configuration(%Client{} = client, application_id, input, options \\ []) do
     url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatcontrols"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a specified chat response configuration from an Amazon Q Business
+  application.
+  """
+  @spec delete_chat_response_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          delete_chat_response_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_chat_response_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_chat_response_configuration_errors()}
+  def delete_chat_response_configuration(
+        %Client{} = client,
+        application_id,
+        chat_response_configuration_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/chatresponseconfigurations/#{AWS.Util.encode_uri(chat_response_configuration_id)}"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -5544,6 +5841,34 @@ defmodule AWS.QBusiness do
   end
 
   @doc """
+  Retrieves detailed information about a specific chat response configuration from
+  an Amazon Q Business application.
+
+  This operation returns the complete configuration settings and metadata.
+  """
+  @spec get_chat_response_configuration(map(), String.t(), String.t(), list()) ::
+          {:ok, get_chat_response_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_chat_response_configuration_errors()}
+  def get_chat_response_configuration(
+        %Client{} = client,
+        application_id,
+        chat_response_configuration_id,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/chatresponseconfigurations/#{AWS.Util.encode_uri(chat_response_configuration_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a specified data accessor.
 
   This operation returns details about the data accessor, including its display
@@ -5871,6 +6196,54 @@ defmodule AWS.QBusiness do
     query_params =
       if !is_nil(conversation_id) do
         [{"conversationId", conversation_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of all chat response configurations available in a specified
+  Amazon Q Business application.
+
+  This operation returns summary information about each configuration to help
+  administrators manage and select appropriate response settings.
+  """
+  @spec list_chat_response_configurations(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_chat_response_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_chat_response_configurations_errors()}
+  def list_chat_response_configurations(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/applications/#{AWS.Util.encode_uri(application_id)}/chatresponseconfigurations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
       else
         query_params
       end
@@ -6966,6 +7339,53 @@ defmodule AWS.QBusiness do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing chat response configuration in an Amazon Q Business
+  application.
+
+  This operation allows administrators to modify configuration settings, display
+  name, and response parameters to refine how the system generates responses.
+  """
+  @spec update_chat_response_configuration(
+          map(),
+          String.t(),
+          String.t(),
+          update_chat_response_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_chat_response_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_chat_response_configuration_errors()}
+  def update_chat_response_configuration(
+        %Client{} = client,
+        application_id,
+        chat_response_configuration_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/applications/#{AWS.Util.encode_uri(application_id)}/chatresponseconfigurations/#{AWS.Util.encode_uri(chat_response_configuration_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

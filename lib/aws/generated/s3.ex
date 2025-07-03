@@ -577,6 +577,7 @@ defmodule AWS.S3 do
 
       head_bucket_output() :: %{
         "AccessPointAlias" => boolean(),
+        "BucketArn" => String.t(),
         "BucketLocationName" => String.t(),
         "BucketLocationType" => list(any()),
         "BucketRegion" => String.t()
@@ -2191,7 +2192,8 @@ defmodule AWS.S3 do
       create_bucket_configuration() :: %{
         "Bucket" => bucket_info(),
         "Location" => location_info(),
-        "LocationConstraint" => list(any())
+        "LocationConstraint" => list(any()),
+        "Tags" => list(tag()())
       }
 
   """
@@ -3097,6 +3099,7 @@ defmodule AWS.S3 do
   ## Example:
 
       bucket() :: %{
+        "BucketArn" => String.t(),
         "BucketRegion" => String.t(),
         "CreationDate" => non_neg_integer(),
         "Name" => String.t()
@@ -3466,6 +3469,7 @@ defmodule AWS.S3 do
   ## Example:
 
       create_bucket_output() :: %{
+        "BucketArn" => String.t(),
         "Location" => String.t()
       }
 
@@ -5467,7 +5471,7 @@ defmodule AWS.S3 do
       Keyword.put(
         options,
         :response_header_parameters,
-        [{"Location", "Location"}]
+        [{"x-amz-bucket-arn", "BucketArn"}, {"Location", "Location"}]
       )
 
     meta = metadata()
@@ -10856,6 +10860,7 @@ defmodule AWS.S3 do
         :response_header_parameters,
         [
           {"x-amz-access-point-alias", "AccessPointAlias"},
+          {"x-amz-bucket-arn", "BucketArn"},
           {"x-amz-bucket-location-name", "BucketLocationName"},
           {"x-amz-bucket-location-type", "BucketLocationType"},
           {"x-amz-bucket-region", "BucketRegion"}

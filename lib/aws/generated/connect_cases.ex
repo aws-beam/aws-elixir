@@ -3,23 +3,17 @@
 
 defmodule AWS.ConnectCases do
   @moduledoc """
+    * [Cases actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html)
 
-    *
-
-  [Cases actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html)
-
-    *
-
-  [Cases data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html)
+    * [Cases data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html)
 
   With Amazon Connect Cases, your agents can track and manage customer issues that
-  require
-  multiple interactions, follow-up tasks, and teams in your contact center.
+  require multiple interactions, follow-up tasks, and teams in your contact
+  center.
 
-  A case represents a
-  customer issue. It records the issue, the steps and interactions taken to
-  resolve the issue,
-  and the outcome. For more information, see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
+  A case represents a customer issue. It records the issue, the steps and
+  interactions taken to resolve the issue, and the outcome. For more information,
+  see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
   *Amazon Connect Administrator Guide*.
   """
 
@@ -298,6 +292,15 @@ defmodule AWS.ConnectCases do
 
   """
   @type get_template_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_related_item_request() :: %{}
+
+  """
+  @type delete_related_item_request() :: %{}
 
   @typedoc """
 
@@ -854,6 +857,15 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      delete_case_response() :: %{}
+
+  """
+  @type delete_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       sort() :: %{
         "fieldId" => String.t(),
         "sortOrder" => String.t()
@@ -939,6 +951,24 @@ defmodule AWS.ConnectCases do
 
   """
   @type field_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_case_request() :: %{}
+
+  """
+  @type delete_case_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_related_item_response() :: %{}
+
+  """
+  @type delete_related_item_response() :: %{}
 
   @typedoc """
 
@@ -1665,6 +1695,13 @@ defmodule AWS.ConnectCases do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_case_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_case_rule_errors() ::
           throttling_exception()
           | access_denied_exception()
@@ -1696,6 +1733,13 @@ defmodule AWS.ConnectCases do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type delete_related_item_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type delete_template_errors() ::
           throttling_exception()
@@ -1898,8 +1942,7 @@ defmodule AWS.ConnectCases do
   Gets a batch of case rules.
 
   In the Amazon Connect admin website, case rules are known as *case field
-  conditions*. For more
-  information about case field conditions, see [Add case field conditions to a case
+  conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
   @spec batch_get_case_rule(map(), String.t(), batch_get_case_rule_request(), list()) ::
@@ -1996,30 +2039,22 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the User ARN resource that you provide
 
   Creates a case in the specified Cases domain.
 
-  Case system and custom fields are taken
-  as an array id/value pairs with a declared data types.
+  Case system and custom fields are taken as an array id/value pairs with a
+  declared data types.
 
   The following fields are required when creating a case:
 
-    *
+    * `customer_id` - You must provide the full customer profile ARN in
+  this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
+  ID:domains/your_profiles_domain_name/profiles/profile_ID`
 
-  `customer_id` - You must provide the full customer profile ARN in this format:
-
-  ```
-  arn:aws:profile:your_AWS_Region:your_AWS_account
-  ID:domains/your_profiles_domain_name/profiles/profile_ID
-  ```
-
-    *
-
-  `title`
+    * `title`
   """
   @spec create_case(map(), String.t(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
@@ -2051,8 +2086,7 @@ defmodule AWS.ConnectCases do
   Creates a new case rule.
 
   In the Amazon Connect admin website, case rules are known as *case field
-  conditions*. For more
-  information about case field conditions, see [Add case field conditions to a case
+  conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
   @spec create_case_rule(map(), String.t(), create_case_rule_request(), list()) ::
@@ -2083,18 +2117,14 @@ defmodule AWS.ConnectCases do
 
   @doc """
   Creates a domain, which is a container for all case data, such as cases, fields,
-  templates
-  and layouts.
+  templates and layouts.
 
-  Each Amazon Connect instance can be associated with only one Cases
-  domain.
+  Each Amazon Connect instance can be associated with only one Cases domain.
 
   This will not associate your connect instance to Cases domain. Instead, use the
   Amazon Connect
-  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM
-  permissions to successfully associate the Cases domain. For more information,
-  see
-  [Onboard to
+  [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM permissions to successfully associate the Cases
+  domain. For more information, see [Onboard to
   Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
   """
   @spec create_domain(map(), create_domain_request(), list()) ::
@@ -2126,8 +2156,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a field in the Cases domain.
 
-  This field is used to define the case object
-  model (that is, defines what data can be captured on cases) in a Cases domain.
+  This field is used to define the case object model (that is, defines what data
+  can be captured on cases) in a Cases domain.
   """
   @spec create_field(map(), String.t(), create_field_request(), list()) ::
           {:ok, create_field_response(), any()}
@@ -2158,14 +2188,12 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a layout in the Cases domain.
 
-  Layouts define the following configuration in
-  the top section and More Info tab of the Cases user interface:
+  Layouts define the following configuration in the top section and More Info tab
+  of the Cases user interface:
 
-    *
-  Fields to display to the users
+    * Fields to display to the users
 
-    *
-  Field ordering
+    * Field ordering
 
   Title and Status fields cannot be part of layouts since they are not
   configurable.
@@ -2200,21 +2228,17 @@ defmodule AWS.ConnectCases do
   Creates a related item (comments, tasks, and contacts) and associates it with a
   case.
 
-    
-  A Related Item is a resource that is associated with a case. It may or may not
-  have
-  an external identifier linking it to an external resource (for example, a
-  `contactArn`). All Related Items have their own internal identifier, the
-  `relatedItemArn`. Examples of related items include `comments`
-  and `contacts`.
+     A Related Item is a resource that is associated with a case. It may
+  or may not have an external identifier linking it to an external resource (for
+  example, a `contactArn`). All Related Items have their own internal identifier,
+  the `relatedItemArn`. Examples of related items include `comments` and
+  `contacts`.
 
-    
-  If you provide a value for `performedBy.userArn` you must also have
+     If you provide a value for `performedBy.userArn` you must also have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
 
-    
-  The `type` field is reserved for internal use only.
+     The `type` field is reserved for internal use only.
   """
   @spec create_related_item(map(), String.t(), String.t(), create_related_item_request(), list()) ::
           {:ok, create_related_item_response(), any()}
@@ -2247,33 +2271,21 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a template in the Cases domain.
 
-  This template is used to define the case object
-  model (that is, to define what data can be captured on cases) in a Cases domain.
-  A template
-  must have a unique name within a domain, and it must reference existing field
-  IDs and layout
-  IDs. Additionally, multiple fields with same IDs are not allowed within the same
-  Template. A
-  template can be either Active or Inactive, as indicated by its status. Inactive
-  templates
-  cannot be used to create cases.
+  This template is used to define the case object model (that is, to define what
+  data can be captured on cases) in a Cases domain. A template must have a unique
+  name within a domain, and it must reference existing field IDs and layout IDs.
+  Additionally, multiple fields with same IDs are not allowed within the same
+  Template. A template can be either Active or Inactive, as indicated by its
+  status. Inactive templates cannot be used to create cases.
 
   Other template APIs are:
 
     *
-
-  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html) 
-
-    *
-
+  [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)     *
   [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)
 
     *
-
-  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html) 
-
-    *
-
+  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec create_template(map(), String.t(), create_template_request(), list()) ::
@@ -2303,11 +2315,51 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+  The DeleteCase API permanently deletes a case and all its associated resources
+  from the cases data store.
+
+  After a successful deletion, you cannot:
+
+    * Retrieve related items
+
+    * Access audit history
+
+    * Perform any operations that require the CaseID
+
+  This action is irreversible. Once you delete a case, you cannot recover its
+  data.
+  """
+  @spec delete_case(map(), String.t(), String.t(), delete_case_request(), list()) ::
+          {:ok, delete_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_case_errors()}
+  def delete_case(%Client{} = client, case_id, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a case rule.
 
   In the Amazon Connect admin website, case rules are known as *case field
-  conditions*. For more
-  information about case field conditions, see [Add case field conditions to a case
+  conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
   @spec delete_case_rule(map(), String.t(), String.t(), delete_case_rule_request(), list()) ::
@@ -2343,8 +2395,7 @@ defmodule AWS.ConnectCases do
 
   After deleting your domain you must disassociate the deleted domain from your
   Amazon Connect instance with another API call before being able to use Cases
-  again with this
-  Amazon Connect instance. See
+  again with this Amazon Connect instance. See
   [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
   """
   @spec delete_domain(map(), String.t(), delete_domain_request(), list()) ::
@@ -2380,54 +2431,40 @@ defmodule AWS.ConnectCases do
 
   After a field is deleted:
 
-    *
-  You can still retrieve the field by calling `BatchGetField`.
+    * You can still retrieve the field by calling `BatchGetField`.
 
-    *
-  You cannot update a deleted field by calling `UpdateField`; it throws a
-  `ValidationException`.
+    * You cannot update a deleted field by calling `UpdateField`; it
+  throws a `ValidationException`.
 
-    *
-  Deleted fields are not included in the `ListFields` response.
+    * Deleted fields are not included in the `ListFields` response.
 
-    *
-  Calling `CreateCase` with a deleted field throws a
-  `ValidationException` denoting which field IDs in the request have been
-  deleted.
+    * Calling `CreateCase` with a deleted field throws a
+  `ValidationException` denoting which field IDs in the request have been deleted.
 
-    *
-  Calling `GetCase` with a deleted field ID returns the deleted field's value
-  if one exists.
+    * Calling `GetCase` with a deleted field ID returns the deleted
+  field's value if one exists.
 
-    *
-  Calling `UpdateCase` with a deleted field ID throws a
+    * Calling `UpdateCase` with a deleted field ID throws a
   `ValidationException` if the case does not already contain a value for the
   deleted field. Otherwise it succeeds, allowing you to update or remove (using
   `emptyValue: {}`) the field's value from the case.
 
-    *
+    * `GetTemplate` does not return field IDs for deleted fields.
 
-  `GetTemplate` does not return field IDs for deleted fields.
+    * `GetLayout` does not return field IDs for deleted fields.
 
-    *
+    * Calling `SearchCases` with the deleted field ID as a filter
+  returns any cases that have a value for the deleted field that matches the
+  filter criteria.
 
-  `GetLayout` does not return field IDs for deleted fields.
-
-    *
-  Calling `SearchCases` with the deleted field ID as a filter returns any
-  cases that have a value for the deleted field that matches the filter criteria.
-
-    *
-  Calling `SearchCases` with a `searchTerm` value that matches a
+    * Calling `SearchCases` with a `searchTerm` value that matches a
   deleted field's value on a case returns the case in the response.
 
-    *
-  Calling `BatchPutFieldOptions` with a deleted field ID throw a
+    * Calling `BatchPutFieldOptions` with a deleted field ID throw a
   `ValidationException`.
 
-    *
-  Calling `GetCaseEventConfiguration` does not return field IDs for deleted
-  fields.
+    * Calling `GetCaseEventConfiguration` does not return field IDs for
+  deleted fields.
   """
   @spec delete_field(map(), String.t(), String.t(), delete_field_request(), list()) ::
           {:ok, delete_field_response(), any()}
@@ -2460,20 +2497,16 @@ defmodule AWS.ConnectCases do
   @doc """
   Deletes a layout from a cases template.
 
-  You can delete up to 100 layouts per
-  domain.
+  You can delete up to 100 layouts per domain.
 
   After a layout is deleted:
 
-    *
-  You can still retrieve the layout by calling `GetLayout`.
+    * You can still retrieve the layout by calling `GetLayout`.
 
-    *
-  You cannot update a deleted layout by calling `UpdateLayout`; it throws a
-  `ValidationException`.
+    * You cannot update a deleted layout by calling `UpdateLayout`; it
+  throws a `ValidationException`.
 
-    *
-  Deleted layouts are not included in the `ListLayouts` response.
+    * Deleted layouts are not included in the `ListLayouts` response.
   """
   @spec delete_layout(map(), String.t(), String.t(), delete_layout_request(), list()) ::
           {:ok, delete_layout_response(), any()}
@@ -2504,23 +2537,70 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+  Deletes the related item resource under a case.
+
+  This API cannot be used on a FILE type related attachment. To delete this type
+  of file, use the
+  [DeleteAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html)
+  API
+  """
+  @spec delete_related_item(
+          map(),
+          String.t(),
+          String.t(),
+          String.t(),
+          delete_related_item_request(),
+          list()
+        ) ::
+          {:ok, delete_related_item_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_related_item_errors()}
+  def delete_related_item(
+        %Client{} = client,
+        case_id,
+        domain_id,
+        related_item_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/related-items/#{AWS.Util.encode_uri(related_item_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a cases template.
 
   You can delete up to 100 templates per domain.
 
   After a cases template is deleted:
 
-    *
-  You can still retrieve the template by calling `GetTemplate`.
+    * You can still retrieve the template by calling `GetTemplate`.
 
-    *
-  You cannot update the template.
+    * You cannot update the template.
 
-    *
-  You cannot create a case by using the deleted template.
+    * You cannot create a case by using the deleted template.
 
-    *
-  Deleted templates are not included in the `ListTemplates` response.
+    * Deleted templates are not included in the `ListTemplates`
+  response.
   """
   @spec delete_template(map(), String.t(), String.t(), delete_template_request(), list()) ::
           {:ok, delete_template_response(), any()}
@@ -2716,19 +2796,11 @@ defmodule AWS.ConnectCases do
   Other template APIs are:
 
     *
-
-  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
-
-    *
-
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html)     *
   [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
 
     *
-
-  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html) 
-
-    *
-
+  [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec get_template(map(), String.t(), String.t(), get_template_request(), list()) ::
@@ -2763,8 +2835,7 @@ defmodule AWS.ConnectCases do
   Lists all case rules in a Cases domain.
 
   In the Amazon Connect admin website, case rules are known as *case field
-  conditions*. For more
-  information about case field conditions, see [Add case field conditions to a case
+  conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
   @spec list_case_rules(map(), String.t(), list_case_rules_request(), list()) ::
@@ -2831,8 +2902,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all cases domains in the Amazon Web Services account.
 
-  Each list item is a condensed
-  summary object of the domain.
+  Each list item is a condensed summary object of the domain.
   """
   @spec list_domains(map(), list_domains_request(), list()) ::
           {:ok, list_domains_response(), any()}
@@ -2942,8 +3012,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all layouts in the given cases domain.
 
-  Each list item is a condensed summary object
-  of the layout.
+  Each list item is a condensed summary object of the layout.
   """
   @spec list_layouts(map(), String.t(), list_layouts_request(), list()) ::
           {:ok, list_layouts_response(), any()}
@@ -2998,25 +3067,16 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all of the templates in a Cases domain.
 
-  Each list item is a condensed summary
-  object of the template.
+  Each list item is a condensed summary object of the template.
 
   Other template APIs are:
 
     *
-
-  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
-
-    *
-
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html)     *
   [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
 
     *
-
-  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html) 
-
-    *
-
+  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)     *
   [UpdateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html)
   """
   @spec list_templates(map(), String.t(), list_templates_request(), list()) ::
@@ -3055,10 +3115,8 @@ defmodule AWS.ConnectCases do
   @doc """
   Adds case event publishing configuration.
 
-  For a complete list of fields you can add to the
-  event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
-  in the
-  *Amazon Connect Administrator Guide*
+  For a complete list of fields you can add to the event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
+  in the *Amazon Connect Administrator Guide*
   """
   @spec put_case_event_configuration(
           map(),
@@ -3094,18 +3152,11 @@ defmodule AWS.ConnectCases do
   @doc """
   Searches for cases within their associated Cases domain.
 
-  Search results are returned
-  as a paginated list of abridged case documents.
+  Search results are returned as a paginated list of abridged case documents.
 
-  For `customer_id` you must provide the full customer profile ARN in this
-  format:
-
-  ```
-  arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
-  name/profiles/profile ID
-  ```
-
-  .
+  For `customer_id` you must provide the full customer profile ARN in this format:
+  ` arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain
+  name/profiles/profile ID`.
   """
   @spec search_cases(map(), String.t(), search_cases_request(), list()) ::
           {:ok, search_cases_response(), any()}
@@ -3237,19 +3288,17 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-
   If you provide a value for `PerformedBy.UserArn` you must also have
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the User ARN resource that you provide
 
   Updates the values of fields on a case.
 
-  Fields to be updated are received as an array of
-  id/value pairs identical to the `CreateCase` input .
+  Fields to be updated are received as an array of id/value pairs identical to the
+  `CreateCase` input .
 
   If the action is successful, the service sends back an HTTP 200 response with an
-  empty
-  HTTP body.
+  empty HTTP body.
   """
   @spec update_case(map(), String.t(), String.t(), update_case_request(), list()) ::
           {:ok, update_case_response(), any()}
@@ -3281,8 +3330,7 @@ defmodule AWS.ConnectCases do
   Updates a case rule.
 
   In the Amazon Connect admin website, case rules are known as *case field
-  conditions*. For more
-  information about case field conditions, see [Add case field conditions to a case
+  conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
   @spec update_case_rule(map(), String.t(), String.t(), update_case_rule_request(), list()) ::
@@ -3348,11 +3396,10 @@ defmodule AWS.ConnectCases do
   Updates the attributes of an existing layout.
 
   If the action is successful, the service sends back an HTTP 200 response with an
-  empty
-  HTTP body.
+  empty HTTP body.
 
-  A `ValidationException` is returned when you add non-existent
-  `fieldIds` to a layout.
+  A `ValidationException` is returned when you add non-existent `fieldIds` to a
+  layout.
 
   Title and Status fields cannot be part of layouts because they are not
   configurable.
@@ -3388,29 +3435,19 @@ defmodule AWS.ConnectCases do
   @doc """
   Updates the attributes of an existing template.
 
-  The template attributes that can be
-  modified include `name`, `description`,
-  `layoutConfiguration`, `requiredFields`, and `status`. At
-  least one of these attributes must not be null. If a null value is provided for
-  a given
-  attribute, that attribute is ignored and its current value is preserved.
+  The template attributes that can be modified include `name`, `description`,
+  `layoutConfiguration`, `requiredFields`, and `status`. At least one of these
+  attributes must not be null. If a null value is provided for a given attribute,
+  that attribute is ignored and its current value is preserved.
 
   Other template APIs are:
 
     *
-
-  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html) 
-
-    *
-
+  [CreateTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html)     *
   [DeleteTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html)
 
     *
-
-  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html) 
-
-    *
-
+  [GetTemplate](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html)     *
   [ListTemplates](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html)
   """
   @spec update_template(map(), String.t(), String.t(), update_template_request(), list()) ::

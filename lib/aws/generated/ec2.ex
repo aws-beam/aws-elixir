@@ -2314,6 +2314,7 @@ defmodule AWS.EC2 do
       
       security_group_vpc_association() :: %{
         "GroupId" => String.t(),
+        "GroupOwnerId" => String.t(),
         "State" => list(any()),
         "StateReason" => String.t(),
         "VpcId" => String.t(),
@@ -30588,7 +30589,7 @@ defmodule AWS.EC2 do
   VPC or if the VPC was shared with you.
 
     
-  You must own the security group and the VPC that it was created in.
+  You must own the security group.
 
     
   You cannot use this feature with default security groups.

@@ -288,6 +288,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       task_run_session_action_definition_summary() :: %{
+        "parameters" => map(),
         "stepId" => String.t(),
         "taskId" => String.t()
       }
@@ -489,6 +490,7 @@ defmodule AWS.Deadline do
       updated_session_action_info() :: %{
         "completedStatus" => list(any()),
         "endedAt" => non_neg_integer(),
+        "manifests" => list(task_run_manifest_properties_request()()),
         "processExitCode" => integer(),
         "progressMessage" => String.t(),
         "progressPercent" => float(),
@@ -704,6 +706,18 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      task_run_manifest_properties_request() :: %{
+        "outputManifestHash" => String.t(),
+        "outputManifestPath" => String.t()
+      }
+
+  """
+  @type task_run_manifest_properties_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_worker_request() :: %{}
 
   """
@@ -839,6 +853,18 @@ defmodule AWS.Deadline do
 
   """
   @type string_filter_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      task_run_manifest_properties_response() :: %{
+        "outputManifestHash" => String.t(),
+        "outputManifestPath" => String.t()
+      }
+
+  """
+  @type task_run_manifest_properties_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1979,6 +2005,7 @@ defmodule AWS.Deadline do
         "acquiredLimits" => list(acquired_limit()()),
         "definition" => list(),
         "endedAt" => non_neg_integer(),
+        "manifests" => list(task_run_manifest_properties_response()()),
         "processExitCode" => integer(),
         "progressMessage" => String.t(),
         "progressPercent" => float(),
@@ -2144,6 +2171,7 @@ defmodule AWS.Deadline do
       session_action_summary() :: %{
         "definition" => list(),
         "endedAt" => non_neg_integer(),
+        "manifests" => list(task_run_manifest_properties_response()()),
         "progressPercent" => float(),
         "sessionActionId" => String.t(),
         "startedAt" => non_neg_integer(),

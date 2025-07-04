@@ -130,6 +130,7 @@ defmodule AWS.MediaPackageV2 do
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()()),
         optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
+        optional("MssManifests") => list(create_mss_manifest_configuration()()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
         optional("Tags") => map(),
@@ -257,6 +258,7 @@ defmodule AWS.MediaPackageV2 do
         "HlsManifests" => list(get_hls_manifest_configuration()()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
         "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(get_mss_manifest_configuration()()),
         "OriginEndpointName" => String.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
@@ -335,6 +337,7 @@ defmodule AWS.MediaPackageV2 do
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
         optional("HlsManifests") => list(create_hls_manifest_configuration()()),
         optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
+        optional("MssManifests") => list(create_mss_manifest_configuration()()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
         required("ContainerType") => list(any())
@@ -418,6 +421,21 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type delete_origin_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_mss_manifest_configuration() :: %{
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestLayout" => list(any()),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()],
+        "Url" => [String.t()]
+      }
+
+  """
+  @type get_mss_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -588,6 +606,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type put_origin_endpoint_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_mss_manifest_configuration() :: %{
+        "ManifestName" => String.t(),
+        "Url" => [String.t()]
+      }
+
+  """
+  @type list_mss_manifest_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -772,6 +802,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       encryption() :: %{
+        "CmafExcludeSegmentDrmMetadata" => [boolean()],
         "ConstantInitializationVector" => [String.t()],
         "EncryptionMethod" => encryption_method(),
         "KeyRotationIntervalSeconds" => [integer()],
@@ -911,6 +942,20 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      create_mss_manifest_configuration() :: %{
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestLayout" => list(any()),
+        "ManifestName" => String.t(),
+        "ManifestWindowSeconds" => [integer()]
+      }
+
+  """
+  @type create_mss_manifest_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_channel_group_response() :: %{
         "Arn" => [String.t()],
         "ChannelGroupName" => [String.t()],
@@ -1024,6 +1069,7 @@ defmodule AWS.MediaPackageV2 do
 
       encryption_method() :: %{
         "CmafEncryptionMethod" => list(any()),
+        "IsmEncryptionMethod" => list(any()),
         "TsEncryptionMethod" => list(any())
       }
 
@@ -1300,6 +1346,7 @@ defmodule AWS.MediaPackageV2 do
         "HlsManifests" => list(list_hls_manifest_configuration()()),
         "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()()),
         "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(list_mss_manifest_configuration()()),
         "OriginEndpointName" => String.t()
       }
 
@@ -1413,6 +1460,7 @@ defmodule AWS.MediaPackageV2 do
         "HlsManifests" => list(get_hls_manifest_configuration()()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
         "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(get_mss_manifest_configuration()()),
         "OriginEndpointName" => String.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
@@ -1489,6 +1537,7 @@ defmodule AWS.MediaPackageV2 do
         "HlsManifests" => list(get_hls_manifest_configuration()()),
         "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
         "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(get_mss_manifest_configuration()()),
         "OriginEndpointName" => String.t(),
         "ResetAt" => [non_neg_integer()],
         "Segment" => segment(),

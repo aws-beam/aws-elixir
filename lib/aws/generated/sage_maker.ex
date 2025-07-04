@@ -1729,6 +1729,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      start_session_request() :: %{
+        required("ResourceIdentifier") => String.t()
+      }
+      
+  """
+  @type start_session_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_studio_lifecycle_config_request() :: %{
         optional("Tags") => list(tag()()),
         required("StudioLifecycleConfigAppType") => list(any()),
@@ -2165,6 +2176,23 @@ defmodule AWS.SageMaker do
       
   """
   @type hyper_parameter_tuning_resource_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hub_content_presigned_urls_request() :: %{
+        optional("AccessConfig") => presigned_url_access_config(),
+        optional("HubContentVersion") => String.t(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t(),
+        required("HubContentName") => String.t(),
+        required("HubContentType") => list(any()),
+        required("HubName") => String.t()
+      }
+      
+  """
+  @type create_hub_content_presigned_urls_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4141,6 +4169,7 @@ defmodule AWS.SageMaker do
         "JupyterLabAppSettings" => space_jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
+        "RemoteAccess" => list(any()),
         "SpaceManagedResources" => list(any()),
         "SpaceStorageSettings" => space_storage_settings()
       }
@@ -5731,6 +5760,18 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_lineage_group_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authorized_url() :: %{
+        "LocalPath" => String.t(),
+        "Url" => String.t()
+      }
+      
+  """
+  @type authorized_url() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7344,6 +7385,7 @@ defmodule AWS.SageMaker do
       
       space_settings_summary() :: %{
         "AppType" => list(any()),
+        "RemoteAccess" => list(any()),
         "SpaceStorageSettings" => space_storage_settings()
       }
       
@@ -7404,13 +7446,13 @@ defmodule AWS.SageMaker do
         optional("DomainSettings") => domain_settings(),
         optional("HomeEfsFileSystemKmsKeyId") => String.t(),
         optional("KmsKeyId") => String.t(),
+        optional("SubnetIds") => list(String.t()()),
         optional("TagPropagation") => list(any()),
         optional("Tags") => list(tag()()),
+        optional("VpcId") => String.t(),
         required("AuthMode") => list(any()),
         required("DefaultUserSettings") => user_settings(),
-        required("DomainName") => String.t(),
-        required("SubnetIds") => list(String.t()()),
-        required("VpcId") => String.t()
+        required("DomainName") => String.t()
       }
       
   """
@@ -8176,6 +8218,18 @@ defmodule AWS.SageMaker do
       
   """
   @type update_pipeline_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      presigned_url_access_config() :: %{
+        "AcceptEula" => boolean(),
+        "ExpectedS3Url" => String.t()
+      }
+      
+  """
+  @type presigned_url_access_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11080,6 +11134,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_hub_content_presigned_urls_response() :: %{
+        "AuthorizedUrlConfigs" => list(authorized_url()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type create_hub_content_presigned_urls_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       schedule_config() :: %{
         "DataAnalysisEndTime" => String.t(),
         "DataAnalysisStartTime" => String.t(),
@@ -12236,6 +12302,19 @@ defmodule AWS.SageMaker do
       
   """
   @type label_counters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_session_response() :: %{
+        "SessionId" => String.t(),
+        "StreamUrl" => String.t(),
+        "TokenValue" => String.t()
+      }
+      
+  """
+  @type start_session_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -18854,6 +18933,8 @@ defmodule AWS.SageMaker do
   @type start_pipeline_execution_errors() ::
           resource_limit_exceeded() | conflict_exception() | resource_not_found()
 
+  @type start_session_errors() :: resource_limit_exceeded() | resource_not_found()
+
   @type stop_auto_ml_job_errors() :: resource_not_found()
 
   @type stop_compilation_job_errors() :: resource_not_found()
@@ -19809,6 +19890,27 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateHub", input, options)
+  end
+
+  @doc """
+  Creates presigned URLs for accessing hub content artifacts.
+
+  This operation generates time-limited, secure URLs that allow direct download of
+  model artifacts and associated files from Amazon SageMaker hub content,
+  including gated models that require end-user license agreement acceptance.
+  """
+  @spec create_hub_content_presigned_urls(
+          map(),
+          create_hub_content_presigned_urls_request(),
+          list()
+        ) ::
+          {:ok, create_hub_content_presigned_urls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_hub_content_presigned_urls(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHubContentPresignedUrls", input, options)
   end
 
   @doc """
@@ -24476,6 +24578,21 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
+  end
+
+  @doc """
+  Initiates a remote connection session between a local integrated development
+  environments (IDEs) and a remote SageMaker space.
+  """
+  @spec start_session(map(), start_session_request(), list()) ::
+          {:ok, start_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_session_errors()}
+  def start_session(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartSession", input, options)
   end
 
   @doc """

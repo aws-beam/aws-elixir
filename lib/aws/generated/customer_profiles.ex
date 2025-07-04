@@ -459,6 +459,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      list_upload_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type list_upload_jobs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_profile_object_type_response() :: %{
         "AllowProfileCreation" => boolean(),
         "CreatedAt" => non_neg_integer(),
@@ -834,6 +846,26 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      get_upload_job_response() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DataExpiry" => integer(),
+        "DisplayName" => String.t(),
+        "Fields" => map(),
+        "JobId" => String.t(),
+        "ResultsSummary" => results_summary(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UniqueKey" => String.t()
+      }
+
+  """
+  @type get_upload_job_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_domain_layout_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
@@ -1089,6 +1121,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type trigger_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_path_request() :: %{}
+
+  """
+  @type get_upload_job_path_request() :: %{}
 
   @typedoc """
 
@@ -1526,6 +1567,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      stop_upload_job_request() :: %{}
+
+  """
+  @type stop_upload_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_domain_request() :: %{
         optional("DeadLetterQueueUrl") => String.t(),
         optional("DefaultEncryptionKey") => String.t(),
@@ -1748,6 +1798,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_domains_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_upload_job_response() :: %{
+        "JobId" => String.t()
+      }
+
+  """
+  @type create_upload_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1999,6 +2060,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      start_upload_job_response() :: %{}
+
+  """
+  @type start_upload_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_integration_request() :: %{
         required("Uri") => String.t()
       }
@@ -2097,6 +2167,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_matches_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_upload_job_request() :: %{}
+
+  """
+  @type start_upload_job_request() :: %{}
 
   @typedoc """
 
@@ -2673,12 +2752,42 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      upload_job_item() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DataExpiry" => integer(),
+        "DisplayName" => String.t(),
+        "JobId" => String.t(),
+        "Status" => list(any()),
+        "StatusReason" => list(any())
+      }
+
+  """
+  @type upload_job_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_profile_response() :: %{
         "ProfileId" => String.t()
       }
 
   """
   @type update_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_path_response() :: %{
+        "ClientToken" => String.t(),
+        "Url" => String.t(),
+        "ValidUntil" => non_neg_integer()
+      }
+
+  """
+  @type get_upload_job_path_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2821,6 +2930,20 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      create_upload_job_request() :: %{
+        optional("DataExpiry") => integer(),
+        required("DisplayName") => String.t(),
+        required("Fields") => map(),
+        required("UniqueKey") => String.t()
+      }
+
+  """
+  @type create_upload_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_profile_object_type_templates_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -2881,6 +3004,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type detected_profile_object_type() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_upload_jobs_response() :: %{
+        "Items" => list(upload_job_item()()),
+        "NextToken" => String.t()
+      }
+
+  """
+  @type list_upload_jobs_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3184,6 +3319,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      results_summary() :: %{
+        "CreatedRecords" => float(),
+        "FailedRecords" => float(),
+        "UpdatedRecords" => float()
+      }
+
+  """
+  @type results_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_segment_definition_request() :: %{}
 
   """
@@ -3280,6 +3428,15 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      stop_upload_job_response() :: %{}
+
+  """
+  @type stop_upload_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       incremental_pull_config() :: %{
         "DatetimeTypeFieldName" => String.t()
       }
@@ -3323,6 +3480,15 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type create_event_stream_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_request() :: %{}
+
+  """
+  @type get_upload_job_request() :: %{}
 
   @typedoc """
 
@@ -3589,6 +3755,13 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type create_upload_job_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type delete_calculated_attribute_definition_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3799,6 +3972,20 @@ defmodule AWS.CustomerProfiles do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_upload_job_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_upload_job_path_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_workflow_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3928,6 +4115,13 @@ defmodule AWS.CustomerProfiles do
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | internal_server_exception() | resource_not_found_exception()
 
+  @type list_upload_jobs_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type list_workflows_errors() ::
           bad_request_exception()
           | throttling_exception()
@@ -3963,6 +4157,20 @@ defmodule AWS.CustomerProfiles do
           | resource_not_found_exception()
 
   @type search_profiles_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type start_upload_job_errors() ::
+          bad_request_exception()
+          | throttling_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type stop_upload_job_errors() ::
           bad_request_exception()
           | throttling_exception()
           | access_denied_exception()
@@ -4549,6 +4757,38 @@ defmodule AWS.CustomerProfiles do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_name)}/segments/#{AWS.Util.encode_uri(segment_definition_name)}/snapshots"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Upload job to ingest data for segment imports.
+
+  The metadata is created for
+  the job with the provided field mapping and unique key.
+  """
+  @spec create_upload_job(map(), String.t(), create_upload_job_request(), list()) ::
+          {:ok, create_upload_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_upload_job_errors()}
+  def create_upload_job(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs"
     headers = []
     custom_headers = []
     query_params = []
@@ -5579,6 +5819,48 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  This API retrieves the details of a specific upload job.
+  """
+  @spec get_upload_job(map(), String.t(), String.t(), list()) ::
+          {:ok, get_upload_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_upload_job_errors()}
+  def get_upload_job(%Client{} = client, domain_name, job_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  This API retrieves the pre-signed URL and client token for uploading the file
+  associated
+  with the upload job.
+  """
+  @spec get_upload_job_path(map(), String.t(), String.t(), list()) ::
+          {:ok, get_upload_job_path_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_upload_job_path_errors()}
+  def get_upload_job_path(%Client{} = client, domain_name, job_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs/#{AWS.Util.encode_uri(job_id)}/path"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get details of specified workflow.
   """
   @spec get_workflow(map(), String.t(), String.t(), list()) ::
@@ -6306,6 +6588,44 @@ defmodule AWS.CustomerProfiles do
   end
 
   @doc """
+  This API retrieves a list of upload jobs for the specified domain.
+  """
+  @spec list_upload_jobs(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_upload_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_upload_jobs_errors()}
+  def list_upload_jobs(
+        %Client{} = client,
+        domain_name,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Query to list all workflows.
   """
   @spec list_workflows(map(), String.t(), list_workflows_request(), list()) ::
@@ -6576,6 +6896,68 @@ defmodule AWS.CustomerProfiles do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API starts the processing of an upload job to ingest profile data.
+  """
+  @spec start_upload_job(map(), String.t(), String.t(), start_upload_job_request(), list()) ::
+          {:ok, start_upload_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_upload_job_errors()}
+  def start_upload_job(%Client{} = client, domain_name, job_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API stops the processing of an upload job.
+  """
+  @spec stop_upload_job(map(), String.t(), String.t(), stop_upload_job_request(), list()) ::
+          {:ok, stop_upload_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_upload_job_errors()}
+  def stop_upload_job(%Client{} = client, domain_name, job_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_name)}/upload-jobs/#{AWS.Util.encode_uri(job_id)}/stop"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -7,16 +7,12 @@ defmodule AWS.FreeTier do
   Free Tier usage data.
 
   Free Tier tracks your monthly usage data for all free tier offers that are
-  associated with your
-  Amazon Web Services account. You can use the Free Tier API to filter and show
-  only the data that you want.
+  associated with your Amazon Web Services account. You can use the Free Tier API
+  to filter and show only the data that you want.
 
   Service endpoint
 
   The Free Tier API provides the following endpoint:
-
-    *
-  https://freetier.us-east-1.api.aws
 
   For more information, see [Using the Amazon Web Services Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html)
   in the *Billing User Guide*.
@@ -24,6 +20,31 @@ defmodule AWS.FreeTier do
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_summary() :: %{
+        "activityId" => String.t(),
+        "reward" => list(),
+        "status" => list(any()),
+        "title" => String.t()
+      }
+      
+  """
+  @type activity_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -76,6 +97,62 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
+      get_account_activity_request() :: %{
+        optional("languageCode") => list(any()),
+        required("activityId") => String.t()
+      }
+      
+  """
+  @type get_account_activity_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_activity_response() :: %{
+        "activityId" => String.t(),
+        "completedAt" => [non_neg_integer()],
+        "description" => String.t(),
+        "estimatedTimeToCompleteInMinutes" => [integer()],
+        "expiresAt" => [non_neg_integer()],
+        "instructionsUrl" => String.t(),
+        "reward" => list(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "title" => String.t()
+      }
+      
+  """
+  @type get_account_activity_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_plan_state_request() :: %{}
+      
+  """
+  @type get_account_plan_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_plan_state_response() :: %{
+        "accountId" => String.t(),
+        "accountPlanExpirationDate" => [non_neg_integer()],
+        "accountPlanRemainingCredits" => monetary_amount(),
+        "accountPlanStatus" => list(any()),
+        "accountPlanType" => list(any())
+      }
+      
+  """
+  @type get_account_plan_state_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_free_tier_usage_request() :: %{
         optional("filter") => expression(),
         optional("maxResults") => integer(),
@@ -112,12 +189,85 @@ defmodule AWS.FreeTier do
 
   ## Example:
       
+      list_account_activities_request() :: %{
+        optional("filterActivityStatuses") => list(list(any())()),
+        optional("languageCode") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+      
+  """
+  @type list_account_activities_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_account_activities_response() :: %{
+        "activities" => list(activity_summary()()),
+        "nextToken" => String.t()
+      }
+      
+  """
+  @type list_account_activities_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monetary_amount() :: %{
+        "amount" => float(),
+        "unit" => list(any())
+      }
+      
+  """
+  @type monetary_amount() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       throttling_exception() :: %{
         "message" => String.t()
       }
       
   """
   @type throttling_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upgrade_account_plan_request() :: %{
+        required("accountPlanType") => list(any())
+      }
+      
+  """
+  @type upgrade_account_plan_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      upgrade_account_plan_response() :: %{
+        "accountId" => String.t(),
+        "accountPlanStatus" => list(any()),
+        "accountPlanType" => list(any())
+      }
+      
+  """
+  @type upgrade_account_plan_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -130,8 +280,31 @@ defmodule AWS.FreeTier do
   """
   @type validation_exception() :: %{String.t() => any()}
 
+  @type get_account_activity_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+
+  @type get_account_plan_state_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_free_tier_usage_errors() ::
           validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type list_account_activities_errors() ::
+          validation_exception() | throttling_exception() | internal_server_exception()
+
+  @type upgrade_account_plan_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -150,6 +323,35 @@ defmodule AWS.FreeTier do
   end
 
   @doc """
+  Returns a specific activity record that is available to the customer.
+  """
+  @spec get_account_activity(map(), get_account_activity_request(), list()) ::
+          {:ok, get_account_activity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_activity_errors()}
+  def get_account_activity(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountActivity", input, options)
+  end
+
+  @doc """
+  This returns all of the information related to the state of the account plan
+  related to Free Tier.
+  """
+  @spec get_account_plan_state(map(), get_account_plan_state_request(), list()) ::
+          {:ok, get_account_plan_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_plan_state_errors()}
+  def get_account_plan_state(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "GetAccountPlanState", input, options)
+  end
+
+  @doc """
   Returns a list of all Free Tier usage objects that match your filters.
   """
   @spec get_free_tier_usage(map(), get_free_tier_usage_request(), list()) ::
@@ -161,5 +363,35 @@ defmodule AWS.FreeTier do
     meta = metadata()
 
     Request.request_post(client, meta, "GetFreeTierUsage", input, options)
+  end
+
+  @doc """
+  Returns a list of activities that are available.
+
+  This operation supports pagination and filtering by status.
+  """
+  @spec list_account_activities(map(), list_account_activities_request(), list()) ::
+          {:ok, list_account_activities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_account_activities_errors()}
+  def list_account_activities(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListAccountActivities", input, options)
+  end
+
+  @doc """
+  The account plan type for the Amazon Web Services account.
+  """
+  @spec upgrade_account_plan(map(), upgrade_account_plan_request(), list()) ::
+          {:ok, upgrade_account_plan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, upgrade_account_plan_errors()}
+  def upgrade_account_plan(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpgradeAccountPlan", input, options)
   end
 end

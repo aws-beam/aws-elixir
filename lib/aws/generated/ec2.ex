@@ -1093,6 +1093,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_block_status_result() :: %{
+        "CapacityBlockStatuses" => list(capacity_block_status()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_status_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_route_tables_result() :: %{
         "NextToken" => String.t(),
         "TransitGatewayRouteTables" => list(transit_gateway_route_table()())
@@ -1243,6 +1255,7 @@ defmodule AWS.EC2 do
         "AvailabilityZoneId" => String.t(),
         "AvailableInstanceCount" => integer(),
         "CapacityAllocations" => list(capacity_allocation()()),
+        "CapacityBlockId" => String.t(),
         "CapacityReservationArn" => String.t(),
         "CapacityReservationFleetId" => String.t(),
         "CapacityReservationId" => String.t(),
@@ -2746,6 +2759,21 @@ defmodule AWS.EC2 do
       
   """
   @type delete_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_block_status_request() :: %{
+        optional("CapacityBlockIds") => list(String.t()()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_capacity_block_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6367,6 +6395,22 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_block_status() :: %{
+        "CapacityBlockId" => String.t(),
+        "CapacityReservationStatuses" => list(capacity_reservation_status()()),
+        "InterconnectStatus" => list(any()),
+        "TotalAvailableCapacity" => integer(),
+        "TotalCapacity" => integer(),
+        "TotalUnavailableCapacity" => integer()
+      }
+      
+  """
+  @type capacity_block_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       neuron_device_info() :: %{
         "CoreInfo" => neuron_device_core_info(),
         "Count" => integer(),
@@ -8003,6 +8047,26 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_block() :: %{
+        "AvailabilityZone" => String.t(),
+        "AvailabilityZoneId" => String.t(),
+        "CapacityBlockId" => String.t(),
+        "CapacityReservationIds" => list(String.t()()),
+        "CreateDate" => non_neg_integer(),
+        "EndDate" => non_neg_integer(),
+        "StartDate" => non_neg_integer(),
+        "State" => list(any()),
+        "Tags" => list(tag()()),
+        "UltraserverType" => String.t()
+      }
+      
+  """
+  @type capacity_block() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_security_group_rules_request() :: %{
         optional("DryRun") => boolean(),
         required("GroupId") => String.t(),
@@ -8516,6 +8580,7 @@ defmodule AWS.EC2 do
       
       instance_topology() :: %{
         "AvailabilityZone" => String.t(),
+        "CapacityBlockId" => String.t(),
         "GroupName" => String.t(),
         "InstanceId" => String.t(),
         "InstanceType" => String.t(),
@@ -14068,6 +14133,8 @@ defmodule AWS.EC2 do
         "InstanceType" => String.t(),
         "StartDate" => non_neg_integer(),
         "Tenancy" => list(any()),
+        "UltraserverCount" => integer(),
+        "UltraserverType" => String.t(),
         "UpfrontFee" => String.t()
       }
       
@@ -20399,6 +20466,7 @@ defmodule AWS.EC2 do
         "ClientToken" => String.t(),
         "EbsOptimized" => boolean(),
         "KeyName" => String.t(),
+        "CapacityBlockId" => String.t(),
         "Operator" => operator_response(),
         "SecurityGroups" => list(group_identifier()()),
         "Ipv6Address" => String.t(),
@@ -23575,6 +23643,8 @@ defmodule AWS.EC2 do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StartDateRange") => non_neg_integer(),
+        optional("UltraserverCount") => integer(),
+        optional("UltraserverType") => String.t(),
         required("CapacityDurationHours") => integer()
       }
       
@@ -26036,6 +26106,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_capacity_blocks_result() :: %{
+        "CapacityBlocks" => list(capacity_block()()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type describe_capacity_blocks_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_verified_access_endpoint_load_balancer_options() :: %{
         "LoadBalancerArn" => String.t(),
         "Port" => integer(),
@@ -26131,6 +26213,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       purchase_capacity_block_result() :: %{
+        "CapacityBlocks" => list(capacity_block()()),
         "CapacityReservation" => capacity_reservation()
       }
       
@@ -27826,6 +27909,20 @@ defmodule AWS.EC2 do
       
   """
   @type enable_snapshot_block_public_access_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_status() :: %{
+        "CapacityReservationId" => String.t(),
+        "TotalAvailableCapacity" => integer(),
+        "TotalCapacity" => integer(),
+        "TotalUnavailableCapacity" => integer()
+      }
+      
+  """
+  @type capacity_reservation_status() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -29572,6 +29669,21 @@ defmodule AWS.EC2 do
       
   """
   @type data_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_blocks_request() :: %{
+        optional("CapacityBlockIds") => list(String.t()()),
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type describe_capacity_blocks_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -35828,8 +35940,8 @@ defmodule AWS.EC2 do
   Describes Capacity Block offerings available for purchase in the Amazon Web
   Services Region that you're currently using.
 
-  With Capacity Blocks, you purchase a
-  specific instance type for a period of time.
+  With Capacity Blocks, you can
+  purchase a specific GPU instance type or EC2 UltraServer for a period of time.
 
   To search for an available Capacity Block offering, you specify a reservation
   duration
@@ -35847,6 +35959,34 @@ defmodule AWS.EC2 do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockOfferings", input, options)
+  end
+
+  @doc """
+  Describes the availability of capacity for the specified Capacity blocks, or all
+  of your Capacity Blocks.
+  """
+  @spec describe_capacity_block_status(map(), describe_capacity_block_status_request(), list()) ::
+          {:ok, describe_capacity_block_status_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_block_status(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityBlockStatus", input, options)
+  end
+
+  @doc """
+  Describes details about Capacity Blocks in the Amazon Web Services Region that
+  you're currently using.
+  """
+  @spec describe_capacity_blocks(map(), describe_capacity_blocks_request(), list()) ::
+          {:ok, describe_capacity_blocks_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_capacity_blocks(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityBlocks", input, options)
   end
 
   @doc """
@@ -36841,49 +36981,22 @@ defmodule AWS.EC2 do
   Services network to
   support your tightly coupled workloads.
 
-  ## Limitations
+  Instance topology is supported for specific instance types only. For more
+  information,
+  see [
+  Prerequisites for Amazon EC2 instance
+  topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology-prerequisites.html)
+  in the *Amazon EC2 User Guide*.
 
-    *
-  Supported zones
-
-      *
-  Availability Zone
-
-      *
-  Local Zone
-
-    *
-  Supported instance types
-
-      *
-  Returns 3 network nodes in the response
-
-        *
-
-  `hpc6a.48xlarge` | `hpc6id.32xlarge` |
-  `hpc7a.12xlarge` | `hpc7a.24xlarge` |
-  `hpc7a.48xlarge` | `hpc7a.96xlarge` |
-  `hpc7g.4xlarge` | `hpc7g.8xlarge` |
-  `hpc7g.16xlarge`
-
-        *
-
-  `p3dn.24xlarge` | `p4d.24xlarge` |
-  `p4de.24xlarge` | `p5.48xlarge` |
-  `p5e.48xlarge` | `p5en.48xlarge`
-
-        *
-
-  `trn1.2xlarge` | `trn1.32xlarge` |
-  `trn1n.32xlarge` | `trn2.48xlarge` |
-  `trn2u.48xlarge`
-
-      *
-  Returns 4 network nodes in the response
-
-        *
-
-  `p6-b200.48xlarge`
+  The Amazon EC2 API follows an eventual consistency model due to the
+  distributed nature of the system supporting it. As a result, when you call the
+  DescribeInstanceTopology API command immediately after launching instances, the
+  response might return a `null` value for `capacityBlockId`
+  because the data might not have fully propagated across all subsystems. For more
+  information, see [Eventual consistency in the Amazon EC2
+  API](https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html)
+  in the *Amazon EC2 Developer
+  Guide*.
 
   For more information, see [Amazon EC2 instance topology](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html)
   in the *Amazon EC2 User Guide*.
@@ -39371,11 +39484,10 @@ defmodule AWS.EC2 do
   from an instance, the
   product code is no longer associated with the instance.
 
-  You can't detach or force detach volumes that are attached to Amazon ECS or
-  Fargate tasks. Attempting to do this results in the
-  `UnsupportedOperationException`
-  exception with the `Unable to detach volume attached to ECS tasks` error
-  message.
+  You can't detach or force detach volumes that are attached to Amazon Web
+  Services-managed resources.
+  Attempting to do this results in the `UnsupportedOperationException`
+  exception.
 
   For more information, see [Detach an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html)
   in the

@@ -3,15 +3,20 @@
 
 defmodule AWS.OpsWorksCM do
   @moduledoc """
-  AWS OpsWorks CM
+  OpsWorks CM
 
-  AWS OpsWorks for configuration management (CM) is a service that runs and
-  manages
-  configuration management servers.
+  The OpsWorks services have reached end of life and have been disabled for both
+  new and existing customers.
 
-  You can use AWS OpsWorks CM to create and manage AWS
-  OpsWorks for Chef Automate and AWS OpsWorks for Puppet Enterprise servers, and
-  add or remove
+  We strongly recommend customers migrate their workloads to other solutions as
+  soon as possible. If you have questions about migration, reach out to the Amazon
+  Web ServicesSupport Team on [Amazon Web Services re:Post](https://repost.aws/) or through [Amazon Web Services Premium
+  Support](https://aws.amazon.com/support).
+
+  OpsWorks CM is a service that runs and manages
+  configuration management servers. You can use OpsWorks CM to create and manage
+  OpsWorks for Chef Automate and
+  OpsWorks for Puppet Enterprise servers, and add or remove
   nodes for the servers to manage.
 
   ## Glossary of terms
@@ -20,12 +25,12 @@ defmodule AWS.OpsWorksCM do
 
   **Server**: A configuration management server that can be
   highly-available. The configuration management server runs on
-  an Amazon Elastic Compute Cloud (EC2) instance, and may use various other AWS
-  services, such as Amazon Relational
-  Database Service (RDS) and Elastic Load Balancing. A server is a generic
-  abstraction over the configuration
-  manager that you want to use, much like Amazon RDS. In AWS OpsWorks CM, you do
-  not start
+  an Amazon Elastic Compute Cloud (EC2) instance, and may use various other Amazon
+  Web Services services, such as Amazon Relational Database Service
+  (RDS) and Elastic Load Balancing. A server is a generic abstraction over the
+  configuration
+  manager that you want to use, much like Amazon RDS. In OpsWorks CM, you do not
+  start
   or stop servers. After you create servers, they continue to run until they are
   deleted.
 
@@ -39,7 +44,7 @@ defmodule AWS.OpsWorksCM do
 
   **Backup**: This
   is an application-level backup of the data that the configuration manager
-  stores. AWS OpsWorks CM
+  stores. OpsWorks CM
   creates an S3 bucket for backups when you launch the first
   server. A backup maintains a snapshot of a server's configuration-related
   attributes at the time the backup starts.
@@ -56,15 +61,16 @@ defmodule AWS.OpsWorksCM do
     *
 
   **Account attributes**:
-  Every account has attributes that are assigned in the AWS OpsWorks CM
+  Every account has attributes that are assigned in the OpsWorks CM
   database. These attributes store information about configuration limits
   (servers,
   backups, etc.) and your customer account.
 
   ## Endpoints
 
-  AWS OpsWorks CM supports the following endpoints, all HTTPS. You must connect to
-  one of the following endpoints. Your servers
+  OpsWorks CM supports the following endpoints, all HTTPS. You must connect to one
+  of the following endpoints.
+  Your servers
   can only be accessed or managed within the endpoint in which they are created.
 
     *
@@ -94,8 +100,8 @@ defmodule AWS.OpsWorksCM do
     *
   opsworks-cm.eu-west-1.amazonaws.com
 
-  For more information, see [AWS OpsWorks endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html) in
-  the AWS General Reference.
+  For more information, see [OpsWorks endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/opsworks-service.html) in
+  the Amazon Web Services General Reference.
 
   ## Throttling limits
 
@@ -840,7 +846,7 @@ defmodule AWS.OpsWorksCM do
   Example (Chef): `aws opsworks-cm associate-node --server-name *MyServer*
   --node-name *MyManagedNode* --engine-attributes
   "Name=*CHEF_ORGANIZATION*,Value=default"
-  "Name=*CHEF_NODE_PUBLIC_KEY*,Value=*public-key-pem*"`
+  "Name=*CHEF_AUTOMATE_NODE_PUBLIC_KEY*,Value=*public-key-pem*"`
 
   On a Puppet server, this command is an alternative to the `puppet cert sign`
   command that signs a Puppet node CSR.
@@ -854,7 +860,8 @@ defmodule AWS.OpsWorksCM do
   A `ResourceNotFoundException` is thrown when the server does not exist. A
   `ValidationException` is raised when parameters of the request are not valid.
   The AssociateNode API call can be integrated into Auto Scaling configurations,
-  AWS Cloudformation templates, or the user data of a server's instance.
+  CloudFormation templates, or the user data
+  of a server's instance.
   """
   @spec associate_node(map(), associate_node_request(), list()) ::
           {:ok, associate_node_response(), any()}
@@ -876,7 +883,8 @@ defmodule AWS.OpsWorksCM do
   changed, and no additional backup can be created.
 
   Backups can be created for servers in `RUNNING`, `HEALTHY`, and `UNHEALTHY`
-  states. By default, you can create a maximum of 50
+  states.
+  By default, you can create a maximum of 50
   manual backups.
 
   This operation is asynchronous.
@@ -903,28 +911,33 @@ defmodule AWS.OpsWorksCM do
 
   Creates and immedately starts a new server.
 
-  The server is ready to use when it is in the `HEALTHY` state. By default, you
-  can create a maximum of 10 servers.
+  The server is ready to use when it is in the `HEALTHY` state. By
+  default, you can create a maximum of 10 servers.
 
   This operation is asynchronous.
 
   A `LimitExceededException` is thrown when you have created the maximum number of
-  servers (10). A `ResourceAlreadyExistsException`
+  servers (10). A
+  `ResourceAlreadyExistsException`
   is thrown when a server with the same name already exists in the account. A
-  `ResourceNotFoundException` is thrown when you
+  `ResourceNotFoundException` is thrown when
+  you
   specify a backup ID that is not valid or is for a backup that does not exist. A
-  `ValidationException` is thrown when parameters
+  `ValidationException` is thrown when
+  parameters
   of the request are not valid.
 
   If you do not specify a security group by adding the `SecurityGroupIds`
-  parameter, AWS OpsWorks creates a new security group.
+  parameter, OpsWorks creates a new
+  security group.
 
   *Chef Automate:* The default security group opens the Chef server to the world
-  on TCP port 443. If a KeyName is present, AWS OpsWorks enables SSH access. SSH
-  is also open to the world on TCP port 22.
+  on TCP port 443. If
+  a KeyName is present, OpsWorks enables SSH access. SSH is also open to the world
+  on TCP port 22.
 
   *Puppet Enterprise:* The default security group opens TCP ports 22, 443, 4433,
-  8140, 8142, 8143, and 8170. If a KeyName is present, AWS OpsWorks enables SSH
+  8140, 8142, 8143, and 8170. If a KeyName is present, OpsWorks enables SSH
   access. SSH is also open to the world on TCP port 22.
 
   By default, your server is accessible from any IP address. We
@@ -934,7 +947,8 @@ defmodule AWS.OpsWorksCM do
   in the navigation pane of the EC2 management console.
 
   To specify your own domain for a server, and provide your own self-signed or
-  CA-signed certificate and private key, specify values for `CustomDomain`,
+  CA-signed certificate and private key,
+  specify values for `CustomDomain`,
   `CustomCertificate`, and `CustomPrivateKey`.
   """
   @spec create_server(map(), create_server_request(), list()) ::
@@ -973,13 +987,13 @@ defmodule AWS.OpsWorksCM do
 
   @doc """
 
-  Deletes the server and the underlying AWS CloudFormation stacks
+  Deletes the server and the underlying CloudFormation stacks
   (including the server's EC2 instance).
 
   When you run this command, the server state is updated
   to `DELETING`. After the server is deleted, it is no longer returned by
-  `DescribeServer` requests. If the AWS CloudFormation stack cannot be deleted,
-  the server cannot be deleted.
+  `DescribeServer` requests. If the CloudFormation stack cannot be deleted, the
+  server cannot be deleted.
 
   This operation is asynchronous.
 
@@ -1001,7 +1015,7 @@ defmodule AWS.OpsWorksCM do
 
   @doc """
 
-  Describes your OpsWorks-CM account attributes.
+  Describes your OpsWorks CM account attributes.
 
   This operation is synchronous.
   """
@@ -1090,7 +1104,7 @@ defmodule AWS.OpsWorksCM do
   account.
 
   Only the stored results from Amazon DynamoDB
-  are returned. AWS OpsWorks CM does not query other services.
+  are returned. OpsWorks CM does not query other services.
 
   This operation is synchronous.
 
@@ -1110,8 +1124,8 @@ defmodule AWS.OpsWorksCM do
 
   @doc """
 
-  Disassociates a node from an AWS OpsWorks CM server, and removes the node from
-  the server's managed nodes.
+  Disassociates a node from an OpsWorks CM server, and removes the node from the
+  server's managed nodes.
 
   After a node is disassociated,
   the node key pair is no longer valid for accessing the configuration manager's
@@ -1137,8 +1151,8 @@ defmodule AWS.OpsWorksCM do
 
   Exports a specified server engine attribute as a base64-encoded string.
 
-  For example, you can export user data that you can use in EC2 to associate nodes
-  with a server.
+  For example, you can export user data that you can
+  use in EC2 to associate nodes with a server.
 
   This operation is synchronous.
 
@@ -1160,9 +1174,9 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
-  Returns a list of tags that are applied to the specified AWS OpsWorks for Chef
+  Returns a list of tags that are applied to the specified OpsWorks for Chef
   Automate or
-  AWS OpsWorks for Puppet Enterprise servers or backups.
+  OpsWorks for Puppet Enterprise servers or backups.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_request(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
@@ -1187,7 +1201,7 @@ defmodule AWS.OpsWorksCM do
 
   Restoring from a backup is performed by creating a new EC2 instance. If
   restoration is successful, and the server is in a `HEALTHY` state,
-  AWS OpsWorks CM switches traffic over to the new instance. After restoration is
+  OpsWorks CM switches traffic over to the new instance. After restoration is
   finished, the old EC2 instance is maintained in a
   `Running` or `Stopped` state, but is eventually terminated.
 
@@ -1235,8 +1249,8 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
-  Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
-  Enterprise server, or to server backups.
+  Applies tags to an OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise
+  server, or to server backups.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
@@ -1250,7 +1264,7 @@ defmodule AWS.OpsWorksCM do
   end
 
   @doc """
-  Removes specified tags from an AWS OpsWorks-CM server or backup.
+  Removes specified tags from an OpsWorks CM server or backup.
   """
   @spec untag_resource(map(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
@@ -1294,9 +1308,11 @@ defmodule AWS.OpsWorksCM do
   This operation is asynchronous.
 
   This operation can only be called for servers in `HEALTHY` or `UNHEALTHY`
-  states. Otherwise, an `InvalidStateException` is raised.
+  states.
+  Otherwise, an `InvalidStateException` is raised.
   A `ResourceNotFoundException` is thrown when the server does not exist. A
-  `ValidationException` is raised when parameters of the request are not valid.
+  `ValidationException` is
+  raised when parameters of the request are not valid.
   """
   @spec update_server_engine_attributes(map(), update_server_engine_attributes_request(), list()) ::
           {:ok, update_server_engine_attributes_response(), any()}

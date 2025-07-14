@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.7] - 2025-07-14
+- Fix type specs with double ()
+
 ## [v1.0.6] - 2025-04-23
 - `DELETE` requests have no body
 
